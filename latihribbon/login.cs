@@ -38,11 +38,11 @@ namespace latihribbon
                     Form1 adminDashboard = new Form1();
                     adminDashboard.Show();
                 }
-                /* else if (user.Role == "user")
+                else if (user.Role == "user")
                  {
-                     UserDashboard userDashboard = new UserDashboard();
+                     User userDashboard = new User();
                      userDashboard.Show();
-                 }*/
+                 }
                 this.Hide();
             }
             else

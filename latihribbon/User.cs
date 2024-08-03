@@ -10,28 +10,16 @@ using System.Windows.Forms;
 
 namespace latihribbon
 {
-    public partial class Form1 : RibbonForm
+    public partial class User : RibbonForm
     {
-        public Form1()
+        public User()
         {
             InitializeComponent();
         }
 
-        private void ribbon1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void ribbon_Input_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
+        private void User_Load(object sender, EventArgs e)
         {
 
         }
     }
 }
-
