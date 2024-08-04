@@ -59,6 +59,36 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormKeluar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormKeluar.Designer.cs">
+      <DependentUpon>FormKeluar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLaporan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLaporan.Designer.cs">
+      <DependentUpon>FormLaporan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSIswa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSIswa.Designer.cs">
+      <DependentUpon>FormSIswa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSurat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSurat.Designer.cs">
+      <DependentUpon>FormSurat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTerlambat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTerlambat.Designer.cs">
+      <DependentUpon>FormTerlambat.cs</DependentUpon>
+    </Compile>
     <Compile Include="login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +106,21 @@
     <Compile Include="UserModel.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormKeluar.resx">
+      <DependentUpon>FormKeluar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLaporan.resx">
+      <DependentUpon>FormLaporan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSIswa.resx">
+      <DependentUpon>FormSIswa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSurat.resx">
+      <DependentUpon>FormSurat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTerlambat.resx">
+      <DependentUpon>FormTerlambat.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>

@@ -32,6 +32,45 @@ namespace latihribbon
         {
 
         }
+        private void ShowFormInPanel(Form form) // untuk menambahkan form di dalam panel
+        {
+            form.TopLevel = false;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.Dock = DockStyle.Fill;
+            panel1.Controls.Clear();
+            panel1.Controls.Add(form);
+            form.Show();
+        }
+
+        private void ribbon_terlambat_Click(object sender, EventArgs e) // untuk menampilkan form di dalam panel
+        {
+            FormTerlambat formTerlambat = new FormTerlambat();
+            ShowFormInPanel(formTerlambat);
+        }
+
+        private void ribbon_keluar_Click(object sender, EventArgs e)
+        {
+            FormKeluar formkeluar  = new FormKeluar(); 
+            ShowFormInPanel (formkeluar);
+        }
+
+        private void ribbon_Laporan_Click(object sender, EventArgs e)
+        {
+          FormLaporan laporan  = new FormLaporan();
+          ShowFormInPanel(laporan);
+        }
+
+        private void ribbon_surat_Click(object sender, EventArgs e)
+        {
+            FormSurat surat = new FormSurat();
+            ShowFormInPanel(surat);
+        }
+
+        private void ribbon_Siswa_Click(object sender, EventArgs e)
+        {
+            FormSIswa dataSiswa = new FormSIswa();
+            ShowFormInPanel(dataSiswa);
+        }
     }
 }
 
