@@ -10,17 +10,11 @@ using System.Windows.Forms;
 
 namespace latihribbon
 {
-    public partial class FormTerlambat : Form
+    public partial class PrintTerlambat : Form
     {
-        public FormTerlambat()
+        public PrintTerlambat()
         {
             InitializeComponent();
-        }
-
-        private void btn_terlambat_Click(object sender, EventArgs e)
-        {
-            PrintTerlambat telat = new PrintTerlambat();
-            telat.Show(); 
         }
     }
 }

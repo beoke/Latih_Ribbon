@@ -126,7 +126,7 @@
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button1.Location = new System.Drawing.Point(1023, 19);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(54, 46);
+            this.button1.Size = new System.Drawing.Size(55, 46);
             this.button1.TabIndex = 9;
             this.button1.UseVisualStyleBackColor = true;
             // 

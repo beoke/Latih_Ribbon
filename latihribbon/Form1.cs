@@ -34,10 +34,10 @@ namespace latihribbon
         }
         private void ShowFormInPanel(Form form) // untuk menambahkan form di dalam panel
         {
-            form.TopLevel = false;
-            form.FormBorderStyle = FormBorderStyle.None;
-            form.Dock = DockStyle.Fill;
-            panel1.Controls.Clear();
+            form.TopLevel = false; // Memberitahu bahwa form ini bagian dari form lain
+            form.FormBorderStyle = FormBorderStyle.None; // Menghilangkan border form
+            form.Dock = DockStyle.Fill; // Menyesuaikan ukuran form dengan panel
+            panel1.Controls.Clear(); // Membersihkan panel dari form atau kontrol lainnya
             panel1.Controls.Add(form);
             form.Show();
         }

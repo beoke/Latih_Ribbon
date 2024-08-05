@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTerlambat));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_terlambat = new System.Windows.Forms.Button();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -63,16 +63,17 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 24);
             this.dateTimePicker1.TabIndex = 19;
             // 
-            // button1
+            // btn_terlambat
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.Location = new System.Drawing.Point(1040, 19);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(54, 46);
-            this.button1.TabIndex = 18;
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_terlambat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_terlambat.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_terlambat.BackgroundImage")));
+            this.btn_terlambat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_terlambat.Location = new System.Drawing.Point(1037, 18);
+            this.btn_terlambat.Name = "btn_terlambat";
+            this.btn_terlambat.Size = new System.Drawing.Size(54, 46);
+            this.btn_terlambat.TabIndex = 18;
+            this.btn_terlambat.UseVisualStyleBackColor = true;
+            this.btn_terlambat.Click += new System.EventHandler(this.btn_terlambat_Click);
             // 
             // textBox4
             // 
@@ -145,7 +146,7 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1103, 458);
             this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_terlambat);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBox3);
@@ -166,7 +167,7 @@
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_terlambat;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox3;
