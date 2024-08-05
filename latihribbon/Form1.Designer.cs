@@ -30,23 +30,23 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.ribbon1 = new System.Windows.Forms.Ribbon();
+            this.ribbonOrbMenuItem1 = new System.Windows.Forms.RibbonOrbMenuItem();
             this.ribbonTab1 = new System.Windows.Forms.RibbonTab();
             this.ribbonPanel1 = new System.Windows.Forms.RibbonPanel();
-            this.ribbonPanel2 = new System.Windows.Forms.RibbonPanel();
-            this.ribbonPanel3 = new System.Windows.Forms.RibbonPanel();
-            this.ribbonPanel4 = new System.Windows.Forms.RibbonPanel();
-            this.ribbonPanel5 = new System.Windows.Forms.RibbonPanel();
-            this.ribbonPanel6 = new System.Windows.Forms.RibbonPanel();
-            this.ribbonPanel7 = new System.Windows.Forms.RibbonPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.ribbonOrbMenuItem1 = new System.Windows.Forms.RibbonOrbMenuItem();
             this.ribbon_Siswa = new System.Windows.Forms.RibbonButton();
+            this.ribbonPanel2 = new System.Windows.Forms.RibbonPanel();
             this.ribbon_terlambat = new System.Windows.Forms.RibbonButton();
+            this.ribbonPanel3 = new System.Windows.Forms.RibbonPanel();
             this.ribbon_keluar = new System.Windows.Forms.RibbonButton();
+            this.ribbonPanel4 = new System.Windows.Forms.RibbonPanel();
             this.ribbon_Laporan = new System.Windows.Forms.RibbonButton();
+            this.ribbonPanel5 = new System.Windows.Forms.RibbonPanel();
             this.ribbon_surat = new System.Windows.Forms.RibbonButton();
+            this.ribbonPanel6 = new System.Windows.Forms.RibbonPanel();
             this.ribbon_Input = new System.Windows.Forms.RibbonButton();
+            this.ribbonPanel7 = new System.Windows.Forms.RibbonPanel();
             this.ribbon_delete = new System.Windows.Forms.RibbonButton();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // ribbon1
@@ -71,6 +71,15 @@
             this.ribbon1.Text = "ribbon1";
             this.ribbon1.Click += new System.EventHandler(this.ribbon1_Click);
             // 
+            // ribbonOrbMenuItem1
+            // 
+            this.ribbonOrbMenuItem1.DropDownArrowDirection = System.Windows.Forms.RibbonArrowDirection.Left;
+            this.ribbonOrbMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("ribbonOrbMenuItem1.Image")));
+            this.ribbonOrbMenuItem1.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonOrbMenuItem1.LargeImage")));
+            this.ribbonOrbMenuItem1.Name = "ribbonOrbMenuItem1";
+            this.ribbonOrbMenuItem1.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonOrbMenuItem1.SmallImage")));
+            this.ribbonOrbMenuItem1.Text = "ribbonOrbMenuItem1";
+            // 
             // ribbonTab1
             // 
             this.ribbonTab1.Name = "ribbonTab1";
@@ -89,59 +98,6 @@
             this.ribbonPanel1.Name = "ribbonPanel1";
             this.ribbonPanel1.Text = "";
             // 
-            // ribbonPanel2
-            // 
-            this.ribbonPanel2.Items.Add(this.ribbon_terlambat);
-            this.ribbonPanel2.Name = "ribbonPanel2";
-            this.ribbonPanel2.Text = "";
-            // 
-            // ribbonPanel3
-            // 
-            this.ribbonPanel3.Items.Add(this.ribbon_keluar);
-            this.ribbonPanel3.Name = "ribbonPanel3";
-            this.ribbonPanel3.Text = "";
-            // 
-            // ribbonPanel4
-            // 
-            this.ribbonPanel4.Items.Add(this.ribbon_Laporan);
-            this.ribbonPanel4.Name = "ribbonPanel4";
-            this.ribbonPanel4.Text = "";
-            // 
-            // ribbonPanel5
-            // 
-            this.ribbonPanel5.Items.Add(this.ribbon_surat);
-            this.ribbonPanel5.Name = "ribbonPanel5";
-            this.ribbonPanel5.Text = "";
-            // 
-            // ribbonPanel6
-            // 
-            this.ribbonPanel6.Items.Add(this.ribbon_Input);
-            this.ribbonPanel6.Name = "ribbonPanel6";
-            this.ribbonPanel6.Text = "";
-            // 
-            // ribbonPanel7
-            // 
-            this.ribbonPanel7.Items.Add(this.ribbon_delete);
-            this.ribbonPanel7.Name = "ribbonPanel7";
-            this.ribbonPanel7.Text = "";
-            // 
-            // panel1
-            // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 200);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1151, 483);
-            this.panel1.TabIndex = 1;
-            // 
-            // ribbonOrbMenuItem1
-            // 
-            this.ribbonOrbMenuItem1.DropDownArrowDirection = System.Windows.Forms.RibbonArrowDirection.Left;
-            this.ribbonOrbMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("ribbonOrbMenuItem1.Image")));
-            this.ribbonOrbMenuItem1.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonOrbMenuItem1.LargeImage")));
-            this.ribbonOrbMenuItem1.Name = "ribbonOrbMenuItem1";
-            this.ribbonOrbMenuItem1.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonOrbMenuItem1.SmallImage")));
-            this.ribbonOrbMenuItem1.Text = "ribbonOrbMenuItem1";
-            // 
             // ribbon_Siswa
             // 
             this.ribbon_Siswa.Image = ((System.Drawing.Image)(resources.GetObject("ribbon_Siswa.Image")));
@@ -150,6 +106,12 @@
             this.ribbon_Siswa.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbon_Siswa.SmallImage")));
             this.ribbon_Siswa.Text = "Siswa";
             this.ribbon_Siswa.Click += new System.EventHandler(this.ribbon_Siswa_Click);
+            // 
+            // ribbonPanel2
+            // 
+            this.ribbonPanel2.Items.Add(this.ribbon_terlambat);
+            this.ribbonPanel2.Name = "ribbonPanel2";
+            this.ribbonPanel2.Text = "";
             // 
             // ribbon_terlambat
             // 
@@ -160,6 +122,12 @@
             this.ribbon_terlambat.Text = "terlambat";
             this.ribbon_terlambat.Click += new System.EventHandler(this.ribbon_terlambat_Click);
             // 
+            // ribbonPanel3
+            // 
+            this.ribbonPanel3.Items.Add(this.ribbon_keluar);
+            this.ribbonPanel3.Name = "ribbonPanel3";
+            this.ribbonPanel3.Text = "";
+            // 
             // ribbon_keluar
             // 
             this.ribbon_keluar.Image = ((System.Drawing.Image)(resources.GetObject("ribbon_keluar.Image")));
@@ -168,6 +136,12 @@
             this.ribbon_keluar.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbon_keluar.SmallImage")));
             this.ribbon_keluar.Text = "Keluar";
             this.ribbon_keluar.Click += new System.EventHandler(this.ribbon_keluar_Click);
+            // 
+            // ribbonPanel4
+            // 
+            this.ribbonPanel4.Items.Add(this.ribbon_Laporan);
+            this.ribbonPanel4.Name = "ribbonPanel4";
+            this.ribbonPanel4.Text = "";
             // 
             // ribbon_Laporan
             // 
@@ -178,6 +152,12 @@
             this.ribbon_Laporan.Text = "Laporan";
             this.ribbon_Laporan.Click += new System.EventHandler(this.ribbon_Laporan_Click);
             // 
+            // ribbonPanel5
+            // 
+            this.ribbonPanel5.Items.Add(this.ribbon_surat);
+            this.ribbonPanel5.Name = "ribbonPanel5";
+            this.ribbonPanel5.Text = "";
+            // 
             // ribbon_surat
             // 
             this.ribbon_surat.Image = ((System.Drawing.Image)(resources.GetObject("ribbon_surat.Image")));
@@ -186,6 +166,12 @@
             this.ribbon_surat.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbon_surat.SmallImage")));
             this.ribbon_surat.Text = "Surat";
             this.ribbon_surat.Click += new System.EventHandler(this.ribbon_surat_Click);
+            // 
+            // ribbonPanel6
+            // 
+            this.ribbonPanel6.Items.Add(this.ribbon_Input);
+            this.ribbonPanel6.Name = "ribbonPanel6";
+            this.ribbonPanel6.Text = "";
             // 
             // ribbon_Input
             // 
@@ -196,6 +182,12 @@
             this.ribbon_Input.Text = "Input";
             this.ribbon_Input.Click += new System.EventHandler(this.ribbon_Input_Click);
             // 
+            // ribbonPanel7
+            // 
+            this.ribbonPanel7.Items.Add(this.ribbon_delete);
+            this.ribbonPanel7.Name = "ribbonPanel7";
+            this.ribbonPanel7.Text = "";
+            // 
             // ribbon_delete
             // 
             this.ribbon_delete.Image = ((System.Drawing.Image)(resources.GetObject("ribbon_delete.Image")));
@@ -203,6 +195,14 @@
             this.ribbon_delete.Name = "ribbon_delete";
             this.ribbon_delete.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbon_delete.SmallImage")));
             this.ribbon_delete.Text = "Delete";
+            // 
+            // panel1
+            // 
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 200);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1151, 483);
+            this.panel1.TabIndex = 1;
             // 
             // Form1
             // 
@@ -213,7 +213,7 @@
             this.Controls.Add(this.ribbon1);
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);

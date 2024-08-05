@@ -16,5 +16,10 @@ namespace latihribbon
         {
             InitializeComponent();
         }
+
+        private void FormSIswa_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
