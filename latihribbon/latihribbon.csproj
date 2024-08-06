@@ -71,6 +71,12 @@
     <Compile Include="FormLaporan.Designer.cs">
       <DependentUpon>FormLaporan.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormMilih.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMilih.Designer.cs">
+      <DependentUpon>FormMilih.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormSIswa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +101,12 @@
     <Compile Include="login.Designer.cs">
       <DependentUpon>login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pemakai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pemakai.Designer.cs">
+      <DependentUpon>Pemakai.cs</DependentUpon>
+    </Compile>
     <Compile Include="PrintTerlambat.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,11 +115,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="User.cs">
+    <Compile Include="SiswaModel.cs" />
+    <Compile Include="SuratKeluarcs.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="User.Designer.cs">
-      <DependentUpon>User.cs</DependentUpon>
+    <Compile Include="SuratKeluarcs.Designer.cs">
+      <DependentUpon>SuratKeluarcs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SuratMasuk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SuratMasuk.Designer.cs">
+      <DependentUpon>SuratMasuk.cs</DependentUpon>
     </Compile>
     <Compile Include="UserModel.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -118,6 +137,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormLaporan.resx">
       <DependentUpon>FormLaporan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMilih.resx">
+      <DependentUpon>FormMilih.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSIswa.resx">
       <DependentUpon>FormSIswa.cs</DependentUpon>
@@ -131,6 +153,9 @@
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pemakai.resx">
+      <DependentUpon>Pemakai.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PrintTerlambat.resx">
       <DependentUpon>PrintTerlambat.cs</DependentUpon>
     </EmbeddedResource>
@@ -143,8 +168,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="User.resx">
-      <DependentUpon>User.cs</DependentUpon>
+    <EmbeddedResource Include="SuratKeluarcs.resx">
+      <DependentUpon>SuratKeluarcs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SuratMasuk.resx">
+      <DependentUpon>SuratMasuk.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

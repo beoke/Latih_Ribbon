@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace latihribbon
 {
-    public partial class User : RibbonForm
+    public partial class SuratMasuk : Form
     {
-        public User()
+        public SuratMasuk()
         {
             InitializeComponent();
         }
 
-        private void User_Load(object sender, EventArgs e)
+        private void label11_Click(object sender, EventArgs e)
         {
 
         }

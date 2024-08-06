@@ -40,7 +40,7 @@ namespace latihribbon
                 }
                 else if (user.Role == "user")
                  {
-                     User userDashboard = new User();
+                     Pemakai userDashboard = new Pemakai();
                      userDashboard.Show();
                  }
                 this.Hide();
