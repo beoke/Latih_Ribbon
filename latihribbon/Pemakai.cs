@@ -18,7 +18,7 @@ namespace latihribbon
             InitializeComponent();
             _dbDal = new DbDal();
         }
-
+        //Yoga Edit
         private void btn_enter_Click(object sender, EventArgs e)
         {
             // Validasi input untuk memastikan hanya angka yang bisa dimasukkan
