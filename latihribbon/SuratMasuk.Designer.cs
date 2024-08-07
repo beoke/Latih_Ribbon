@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label12 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -44,28 +42,6 @@
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label11 = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // label12
-            // 
-            this.label12.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(569, 396);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(112, 22);
-            this.label12.TabIndex = 66;
-            this.label12.Text = ".................";
-            // 
-            // label10
-            // 
-            this.label10.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(533, 299);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(180, 22);
-            this.label10.TabIndex = 64;
-            this.label10.Text = "Bimbingan Konseling";
             // 
             // textBox8
             // 
@@ -204,8 +180,6 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.label10);
             this.Controls.Add(this.textBox8);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label5);
@@ -225,8 +199,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label5;

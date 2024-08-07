@@ -19,6 +19,7 @@ namespace latihribbon
             _dbDal = new DbDal();
         }
         //Yoga Edit
+        //Latj\hir\\
         private void btn_enter_Click(object sender, EventArgs e)
         {
             // Validasi input untuk memastikan hanya angka yang bisa dimasukkan
