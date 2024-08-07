@@ -20,6 +20,7 @@ namespace latihribbon
         }
         //Yoga Edit
         //Latj\hir\\
+        //beoke
         private void btn_enter_Click(object sender, EventArgs e)
         {
             // Validasi input untuk memastikan hanya angka yang bisa dimasukkan
