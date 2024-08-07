@@ -40,8 +40,8 @@ namespace latihribbon
                 FormMilih formMilih = new FormMilih();
 
                 // Atur nilai label dengan data siswa
-                formMilih.Label3.Text = "NIS: " + siswa.Nis.ToString();
-                formMilih.Label4.Text = "Nama: " + siswa.Nama;
+              /*  formMilih.Label3.Text = "NIS: " + siswa.Nis.ToString();
+                formMilih.Label4.Text = "Nama: " + siswa.Nama;*/
 
                 // Tampilkan FormMilih
                 formMilih.Show();

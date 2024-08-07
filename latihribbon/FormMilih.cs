@@ -20,5 +20,18 @@ namespace latihribbon
 
         }
 
+        private void btn_masuk_Click(object sender, EventArgs e)
+        {
+            SuratMasuk masuk = new SuratMasuk();
+            masuk.Show();
+            this.Hide();
+        }
+
+        private void btn_Keluar_Click(object sender, EventArgs e)
+        {
+            SuratKeluarcs keluar = new SuratKeluarcs();
+            keluar.Show();
+            this.Hide();
+        }
     }
 }

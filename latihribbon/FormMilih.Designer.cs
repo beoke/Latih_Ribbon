@@ -32,10 +32,10 @@ namespace latihribbon
         {
             this.btn_Keluar = new System.Windows.Forms.Button();
             this.btn_masuk = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btn_Keluar
@@ -43,40 +43,26 @@ namespace latihribbon
             this.btn_Keluar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_Keluar.BackColor = System.Drawing.Color.Red;
             this.btn_Keluar.Font = new System.Drawing.Font("Swis721 BlkCn BT", 12F);
-            this.btn_Keluar.Location = new System.Drawing.Point(415, 163);
+            this.btn_Keluar.Location = new System.Drawing.Point(440, 163);
             this.btn_Keluar.Name = "btn_Keluar";
             this.btn_Keluar.Size = new System.Drawing.Size(173, 129);
             this.btn_Keluar.TabIndex = 7;
             this.btn_Keluar.Text = "Keluar";
             this.btn_Keluar.UseVisualStyleBackColor = false;
+            this.btn_Keluar.Click += new System.EventHandler(this.btn_Keluar_Click);
             // 
             // btn_masuk
             // 
             this.btn_masuk.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_masuk.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btn_masuk.Font = new System.Drawing.Font("Swis721 BlkCn BT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_masuk.Location = new System.Drawing.Point(160, 163);
+            this.btn_masuk.Location = new System.Drawing.Point(196, 163);
             this.btn_masuk.Name = "btn_masuk";
             this.btn_masuk.Size = new System.Drawing.Size(173, 129);
             this.btn_masuk.TabIndex = 6;
             this.btn_masuk.Text = "Masuk";
             this.btn_masuk.UseVisualStyleBackColor = false;
-            // 
-            // label3
-            // 
-            this.label3.Location = new System.Drawing.Point(81, 15);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(200, 23);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "NIS";
-            // 
-            // label4
-            // 
-            this.label4.Location = new System.Drawing.Point(94, 44);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(200, 23);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Nama";
+            this.btn_masuk.Click += new System.EventHandler(this.btn_masuk_Click);
             // 
             // label2
             // 
@@ -100,6 +86,24 @@ namespace latihribbon
             this.label1.TabIndex = 4;
             this.label1.Text = "NIS : ";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(95, 22);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(44, 16);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "label3";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(95, 54);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(44, 16);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "label4";
+            // 
             // FormMilih
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -122,9 +126,9 @@ namespace latihribbon
 
         private System.Windows.Forms.Button btn_Keluar;
         private System.Windows.Forms.Button btn_masuk;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private Label label2;
         private Label label1;
+        private Label label3;
+        private Label label4;
     }
 }
