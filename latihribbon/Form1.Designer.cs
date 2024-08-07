@@ -90,7 +90,7 @@
             this.ribbonTab1.Panels.Add(this.ribbonPanel5);
             this.ribbonTab1.Panels.Add(this.ribbonPanel6);
             this.ribbonTab1.Panels.Add(this.ribbonPanel7);
-            this.ribbonTab1.Text = "ribbonTab1";
+            this.ribbonTab1.Text = "ATM Siswa";
             // 
             // ribbonPanel1
             // 
@@ -119,7 +119,7 @@
             this.ribbon_terlambat.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbon_terlambat.LargeImage")));
             this.ribbon_terlambat.Name = "ribbon_terlambat";
             this.ribbon_terlambat.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbon_terlambat.SmallImage")));
-            this.ribbon_terlambat.Text = "terlambat";
+            this.ribbon_terlambat.Text = "Terlambat";
             this.ribbon_terlambat.Click += new System.EventHandler(this.ribbon_terlambat_Click);
             // 
             // ribbonPanel3
@@ -240,6 +240,7 @@
         private System.Windows.Forms.RibbonButton ribbon_delete;
         private System.Windows.Forms.RibbonOrbMenuItem ribbonOrbMenuItem1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.RibbonPanel ribbonPanel8;
     }
 }
 

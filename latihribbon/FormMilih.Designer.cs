@@ -43,6 +43,7 @@ namespace latihribbon
             this.btn_Keluar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_Keluar.BackColor = System.Drawing.Color.Red;
             this.btn_Keluar.Font = new System.Drawing.Font("Swis721 BlkCn BT", 12F);
+            this.btn_Keluar.ForeColor = System.Drawing.SystemColors.Control;
             this.btn_Keluar.Location = new System.Drawing.Point(440, 163);
             this.btn_Keluar.Name = "btn_Keluar";
             this.btn_Keluar.Size = new System.Drawing.Size(173, 129);
@@ -54,8 +55,9 @@ namespace latihribbon
             // btn_masuk
             // 
             this.btn_masuk.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_masuk.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btn_masuk.BackColor = System.Drawing.SystemColors.Highlight;
             this.btn_masuk.Font = new System.Drawing.Font("Swis721 BlkCn BT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_masuk.ForeColor = System.Drawing.SystemColors.Control;
             this.btn_masuk.Location = new System.Drawing.Point(196, 163);
             this.btn_masuk.Name = "btn_masuk";
             this.btn_masuk.Size = new System.Drawing.Size(173, 129);
