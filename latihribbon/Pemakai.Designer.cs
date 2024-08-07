@@ -41,7 +41,7 @@
             this.tx_NIS.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tx_NIS.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.tx_NIS.Font = new System.Drawing.Font("News706 BT", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tx_NIS.Location = new System.Drawing.Point(235, 241);
+            this.tx_NIS.Location = new System.Drawing.Point(253, 243);
             this.tx_NIS.Name = "tx_NIS";
             this.tx_NIS.Size = new System.Drawing.Size(257, 29);
             this.tx_NIS.TabIndex = 0;
@@ -51,10 +51,10 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("News706 BT", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(242, 205);
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(264, 199);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(250, 24);
+            this.label1.Size = new System.Drawing.Size(246, 26);
             this.label1.TabIndex = 1;
             this.label1.Text = "Scan atau Masukkan NIS";
             // 
@@ -63,7 +63,7 @@
             this.btn_enter.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_enter.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.btn_enter.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_enter.Location = new System.Drawing.Point(498, 241);
+            this.btn_enter.Location = new System.Drawing.Point(332, 287);
             this.btn_enter.Name = "btn_enter";
             this.btn_enter.Size = new System.Drawing.Size(97, 34);
             this.btn_enter.TabIndex = 2;
@@ -76,7 +76,7 @@
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(263, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(271, -2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(221, 167);
             this.pictureBox1.TabIndex = 3;

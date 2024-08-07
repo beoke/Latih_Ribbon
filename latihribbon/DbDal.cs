@@ -10,7 +10,7 @@ namespace latihribbon
 {
     public class DbDal
     {
-        private const string _connString = "Data Source=DESKTOP-B10RQSP;Initial Catalog=RekapSiswa;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
+        private const string _connString = "Data Source=DESKTOP-2TSOBBK;Initial Catalog=RekapSiswa;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
 
         // Function untuk mendapatkan user dari database
         public IEnumerable<UserModel> GetUsers()
