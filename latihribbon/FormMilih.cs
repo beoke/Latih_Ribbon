@@ -12,12 +12,13 @@ namespace latihribbon
 {
     public partial class FormMilih : Form
     {
-        public Label Label3 { get; private set; }
-        public Label Label4 { get; private set; }
+        public Label LabelNis { get; private set; }
+        public Label LabelNama { get; private set; }
+        public Label LabelKelas { get; private set; }
         public FormMilih()
         {
             InitializeComponent();
-
+            InitializeLabels();
         }
 
         private void btn_masuk_Click(object sender, EventArgs e)
@@ -32,6 +33,38 @@ namespace latihribbon
             SuratKeluarcs keluar = new SuratKeluarcs();
             keluar.Show();
             this.Hide();
+        }
+        private void InitializeLabels() // untuk menambahkan label yang konek dengan database
+        {
+            LabelNis = new Label
+            {
+                Location = new System.Drawing.Point(30, 30),
+                Name = "LabelNis",
+                Size = new System.Drawing.Size(200, 23),
+                Text = "NIS: ",
+                Font = new Font(FontFamily.GenericSansSerif, 10, FontStyle.Bold)
+            };
+            this.Controls.Add(LabelNis);
+
+            LabelNama = new Label
+            {
+                Location = new System.Drawing.Point(30, 70),
+                Name = "LabelNama",
+                Size = new System.Drawing.Size(200, 23),
+                Text = "Nama: ",
+                Font = new Font(FontFamily.GenericSansSerif, 10, FontStyle.Bold)
+            };
+            this.Controls.Add(LabelNama);
+
+            LabelKelas = new Label
+            {
+                Location = new System.Drawing.Point(30, 110),
+                Name = "LabelKelas",
+                Size = new System.Drawing.Size(200, 23),
+                Text = "Kelas: ",
+                Font = new Font(FontFamily.GenericSansSerif, 10, FontStyle.Bold)
+            };
+            this.Controls.Add(LabelKelas);
         }
     }
 }

@@ -18,10 +18,7 @@ namespace latihribbon
             InitializeComponent();
             _dbDal = new DbDal();
         }
-        //Yoga Edit
-        //Latj\hir\\
-        //beoke
-        //Yoga Edit 2
+
         private void btn_enter_Click(object sender, EventArgs e)
         {
             // Validasi input untuk memastikan hanya angka yang bisa dimasukkan
@@ -39,12 +36,16 @@ namespace latihribbon
             }
             else
             {
+                // Munculkan pesan bahwa data ditemukan
+                MessageBox.Show($"NIS: {siswa.Nis} Nama: { siswa.Nama}", "Data Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 // Buat instance dari FormMilih
                 FormMilih formMilih = new FormMilih();
 
                 // Atur nilai label dengan data siswa
-              /*  formMilih.Label3.Text = "NIS: " + siswa.Nis.ToString();
-                formMilih.Label4.Text = "Nama: " + siswa.Nama;*/
+                formMilih.LabelNis.Text = "NIS: " + siswa.Nis.ToString();
+                formMilih.LabelNama.Text = "Nama: " + siswa.Nama;
+                formMilih.LabelKelas.Text = "Kelas: " + siswa.Kelas;
 
                 // Tampilkan FormMilih
                 formMilih.Show();
