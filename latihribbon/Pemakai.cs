@@ -36,21 +36,34 @@ namespace latihribbon
             }
             else
             {
-                // Munculkan pesan bahwa data ditemukan
-                MessageBox.Show($"NIS: {siswa.Nis} Dengan Nama: { siswa.Nama}", "Data Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // Munculkan pesan bahwa data ditemukan dengan pilihan Yes dan No
+                DialogResult result = MessageBox.Show($"NIS: {siswa.Nis} Dengan Nama: {siswa.Nama}", "Data ditemukan", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
-                // Buat instance dari FormMilih
-                FormMilih formMilih = new FormMilih();
+                // Jika pengguna memilih No, reset form dan kembalikan fokus ke input NIS
+                if (result == DialogResult.No)
+                {
+                    ResetForm();
+                    return;
+                }
 
-                // Atur nilai label dengan data siswa
+                // Jika pengguna memilih Yes, lanjutkan ke FormMilih
+                FormMilih formMilih = new FormMilih(this);
+
+                // Atur nilai label dengan data siswa di FormMilih
                 formMilih.LabelNis.Text = "NIS: " + siswa.Nis.ToString();
                 formMilih.LabelNama.Text = "Nama: " + siswa.Nama;
                 formMilih.LabelKelas.Text = "Kelas: " + siswa.Kelas;
 
-                // Tampilkan FormMilih
+                // Tampilkan FormMilih dan sembunyikan form ini
                 formMilih.Show();
                 this.Hide();
             }
+        }
+        private void ResetForm()
+        {
+            // Mengosongkan TextBox dan mengembalikan fokus ke TextBox NIS
+            tx_NIS.Clear();
+            tx_NIS.Focus();
         }
 
         private void tx_NIS_KeyPress_1(object sender, KeyPressEventArgs e)

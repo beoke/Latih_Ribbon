@@ -12,12 +12,19 @@ namespace latihribbon
 {
     public partial class FormMilih : Form
     {
+        private Form _previousForm;
         public Label LabelNis { get; private set; }
         public Label LabelNama { get; private set; }
         public Label LabelKelas { get; private set; }
-        public FormMilih()
+
+        public FormMilih(Form previousForm)
         {
             InitializeComponent();
+            _previousForm = previousForm;
+
+            // Menyelaraskan ukuran dan lokasi form ini dengan form sebelumnya
+            this.Size = previousForm.Size; // Menyetel ukuran form
+            this.Location = previousForm.Location; // Menyetel lokasi form
             InitializeLabels();
         }
 
