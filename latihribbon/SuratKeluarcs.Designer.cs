@@ -45,6 +45,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.button1 = new System.Windows.Forms.Button();
+            this.btn_kembali = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label11
@@ -209,11 +210,25 @@
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // btn_kembali
+            // 
+            this.btn_kembali.BackColor = System.Drawing.Color.Green;
+            this.btn_kembali.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_kembali.ForeColor = System.Drawing.Color.White;
+            this.btn_kembali.Location = new System.Drawing.Point(604, 399);
+            this.btn_kembali.Name = "btn_kembali";
+            this.btn_kembali.Size = new System.Drawing.Size(101, 39);
+            this.btn_kembali.TabIndex = 52;
+            this.btn_kembali.Text = "Kembali";
+            this.btn_kembali.UseVisualStyleBackColor = false;
+            this.btn_kembali.Click += new System.EventHandler(this.btn_kembali_Click);
+            // 
             // SuratKeluarcs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_kembali);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.label11);
@@ -254,5 +269,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_kembali;
     }
 }

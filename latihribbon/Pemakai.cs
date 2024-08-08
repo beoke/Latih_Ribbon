@@ -37,7 +37,7 @@ namespace latihribbon
             else
             {
                 // Munculkan pesan bahwa data ditemukan
-                MessageBox.Show($"NIS: {siswa.Nis} Nama: { siswa.Nama}", "Data Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"NIS: {siswa.Nis} Dengan Nama: { siswa.Nama}", "Data Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // Buat instance dari FormMilih
                 FormMilih formMilih = new FormMilih();

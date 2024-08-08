@@ -41,7 +41,7 @@ namespace latihribbon
             this.btn_Keluar.BackColor = System.Drawing.Color.Red;
             this.btn_Keluar.Font = new System.Drawing.Font("Swis721 BlkCn BT", 12F);
             this.btn_Keluar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btn_Keluar.Location = new System.Drawing.Point(504, 163);
+            this.btn_Keluar.Location = new System.Drawing.Point(474, 163);
             this.btn_Keluar.Name = "btn_Keluar";
             this.btn_Keluar.Size = new System.Drawing.Size(173, 129);
             this.btn_Keluar.TabIndex = 7;
@@ -55,7 +55,7 @@ namespace latihribbon
             this.btn_masuk.BackColor = System.Drawing.SystemColors.Highlight;
             this.btn_masuk.Font = new System.Drawing.Font("Swis721 BlkCn BT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_masuk.ForeColor = System.Drawing.SystemColors.Control;
-            this.btn_masuk.Location = new System.Drawing.Point(127, 163);
+            this.btn_masuk.Location = new System.Drawing.Point(182, 163);
             this.btn_masuk.Name = "btn_masuk";
             this.btn_masuk.Size = new System.Drawing.Size(173, 129);
             this.btn_masuk.TabIndex = 6;
@@ -74,6 +74,7 @@ namespace latihribbon
             this.button1.TabIndex = 10;
             this.button1.Text = "Kembali";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // FormMilih
             // 

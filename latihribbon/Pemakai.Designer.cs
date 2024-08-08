@@ -43,7 +43,7 @@
             this.tx_NIS.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tx_NIS.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.tx_NIS.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tx_NIS.Font = new System.Drawing.Font("News706 BT", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tx_NIS.Font = new System.Drawing.Font("News706 BT", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tx_NIS.Location = new System.Drawing.Point(35, 240);
             this.tx_NIS.Multiline = true;
             this.tx_NIS.Name = "tx_NIS";

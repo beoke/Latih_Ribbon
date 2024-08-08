@@ -41,6 +41,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label11 = new System.Windows.Forms.Label();
+            this.btn_Kembali = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox8
@@ -173,11 +174,25 @@
             this.label11.TabIndex = 68;
             this.label11.Text = "Surat Izin Masuk";
             // 
+            // btn_Kembali
+            // 
+            this.btn_Kembali.BackColor = System.Drawing.Color.Green;
+            this.btn_Kembali.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Kembali.ForeColor = System.Drawing.Color.White;
+            this.btn_Kembali.Location = new System.Drawing.Point(593, 386);
+            this.btn_Kembali.Name = "btn_Kembali";
+            this.btn_Kembali.Size = new System.Drawing.Size(101, 39);
+            this.btn_Kembali.TabIndex = 69;
+            this.btn_Kembali.Text = "Kembali";
+            this.btn_Kembali.UseVisualStyleBackColor = false;
+            this.btn_Kembali.Click += new System.EventHandler(this.btn_Kembali_Click);
+            // 
             // SuratMasuk
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_Kembali);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.textBox8);
@@ -212,5 +227,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button btn_Kembali;
     }
 }

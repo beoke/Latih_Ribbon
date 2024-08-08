@@ -23,15 +23,17 @@ namespace latihribbon
 
         private void btn_masuk_Click(object sender, EventArgs e)
         {
-            SuratMasuk masuk = new SuratMasuk();
-            masuk.Show();
+            // membuka form SuratMasuk dan menyembunyikan MainForm
+            SuratMasuk suratMasuk = new SuratMasuk(this);
+            suratMasuk.Show();
             this.Hide();
         }
 
         private void btn_Keluar_Click(object sender, EventArgs e)
         {
-            SuratKeluarcs keluar = new SuratKeluarcs();
-            keluar.Show();
+            // membuka form SuratKeluar dan menyembunyikan MainForm
+            SuratKeluarcs Keluar = new SuratKeluarcs(this);
+            Keluar.Show();
             this.Hide();
         }
         private void InitializeLabels() // untuk menambahkan label yang konek dengan database
@@ -65,6 +67,11 @@ namespace latihribbon
                 Font = new Font(FontFamily.GenericSansSerif, 10, FontStyle.Bold)
             };
             this.Controls.Add(LabelKelas);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
