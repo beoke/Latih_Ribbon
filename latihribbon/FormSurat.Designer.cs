@@ -29,29 +29,29 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtNIS = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtKelas = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtNama = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tglIzin = new System.Windows.Forms.DateTimePicker();
+            this.checkKeluar = new System.Windows.Forms.CheckBox();
+            this.checkTerlambat = new System.Windows.Forms.CheckBox();
+            this.txtKeluarJamKe = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtKembaliJamKe = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtNamaOrtu = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.txtNoHpOrtu = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.txtAlasan = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -69,13 +69,13 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "NIS :";
             // 
-            // textBox1
+            // txtNIS
             // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.textBox1.Location = new System.Drawing.Point(117, 80);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(239, 30);
-            this.textBox1.TabIndex = 1;
+            this.txtNIS.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtNIS.Location = new System.Drawing.Point(117, 80);
+            this.txtNIS.Name = "txtNIS";
+            this.txtNIS.Size = new System.Drawing.Size(239, 30);
+            this.txtNIS.TabIndex = 1;
             // 
             // label2
             // 
@@ -90,13 +90,13 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Kelas :";
             // 
-            // textBox3
+            // txtKelas
             // 
-            this.textBox3.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.textBox3.Location = new System.Drawing.Point(117, 150);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(239, 30);
-            this.textBox3.TabIndex = 5;
+            this.txtKelas.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtKelas.Location = new System.Drawing.Point(117, 150);
+            this.txtKelas.Name = "txtKelas";
+            this.txtKelas.Size = new System.Drawing.Size(239, 30);
+            this.txtKelas.TabIndex = 5;
             // 
             // label3
             // 
@@ -111,13 +111,13 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Tanggal :";
             // 
-            // textBox4
+            // txtNama
             // 
-            this.textBox4.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.textBox4.Location = new System.Drawing.Point(117, 115);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(239, 30);
-            this.textBox4.TabIndex = 7;
+            this.txtNama.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtNama.Location = new System.Drawing.Point(117, 115);
+            this.txtNama.Name = "txtNama";
+            this.txtNama.Size = new System.Drawing.Size(239, 30);
+            this.txtNama.TabIndex = 7;
             // 
             // label4
             // 
@@ -132,50 +132,50 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Nama :";
             // 
-            // dateTimePicker1
+            // tglIzin
             // 
-            this.dateTimePicker1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(117, 185);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(239, 22);
-            this.dateTimePicker1.TabIndex = 8;
+            this.tglIzin.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.tglIzin.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tglIzin.Location = new System.Drawing.Point(117, 185);
+            this.tglIzin.Name = "tglIzin";
+            this.tglIzin.Size = new System.Drawing.Size(239, 22);
+            this.tglIzin.TabIndex = 8;
             // 
-            // checkBox1
+            // checkKeluar
             // 
-            this.checkBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.checkBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.checkBox1.Location = new System.Drawing.Point(117, 229);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(120, 26);
-            this.checkBox1.TabIndex = 9;
-            this.checkBox1.Text = "Izin Keluar";
-            this.checkBox1.UseVisualStyleBackColor = false;
+            this.checkKeluar.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.checkKeluar.AutoSize = true;
+            this.checkKeluar.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.checkKeluar.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkKeluar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.checkKeluar.Location = new System.Drawing.Point(117, 229);
+            this.checkKeluar.Name = "checkKeluar";
+            this.checkKeluar.Size = new System.Drawing.Size(120, 26);
+            this.checkKeluar.TabIndex = 9;
+            this.checkKeluar.Text = "Izin Keluar";
+            this.checkKeluar.UseVisualStyleBackColor = false;
             // 
-            // checkBox2
+            // checkTerlambat
             // 
-            this.checkBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.checkBox2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.checkBox2.Location = new System.Drawing.Point(244, 229);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(112, 26);
-            this.checkBox2.TabIndex = 10;
-            this.checkBox2.Text = "Terlambat";
-            this.checkBox2.UseVisualStyleBackColor = false;
+            this.checkTerlambat.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.checkTerlambat.AutoSize = true;
+            this.checkTerlambat.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.checkTerlambat.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkTerlambat.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.checkTerlambat.Location = new System.Drawing.Point(244, 229);
+            this.checkTerlambat.Name = "checkTerlambat";
+            this.checkTerlambat.Size = new System.Drawing.Size(112, 26);
+            this.checkTerlambat.TabIndex = 10;
+            this.checkTerlambat.Text = "Terlambat";
+            this.checkTerlambat.UseVisualStyleBackColor = false;
             // 
-            // textBox2
+            // txtKeluarJamKe
             // 
-            this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.textBox2.Location = new System.Drawing.Point(212, 267);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(144, 30);
-            this.textBox2.TabIndex = 12;
+            this.txtKeluarJamKe.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtKeluarJamKe.Location = new System.Drawing.Point(212, 267);
+            this.txtKeluarJamKe.Name = "txtKeluarJamKe";
+            this.txtKeluarJamKe.Size = new System.Drawing.Size(144, 30);
+            this.txtKeluarJamKe.TabIndex = 12;
             // 
             // label5
             // 
@@ -190,13 +190,13 @@
             this.label5.TabIndex = 11;
             this.label5.Text = "Keluar Pada Jam ke    :";
             // 
-            // textBox5
+            // txtKembaliJamKe
             // 
-            this.textBox5.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.textBox5.Location = new System.Drawing.Point(212, 320);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(144, 30);
-            this.textBox5.TabIndex = 14;
+            this.txtKembaliJamKe.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtKembaliJamKe.Location = new System.Drawing.Point(212, 320);
+            this.txtKembaliJamKe.Name = "txtKembaliJamKe";
+            this.txtKembaliJamKe.Size = new System.Drawing.Size(144, 30);
+            this.txtKembaliJamKe.TabIndex = 14;
             // 
             // label6
             // 
@@ -211,13 +211,13 @@
             this.label6.TabIndex = 13;
             this.label6.Text = "Kembali Pada Jam ke :";
             // 
-            // textBox6
+            // txtNamaOrtu
             // 
-            this.textBox6.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.textBox6.Location = new System.Drawing.Point(543, 82);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(223, 30);
-            this.textBox6.TabIndex = 16;
+            this.txtNamaOrtu.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtNamaOrtu.Location = new System.Drawing.Point(543, 82);
+            this.txtNamaOrtu.Name = "txtNamaOrtu";
+            this.txtNamaOrtu.Size = new System.Drawing.Size(223, 30);
+            this.txtNamaOrtu.TabIndex = 16;
             // 
             // label7
             // 
@@ -232,13 +232,13 @@
             this.label7.TabIndex = 15;
             this.label7.Text = " Nama Orang Tua :";
             // 
-            // textBox7
+            // txtNoHpOrtu
             // 
-            this.textBox7.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.textBox7.Location = new System.Drawing.Point(543, 118);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(223, 30);
-            this.textBox7.TabIndex = 18;
+            this.txtNoHpOrtu.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtNoHpOrtu.Location = new System.Drawing.Point(543, 118);
+            this.txtNoHpOrtu.Name = "txtNoHpOrtu";
+            this.txtNoHpOrtu.Size = new System.Drawing.Size(223, 30);
+            this.txtNoHpOrtu.TabIndex = 18;
             // 
             // label8
             // 
@@ -253,14 +253,14 @@
             this.label8.TabIndex = 17;
             this.label8.Text = "No Hp Orang tua :";
             // 
-            // textBox8
+            // txtAlasan
             // 
-            this.textBox8.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.textBox8.Location = new System.Drawing.Point(543, 185);
-            this.textBox8.Multiline = true;
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(223, 150);
-            this.textBox8.TabIndex = 20;
+            this.txtAlasan.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtAlasan.Location = new System.Drawing.Point(543, 185);
+            this.txtAlasan.Multiline = true;
+            this.txtAlasan.Name = "txtAlasan";
+            this.txtAlasan.Size = new System.Drawing.Size(223, 150);
+            this.txtAlasan.TabIndex = 20;
             // 
             // label9
             // 
@@ -293,24 +293,24 @@
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.textBox8);
+            this.panel1.Controls.Add(this.txtAlasan);
             this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.textBox7);
+            this.panel1.Controls.Add(this.txtNoHpOrtu);
             this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.textBox6);
-            this.panel1.Controls.Add(this.textBox5);
+            this.panel1.Controls.Add(this.txtNamaOrtu);
+            this.panel1.Controls.Add(this.txtKembaliJamKe);
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.txtKeluarJamKe);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.checkBox2);
-            this.panel1.Controls.Add(this.checkBox1);
-            this.panel1.Controls.Add(this.dateTimePicker1);
-            this.panel1.Controls.Add(this.textBox4);
+            this.panel1.Controls.Add(this.checkTerlambat);
+            this.panel1.Controls.Add(this.checkKeluar);
+            this.panel1.Controls.Add(this.tglIzin);
+            this.panel1.Controls.Add(this.txtNama);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.textBox3);
+            this.panel1.Controls.Add(this.txtKelas);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.txtNIS);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -319,15 +319,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(794, 442);
             this.panel1.TabIndex = 24;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.panel2.Controls.Add(this.label11);
-            this.panel2.Location = new System.Drawing.Point(0, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(793, 50);
-            this.panel2.TabIndex = 24;
             // 
             // button1
             // 
@@ -340,6 +331,15 @@
             this.button1.TabIndex = 25;
             this.button1.Text = "Kembali";
             this.button1.UseVisualStyleBackColor = false;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.panel2.Controls.Add(this.label11);
+            this.panel2.Location = new System.Drawing.Point(0, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(793, 50);
+            this.panel2.TabIndex = 24;
             // 
             // FormSurat
             // 
@@ -360,24 +360,24 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtNIS;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtKelas;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtNama;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.DateTimePicker tglIzin;
+        private System.Windows.Forms.CheckBox checkKeluar;
+        private System.Windows.Forms.CheckBox checkTerlambat;
+        private System.Windows.Forms.TextBox txtKeluarJamKe;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtKembaliJamKe;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtNamaOrtu;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox txtNoHpOrtu;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox txtAlasan;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Panel panel1;
