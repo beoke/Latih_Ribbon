@@ -13,6 +13,9 @@ namespace latihribbon
     public partial class Pemakai : Form
     {
         private DbDal _dbDal;
+        public static string NIS; //hooh yoga
+        public static string nama;
+        public static string kelas;
         public Pemakai()
         {
             InitializeComponent();
@@ -53,6 +56,11 @@ namespace latihribbon
                 formMilih.LabelNis.Text = "NIS: " + siswa.Nis.ToString();
                 formMilih.LabelNama.Text = "Nama: " + siswa.Nama;
                 formMilih.LabelKelas.Text = "Kelas: " + siswa.Kelas;
+
+                //yoga iki
+                NIS = siswa.Nis.ToString();
+                nama = siswa.Nama;
+                kelas = siswa.Kelas;
 
                 // Tampilkan FormMilih dan sembunyikan form ini
                 formMilih.Show();

@@ -21,6 +21,15 @@ namespace latihribbon
             // Menyelaraskan ukuran dan lokasi form ini dengan form sebelumnya
             this.Size = previousForm.Size; // Menyetel ukuran form
             this.Location = previousForm.Location; // Menyetel lokasi form
+            isian();
+            
+        }
+
+        public void isian()
+        {
+            txtNIS.Text = Pemakai.NIS;
+            txtNama.Text = Pemakai.nama;
+            txtKelas.Text = Pemakai.kelas;
         }
 
         private void btn_Kembali_Click(object sender, EventArgs e)
@@ -28,6 +37,8 @@ namespace latihribbon
             // menampilkan form sebelumnya dan menutup form saat ini
             _previousForm.Show();
             this.Close();
+
+
         }
     }
 }
