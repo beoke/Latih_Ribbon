@@ -52,11 +52,6 @@ namespace latihribbon
                 // Jika pengguna memilih Yes, lanjutkan ke FormMilih
                 FormMilih formMilih = new FormMilih(this);
 
-                // Atur nilai label dengan data siswa di FormMilih
-                formMilih.LabelNis.Text = "NIS: " + siswa.Nis.ToString();
-                formMilih.LabelNama.Text = "Nama: " + siswa.Nama;
-                formMilih.LabelKelas.Text = "Kelas: " + siswa.Kelas;
-
                 //yoga iki
                 NIS = siswa.Nis.ToString();
                 nama = siswa.Nama;

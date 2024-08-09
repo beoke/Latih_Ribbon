@@ -67,16 +67,8 @@ namespace latihribbon
 
             string sql = CekIsi(nama,kelas,tahun);
 
-
-
-
-
-            //sql = @"SELECT * FROM siswa WHERE Nama LIKE @nama+'%' OR Kelas LIKE @kelas+'%' OR Tahun LIKE @tahun+'%'";
-            //string sql = @"SELECT * FROM siswa WHERE Nama LIKE @nama+'%'";
             var fltr = db.GetSiswaFilter(sql, new { nama = nama, kelas = kelas, tahun = tahun });
             dataGridView1.DataSource = fltr.ToList();
-
-
         }
 
         public string CekIsi(string nama, string kelas, string tahun)
