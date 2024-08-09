@@ -32,7 +32,6 @@
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.txtNama = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtKelas = new System.Windows.Forms.TextBox();
@@ -45,6 +44,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btn_PrintMasuk = new System.Windows.Forms.Button();
             this.tx_jam1 = new System.Windows.Forms.TextBox();
+            this.txtTanggal = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,17 +79,6 @@
             this.label5.Size = new System.Drawing.Size(176, 22);
             this.label5.TabIndex = 58;
             this.label5.Text = "Masuk Pada Jam ke :";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.dateTimePicker1.CustomFormat = "dddd, dd-MM-yyyy";
-            this.dateTimePicker1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(354, 259);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(215, 30);
-            this.dateTimePicker1.TabIndex = 57;
             // 
             // txtNama
             // 
@@ -167,7 +156,7 @@
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(314, 19);
+            this.label11.Location = new System.Drawing.Point(553, 19);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(142, 22);
             this.label11.TabIndex = 68;
@@ -192,7 +181,7 @@
             this.panel1.Controls.Add(this.label11);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(803, 60);
+            this.panel1.Size = new System.Drawing.Size(1281, 60);
             this.panel1.TabIndex = 70;
             // 
             // btn_PrintMasuk
@@ -211,16 +200,27 @@
             // 
             // tx_jam1
             // 
-            this.tx_jam1.Location = new System.Drawing.Point(207, 314);
+            this.tx_jam1.Location = new System.Drawing.Point(448, 313);
             this.tx_jam1.Name = "tx_jam1";
             this.tx_jam1.Size = new System.Drawing.Size(100, 22);
             this.tx_jam1.TabIndex = 72;
+            this.tx_jam1.TextChanged += new System.EventHandler(this.tx_jam1_TextChanged);
+            // 
+            // txtTanggal
+            // 
+            this.txtTanggal.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtTanggal.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTanggal.Location = new System.Drawing.Point(354, 257);
+            this.txtTanggal.Name = "txtTanggal";
+            this.txtTanggal.Size = new System.Drawing.Size(215, 30);
+            this.txtTanggal.TabIndex = 73;
             // 
             // SuratMasuk
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1282, 753);
+            this.Controls.Add(this.txtTanggal);
             this.Controls.Add(this.tx_jam1);
             this.Controls.Add(this.btn_PrintMasuk);
             this.Controls.Add(this.panel1);
@@ -228,7 +228,6 @@
             this.Controls.Add(this.textBox8);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.txtNama);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtKelas);
@@ -258,11 +257,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtNIS;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button btn_Kembali;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btn_PrintMasuk;
         private System.Windows.Forms.TextBox tx_jam1;
+        private System.Windows.Forms.TextBox txtTanggal;
     }
 }

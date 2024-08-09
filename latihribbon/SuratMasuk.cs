@@ -23,6 +23,8 @@ namespace latihribbon
             this.Size = previousForm.Size; // Menyetel ukuran form
             this.Location = previousForm.Location; // Menyetel lokasi form
             isian();
+
+            Tgl();
             
         }
 
@@ -39,7 +41,6 @@ namespace latihribbon
             _previousForm.Show();
             this.Close();
 
-
         }
 
         private void SuratMasuk_Load(object sender, EventArgs e)
@@ -52,6 +53,16 @@ namespace latihribbon
             /*
             // Opsional: Jika ingin membuat TextBox read-only agar tidak bisa diubah pengguna
               tx_keluar.ReadOnly = true;*/
+        }
+
+        public void Tgl()
+        {
+            txtTanggal.Text = DateTime.Now.ToString("dddd ,dd MMMM yyyy");
+        }
+
+        private void tx_jam1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
     

@@ -65,5 +65,10 @@ namespace latihribbon
             // Opsional: Jika ingin membuat TextBox read-only agar tidak bisa diubah pengguna
             tx_keluar.ReadOnly = true;*/
         }
+
+        private void btn_PrintKeluar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

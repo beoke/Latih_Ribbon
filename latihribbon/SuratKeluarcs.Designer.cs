@@ -178,6 +178,7 @@
             this.btn_PrintKeluar.Text = "Print ";
             this.btn_PrintKeluar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_PrintKeluar.UseVisualStyleBackColor = true;
+            this.btn_PrintKeluar.Click += new System.EventHandler(this.btn_PrintKeluar_Click);
             // 
             // btn_kembali
             // 

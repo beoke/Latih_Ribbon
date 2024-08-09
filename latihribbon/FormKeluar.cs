@@ -26,8 +26,6 @@ namespace latihribbon
             nama = txtNama.Text;
             kelas = txtKelas.Text;
             tahun = txtTahun.Text;
-
-
         }
 
         
