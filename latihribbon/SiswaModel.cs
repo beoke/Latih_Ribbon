@@ -11,5 +11,6 @@ namespace latihribbon
         public int Nis { get; set; }
         public string Nama { get; set; }
         public string Kelas { get; set; }
+        public string Tahun {  get; set; }
     }
 }

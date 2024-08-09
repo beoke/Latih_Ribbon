@@ -38,7 +38,7 @@ namespace latihribbon
                     Form1 adminDashboard = new Form1();
                     adminDashboard.Show();
                 }
-                else if (user.Role == "user")
+                else if (user.Role == "siswa")
                  {
                      Pemakai userDashboard = new Pemakai();
                      userDashboard.Show();

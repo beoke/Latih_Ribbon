@@ -22,6 +22,16 @@ namespace latihribbon
                     return users;
                 }
         }
+
+        public IEnumerable<SiswaModel> GetSiswaFilter(string sql, object mbuh) 
+        {
+            using (var koneksi = new SqlConnection(_connString))
+            {
+                var users = koneksi.Query<SiswaModel>(sql,mbuh);
+                return users;
+            }
+        }
+
         // Function untuk mendapatkan data siswa dari database
         public IEnumerable<SiswaModel> GetSiswa()
         {
