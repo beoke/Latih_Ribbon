@@ -40,11 +40,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtNIS = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label11 = new System.Windows.Forms.Label();
             this.btn_Kembali = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btn_PrintMasuk = new System.Windows.Forms.Button();
+            this.tx_jam1 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -162,16 +162,6 @@
             this.label1.TabIndex = 50;
             this.label1.Text = "NIS        :";
             // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.CustomFormat = "dd/mm";
-            this.dateTimePicker2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker2.Location = new System.Drawing.Point(203, 305);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(125, 30);
-            this.dateTimePicker2.TabIndex = 67;
-            // 
             // label11
             // 
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -219,15 +209,22 @@
             this.btn_PrintMasuk.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_PrintMasuk.UseVisualStyleBackColor = true;
             // 
+            // tx_jam1
+            // 
+            this.tx_jam1.Location = new System.Drawing.Point(207, 314);
+            this.tx_jam1.Name = "tx_jam1";
+            this.tx_jam1.Size = new System.Drawing.Size(100, 22);
+            this.tx_jam1.TabIndex = 72;
+            // 
             // SuratMasuk
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.tx_jam1);
             this.Controls.Add(this.btn_PrintMasuk);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btn_Kembali);
-            this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.textBox8);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label5);
@@ -241,6 +238,8 @@
             this.Controls.Add(this.label1);
             this.Name = "SuratMasuk";
             this.Text = "SuratMasuk";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.SuratMasuk_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -259,11 +258,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtNIS;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button btn_Kembali;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btn_PrintMasuk;
+        private System.Windows.Forms.TextBox tx_jam1;
     }
 }

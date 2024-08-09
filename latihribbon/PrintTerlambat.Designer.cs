@@ -81,6 +81,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "PrintTerlambat";
             this.Text = "PrintTerlambat";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 

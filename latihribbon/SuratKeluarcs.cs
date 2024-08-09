@@ -17,6 +17,7 @@ namespace latihribbon
         public SuratKeluarcs(Form previousForm)
         {
             InitializeComponent();
+            this.Load += new System.EventHandler(this.SuratKeluarcs_Load);
             _previousForm = previousForm; // menyimpan referensi ke form sebelumnya
            
             // Menyelaraskan ukuran dan lokasi form ini dengan form sebelumnya
@@ -51,6 +52,18 @@ namespace latihribbon
         private void label11_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void SuratKeluarcs_Load(object sender, EventArgs e) // ubah ke jam saja
+        {
+            // Format waktu yang diinginkan
+            string currentTime = DateTime.Now.ToString("HH:mm");
+
+            // Atur waktu saat ini ke TextBox
+            tx_keluar.Text = currentTime;
+/*
+            // Opsional: Jika ingin membuat TextBox read-only agar tidak bisa diubah pengguna
+            tx_keluar.ReadOnly = true;*/
         }
     }
 }

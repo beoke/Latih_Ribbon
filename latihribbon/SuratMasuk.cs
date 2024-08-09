@@ -15,7 +15,8 @@ namespace latihribbon
         private Form _previousForm; // untuk kembali ke form sebelumnya
         public SuratMasuk(Form previousForm)
         {
-            InitializeComponent(); 
+            InitializeComponent();
+            this.Load += new System.EventHandler(this.SuratMasuk_Load);
             _previousForm = previousForm; // menyimpan referensi ke form sebelumnya
 
             // Menyelaraskan ukuran dan lokasi form ini dengan form sebelumnya
@@ -40,5 +41,19 @@ namespace latihribbon
 
 
         }
+
+        private void SuratMasuk_Load(object sender, EventArgs e)
+        {
+            // Format waktu yang diinginkan
+            string currentTime = DateTime.Now.ToString("HH:mm");
+
+            // Atur waktu saat ini ke TextBox
+            tx_jam1.Text = currentTime;
+            /*
+            // Opsional: Jika ingin membuat TextBox read-only agar tidak bisa diubah pengguna
+              tx_keluar.ReadOnly = true;*/
+        }
     }
+    
 }
+

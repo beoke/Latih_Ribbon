@@ -107,6 +107,7 @@ namespace latihribbon
             this.Controls.Add(this.btn_masuk);
             this.Name = "FormMilih";
             this.Text = "FormMilih";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormMilih_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
