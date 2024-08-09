@@ -32,6 +32,9 @@ namespace latihribbon
         {
             this.btn_Keluar = new System.Windows.Forms.Button();
             this.btn_masuk = new System.Windows.Forms.Button();
+            this.txtNIS = new System.Windows.Forms.Label();
+            this.txtNama = new System.Windows.Forms.Label();
+            this.txtKelas = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btn_Keluar
@@ -62,16 +65,51 @@ namespace latihribbon
             this.btn_masuk.UseVisualStyleBackColor = false;
             this.btn_masuk.Click += new System.EventHandler(this.btn_masuk_Click);
             // 
+            // txtNIS
+            // 
+            this.txtNIS.AutoSize = true;
+            this.txtNIS.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNIS.Location = new System.Drawing.Point(21, 21);
+            this.txtNIS.Name = "txtNIS";
+            this.txtNIS.Size = new System.Drawing.Size(57, 20);
+            this.txtNIS.TabIndex = 8;
+            this.txtNIS.Text = "NIS : ";
+            // 
+            // txtNama
+            // 
+            this.txtNama.AutoSize = true;
+            this.txtNama.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNama.Location = new System.Drawing.Point(21, 60);
+            this.txtNama.Name = "txtNama";
+            this.txtNama.Size = new System.Drawing.Size(75, 20);
+            this.txtNama.TabIndex = 9;
+            this.txtNama.Text = "Nama : ";
+            // 
+            // txtKelas
+            // 
+            this.txtKelas.AutoSize = true;
+            this.txtKelas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtKelas.Location = new System.Drawing.Point(21, 99);
+            this.txtKelas.Name = "txtKelas";
+            this.txtKelas.Size = new System.Drawing.Size(74, 20);
+            this.txtKelas.TabIndex = 11;
+            this.txtKelas.Text = "Kelas : ";
+            // 
             // FormMilih
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txtKelas);
+            this.Controls.Add(this.txtNama);
+            this.Controls.Add(this.txtNIS);
             this.Controls.Add(this.btn_Keluar);
             this.Controls.Add(this.btn_masuk);
             this.Name = "FormMilih";
             this.Text = "FormMilih";
+            this.Load += new System.EventHandler(this.FormMilih_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -79,5 +117,8 @@ namespace latihribbon
 
         private System.Windows.Forms.Button btn_Keluar;
         private System.Windows.Forms.Button btn_masuk;
+        private Label txtNIS;
+        private Label txtNama;
+        private Label txtKelas;
     }
 }
