@@ -47,5 +47,10 @@ namespace latihribbon
             _previousForm.Show();
             this.Close();
         }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
