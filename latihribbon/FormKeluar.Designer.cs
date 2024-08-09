@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormKeluar));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.tglsatu = new System.Windows.Forms.DateTimePicker();
             this.button1 = new System.Windows.Forms.Button();
             this.txtTahun = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -39,7 +39,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtNama = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.tgldua = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -57,13 +57,14 @@
             this.dataGridView1.Size = new System.Drawing.Size(1267, 465);
             this.dataGridView1.TabIndex = 0;
             // 
-            // dateTimePicker1
+            // tglsatu
             // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(338, 29);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(174, 24);
-            this.dateTimePicker1.TabIndex = 19;
+            this.tglsatu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tglsatu.Location = new System.Drawing.Point(338, 29);
+            this.tglsatu.Name = "tglsatu";
+            this.tglsatu.Size = new System.Drawing.Size(174, 24);
+            this.tglsatu.TabIndex = 19;
+            this.tglsatu.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // button1
             // 
@@ -83,6 +84,7 @@
             this.txtTahun.Name = "txtTahun";
             this.txtTahun.Size = new System.Drawing.Size(100, 24);
             this.txtTahun.TabIndex = 17;
+            this.txtTahun.TextChanged += new System.EventHandler(this.txtTahun_TextChanged);
             // 
             // label4
             // 
@@ -101,6 +103,7 @@
             this.txtKelas.Name = "txtKelas";
             this.txtKelas.Size = new System.Drawing.Size(100, 24);
             this.txtKelas.TabIndex = 15;
+            this.txtKelas.TextChanged += new System.EventHandler(this.txtKelas_TextChanged);
             // 
             // label3
             // 
@@ -129,6 +132,7 @@
             this.txtNama.Name = "txtNama";
             this.txtNama.Size = new System.Drawing.Size(150, 24);
             this.txtNama.TabIndex = 12;
+            this.txtNama.TextChanged += new System.EventHandler(this.txtNama_TextChanged);
             // 
             // label1
             // 
@@ -140,20 +144,20 @@
             this.label1.TabIndex = 11;
             this.label1.Text = "Nama :";
             // 
-            // dateTimePicker2
+            // tgldua
             // 
-            this.dateTimePicker2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Location = new System.Drawing.Point(581, 28);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(174, 24);
-            this.dateTimePicker2.TabIndex = 20;
-            this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
+            this.tgldua.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tgldua.Location = new System.Drawing.Point(581, 28);
+            this.tgldua.Name = "tgldua";
+            this.tgldua.Size = new System.Drawing.Size(174, 24);
+            this.tgldua.TabIndex = 20;
+            this.tgldua.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(516, 34);
+            this.label5.Location = new System.Drawing.Point(518, 33);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(62, 18);
             this.label5.TabIndex = 21;
@@ -166,8 +170,8 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1282, 553);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.tgldua);
+            this.Controls.Add(this.tglsatu);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtTahun);
             this.Controls.Add(this.label4);
@@ -189,7 +193,7 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker tglsatu;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txtTahun;
         private System.Windows.Forms.Label label4;
@@ -198,7 +202,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtNama;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker tgldua;
         private System.Windows.Forms.Label label5;
     }
 }

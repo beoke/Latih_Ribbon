@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using latihribbon.Model;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -28,6 +29,15 @@ namespace latihribbon
             using (var koneksi = new SqlConnection(_connString))
             {
                 var users = koneksi.Query<SiswaModel>(sql,mbuh);
+                return users;
+            }
+        }
+
+        public IEnumerable<KeluarModel> GetKeluarFilter(string sql, object mbuh)
+        {
+            using (var koneksi = new SqlConnection(_connString))
+            {
+                var users = koneksi.Query<KeluarModel>(sql, mbuh);
                 return users;
             }
         }

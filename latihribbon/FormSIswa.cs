@@ -39,32 +39,6 @@ namespace latihribbon
 
         public void filter(string nama, string kelas, string tahun)
         {
-            /* string sql;
-             sql = @"SELECT * FROM siswa";
-             if(nama != "" && kelas == "" && tahun == "")
-             {
-                 sql = @"SELECT * FROM siswa WHERE Nama LIKE @nama+'%'";
-             } else if (nama == "" && kelas != "" && tahun == "")
-             {
-                 sql = @"SELECT * FROM siswa WHERE Kelas LIKE @kelas+'%'";
-             }else if (nama == "" && kelas == "" && tahun != "")
-             {
-                 sql = @"SELECT * FROM siswa WHERE Tahun LIKE @tahun+'%'";
-             } else if (nama != "" && kelas != "" && tahun == "")
-             {
-                 sql = @"SELECT * FROM siswa WHERE Nama LIKE @nama+'%' AND Kelas LIKE @kelas+'%'";
-             } else if (nama== "" && kelas != "" && tahun != "")
-             {
-                 sql = @"SELECT * FROM siswa WHERE Kelas LIKE @kelas+'%' AND Tahun LIKE @tahun+'%'";
-             } else if (nama != "" && kelas == "" && tahun != "")
-             {
-                 sql = @"SELECT * FROM siswa WHERE Nama LIKE @nama+'%' AND Tahun LIKE @tahun+'%'";
-             }
-             else
-             {
-                 sql = @"SELECT * FROM siswa WHERE Nama LIKE @nama+'%' AND Kelas LIKE @kelas+'%' AND Tahun LIKE @tahun+'%'";
-             }*/
-
             string sql = CekIsi(nama,kelas,tahun);
 
             var fltr = db.GetSiswaFilter(sql, new { nama = nama, kelas = kelas, tahun = tahun });
