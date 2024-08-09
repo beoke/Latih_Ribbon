@@ -24,11 +24,30 @@ namespace latihribbon
 
         private void btn_enter_Click(object sender, EventArgs e)
         {
+            ENTER();
+        }
+        private void ResetForm()
+        {
+            // Mengosongkan TextBox dan mengembalikan fokus ke TextBox NIS
+            tx_NIS.Clear();
+            tx_NIS.Focus();
+        }
+
+        private void tx_NIS_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                ENTER();
+            }
+        }
+
+        public void ENTER()
+        {
             // Validasi input untuk memastikan hanya angka yang bisa dimasukkan
             int nis;
             if (!int.TryParse(tx_NIS.Text, out nis))
             {
-                MessageBox.Show("Harap masukkan angka yang valid untuk NIS.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show($"Harap {nis} masukkan angka yang valid untuk NIS.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             // Cari NIS di tabel siswa
@@ -60,21 +79,6 @@ namespace latihribbon
                 // Tampilkan FormMilih dan sembunyikan form ini
                 formMilih.Show();
                 this.Hide();
-            }
-        }
-        private void ResetForm()
-        {
-            // Mengosongkan TextBox dan mengembalikan fokus ke TextBox NIS
-            tx_NIS.Clear();
-            tx_NIS.Focus();
-        }
-
-        private void tx_NIS_KeyPress_1(object sender, KeyPressEventArgs e)
-        {
-            // Memastikan hanya angka yang bisa diinputkan
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
             }
         }
     }
