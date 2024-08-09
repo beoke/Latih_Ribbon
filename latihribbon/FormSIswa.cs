@@ -39,38 +39,60 @@ namespace latihribbon
 
         public void filter(string nama, string kelas, string tahun)
         {
-            string sql;
-            sql = @"SELECT * FROM siswa";
-            if(nama != "" && kelas == "" && tahun == "")
-            {
-                sql = @"SELECT * FROM siswa WHERE Nama LIKE @nama+'%'";
-            } else if (nama == "" && kelas != "" && tahun == "")
-            {
-                sql = @"SELECT * FROM siswa WHERE Kelas LIKE @kelas+'%'";
-            }else if (nama == "" && kelas == "" && tahun != "")
-            {
-                sql = @"SELECT * FROM siswa WHERE Tahun LIKE @tahun+'%'";
-            } else if (nama != "" && kelas != "" && tahun == "")
-            {
-                sql = @"SELECT * FROM siswa WHERE Nama LIKE @nama+'%' AND Kelas LIKE @kelas+'%'";
-            } else if (nama== "" && kelas != "" && tahun != "")
-            {
-                sql = @"SELECT * FROM siswa WHERE Kelas LIKE @kelas+'%' AND Tahun LIKE @tahun+'%'";
-            } else if (nama != "" && kelas == "" && tahun != "")
-            {
-                sql = @"SELECT * FROM siswa WHERE Nama LIKE @nama+'%' AND Tahun LIKE @tahun+'%'";
-            }
-            else
-            {
-                sql = @"SELECT * FROM siswa WHERE Nama LIKE @nama+'%' AND Kelas LIKE @kelas+'%' AND Tahun LIKE @tahun+'%'";
-            }
-            
+            /* string sql;
+             sql = @"SELECT * FROM siswa";
+             if(nama != "" && kelas == "" && tahun == "")
+             {
+                 sql = @"SELECT * FROM siswa WHERE Nama LIKE @nama+'%'";
+             } else if (nama == "" && kelas != "" && tahun == "")
+             {
+                 sql = @"SELECT * FROM siswa WHERE Kelas LIKE @kelas+'%'";
+             }else if (nama == "" && kelas == "" && tahun != "")
+             {
+                 sql = @"SELECT * FROM siswa WHERE Tahun LIKE @tahun+'%'";
+             } else if (nama != "" && kelas != "" && tahun == "")
+             {
+                 sql = @"SELECT * FROM siswa WHERE Nama LIKE @nama+'%' AND Kelas LIKE @kelas+'%'";
+             } else if (nama== "" && kelas != "" && tahun != "")
+             {
+                 sql = @"SELECT * FROM siswa WHERE Kelas LIKE @kelas+'%' AND Tahun LIKE @tahun+'%'";
+             } else if (nama != "" && kelas == "" && tahun != "")
+             {
+                 sql = @"SELECT * FROM siswa WHERE Nama LIKE @nama+'%' AND Tahun LIKE @tahun+'%'";
+             }
+             else
+             {
+                 sql = @"SELECT * FROM siswa WHERE Nama LIKE @nama+'%' AND Kelas LIKE @kelas+'%' AND Tahun LIKE @tahun+'%'";
+             }*/
+
+            string sql = CekIsi(nama,kelas,tahun);
+
+
+
+
+
             //sql = @"SELECT * FROM siswa WHERE Nama LIKE @nama+'%' OR Kelas LIKE @kelas+'%' OR Tahun LIKE @tahun+'%'";
             //string sql = @"SELECT * FROM siswa WHERE Nama LIKE @nama+'%'";
-            var fltr = db.GetSiswaFilter(sql, new {nama=nama,kelas=kelas,tahun=tahun});
-            dataGridView1.DataSource= fltr.ToList();
+            var fltr = db.GetSiswaFilter(sql, new { nama = nama, kelas = kelas, tahun = tahun });
+            dataGridView1.DataSource = fltr.ToList();
 
 
+        }
+
+        public string CekIsi(string nama, string kelas, string tahun)
+        {
+            List<string> kondisi = new List<string>();
+            if (nama != "") kondisi.Add(" Nama LIKE @nama+'%'");
+            if (kelas != "") kondisi.Add(" Kelas LIKE @kelas+'%'");
+            if (tahun != "") kondisi.Add(" Tahun LIKE @tahun+'%'");
+
+            string sql = "SELECT * FROM siswa";
+
+            if (kondisi.Count > 0)
+            {
+                sql += " WHERE" + string.Join(" AND ", kondisi);
+            }
+            return sql;
         }
 
         private void txtNama_TextChanged(object sender, EventArgs e)
