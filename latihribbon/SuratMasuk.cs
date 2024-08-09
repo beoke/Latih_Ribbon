@@ -64,6 +64,11 @@ namespace latihribbon
         {
 
         }
+
+        private void txtTanggal_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
     
 }

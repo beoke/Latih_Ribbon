@@ -19,6 +19,11 @@ namespace latihribbon
 
         private void btn_Login_Click(object sender, EventArgs e)
         {
+            ENTER();
+        }
+
+        public void ENTER()
+        {
             string username = tx_Username.Text;
             string password = tx_Password.Text;
 
@@ -39,10 +44,10 @@ namespace latihribbon
                     adminDashboard.Show();
                 }
                 else if (user.Role == "siswa")
-                 {
-                     Pemakai userDashboard = new Pemakai();
-                     userDashboard.Show();
-                 }
+                {
+                    Pemakai userDashboard = new Pemakai();
+                    userDashboard.Show();
+                }
                 this.Hide();
             }
             else
@@ -50,6 +55,16 @@ namespace latihribbon
                 // If user does not exist, show an error message
                 MessageBox.Show("Invalid username or password", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void tx_Password_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) ENTER();
+        }
+
+        private void tx_Username_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) tx_Password.Focus();
         }
     }
 }

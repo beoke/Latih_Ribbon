@@ -202,7 +202,7 @@
             // 
             this.tx_jam1.Location = new System.Drawing.Point(448, 313);
             this.tx_jam1.Name = "tx_jam1";
-            this.tx_jam1.Size = new System.Drawing.Size(100, 22);
+            this.tx_jam1.Size = new System.Drawing.Size(121, 22);
             this.tx_jam1.TabIndex = 72;
             this.tx_jam1.TextChanged += new System.EventHandler(this.tx_jam1_TextChanged);
             // 
@@ -214,6 +214,7 @@
             this.txtTanggal.Name = "txtTanggal";
             this.txtTanggal.Size = new System.Drawing.Size(215, 30);
             this.txtTanggal.TabIndex = 73;
+            this.txtTanggal.TextChanged += new System.EventHandler(this.txtTanggal_TextChanged);
             // 
             // SuratMasuk
             // 

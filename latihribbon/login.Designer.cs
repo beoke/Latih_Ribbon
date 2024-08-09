@@ -57,6 +57,7 @@
             this.tx_Username.Name = "tx_Username";
             this.tx_Username.Size = new System.Drawing.Size(156, 28);
             this.tx_Username.TabIndex = 1;
+            this.tx_Username.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tx_Username_KeyDown);
             // 
             // pictureBox1
             // 
@@ -79,6 +80,7 @@
             this.tx_Password.PasswordChar = '*';
             this.tx_Password.Size = new System.Drawing.Size(156, 28);
             this.tx_Password.TabIndex = 4;
+            this.tx_Password.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tx_Password_KeyDown);
             // 
             // label2
             // 
