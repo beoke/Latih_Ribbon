@@ -70,5 +70,10 @@ namespace latihribbon
         {
 
         }
+
+        private void printDocumentKeluar_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            e.Graphics.DrawString("Surat Ijin Meninggalkan Pelajaran", new Font("Times New Roman" ) )
+        }
     }
 }

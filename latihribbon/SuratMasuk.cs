@@ -69,6 +69,11 @@ namespace latihribbon
         {
 
         }
+
+        private void btn_PrintMasuk_Click(object sender, EventArgs e)
+        {
+
+        }
     }
     
 }

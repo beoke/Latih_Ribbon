@@ -48,6 +48,8 @@
             this.combojam = new System.Windows.Forms.ComboBox();
             this.tx_keluar = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.printPreviewDialogKeluar = new System.Windows.Forms.PrintPreviewDialog();
+            this.printDocumentKeluar = new System.Drawing.Printing.PrintDocument();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -106,6 +108,7 @@
             this.txtNama.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNama.Location = new System.Drawing.Point(172, 206);
             this.txtNama.Name = "txtNama";
+            this.txtNama.ReadOnly = true;
             this.txtNama.Size = new System.Drawing.Size(374, 34);
             this.txtNama.TabIndex = 30;
             // 
@@ -124,6 +127,7 @@
             this.txtKelas.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtKelas.Location = new System.Drawing.Point(172, 291);
             this.txtKelas.Name = "txtKelas";
+            this.txtKelas.ReadOnly = true;
             this.txtKelas.Size = new System.Drawing.Size(374, 34);
             this.txtKelas.TabIndex = 28;
             // 
@@ -152,6 +156,7 @@
             this.txtNIS.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNIS.Location = new System.Drawing.Point(172, 121);
             this.txtNIS.Name = "txtNIS";
+            this.txtNIS.ReadOnly = true;
             this.txtNIS.Size = new System.Drawing.Size(374, 34);
             this.txtNIS.TabIndex = 25;
             // 
@@ -199,9 +204,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel1.Controls.Add(this.label11);
-            this.panel1.Location = new System.Drawing.Point(9, 10);
+            this.panel1.Location = new System.Drawing.Point(9, 9);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1256, 79);
+            this.panel1.Size = new System.Drawing.Size(1262, 79);
             this.panel1.TabIndex = 71;
             // 
             // label11
@@ -209,7 +214,7 @@
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(510, 19);
+            this.label11.Location = new System.Drawing.Point(513, 19);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(242, 37);
             this.label11.TabIndex = 68;
@@ -238,7 +243,7 @@
             // panel2
             // 
             this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel2.BackColor = System.Drawing.Color.Silver;
+            this.panel2.BackColor = System.Drawing.Color.Gainsboro;
             this.panel2.Controls.Add(this.tx_keluar);
             this.panel2.Controls.Add(this.combojam);
             this.panel2.Controls.Add(this.panel1);
@@ -256,10 +261,24 @@
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.txtNIS);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Location = new System.Drawing.Point(5, 2);
+            this.panel2.Location = new System.Drawing.Point(1, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1275, 741);
+            this.panel2.Size = new System.Drawing.Size(1281, 754);
             this.panel2.TabIndex = 74;
+            // 
+            // printPreviewDialogKeluar
+            // 
+            this.printPreviewDialogKeluar.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialogKeluar.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialogKeluar.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialogKeluar.Enabled = true;
+            this.printPreviewDialogKeluar.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialogKeluar.Icon")));
+            this.printPreviewDialogKeluar.Name = "printPreviewDialogKeluar";
+            this.printPreviewDialogKeluar.Visible = false;
+            // 
+            // printDocumentKeluar
+            // 
+            this.printDocumentKeluar.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocumentKeluar_PrintPage);
             // 
             // SuratKeluarcs
             // 
@@ -299,5 +318,7 @@
         private System.Windows.Forms.ComboBox combojam;
         private System.Windows.Forms.TextBox tx_keluar;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialogKeluar;
+        private System.Drawing.Printing.PrintDocument printDocumentKeluar;
     }
 }
