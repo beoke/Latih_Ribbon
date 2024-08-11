@@ -46,6 +46,8 @@
             this.tx_jam1 = new System.Windows.Forms.TextBox();
             this.txtTanggal = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.printDocumentMasuk = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialogMasuk = new System.Windows.Forms.PrintPreviewDialog();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -78,9 +80,9 @@
             this.label5.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(46, 479);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(250, 33);
+            this.label5.Size = new System.Drawing.Size(224, 33);
             this.label5.TabIndex = 58;
-            this.label5.Text = "Masuk Pada Jam ke :";
+            this.label5.Text = "Masuk Pada Jam  :";
             // 
             // txtNama
             // 
@@ -160,7 +162,7 @@
             this.label11.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(518, 23);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(249, 39);
+            this.label11.Size = new System.Drawing.Size(243, 37);
             this.label11.TabIndex = 68;
             this.label11.Text = "Surat Izin Masuk";
             // 
@@ -244,6 +246,20 @@
             this.panel2.Size = new System.Drawing.Size(1283, 753);
             this.panel2.TabIndex = 74;
             // 
+            // printDocumentMasuk
+            // 
+            this.printDocumentMasuk.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocumentMasuk_PrintPage);
+            // 
+            // printPreviewDialogMasuk
+            // 
+            this.printPreviewDialogMasuk.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialogMasuk.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialogMasuk.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialogMasuk.Enabled = true;
+            this.printPreviewDialogMasuk.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialogMasuk.Icon")));
+            this.printPreviewDialogMasuk.Name = "printPreviewDialogMasuk";
+            this.printPreviewDialogMasuk.Visible = false;
+            // 
             // SuratMasuk
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -280,5 +296,7 @@
         private System.Windows.Forms.TextBox tx_jam1;
         private System.Windows.Forms.TextBox txtTanggal;
         private System.Windows.Forms.Panel panel2;
+        private System.Drawing.Printing.PrintDocument printDocumentMasuk;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialogMasuk;
     }
 }

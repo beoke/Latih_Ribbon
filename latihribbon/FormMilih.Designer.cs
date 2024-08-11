@@ -41,11 +41,11 @@ namespace latihribbon
             // 
             this.btn_Keluar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_Keluar.BackColor = System.Drawing.Color.Red;
-            this.btn_Keluar.Font = new System.Drawing.Font("Swis721 BlkCn BT", 12F);
+            this.btn_Keluar.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Keluar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btn_Keluar.Location = new System.Drawing.Point(474, 163);
+            this.btn_Keluar.Location = new System.Drawing.Point(452, 163);
             this.btn_Keluar.Name = "btn_Keluar";
-            this.btn_Keluar.Size = new System.Drawing.Size(173, 129);
+            this.btn_Keluar.Size = new System.Drawing.Size(320, 150);
             this.btn_Keluar.TabIndex = 7;
             this.btn_Keluar.Text = "Keluar";
             this.btn_Keluar.UseVisualStyleBackColor = false;
@@ -55,11 +55,11 @@ namespace latihribbon
             // 
             this.btn_masuk.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btn_masuk.BackColor = System.Drawing.SystemColors.Highlight;
-            this.btn_masuk.Font = new System.Drawing.Font("Swis721 BlkCn BT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_masuk.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_masuk.ForeColor = System.Drawing.SystemColors.Control;
-            this.btn_masuk.Location = new System.Drawing.Point(182, 163);
+            this.btn_masuk.Location = new System.Drawing.Point(27, 163);
             this.btn_masuk.Name = "btn_masuk";
-            this.btn_masuk.Size = new System.Drawing.Size(173, 129);
+            this.btn_masuk.Size = new System.Drawing.Size(320, 150);
             this.btn_masuk.TabIndex = 6;
             this.btn_masuk.Text = "Masuk";
             this.btn_masuk.UseVisualStyleBackColor = false;
@@ -68,30 +68,30 @@ namespace latihribbon
             // txtNIS
             // 
             this.txtNIS.AutoSize = true;
-            this.txtNIS.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNIS.Location = new System.Drawing.Point(21, 21);
+            this.txtNIS.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNIS.Location = new System.Drawing.Point(69, 70);
             this.txtNIS.Name = "txtNIS";
-            this.txtNIS.Size = new System.Drawing.Size(57, 20);
+            this.txtNIS.Size = new System.Drawing.Size(57, 22);
             this.txtNIS.TabIndex = 8;
             this.txtNIS.Text = "NIS : ";
             // 
             // txtNama
             // 
             this.txtNama.AutoSize = true;
-            this.txtNama.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNama.Location = new System.Drawing.Point(21, 60);
+            this.txtNama.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNama.Location = new System.Drawing.Point(69, 109);
             this.txtNama.Name = "txtNama";
-            this.txtNama.Size = new System.Drawing.Size(75, 20);
+            this.txtNama.Size = new System.Drawing.Size(72, 22);
             this.txtNama.TabIndex = 9;
             this.txtNama.Text = "Nama : ";
             // 
             // txtKelas
             // 
             this.txtKelas.AutoSize = true;
-            this.txtKelas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtKelas.Location = new System.Drawing.Point(21, 99);
+            this.txtKelas.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtKelas.Location = new System.Drawing.Point(69, 148);
             this.txtKelas.Name = "txtKelas";
-            this.txtKelas.Size = new System.Drawing.Size(74, 20);
+            this.txtKelas.Size = new System.Drawing.Size(72, 22);
             this.txtKelas.TabIndex = 11;
             this.txtKelas.Text = "Kelas : ";
             // 

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SuratKeluarcs));
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.txtAlasan = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -54,14 +54,15 @@
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // textBox8
+            // txtAlasan
             // 
-            this.textBox8.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.Location = new System.Drawing.Point(778, 129);
-            this.textBox8.Multiline = true;
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(453, 369);
-            this.textBox8.TabIndex = 43;
+            this.txtAlasan.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAlasan.Location = new System.Drawing.Point(778, 129);
+            this.txtAlasan.MaxLength = 10;
+            this.txtAlasan.Multiline = true;
+            this.txtAlasan.Name = "txtAlasan";
+            this.txtAlasan.Size = new System.Drawing.Size(453, 369);
+            this.txtAlasan.TabIndex = 43;
             // 
             // label9
             // 
@@ -69,9 +70,9 @@
             this.label9.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(631, 123);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(113, 33);
+            this.label9.Size = new System.Drawing.Size(144, 33);
             this.label9.TabIndex = 42;
-            this.label9.Text = "Alasan : ";
+            this.label9.Text = "Keperluan :";
             // 
             // label6
             // 
@@ -249,7 +250,7 @@
             this.panel2.Controls.Add(this.panel1);
             this.panel2.Controls.Add(this.btn_kembali);
             this.panel2.Controls.Add(this.btn_PrintKeluar);
-            this.panel2.Controls.Add(this.textBox8);
+            this.panel2.Controls.Add(this.txtAlasan);
             this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label5);
@@ -299,7 +300,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox txtAlasan;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
