@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SuratMasuk));
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.txtAlasan = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtNama = new System.Windows.Forms.TextBox();
@@ -52,15 +52,15 @@
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // textBox8
+            // txtAlasan
             // 
-            this.textBox8.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.textBox8.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.Location = new System.Drawing.Point(798, 139);
-            this.textBox8.Multiline = true;
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(426, 273);
-            this.textBox8.TabIndex = 63;
+            this.txtAlasan.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtAlasan.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAlasan.Location = new System.Drawing.Point(798, 139);
+            this.txtAlasan.Multiline = true;
+            this.txtAlasan.Name = "txtAlasan";
+            this.txtAlasan.Size = new System.Drawing.Size(426, 273);
+            this.txtAlasan.TabIndex = 63;
             // 
             // label9
             // 
@@ -231,7 +231,7 @@
             this.panel2.Controls.Add(this.btn_PrintMasuk);
             this.panel2.Controls.Add(this.panel1);
             this.panel2.Controls.Add(this.btn_Kembali);
-            this.panel2.Controls.Add(this.textBox8);
+            this.panel2.Controls.Add(this.txtAlasan);
             this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.txtNama);
@@ -279,7 +279,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox txtAlasan;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtNama;

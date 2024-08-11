@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace latihribbon
 {
     public partial class SuratKeluarcs : Form
@@ -115,8 +116,6 @@ namespace latihribbon
             e.Graphics.DrawString($"Keperluan : {txtAlasan.Text}", new Font("Times New Roman", 8), Brushes.Black, new Point(30, 550));
             e.Graphics.DrawString($"Mengetahui Guru BK", new Font("Times New Roman", 7), Brushes.Black, new Point(280, 490));
             e.Graphics.DrawString($"........................", new Font("Times New Roman", 8), Brushes.Black, new Point(285, 530));
-
-
         }
     }
 }
