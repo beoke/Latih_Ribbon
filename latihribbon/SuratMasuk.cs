@@ -110,6 +110,11 @@ namespace latihribbon
             e.Graphics.DrawString($"........................", new Font("Times New Roman", 8), Brushes.Black, new Point(285, 460));
 
         }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
     }
     
 }

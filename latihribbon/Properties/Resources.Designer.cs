@@ -93,6 +93,16 @@ namespace latihribbon.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap left_arrow_removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("left-arrow-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap login {
             get {
                 object obj = ResourceManager.GetObject("login", resourceCulture);
@@ -116,6 +126,16 @@ namespace latihribbon.Properties {
         internal static System.Drawing.Bitmap Rectangle_54__2_ {
             get {
                 object obj = ResourceManager.GetObject("Rectangle 54 (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Rectangle_54__4_ {
+            get {
+                object obj = ResourceManager.GetObject("Rectangle 54 (4)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
