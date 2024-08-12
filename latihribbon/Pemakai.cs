@@ -45,16 +45,20 @@ namespace latihribbon
         {
             // Validasi input untuk memastikan hanya angka yang bisa dimasukkan
             int nis;
+           
             if (!int.TryParse(tx_NIS.Text, out nis))
             {
-                MessageBox.Show($"Harap {nis} masukkan angka yang valid untuk NIS.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show($"Harap {tx_NIS.Text} masukkan angka yang valid untuk NIS.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                tx_NIS.Text = "";
                 return;
             }
+
             // Cari NIS di tabel siswa
             var siswa = _dbDal.GetSiswaByNis(nis);
             if (siswa == null)
             {
                 MessageBox.Show("NIS tidak ditemukan di tabel siswa.", "Data Not Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                tx_NIS.Text = "";
             }
             else
             {

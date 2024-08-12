@@ -48,5 +48,12 @@ namespace latihribbon
             txtNama.Text += " " + Pemakai.nama;
             txtKelas.Text += " " + Pemakai.kelas;
         }
+
+        private void btn_kembali_Click(object sender, EventArgs e)
+        {
+            Pemakai p = new Pemakai();
+            p.Show();
+            this.Close();
+        }
     }
 }
