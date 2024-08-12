@@ -45,7 +45,7 @@ namespace latihribbon
             this.btn_Keluar.BackColor = System.Drawing.Color.Red;
             this.btn_Keluar.Font = new System.Drawing.Font("Calibri", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Keluar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btn_Keluar.Location = new System.Drawing.Point(989, 454);
+            this.btn_Keluar.Location = new System.Drawing.Point(914, 454);
             this.btn_Keluar.Name = "btn_Keluar";
             this.btn_Keluar.Size = new System.Drawing.Size(557, 302);
             this.btn_Keluar.TabIndex = 7;
@@ -59,7 +59,7 @@ namespace latihribbon
             this.btn_masuk.BackColor = System.Drawing.SystemColors.Highlight;
             this.btn_masuk.Font = new System.Drawing.Font("Calibri", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_masuk.ForeColor = System.Drawing.SystemColors.Control;
-            this.btn_masuk.Location = new System.Drawing.Point(72, 454);
+            this.btn_masuk.Location = new System.Drawing.Point(217, 454);
             this.btn_masuk.Name = "btn_masuk";
             this.btn_masuk.Size = new System.Drawing.Size(557, 302);
             this.btn_masuk.TabIndex = 6;
@@ -72,7 +72,7 @@ namespace latihribbon
             this.txtNIS.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtNIS.AutoSize = true;
             this.txtNIS.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNIS.Location = new System.Drawing.Point(386, 134);
+            this.txtNIS.Location = new System.Drawing.Point(623, 126);
             this.txtNIS.Name = "txtNIS";
             this.txtNIS.Size = new System.Drawing.Size(120, 45);
             this.txtNIS.TabIndex = 8;
@@ -83,7 +83,7 @@ namespace latihribbon
             this.txtNama.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtNama.AutoSize = true;
             this.txtNama.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNama.Location = new System.Drawing.Point(377, 195);
+            this.txtNama.Location = new System.Drawing.Point(587, 189);
             this.txtNama.Name = "txtNama";
             this.txtNama.Size = new System.Drawing.Size(156, 45);
             this.txtNama.TabIndex = 9;
@@ -94,7 +94,7 @@ namespace latihribbon
             this.txtKelas.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtKelas.AutoSize = true;
             this.txtKelas.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtKelas.Location = new System.Drawing.Point(377, 264);
+            this.txtKelas.Location = new System.Drawing.Point(594, 256);
             this.txtKelas.Name = "txtKelas";
             this.txtKelas.Size = new System.Drawing.Size(149, 45);
             this.txtKelas.TabIndex = 11;

@@ -29,37 +29,55 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Pemakai));
+            this.tx_NIS = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_enter = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.tx_NIS = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // tx_NIS
+            // 
+            this.tx_NIS.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tx_NIS.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.tx_NIS.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tx_NIS.Font = new System.Drawing.Font("News706 BT", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tx_NIS.Location = new System.Drawing.Point(94, 449);
+            this.tx_NIS.Multiline = true;
+            this.tx_NIS.Name = "tx_NIS";
+            this.tx_NIS.Size = new System.Drawing.Size(489, 54);
+            this.tx_NIS.TabIndex = 0;
+            this.tx_NIS.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tx_NIS_KeyDown);
             // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(109, 307);
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(126, 391);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(246, 26);
+            this.label1.Size = new System.Drawing.Size(426, 46);
             this.label1.TabIndex = 1;
             this.label1.Text = "Scan atau Masukkan NIS";
             // 
             // btn_enter
             // 
             this.btn_enter.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_enter.BackColor = System.Drawing.Color.Gray;
-            this.btn_enter.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_enter.BackColor = System.Drawing.Color.Transparent;
+            this.btn_enter.BackgroundImage = global::latihribbon.Properties.Resources.Rectangle_54__2_;
+            this.btn_enter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_enter.FlatAppearance.BorderSize = 0;
+            this.btn_enter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_enter.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_enter.ForeColor = System.Drawing.SystemColors.Control;
-            this.btn_enter.Location = new System.Drawing.Point(165, 438);
+            this.btn_enter.Location = new System.Drawing.Point(94, 550);
             this.btn_enter.Name = "btn_enter";
-            this.btn_enter.Size = new System.Drawing.Size(121, 43);
+            this.btn_enter.Size = new System.Drawing.Size(489, 69);
             this.btn_enter.TabIndex = 2;
-            this.btn_enter.Text = "Enter";
+            this.btn_enter.Text = "ENTER";
             this.btn_enter.UseVisualStyleBackColor = false;
             this.btn_enter.Click += new System.EventHandler(this.btn_enter_Click);
             // 
@@ -68,44 +86,47 @@
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(101, 43);
+            this.pictureBox1.Location = new System.Drawing.Point(123, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(256, 199);
+            this.pictureBox1.Size = new System.Drawing.Size(429, 318);
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
             // panel1
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel1.BackColor = System.Drawing.Color.LightGray;
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.BackgroundImage = global::latihribbon.Properties.Resources.login;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.btn_enter);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.tx_NIS);
-            this.panel1.Location = new System.Drawing.Point(234, 60);
+            this.panel1.Location = new System.Drawing.Point(133, 117);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(454, 530);
+            this.panel1.Size = new System.Drawing.Size(679, 711);
             this.panel1.TabIndex = 4;
             // 
-            // tx_NIS
+            // label2
             // 
-            this.tx_NIS.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tx_NIS.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.tx_NIS.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tx_NIS.Font = new System.Drawing.Font("News706 BT", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tx_NIS.Location = new System.Drawing.Point(82, 366);
-            this.tx_NIS.Multiline = true;
-            this.tx_NIS.Name = "tx_NIS";
-            this.tx_NIS.Size = new System.Drawing.Size(303, 38);
-            this.tx_NIS.TabIndex = 0;
-            this.tx_NIS.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tx_NIS_KeyDown);
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(269, 275);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(159, 33);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Rekap Siswa";
             // 
             // Pemakai
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(947, 664);
+            this.BackgroundImage = global::latihribbon.Properties.Resources.ssmea_bg;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(947, 973);
             this.Controls.Add(this.panel1);
             this.Name = "Pemakai";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -119,10 +140,12 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.TextBox tx_NIS;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_enter;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox tx_NIS;
+        private System.Windows.Forms.Label label2;
     }
 }
