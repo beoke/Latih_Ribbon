@@ -66,7 +66,7 @@
             this.tglsatu.Name = "tglsatu";
             this.tglsatu.Size = new System.Drawing.Size(174, 24);
             this.tglsatu.TabIndex = 19;
-            this.tglsatu.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+        
             // 
             // button1
             // 
@@ -86,7 +86,7 @@
             this.txtTahun.Name = "txtTahun";
             this.txtTahun.Size = new System.Drawing.Size(100, 24);
             this.txtTahun.TabIndex = 17;
-            this.txtTahun.TextChanged += new System.EventHandler(this.txtTahun_TextChanged);
+
             // 
             // label4
             // 
@@ -105,7 +105,6 @@
             this.txtKelas.Name = "txtKelas";
             this.txtKelas.Size = new System.Drawing.Size(100, 24);
             this.txtKelas.TabIndex = 15;
-            this.txtKelas.TextChanged += new System.EventHandler(this.txtKelas_TextChanged);
             // 
             // label3
             // 
@@ -134,7 +133,6 @@
             this.txtNama.Name = "txtNama";
             this.txtNama.Size = new System.Drawing.Size(150, 24);
             this.txtNama.TabIndex = 12;
-            this.txtNama.TextChanged += new System.EventHandler(this.txtNama_TextChanged);
             // 
             // label1
             // 
@@ -153,7 +151,6 @@
             this.tgldua.Name = "tgldua";
             this.tgldua.Size = new System.Drawing.Size(174, 24);
             this.tgldua.TabIndex = 20;
-            this.tgldua.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
             // 
             // label5
             // 

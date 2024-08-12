@@ -41,7 +41,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tgldua = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtNIS = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -161,13 +161,13 @@
             this.label5.TabIndex = 21;
             this.label5.Text = "Sampai";
             // 
-            // textBox1
+            // txtNIS
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(87, 29);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(113, 24);
-            this.textBox1.TabIndex = 23;
+            this.txtNIS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNIS.Location = new System.Drawing.Point(87, 29);
+            this.txtNIS.Name = "txtNIS";
+            this.txtNIS.Size = new System.Drawing.Size(113, 24);
+            this.txtNIS.TabIndex = 23;
             // 
             // label6
             // 
@@ -185,7 +185,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1513, 553);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtNIS);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.tgldua);
@@ -222,7 +222,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker tgldua;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtNIS;
         private System.Windows.Forms.Label label6;
     }
 }
