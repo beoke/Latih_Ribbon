@@ -60,11 +60,7 @@ namespace latihribbon
           ShowFormInPanel(laporan);
         }
 
-        private void ribbon_surat_Click(object sender, EventArgs e)
-        {
-            FormSurat surat = new FormSurat();
-            ShowFormInPanel(surat);
-        }
+     
 
         private void ribbon_Siswa_Click(object sender, EventArgs e)
         {
