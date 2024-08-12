@@ -90,7 +90,7 @@ namespace latihribbon
             e.Graphics.DrawString($"Mengetahui Guru Pengajar", new Font("Times New Roman", 7),Brushes.Black, new Point(270,110) );
             e.Graphics.DrawString($"........................", new Font("Times New Roman", 8),Brushes.Black, new Point(285,150) );
 
-            e.Graphics.DrawString("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - Potong Disini - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -", new Font("Times New Roman", 6), Brushes.Black, new Point(0, 190));
+            e.Graphics.DrawString("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - Potong Disini - - - - - - - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - -", new Font("Times New Roman", 6), Brushes.Black, new Point(0, 190));
                                                                                                               
             e.Graphics.DrawString("Surat Ijin Meninggalkan Pelajaran", new Font("Times New Roman", 9),Brushes.Black, new Point(100,205) );
             e.Graphics.DrawString("Bantul," + DateTime.Now.ToString("dd MMM yyyy"), new Font("Times New Roman", 6), Brushes.Black, new Point(170, 220));

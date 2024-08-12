@@ -20,10 +20,11 @@ namespace latihribbon
             db = new DbDal();
         }
 
-        public string Filter(string nama, string kelas,string tahun,DateTime tgl1,DateTime tgl2)
+        public string Filter(string nis,string nama, string kelas,string tahun,DateTime tgl1,DateTime tgl2)
         {
             List<string> fltr = new List<string>();
             string sql = "SELECT * FROM Keluar";
+            if (nis != "") fltr.Add("NIS LIKE @nama+'%'");
             if (nama != "") fltr.Add("Nama LIKE @nama+'%'");
             if (kelas != "") fltr.Add("Kelas LIKE @kelas+'%'");
             if (tahun != "") fltr.Add("Tahun LIKE @tahun+'%'");
@@ -38,9 +39,10 @@ namespace latihribbon
 
         public void Filter2()
         {
-            string nama, kelas, tahun;
+            string nis, nama, kelas, tahun;
             DateTime tgl1, tgl2;
 
+            nis = txtNIS.Text;
             nama = txtNama.Text;
             kelas = txtKelas.Text;
             tahun = txtTahun.Text;
@@ -49,8 +51,8 @@ namespace latihribbon
             tgl2 = tgldua.Value;
             
 
-            string sql = Filter(nama,kelas,tahun,tgl1,tgl2);
-            var select = db.GetKeluarFilter(sql, new {nama=nama,kelas=kelas,tahun=tahun,tgl1=tgl1,tgl2=tgl2});
+            string sql = Filter(nis,nama,kelas,tahun,tgl1,tgl2);
+            var select = db.GetKeluarFilter(sql, new {nis=nis, nama=nama,kelas=kelas,tahun=tahun,tgl1=tgl1,tgl2=tgl2});;
 
         }
         private void dateTimePicker2_ValueChanged(object sender, EventArgs e)

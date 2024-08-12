@@ -39,6 +39,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.txtNIS = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,14 +54,15 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1098, 387);
+            this.dataGridView1.Size = new System.Drawing.Size(1277, 387);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(28, 28);
+            this.label1.Location = new System.Drawing.Point(218, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(56, 18);
             this.label1.TabIndex = 1;
@@ -68,7 +71,7 @@
             // txtNama
             // 
             this.txtNama.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNama.Location = new System.Drawing.Point(90, 29);
+            this.txtNama.Location = new System.Drawing.Point(280, 29);
             this.txtNama.Name = "txtNama";
             this.txtNama.Size = new System.Drawing.Size(216, 24);
             this.txtNama.TabIndex = 2;
@@ -78,7 +81,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(312, 29);
+            this.label2.Location = new System.Drawing.Point(502, 29);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(68, 18);
             this.label2.TabIndex = 3;
@@ -87,7 +90,7 @@
             // txtKelas
             // 
             this.txtKelas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtKelas.Location = new System.Drawing.Point(691, 26);
+            this.txtKelas.Location = new System.Drawing.Point(881, 26);
             this.txtKelas.Name = "txtKelas";
             this.txtKelas.Size = new System.Drawing.Size(100, 24);
             this.txtKelas.TabIndex = 6;
@@ -97,7 +100,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(632, 32);
+            this.label3.Location = new System.Drawing.Point(822, 32);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 18);
             this.label3.TabIndex = 5;
@@ -106,7 +109,7 @@
             // txtTahun
             // 
             this.txtTahun.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTahun.Location = new System.Drawing.Point(871, 26);
+            this.txtTahun.Location = new System.Drawing.Point(1061, 26);
             this.txtTahun.Name = "txtTahun";
             this.txtTahun.Size = new System.Drawing.Size(100, 24);
             this.txtTahun.TabIndex = 8;
@@ -116,7 +119,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(808, 29);
+            this.label4.Location = new System.Drawing.Point(998, 29);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(57, 18);
             this.label4.TabIndex = 7;
@@ -128,7 +131,7 @@
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.Location = new System.Drawing.Point(1023, 19);
+            this.button1.Location = new System.Drawing.Point(1202, 19);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(55, 46);
             this.button1.TabIndex = 9;
@@ -137,17 +140,38 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(386, 29);
+            this.dateTimePicker1.Location = new System.Drawing.Point(576, 29);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 24);
             this.dateTimePicker1.TabIndex = 10;
+            // 
+            // txtNIS
+            // 
+            this.txtNIS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNIS.Location = new System.Drawing.Point(86, 28);
+            this.txtNIS.Name = "txtNIS";
+            this.txtNIS.Size = new System.Drawing.Size(110, 24);
+            this.txtNIS.TabIndex = 12;
+            this.txtNIS.TextChanged += new System.EventHandler(this.txtNIS_TextChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(30, 29);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(40, 18);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "NIS :";
             // 
             // FormSIswa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1103, 458);
+            this.ClientSize = new System.Drawing.Size(1282, 458);
+            this.Controls.Add(this.txtNIS);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtTahun);
@@ -180,5 +204,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.TextBox txtNIS;
+        private System.Windows.Forms.Label label5;
     }
 }

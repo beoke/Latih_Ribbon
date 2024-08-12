@@ -40,8 +40,6 @@
             this.ribbon_keluar = new System.Windows.Forms.RibbonButton();
             this.ribbonPanel4 = new System.Windows.Forms.RibbonPanel();
             this.ribbon_Laporan = new System.Windows.Forms.RibbonButton();
-            this.ribbonPanel5 = new System.Windows.Forms.RibbonPanel();
-            this.ribbon_surat = new System.Windows.Forms.RibbonButton();
             this.ribbonPanel6 = new System.Windows.Forms.RibbonPanel();
             this.ribbon_Input = new System.Windows.Forms.RibbonButton();
             this.ribbonPanel7 = new System.Windows.Forms.RibbonPanel();
@@ -87,7 +85,6 @@
             this.ribbonTab1.Panels.Add(this.ribbonPanel2);
             this.ribbonTab1.Panels.Add(this.ribbonPanel3);
             this.ribbonTab1.Panels.Add(this.ribbonPanel4);
-            this.ribbonTab1.Panels.Add(this.ribbonPanel5);
             this.ribbonTab1.Panels.Add(this.ribbonPanel6);
             this.ribbonTab1.Panels.Add(this.ribbonPanel7);
             this.ribbonTab1.Text = "ATM Siswa";
@@ -151,21 +148,6 @@
             this.ribbon_Laporan.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbon_Laporan.SmallImage")));
             this.ribbon_Laporan.Text = "Laporan";
             this.ribbon_Laporan.Click += new System.EventHandler(this.ribbon_Laporan_Click);
-            // 
-            // ribbonPanel5
-            // 
-            this.ribbonPanel5.Items.Add(this.ribbon_surat);
-            this.ribbonPanel5.Name = "ribbonPanel5";
-            this.ribbonPanel5.Text = "";
-            // 
-            // ribbon_surat
-            // 
-            this.ribbon_surat.Image = ((System.Drawing.Image)(resources.GetObject("ribbon_surat.Image")));
-            this.ribbon_surat.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbon_surat.LargeImage")));
-            this.ribbon_surat.Name = "ribbon_surat";
-            this.ribbon_surat.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbon_surat.SmallImage")));
-            this.ribbon_surat.Text = "Surat";
-            this.ribbon_surat.Click += new System.EventHandler(this.ribbon_surat_Click);
             // 
             // ribbonPanel6
             // 
@@ -233,8 +215,6 @@
         private System.Windows.Forms.RibbonButton ribbon_keluar;
         private System.Windows.Forms.RibbonPanel ribbonPanel4;
         private System.Windows.Forms.RibbonButton ribbon_Laporan;
-        private System.Windows.Forms.RibbonPanel ribbonPanel5;
-        private System.Windows.Forms.RibbonButton ribbon_surat;
         private System.Windows.Forms.RibbonPanel ribbonPanel6;
         private System.Windows.Forms.RibbonButton ribbon_Input;
         private System.Windows.Forms.RibbonPanel ribbonPanel7;
