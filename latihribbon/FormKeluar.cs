@@ -52,32 +52,8 @@ namespace latihribbon
             
 
             string sql = Filter(nis,nama,kelas,tahun,tgl1,tgl2);
-            var select = db.GetKeluarFilter(sql, new {nis=nis, nama=nama,kelas=kelas,tahun=tahun,tgl1=tgl1,tgl2=tgl2});;
+            var select = db.GetKeluarFilter(sql, new {nis=nis, nama=nama,kelas=kelas,tahun=tahun,tgl1=tgl1,tgl2=tgl2});
 
-        }
-        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void txtNama_TextChanged(object sender, EventArgs e)
-        {
-          
-        }
-
-        private void txtKelas_TextChanged(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void txtTahun_TextChanged(object sender, EventArgs e)
-        {
-          
-        }
-
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-            
         }
     }
 }
