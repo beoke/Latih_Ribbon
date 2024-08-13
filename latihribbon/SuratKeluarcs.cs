@@ -27,7 +27,7 @@ namespace latihribbon
             this.Location = previousForm.Location; // Menyetel lokasi form
 
             isian();
-            jam();
+            bahasa();
         }
 
         public void isian()
@@ -35,14 +35,15 @@ namespace latihribbon
             txtNIS.Text = Pemakai.NIS;
             txtNama.Text = Pemakai.nama;
             txtKelas.Text = Pemakai.kelas;
+            string currentTime = DateTime.Now.ToString("HH:mm");
+            tx_keluar.Text = currentTime;
+            txtTanggal.Text = DateTime.Now.ToString("ddd, dd MMM yyyy");
         }
 
         public void jam()
         {
-            txtTanggal.Text = DateTime.Now.ToString("ddd dd MMM yyyy");
             List<string> jam = new List<string>() { "Jam Ke-1","Jam Ke-2","Jam Ke-3","Jam Ke-4","Jam Ke-5","Jam Ke-6","Jam Ke-7","Jam Ke-8","Jam Ke-9","Jam Ke-10" };
             combojam.DataSource = jam;
-
         }
 
         private void btn_kembali_Click(object sender, EventArgs e)
@@ -60,10 +61,7 @@ namespace latihribbon
         private void SuratKeluarcs_Load(object sender, EventArgs e) // ubah ke jam saja
         {
             // Format waktu yang diinginkan
-            string currentTime = DateTime.Now.ToString("HH:mm");
-
-            // Atur waktu saat ini ke TextBox
-            tx_keluar.Text = currentTime;
+          
 /*
             // Opsional: Jika ingin membuat TextBox read-onsly agar tidak bisa diubah pengguna
             tx_keluar.ReadOnly = true;*/
@@ -71,16 +69,6 @@ namespace latihribbon
 
         private void btn_PrintKeluar_Click(object sender, EventArgs e)
         {
-
-
-
-           
-
-
-            
-         
-            // print preview untuk menampilkan lembar yang akan di print , jika ingin langsug print bisa pakai ==> "printDocumentKeluar.Print";
-
             if (print == 0)
             {
                 printDocumentKeluar.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("Suit Detail", 400, 590);
@@ -91,19 +79,21 @@ namespace latihribbon
                 System.Threading.Thread.Sleep(5000);
                 n.Hide();
                 this.Hide();
+
                 Pemakai pakai = new Pemakai();
                 pakai.Show();
-
-
             }
-
-
-            else
-            {
-
-            }
+        }
+        
+        public void bahasa()
+        {
+            System.Globalization.CultureInfo cultureInfo = new System.Globalization.CultureInfo("id-ID");
+            System.Threading.Thread.CurrentThread.CurrentCulture = cultureInfo;
+            System.Threading.Thread.CurrentThread.CurrentUICulture = cultureInfo;
 
         }
+
+
 
         private void printDocumentKeluar_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {

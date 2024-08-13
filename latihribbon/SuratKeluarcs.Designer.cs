@@ -32,6 +32,7 @@
             this.printPreviewDialogKeluar = new System.Windows.Forms.PrintPreviewDialog();
             this.printDocumentKeluar = new System.Drawing.Printing.PrintDocument();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txtTanggal = new System.Windows.Forms.TextBox();
             this.tx_keluar = new System.Windows.Forms.TextBox();
             this.combojam = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -49,7 +50,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtNIS = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtTanggal = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -93,6 +93,15 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1696, 927);
             this.panel2.TabIndex = 74;
+            // 
+            // txtTanggal
+            // 
+            this.txtTanggal.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTanggal.Location = new System.Drawing.Point(433, 450);
+            this.txtTanggal.Name = "txtTanggal";
+            this.txtTanggal.ReadOnly = true;
+            this.txtTanggal.Size = new System.Drawing.Size(620, 45);
+            this.txtTanggal.TabIndex = 74;
             // 
             // tx_keluar
             // 
@@ -138,7 +147,6 @@
             this.label11.Size = new System.Drawing.Size(318, 54);
             this.label11.TabIndex = 68;
             this.label11.Text = "Surat Izin Keluar";
-            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // btn_kembali
             // 
@@ -283,15 +291,6 @@
             this.label1.Size = new System.Drawing.Size(355, 42);
             this.label1.TabIndex = 24;
             this.label1.Text = "NIS                              :";
-            // 
-            // txtTanggal
-            // 
-            this.txtTanggal.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTanggal.Location = new System.Drawing.Point(433, 450);
-            this.txtTanggal.Name = "txtTanggal";
-            this.txtTanggal.ReadOnly = true;
-            this.txtTanggal.Size = new System.Drawing.Size(620, 45);
-            this.txtTanggal.TabIndex = 74;
             // 
             // SuratKeluarcs
             // 
