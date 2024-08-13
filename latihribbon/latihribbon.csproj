@@ -96,6 +96,12 @@
       <DependentUpon>login.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\KeluarModel.cs" />
+    <Compile Include="Notiip.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Notiip.Designer.cs">
+      <DependentUpon>Notiip.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pemakai.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Notiip.resx">
+      <DependentUpon>Notiip.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pemakai.resx">
       <DependentUpon>Pemakai.cs</DependentUpon>

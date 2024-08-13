@@ -14,6 +14,7 @@ namespace latihribbon
     public partial class SuratKeluarcs : Form
     {
         private Form _previousForm; // untuk kembali ke form sebelumnya
+        int print = 0;
 
         public SuratKeluarcs(Form previousForm)
         {
@@ -70,10 +71,38 @@ namespace latihribbon
 
         private void btn_PrintKeluar_Click(object sender, EventArgs e)
         {
-            printPreviewDialogKeluar.Document = printDocumentKeluar;
+
+
+
+           
+
+
+            
+         
             // print preview untuk menampilkan lembar yang akan di print , jika ingin langsug print bisa pakai ==> "printDocumentKeluar.Print";
-            printDocumentKeluar.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("Suit Detail", 400, 590);
-            printDocumentKeluar.Print();
+
+            if (print == 0)
+            {
+                printDocumentKeluar.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("Suit Detail", 400, 590);
+                // printDocumentKeluar.Print();
+                Notiip n = new Notiip();
+                n.Show();
+                print++;
+                System.Threading.Thread.Sleep(5000);
+                n.Hide();
+                this.Hide();
+                Pemakai pakai = new Pemakai();
+                pakai.Show();
+
+
+            }
+
+
+            else
+            {
+
+            }
+
         }
 
         private void printDocumentKeluar_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
@@ -117,6 +146,11 @@ namespace latihribbon
             e.Graphics.DrawString($"Keperluan : {txtAlasan.Text}", new Font("Times New Roman", 8), Brushes.Black, new Point(30, 550));
             e.Graphics.DrawString($"Mengetahui Guru BK", new Font("Times New Roman", 7), Brushes.Black, new Point(280, 490));
             e.Graphics.DrawString($"........................", new Font("Times New Roman", 8), Brushes.Black, new Point(285, 530));
+
+
+            printDocumentKeluar.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(printDocumentKeluar_PrintPage);
         }
+
+
     }
 }
