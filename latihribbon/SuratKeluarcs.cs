@@ -38,6 +38,7 @@ namespace latihribbon
 
         public void jam()
         {
+            txtTanggal.Text = DateTime.Now.ToString("ddd dd MMM yyyy");
             List<string> jam = new List<string>() { "Jam Ke-1","Jam Ke-2","Jam Ke-3","Jam Ke-4","Jam Ke-5","Jam Ke-6","Jam Ke-7","Jam Ke-8","Jam Ke-9","Jam Ke-10" };
             combojam.DataSource = jam;
 
@@ -72,7 +73,7 @@ namespace latihribbon
             printPreviewDialogKeluar.Document = printDocumentKeluar;
             // print preview untuk menampilkan lembar yang akan di print , jika ingin langsug print bisa pakai ==> "printDocumentKeluar.Print";
             printDocumentKeluar.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("Suit Detail", 400, 590);
-            printPreviewDialogKeluar.ShowDialog();
+            printDocumentKeluar.Print();
         }
 
         private void printDocumentKeluar_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
@@ -81,7 +82,7 @@ namespace latihribbon
             e.Graphics.DrawString("Bantul," + DateTime.Now.ToString("dd MMM yyyy"), new Font("Times New Roman", 6), Brushes.Black, new Point(170, 30));
             e.Graphics.DrawString($"Nama                   : {txtNama.Text}", new Font("Times New Roman", 8),Brushes.Black, new Point(30,50) );
             e.Graphics.DrawString($"Kelas                  : {txtKelas.Text}", new Font("Times New Roman", 8),Brushes.Black, new Point(30,70) );
-            e.Graphics.DrawString($"Tanggal                : {dateTimePicker1.Value.ToString("dd MMM yyyy")}", new Font("Times New Roman", 8),Brushes.Black, new Point(30,90) );
+            e.Graphics.DrawString($"Tanggal                : {txtTanggal.Text}", new Font("Times New Roman", 8), Brushes.Black, new Point(30, 90));
             e.Graphics.DrawString($"Keluar pada jam      : {tx_keluar.Text}", new Font("Times New Roman", 8),Brushes.Black, new Point(30,110) );
             e.Graphics.DrawString($"Kembali pada jam ke : {combojam.SelectedItem}", new Font("Times New Roman", 8),Brushes.Black, new Point(30,130) );
             e.Graphics.DrawString($"Keperluan  : {txtAlasan.Text}", new Font("Times New Roman", 8),Brushes.Black, new Point(30,170) );
@@ -96,7 +97,7 @@ namespace latihribbon
             e.Graphics.DrawString("Bantul," + DateTime.Now.ToString("dd MMM yyyy"), new Font("Times New Roman", 6), Brushes.Black, new Point(170, 220));
             e.Graphics.DrawString($"Nama                   : {txtNama.Text}", new Font("Times New Roman", 8),Brushes.Black, new Point(30,240) );
             e.Graphics.DrawString($"Kelas                  : {txtKelas.Text}", new Font("Times New Roman", 8),Brushes.Black, new Point(30,260) );
-            e.Graphics.DrawString($"Tanggal                : {dateTimePicker1.Value.ToString("dd MMM yyyy")}", new Font("Times New Roman", 8),Brushes.Black, new Point(30,280) );
+            e.Graphics.DrawString($"Tanggal                : {txtTanggal.Text}", new Font("Times New Roman", 8), Brushes.Black, new Point(30, 280));
             e.Graphics.DrawString($"Keluar pada jam        : {tx_keluar.Text}", new Font("Times New Roman", 8),Brushes.Black, new Point(30,300) );
             e.Graphics.DrawString($"Kembali pada jam ke    : {combojam.SelectedItem}", new Font("Times New Roman", 8),Brushes.Black, new Point(30, 320));
             e.Graphics.DrawString($"Keperluan : {txtAlasan.Text}", new Font("Times New Roman", 8),Brushes.Black, new Point(30,360) );
@@ -110,7 +111,7 @@ namespace latihribbon
             e.Graphics.DrawString("Bantul," + DateTime.Now.ToString("dd MMM yyyy"), new Font("Times New Roman", 6), Brushes.Black, new Point(170, 410));
             e.Graphics.DrawString($"Nama                   : {txtNama.Text}", new Font("Times New Roman", 8), Brushes.Black, new Point(30, 430));
             e.Graphics.DrawString($"Kelas                  : {txtKelas.Text}", new Font("Times New Roman", 8), Brushes.Black, new Point(30, 450));
-            e.Graphics.DrawString($"Tanggal                : {dateTimePicker1.Value.ToString("dd MMM yyyy")}", new Font("Times New Roman", 8), Brushes.Black, new Point(30, 470));
+            e.Graphics.DrawString($"Tanggal                : {txtTanggal.Text}", new Font("Times New Roman", 8), Brushes.Black, new Point(30, 470));
             e.Graphics.DrawString($"Keluar pada jam        : {tx_keluar.Text}", new Font("Times New Roman", 8), Brushes.Black, new Point(30, 490));
             e.Graphics.DrawString($"Kembali pada jam ke    : {combojam.SelectedItem}", new Font("Times New Roman", 8), Brushes.Black, new Point(30, 510));
             e.Graphics.DrawString($"Keperluan : {txtAlasan.Text}", new Font("Times New Roman", 8), Brushes.Black, new Point(30, 550));
