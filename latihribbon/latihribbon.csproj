@@ -95,7 +95,7 @@
     <Compile Include="login.Designer.cs">
       <DependentUpon>login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\KeluarModel.cs" />
+    <Compile Include="KeluarModel.cs" />
     <Compile Include="Notiip.cs">
       <SubType>Form</SubType>
     </Compile>
