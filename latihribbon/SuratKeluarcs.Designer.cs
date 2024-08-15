@@ -34,7 +34,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtTanggal = new System.Windows.Forms.TextBox();
             this.tx_keluar = new System.Windows.Forms.TextBox();
-            this.combojam = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.btn_kembali = new System.Windows.Forms.Button();
@@ -50,6 +49,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtNIS = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.jamKembali = new System.Windows.Forms.DateTimePicker();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -71,9 +71,9 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Gainsboro;
+            this.panel2.Controls.Add(this.jamKembali);
             this.panel2.Controls.Add(this.txtTanggal);
             this.panel2.Controls.Add(this.tx_keluar);
-            this.panel2.Controls.Add(this.combojam);
             this.panel2.Controls.Add(this.panel1);
             this.panel2.Controls.Add(this.btn_kembali);
             this.panel2.Controls.Add(this.btn_PrintKeluar);
@@ -115,16 +115,6 @@
             this.tx_keluar.ReadOnly = true;
             this.tx_keluar.Size = new System.Drawing.Size(558, 45);
             this.tx_keluar.TabIndex = 73;
-            // 
-            // combojam
-            // 
-            this.combojam.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.combojam.FormattingEnabled = true;
-            this.combojam.Location = new System.Drawing.Point(433, 656);
-            this.combojam.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.combojam.Name = "combojam";
-            this.combojam.Size = new System.Drawing.Size(558, 45);
-            this.combojam.TabIndex = 72;
             // 
             // panel1
             // 
@@ -303,6 +293,17 @@
             this.label1.TabIndex = 24;
             this.label1.Text = "NIS                              :";
             // 
+            // jamKembali
+            // 
+            this.jamKembali.CustomFormat = "HH:mm";
+            this.jamKembali.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.jamKembali.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.jamKembali.Location = new System.Drawing.Point(433, 656);
+            this.jamKembali.Name = "jamKembali";
+            this.jamKembali.ShowUpDown = true;
+            this.jamKembali.Size = new System.Drawing.Size(497, 45);
+            this.jamKembali.TabIndex = 75;
+            // 
             // SuratKeluarcs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -338,11 +339,11 @@
         private System.Windows.Forms.Button btn_kembali;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox combojam;
         private System.Windows.Forms.TextBox tx_keluar;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialogKeluar;
         private System.Drawing.Printing.PrintDocument printDocumentKeluar;
         private System.Windows.Forms.TextBox txtTanggal;
+        private System.Windows.Forms.DateTimePicker jamKembali;
     }
 }
