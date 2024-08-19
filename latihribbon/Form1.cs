@@ -24,7 +24,6 @@ namespace latihribbon
 
         }
 
-
         private void ribbon_Input_Click(object sender, EventArgs e)
         {
 
