@@ -27,6 +27,7 @@ namespace latihribbon
                             FROM Keluar k INNER JOIN siswa s ON k.Nis=s.Nis";
             dataGridView1.DataSource = db.GetKeluar(sql);
         }
+        string sqlglobal;
         public string Filter(string nis,string nama, string kelas,DateTime tgl1,DateTime tgl2)
         {
             List<string> fltr = new List<string>();
@@ -35,7 +36,7 @@ namespace latihribbon
             if (nis != "") fltr.Add("k.Nis LIKE @nis+'%'");
             if (nama != "") fltr.Add("s.Nama LIKE @nama+'%'");
             if (kelas != "") fltr.Add("s.Kelas LIKE @kelas+'%'");
-            //if (tgl1 != null && tgl2 != null) fltr.Add("Tanggal BETWEEN @tgl1 AND @tgl2");
+            if (tgl1 != null && tgl2 != null) fltr.Add("Tanggal BETWEEN @tgl1 AND @tgl2");
 
             if (fltr.Count > 0)
             {
@@ -54,30 +55,27 @@ namespace latihribbon
             kelas = txtKelas.Text;
             tgl1 = tglsatu.Value;
             tgl2 = tgldua.Value;
-            
 
-            //string sql = Filter(nis,nama,kelas,tgl1,tgl2);
-            //MessageBox.Show(sql);
-            string sql = @"SELECT k.Id,k.Nis,s.Nama,s.Kelas,k.Tanggal,k.JamKeluar,k.JamMasuk,k.Tujuan 
-                            FROM Keluar k INNER JOIN siswa s ON k.Nis=s.Nis WHERE k.Nis LIKE '16677%'";
+            string sql = Filter(nis,nama,kelas,tgl1,tgl2);
             var select = db.GetKeluarFilter(sql, new {nis=nis, nama=nama,kelas=kelas,tgl1=tgl1,tgl2=tgl2});
+            dataGridView1.DataSource = select;
 
         }
 
-        
+        #region EVENT FILTER
         private void txtNIS_TextChanged(object sender, EventArgs e)
         {
-            //Filter2();
+            Filter2();
         }
 
         private void txtNama_TextChanged(object sender, EventArgs e)
         {
-            //Filter2();
+            Filter2();
         }
 
         private void txtKelas_TextChanged(object sender, EventArgs e)
         {
-            //Filter2();
+            Filter2();
         }
 
         private void txtTahun_TextChanged(object sender, EventArgs e)
@@ -94,11 +92,6 @@ namespace latihribbon
         {
             Filter2();
         }
-   
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Filter2();
-        }
+        #endregion
     }
 }

@@ -12,9 +12,11 @@ namespace latihribbon
 {
     public partial class Form1 : RibbonForm
     {
+
         public Form1()
         {
             InitializeComponent();
+
         }
 
         private void ribbon1_Click(object sender, EventArgs e)
