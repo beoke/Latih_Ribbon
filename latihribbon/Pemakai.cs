@@ -53,7 +53,7 @@ namespace latihribbon
                 return;
             }
 
-            // Cari NIS di tabel siswa
+            // Cari NIS di tabel siswa 
             var siswa = _dbDal.GetSiswaByNis(nis);
             if (siswa == null)
             {

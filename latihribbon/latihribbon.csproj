@@ -214,5 +214,8 @@
   <ItemGroup>
     <None Include="Resources\left-arrow-removebg-preview.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\absence %281%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
