@@ -12,8 +12,8 @@ namespace latihribbon.Model
         public int Nis { get; set; }
         public string Nama { get; set; }   
         public DateTime Tanggal {  get; set; }
-        public DateTime JamKeluar { get; set; }
-        public DateTime JamMasuk { get; set; }
-        public string Keperluan {  get; set; }
+        public TimeSpan JamKeluar { get; set; }
+        public TimeSpan JamMasuk { get; set; }
+        public string Tujuan {  get; set; }
     }
 }

@@ -40,6 +40,14 @@ namespace latihribbon
                 var users = koneksi.Query<KeluarModel>(sql, mbuh);
                 return users;
             }
+        } 
+        public IEnumerable<KeluarModel> GetKeluar(string sql)
+        {
+            using (var koneksi = new SqlConnection(_connString))
+            {
+                var users = koneksi.Query<KeluarModel>(sql);
+                return users;
+            }
         }
 
         // Function untuk mendapatkan data siswa dari database
@@ -63,6 +71,14 @@ namespace latihribbon
             }
         }
 
+        public int IUD(string sql, object param) //Template
+        {
+            using (var koneksi = new SqlConnection(_connString))
+            {
+                var iud = koneksi.Execute(sql,param);
+                return iud;
+            }
+        }
 
     }
 }

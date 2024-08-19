@@ -16,8 +16,8 @@ namespace latihribbon
         private Form _previousForm; // untuk kembali ke form sebelumnya
         int print = 0;
 
-        
-        
+
+
 
         public SuratKeluarcs(Form previousForm)
         {
@@ -45,7 +45,7 @@ namespace latihribbon
             txtTanggal.Text = DateTime.Now.ToString("ddd, dd MMM yyyy");
         }
 
-    
+
 
         private void btn_kembali_Click(object sender, EventArgs e)
         {
@@ -74,7 +74,7 @@ namespace latihribbon
             {
                 printDocumentKeluar.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("Suit Detail", 400, 590);
                 //printDocumentKeluar.Print();
-                Notiip n = new Notiip();
+                /*Notiip n = new Notiip();
                 n.Show();
                 print++;
                 System.Threading.Thread.Sleep(5000);
@@ -83,158 +83,176 @@ namespace latihribbon
 
                 Pemakai pakai = new Pemakai();
                 pakai.Show();
+            }*/
+                Insert();
+                printPreviewDialogKeluar.Document = printDocumentKeluar;
+                printDocumentKeluar.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("Suit Detail", 400, 590);
+                printPreviewDialogKeluar.ShowDialog();
             }
 
-            printPreviewDialogKeluar.Document = printDocumentKeluar;
-            printDocumentKeluar.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("Suit Detail",400,590);
-            printPreviewDialogKeluar.ShowDialog();
         }
 
         public void Insert()
         {
-            string nis, nama, kelas;
-            DateTime tanggal, jamkeluar, jammasuk;
+            string nis, nama, kelas, alasan;
+            DateTime tanggal;
+            TimeSpan jamkeluar, jammasuk;
 
             nis = txtNIS.Text;
             nama = txtNama.Text;
             kelas = txtKelas.Text;
             tanggal = DateTime.Now.Date;
-            
+            jamkeluar = TimeSpan.Parse(tx_keluar.Text);
+            jammasuk = TimeSpan.Parse(jamKembali.Text);
+            alasan = txtAlasan.Text;
+
+            string sql = @"INSERT INTO Keluar(Nis,Nama,Tanggal,JamKeluar, JamMasuk, Tujuan)
+                          VALUES(@Nis,@Tanggal,@JamKeluar,@JamMasuk,@Tujuan)";
+            var dp = new DynamicParameters();
+            dp.Add("@Nis",nis,DbType.String);
+            dp.Add("@Nama",nama,DbType.String);
+            dp.Add("@Kelas",kelas,DbType.String);
+            dp.Add("@Tanggal",tanggal,DbType.Date);
+            dp.Add("@JamKeluar",jamkeluar,DbType.Time);
+            dp.Add("@JamMasuk",jammasuk,DbType.Time);
+            dp.Add("@Tujuan",alasan,DbType.String);
+
+            db.IUD(sql,dp);
+
         }
 
-      
 
 
         public void bahasa()
-        {
-            System.Globalization.CultureInfo cultureInfo = new System.Globalization.CultureInfo("id-ID");
-            System.Threading.Thread.CurrentThread.CurrentCulture = cultureInfo;
-            System.Threading.Thread.CurrentThread.CurrentUICulture = cultureInfo;
-
-        }
-
-
-
-        private void printDocumentKeluar_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
-        {
-
-           
-            var tanggal = DateTime.Now.ToString("dd MMM yyyy");
-
-            e.Graphics.DrawString("Surat Ijin Meninggalkan Pelajaran", new Font("Times New Roman", 9), Brushes.Black, new Point(100, 15));
-            e.Graphics.DrawString($"Bantul, {tanggal}", new Font("Times New Roman", 6), Brushes.Black, new Point(170, 30));
-            e.Graphics.DrawString("Nama", new Font("Times New Roman", 8), Brushes.Black, new Point(30, 50));
-            e.Graphics.DrawString($": {txtNama.Text}", new Font("Times New Roman", 8), Brushes.Black, new Point(125, 50));
-            e.Graphics.DrawString("Kelas", new Font("Times New Roman", 8), Brushes.Black, new Point(30, 70));
-            e.Graphics.DrawString($": {txtKelas.Text}", new Font("Times New Roman", 8), Brushes.Black, new Point(125, 70));
-            e.Graphics.DrawString("Tanggal", new Font("Times New Roman", 8), Brushes.Black, new Point(30, 90));
-            e.Graphics.DrawString($": {txtTanggal.Text}", new Font("Times New Roman", 8), Brushes.Black, new Point(125, 90));
-            e.Graphics.DrawString("Keluar pada jam", new Font("Times New Roman", 8), Brushes.Black, new Point(30, 110));
-            e.Graphics.DrawString($": {tx_keluar.Text}", new Font("Times New Roman", 8), Brushes.Black, new Point(125, 110));
-            e.Graphics.DrawString("Kembali pada jam ke", new Font("Times New Roman", 8), Brushes.Black, new Point(30, 130));
-            e.Graphics.DrawString($": {jamKembali.Value.ToString("HH:mm")}", new Font("Times New Roman", 8), Brushes.Black, new Point(125, 130));
-            e.Graphics.DrawString($"Keperluan", new Font("Times New Roman", 8), Brushes.Black, new Point(30, 170));
-
-            
-
-            e.Graphics.DrawString("Mengetahui Guru BK", new Font("Times New Roman", 7), Brushes.Black, new Point(280, 50));
-            e.Graphics.DrawString("...................", new Font("Times New Roman", 8), Brushes.Black, new Point(290, 90));
-            e.Graphics.DrawString("Mengetahui Guru Pengajar", new Font("Times New Roman", 7), Brushes.Black, new Point(270, 110));
-            e.Graphics.DrawString("........................", new Font("Times New Roman", 8), Brushes.Black, new Point(285, 150));
-
-            e.Graphics.DrawString("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - Potong Disini - - - - - - - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - -", new Font("Times New Roman", 6), Brushes.Black, new Point(0, 210));
-
-            e.Graphics.DrawString("Surat Ijin Meninggalkan Pelajaran", new Font("Times New Roman", 9), Brushes.Black, new Point(100, 225));
-            e.Graphics.DrawString($"Bantul, {tanggal}", new Font("Times New Roman", 6), Brushes.Black, new Point(170, 240));
-            e.Graphics.DrawString("Nama", new Font("Times New Roman", 8), Brushes.Black, new Point(30, 260));
-            e.Graphics.DrawString($": {txtNama.Text}", new Font("Times New Roman", 8), Brushes.Black, new Point(125, 260));
-            e.Graphics.DrawString("Kelas", new Font("Times New Roman", 8), Brushes.Black, new Point(30, 280));
-            e.Graphics.DrawString($": {txtKelas.Text}", new Font("Times New Roman", 8), Brushes.Black, new Point(125, 280));
-            e.Graphics.DrawString("Tanggal", new Font("Times New Roman", 8), Brushes.Black, new Point(30, 300));
-            e.Graphics.DrawString($": {txtTanggal.Text}", new Font("Times New Roman", 8), Brushes.Black, new Point(125, 300));
-            e.Graphics.DrawString("Keluar pada jam", new Font("Times New Roman", 8), Brushes.Black, new Point(30, 320));
-            e.Graphics.DrawString($": {tx_keluar.Text}", new Font("Times New Roman", 8), Brushes.Black, new Point(125, 320));
-            e.Graphics.DrawString("Kembali pada jam ke", new Font("Times New Roman", 8), Brushes.Black, new Point(30, 340));
-            e.Graphics.DrawString($": {jamKembali.Value.ToString("HH:mm")}", new Font("Times New Roman", 8), Brushes.Black, new Point(125, 340));
-            e.Graphics.DrawString($"Keperluan", new Font("Times New Roman", 8), Brushes.Black, new Point(30, 360));
-            e.Graphics.DrawString("( Tinggal di pos satpam )", new Font("Times New Roman", 7), Brushes.Black, new Point(270, 260));
-            e.Graphics.DrawString("Mengetahui Guru BK", new Font("Times New Roman", 7), Brushes.Black, new Point(280, 280));
-            e.Graphics.DrawString("........................", new Font("Times New Roman", 8), Brushes.Black, new Point(285, 310));
-
-            e.Graphics.DrawString("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - Potong Disini - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -", new Font("Times New Roman", 6), Brushes.Black, new Point(0, 400));
-
-            e.Graphics.DrawString("Surat Ijin Meninggalkan Pelajaran", new Font("Times New Roman", 9), Brushes.Black, new Point(100, 415));
-            e.Graphics.DrawString($"Bantul, {tanggal}", new Font("Times New Roman", 6), Brushes.Black, new Point(170, 430));
-            e.Graphics.DrawString("Nama", new Font("Times New Roman", 8), Brushes.Black, new Point(30, 450));
-            e.Graphics.DrawString($": {txtNama.Text}", new Font("Times New Roman", 8), Brushes.Black, new Point(125, 450));
-            e.Graphics.DrawString("Kelas", new Font("Times New Roman", 8), Brushes.Black, new Point(30, 470));
-            e.Graphics.DrawString($": {txtKelas.Text}", new Font("Times New Roman", 8), Brushes.Black, new Point(125, 470));
-            e.Graphics.DrawString("Tanggal", new Font("Times New Roman", 8), Brushes.Black, new Point(30, 490));
-            e.Graphics.DrawString($": {txtTanggal.Text}", new Font("Times New Roman", 8), Brushes.Black, new Point(125, 490));
-            e.Graphics.DrawString("Keluar pada jam", new Font("Times New Roman", 8), Brushes.Black, new Point(30, 510));
-            e.Graphics.DrawString($": {tx_keluar.Text}", new Font("Times New Roman", 8), Brushes.Black, new Point(125, 510));
-            e.Graphics.DrawString("Kembali pada ", new Font("Times New Roman", 8), Brushes.Black, new Point(30, 530));
-            e.Graphics.DrawString($": {jamKembali.Value.ToString("HH:mm")}", new Font("Times New Roman", 8), Brushes.Black, new Point(125, 530));
-            e.Graphics.DrawString("Mengetahui Guru BK", new Font("Times New Roman", 7), Brushes.Black, new Point(280, 450));
-            e.Graphics.DrawString("........................", new Font("Times New Roman", 8), Brushes.Black, new Point(285, 490));
-            e.Graphics.DrawString($"Keperluan", new Font("Times New Roman", 8), Brushes.Black, new Point(30, 550));
-
-
-            string alasan = txtAlasan.Text;
-            int batasPanjang = 200; 
-
-            string baris1 = "";
-            string baris2 = "";
-
-            if (e.Graphics.MeasureString(alasan, new Font("Times New Roman", 8)).Width > batasPanjang)
             {
-                string[] kata = alasan.Split(' ');
-               
-                foreach (string k in kata)
+                System.Globalization.CultureInfo cultureInfo = new System.Globalization.CultureInfo("id-ID");
+                System.Threading.Thread.CurrentThread.CurrentCulture = cultureInfo;
+                System.Threading.Thread.CurrentThread.CurrentUICulture = cultureInfo;
+
+            }
+
+
+
+            private void printDocumentKeluar_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+            {
+
+
+                var tanggal = DateTime.Now.ToString("dd MMM yyyy");
+
+                e.Graphics.DrawString("Surat Ijin Meninggalkan Pelajaran", new Font("Times New Roman", 9), Brushes.Black, new Point(100, 15));
+                e.Graphics.DrawString($"Bantul, {tanggal}", new Font("Times New Roman", 6), Brushes.Black, new Point(170, 30));
+                e.Graphics.DrawString("Nama", new Font("Times New Roman", 8), Brushes.Black, new Point(30, 50));
+                e.Graphics.DrawString($": {txtNama.Text}", new Font("Times New Roman", 8), Brushes.Black, new Point(125, 50));
+                e.Graphics.DrawString("Kelas", new Font("Times New Roman", 8), Brushes.Black, new Point(30, 70));
+                e.Graphics.DrawString($": {txtKelas.Text}", new Font("Times New Roman", 8), Brushes.Black, new Point(125, 70));
+                e.Graphics.DrawString("Tanggal", new Font("Times New Roman", 8), Brushes.Black, new Point(30, 90));
+                e.Graphics.DrawString($": {txtTanggal.Text}", new Font("Times New Roman", 8), Brushes.Black, new Point(125, 90));
+                e.Graphics.DrawString("Keluar pada jam", new Font("Times New Roman", 8), Brushes.Black, new Point(30, 110));
+                e.Graphics.DrawString($": {tx_keluar.Text}", new Font("Times New Roman", 8), Brushes.Black, new Point(125, 110));
+                e.Graphics.DrawString("Kembali pada jam ke", new Font("Times New Roman", 8), Brushes.Black, new Point(30, 130));
+                e.Graphics.DrawString($": {jamKembali.Value.ToString("HH:mm")}", new Font("Times New Roman", 8), Brushes.Black, new Point(125, 130));
+                e.Graphics.DrawString($"Keperluan", new Font("Times New Roman", 8), Brushes.Black, new Point(30, 170));
+
+
+
+                e.Graphics.DrawString("Mengetahui Guru BK", new Font("Times New Roman", 7), Brushes.Black, new Point(280, 50));
+                e.Graphics.DrawString("...................", new Font("Times New Roman", 8), Brushes.Black, new Point(290, 90));
+                e.Graphics.DrawString("Mengetahui Guru Pengajar", new Font("Times New Roman", 7), Brushes.Black, new Point(270, 110));
+                e.Graphics.DrawString("........................", new Font("Times New Roman", 8), Brushes.Black, new Point(285, 150));
+
+                e.Graphics.DrawString("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - Potong Disini - - - - - - - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - -", new Font("Times New Roman", 6), Brushes.Black, new Point(0, 210));
+
+                e.Graphics.DrawString("Surat Ijin Meninggalkan Pelajaran", new Font("Times New Roman", 9), Brushes.Black, new Point(100, 225));
+                e.Graphics.DrawString($"Bantul, {tanggal}", new Font("Times New Roman", 6), Brushes.Black, new Point(170, 240));
+                e.Graphics.DrawString("Nama", new Font("Times New Roman", 8), Brushes.Black, new Point(30, 260));
+                e.Graphics.DrawString($": {txtNama.Text}", new Font("Times New Roman", 8), Brushes.Black, new Point(125, 260));
+                e.Graphics.DrawString("Kelas", new Font("Times New Roman", 8), Brushes.Black, new Point(30, 280));
+                e.Graphics.DrawString($": {txtKelas.Text}", new Font("Times New Roman", 8), Brushes.Black, new Point(125, 280));
+                e.Graphics.DrawString("Tanggal", new Font("Times New Roman", 8), Brushes.Black, new Point(30, 300));
+                e.Graphics.DrawString($": {txtTanggal.Text}", new Font("Times New Roman", 8), Brushes.Black, new Point(125, 300));
+                e.Graphics.DrawString("Keluar pada jam", new Font("Times New Roman", 8), Brushes.Black, new Point(30, 320));
+                e.Graphics.DrawString($": {tx_keluar.Text}", new Font("Times New Roman", 8), Brushes.Black, new Point(125, 320));
+                e.Graphics.DrawString("Kembali pada jam ke", new Font("Times New Roman", 8), Brushes.Black, new Point(30, 340));
+                e.Graphics.DrawString($": {jamKembali.Value.ToString("HH:mm")}", new Font("Times New Roman", 8), Brushes.Black, new Point(125, 340));
+                e.Graphics.DrawString($"Keperluan", new Font("Times New Roman", 8), Brushes.Black, new Point(30, 360));
+                e.Graphics.DrawString("( Tinggal di pos satpam )", new Font("Times New Roman", 7), Brushes.Black, new Point(270, 260));
+                e.Graphics.DrawString("Mengetahui Guru BK", new Font("Times New Roman", 7), Brushes.Black, new Point(280, 280));
+                e.Graphics.DrawString("........................", new Font("Times New Roman", 8), Brushes.Black, new Point(285, 310));
+
+                e.Graphics.DrawString("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - Potong Disini - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -", new Font("Times New Roman", 6), Brushes.Black, new Point(0, 400));
+
+                e.Graphics.DrawString("Surat Ijin Meninggalkan Pelajaran", new Font("Times New Roman", 9), Brushes.Black, new Point(100, 415));
+                e.Graphics.DrawString($"Bantul, {tanggal}", new Font("Times New Roman", 6), Brushes.Black, new Point(170, 430));
+                e.Graphics.DrawString("Nama", new Font("Times New Roman", 8), Brushes.Black, new Point(30, 450));
+                e.Graphics.DrawString($": {txtNama.Text}", new Font("Times New Roman", 8), Brushes.Black, new Point(125, 450));
+                e.Graphics.DrawString("Kelas", new Font("Times New Roman", 8), Brushes.Black, new Point(30, 470));
+                e.Graphics.DrawString($": {txtKelas.Text}", new Font("Times New Roman", 8), Brushes.Black, new Point(125, 470));
+                e.Graphics.DrawString("Tanggal", new Font("Times New Roman", 8), Brushes.Black, new Point(30, 490));
+                e.Graphics.DrawString($": {txtTanggal.Text}", new Font("Times New Roman", 8), Brushes.Black, new Point(125, 490));
+                e.Graphics.DrawString("Keluar pada jam", new Font("Times New Roman", 8), Brushes.Black, new Point(30, 510));
+                e.Graphics.DrawString($": {tx_keluar.Text}", new Font("Times New Roman", 8), Brushes.Black, new Point(125, 510));
+                e.Graphics.DrawString("Kembali pada ", new Font("Times New Roman", 8), Brushes.Black, new Point(30, 530));
+                e.Graphics.DrawString($": {jamKembali.Value.ToString("HH:mm")}", new Font("Times New Roman", 8), Brushes.Black, new Point(125, 530));
+                e.Graphics.DrawString("Mengetahui Guru BK", new Font("Times New Roman", 7), Brushes.Black, new Point(280, 450));
+                e.Graphics.DrawString("........................", new Font("Times New Roman", 8), Brushes.Black, new Point(285, 490));
+                e.Graphics.DrawString($"Keperluan", new Font("Times New Roman", 8), Brushes.Black, new Point(30, 550));
+
+
+                string alasan = txtAlasan.Text;
+                int batasPanjang = 200;
+
+                string baris1 = "";
+                string baris2 = "";
+
+                if (e.Graphics.MeasureString(alasan, new Font("Times New Roman", 8)).Width > batasPanjang)
                 {
-                    if (e.Graphics.MeasureString(baris1 + k + " ", new Font("Times New Roman", 8)).Width <= batasPanjang)
+                    string[] kata = alasan.Split(' ');
+
+                    foreach (string k in kata)
                     {
-                        baris1 += k + " ";
+                        if (e.Graphics.MeasureString(baris1 + k + " ", new Font("Times New Roman", 8)).Width <= batasPanjang)
+                        {
+                            baris1 += k + " ";
+                        }
+                        else
+                        {
+                            baris2 += k + " ";
+                        }
                     }
-                    else
-                    {
-                        baris2 += k + " ";
-                    }
+
+
+                    e.Graphics.DrawString($": {baris1.Trim()}", new Font("Times New Roman", 8), Brushes.Black, new Point(110, 170));
+                    e.Graphics.DrawString($"{baris2.Trim()}", new Font("Times New Roman", 8), Brushes.Black, new Point(110, 190));
+                }
+                else
+                {
+                    e.Graphics.DrawString($"Keperluan", new Font("Times New Roman", 8), Brushes.Black, new Point(30, 170));
+                    e.Graphics.DrawString($": {alasan}", new Font("Times New Roman", 8), Brushes.Black, new Point(110, 170));
                 }
 
 
-                e.Graphics.DrawString($": {baris1.Trim()}", new Font("Times New Roman", 8), Brushes.Black, new Point(110, 170));
-                e.Graphics.DrawString($"{baris2.Trim()}", new Font("Times New Roman", 8), Brushes.Black, new Point(110, 190));
-            }
-            else
-            {
-                e.Graphics.DrawString($"Keperluan", new Font("Times New Roman", 8), Brushes.Black, new Point(30, 170));
-                e.Graphics.DrawString($": {alasan}", new Font("Times New Roman", 8), Brushes.Black, new Point(110, 170));
-            }
-               
-
-            if (e.Graphics.MeasureString(alasan, new Font("Times New Roman", 8)).Width > batasPanjang)
-            {
-                e.Graphics.DrawString($": {baris1.Trim()}", new Font("Times New Roman", 8), Brushes.Black, new Point(110, 360));
-                e.Graphics.DrawString($"{baris2.Trim()}", new Font("Times New Roman", 8), Brushes.Black, new Point(110, 380));
-            }
-            else
-            {
-                e.Graphics.DrawString($"Keperluan", new Font("Times New Roman", 8), Brushes.Black, new Point(30, 360));
-                e.Graphics.DrawString($": {alasan}", new Font("Times New Roman", 8), Brushes.Black, new Point(110, 360));
-            }
+                if (e.Graphics.MeasureString(alasan, new Font("Times New Roman", 8)).Width > batasPanjang)
+                {
+                    e.Graphics.DrawString($": {baris1.Trim()}", new Font("Times New Roman", 8), Brushes.Black, new Point(110, 360));
+                    e.Graphics.DrawString($"{baris2.Trim()}", new Font("Times New Roman", 8), Brushes.Black, new Point(110, 380));
+                }
+                else
+                {
+                    e.Graphics.DrawString($"Keperluan", new Font("Times New Roman", 8), Brushes.Black, new Point(30, 360));
+                    e.Graphics.DrawString($": {alasan}", new Font("Times New Roman", 8), Brushes.Black, new Point(110, 360));
+                }
 
 
-            if (e.Graphics.MeasureString(alasan, new Font("Times New Roman", 8)).Width > batasPanjang)
-            {
-                e.Graphics.DrawString($": {baris1.Trim()}", new Font("Times New Roman", 8), Brushes.Black, new Point(110, 550));
-                e.Graphics.DrawString($"{baris2.Trim()}", new Font("Times New Roman", 8), Brushes.Black, new Point(110, 570));
-            }
-            else
-            {
-                e.Graphics.DrawString($"Keperluan", new Font("Times New Roman", 8), Brushes.Black, new Point(30, 550));
-                e.Graphics.DrawString($": {alasan}", new Font("Times New Roman", 8), Brushes.Black, new Point(110, 550));
+                if (e.Graphics.MeasureString(alasan, new Font("Times New Roman", 8)).Width > batasPanjang)
+                {
+                    e.Graphics.DrawString($": {baris1.Trim()}", new Font("Times New Roman", 8), Brushes.Black, new Point(110, 550));
+                    e.Graphics.DrawString($"{baris2.Trim()}", new Font("Times New Roman", 8), Brushes.Black, new Point(110, 570));
+                }
+                else
+                {
+                    e.Graphics.DrawString($"Keperluan", new Font("Times New Roman", 8), Brushes.Black, new Point(30, 550));
+                    e.Graphics.DrawString($": {alasan}", new Font("Times New Roman", 8), Brushes.Black, new Point(110, 550));
+                }
             }
         }
     }
-}

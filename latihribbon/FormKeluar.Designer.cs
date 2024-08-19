@@ -43,6 +43,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtNIS = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,7 +68,7 @@
             this.tglsatu.Name = "tglsatu";
             this.tglsatu.Size = new System.Drawing.Size(174, 24);
             this.tglsatu.TabIndex = 19;
-        
+            this.tglsatu.ValueChanged += new System.EventHandler(this.tglsatu_ValueChanged);
             // 
             // button1
             // 
@@ -86,7 +88,7 @@
             this.txtTahun.Name = "txtTahun";
             this.txtTahun.Size = new System.Drawing.Size(100, 24);
             this.txtTahun.TabIndex = 17;
-
+            this.txtTahun.TextChanged += new System.EventHandler(this.txtTahun_TextChanged);
             // 
             // label4
             // 
@@ -105,6 +107,7 @@
             this.txtKelas.Name = "txtKelas";
             this.txtKelas.Size = new System.Drawing.Size(100, 24);
             this.txtKelas.TabIndex = 15;
+            this.txtKelas.TextChanged += new System.EventHandler(this.txtKelas_TextChanged);
             // 
             // label3
             // 
@@ -133,6 +136,7 @@
             this.txtNama.Name = "txtNama";
             this.txtNama.Size = new System.Drawing.Size(150, 24);
             this.txtNama.TabIndex = 12;
+            this.txtNama.TextChanged += new System.EventHandler(this.txtNama_TextChanged);
             // 
             // label1
             // 
@@ -151,6 +155,7 @@
             this.tgldua.Name = "tgldua";
             this.tgldua.Size = new System.Drawing.Size(174, 24);
             this.tgldua.TabIndex = 20;
+            this.tgldua.ValueChanged += new System.EventHandler(this.tgldua_ValueChanged);
             // 
             // label5
             // 
@@ -169,6 +174,7 @@
             this.txtNIS.Name = "txtNIS";
             this.txtNIS.Size = new System.Drawing.Size(114, 24);
             this.txtNIS.TabIndex = 23;
+            this.txtNIS.TextChanged += new System.EventHandler(this.txtNIS_TextChanged);
             // 
             // label6
             // 
@@ -180,12 +186,31 @@
             this.label6.TabIndex = 22;
             this.label6.Text = "NIS :";
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(626, 13);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 24;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(309, 6);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 22);
+            this.textBox1.TabIndex = 25;
+            // 
             // FormKeluar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1455, 553);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.txtNIS);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -225,5 +250,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtNIS;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
