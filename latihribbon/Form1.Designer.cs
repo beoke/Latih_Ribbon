@@ -147,13 +147,13 @@
             // 
             this.ribbonPanel5.Items.Add(this.ribbonButton1);
             this.ribbonPanel5.Name = "ribbonPanel5";
-            this.ribbonPanel5.Text = "ribbonPanel5";
+            this.ribbonPanel5.Text = "";
             // 
             // ribbonPanel9
             // 
             this.ribbonPanel9.Items.Add(this.ribbonButton2);
             this.ribbonPanel9.Name = "ribbonPanel9";
-            this.ribbonPanel9.Text = "ribbonPanel9";
+            this.ribbonPanel9.Text = "";
             // 
             // ribbonOrbMenuItem1
             // 

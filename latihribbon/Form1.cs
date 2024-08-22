@@ -12,7 +12,7 @@ namespace latihribbon
 {
     public partial class Form1 : RibbonForm
     {
-
+        // halo rek
         public Form1()
         {
             InitializeComponent();
