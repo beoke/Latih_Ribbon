@@ -36,13 +36,19 @@ namespace latihribbon
             if (nis != "") fltr.Add("k.Nis LIKE @nis+'%'");
             if (nama != "") fltr.Add("s.Nama LIKE @nama+'%'");
             if (kelas != "") fltr.Add("s.Kelas LIKE @kelas+'%'");
-            if (tgl1 != null && tgl2 != null) fltr.Add("Tanggal BETWEEN @tgl1 AND @tgl2");
+            if (sqlglobal != "") fltr.Add("Tanggal BETWEEN @tgl1 AND @tgl2");
 
             if (fltr.Count > 0)
             {
                 sql += " WHERE " + string.Join(" AND ", fltr);
             }
+            sqlglobal = "";
             return sql;
+        }
+
+        public void FilterTGL()
+        {
+            sqlglobal = "0";
         }
 
         public void Filter2()
@@ -85,12 +91,12 @@ namespace latihribbon
 
         private void tglsatu_ValueChanged(object sender, EventArgs e)
         {
-            Filter2();
+            FilterTGL();
         }
 
         private void tgldua_ValueChanged(object sender, EventArgs e)
         {
-            Filter2();
+            FilterTGL();
         }
         #endregion
     }
