@@ -1,4 +1,5 @@
-﻿using System;
+﻿using latihribbon.Dal;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,23 +11,21 @@ using System.Windows.Forms;
 
 namespace latihribbon
 {
-   
     public partial class FormKeluar : Form
     {
-        private DbDal db;
+        private readonly KeluarDal keluarDal;
         public FormKeluar()
         {
             InitializeComponent();
-            db = new DbDal();
-            Refersh();
+            keluarDal = new KeluarDal();
+            LoadData();
         }
 
-        public void Refersh()
+        public void LoadData()
         {
-            string sql = @"SELECT k.Id,k.Nis,s.Nama,s.Kelas,k.Tanggal,k.JamKeluar,k.JamMasuk,k.Tujuan 
-                            FROM Keluar k INNER JOIN siswa s ON k.Nis=s.Nis";
-            dataGridView1.DataSource = db.GetKeluar(sql);
+            dataGridView1.DataSource = keluarDal.ListData();
         }
+
         string sqlglobal;
         public string Filter(string nis,string nama, string kelas,DateTime tgl1,DateTime tgl2)
         {
@@ -63,9 +62,8 @@ namespace latihribbon
             tgl2 = tgldua.Value;
 
             string sql = Filter(nis,nama,kelas,tgl1,tgl2);
-            var select = db.GetKeluarFilter(sql, new {nis=nis, nama=nama,kelas=kelas,tgl1=tgl1,tgl2=tgl2});
+            var select = keluarDal.GetKeluarFilter(sql, new {nis=nis, nama=nama,kelas=kelas,tgl1=tgl1,tgl2=tgl2});
             dataGridView1.DataSource = select;
-
         }
 
         #region EVENT FILTER

@@ -70,48 +70,43 @@ namespace latihribbon
 
         private void btn_PrintKeluar_Click(object sender, EventArgs e)
         {
-            if (print == 0)
-            {
-                printDocumentKeluar.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("Suit Detail", 400, 590);
-                //printDocumentKeluar.Print();
-                /*Notiip n = new Notiip();
-                n.Show();
-                print++;
-                System.Threading.Thread.Sleep(5000);
-                n.Hide();
-                this.Hide();
+            /*  if (print == 0)
+              {
+                  printDocumentKeluar.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("Suit Detail", 400, 590);
+                  //printDocumentKeluar.Print();
+                  Notiip n = new Notiip();
+                  n.Show();
+                  print++;
+                  System.Threading.Thread.Sleep(5000);
+                  n.Hide();
+                  this.Hide();
 
-                Pemakai pakai = new Pemakai();
-                pakai.Show();
-            }*/
-                Insert();
-                printPreviewDialogKeluar.Document = printDocumentKeluar;
-                printDocumentKeluar.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("Suit Detail", 400, 590);
-                printPreviewDialogKeluar.ShowDialog();
-            }
-
+                  Pemakai pakai = new Pemakai();
+                  pakai.Show();
+              }
+              printPreviewDialogKeluar.Document = printDocumentKeluar;
+                  printDocumentKeluar.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("Suit Detail", 400, 590);
+                  printPreviewDialogKeluar.ShowDialog();
+       */
+            Insert();
         }
 
         public void Insert()
         {
-            string nis, nama, kelas, alasan;
+            string nis, alasan;
             DateTime tanggal;
             TimeSpan jamkeluar, jammasuk;
 
             nis = txtNIS.Text;
-            nama = txtNama.Text;
-            kelas = txtKelas.Text;
             tanggal = DateTime.Now.Date;
             jamkeluar = TimeSpan.Parse(tx_keluar.Text);
             jammasuk = TimeSpan.Parse(jamKembali.Text);
             alasan = txtAlasan.Text;
 
-            string sql = @"INSERT INTO Keluar(Nis,Nama,Tanggal,JamKeluar, JamMasuk, Tujuan)
+            string sql = @"INSERT INTO Keluar(Nis,Tanggal,JamKeluar, JamMasuk, Tujuan)
                           VALUES(@Nis,@Tanggal,@JamKeluar,@JamMasuk,@Tujuan)";
             var dp = new DynamicParameters();
             dp.Add("@Nis",nis,DbType.String);
-            dp.Add("@Nama",nama,DbType.String);
-            dp.Add("@Kelas",kelas,DbType.String);
             dp.Add("@Tanggal",tanggal,DbType.Date);
             dp.Add("@JamKeluar",jamkeluar,DbType.Time);
             dp.Add("@JamMasuk",jammasuk,DbType.Time);
