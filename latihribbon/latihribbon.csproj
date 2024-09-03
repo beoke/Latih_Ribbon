@@ -58,46 +58,46 @@
     <Compile Include="Dal\SiswaDal.cs" />
     <Compile Include="Dal\MasukDal.cs" />
     <Compile Include="Dal\DbDal.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="ScreenAdmin\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
+    <Compile Include="ScreenAdmin\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormAbsensi.cs">
+    <Compile Include="ScreenAdmin\FormAbsensi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormAbsensi.Designer.cs">
+    <Compile Include="ScreenAdmin\FormAbsensi.Designer.cs">
       <DependentUpon>FormAbsensi.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormKeluar.cs">
+    <Compile Include="ScreenAdmin\FormKeluar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormKeluar.Designer.cs">
+    <Compile Include="ScreenAdmin\FormKeluar.Designer.cs">
       <DependentUpon>FormKeluar.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormLaporan.cs">
+    <Compile Include="ScreenAdmin\FormLaporan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormLaporan.Designer.cs">
+    <Compile Include="ScreenAdmin\FormLaporan.Designer.cs">
       <DependentUpon>FormLaporan.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormMilih.cs">
+    <Compile Include="ScreenSiswa\FormMilih.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormMilih.Designer.cs">
+    <Compile Include="ScreenSiswa\FormMilih.Designer.cs">
       <DependentUpon>FormMilih.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormSIswa.cs">
+    <Compile Include="ScreenAdmin\FormSIswa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormSIswa.Designer.cs">
+    <Compile Include="ScreenAdmin\FormSIswa.Designer.cs">
       <DependentUpon>FormSIswa.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormTerlambat.cs">
+    <Compile Include="ScreenAdmin\FormTerlambat.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormTerlambat.Designer.cs">
+    <Compile Include="ScreenAdmin\FormTerlambat.Designer.cs">
       <DependentUpon>FormTerlambat.cs</DependentUpon>
     </Compile>
     <Compile Include="login.cs">
@@ -109,37 +109,37 @@
     <Compile Include="Model\AbsensiModel.cs" />
     <Compile Include="Model\KeluarModel.cs" />
     <Compile Include="Model\MasukModel.cs" />
-    <Compile Include="Notiip.cs">
+    <Compile Include="ScreenAdmin\Notiip.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Notiip.Designer.cs">
+    <Compile Include="ScreenAdmin\Notiip.Designer.cs">
       <DependentUpon>Notiip.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pemakai.cs">
+    <Compile Include="ScreenSiswa\Pemakai.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pemakai.Designer.cs">
+    <Compile Include="ScreenSiswa\Pemakai.Designer.cs">
       <DependentUpon>Pemakai.cs</DependentUpon>
     </Compile>
-    <Compile Include="PrintTerlambat.cs">
+    <Compile Include="ScreenAdmin\PrintTerlambat.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PrintTerlambat.Designer.cs">
+    <Compile Include="ScreenAdmin\PrintTerlambat.Designer.cs">
       <DependentUpon>PrintTerlambat.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Model\SiswaModel.cs" />
-    <Compile Include="SuratKeluarcs.cs">
+    <Compile Include="ScreenSiswa\SuratKeluarcs.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SuratKeluarcs.Designer.cs">
+    <Compile Include="ScreenSiswa\SuratKeluarcs.Designer.cs">
       <DependentUpon>SuratKeluarcs.cs</DependentUpon>
     </Compile>
-    <Compile Include="SuratMasuk.cs">
+    <Compile Include="ScreenSiswa\SuratMasuk.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SuratMasuk.Designer.cs">
+    <Compile Include="ScreenSiswa\SuratMasuk.Designer.cs">
       <DependentUpon>SuratMasuk.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\UserModel.cs" />
@@ -149,37 +149,37 @@
     <Compile Include="UpdateInsert\SiswaIU.Designer.cs">
       <DependentUpon>SiswaIU.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
+    <EmbeddedResource Include="ScreenAdmin\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormAbsensi.resx">
+    <EmbeddedResource Include="ScreenAdmin\FormAbsensi.resx">
       <DependentUpon>FormAbsensi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormKeluar.resx">
+    <EmbeddedResource Include="ScreenAdmin\FormKeluar.resx">
       <DependentUpon>FormKeluar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormLaporan.resx">
+    <EmbeddedResource Include="ScreenAdmin\FormLaporan.resx">
       <DependentUpon>FormLaporan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormMilih.resx">
+    <EmbeddedResource Include="ScreenSiswa\FormMilih.resx">
       <DependentUpon>FormMilih.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormSIswa.resx">
+    <EmbeddedResource Include="ScreenAdmin\FormSIswa.resx">
       <DependentUpon>FormSIswa.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormTerlambat.resx">
+    <EmbeddedResource Include="ScreenAdmin\FormTerlambat.resx">
       <DependentUpon>FormTerlambat.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Notiip.resx">
+    <EmbeddedResource Include="ScreenAdmin\Notiip.resx">
       <DependentUpon>Notiip.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Pemakai.resx">
+    <EmbeddedResource Include="ScreenSiswa\Pemakai.resx">
       <DependentUpon>Pemakai.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PrintTerlambat.resx">
+    <EmbeddedResource Include="ScreenAdmin\PrintTerlambat.resx">
       <DependentUpon>PrintTerlambat.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -192,10 +192,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="SuratKeluarcs.resx">
+    <EmbeddedResource Include="ScreenSiswa\SuratKeluarcs.resx">
       <DependentUpon>SuratKeluarcs.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SuratMasuk.resx">
+    <EmbeddedResource Include="ScreenSiswa\SuratMasuk.resx">
       <DependentUpon>SuratMasuk.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -238,6 +238,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\absence %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ScreenUser\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

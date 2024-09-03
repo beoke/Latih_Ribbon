@@ -17,7 +17,7 @@ namespace latihribbon
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormAbsensi());
+            Application.Run(new login());
         }
     }
 }
