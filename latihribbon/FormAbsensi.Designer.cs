@@ -60,6 +60,7 @@
             this.txtNIS.Name = "txtNIS";
             this.txtNIS.Size = new System.Drawing.Size(84, 21);
             this.txtNIS.TabIndex = 20;
+            this.txtNIS.TextChanged += new System.EventHandler(this.txtNIS_TextChanged);
             // 
             // label5
             // 
