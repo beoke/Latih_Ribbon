@@ -49,11 +49,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(2, 58);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(958, 314);
+            this.dataGridView1.TabIndex = 13;
             // 
             // label1
             // 
@@ -70,7 +71,7 @@
             // 
             this.txtNama.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNama.Location = new System.Drawing.Point(216, 23);
-            this.txtNama.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNama.Margin = new System.Windows.Forms.Padding(2);
             this.txtNama.Name = "txtNama";
             this.txtNama.Size = new System.Drawing.Size(163, 21);
             this.txtNama.TabIndex = 2;
@@ -80,7 +81,7 @@
             // 
             this.txtKelas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtKelas.Location = new System.Drawing.Point(445, 23);
-            this.txtKelas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtKelas.Margin = new System.Windows.Forms.Padding(2);
             this.txtKelas.Name = "txtKelas";
             this.txtKelas.Size = new System.Drawing.Size(76, 21);
             this.txtKelas.TabIndex = 6;
@@ -101,7 +102,7 @@
             // 
             this.txtTahun.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTahun.Location = new System.Drawing.Point(597, 23);
-            this.txtTahun.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtTahun.Margin = new System.Windows.Forms.Padding(2);
             this.txtTahun.Name = "txtTahun";
             this.txtTahun.Size = new System.Drawing.Size(76, 21);
             this.txtTahun.TabIndex = 8;
@@ -124,7 +125,7 @@
             this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button1.Location = new System.Drawing.Point(902, 15);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(41, 37);
             this.button1.TabIndex = 9;
@@ -134,7 +135,7 @@
             // 
             this.txtNIS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNIS.Location = new System.Drawing.Point(64, 23);
-            this.txtNIS.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNIS.Margin = new System.Windows.Forms.Padding(2);
             this.txtNIS.Name = "txtNIS";
             this.txtNIS.Size = new System.Drawing.Size(84, 21);
             this.txtNIS.TabIndex = 12;
@@ -167,7 +168,7 @@
             this.Controls.Add(this.txtNama);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormSIswa";
             this.Text = "FormSIswa";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

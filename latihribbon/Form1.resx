@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="ribbonButton1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="ribbonSiswaAbsensi.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAB
-        YQAAAWEB8p7xPgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAT1SURBVHhe7Zt9
+        XwAAAV8BjSuMngAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAT1SURBVHhe7Zt9
         TFtlFIfbUi8DIYwiSyiClIlD001H3FwnScdahToGGdQM/JjiRxRRmcSEmEAIS8Q51GBjFoxGA6QlmSVZ
         rAwFFEMkA5E4RsYwLDL+AE1M9J9Fo5s7nvdd7/W2vEXoh9zCe5Inufe9cHp+T3vbS1tUALAqsPKQvxCy
         o0ReYs0dCObicmBVkBtKSUkBo9GoGDIzM0UB7ay5A8FcXA5RQEVFBYyPjyuG1tZWLoAL4AK4AC6ACwiX
@@ -146,10 +146,10 @@
         epcjH0h9qQ8AAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="ribbonButton1.LargeImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="ribbonSiswaAbsensi.LargeImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAB
-        YQAAAWEB8p7xPgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAT1SURBVHhe7Zt9
+        XwAAAV8BjSuMngAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAT1SURBVHhe7Zt9
         TFtlFIfbUi8DIYwiSyiClIlD001H3FwnScdahToGGdQM/JjiRxRRmcSEmEAIS8Q51GBjFoxGA6QlmSVZ
         rAwFFEMkA5E4RsYwLDL+AE1M9J9Fo5s7nvdd7/W2vEXoh9zCe5Inufe9cHp+T3vbS1tUALAqsPKQvxCy
         o0ReYs0dCObicmBVkBtKSUkBo9GoGDIzM0UB7ay5A8FcXA5RQEVFBYyPjyuG1tZWLoAL4AK4AC6ACwiX
@@ -174,16 +174,10 @@
         epcjH0h9qQ8AAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="ribbonButton1.SmallImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="ribbonSiswaAbsensi.SmallImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAAABNJREFUOE9jGAWjYBSMAjBgYAAABBAAAadEfGMAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="ribbonButton2.SmallImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAAABNJREFUOE9jGAWjYBSMAjBgYAAABBAAAadEfGMAAAAASUVORK5CYII=
+        wAAADsABataJCQAAABNJREFUOE9jGAWjYBSMAjBgYAAABBAAAadEfGMAAAAASUVORK5CYII=
 </value>
   </data>
   <data name="ribbonOrbMenuItem1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -207,7 +201,7 @@
   <data name="ribbon_Siswa.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAB
-        VAAAAVQBBBillgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAT1SURBVHhe7Zt9
+        UgAAAVIBhBvhDQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAT1SURBVHhe7Zt9
         TFtlFIfbUi8DIYwiSyiClIlD001H3FwnScdahToGGdQM/JjiRxRRmcSEmEAIS8Q51GBjFoxGA6QlmSVZ
         rAwFFEMkA5E4RsYwLDL+AE1M9J9Fo5s7nvdd7/W2vEXoh9zCe5Inufe9cHp+T3vbS1tUALAqsPKQvxCy
         o0ReYs0dCObicmBVkBtKSUkBo9GoGDIzM0UB7ay5A8FcXA5RQEVFBYyPjyuG1tZWLoAL4AK4AC6ACwiX
@@ -235,7 +229,7 @@
   <data name="ribbon_Siswa.LargeImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAB
-        VAAAAVQBBBillgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAT1SURBVHhe7Zt9
+        UgAAAVIBhBvhDQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAT1SURBVHhe7Zt9
         TFtlFIfbUi8DIYwiSyiClIlD001H3FwnScdahToGGdQM/JjiRxRRmcSEmEAIS8Q51GBjFoxGA6QlmSVZ
         rAwFFEMkA5E4RsYwLDL+AE1M9J9Fo5s7nvdd7/W2vEXoh9zCe5Inufe9cHp+T3vbS1tUALAqsPKQvxCy
         o0ReYs0dCObicmBVkBtKSUkBo9GoGDIzM0UB7ay5A8FcXA5RQEVFBYyPjyuG1tZWLoAL4AK4AC6ACwiX
@@ -736,6 +730,12 @@
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAS
         cQAAEnEB89x6jgAAABNJREFUOE9jGAWjYBSMAjBgYAAABBAAAadEfGMAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="ribbonAbsensi.SmallImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wAAADsABataJCQAAABNJREFUOE9jGAWjYBSMAjBgYAAABBAAAadEfGMAAAAASUVORK5CYII=
 </value>
   </data>
 </root>

@@ -29,5 +29,48 @@ namespace latihribbon.Dal
                 return users;
             }
         }
+
+        private void Insert(KeluarModel keluar)
+        {
+            using (var koneksi = new SqlConnection(Conn.conn.connstr()))
+            {
+                const string sql = @"INSERT INTO Keluar(Nis,Tanggal,JamKeluar,JamMasuk,Tujuan)
+                                VALUES(@Nis,@Tanggal,@JamKeluar,@JamMasuk,@Tujuan)";
+                var dp = new DynamicParameters();
+                dp.Add("@Nis", keluar.Nis, System.Data.DbType.Int32);
+                dp.Add("@Tanggal", keluar.Tanggal, System.Data.DbType.Date);
+                dp.Add("@JamKeluar", keluar.JamKeluar, System.Data.DbType.Time);
+                dp.Add("@JamMasuk", keluar.JamMasuk, System.Data.DbType.Time);
+                dp.Add("@Tujuan", keluar.Tujuan, System.Data.DbType.String);
+
+                koneksi.Execute(sql, dp);
+            }
+        }
+
+        private void Update(KeluarModel keluar)
+        {
+            using (var koneksi = new SqlConnection(Conn.conn.connstr()))
+            {
+                const string sql = @"UPDATE Keluar SET Nis=@Nis,Tanggal=@Tanggal,JamKeluar=@JamKeluar,
+                                    JamMasuk=@JamMasuk,Tujuan=@Tujuan";
+                var dp = new DynamicParameters();
+                dp.Add("@Nis", keluar.Nis, System.Data.DbType.Int32);
+                dp.Add("@Tanggal", keluar.Tanggal, System.Data.DbType.Date);
+                dp.Add("@JamKeluar", keluar.JamKeluar, System.Data.DbType.Time);
+                dp.Add("@JamMasuk", keluar.JamMasuk, System.Data.DbType.Time);
+                dp.Add("@Tujuan", keluar.Tujuan, System.Data.DbType.String);
+
+                koneksi.Execute(sql, dp);
+            }
+        }
+
+        private void Delete(int IdKeluar)
+        {
+            using (var koneksi = new SqlConnection(Conn.conn.connstr()))
+            {
+                const string sql = @"DELETE FROM Keluar WHERE Id=@Id";
+                koneksi.Execute(sql, new { Id=IdKeluar });
+            }
+        }
     }
 }

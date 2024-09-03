@@ -14,12 +14,12 @@ namespace latihribbon
     public partial class FormTerlambat : Form
     {
         private DbDal db;
-        private  TerlambatDal terlambatDal;
+        private  MasukDal terlambatDal;
         public FormTerlambat()
         {
             InitializeComponent();
             db = new DbDal();
-            terlambatDal = new TerlambatDal();
+            terlambatDal = new MasukDal();
 
             LoadData();
         }
