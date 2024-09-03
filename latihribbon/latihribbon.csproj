@@ -63,6 +63,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormAbsensi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAbsensi.Designer.cs">
+      <DependentUpon>FormAbsensi.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormKeluar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +105,7 @@
     <Compile Include="login.Designer.cs">
       <DependentUpon>login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\AbsensiModel.cs" />
     <Compile Include="Model\KeluarModel.cs" />
     <Compile Include="Model\MasukModel.cs" />
     <Compile Include="Notiip.cs">
@@ -143,6 +150,9 @@
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAbsensi.resx">
+      <DependentUpon>FormAbsensi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormKeluar.resx">
       <DependentUpon>FormKeluar.cs</DependentUpon>
