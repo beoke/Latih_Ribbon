@@ -1,4 +1,5 @@
 ﻿using latihribbon.Dal;
+using latihribbon.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,17 +15,37 @@ namespace latihribbon
     public partial class FormSIswa : Form
     {
         private readonly SiswaDal siswaDal;
-
+        private readonly JurusanDal jurusanDal;
         public FormSIswa()
         {
             InitializeComponent();
-            siswaDal = new SiswaDal();  
+            siswaDal = new SiswaDal(); 
+            jurusanDal = new JurusanDal();
             loadSiswa();
 
             InitialEvent();
+            InitJurusan();
         }
 
+        public void InitJurusan()
+        {
+            var jurusan = jurusanDal.ListData();
+            List<JurusanItem> daftarJurusan = new List<JurusanItem>();
+            foreach (var item in jurusan)
+            {
+                daftarJurusan.Add(new JurusanItem { Id = item.Id, NamaJurusan = item.NamaJurusan });
+            }
 
+            jurusanCombo.DataSource = daftarJurusan;
+            jurusanCombo.DisplayMember = "NamaJurusan";
+            jurusanCombo.ValueMember = "Id";
+        }
+
+        public class JurusanItem
+        {
+            public int Id { get; set; }
+            public string NamaJurusan { get; set; }
+        }
         private void InitialEvent()
         {
             dataGridView1.SelectionChanged += DataGridView1_SelectionChanged;
@@ -41,11 +62,6 @@ namespace latihribbon
             dataGridView1.DataSource = siswaDal.ListData();
         }
 
-        public void SaveData()
-        {
-            
-        }
-
         public void GetData()
         {
             string nis = dataGridView1.CurrentRow.Cells["Nis"].Value?.ToString()?? string.Empty;
@@ -54,8 +70,13 @@ namespace latihribbon
             txtNIS_FormSiswa.Text = getSiswa.Nis.ToString();
             txtNama_FormSiswa.Text =getSiswa.Nama;
             txtPersensi_FormSiswa.Text = getSiswa.Persensi.ToString();
-            txtKelas_FormSiswa.Text = getSiswa.Kelas;
+
             txtTahun_FormSiswa.Text = getSiswa.Tahun;
+        }
+
+        public void SaveData()
+        {
+            string nis, nama, tingkat, jurusan;
         }
 
 

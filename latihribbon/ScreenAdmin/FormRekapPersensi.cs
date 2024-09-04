@@ -17,8 +17,15 @@ namespace latihribbon.ScreenAdmin
         public FormRekapPersensi()
         {
             InitializeComponent();
+            InitKeterangan();
             rekapPersensiDal = new RekapPersensiDal();
             dataGridView1.DataSource = rekapPersensiDal.ListData();
+        }
+
+        public void InitKeterangan()
+        {
+            List<string> Keterangan = new List<string>() { "Semua", "A", "I", "S" };
+            KeteranganCombo.DataSource = Keterangan;
         }
     }
 }
