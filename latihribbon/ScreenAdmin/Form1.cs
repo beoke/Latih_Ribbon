@@ -74,6 +74,12 @@ namespace latihribbon
             FormSIswa dataSiswa = new FormSIswa();
             ShowFormInPanel(dataSiswa);
         }
+
+        private void ribbonAbsensi_Click(object sender, EventArgs e)
+        {
+            FormAbsensi fa = new FormAbsensi();
+            ShowFormInPanel(fa);
+        }
     }
 }
 

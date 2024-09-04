@@ -223,6 +223,7 @@
             this.ribbonAbsensi.Name = "ribbonAbsensi";
             this.ribbonAbsensi.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonAbsensi.SmallImage")));
             this.ribbonAbsensi.Text = "Absensi";
+            this.ribbonAbsensi.Click += new System.EventHandler(this.ribbonAbsensi_Click);
             // 
             // panel1
             // 

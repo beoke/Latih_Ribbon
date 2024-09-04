@@ -45,8 +45,10 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dataGridView1.Location = new System.Drawing.Point(0, 54);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(1107, 370);
@@ -81,6 +83,7 @@
             this.txtKelas.Name = "txtKelas";
             this.txtKelas.Size = new System.Drawing.Size(76, 21);
             this.txtKelas.TabIndex = 16;
+            this.txtKelas.TextChanged += new System.EventHandler(this.txtKelas_TextChanged);
             // 
             // label3
             // 
@@ -101,6 +104,7 @@
             this.txtNama.Name = "txtNama";
             this.txtNama.Size = new System.Drawing.Size(163, 21);
             this.txtNama.TabIndex = 14;
+            this.txtNama.TextChanged += new System.EventHandler(this.txtNama_TextChanged);
             // 
             // label1
             // 
@@ -121,6 +125,7 @@
             this.tgldua.Name = "tgldua";
             this.tgldua.Size = new System.Drawing.Size(132, 21);
             this.tgldua.TabIndex = 24;
+            this.tgldua.ValueChanged += new System.EventHandler(this.tgldua_ValueChanged);
             // 
             // tglsatu
             // 
@@ -130,6 +135,7 @@
             this.tglsatu.Name = "tglsatu";
             this.tglsatu.Size = new System.Drawing.Size(132, 21);
             this.tglsatu.TabIndex = 23;
+            this.tglsatu.ValueChanged += new System.EventHandler(this.tglsatu_ValueChanged);
             // 
             // label4
             // 
@@ -149,6 +155,7 @@
             this.KeteranganCombo.Name = "KeteranganCombo";
             this.KeteranganCombo.Size = new System.Drawing.Size(121, 21);
             this.KeteranganCombo.TabIndex = 25;
+            this.KeteranganCombo.SelectedIndexChanged += new System.EventHandler(this.KeteranganCombo_SelectedIndexChanged);
             // 
             // label2
             // 
