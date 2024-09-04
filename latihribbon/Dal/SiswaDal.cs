@@ -14,7 +14,16 @@ namespace latihribbon.Dal
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
             {
-                const string sql = @"SELECT * FROM Siswa";
+                const string sql = @"SELECT * FROM Siswa
+                                    ORDER BY 
+                            Persensi ASC,
+                            CASE
+                                WHEN Kelas LIKE 'X %' THEN 1
+                                WHEN Kelas LIKE 'XI %' THEN 2
+                                WHEN Kelas LIKE 'XII %' THEN 3
+                                ELSE 4
+                            END,
+                            SUBSTRING( Kelas, CHARINDEX(' ', Kelas) + 1, LEN(Kelas)) ASC ";
                 return koneksi.Query<SiswaModel>(sql);  
             }
         }

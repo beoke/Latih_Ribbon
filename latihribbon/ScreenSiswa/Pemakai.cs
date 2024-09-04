@@ -48,7 +48,7 @@ namespace latihribbon
            
             if (!int.TryParse(tx_NIS.Text, out nis))
             {
-                MessageBox.Show($"Harap {tx_NIS.Text} masukkan angka yang valid untuk NIS.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show($"Harap masukkan angka yang valid untuk NIS.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 tx_NIS.Text = "";
                 return;
             }

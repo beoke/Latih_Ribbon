@@ -47,14 +47,16 @@
             this.btnSave_FormSiswa = new System.Windows.Forms.Button();
             this.btnDelete_FormSiswa = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.txtTahun_FormSiswa = new System.Windows.Forms.TextBox();
+            this.txtKelas_FormSiswa = new System.Windows.Forms.TextBox();
             this.txtNIS_FormSiswa = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtNama_FormSiswa = new System.Windows.Forms.TextBox();
-            this.txtKelas_FormSiswa = new System.Windows.Forms.TextBox();
+            this.txtPersensi_FormSiswa = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.txtTahun_FormSiswa = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -206,6 +208,7 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(570, 394);
             this.dataGridView1.TabIndex = 13;
+            this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
             // 
             // panel4
             // 
@@ -239,7 +242,7 @@
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel6.Controls.Add(this.btnSave_FormSiswa);
             this.panel6.Controls.Add(this.btnDelete_FormSiswa);
-            this.panel6.Location = new System.Drawing.Point(4, 265);
+            this.panel6.Location = new System.Drawing.Point(4, 314);
             this.panel6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(332, 73);
@@ -276,28 +279,30 @@
             this.panel5.BackColor = System.Drawing.Color.Gainsboro;
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel5.Controls.Add(this.txtTahun_FormSiswa);
+            this.panel5.Controls.Add(this.label9);
+            this.panel5.Controls.Add(this.txtKelas_FormSiswa);
             this.panel5.Controls.Add(this.txtNIS_FormSiswa);
             this.panel5.Controls.Add(this.label8);
             this.panel5.Controls.Add(this.txtNama_FormSiswa);
-            this.panel5.Controls.Add(this.txtKelas_FormSiswa);
+            this.panel5.Controls.Add(this.txtPersensi_FormSiswa);
             this.panel5.Controls.Add(this.label6);
             this.panel5.Controls.Add(this.label2);
             this.panel5.Controls.Add(this.label7);
             this.panel5.Location = new System.Drawing.Point(4, 6);
             this.panel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(332, 255);
+            this.panel5.Size = new System.Drawing.Size(332, 304);
             this.panel5.TabIndex = 5;
             // 
-            // txtTahun_FormSiswa
+            // txtKelas_FormSiswa
             // 
-            this.txtTahun_FormSiswa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTahun_FormSiswa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTahun_FormSiswa.Location = new System.Drawing.Point(18, 197);
-            this.txtTahun_FormSiswa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtTahun_FormSiswa.Name = "txtTahun_FormSiswa";
-            this.txtTahun_FormSiswa.Size = new System.Drawing.Size(300, 23);
-            this.txtTahun_FormSiswa.TabIndex = 22;
+            this.txtKelas_FormSiswa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtKelas_FormSiswa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtKelas_FormSiswa.Location = new System.Drawing.Point(18, 205);
+            this.txtKelas_FormSiswa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtKelas_FormSiswa.Name = "txtKelas_FormSiswa";
+            this.txtKelas_FormSiswa.Size = new System.Drawing.Size(300, 23);
+            this.txtKelas_FormSiswa.TabIndex = 22;
             // 
             // txtNIS_FormSiswa
             // 
@@ -308,17 +313,18 @@
             this.txtNIS_FormSiswa.Name = "txtNIS_FormSiswa";
             this.txtNIS_FormSiswa.Size = new System.Drawing.Size(300, 23);
             this.txtNIS_FormSiswa.TabIndex = 17;
+            this.txtNIS_FormSiswa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNIS_FormSiswa_KeyPress);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(15, 178);
+            this.label8.Location = new System.Drawing.Point(15, 186);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(49, 17);
+            this.label8.Size = new System.Drawing.Size(43, 17);
             this.label8.TabIndex = 21;
-            this.label8.Text = "Tahun";
+            this.label8.Text = "Kelas";
             // 
             // txtNama_FormSiswa
             // 
@@ -330,15 +336,15 @@
             this.txtNama_FormSiswa.Size = new System.Drawing.Size(300, 23);
             this.txtNama_FormSiswa.TabIndex = 18;
             // 
-            // txtKelas_FormSiswa
+            // txtPersensi_FormSiswa
             // 
-            this.txtKelas_FormSiswa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtKelas_FormSiswa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtKelas_FormSiswa.Location = new System.Drawing.Point(18, 151);
-            this.txtKelas_FormSiswa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtKelas_FormSiswa.Name = "txtKelas_FormSiswa";
-            this.txtKelas_FormSiswa.Size = new System.Drawing.Size(300, 23);
-            this.txtKelas_FormSiswa.TabIndex = 20;
+            this.txtPersensi_FormSiswa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPersensi_FormSiswa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPersensi_FormSiswa.Location = new System.Drawing.Point(18, 156);
+            this.txtPersensi_FormSiswa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPersensi_FormSiswa.Name = "txtPersensi_FormSiswa";
+            this.txtPersensi_FormSiswa.Size = new System.Drawing.Size(300, 23);
+            this.txtPersensi_FormSiswa.TabIndex = 20;
             // 
             // label6
             // 
@@ -366,12 +372,33 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(15, 132);
+            this.label7.Location = new System.Drawing.Point(15, 137);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(43, 17);
+            this.label7.Size = new System.Drawing.Size(63, 17);
             this.label7.TabIndex = 19;
-            this.label7.Text = "Kelas";
+            this.label7.Text = "Persensi";
+            // 
+            // txtTahun_FormSiswa
+            // 
+            this.txtTahun_FormSiswa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtTahun_FormSiswa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTahun_FormSiswa.Location = new System.Drawing.Point(17, 254);
+            this.txtTahun_FormSiswa.Margin = new System.Windows.Forms.Padding(2);
+            this.txtTahun_FormSiswa.Name = "txtTahun_FormSiswa";
+            this.txtTahun_FormSiswa.Size = new System.Drawing.Size(300, 23);
+            this.txtTahun_FormSiswa.TabIndex = 24;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(14, 235);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(49, 17);
+            this.label9.TabIndex = 23;
+            this.label9.Text = "Tahun";
             // 
             // FormSIswa
             // 
@@ -422,9 +449,9 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.TextBox txtTahun_FormSiswa;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtKelas_FormSiswa;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtPersensi_FormSiswa;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
@@ -433,5 +460,7 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button btnDelete_FormSiswa;
         private System.Windows.Forms.Button btnSave_FormSiswa;
+        private System.Windows.Forms.TextBox txtTahun_FormSiswa;
+        private System.Windows.Forms.Label label9;
     }
 }

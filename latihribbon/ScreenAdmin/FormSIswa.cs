@@ -41,23 +41,23 @@ namespace latihribbon
             dataGridView1.DataSource = siswaDal.ListData();
         }
 
-        #region GET DATA
+        public void SaveData()
+        {
+            
+        }
 
         public void GetData()
         {
             string nis = dataGridView1.CurrentRow.Cells["Nis"].Value?.ToString()?? string.Empty;
             if (nis == string.Empty) return;
             var getSiswa = siswaDal.GetData(Convert.ToInt32(nis));
-            var siswa = new SiswaModel()
-            {
-                Nis = getSiswa.Nis,
-                Nama = getSiswa.Nama,
-                Kelas = getSiswa.Kelas,
-                
-            };
+            txtNIS_FormSiswa.Text = getSiswa.Nis.ToString();
+            txtNama_FormSiswa.Text =getSiswa.Nama;
+            txtPersensi_FormSiswa.Text = getSiswa.Persensi.ToString();
+            txtKelas_FormSiswa.Text = getSiswa.Kelas;
+            txtTahun_FormSiswa.Text = getSiswa.Tahun;
         }
 
-        #endregion
 
         #region FILTER
         public void filter(string nis,string nama, string kelas, string tahun)
@@ -117,5 +117,17 @@ namespace latihribbon
         }
         #endregion
 
+        private void dataGridView1_DoubleClick(object sender, EventArgs e)
+        {
+            GetData();
+        }
+
+        private void txtNIS_FormSiswa_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
