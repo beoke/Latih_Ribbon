@@ -14,6 +14,7 @@ namespace latihribbon
     public partial class FormSIswa : Form
     {
         private readonly SiswaDal siswaDal;
+
         public FormSIswa()
         {
             InitializeComponent();
@@ -40,7 +41,25 @@ namespace latihribbon
             dataGridView1.DataSource = siswaDal.ListData();
         }
 
+        #region GET DATA
 
+        public void GetData()
+        {
+            string nis = dataGridView1.CurrentRow.Cells["Nis"].Value?.ToString()?? string.Empty;
+            if (nis == string.Empty) return;
+            var getSiswa = siswaDal.GetData(Convert.ToInt32(nis));
+            var siswa = new SiswaModel()
+            {
+                Nis = getSiswa.Nis,
+                Nama = getSiswa.Nama,
+                Kelas = getSiswa.Kelas,
+                
+            };
+        }
+
+        #endregion
+
+        #region FILTER
         public void filter(string nis,string nama, string kelas, string tahun)
         {
             string sql = CekIsi(nis,nama,kelas,tahun);
@@ -75,6 +94,9 @@ namespace latihribbon
 
             filter(nis, nama, kelas, tahun);
         }
+        #endregion
+
+        #region EVENT FILTER
         private void txtNama_TextChanged(object sender, EventArgs e)
         {
             fltr();
@@ -93,5 +115,7 @@ namespace latihribbon
         {
             fltr();
         }
+        #endregion
+
     }
 }

@@ -28,6 +28,15 @@ namespace latihribbon.Dal
             }
         }
 
+        public SiswaModel GetData(int Nis)
+        {
+            using (var koneksi = new SqlConnection(Conn.conn.connstr()))
+            {
+                const string sql = @"SELECT * FROM siswa WHERE Nis=@Nis";
+                return koneksi.QueryFirstOrDefault<SiswaModel>(sql, new {Nis=Nis});
+            }
+        }
+
         private void Insert(SiswaModel siswa)
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
