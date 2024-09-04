@@ -32,30 +32,30 @@
             this.printPreviewDialogKeluar = new System.Windows.Forms.PrintPreviewDialog();
             this.printDocumentKeluar = new System.Drawing.Printing.PrintDocument();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.jamKembali = new System.Windows.Forms.DateTimePicker();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.txtTanggal = new System.Windows.Forms.TextBox();
+            this.jamKembali = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtNIS = new System.Windows.Forms.TextBox();
             this.tx_keluar = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label11 = new System.Windows.Forms.Label();
-            this.btn_kembali = new System.Windows.Forms.Button();
-            this.btn_PrintKeluar = new System.Windows.Forms.Button();
-            this.txtAlasan = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtKelas = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtNama = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtKelas = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtNIS = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.txtAlasan = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.btn_kembali = new System.Windows.Forms.Button();
+            this.btn_PrintKeluar = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.SuspendLayout();
@@ -88,16 +88,28 @@
             this.panel2.Size = new System.Drawing.Size(1737, 1018);
             this.panel2.TabIndex = 74;
             // 
-            // jamKembali
+            // panel3
             // 
-            this.jamKembali.CustomFormat = "HH:mm";
-            this.jamKembali.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.jamKembali.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.jamKembali.Location = new System.Drawing.Point(493, 560);
-            this.jamKembali.Name = "jamKembali";
-            this.jamKembali.ShowUpDown = true;
-            this.jamKembali.Size = new System.Drawing.Size(558, 45);
-            this.jamKembali.TabIndex = 75;
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.txtTanggal);
+            this.panel3.Controls.Add(this.jamKembali);
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Controls.Add(this.txtNIS);
+            this.panel3.Controls.Add(this.tx_keluar);
+            this.panel3.Controls.Add(this.label2);
+            this.panel3.Controls.Add(this.label3);
+            this.panel3.Controls.Add(this.txtKelas);
+            this.panel3.Controls.Add(this.label6);
+            this.panel3.Controls.Add(this.label4);
+            this.panel3.Controls.Add(this.label5);
+            this.panel3.Controls.Add(this.txtNama);
+            this.panel3.Location = new System.Drawing.Point(22, 160);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1118, 710);
+            this.panel3.TabIndex = 76;
             // 
             // txtTanggal
             // 
@@ -110,6 +122,39 @@
             this.txtTanggal.Size = new System.Drawing.Size(558, 45);
             this.txtTanggal.TabIndex = 74;
             // 
+            // jamKembali
+            // 
+            this.jamKembali.CustomFormat = "HH:mm";
+            this.jamKembali.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.jamKembali.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.jamKembali.Location = new System.Drawing.Point(493, 560);
+            this.jamKembali.Name = "jamKembali";
+            this.jamKembali.ShowUpDown = true;
+            this.jamKembali.Size = new System.Drawing.Size(558, 45);
+            this.jamKembali.TabIndex = 75;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(59, 45);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(355, 42);
+            this.label1.TabIndex = 24;
+            this.label1.Text = "NIS                              :";
+            // 
+            // txtNIS
+            // 
+            this.txtNIS.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNIS.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNIS.Location = new System.Drawing.Point(493, 46);
+            this.txtNIS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtNIS.Name = "txtNIS";
+            this.txtNIS.ReadOnly = true;
+            this.txtNIS.Size = new System.Drawing.Size(558, 45);
+            this.txtNIS.TabIndex = 25;
+            // 
             // tx_keluar
             // 
             this.tx_keluar.BackColor = System.Drawing.SystemColors.Control;
@@ -121,6 +166,83 @@
             this.tx_keluar.ReadOnly = true;
             this.tx_keluar.Size = new System.Drawing.Size(558, 45);
             this.tx_keluar.TabIndex = 73;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(60, 251);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(360, 42);
+            this.label2.TabIndex = 26;
+            this.label2.Text = "Kelas                            :";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(56, 354);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(359, 42);
+            this.label3.TabIndex = 27;
+            this.label3.Text = "Tanggal                        :";
+            // 
+            // txtKelas
+            // 
+            this.txtKelas.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtKelas.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtKelas.Location = new System.Drawing.Point(493, 250);
+            this.txtKelas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtKelas.Name = "txtKelas";
+            this.txtKelas.ReadOnly = true;
+            this.txtKelas.Size = new System.Drawing.Size(558, 45);
+            this.txtKelas.TabIndex = 28;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label6.Font = new System.Drawing.Font("Times New Roman", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(59, 559);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(360, 42);
+            this.label6.TabIndex = 36;
+            this.label6.Text = "Kembali Pada Jam ke  :";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(56, 146);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(358, 42);
+            this.label4.TabIndex = 29;
+            this.label4.Text = "Nama                           :";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label5.Font = new System.Drawing.Font("Times New Roman", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(60, 459);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(355, 42);
+            this.label5.TabIndex = 34;
+            this.label5.Text = "Keluar Pada Jam         :";
+            // 
+            // txtNama
+            // 
+            this.txtNama.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNama.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNama.Location = new System.Drawing.Point(493, 146);
+            this.txtNama.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtNama.Name = "txtNama";
+            this.txtNama.ReadOnly = true;
+            this.txtNama.Size = new System.Drawing.Size(558, 45);
+            this.txtNama.TabIndex = 30;
             // 
             // panel1
             // 
@@ -147,6 +269,59 @@
             this.label11.Size = new System.Drawing.Size(318, 54);
             this.label11.TabIndex = 68;
             this.label11.Text = "Surat Izin Keluar";
+            // 
+            // panel4
+            // 
+            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel4.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.txtAlasan);
+            this.panel4.Controls.Add(this.label9);
+            this.panel4.Location = new System.Drawing.Point(1169, 160);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(542, 710);
+            this.panel4.TabIndex = 77;
+            // 
+            // txtAlasan
+            // 
+            this.txtAlasan.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtAlasan.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtAlasan.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAlasan.Location = new System.Drawing.Point(243, 25);
+            this.txtAlasan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtAlasan.MaxLength = 100;
+            this.txtAlasan.Multiline = true;
+            this.txtAlasan.Name = "txtAlasan";
+            this.txtAlasan.Size = new System.Drawing.Size(266, 564);
+            this.txtAlasan.TabIndex = 43;
+            // 
+            // label9
+            // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Times New Roman", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(29, 33);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(187, 42);
+            this.label9.TabIndex = 42;
+            this.label9.Text = "Keperluan :";
+            // 
+            // panel5
+            // 
+            this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel5.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel5.Controls.Add(this.btn_kembali);
+            this.panel5.Controls.Add(this.btn_PrintKeluar);
+            this.panel5.Location = new System.Drawing.Point(22, 892);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(1689, 100);
+            this.panel5.TabIndex = 78;
             // 
             // btn_kembali
             // 
@@ -183,181 +358,6 @@
             this.btn_PrintKeluar.UseVisualStyleBackColor = true;
             this.btn_PrintKeluar.Click += new System.EventHandler(this.btn_PrintKeluar_Click);
             // 
-            // txtAlasan
-            // 
-            this.txtAlasan.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtAlasan.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtAlasan.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAlasan.Location = new System.Drawing.Point(243, 25);
-            this.txtAlasan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtAlasan.MaxLength = 100;
-            this.txtAlasan.Multiline = true;
-            this.txtAlasan.Name = "txtAlasan";
-            this.txtAlasan.Size = new System.Drawing.Size(86, 564);
-            this.txtAlasan.TabIndex = 43;
-            // 
-            // label9
-            // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Times New Roman", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(29, 33);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(187, 42);
-            this.label9.TabIndex = 42;
-            this.label9.Text = "Keperluan :";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label6.Font = new System.Drawing.Font("Times New Roman", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(59, 559);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(360, 42);
-            this.label6.TabIndex = 36;
-            this.label6.Text = "Kembali Pada Jam ke  :";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label5.Font = new System.Drawing.Font("Times New Roman", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(60, 459);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(355, 42);
-            this.label5.TabIndex = 34;
-            this.label5.Text = "Keluar Pada Jam         :";
-            // 
-            // txtNama
-            // 
-            this.txtNama.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNama.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNama.Location = new System.Drawing.Point(493, 146);
-            this.txtNama.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtNama.Name = "txtNama";
-            this.txtNama.ReadOnly = true;
-            this.txtNama.Size = new System.Drawing.Size(558, 45);
-            this.txtNama.TabIndex = 30;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label4.Font = new System.Drawing.Font("Times New Roman", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(56, 146);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(358, 42);
-            this.label4.TabIndex = 29;
-            this.label4.Text = "Nama                           :";
-            // 
-            // txtKelas
-            // 
-            this.txtKelas.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtKelas.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtKelas.Location = new System.Drawing.Point(493, 250);
-            this.txtKelas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtKelas.Name = "txtKelas";
-            this.txtKelas.ReadOnly = true;
-            this.txtKelas.Size = new System.Drawing.Size(558, 45);
-            this.txtKelas.TabIndex = 28;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(56, 354);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(359, 42);
-            this.label3.TabIndex = 27;
-            this.label3.Text = "Tanggal                        :";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(60, 251);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(360, 42);
-            this.label2.TabIndex = 26;
-            this.label2.Text = "Kelas                            :";
-            // 
-            // txtNIS
-            // 
-            this.txtNIS.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNIS.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNIS.Location = new System.Drawing.Point(493, 46);
-            this.txtNIS.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtNIS.Name = "txtNIS";
-            this.txtNIS.ReadOnly = true;
-            this.txtNIS.Size = new System.Drawing.Size(558, 45);
-            this.txtNIS.TabIndex = 25;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(59, 45);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(355, 42);
-            this.label1.TabIndex = 24;
-            this.label1.Text = "NIS                              :";
-            // 
-            // panel3
-            // 
-            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.panel3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.txtTanggal);
-            this.panel3.Controls.Add(this.jamKembali);
-            this.panel3.Controls.Add(this.label1);
-            this.panel3.Controls.Add(this.txtNIS);
-            this.panel3.Controls.Add(this.tx_keluar);
-            this.panel3.Controls.Add(this.label2);
-            this.panel3.Controls.Add(this.label3);
-            this.panel3.Controls.Add(this.txtKelas);
-            this.panel3.Controls.Add(this.label6);
-            this.panel3.Controls.Add(this.label4);
-            this.panel3.Controls.Add(this.label5);
-            this.panel3.Controls.Add(this.txtNama);
-            this.panel3.Location = new System.Drawing.Point(22, 160);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1293, 710);
-            this.panel3.TabIndex = 76;
-            // 
-            // panel4
-            // 
-            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel4.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.txtAlasan);
-            this.panel4.Controls.Add(this.label9);
-            this.panel4.Location = new System.Drawing.Point(1349, 160);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(362, 710);
-            this.panel4.TabIndex = 77;
-            // 
-            // panel5
-            // 
-            this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel5.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel5.Controls.Add(this.btn_kembali);
-            this.panel5.Controls.Add(this.btn_PrintKeluar);
-            this.panel5.Location = new System.Drawing.Point(22, 892);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1689, 100);
-            this.panel5.TabIndex = 78;
-            // 
             // SuratKeluarcs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -370,10 +370,10 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.SuratKeluarcs_Load);
             this.panel2.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);

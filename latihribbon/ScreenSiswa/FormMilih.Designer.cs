@@ -39,7 +39,11 @@ namespace latihribbon
             this.btn_kembali = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_Keluar
@@ -48,7 +52,7 @@ namespace latihribbon
             this.btn_Keluar.BackColor = System.Drawing.Color.DarkGray;
             this.btn_Keluar.Font = new System.Drawing.Font("Calibri", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Keluar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btn_Keluar.Location = new System.Drawing.Point(848, 572);
+            this.btn_Keluar.Location = new System.Drawing.Point(833, 478);
             this.btn_Keluar.Name = "btn_Keluar";
             this.btn_Keluar.Size = new System.Drawing.Size(557, 302);
             this.btn_Keluar.TabIndex = 7;
@@ -59,10 +63,10 @@ namespace latihribbon
             // btn_masuk
             // 
             this.btn_masuk.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btn_masuk.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btn_masuk.BackColor = System.Drawing.Color.BlueViolet;
             this.btn_masuk.Font = new System.Drawing.Font("Calibri", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_masuk.ForeColor = System.Drawing.SystemColors.Control;
-            this.btn_masuk.Location = new System.Drawing.Point(221, 572);
+            this.btn_masuk.Location = new System.Drawing.Point(206, 478);
             this.btn_masuk.Name = "btn_masuk";
             this.btn_masuk.Size = new System.Drawing.Size(557, 302);
             this.btn_masuk.TabIndex = 6;
@@ -74,8 +78,9 @@ namespace latihribbon
             // 
             this.txtNIS.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtNIS.AutoSize = true;
+            this.txtNIS.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtNIS.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNIS.Location = new System.Drawing.Point(533, 187);
+            this.txtNIS.Location = new System.Drawing.Point(533, 195);
             this.txtNIS.Name = "txtNIS";
             this.txtNIS.Size = new System.Drawing.Size(165, 46);
             this.txtNIS.TabIndex = 8;
@@ -85,8 +90,9 @@ namespace latihribbon
             // 
             this.txtNama.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtNama.AutoSize = true;
+            this.txtNama.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtNama.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNama.Location = new System.Drawing.Point(536, 248);
+            this.txtNama.Location = new System.Drawing.Point(536, 256);
             this.txtNama.Name = "txtNama";
             this.txtNama.Size = new System.Drawing.Size(157, 46);
             this.txtNama.TabIndex = 9;
@@ -96,8 +102,9 @@ namespace latihribbon
             // 
             this.txtKelas.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtKelas.AutoSize = true;
+            this.txtKelas.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtKelas.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtKelas.Location = new System.Drawing.Point(533, 309);
+            this.txtKelas.Location = new System.Drawing.Point(533, 317);
             this.txtKelas.Name = "txtKelas";
             this.txtKelas.Size = new System.Drawing.Size(161, 46);
             this.txtKelas.TabIndex = 11;
@@ -113,7 +120,7 @@ namespace latihribbon
             this.btn_kembali.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_kembali.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_kembali.ForeColor = System.Drawing.Color.White;
-            this.btn_kembali.Location = new System.Drawing.Point(39, 897);
+            this.btn_kembali.Location = new System.Drawing.Point(15, 12);
             this.btn_kembali.Name = "btn_kembali";
             this.btn_kembali.Size = new System.Drawing.Size(95, 95);
             this.btn_kembali.TabIndex = 53;
@@ -124,7 +131,7 @@ namespace latihribbon
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(136, 46);
+            this.label2.Location = new System.Drawing.Point(131, 51);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(159, 33);
             this.label2.TabIndex = 55;
@@ -134,30 +141,53 @@ namespace latihribbon
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(1, 0);
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(155, 126);
             this.pictureBox1.TabIndex = 54;
             this.pictureBox1.TabStop = false;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.btn_masuk);
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Controls.Add(this.btn_Keluar);
+            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1599, 862);
+            this.panel1.TabIndex = 56;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.LightGray;
+            this.panel2.Controls.Add(this.btn_kembali);
+            this.panel2.Location = new System.Drawing.Point(12, 888);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1599, 121);
+            this.panel2.TabIndex = 57;
+            // 
             // FormMilih
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1623, 1005);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.btn_kembali);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1623, 1021);
             this.Controls.Add(this.txtKelas);
             this.Controls.Add(this.txtNama);
             this.Controls.Add(this.txtNIS);
-            this.Controls.Add(this.btn_Keluar);
-            this.Controls.Add(this.btn_masuk);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
             this.Name = "FormMilih";
             this.Text = "FormMilih";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormMilih_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -173,5 +203,7 @@ namespace latihribbon
         private Button btn_kembali;
         private Label label2;
         private PictureBox pictureBox1;
+        private Panel panel1;
+        private Panel panel2;
     }
 }

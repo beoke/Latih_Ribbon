@@ -44,17 +44,17 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
-            this.btn_PrintMasuk = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.btn_Kembali = new System.Windows.Forms.Button();
+            this.btn_PrintMasuk = new System.Windows.Forms.Button();
             this.printDocumentMasuk = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialogMasuk = new System.Windows.Forms.PrintPreviewDialog();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,7 +69,7 @@
             this.txtAlasan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtAlasan.Multiline = true;
             this.txtAlasan.Name = "txtAlasan";
-            this.txtAlasan.Size = new System.Drawing.Size(32, 495);
+            this.txtAlasan.Size = new System.Drawing.Size(200, 495);
             this.txtAlasan.TabIndex = 63;
             // 
             // label9
@@ -229,54 +229,19 @@
             this.label11.TabIndex = 68;
             this.label11.Text = "Surat Izin Masuk Kelas";
             // 
-            // btn_PrintMasuk
+            // panel4
             // 
-            this.btn_PrintMasuk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_PrintMasuk.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_PrintMasuk.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_PrintMasuk.Image = ((System.Drawing.Image)(resources.GetObject("btn_PrintMasuk.Image")));
-            this.btn_PrintMasuk.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_PrintMasuk.Location = new System.Drawing.Point(1350, 21);
-            this.btn_PrintMasuk.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_PrintMasuk.Name = "btn_PrintMasuk";
-            this.btn_PrintMasuk.Size = new System.Drawing.Size(160, 60);
-            this.btn_PrintMasuk.TabIndex = 71;
-            this.btn_PrintMasuk.Text = "Print ";
-            this.btn_PrintMasuk.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_PrintMasuk.UseVisualStyleBackColor = true;
-            this.btn_PrintMasuk.Click += new System.EventHandler(this.btn_PrintMasuk_Click);
-            // 
-            // btn_Kembali
-            // 
-            this.btn_Kembali.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_Kembali.BackColor = System.Drawing.Color.Transparent;
-            this.btn_Kembali.BackgroundImage = global::latihribbon.Properties.Resources.left_arrow_removebg_preview;
-            this.btn_Kembali.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_Kembali.FlatAppearance.BorderSize = 0;
-            this.btn_Kembali.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Kembali.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Kembali.ForeColor = System.Drawing.Color.White;
-            this.btn_Kembali.Location = new System.Drawing.Point(16, 12);
-            this.btn_Kembali.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_Kembali.Name = "btn_Kembali";
-            this.btn_Kembali.Size = new System.Drawing.Size(83, 76);
-            this.btn_Kembali.TabIndex = 69;
-            this.btn_Kembali.UseVisualStyleBackColor = false;
-            this.btn_Kembali.Click += new System.EventHandler(this.btn_Kembali_Click);
-            // 
-            // printDocumentMasuk
-            // 
-            this.printDocumentMasuk.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocumentMasuk_PrintPage);
-            // 
-            // printPreviewDialogMasuk
-            // 
-            this.printPreviewDialogMasuk.AutoScrollMargin = new System.Drawing.Size(0, 0);
-            this.printPreviewDialogMasuk.AutoScrollMinSize = new System.Drawing.Size(0, 0);
-            this.printPreviewDialogMasuk.ClientSize = new System.Drawing.Size(505, 462);
-            this.printPreviewDialogMasuk.Enabled = true;
-            this.printPreviewDialogMasuk.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialogMasuk.Icon")));
-            this.printPreviewDialogMasuk.Name = "printPreviewDialogMasuk";
-            this.printPreviewDialogMasuk.Visible = false;
+            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel4.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.label9);
+            this.panel4.Controls.Add(this.txtAlasan);
+            this.panel4.Location = new System.Drawing.Point(1086, 154);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(473, 609);
+            this.panel4.TabIndex = 76;
             // 
             // panel3
             // 
@@ -296,22 +261,8 @@
             this.panel3.Controls.Add(this.label1);
             this.panel3.Location = new System.Drawing.Point(28, 154);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1190, 609);
+            this.panel3.Size = new System.Drawing.Size(1028, 609);
             this.panel3.TabIndex = 75;
-            // 
-            // panel4
-            // 
-            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel4.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.label9);
-            this.panel4.Controls.Add(this.txtAlasan);
-            this.panel4.Location = new System.Drawing.Point(1254, 154);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(305, 609);
-            this.panel4.TabIndex = 76;
             // 
             // panel5
             // 
@@ -326,6 +277,55 @@
             this.panel5.Size = new System.Drawing.Size(1531, 104);
             this.panel5.TabIndex = 77;
             // 
+            // btn_Kembali
+            // 
+            this.btn_Kembali.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_Kembali.BackColor = System.Drawing.Color.Transparent;
+            this.btn_Kembali.BackgroundImage = global::latihribbon.Properties.Resources.left_arrow_removebg_preview;
+            this.btn_Kembali.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_Kembali.FlatAppearance.BorderSize = 0;
+            this.btn_Kembali.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Kembali.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Kembali.ForeColor = System.Drawing.Color.White;
+            this.btn_Kembali.Location = new System.Drawing.Point(16, 12);
+            this.btn_Kembali.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_Kembali.Name = "btn_Kembali";
+            this.btn_Kembali.Size = new System.Drawing.Size(83, 76);
+            this.btn_Kembali.TabIndex = 69;
+            this.btn_Kembali.UseVisualStyleBackColor = false;
+            this.btn_Kembali.Click += new System.EventHandler(this.btn_Kembali_Click);
+            // 
+            // btn_PrintMasuk
+            // 
+            this.btn_PrintMasuk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_PrintMasuk.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_PrintMasuk.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_PrintMasuk.Image = ((System.Drawing.Image)(resources.GetObject("btn_PrintMasuk.Image")));
+            this.btn_PrintMasuk.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_PrintMasuk.Location = new System.Drawing.Point(1350, 21);
+            this.btn_PrintMasuk.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_PrintMasuk.Name = "btn_PrintMasuk";
+            this.btn_PrintMasuk.Size = new System.Drawing.Size(160, 60);
+            this.btn_PrintMasuk.TabIndex = 71;
+            this.btn_PrintMasuk.Text = "Print ";
+            this.btn_PrintMasuk.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_PrintMasuk.UseVisualStyleBackColor = true;
+            this.btn_PrintMasuk.Click += new System.EventHandler(this.btn_PrintMasuk_Click);
+            // 
+            // printDocumentMasuk
+            // 
+            this.printDocumentMasuk.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocumentMasuk_PrintPage);
+            // 
+            // printPreviewDialogMasuk
+            // 
+            this.printPreviewDialogMasuk.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialogMasuk.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialogMasuk.ClientSize = new System.Drawing.Size(505, 462);
+            this.printPreviewDialogMasuk.Enabled = true;
+            this.printPreviewDialogMasuk.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialogMasuk.Icon")));
+            this.printPreviewDialogMasuk.Name = "printPreviewDialogMasuk";
+            this.printPreviewDialogMasuk.Visible = false;
+            // 
             // SuratMasuk
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -339,10 +339,10 @@
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.ResumeLayout(false);
 
