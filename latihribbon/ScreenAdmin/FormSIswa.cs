@@ -19,6 +19,20 @@ namespace latihribbon
             InitializeComponent();
             siswaDal = new SiswaDal();  
             loadSiswa();
+
+            InitialEvent();
+        }
+
+
+        private void InitialEvent()
+        {
+            dataGridView1.SelectionChanged += DataGridView1_SelectionChanged;
+        }
+
+        private void DataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            var data = dataGridView1.CurrentRow.Cells["Nis"].Value.ToString();
+
         }
 
         public void loadSiswa()
