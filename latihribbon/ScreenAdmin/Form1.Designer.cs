@@ -49,10 +49,10 @@
             this.ribbonSiswaAbsensi = new System.Windows.Forms.RibbonButton();
             this.ribbonPanel9 = new System.Windows.Forms.RibbonPanel();
             this.ribbonAbsensi = new System.Windows.Forms.RibbonButton();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.ribbonPanel10 = new System.Windows.Forms.RibbonPanel();
             this.ribbonRekapPersensi = new System.Windows.Forms.RibbonButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -228,6 +228,21 @@
             this.ribbonAbsensi.Text = "Absensi";
             this.ribbonAbsensi.Click += new System.EventHandler(this.ribbonAbsensi_Click);
             // 
+            // ribbonPanel10
+            // 
+            this.ribbonPanel10.Items.Add(this.ribbonRekapPersensi);
+            this.ribbonPanel10.Name = "ribbonPanel10";
+            this.ribbonPanel10.Text = "";
+            // 
+            // ribbonRekapPersensi
+            // 
+            this.ribbonRekapPersensi.Image = ((System.Drawing.Image)(resources.GetObject("ribbonRekapPersensi.Image")));
+            this.ribbonRekapPersensi.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonRekapPersensi.LargeImage")));
+            this.ribbonRekapPersensi.Name = "ribbonRekapPersensi";
+            this.ribbonRekapPersensi.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonRekapPersensi.SmallImage")));
+            this.ribbonRekapPersensi.Text = "Rekap";
+            this.ribbonRekapPersensi.Click += new System.EventHandler(this.ribbonRekapPersensi_Click);
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.dataGridView1);
@@ -246,20 +261,6 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(863, 393);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // ribbonPanel10
-            // 
-            this.ribbonPanel10.Items.Add(this.ribbonRekapPersensi);
-            this.ribbonPanel10.Name = "ribbonPanel10";
-            this.ribbonPanel10.Text = "";
-            // 
-            // ribbonRekapPersensi
-            // 
-            this.ribbonRekapPersensi.Image = ((System.Drawing.Image)(resources.GetObject("ribbonRekapPersensi.Image")));
-            this.ribbonRekapPersensi.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonRekapPersensi.LargeImage")));
-            this.ribbonRekapPersensi.Name = "ribbonRekapPersensi";
-            this.ribbonRekapPersensi.Text = "Rekap";
-            this.ribbonRekapPersensi.Click += new System.EventHandler(this.ribbonRekapPersensi_Click);
             // 
             // Form1
             // 

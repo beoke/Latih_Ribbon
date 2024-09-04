@@ -1,4 +1,5 @@
-﻿using System;
+﻿using latihribbon.ScreenAdmin;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -83,7 +84,8 @@ namespace latihribbon
 
         private void ribbonRekapPersensi_Click(object sender, EventArgs e)
         {
-
+            FormRekapPersensi p = new FormRekapPersensi();
+            ShowFormInPanel(p);
         }
     }
 }
