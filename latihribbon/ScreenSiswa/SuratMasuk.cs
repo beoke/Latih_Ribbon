@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Net.NetworkInformation;
@@ -155,6 +156,23 @@ namespace latihribbon
         }
         #endregion
 
+
+        private void Insert()
+        {
+            string nis, alasan;
+            DateTime tanggal;
+            TimeSpan jamMasuk;
+
+
+            nis = txtNIS.Text;
+            tanggal = DateTime.Now.Date;
+            jamMasuk = TimeSpan.Parse(tx_jam1.Text);
+            alasan = txtAlasan.Text;
+
+            const string sql = @"
+                INSERT INTO Masuk 
+                    ()";
+        }
     }
     
 }

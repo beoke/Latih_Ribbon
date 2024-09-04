@@ -50,7 +50,7 @@ namespace latihribbon
             // 
             this.btn_Keluar.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btn_Keluar.BackColor = System.Drawing.Color.DarkGray;
-            this.btn_Keluar.Font = new System.Drawing.Font("Calibri", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Keluar.Font = new System.Drawing.Font("Calibri", 60F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Keluar.ForeColor = System.Drawing.SystemColors.Control;
             this.btn_Keluar.Location = new System.Drawing.Point(833, 478);
             this.btn_Keluar.Name = "btn_Keluar";
@@ -64,7 +64,7 @@ namespace latihribbon
             // 
             this.btn_masuk.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.btn_masuk.BackColor = System.Drawing.Color.BlueViolet;
-            this.btn_masuk.Font = new System.Drawing.Font("Calibri", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_masuk.Font = new System.Drawing.Font("Calibri", 60F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_masuk.ForeColor = System.Drawing.SystemColors.Control;
             this.btn_masuk.Location = new System.Drawing.Point(206, 478);
             this.btn_masuk.Name = "btn_masuk";
@@ -149,6 +149,9 @@ namespace latihribbon
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.label2);
@@ -162,6 +165,8 @@ namespace latihribbon
             // 
             // panel2
             // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.LightGray;
             this.panel2.Controls.Add(this.btn_kembali);
             this.panel2.Location = new System.Drawing.Point(12, 888);

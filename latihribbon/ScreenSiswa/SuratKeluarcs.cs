@@ -46,7 +46,6 @@ namespace latihribbon
         }
 
 
-
         private void btn_kembali_Click(object sender, EventArgs e)
         {
             // menampilkan form sebelumnya dan menutup form saat ini
@@ -83,11 +82,11 @@ namespace latihribbon
 
                   Pemakai pakai = new Pemakai();
                   pakai.Show();
-              }
-              printPreviewDialogKeluar.Document = printDocumentKeluar;
+              }*/
+            printPreviewDialogKeluar.Document = printDocumentKeluar;
                   printDocumentKeluar.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("Suit Detail", 400, 590);
                   printPreviewDialogKeluar.ShowDialog();
-       */
+       
             Insert();
         }
 
