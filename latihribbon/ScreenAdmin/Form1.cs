@@ -80,6 +80,11 @@ namespace latihribbon
             FormAbsensi fa = new FormAbsensi();
             ShowFormInPanel(fa);
         }
+
+        private void ribbonRekapPersensi_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

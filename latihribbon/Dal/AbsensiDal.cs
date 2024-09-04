@@ -41,5 +41,13 @@ namespace latihribbon.Dal
                 return koneksi.QueryFirstOrDefault<AbsensiModel>(sql, new {ID=ID});
             }
         }
+
+        public IEnumerable<AbsensiModel> Filter(string sql, object param)
+        {
+            using (var koneksi = new SqlConnection(Conn.conn.connstr()))
+            {
+                return koneksi.Query<AbsensiModel>(sql,param);
+            }
+        }
     }
 }
