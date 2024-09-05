@@ -21,6 +21,21 @@ namespace latihribbon.Dal
             }
         }
 
+        public void Update(AbsensiModel absensi)
+        {
+            using (var koneksi = new SqlConnection(Conn.conn.connstr()))
+            {
+                const string sql = @"UPDATE Absensi SET Nis=@Nis,Tanggal=@Tanggal,Keterangan=@Keterangan WHERE Id=@Id";
+                var dp = new DynamicParameters();
+                dp.Add("@Id",absensi.Id,System.Data.DbType.Int32);
+                dp.Add("@Nis",absensi.Nis,System.Data.DbType.Int32);
+                dp.Add("@Tanggal",absensi.Tanggal,System.Data.DbType.Date);
+                dp.Add("@Keterangan",absensi.Keterangan,System.Data.DbType.String);
+
+                 koneksi.Execute(sql,dp);
+            }
+        }
+
         public IEnumerable<AbsensiModel> ListData()
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))

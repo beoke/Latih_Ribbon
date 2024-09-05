@@ -32,8 +32,6 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tglsatu = new System.Windows.Forms.DateTimePicker();
             this.button1 = new System.Windows.Forms.Button();
-            this.txtTahun = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.txtKelas = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -51,6 +49,9 @@
             this.btnSave_FormSiswa = new System.Windows.Forms.Button();
             this.btnDelete_FormSiswa = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.lblNisTidakDitemukan = new System.Windows.Forms.Label();
+            this.jamMasukDT = new System.Windows.Forms.DateTimePicker();
+            this.label13 = new System.Windows.Forms.Label();
             this.lblInfo = new System.Windows.Forms.Label();
             this.jamKeluarDT = new System.Windows.Forms.DateTimePicker();
             this.label12 = new System.Windows.Forms.Label();
@@ -65,9 +66,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.jamMasukDT = new System.Windows.Forms.DateTimePicker();
-            this.label13 = new System.Windows.Forms.Label();
-            this.lblNisTidakDitemukan = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -114,28 +112,6 @@
             this.button1.Size = new System.Drawing.Size(40, 37);
             this.button1.TabIndex = 18;
             this.button1.UseVisualStyleBackColor = true;
-            // 
-            // txtTahun
-            // 
-            this.txtTahun.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTahun.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTahun.Location = new System.Drawing.Point(910, 24);
-            this.txtTahun.Margin = new System.Windows.Forms.Padding(2);
-            this.txtTahun.Name = "txtTahun";
-            this.txtTahun.Size = new System.Drawing.Size(76, 21);
-            this.txtTahun.TabIndex = 17;
-            this.txtTahun.TextChanged += new System.EventHandler(this.txtTahun_TextChanged);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(856, 27);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(48, 15);
-            this.label4.TabIndex = 16;
-            this.label4.Text = "Tahun :";
             // 
             // txtKelas
             // 
@@ -357,6 +333,41 @@
             this.panel5.Size = new System.Drawing.Size(332, 439);
             this.panel5.TabIndex = 5;
             // 
+            // lblNisTidakDitemukan
+            // 
+            this.lblNisTidakDitemukan.AutoSize = true;
+            this.lblNisTidakDitemukan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNisTidakDitemukan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.lblNisTidakDitemukan.Location = new System.Drawing.Point(191, 37);
+            this.lblNisTidakDitemukan.Name = "lblNisTidakDitemukan";
+            this.lblNisTidakDitemukan.Size = new System.Drawing.Size(127, 15);
+            this.lblNisTidakDitemukan.TabIndex = 31;
+            this.lblNisTidakDitemukan.Text = "Nis Tidak Ditemukan!!";
+            this.lblNisTidakDitemukan.Visible = false;
+            // 
+            // jamMasukDT
+            // 
+            this.jamMasukDT.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.jamMasukDT.CustomFormat = " HH:mm";
+            this.jamMasukDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.jamMasukDT.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.jamMasukDT.Location = new System.Drawing.Point(18, 303);
+            this.jamMasukDT.Name = "jamMasukDT";
+            this.jamMasukDT.ShowUpDown = true;
+            this.jamMasukDT.Size = new System.Drawing.Size(300, 22);
+            this.jamMasukDT.TabIndex = 30;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(20, 282);
+            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(86, 18);
+            this.label13.TabIndex = 29;
+            this.label13.Text = "Jam Masuk";
+            // 
             // lblInfo
             // 
             this.lblInfo.AutoSize = true;
@@ -445,6 +456,7 @@
             this.txtNIS1.Size = new System.Drawing.Size(300, 23);
             this.txtNIS1.TabIndex = 17;
             this.txtNIS1.TextChanged += new System.EventHandler(this.txtNIS1_TextChanged);
+            this.txtNIS1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNIS1_KeyPress);
             // 
             // label8
             // 
@@ -512,41 +524,6 @@
             this.label10.TabIndex = 19;
             this.label10.Text = "Kelas";
             // 
-            // jamMasukDT
-            // 
-            this.jamMasukDT.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.jamMasukDT.CustomFormat = " HH:mm";
-            this.jamMasukDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.jamMasukDT.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.jamMasukDT.Location = new System.Drawing.Point(18, 303);
-            this.jamMasukDT.Name = "jamMasukDT";
-            this.jamMasukDT.ShowUpDown = true;
-            this.jamMasukDT.Size = new System.Drawing.Size(300, 22);
-            this.jamMasukDT.TabIndex = 30;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(20, 282);
-            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(86, 18);
-            this.label13.TabIndex = 29;
-            this.label13.Text = "Jam Masuk";
-            // 
-            // lblNisTidakDitemukan
-            // 
-            this.lblNisTidakDitemukan.AutoSize = true;
-            this.lblNisTidakDitemukan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNisTidakDitemukan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.lblNisTidakDitemukan.Location = new System.Drawing.Point(191, 37);
-            this.lblNisTidakDitemukan.Name = "lblNisTidakDitemukan";
-            this.lblNisTidakDitemukan.Size = new System.Drawing.Size(127, 15);
-            this.lblNisTidakDitemukan.TabIndex = 31;
-            this.lblNisTidakDitemukan.Text = "Nis Tidak Ditemukan!!";
-            this.lblNisTidakDitemukan.Visible = false;
-            // 
             // FormKeluar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -560,8 +537,6 @@
             this.Controls.Add(this.tgldua);
             this.Controls.Add(this.tglsatu);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.txtTahun);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.txtKelas);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -589,8 +564,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DateTimePicker tglsatu;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox txtTahun;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtKelas;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;

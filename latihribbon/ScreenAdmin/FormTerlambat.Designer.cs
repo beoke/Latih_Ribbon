@@ -49,14 +49,20 @@
             this.btnSave_FormSiswa = new System.Windows.Forms.Button();
             this.btnDelete_FormSiswa = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.txtTahun_FormSiswa = new System.Windows.Forms.TextBox();
-            this.txtNIS_FormSiswa = new System.Windows.Forms.TextBox();
+            this.lblNisTidakDitemukan = new System.Windows.Forms.Label();
+            this.jamMasukDT = new System.Windows.Forms.DateTimePicker();
+            this.label13 = new System.Windows.Forms.Label();
+            this.lblInfo = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.tglDT = new System.Windows.Forms.DateTimePicker();
+            this.txtAlasan1 = new System.Windows.Forms.TextBox();
+            this.txtNIS1 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtNama_FormSiswa = new System.Windows.Forms.TextBox();
-            this.txtKelas_FormSiswa = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.txtNama1 = new System.Windows.Forms.TextBox();
+            this.txtKelas1 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.btnNew = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -75,18 +81,19 @@
             this.dataGridView1.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(6, 6);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(721, 414);
+            this.dataGridView1.Size = new System.Drawing.Size(721, 478);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
             // 
             // tglsatu
             // 
             this.tglsatu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tglsatu.Location = new System.Drawing.Point(442, 24);
-            this.tglsatu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tglsatu.Margin = new System.Windows.Forms.Padding(2);
             this.tglsatu.Name = "tglsatu";
             this.tglsatu.Size = new System.Drawing.Size(138, 21);
             this.tglsatu.TabIndex = 19;
@@ -98,7 +105,7 @@
             this.btn_terlambat.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_terlambat.BackgroundImage")));
             this.btn_terlambat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_terlambat.Location = new System.Drawing.Point(1068, 15);
-            this.btn_terlambat.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_terlambat.Margin = new System.Windows.Forms.Padding(2);
             this.btn_terlambat.Name = "btn_terlambat";
             this.btn_terlambat.Size = new System.Drawing.Size(40, 37);
             this.btn_terlambat.TabIndex = 18;
@@ -109,7 +116,7 @@
             // 
             this.txtKelas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtKelas.Location = new System.Drawing.Point(838, 23);
-            this.txtKelas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtKelas.Margin = new System.Windows.Forms.Padding(2);
             this.txtKelas.Name = "txtKelas";
             this.txtKelas.Size = new System.Drawing.Size(76, 21);
             this.txtKelas.TabIndex = 15;
@@ -141,7 +148,7 @@
             // 
             this.txtNama.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNama.Location = new System.Drawing.Point(213, 24);
-            this.txtNama.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNama.Margin = new System.Windows.Forms.Padding(2);
             this.txtNama.Name = "txtNama";
             this.txtNama.Size = new System.Drawing.Size(163, 21);
             this.txtNama.TabIndex = 12;
@@ -162,7 +169,7 @@
             // 
             this.tgldua.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tgldua.Location = new System.Drawing.Point(633, 24);
-            this.tgldua.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tgldua.Margin = new System.Windows.Forms.Padding(2);
             this.tgldua.Name = "tgldua";
             this.tgldua.Size = new System.Drawing.Size(138, 21);
             this.tgldua.TabIndex = 20;
@@ -183,7 +190,7 @@
             // 
             this.txtNIS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNIS.Location = new System.Drawing.Point(65, 24);
-            this.txtNIS.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNIS.Margin = new System.Windows.Forms.Padding(2);
             this.txtNIS.Name = "txtNIS";
             this.txtNIS.Size = new System.Drawing.Size(86, 21);
             this.txtNIS.TabIndex = 23;
@@ -210,9 +217,9 @@
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Location = new System.Drawing.Point(1, 69);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1117, 449);
+            this.panel1.Size = new System.Drawing.Size(1117, 513);
             this.panel1.TabIndex = 29;
             // 
             // panel3
@@ -223,9 +230,9 @@
             this.panel3.BackColor = System.Drawing.Color.DarkGray;
             this.panel3.Controls.Add(this.dataGridView1);
             this.panel3.Location = new System.Drawing.Point(7, 10);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(734, 427);
+            this.panel3.Size = new System.Drawing.Size(734, 491);
             this.panel3.TabIndex = 2;
             // 
             // panel4
@@ -235,9 +242,9 @@
             this.panel4.BackColor = System.Drawing.Color.DarkGray;
             this.panel4.Controls.Add(this.panel2);
             this.panel4.Location = new System.Drawing.Point(754, 10);
-            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(352, 427);
+            this.panel4.Size = new System.Drawing.Size(352, 491);
             this.panel4.TabIndex = 3;
             // 
             // panel2
@@ -249,9 +256,9 @@
             this.panel2.Controls.Add(this.panel6);
             this.panel2.Controls.Add(this.panel5);
             this.panel2.Location = new System.Drawing.Point(5, 6);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(342, 414);
+            this.panel2.Size = new System.Drawing.Size(342, 478);
             this.panel2.TabIndex = 4;
             // 
             // panel6
@@ -261,8 +268,8 @@
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel6.Controls.Add(this.btnSave_FormSiswa);
             this.panel6.Controls.Add(this.btnDelete_FormSiswa);
-            this.panel6.Location = new System.Drawing.Point(4, 332);
-            this.panel6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel6.Location = new System.Drawing.Point(4, 396);
+            this.panel6.Margin = new System.Windows.Forms.Padding(2);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(332, 73);
             this.panel6.TabIndex = 6;
@@ -273,12 +280,13 @@
             this.btnSave_FormSiswa.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave_FormSiswa.ForeColor = System.Drawing.Color.White;
             this.btnSave_FormSiswa.Location = new System.Drawing.Point(33, 22);
-            this.btnSave_FormSiswa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSave_FormSiswa.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave_FormSiswa.Name = "btnSave_FormSiswa";
             this.btnSave_FormSiswa.Size = new System.Drawing.Size(74, 27);
             this.btnSave_FormSiswa.TabIndex = 1;
             this.btnSave_FormSiswa.Text = "Save";
             this.btnSave_FormSiswa.UseVisualStyleBackColor = false;
+            this.btnSave_FormSiswa.Click += new System.EventHandler(this.btnSave_FormSiswa_Click);
             // 
             // btnDelete_FormSiswa
             // 
@@ -286,7 +294,7 @@
             this.btnDelete_FormSiswa.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete_FormSiswa.ForeColor = System.Drawing.Color.White;
             this.btnDelete_FormSiswa.Location = new System.Drawing.Point(224, 22);
-            this.btnDelete_FormSiswa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDelete_FormSiswa.Margin = new System.Windows.Forms.Padding(2);
             this.btnDelete_FormSiswa.Name = "btnDelete_FormSiswa";
             this.btnDelete_FormSiswa.Size = new System.Drawing.Size(74, 27);
             this.btnDelete_FormSiswa.TabIndex = 0;
@@ -298,124 +306,201 @@
             this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel5.BackColor = System.Drawing.Color.Gainsboro;
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel5.Controls.Add(this.btnNew);
-            this.panel5.Controls.Add(this.txtTahun_FormSiswa);
-            this.panel5.Controls.Add(this.txtNIS_FormSiswa);
+            this.panel5.Controls.Add(this.lblNisTidakDitemukan);
+            this.panel5.Controls.Add(this.jamMasukDT);
+            this.panel5.Controls.Add(this.label13);
+            this.panel5.Controls.Add(this.lblInfo);
+            this.panel5.Controls.Add(this.label11);
+            this.panel5.Controls.Add(this.tglDT);
+            this.panel5.Controls.Add(this.txtAlasan1);
+            this.panel5.Controls.Add(this.txtNIS1);
             this.panel5.Controls.Add(this.label8);
-            this.panel5.Controls.Add(this.txtNama_FormSiswa);
-            this.panel5.Controls.Add(this.txtKelas_FormSiswa);
-            this.panel5.Controls.Add(this.label4);
+            this.panel5.Controls.Add(this.txtNama1);
+            this.panel5.Controls.Add(this.txtKelas1);
             this.panel5.Controls.Add(this.label7);
             this.panel5.Controls.Add(this.label9);
+            this.panel5.Controls.Add(this.label10);
+            this.panel5.Controls.Add(this.btnNew);
             this.panel5.Location = new System.Drawing.Point(4, 6);
-            this.panel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel5.Margin = new System.Windows.Forms.Padding(2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(332, 281);
+            this.panel5.Size = new System.Drawing.Size(332, 410);
             this.panel5.TabIndex = 5;
             // 
-            // txtTahun_FormSiswa
+            // lblNisTidakDitemukan
             // 
-            this.txtTahun_FormSiswa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTahun_FormSiswa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTahun_FormSiswa.Location = new System.Drawing.Point(18, 197);
-            this.txtTahun_FormSiswa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtTahun_FormSiswa.Name = "txtTahun_FormSiswa";
-            this.txtTahun_FormSiswa.Size = new System.Drawing.Size(300, 23);
-            this.txtTahun_FormSiswa.TabIndex = 22;
+            this.lblNisTidakDitemukan.AutoSize = true;
+            this.lblNisTidakDitemukan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNisTidakDitemukan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.lblNisTidakDitemukan.Location = new System.Drawing.Point(188, 48);
+            this.lblNisTidakDitemukan.Name = "lblNisTidakDitemukan";
+            this.lblNisTidakDitemukan.Size = new System.Drawing.Size(127, 15);
+            this.lblNisTidakDitemukan.TabIndex = 47;
+            this.lblNisTidakDitemukan.Text = "Nis Tidak Ditemukan!!";
+            this.lblNisTidakDitemukan.Visible = false;
             // 
-            // txtNIS_FormSiswa
+            // jamMasukDT
             // 
-            this.txtNIS_FormSiswa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNIS_FormSiswa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNIS_FormSiswa.Location = new System.Drawing.Point(18, 54);
-            this.txtNIS_FormSiswa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtNIS_FormSiswa.Name = "txtNIS_FormSiswa";
-            this.txtNIS_FormSiswa.Size = new System.Drawing.Size(300, 23);
-            this.txtNIS_FormSiswa.TabIndex = 17;
+            this.jamMasukDT.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.jamMasukDT.CustomFormat = " HH:mm";
+            this.jamMasukDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.jamMasukDT.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.jamMasukDT.Location = new System.Drawing.Point(15, 261);
+            this.jamMasukDT.Name = "jamMasukDT";
+            this.jamMasukDT.ShowUpDown = true;
+            this.jamMasukDT.Size = new System.Drawing.Size(300, 22);
+            this.jamMasukDT.TabIndex = 46;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(17, 240);
+            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(86, 18);
+            this.label13.TabIndex = 45;
+            this.label13.Text = "Jam Masuk";
+            // 
+            // lblInfo
+            // 
+            this.lblInfo.AutoSize = true;
+            this.lblInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInfo.Location = new System.Drawing.Point(127, 22);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Size = new System.Drawing.Size(74, 20);
+            this.lblInfo.TabIndex = 44;
+            this.lblInfo.Text = "INSERT";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(17, 290);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(52, 18);
+            this.label11.TabIndex = 41;
+            this.label11.Text = "Alasan";
+            // 
+            // tglDT
+            // 
+            this.tglDT.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tglDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tglDT.Location = new System.Drawing.Point(15, 213);
+            this.tglDT.Name = "tglDT";
+            this.tglDT.Size = new System.Drawing.Size(300, 22);
+            this.tglDT.TabIndex = 40;
+            // 
+            // txtAlasan1
+            // 
+            this.txtAlasan1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtAlasan1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAlasan1.Location = new System.Drawing.Point(15, 311);
+            this.txtAlasan1.Margin = new System.Windows.Forms.Padding(2);
+            this.txtAlasan1.Name = "txtAlasan1";
+            this.txtAlasan1.Size = new System.Drawing.Size(300, 23);
+            this.txtAlasan1.TabIndex = 39;
+            // 
+            // txtNIS1
+            // 
+            this.txtNIS1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNIS1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNIS1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtNIS1.Location = new System.Drawing.Point(15, 65);
+            this.txtNIS1.Margin = new System.Windows.Forms.Padding(2);
+            this.txtNIS1.Name = "txtNIS1";
+            this.txtNIS1.Size = new System.Drawing.Size(300, 23);
+            this.txtNIS1.TabIndex = 34;
+            this.txtNIS1.TextChanged += new System.EventHandler(this.txtNIS1_TextChanged);
+            this.txtNIS1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNIS1_KeyPress);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(15, 178);
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(17, 192);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(49, 17);
-            this.label8.TabIndex = 21;
-            this.label8.Text = "Tahun";
+            this.label8.Size = new System.Drawing.Size(60, 18);
+            this.label8.TabIndex = 38;
+            this.label8.Text = "Tanggal";
             // 
-            // txtNama_FormSiswa
+            // txtNama1
             // 
-            this.txtNama_FormSiswa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNama_FormSiswa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNama_FormSiswa.Location = new System.Drawing.Point(18, 106);
-            this.txtNama_FormSiswa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtNama_FormSiswa.Name = "txtNama_FormSiswa";
-            this.txtNama_FormSiswa.Size = new System.Drawing.Size(300, 23);
-            this.txtNama_FormSiswa.TabIndex = 18;
+            this.txtNama1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNama1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNama1.Location = new System.Drawing.Point(15, 114);
+            this.txtNama1.Margin = new System.Windows.Forms.Padding(2);
+            this.txtNama1.Name = "txtNama1";
+            this.txtNama1.ReadOnly = true;
+            this.txtNama1.Size = new System.Drawing.Size(300, 23);
+            this.txtNama1.TabIndex = 35;
             // 
-            // txtKelas_FormSiswa
+            // txtKelas1
             // 
-            this.txtKelas_FormSiswa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtKelas_FormSiswa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtKelas_FormSiswa.Location = new System.Drawing.Point(18, 151);
-            this.txtKelas_FormSiswa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtKelas_FormSiswa.Name = "txtKelas_FormSiswa";
-            this.txtKelas_FormSiswa.Size = new System.Drawing.Size(300, 23);
-            this.txtKelas_FormSiswa.TabIndex = 20;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(15, 88);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(45, 17);
-            this.label4.TabIndex = 16;
-            this.label4.Text = "Nama";
+            this.txtKelas1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtKelas1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtKelas1.Location = new System.Drawing.Point(15, 163);
+            this.txtKelas1.Margin = new System.Windows.Forms.Padding(2);
+            this.txtKelas1.Name = "txtKelas1";
+            this.txtKelas1.ReadOnly = true;
+            this.txtKelas1.Size = new System.Drawing.Size(300, 23);
+            this.txtKelas1.TabIndex = 37;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(15, 36);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(17, 95);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(30, 17);
-            this.label7.TabIndex = 15;
-            this.label7.Text = "NIS";
+            this.label7.Size = new System.Drawing.Size(48, 18);
+            this.label7.TabIndex = 33;
+            this.label7.Text = "Nama";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(15, 132);
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(17, 46);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(43, 17);
-            this.label9.TabIndex = 19;
-            this.label9.Text = "Kelas";
+            this.label9.Size = new System.Drawing.Size(32, 18);
+            this.label9.TabIndex = 32;
+            this.label9.Text = "NIS";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(17, 144);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(45, 18);
+            this.label10.TabIndex = 36;
+            this.label10.Text = "Kelas";
             // 
             // btnNew
             // 
             this.btnNew.BackColor = System.Drawing.SystemColors.Highlight;
             this.btnNew.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNew.ForeColor = System.Drawing.Color.White;
-            this.btnNew.Location = new System.Drawing.Point(258, 238);
+            this.btnNew.Location = new System.Drawing.Point(255, 350);
             this.btnNew.Margin = new System.Windows.Forms.Padding(2);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(60, 27);
             this.btnNew.TabIndex = 23;
             this.btnNew.Text = "New";
             this.btnNew.UseVisualStyleBackColor = false;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // FormTerlambat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1118, 518);
+            this.ClientSize = new System.Drawing.Size(1118, 582);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.txtNIS);
             this.Controls.Add(this.label6);
@@ -428,7 +513,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtNama);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormTerlambat";
             this.Text = " ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -467,14 +552,20 @@
         private System.Windows.Forms.Button btnSave_FormSiswa;
         private System.Windows.Forms.Button btnDelete_FormSiswa;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.TextBox txtTahun_FormSiswa;
-        private System.Windows.Forms.TextBox txtNIS_FormSiswa;
+        private System.Windows.Forms.Button btnNew;
+        private System.Windows.Forms.Label lblNisTidakDitemukan;
+        private System.Windows.Forms.DateTimePicker jamMasukDT;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label lblInfo;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.DateTimePicker tglDT;
+        private System.Windows.Forms.TextBox txtAlasan1;
+        private System.Windows.Forms.TextBox txtNIS1;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtNama_FormSiswa;
-        private System.Windows.Forms.TextBox txtKelas_FormSiswa;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtNama1;
+        private System.Windows.Forms.TextBox txtKelas1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button btnNew;
+        private System.Windows.Forms.Label label10;
     }
 }

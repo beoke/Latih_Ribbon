@@ -25,11 +25,18 @@ namespace latihribbon
             siswaDal = new SiswaDal();
             keluarDal = new KeluarDal();
             LoadData();
+            InitComponent();
         }
 
         public void LoadData()
         {
             dataGridView1.DataSource = keluarDal.ListData();
+        }
+
+        public void InitComponent()
+        {
+            txtNIS1.MaxLength = 10;
+            txtTujuan1.MaxLength = 100;
         }
 
         string sqlglobal;
@@ -164,6 +171,7 @@ namespace latihribbon
                 txtKelas1.Text = siswa.Kelas;
             }
         }
+
         #region EVENT FILTER
         private void txtNIS_TextChanged(object sender, EventArgs e)
         {
@@ -225,6 +233,14 @@ namespace latihribbon
                 txtNama1.Text = string.Empty;
                 txtKelas1.Text = string.Empty;
                 lblNisTidakDitemukan.Visible = false;
+            }
+        }
+
+        private void txtNIS1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
             }
         }
     }

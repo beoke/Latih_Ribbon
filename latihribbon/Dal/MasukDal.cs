@@ -31,7 +31,17 @@ namespace latihribbon.Dal
             }
         }
 
-        private void Insert(MasukModel masuk)
+        public MasukModel GetData(int id)
+        {
+            using (var koneksi = new SqlConnection(Conn.conn.connstr()))
+            {
+                const string sql = @"SELECT m.id, m.NIS, s.Nama, s.Kelas, m.Tanggal, m.JamMasuk, m.Alasan
+                                    FROM Masuk m INNER JOIN siswa s ON m.NIS = s.NIS WHERE id=@id";
+                return koneksi.QueryFirstOrDefault<MasukModel>(sql, new {id=id});
+            }
+        }
+
+        public void Insert(MasukModel masuk)
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
             {
@@ -47,13 +57,14 @@ namespace latihribbon.Dal
             }
         }
 
-        private void Update(MasukModel masuk)
+        public void Update(MasukModel masuk)
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
             {
-                const string sql = @"UPDATE Keluar SET Nis=@Nis,Tanggal=@Tanggal,
-                                    JamMasuk=@JamMasuk,Alasan=@Alasan";
+                const string sql = @"UPDATE Masuk SET Nis=@Nis,Tanggal=@Tanggal,
+                                    JamMasuk=@JamMasuk,Alasan=@Alasan WHERE Id=@Id";
                 var dp = new DynamicParameters();
+                dp.Add("@Id", masuk.Id, System.Data.DbType.Int32);
                 dp.Add("@Nis", masuk.NIS, System.Data.DbType.Int32);
                 dp.Add("@Tanggal", masuk.Tanggal, System.Data.DbType.Date);
                 dp.Add("@JamMasuk", masuk.JamMasuk, System.Data.DbType.Time);
@@ -63,7 +74,7 @@ namespace latihribbon.Dal
             }
         }
 
-        private void Delete(int IdMasuk)
+        public void Delete(int IdMasuk)
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
             {

@@ -1,4 +1,5 @@
 ﻿using latihribbon.Dal;
+using latihribbon.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,19 +14,26 @@ namespace latihribbon
 {
     public partial class FormTerlambat : Form
     {
-        private DbDal db;
-        private  MasukDal terlambatDal;
+        private  MasukDal masukDal;
+        private SiswaDal siswaDal;
+        int globalId = 0;
         public FormTerlambat()
         {
             InitializeComponent();
-            db = new DbDal();
-            terlambatDal = new MasukDal();
-
+            masukDal = new MasukDal();
+            siswaDal = new SiswaDal();
+            InitComponen();
             LoadData();
         }
         private void LoadData()
         {
-            dataGridView1.DataSource = terlambatDal.ListData();
+            dataGridView1.DataSource = masukDal.ListData();
+        }
+
+        public void InitComponen()
+        {
+            txtNIS1.MaxLength = 10;
+            txtAlasan1.MaxLength = 50;
         }
         private void btn_terlambat_Click(object sender, EventArgs e)
         {
@@ -68,10 +76,100 @@ namespace latihribbon
 
 
             string sql = Filter(nis, nama, kelas,  tgl1, tgl2);
-            var select = terlambatDal.GetTerlambatFilter(sql, new { nis = nis, nama = nama, kelas = kelas, tgl1 = tgl1, tgl2 = tgl2 });
+            var select = masukDal.GetTerlambatFilter(sql, new { nis = nis, nama = nama, kelas = kelas, tgl1 = tgl1, tgl2 = tgl2 });
             dataGridView1.DataSource = select;
         }
 
+        private void GetData()
+        {
+            var Id = dataGridView1.CurrentRow.Cells["Id"].Value?.ToString() ?? string.Empty;
+            globalId = Id == string.Empty ? 0 : int.Parse(Id); // set global varibel
+            var data = masukDal.GetData(Convert.ToInt32(Id));
+            if (data == null) return;
+            txtNIS1.Text = data.NIS.ToString();
+            txtNama1.Text = data.Nama;
+            txtKelas1.Text = data.Kelas;
+            tglDT.Value = data.Tanggal;
+            jamMasukDT.Value = DateTime.Today.Add(data.JamMasuk);
+            txtAlasan1.Text = data.Alasan;
+        }
+
+        private void ClearInput()
+        {
+            txtNIS1.Clear();
+            txtNama1.Clear();
+            txtKelas1.Clear();
+            tglDT.Value = new DateTime(2000, 01, 01);
+            jamMasukDT.Value = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day, 0, 0, 0);
+            txtAlasan1.Clear();
+        }
+
+        private void SaveData()
+        {
+            string nis, nama, kelas, alasan;
+            DateTime tgl;
+            TimeSpan jamMasuk;
+            nis = txtNIS1.Text;
+            nama = txtNama1.Text;
+            kelas = txtKelas1.Text;
+            alasan = txtAlasan1.Text;
+            tgl = tglDT.Value;
+            jamMasuk = jamMasukDT.Value.TimeOfDay;
+
+            if (nis == "" || nama == "" || alasan == "")
+            {
+                MessageBox.Show("Seluruh Data Wajib Diisi!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var masuk = new MasukModel
+            {
+                Id = globalId,
+                NIS = Convert.ToInt32(nis),
+                Nama = nama,
+                Kelas = kelas,
+                Tanggal = tgl,
+                JamMasuk = jamMasuk,
+                Alasan = alasan
+            };
+
+            if (masuk.Id == 0)
+            {
+                if (MessageBox.Show("Input Data?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    masukDal.Insert(masuk);
+                    LoadData();
+                }
+
+            }
+            else
+            {
+                if (MessageBox.Show("Update Data?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    masukDal.Update(masuk);
+                    LoadData();
+                }
+            }
+
+        }
+        private void CekNis()
+        {
+            var siswa = siswaDal.GetData(Convert.ToInt32(txtNIS1.Text));
+            if (siswa == null)
+            {
+                lblNisTidakDitemukan.Visible = true;
+                txtNama1.Text = string.Empty;
+                txtKelas1.Text = string.Empty;
+            }
+            else
+            {
+                lblNisTidakDitemukan.Visible = false;
+                txtNama1.Text = siswa.Nama;
+                txtKelas1.Text = siswa.Kelas;
+            }
+        }
+
+        #region EVENT FILTER
         private void txtNIS_TextChanged(object sender, EventArgs e)
         {
             Filter2();
@@ -97,6 +195,47 @@ namespace latihribbon
         private void txtKelas_TextChanged(object sender, EventArgs e)
         {
             Filter2();
+        }
+        #endregion
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            ClearInput();
+            globalId = 0;
+            lblInfo.Text = "INSERT";
+        }
+
+        private void dataGridView1_DoubleClick(object sender, EventArgs e)
+        {
+            GetData();
+            lblInfo.Text = "UPDATE";
+        }
+
+        private void btnSave_FormSiswa_Click(object sender, EventArgs e)
+        {
+            SaveData();
+        }
+
+        private void txtNIS1_TextChanged(object sender, EventArgs e)
+        {
+            if (txtNIS1.Text.Length >= 5)
+            {
+                CekNis();
+            }
+            else
+            {
+                txtNama1.Text = string.Empty;
+                txtKelas1.Text = string.Empty;
+                lblNisTidakDitemukan.Visible = false;
+            }
+        }
+
+        private void txtNIS1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+            }
         }
     }
 }

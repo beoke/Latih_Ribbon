@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using latihribbon.Dal;
+using latihribbon.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,18 +16,24 @@ namespace latihribbon
     public partial class FormAbsensi : Form
     {
         private readonly AbsensiDal absensiDal;
+        int globalId = 0;
         public FormAbsensi()
         {
             InitializeComponent();
             absensiDal = new AbsensiDal();
             ComboInit();
-            dataGridView1.DataSource = absensiDal.ListData();
+            LoadData();
         }
 
         public void ComboInit()
         {
             List<string> ketCombo = new List<string>() { "Semua","A","I","S"};
             KeteranganCombo.DataSource = ketCombo;
+        }
+
+        public void LoadData()
+        {
+            dataGridView1.DataSource = absensiDal.ListData();
         }
        
         string tglchange = string.Empty;
@@ -70,6 +77,97 @@ namespace latihribbon
 
             dataGridView1.DataSource = absensiDal.Filter(sql,dp);
 
+        }
+
+        private void GetData()
+        {
+            var Id = dataGridView1.CurrentRow.Cells["Id"].Value?.ToString() ?? string.Empty;
+            globalId = Id == string.Empty ? 0 : int.Parse(Id); // set global varibel
+            var data = absensiDal.GetData(Convert.ToInt32(Id));
+            if (data == null) return;
+            txtNIS1.Text = data.Nis.ToString();
+            txtNama1.Text = data.Nama;
+            txtKelas1.Text = data.Kelas;
+            tglDT.Value = data.Tanggal;
+            if(data.Keterangan == "I") Izinradio.Checked = true;
+            if(data.Keterangan == "S") sakitRadio.Checked = true;
+            if(data.Keterangan == "A") alphaRadio.Checked = true;
+        }
+
+        private void ClearInput()
+        {
+            txtNIS1.Clear();
+            txtNama1.Clear();
+            txtKelas1.Clear();
+            tglDT.Value = new DateTime(2000, 01, 01);
+            Izinradio.Checked = false;
+            sakitRadio.Checked = false;
+            alphaRadio.Checked = false;
+        }
+
+        private void SaveData()
+        {
+            string nis, nama, kelas, keterangan=string.Empty;
+            DateTime tgl;
+
+            nis = txtNIS1.Text;
+            nama = txtNama1.Text;
+            kelas = txtKelas1.Text;
+            tgl = tglDT.Value;
+            if (Izinradio.Checked) keterangan = "I";
+            if (sakitRadio.Checked) keterangan = "S";
+            if (alphaRadio.Checked) keterangan = "A";
+
+            if (nis == "" || nama == "" || keterangan == "")
+            {
+                MessageBox.Show("Seluruh Data Wajib Diisi!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var masuk = new AbsensiModel
+            {
+                Id = globalId,
+                Nis = Convert.ToInt32(nis),
+                Nama = nama,
+                Kelas = kelas,
+                Tanggal = tgl,
+                Keterangan = keterangan
+            };
+
+            if (masuk.Id == 0)
+            {
+                if (MessageBox.Show("Input Data?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    absensiDal.Insert(masuk);
+                    LoadData();
+                }
+
+            }
+            else
+            {
+                if (MessageBox.Show("Update Data?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    absensiDal.Update(masuk);
+                    LoadData();
+                }
+            }
+
+        }
+        private void CekNis()
+        {
+            var siswa = absensiDal.GetData(Convert.ToInt32(txtNIS1.Text));
+            if (siswa == null)
+            {
+                lblNisTidakDitemukan.Visible = true;
+                txtNama1.Text = string.Empty;
+                txtKelas1.Text = string.Empty;
+            }
+            else
+            {
+                lblNisTidakDitemukan.Visible = false;
+                txtNama1.Text = siswa.Nama;
+                txtKelas1.Text = siswa.Kelas;
+            }
         }
         #region EVENT FILTER
         private void txtNIS_TextChanged(object sender, EventArgs e)
