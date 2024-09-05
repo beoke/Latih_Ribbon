@@ -200,6 +200,7 @@ namespace latihribbon
         {
             ClearInput();
             globalId = 0;
+            lblInfo.Text = "INSERT";
         }
 
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
