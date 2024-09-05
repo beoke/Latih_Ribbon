@@ -14,7 +14,7 @@ namespace latihribbon.Dal
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
             {
-                const string sql = @"SELECT * FROM Siswa
+                const string sql = @"SELECT Nis,Nama,Persensi,Kelas,Tahun FROM Siswa
                                     ORDER BY 
                             Persensi ASC,
                             CASE
@@ -87,3 +87,6 @@ namespace latihribbon.Dal
         }
     }
 }
+
+
+

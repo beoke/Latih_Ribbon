@@ -10,7 +10,8 @@ namespace latihribbon.Model
     {
         public int Id { get; set; }
         public int Nis { get; set; }
-        public string Nama { get; set; }   
+        public string Nama { get; set; }
+        public string Kelas {  get; set; }
         public DateTime Tanggal {  get; set; }
         public TimeSpan JamKeluar { get; set; }
         public TimeSpan JamMasuk { get; set; }

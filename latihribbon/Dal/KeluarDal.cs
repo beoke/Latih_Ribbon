@@ -30,7 +30,17 @@ namespace latihribbon.Dal
             }
         }
 
-        private void Insert(KeluarModel keluar)
+        public KeluarModel GetData(int Id)
+        {
+            using (var koneksi = new SqlConnection(Conn.conn.connstr()))
+            {
+                const string sql = @"SELECT k.Id,k.Nis,s.Nama,s.Kelas,k.Tanggal,k.JamKeluar,k.JamMasuk,k.Tujuan 
+                            FROM Keluar k INNER JOIN siswa s ON k.Nis=s.Nis WHERE k.Id = @Id";
+                return koneksi.QueryFirstOrDefault<KeluarModel>(sql, new {Id=Id});
+            }
+        }
+
+        public void Insert(KeluarModel keluar)
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
             {
@@ -47,13 +57,14 @@ namespace latihribbon.Dal
             }
         }
 
-        private void Update(KeluarModel keluar)
+        public void Update(KeluarModel keluar)
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
             {
                 const string sql = @"UPDATE Keluar SET Nis=@Nis,Tanggal=@Tanggal,JamKeluar=@JamKeluar,
-                                    JamMasuk=@JamMasuk,Tujuan=@Tujuan";
+                                    JamMasuk=@JamMasuk,Tujuan=@Tujuan WHERE Id=@Id";
                 var dp = new DynamicParameters();
+                dp.Add("@Id", keluar.Id, System.Data.DbType.Int32);
                 dp.Add("@Nis", keluar.Nis, System.Data.DbType.Int32);
                 dp.Add("@Tanggal", keluar.Tanggal, System.Data.DbType.Date);
                 dp.Add("@JamKeluar", keluar.JamKeluar, System.Data.DbType.Time);

@@ -79,6 +79,18 @@ namespace latihribbon
             string nis, nama, tingkat, jurusan;
         }
 
+        private void Clear()
+        {
+            txtNIS_FormSiswa.Clear();
+            txtNama_FormSiswa.Clear();
+            txtPersensi_FormSiswa.Clear();
+            XRadio.Checked = false;
+            XIIRadio.Checked = false;
+            XIRadio.Checked = false;
+            jurusanCombo.SelectedIndex = 0;
+            txtTahun_FormSiswa.Clear();
+        }
+
 
         #region FILTER
         public void filter(string nis,string nama, string kelas, string tahun)
@@ -149,6 +161,11 @@ namespace latihribbon
             {
                 e.Handled = true;
             }
+        }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            Clear();
         }
     }
 }
