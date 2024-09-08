@@ -49,6 +49,10 @@
             this.btnSave_FormSiswa = new System.Windows.Forms.Button();
             this.btnDelete_FormSiswa = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.btnNew = new System.Windows.Forms.Button();
+            this.alphaRadio = new System.Windows.Forms.RadioButton();
+            this.sakitRadio = new System.Windows.Forms.RadioButton();
+            this.Izinradio = new System.Windows.Forms.RadioButton();
             this.lblNisTidakDitemukan = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.lblInfo = new System.Windows.Forms.Label();
@@ -60,10 +64,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.Izinradio = new System.Windows.Forms.RadioButton();
-            this.sakitRadio = new System.Windows.Forms.RadioButton();
-            this.alphaRadio = new System.Windows.Forms.RadioButton();
-            this.btnNew = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -85,6 +85,7 @@
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(796, 434);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
             // 
             // txtNIS
             // 
@@ -292,6 +293,7 @@
             this.btnSave_FormSiswa.TabIndex = 1;
             this.btnSave_FormSiswa.Text = "Save";
             this.btnSave_FormSiswa.UseVisualStyleBackColor = false;
+            this.btnSave_FormSiswa.Click += new System.EventHandler(this.btnSave_FormSiswa_Click);
             // 
             // btnDelete_FormSiswa
             // 
@@ -305,6 +307,7 @@
             this.btnDelete_FormSiswa.TabIndex = 0;
             this.btnDelete_FormSiswa.Text = "Delete";
             this.btnDelete_FormSiswa.UseVisualStyleBackColor = false;
+            this.btnDelete_FormSiswa.Click += new System.EventHandler(this.btnDelete_FormSiswa_Click);
             // 
             // panel5
             // 
@@ -331,6 +334,56 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(332, 342);
             this.panel5.TabIndex = 5;
+            // 
+            // btnNew
+            // 
+            this.btnNew.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnNew.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNew.ForeColor = System.Drawing.Color.White;
+            this.btnNew.Location = new System.Drawing.Point(255, 295);
+            this.btnNew.Margin = new System.Windows.Forms.Padding(2);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(60, 27);
+            this.btnNew.TabIndex = 62;
+            this.btnNew.Text = "New";
+            this.btnNew.UseVisualStyleBackColor = false;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
+            // 
+            // alphaRadio
+            // 
+            this.alphaRadio.AutoSize = true;
+            this.alphaRadio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.alphaRadio.Location = new System.Drawing.Point(157, 266);
+            this.alphaRadio.Name = "alphaRadio";
+            this.alphaRadio.Size = new System.Drawing.Size(60, 20);
+            this.alphaRadio.TabIndex = 61;
+            this.alphaRadio.TabStop = true;
+            this.alphaRadio.Text = "Alpha";
+            this.alphaRadio.UseVisualStyleBackColor = true;
+            // 
+            // sakitRadio
+            // 
+            this.sakitRadio.AutoSize = true;
+            this.sakitRadio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sakitRadio.Location = new System.Drawing.Point(94, 266);
+            this.sakitRadio.Name = "sakitRadio";
+            this.sakitRadio.Size = new System.Drawing.Size(55, 20);
+            this.sakitRadio.TabIndex = 60;
+            this.sakitRadio.TabStop = true;
+            this.sakitRadio.Text = "Sakit";
+            this.sakitRadio.UseVisualStyleBackColor = true;
+            // 
+            // Izinradio
+            // 
+            this.Izinradio.AutoSize = true;
+            this.Izinradio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Izinradio.Location = new System.Drawing.Point(33, 266);
+            this.Izinradio.Name = "Izinradio";
+            this.Izinradio.Size = new System.Drawing.Size(44, 20);
+            this.Izinradio.TabIndex = 59;
+            this.Izinradio.TabStop = true;
+            this.Izinradio.Text = "Izin";
+            this.Izinradio.UseVisualStyleBackColor = true;
             // 
             // lblNisTidakDitemukan
             // 
@@ -359,7 +412,7 @@
             // 
             this.lblInfo.AutoSize = true;
             this.lblInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInfo.Location = new System.Drawing.Point(127, 23);
+            this.lblInfo.Location = new System.Drawing.Point(127, 17);
             this.lblInfo.Name = "lblInfo";
             this.lblInfo.Size = new System.Drawing.Size(74, 20);
             this.lblInfo.TabIndex = 56;
@@ -384,6 +437,8 @@
             this.txtNIS1.Name = "txtNIS1";
             this.txtNIS1.Size = new System.Drawing.Size(300, 23);
             this.txtNIS1.TabIndex = 50;
+            this.txtNIS1.TextChanged += new System.EventHandler(this.txtNIS1_TextChanged);
+            this.txtNIS1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNIS1_KeyPress);
             // 
             // label8
             // 
@@ -450,55 +505,6 @@
             this.label10.Size = new System.Drawing.Size(45, 18);
             this.label10.TabIndex = 52;
             this.label10.Text = "Kelas";
-            // 
-            // Izinradio
-            // 
-            this.Izinradio.AutoSize = true;
-            this.Izinradio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Izinradio.Location = new System.Drawing.Point(33, 266);
-            this.Izinradio.Name = "Izinradio";
-            this.Izinradio.Size = new System.Drawing.Size(44, 20);
-            this.Izinradio.TabIndex = 59;
-            this.Izinradio.TabStop = true;
-            this.Izinradio.Text = "Izin";
-            this.Izinradio.UseVisualStyleBackColor = true;
-            // 
-            // sakitRadio
-            // 
-            this.sakitRadio.AutoSize = true;
-            this.sakitRadio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sakitRadio.Location = new System.Drawing.Point(94, 266);
-            this.sakitRadio.Name = "sakitRadio";
-            this.sakitRadio.Size = new System.Drawing.Size(55, 20);
-            this.sakitRadio.TabIndex = 60;
-            this.sakitRadio.TabStop = true;
-            this.sakitRadio.Text = "Sakit";
-            this.sakitRadio.UseVisualStyleBackColor = true;
-            // 
-            // alphaRadio
-            // 
-            this.alphaRadio.AutoSize = true;
-            this.alphaRadio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.alphaRadio.Location = new System.Drawing.Point(157, 266);
-            this.alphaRadio.Name = "alphaRadio";
-            this.alphaRadio.Size = new System.Drawing.Size(60, 20);
-            this.alphaRadio.TabIndex = 61;
-            this.alphaRadio.TabStop = true;
-            this.alphaRadio.Text = "Alpha";
-            this.alphaRadio.UseVisualStyleBackColor = true;
-            // 
-            // btnNew
-            // 
-            this.btnNew.BackColor = System.Drawing.SystemColors.Highlight;
-            this.btnNew.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNew.ForeColor = System.Drawing.Color.White;
-            this.btnNew.Location = new System.Drawing.Point(255, 295);
-            this.btnNew.Margin = new System.Windows.Forms.Padding(2);
-            this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(60, 27);
-            this.btnNew.TabIndex = 62;
-            this.btnNew.Text = "New";
-            this.btnNew.UseVisualStyleBackColor = false;
             // 
             // FormAbsensi
             // 

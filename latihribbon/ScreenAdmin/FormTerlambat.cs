@@ -25,6 +25,7 @@ namespace latihribbon
             InitComponen();
             LoadData();
         }
+
         private void LoadData()
         {
             dataGridView1.DataSource = masukDal.ListData();

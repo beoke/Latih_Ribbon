@@ -9,8 +9,9 @@ namespace latihribbon
     public class SiswaModel
     {
         public int Nis { get; set; }
+        public int Persensi { get; set; }
         public string Nama { get; set; }
-        public int Persensi {  get; set; }
+        public string JenisKelamin { get; set; }
         public string Kelas { get; set; }
         public string Tahun {  get; set; }
     }

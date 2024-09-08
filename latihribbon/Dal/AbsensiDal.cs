@@ -25,7 +25,7 @@ namespace latihribbon.Dal
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
             {
-                const string sql = @"UPDATE Absensi SET Nis=@Nis,Tanggal=@Tanggal,Keterangan=@Keterangan WHERE Id=@Id";
+                const string sql = @"UPDATE Persensi SET Nis=@Nis,Tanggal=@Tanggal,Keterangan=@Keterangan WHERE Id=@Id";
                 var dp = new DynamicParameters();
                 dp.Add("@Id",absensi.Id,System.Data.DbType.Int32);
                 dp.Add("@Nis",absensi.Nis,System.Data.DbType.Int32);
@@ -54,6 +54,15 @@ namespace latihribbon.Dal
                                      FROM Persensi p INNER JOIN siswa s ON p.NIS=s.NIS
                                      WHERE p.ID = @ID";
                 return koneksi.QueryFirstOrDefault<AbsensiModel>(sql, new {ID=ID});
+            }
+        }
+
+        public void Delete(int Nis)
+        {
+            using (var koneksi = new SqlConnection(Conn.conn.connstr()))
+            {
+                const string sql = @"DELETE FROM Absensi WHERE Nis=@Nis";
+                koneksi.Execute(sql, new {Nis=Nis});
             }
         }
 

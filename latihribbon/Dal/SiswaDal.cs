@@ -14,7 +14,7 @@ namespace latihribbon.Dal
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
             {
-                const string sql = @"SELECT Nis,Nama,Persensi,Kelas,Tahun FROM Siswa
+                const string sql = @"SELECT Nis,Nama,JenisKelamin,Persensi,Kelas,Tahun FROM Siswa
                                     ORDER BY 
                             Persensi ASC,
                             CASE
@@ -46,15 +46,17 @@ namespace latihribbon.Dal
             }
         }
 
-        private void Insert(SiswaModel siswa)
+        public void Insert(SiswaModel siswa)
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
             {
-                const string sql = @"INSERT INTO siswa(Nis,Nama,Kelas,Tahun)
-                                VALUES(@Nis,@Nama,@Kelas,@Tahun)";
+                const string sql = @"INSERT INTO siswa(Nis,Nama,JenisKelamin,PersensiKelas,Tahun)
+                                VALUES(@Nis,@Nama,@JenisKelamin,@Persensi,@Kelas,@Tahun)";
                 var dp = new DynamicParameters();
                 dp.Add("@Nis", siswa.Nis, System.Data.DbType.Int32);
                 dp.Add("@Nama", siswa.Nama, System.Data.DbType.String);
+                dp.Add("@JenisKelamin", siswa.JenisKelamin, System.Data.DbType.String);
+                dp.Add("@Persensi", siswa.Persensi, System.Data.DbType.Int16);
                 dp.Add("@Kelas", siswa.Kelas, System.Data.DbType.String);
                 dp.Add("@Tahun", siswa.Tahun, System.Data.DbType.String);
 
@@ -62,14 +64,17 @@ namespace latihribbon.Dal
             }
         }
 
-        private void Update(SiswaModel siswa)
+        public void Update(SiswaModel siswa)
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
             {
-                const string sql = @"UPDATE siswa SET Nis=@Nis,Nama=@Nama,Kelas=@Kelas,Tahun=@Tahun";
+                const string sql = @"UPDATE siswa SET Nama=@Nama,JenisKelamin=@JenisKelamin,Persensi=@Persensi,Kelas=@Kelas,Tahun=@Tahun
+                                     WHERE Nis = @Nis";
                 var dp = new DynamicParameters();
                 dp.Add("@Nis", siswa.Nis, System.Data.DbType.Int32);
                 dp.Add("@Nama", siswa.Nama, System.Data.DbType.String);
+                dp.Add("@JenisKelamin", siswa.JenisKelamin, System.Data.DbType.String);
+                dp.Add("@Persensi", siswa.Persensi, System.Data.DbType.Int16);
                 dp.Add("@Kelas", siswa.Kelas, System.Data.DbType.String);
                 dp.Add("@Tahun", siswa.Tahun, System.Data.DbType.String);
 
@@ -77,7 +82,7 @@ namespace latihribbon.Dal
             }
         }
 
-        private void Delete(int siswaNis)
+        public void Delete(int siswaNis)
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
             {

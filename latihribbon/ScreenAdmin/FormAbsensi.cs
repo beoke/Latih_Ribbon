@@ -16,11 +16,13 @@ namespace latihribbon
     public partial class FormAbsensi : Form
     {
         private readonly AbsensiDal absensiDal;
+        private readonly SiswaDal siswaDal;
         int globalId = 0;
         public FormAbsensi()
         {
             InitializeComponent();
             absensiDal = new AbsensiDal();
+            siswaDal = new SiswaDal();
             ComboInit();
             LoadData();
         }
@@ -153,9 +155,25 @@ namespace latihribbon
             }
 
         }
+
+        private void Delete()
+        {
+            string nis = txtNIS1.Text;
+            if (globalId == 0)
+            {
+                MessageBox.Show("Pilih Data Terlebih Dahulu!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (nis != string.Empty )
+            {
+                if (MessageBox.Show("Hapus Data?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    absensiDal.Delete(Convert.ToInt32(nis));
+            }
+        }
+
         private void CekNis()
         {
-            var siswa = absensiDal.GetData(Convert.ToInt32(txtNIS1.Text));
+            var siswa = siswaDal.GetData(Convert.ToInt32(txtNIS1.Text));
             if (siswa == null)
             {
                 lblNisTidakDitemukan.Visible = true;
@@ -212,6 +230,51 @@ namespace latihribbon
             tglsatu.Value = DateTime.Now;
             tgldua.Value = DateTime.Now;
             Filter();
+        }
+
+        private void txtNIS1_TextChanged(object sender, EventArgs e)
+        {
+            if (txtNIS1.Text.Length >= 5)
+            {
+                CekNis();
+            }
+            else
+            {
+                txtNama1.Text = string.Empty;
+                txtKelas1.Text = string.Empty;
+                lblNisTidakDitemukan.Visible = false;
+            }
+        }
+
+        private void txtNIS1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void btnSave_FormSiswa_Click(object sender, EventArgs e)
+        {
+            SaveData();
+        }
+
+        private void dataGridView1_DoubleClick(object sender, EventArgs e)
+        {
+            GetData();
+            lblInfo.Text = "UPDATE";
+        }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            ClearInput();
+            globalId = 0;
+            lblInfo.Text = "INSERT";
+        }
+
+        private void btnDelete_FormSiswa_Click(object sender, EventArgs e)
+        {
+            Delete();
         }
     }
 }
