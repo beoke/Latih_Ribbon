@@ -50,7 +50,7 @@ namespace latihribbon.Dal
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
             {
-                const string sql = @"INSERT INTO siswa(Nis,Nama,JenisKelamin,PersensiKelas,Tahun)
+                const string sql = @"INSERT INTO siswa(Nis,Nama,JenisKelamin,Persensi,Kelas,Tahun)
                                 VALUES(@Nis,@Nama,@JenisKelamin,@Persensi,@Kelas,@Tahun)";
                 var dp = new DynamicParameters();
                 dp.Add("@Nis", siswa.Nis, System.Data.DbType.Int32);

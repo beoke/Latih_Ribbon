@@ -22,13 +22,13 @@ namespace latihribbon
             InitializeComponent();
             siswaDal = new SiswaDal(); 
             jurusanDal = new JurusanDal();
-            loadSiswa();
+            LoadData();
 
             InitialEvent();
-            InitJurusan();
+            InitComponent();
         }
 
-        public void InitJurusan()
+        public void InitComponent()
         {
             var jurusan = jurusanDal.ListData();
             if (!jurusan.Any()) return;
@@ -36,6 +36,7 @@ namespace latihribbon
             foreach(var item in jurusan)
                 listJurusan.Add(item.NamaJurusan);
             jurusanCombo.DataSource = listJurusan;
+            txtNIS_FormSiswa.MaxLength = 9;
         }
 
         public void ControlInsertUpdate()
@@ -49,6 +50,7 @@ namespace latihribbon
             {
                 lblInfo.Text = "UPDATE";
                 txtNIS_FormSiswa.ReadOnly = true;
+                lblNisSudahAda.Visible = false;
             }
         }
 
@@ -63,7 +65,7 @@ namespace latihribbon
 
         }
 
-        public void loadSiswa()
+        public void LoadData()
         {
             dataGridView1.DataSource = siswaDal.ListData();
         }
@@ -127,6 +129,11 @@ namespace latihribbon
                 Kelas = namaKelas,
                 Tahun = tahun,
             };
+            if (lblNisSudahAda.Visible == true)
+            {
+                MessageBox.Show("Nis Sudah Ada!!","Warning",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                return;
+            };
 
             if (SaveCondition)
             {
@@ -165,6 +172,7 @@ namespace latihribbon
             }
             if (MessageBox.Show("Hapus Data?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 siswaDal.Delete(Convert.ToInt32(nis));
+            
 
 
         }
@@ -180,6 +188,14 @@ namespace latihribbon
             else
             {
                 lblNisSudahAda.Visible = false;
+            }
+        }
+
+        private void InputNumber(KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
             }
         }
 
@@ -263,6 +279,7 @@ namespace latihribbon
         private void btnSave_FormSiswa_Click(object sender, EventArgs e)
         {
             SaveData();
+            LoadData();
         }
 
         private void txtNIS_FormSiswa_TextChanged(object sender, EventArgs e)
@@ -276,18 +293,28 @@ namespace latihribbon
 
         private void txtNIS_FormSiswa_KeyPress_1(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
-            {
-                e.Handled = true;
-            }
+            InputNumber(e);
         }
 
         private void txtPersensi_FormSiswa_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
-            {
-                e.Handled = true;
-            }
+            InputNumber(e);
+        }
+
+        private void btnDelete_FormSiswa_Click(object sender, EventArgs e)
+        {
+            Delete();
+            LoadData();
+        }
+
+        private void txtTahun_FormSiswa_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            InputNumber(e);
+        }
+
+        private void txtNIS_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            InputNumber(e);
         }
     }
 }
