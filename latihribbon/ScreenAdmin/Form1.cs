@@ -58,8 +58,8 @@ namespace latihribbon
 
         private void ribbon_Laporan_Click(object sender, EventArgs e)
         {
-          FormLaporan laporan  = new FormLaporan();
-          ShowFormInPanel(laporan);
+          FormJurusan jurusan  = new FormJurusan();
+          ShowFormInPanel(jurusan);
         }
 
      

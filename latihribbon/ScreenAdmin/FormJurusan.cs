@@ -127,6 +127,14 @@ namespace latihribbon.ScreenAdmin
             txtIdJurusan.Text = string.Empty;
             txtNamaJurusan.Text= string.Empty;
         }
+
+        private void txtIdJurusan_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
 
