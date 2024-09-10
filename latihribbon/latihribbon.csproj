@@ -118,12 +118,6 @@
     <Compile Include="ScreenAdmin\FormKeluar.Designer.cs">
       <DependentUpon>FormKeluar.cs</DependentUpon>
     </Compile>
-    <Compile Include="ScreenAdmin\FormLaporan.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ScreenAdmin\FormLaporan.Designer.cs">
-      <DependentUpon>FormLaporan.cs</DependentUpon>
-    </Compile>
     <Compile Include="ScreenAdmin\FormRekapPersensi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -208,9 +202,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ScreenAdmin\FormKeluar.resx">
       <DependentUpon>FormKeluar.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ScreenAdmin\FormLaporan.resx">
-      <DependentUpon>FormLaporan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ScreenAdmin\FormRekapPersensi.resx">
       <DependentUpon>FormRekapPersensi.cs</DependentUpon>
