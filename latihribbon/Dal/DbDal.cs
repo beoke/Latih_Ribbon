@@ -43,5 +43,16 @@ namespace latihribbon
             }
         }
 
+        public IEnumerable<SiswaModel> ListTahun()
+        {
+            using (var koneksi = new SqlConnection(_connString))
+            {
+                const string sql = @"SELECT DISTINCT Tahun
+                                 FROM siswa
+                                 ORDER BY Tahun ASC";
+                return koneksi.Query<SiswaModel>(sql);
+            }
+        }
+
     }
 }

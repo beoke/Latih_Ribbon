@@ -33,7 +33,6 @@
             this.txtNama = new System.Windows.Forms.TextBox();
             this.txtKelas = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtTahun = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtNIS = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -68,6 +67,7 @@
             this.txtNama_FormSiswa = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.comboTahunFilter = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -121,17 +121,6 @@
             this.label3.Size = new System.Drawing.Size(49, 19);
             this.label3.TabIndex = 5;
             this.label3.Text = "Kelas :";
-            // 
-            // txtTahun
-            // 
-            this.txtTahun.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTahun.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTahun.Location = new System.Drawing.Point(597, 23);
-            this.txtTahun.Margin = new System.Windows.Forms.Padding(2);
-            this.txtTahun.Name = "txtTahun";
-            this.txtTahun.Size = new System.Drawing.Size(76, 21);
-            this.txtTahun.TabIndex = 8;
-            this.txtTahun.TextChanged += new System.EventHandler(this.txtTahun_TextChanged);
             // 
             // label4
             // 
@@ -561,16 +550,25 @@
             this.label7.TabIndex = 19;
             this.label7.Text = "Jenis Kelamin";
             // 
+            // comboTahunFilter
+            // 
+            this.comboTahunFilter.FormattingEnabled = true;
+            this.comboTahunFilter.Location = new System.Drawing.Point(612, 23);
+            this.comboTahunFilter.Name = "comboTahunFilter";
+            this.comboTahunFilter.Size = new System.Drawing.Size(121, 21);
+            this.comboTahunFilter.TabIndex = 15;
+            this.comboTahunFilter.SelectedIndexChanged += new System.EventHandler(this.comboTahunFilter_SelectedIndexChanged);
+            // 
             // FormSIswa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(962, 652);
+            this.Controls.Add(this.comboTahunFilter);
             this.Controls.Add(this.txtNIS);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.txtTahun);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtKelas);
             this.Controls.Add(this.label3);
@@ -601,7 +599,6 @@
         private System.Windows.Forms.TextBox txtNama;
         private System.Windows.Forms.TextBox txtKelas;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtTahun;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txtNIS;
@@ -636,5 +633,6 @@
         private System.Windows.Forms.Label lblInfo;
         private System.Windows.Forms.TextBox txtNIS_FormSiswa;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox comboTahunFilter;
     }
 }
