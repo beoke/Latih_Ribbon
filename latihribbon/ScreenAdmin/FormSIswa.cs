@@ -37,6 +37,19 @@ namespace latihribbon
                 listJurusan.Add(item.NamaJurusan);
             jurusanCombo.DataSource = listJurusan;
             txtNIS_FormSiswa.MaxLength = 9;
+
+            if (dataGridView1.Rows.Count > 0)
+            {
+                dataGridView1.EnableHeadersVisualStyles = false;
+
+                dataGridView1.DefaultCellStyle.Font = new Font("Sans Serif", 10);
+                dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Sans Serif", 10, FontStyle.Bold);
+                dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.LightBlue;
+                dataGridView1.RowTemplate.Height = 30;
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                dataGridView1.ColumnHeadersHeight = 35;
+            }
+          
         }
 
         public void ControlInsertUpdate()
