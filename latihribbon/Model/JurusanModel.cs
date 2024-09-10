@@ -12,3 +12,4 @@ namespace latihribbon.Model
         public string NamaJurusan {  get; set; }
     }
 }
+ 
