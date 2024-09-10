@@ -32,24 +32,24 @@
             this.GridListJurusan = new System.Windows.Forms.DataGridView();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.LabelJurusan = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.btnSaveJurusan = new System.Windows.Forms.Button();
+            this.btnNewJurusan = new System.Windows.Forms.Button();
             this.btnDeleteJurusan = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.btnNewJurusan = new System.Windows.Forms.Button();
-            this.LabelJurusan = new System.Windows.Forms.Label();
-            this.txtIdJurusan = new System.Windows.Forms.TextBox();
             this.txtNamaJurusan = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.txtIdJurusan = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridListJurusan)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel3
@@ -93,8 +93,7 @@
             // 
             // panel2
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.panel2.BackColor = System.Drawing.Color.LightGray;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.panel1);
@@ -106,73 +105,17 @@
             this.panel2.Size = new System.Drawing.Size(455, 553);
             this.panel2.TabIndex = 4;
             // 
-            // panel6
+            // panel1
             // 
-            this.panel6.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.panel6.BackColor = System.Drawing.Color.Gainsboro;
-            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel6.Controls.Add(this.btnSaveJurusan);
-            this.panel6.Controls.Add(this.btnNewJurusan);
-            this.panel6.Controls.Add(this.btnDeleteJurusan);
-            this.panel6.Location = new System.Drawing.Point(5, 451);
-            this.panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(442, 89);
-            this.panel6.TabIndex = 6;
-            // 
-            // btnSaveJurusan
-            // 
-            this.btnSaveJurusan.BackColor = System.Drawing.Color.LimeGreen;
-            this.btnSaveJurusan.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveJurusan.ForeColor = System.Drawing.Color.White;
-            this.btnSaveJurusan.Location = new System.Drawing.Point(162, 25);
-            this.btnSaveJurusan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnSaveJurusan.Name = "btnSaveJurusan";
-            this.btnSaveJurusan.Size = new System.Drawing.Size(119, 39);
-            this.btnSaveJurusan.TabIndex = 1;
-            this.btnSaveJurusan.Text = "Save";
-            this.btnSaveJurusan.UseVisualStyleBackColor = false;
-            // 
-            // btnDeleteJurusan
-            // 
-            this.btnDeleteJurusan.BackColor = System.Drawing.Color.Red;
-            this.btnDeleteJurusan.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteJurusan.ForeColor = System.Drawing.Color.White;
-            this.btnDeleteJurusan.Location = new System.Drawing.Point(302, 25);
-            this.btnDeleteJurusan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnDeleteJurusan.Name = "btnDeleteJurusan";
-            this.btnDeleteJurusan.Size = new System.Drawing.Size(119, 39);
-            this.btnDeleteJurusan.TabIndex = 0;
-            this.btnDeleteJurusan.Text = "Delete";
-            this.btnDeleteJurusan.UseVisualStyleBackColor = false;
-            // 
-            // panel5
-            // 
-            this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel5.BackColor = System.Drawing.Color.Gainsboro;
-            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel5.Controls.Add(this.txtNamaJurusan);
-            this.panel5.Controls.Add(this.label7);
-            this.panel5.Controls.Add(this.txtIdJurusan);
-            this.panel5.Controls.Add(this.label9);
-            this.panel5.Location = new System.Drawing.Point(5, 113);
-            this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(442, 321);
-            this.panel5.TabIndex = 5;
-            // 
-            // btnNewJurusan
-            // 
-            this.btnNewJurusan.BackColor = System.Drawing.SystemColors.Highlight;
-            this.btnNewJurusan.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNewJurusan.ForeColor = System.Drawing.Color.White;
-            this.btnNewJurusan.Location = new System.Drawing.Point(18, 25);
-            this.btnNewJurusan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnNewJurusan.Name = "btnNewJurusan";
-            this.btnNewJurusan.Size = new System.Drawing.Size(119, 39);
-            this.btnNewJurusan.TabIndex = 62;
-            this.btnNewJurusan.Text = "New";
-            this.btnNewJurusan.UseVisualStyleBackColor = false;
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.panel1.BackColor = System.Drawing.Color.Gainsboro;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.LabelJurusan);
+            this.panel1.Location = new System.Drawing.Point(5, 7);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(442, 89);
+            this.panel1.TabIndex = 7;
             // 
             // LabelJurusan
             // 
@@ -185,16 +128,74 @@
             this.LabelJurusan.TabIndex = 56;
             this.LabelJurusan.Text = "UPDATE";
             // 
-            // txtIdJurusan
+            // panel6
             // 
-            this.txtIdJurusan.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtIdJurusan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdJurusan.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtIdJurusan.Location = new System.Drawing.Point(32, 68);
-            this.txtIdJurusan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtIdJurusan.Name = "txtIdJurusan";
-            this.txtIdJurusan.Size = new System.Drawing.Size(381, 27);
-            this.txtIdJurusan.TabIndex = 50;
+            this.panel6.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.panel6.BackColor = System.Drawing.Color.Gainsboro;
+            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel6.Controls.Add(this.btnDeleteJurusan);
+            this.panel6.Controls.Add(this.btnSaveJurusan);
+            this.panel6.Location = new System.Drawing.Point(5, 451);
+            this.panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(442, 89);
+            this.panel6.TabIndex = 6;
+            // 
+            // btnSaveJurusan
+            // 
+            this.btnSaveJurusan.BackColor = System.Drawing.Color.LimeGreen;
+            this.btnSaveJurusan.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveJurusan.ForeColor = System.Drawing.Color.White;
+            this.btnSaveJurusan.Location = new System.Drawing.Point(32, 25);
+            this.btnSaveJurusan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSaveJurusan.Name = "btnSaveJurusan";
+            this.btnSaveJurusan.Size = new System.Drawing.Size(120, 39);
+            this.btnSaveJurusan.TabIndex = 1;
+            this.btnSaveJurusan.Text = "Save";
+            this.btnSaveJurusan.UseVisualStyleBackColor = false;
+            // 
+            // btnNewJurusan
+            // 
+            this.btnNewJurusan.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnNewJurusan.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnNewJurusan.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNewJurusan.ForeColor = System.Drawing.Color.DimGray;
+            this.btnNewJurusan.Location = new System.Drawing.Point(293, 250);
+            this.btnNewJurusan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnNewJurusan.Name = "btnNewJurusan";
+            this.btnNewJurusan.Size = new System.Drawing.Size(120, 39);
+            this.btnNewJurusan.TabIndex = 62;
+            this.btnNewJurusan.Text = "New";
+            this.btnNewJurusan.UseVisualStyleBackColor = false;
+            // 
+            // btnDeleteJurusan
+            // 
+            this.btnDeleteJurusan.BackColor = System.Drawing.Color.Red;
+            this.btnDeleteJurusan.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteJurusan.ForeColor = System.Drawing.Color.White;
+            this.btnDeleteJurusan.Location = new System.Drawing.Point(293, 25);
+            this.btnDeleteJurusan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDeleteJurusan.Name = "btnDeleteJurusan";
+            this.btnDeleteJurusan.Size = new System.Drawing.Size(120, 39);
+            this.btnDeleteJurusan.TabIndex = 0;
+            this.btnDeleteJurusan.Text = "Delete";
+            this.btnDeleteJurusan.UseVisualStyleBackColor = false;
+            // 
+            // panel5
+            // 
+            this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.panel5.BackColor = System.Drawing.Color.Gainsboro;
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel5.Controls.Add(this.btnNewJurusan);
+            this.panel5.Controls.Add(this.txtNamaJurusan);
+            this.panel5.Controls.Add(this.label7);
+            this.panel5.Controls.Add(this.txtIdJurusan);
+            this.panel5.Controls.Add(this.label9);
+            this.panel5.Location = new System.Drawing.Point(5, 113);
+            this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(442, 321);
+            this.panel5.TabIndex = 5;
             // 
             // txtNamaJurusan
             // 
@@ -216,6 +217,17 @@
             this.label7.TabIndex = 49;
             this.label7.Text = "Nama Jurusan";
             // 
+            // txtIdJurusan
+            // 
+            this.txtIdJurusan.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtIdJurusan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdJurusan.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtIdJurusan.Location = new System.Drawing.Point(32, 68);
+            this.txtIdJurusan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtIdJurusan.Name = "txtIdJurusan";
+            this.txtIdJurusan.Size = new System.Drawing.Size(381, 27);
+            this.txtIdJurusan.TabIndex = 50;
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -225,18 +237,6 @@
             this.label9.Size = new System.Drawing.Size(97, 24);
             this.label9.TabIndex = 48;
             this.label9.Text = "Id Jurusan";
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.panel1.BackColor = System.Drawing.Color.Gainsboro;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.LabelJurusan);
-            this.panel1.Location = new System.Drawing.Point(5, 7);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(442, 89);
-            this.panel1.TabIndex = 7;
             // 
             // FormJurusan
             // 
@@ -251,11 +251,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.GridListJurusan)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }

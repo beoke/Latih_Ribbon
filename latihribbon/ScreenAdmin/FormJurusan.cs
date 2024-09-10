@@ -121,6 +121,7 @@ namespace latihribbon.ScreenAdmin
                 }
             }
         }
+
         private void Cleardata()
         {
             txtIdJurusan.Text = string.Empty;
@@ -128,3 +129,8 @@ namespace latihribbon.ScreenAdmin
         }
     }
 }
+
+
+
+
+
