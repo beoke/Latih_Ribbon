@@ -1,4 +1,5 @@
 ﻿using latihribbon.Dal;
+using latihribbon.Helper;
 using latihribbon.Model;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ namespace latihribbon
         private readonly DbDal db;
         private readonly SiswaDal siswaDal;
         private readonly JurusanDal jurusanDal;
+        private readonly MesBox mesBox;
         bool SaveCondition = true;
         public FormSIswa()
         {
@@ -24,6 +26,7 @@ namespace latihribbon
             db = new DbDal();
             siswaDal = new SiswaDal();
             jurusanDal = new JurusanDal();
+            mesBox = new MesBox();
             LoadData();
 
             InitialEvent();
@@ -143,7 +146,7 @@ namespace latihribbon
 
             if (nis == "" || persensi == "" || nama == "" || jenisKelamin == "" || tingkat == "" || tahun == "")
             {
-                MessageBox.Show("Seluruh Data Wajib Diisi!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                mesBox.MesInfo("Seluruh Data Wajib Diisi!");
                 return;
             }
             string namaKelas = $"{tingkat} {jurusan}";
@@ -158,19 +161,25 @@ namespace latihribbon
             };
             if (lblNisSudahAda.Visible == true)
             {
-                MessageBox.Show("Nis Sudah Ada!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                mesBox.MesInfo("Nis Sudah Ada!!");
                 return;
             };
 
             if (SaveCondition)
             {
-                if (MessageBox.Show("Input Data?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if(mesBox.MesKonfirmasi("Input Data?"))
+                {
                     siswaDal.Insert(siswa);
+                    LoadData();
+                }
             }
             else
             {
-                if (MessageBox.Show("Update Data?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (mesBox.MesKonfirmasi("Update Data?"))
+                {
                     siswaDal.Update(siswa);
+                    LoadData();
+                }    
             }
         }
 
@@ -194,14 +203,14 @@ namespace latihribbon
             string nis = txtNIS_FormSiswa.Text;
             if (SaveCondition)
             {
-                MessageBox.Show("Pilih Data Terlebih Dahulu!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                mesBox.MesInfo("Pilih Data Terlebih Dahulu!");
                 return;
             }
-            if (MessageBox.Show("Hapus Data?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (mesBox.MesKonfirmasi("Hapus Data?"))
+            {
                 siswaDal.Delete(Convert.ToInt32(nis));
-
-
-
+                LoadData();
+            }
         }
 
         public void CekNis(int nis)
@@ -311,7 +320,6 @@ namespace latihribbon
         private void btnSave_FormSiswa_Click(object sender, EventArgs e)
         {
             SaveData();
-            LoadData();
         }
 
         private void txtNIS_FormSiswa_TextChanged(object sender, EventArgs e)

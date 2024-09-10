@@ -92,6 +92,7 @@
     <Compile Include="Dal\SiswaDal.cs" />
     <Compile Include="Dal\MasukDal.cs" />
     <Compile Include="Dal\DbDal.cs" />
+    <Compile Include="Helper\MesBox.cs" />
     <Compile Include="Model\JurusanModel.cs" />
     <Compile Include="ScreenAdmin\Form1.cs">
       <SubType>Form</SubType>
