@@ -169,9 +169,7 @@ namespace latihribbon
             jamMasuk = TimeSpan.Parse(tx_jam1.Text);
             alasan = txtAlasan.Text;
 
-            const string sql = @"
-                INSERT INTO Masuk 
-                    ()";
+            
         }
     }
     
