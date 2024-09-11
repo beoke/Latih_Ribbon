@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
 using Dapper;
+using latihribbon.Helper;
 using latihribbon.Model;
 
 
@@ -15,7 +16,8 @@ namespace latihribbon
         private DbDal db;
         private Form _previousForm; // untuk kembali ke form sebelumnya
         int print = 0;
-
+        private readonly MesBox mesBox = new MesBox();
+        DateTime globalCurrentTime = DateTime.Now;
 
 
 
@@ -40,9 +42,8 @@ namespace latihribbon
             txtNIS.Text = Pemakai.NIS;
             txtNama.Text = Pemakai.nama;
             txtKelas.Text = Pemakai.kelas;
-            string currentTime = DateTime.Now.ToString("HH:mm");
-            tx_keluar.Text = currentTime;
-            txtTanggal.Text = DateTime.Now.ToString("ddd, dd MMM yyyy");
+            tx_keluar.Text = globalCurrentTime.ToString("HH:mm");
+            txtTanggal.Text = globalCurrentTime.ToString("ddd, dd MMM yyyy");
         }
 
 
@@ -66,9 +67,28 @@ namespace latihribbon
                         // Opsional: Jika ingin membuat TextBox read-onsly agar tidak bisa diubah pengguna
                         tx_keluar.ReadOnly = true;*/
         }
+        private bool Validasi()
+        {
+
+            bool validasi = true;
+            string[] arr = jamKembali.Value.ToString("HH:mm").Split('.');
+            string jamkembali = $"{arr[0]}:{arr[1]}";
+            if (string.IsNullOrWhiteSpace(txtAlasan.Text) || jamkembali == tx_keluar.Text)
+            {
+                validasi = false;
+            }
+            return validasi;
+        }
 
         private void btn_PrintKeluar_Click(object sender, EventArgs e)
         {
+            if (!Validasi())
+            {
+                mesBox.MesInfo("Pastikan \"Jam Masuk\" dan \"Alasan\" valid !");
+                return;
+            }
+            mesBox.MesInfo($"{jamKembali.Value.ToString("HH:mm")} {tx_keluar.Text}");
+
             /*  if (print == 0)
               {
                   printDocumentKeluar.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("Suit Detail", 400, 590);
@@ -83,11 +103,14 @@ namespace latihribbon
                   Pemakai pakai = new Pemakai();
                   pakai.Show();
               }*/
-            printPreviewDialogKeluar.Document = printDocumentKeluar;
-                  printDocumentKeluar.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("Suit Detail", 400, 590);
-                  printPreviewDialogKeluar.ShowDialog();
-       
-            Insert();
+
+
+
+            /* printPreviewDialogKeluar.Document = printDocumentKeluar;
+                   printDocumentKeluar.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("Suit Detail", 400, 590);
+                   printPreviewDialogKeluar.ShowDialog();
+
+             Insert();*/
         }
 
         public void Insert()
@@ -116,18 +139,18 @@ namespace latihribbon
         }
 
 
+        
 
         public void bahasa()
             {
                 System.Globalization.CultureInfo cultureInfo = new System.Globalization.CultureInfo("id-ID");
                 System.Threading.Thread.CurrentThread.CurrentCulture = cultureInfo;
                 System.Threading.Thread.CurrentThread.CurrentUICulture = cultureInfo;
-
             }
 
+        #region   PRINT
 
-
-            private void printDocumentKeluar_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        private void printDocumentKeluar_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
             {
 
 
@@ -248,5 +271,6 @@ namespace latihribbon
                     e.Graphics.DrawString($": {alasan}", new Font("Times New Roman", 8), Brushes.Black, new Point(110, 550));
                 }
             }
-        }
+        #endregion
     }
+}

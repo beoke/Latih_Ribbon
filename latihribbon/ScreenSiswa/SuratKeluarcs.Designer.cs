@@ -124,6 +124,7 @@
             // 
             // jamKembali
             // 
+            this.jamKembali.CalendarTitleForeColor = System.Drawing.Color.AliceBlue;
             this.jamKembali.CustomFormat = "HH:mm";
             this.jamKembali.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.jamKembali.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
