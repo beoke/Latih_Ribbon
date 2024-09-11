@@ -22,17 +22,31 @@ namespace latihribbon.ScreenAdmin
         public FormRekapPersensi()
         {
             InitializeComponent();
-            InitKeterangan();
+            InitComponen();
             rekapPersensiDal = new RekapPersensiDal();
             dataGridView1.DataSource = rekapPersensiDal.ListData();
 
             Event();
         }
 
-        public void InitKeterangan()
+        public void InitComponen()
         {
             List<string> Keterangan = new List<string>() { "Semua", "A", "I", "S" };
             KeteranganCombo.DataSource = Keterangan;
+
+            // DataGrid
+            if (dataGridView1.Rows.Count > 0)
+            {
+                dataGridView1.EnableHeadersVisualStyles = false;
+                dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+
+                dataGridView1.DefaultCellStyle.Font = new Font("Sans Serif", 10);
+                dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Sans Serif", 10, FontStyle.Bold);
+                dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.LightBlue;
+                dataGridView1.RowTemplate.Height = 30;
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                dataGridView1.ColumnHeadersHeight = 35;
+            }
         }
 
 

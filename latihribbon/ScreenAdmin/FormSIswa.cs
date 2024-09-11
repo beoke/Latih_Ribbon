@@ -48,6 +48,7 @@ namespace latihribbon
             if (dataGridView1.Rows.Count > 0)
             {
                 dataGridView1.EnableHeadersVisualStyles = false;
+                dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
 
                 dataGridView1.DefaultCellStyle.Font = new Font("Sans Serif", 10);
                 dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Sans Serif", 10, FontStyle.Bold);

@@ -22,8 +22,8 @@ namespace latihribbon
             InitializeComponent();
             masukDal = new MasukDal();
             siswaDal = new SiswaDal();
-            InitComponen();
             LoadData();
+            InitComponen();
         }
 
         private void LoadData()
@@ -35,6 +35,20 @@ namespace latihribbon
         {
             txtNIS1.MaxLength = 10;
             txtAlasan1.MaxLength = 50;
+
+            // DataGrid
+            if (dataGridView1.Rows.Count > 0)
+            {
+                dataGridView1.EnableHeadersVisualStyles = false;
+                dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+
+                dataGridView1.DefaultCellStyle.Font = new Font("Sans Serif", 10);
+                dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Sans Serif", 10, FontStyle.Bold);
+                dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.LightBlue;
+                dataGridView1.RowTemplate.Height = 30;
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                dataGridView1.ColumnHeadersHeight = 35;
+            }
         }
         private void btn_terlambat_Click(object sender, EventArgs e)
         {
