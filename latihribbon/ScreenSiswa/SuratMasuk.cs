@@ -1,4 +1,7 @@
-﻿using System;
+﻿using latihribbon.Dal;
+using latihribbon.Helper;
+using latihribbon.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +18,8 @@ namespace latihribbon
     public partial class SuratMasuk : Form
     {
         private Form _previousForm; // untuk kembali ke form sebelumnya
+        private MesBox mesbox = new MesBox();
+        private readonly MasukDal masukDal = new MasukDal();
         public SuratMasuk(Form previousForm)
         {
             InitializeComponent();
@@ -45,11 +50,17 @@ namespace latihribbon
 
         private void btn_PrintMasuk_Click(object sender, EventArgs e)
         {
-        /*    printPreviewDialogMasuk.Document = printDocumentMasuk;
-            printDocumentMasuk.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("Suit Default", 400, 590);
-            printPreviewDialogMasuk.ShowDialog();*/
+            if (!Validasi())
+            {
+                mesbox.MesInfo("Alasan Terlambat Wajib Diisi!");
+                return;
+            }
 
+            /*    printPreviewDialogMasuk.Document = printDocumentMasuk;
+                printDocumentMasuk.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("Suit Default", 400, 590);
+                printPreviewDialogMasuk.ShowDialog();*/
 
+            Insert();
         }
 
         #region PRINT
@@ -169,7 +180,21 @@ namespace latihribbon
             jamMasuk = TimeSpan.Parse(tx_jam1.Text);
             alasan = txtAlasan.Text;
 
-            
+            var masuk = new MasukModel
+            {
+                NIS = int.Parse(nis),
+                Tanggal = tanggal,
+                JamMasuk = jamMasuk,
+                Alasan = alasan
+            };
+            masukDal.Insert(masuk);
+        }
+
+        private bool Validasi()
+        {
+            bool valid = true;
+            if(txtAlasan.Text == string.Empty) valid = false;
+            return valid;
         }
     }
     

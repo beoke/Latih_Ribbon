@@ -38,6 +38,19 @@ namespace latihribbon.ScreenAdmin
             GridListJurusan.Columns["Id"].Width = 100;
             GridListJurusan.Columns["NamaJurusan"].Width = 200;
 
+            // DataGrid
+            if (GridListJurusan.Rows.Count > 0)
+            {
+                GridListJurusan.EnableHeadersVisualStyles = false;
+                GridListJurusan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+
+                GridListJurusan.DefaultCellStyle.Font = new Font("Sans Serif", 10);
+                GridListJurusan.ColumnHeadersDefaultCellStyle.Font = new Font("Sans Serif", 10, FontStyle.Bold);
+                GridListJurusan.ColumnHeadersDefaultCellStyle.BackColor = Color.LightBlue;
+                GridListJurusan.RowTemplate.Height = 30;
+                GridListJurusan.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                GridListJurusan.ColumnHeadersHeight = 35;
+            }
         }
 
         private void InitEvent()
