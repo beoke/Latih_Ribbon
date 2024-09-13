@@ -193,7 +193,7 @@ namespace latihribbon
             }
 
 
-            //saya dan teman saya mau makan nasi padang seberat 10 kilogram di rumah pak camat
+            //saya dan teman saya mau makan nasi padang seberat 10 kilogram di rumah pak camata
         }
         #endregion
 
