@@ -36,7 +36,7 @@ namespace latihribbon
         {
             txtNIS1.MaxLength = 10;
             txtAlasan1.MaxLength = 50;
-
+            
             // DataGrid
             if (dataGridView1.Rows.Count > 0)
             {
@@ -225,6 +225,8 @@ namespace latihribbon
             ClearInput();
             globalId = 0;
             lblInfo.Text = "INSERT";
+            txtNIS1.ReadOnly = false;
+
         }
 
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
@@ -269,6 +271,7 @@ namespace latihribbon
         {
             GetData();
             lblInfo.Text = "UPDATE";
+            txtNIS1.ReadOnly = true;
         }
     }
 }
