@@ -18,7 +18,7 @@ namespace latihribbon
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Pemakai());
+            Application.Run(new login());
         }
     }
 }
