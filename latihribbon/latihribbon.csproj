@@ -151,12 +151,6 @@
     <Compile Include="Model\AbsensiModel.cs" />
     <Compile Include="Model\KeluarModel.cs" />
     <Compile Include="Model\MasukModel.cs" />
-    <Compile Include="ScreenAdmin\Notiip.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ScreenAdmin\Notiip.Designer.cs">
-      <DependentUpon>Notiip.cs</DependentUpon>
-    </Compile>
     <Compile Include="ScreenSiswa\Pemakai.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -217,9 +211,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ScreenAdmin\Notiip.resx">
-      <DependentUpon>Notiip.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ScreenSiswa\Pemakai.resx">
       <DependentUpon>Pemakai.cs</DependentUpon>

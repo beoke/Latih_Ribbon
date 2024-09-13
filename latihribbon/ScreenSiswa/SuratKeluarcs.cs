@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Windows.Forms;
 using Dapper;
+using latihribbon.Dal;
 using latihribbon.Helper;
 using latihribbon.Model;
 
@@ -13,8 +14,9 @@ namespace latihribbon
 {
     public partial class SuratKeluarcs : Form
     {
-        private DbDal db;
-        private Form _previousForm; // untuk kembali ke form sebelumnya
+        private readonly DbDal db;
+        private readonly KeluarDal keluarDal;
+        private Form _previousForm;
         int print = 0;
         private readonly MesBox mesBox = new MesBox();
         DateTime globalCurrentTime = DateTime.Now;
@@ -25,6 +27,7 @@ namespace latihribbon
         {
             InitializeComponent();
             db = new DbDal();
+            keluarDal = new KeluarDal();
 
             this.Load += new System.EventHandler(this.SuratKeluarcs_Load);
             _previousForm = previousForm; // menyimpan referensi ke form sebelumnya
@@ -87,55 +90,50 @@ namespace latihribbon
                 mesBox.MesInfo("Pastikan \"Jam Masuk\" dan \"Alasan\" valid !");
                 return;
             }
-            mesBox.MesInfo($"{jamKembali.Value.ToString("HH:mm")} {tx_keluar.Text}");
 
-            /*  if (print == 0)
-              {
-                  printDocumentKeluar.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("Suit Detail", 400, 590);
-                  //printDocumentKeluar.Print();
-                  Notiip n = new Notiip();
-                  n.Show();
-                  print++;
-                  System.Threading.Thread.Sleep(5000);
-                  n.Hide();
-                  this.Hide();
-
-                  Pemakai pakai = new Pemakai();
-                  pakai.Show();
-              }*/
+            if (print == 0)
+            {
+                printDocumentKeluar.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("Suit Detail", 400, 590);
+                //printDocumentKeluar.Print();
+                print++;
+                System.Threading.Thread.Sleep(5000);
+                this.Close();
 
 
+                Pemakai pakai = new Pemakai();
+                pakai.Show();
+            }
 
-            /* printPreviewDialogKeluar.Document = printDocumentKeluar;
-                   printDocumentKeluar.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("Suit Detail", 400, 590);
-                   printPreviewDialogKeluar.ShowDialog();
 
-             Insert();*/
+            printPreviewDialogKeluar.Document = printDocumentKeluar;
+            printDocumentKeluar.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("Suit Detail", 400, 590);
+            printPreviewDialogKeluar.ShowDialog();
+
+            Insert();
         }
 
         public void Insert()
         {
-            string nis, alasan;
+            string nis, tujuan;
             DateTime tanggal;
             TimeSpan jamkeluar, jammasuk;
 
-            nis = txtNIS.Text;
+            MessageBox.Show(tx_keluar.Text);
+            /*nis = txtNIS.Text;
             tanggal = DateTime.Now.Date;
             jamkeluar = TimeSpan.Parse(tx_keluar.Text);
             jammasuk = TimeSpan.Parse(jamKembali.Text);
-            alasan = txtAlasan.Text;
+            tujuan = txtAlasan.Text;
 
-            string sql = @"INSERT INTO Keluar(Nis,Tanggal,JamKeluar, JamMasuk, Tujuan)
-                          VALUES(@Nis,@Tanggal,@JamKeluar,@JamMasuk,@Tujuan)";
-            var dp = new DynamicParameters();
-            dp.Add("@Nis",nis,DbType.String);
-            dp.Add("@Tanggal",tanggal,DbType.Date);
-            dp.Add("@JamKeluar",jamkeluar,DbType.Time);
-            dp.Add("@JamMasuk",jammasuk,DbType.Time);
-            dp.Add("@Tujuan",alasan,DbType.String);
-
-            db.IUD(sql,dp);
-
+            var keluar = new KeluarModel
+            {
+                Nis = Convert.ToInt32(nis),
+                Tanggal = tanggal,
+                JamKeluar = jamkeluar,
+                JamMasuk = jammasuk,
+                Tujuan = tujuan
+            };
+            keluarDal.Insert(keluar);*/
         }
 
 
