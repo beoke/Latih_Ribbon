@@ -19,6 +19,7 @@ namespace latihribbon
             this.suratKeluarcs = suratKeluarcs;
 
             InitLabel();
+            InitEvent();
         }
 
         private void InitLabel()
@@ -49,6 +50,7 @@ namespace latihribbon
             suratKeluarcs.Insert();
 
             this.Close();
+            suratKeluarcs.Close();
 
             Pemakai pemakai = new Pemakai();
             pemakai.Show();

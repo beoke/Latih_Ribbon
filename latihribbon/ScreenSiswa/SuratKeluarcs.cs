@@ -92,8 +92,14 @@ namespace latihribbon
                 return;
             }
 
-            PopUp MesPopUp = new PopUp(this);
-            MesPopUp.Show();
+            if (mesBox.MesKonfirmasi("Apakah data sudah benar 3"))
+            {
+                Print();
+               // Insert();
+            }
+
+           /* PopUp MesPopUp = new PopUp(this);
+            MesPopUp.ShowDialog();*/
 
           /*
             printDocumentKeluar.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("Suit Detail", 400, 590);
@@ -101,10 +107,6 @@ namespace latihribbon
             print++;
             System.Threading.Thread.Sleep(5000);
             this.Close();*/
-
-
-            Pemakai pakai = new Pemakai();
-            pakai.Show();
         }
 
         public void Insert()
@@ -113,8 +115,7 @@ namespace latihribbon
             DateTime tanggal;
             TimeSpan jamkeluar, jammasuk;
 
-            MessageBox.Show(tx_keluar.Text);
-            /*nis = txtNIS.Text;
+            nis = txtNIS.Text;
             tanggal = DateTime.Now.Date;
             jamkeluar = TimeSpan.Parse(tx_keluar.Text);
             jammasuk = TimeSpan.Parse(jamKembali.Text);
@@ -128,7 +129,7 @@ namespace latihribbon
                 JamMasuk = jammasuk,
                 Tujuan = tujuan
             };
-            keluarDal.Insert(keluar);*/
+            keluarDal.Insert(keluar);
         }
 
 
@@ -147,7 +148,7 @@ namespace latihribbon
         {
             printPreviewDialogKeluar.Document = printDocumentKeluar;
             printDocumentKeluar.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("Suit Detail", 400, 590);
-            printDocumentKeluar.Print();
+            //printDocumentKeluar.Print();
             printPreviewDialogKeluar.ShowDialog();
         }
         private void printDocumentKeluar_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
