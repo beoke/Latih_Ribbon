@@ -194,39 +194,6 @@ namespace latihribbon
 
 
             //saya dan teman saya mau makan nasi padang seberat 10 kilogram di rumah pak camat
-           /* // memisahkan "Alasan Terlambat" jika terlalu panjang
-            string alasan = txtAlasan.Text;
-            int batasPanjang = 20;
-
-            if (e.Graphics.MeasureString(alasan, new Font("Times New Roman", 9)).Width > batasPanjang)
-            {
-                string[] kata = alasan.Split(' ');
-                string baris1 = "";
-                string baris2 = "";
-                foreach (string k in kata)
-                {
-                    if (e.Graphics.MeasureString(baris1 + k + " ", new Font("Times New Roman", 9)).Width <= batasPanjang)
-                    {
-                        baris1 += k + " ";
-                    }
-                    else
-                    {
-                        baris2 += k + " ";
-                    }
-                }
-                e.Graphics.DrawString($": {baris1.Trim()}", new Font("Times New Roman", 9), Brushes.Black, new Point(110, 140));
-                e.Graphics.DrawString($"{baris2.Trim()}", new Font("Times New Roman", 9), Brushes.Black, new Point(110, 160));
-
-                e.Graphics.DrawString($": {baris1.Trim()}", new Font("Times New Roman", 9), Brushes.Black, new Point(110, 310));
-                e.Graphics.DrawString($"{baris2.Trim()}", new Font("Times New Roman", 9), Brushes.Black, new Point(110, 330));
-
-                e.Graphics.DrawString($": {baris1.Trim()}", new Font("Times New Roman", 9), Brushes.Black, new Point(110, 475));
-                e.Graphics.DrawString($"{baris2.Trim()}", new Font("Times New Roman", 9), Brushes.Black, new Point(110, 490));
-            }
-            else
-            {
-                e.Graphics.DrawString($": {alasan}", new Font("Times New Roman", 9), Brushes.Black, new Point(110, 140));
-            }*/
         }
         #endregion
 

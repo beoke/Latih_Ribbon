@@ -57,12 +57,12 @@ namespace latihribbon.Dal
             }
         }
 
-        public void Delete(int Nis)
+        public void Delete(int Id)
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
             {
-                const string sql = @"DELETE FROM Absensi WHERE Nis=@Nis";
-                koneksi.Execute(sql, new {Nis=Nis});
+                const string sql = @"DELETE FROM Persensi WHERE Id=@Id";
+                koneksi.Execute(sql, new {Id=Id});
             }
         }
 

@@ -1,4 +1,5 @@
 ﻿using latihribbon.Dal;
+using latihribbon.Helper;
 using latihribbon.Model;
 using System;
 using System.Collections.Generic;
@@ -167,6 +168,12 @@ namespace latihribbon
             }
 
         }
+
+        private void Delete()
+        {
+         
+        }
+
         private void CekNis()
         {
             var siswa = siswaDal.GetData(Convert.ToInt32(txtNIS1.Text));
@@ -222,8 +229,8 @@ namespace latihribbon
 
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
         {
-            GetData();
-            lblInfo.Text = "UPDATE";
+           
+           
         }
 
         private void btnSave_FormSiswa_Click(object sender, EventArgs e)
@@ -251,6 +258,17 @@ namespace latihribbon
             {
                 e.Handled = true;
             }
+        }
+
+        private void btnDelete_FormSiswa_Click(object sender, EventArgs e)
+        {
+            Delete();
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            GetData();
+            lblInfo.Text = "UPDATE";
         }
     }
 }

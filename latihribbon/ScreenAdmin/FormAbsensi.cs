@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using latihribbon.Dal;
+using latihribbon.Helper;
 using latihribbon.Model;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ namespace latihribbon
     {
         private readonly AbsensiDal absensiDal;
         private readonly SiswaDal siswaDal;
+        private MesBox mesBox = new MesBox();
         int globalId = 0;
         public FormAbsensi()
         {
@@ -167,21 +169,21 @@ namespace latihribbon
                     LoadData();
                 }
             }
-
         }
 
         private void Delete()
         {
-            string nis = txtNIS1.Text;
-            if (globalId == 0)
+            if(globalId != 0)
             {
-                MessageBox.Show("Pilih Data Terlebih Dahulu!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                mesBox.MesInfo("Pilih Data Terlebih Dahulu!");
                 return;
             }
-            if (nis != string.Empty )
+            if (mesBox.MesKonfirmasi("Hapus Data?"))
             {
-                if (MessageBox.Show("Hapus Data?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    absensiDal.Delete(Convert.ToInt32(nis));
+                absensiDal.Delete(globalId);
+                LoadData();
+                ClearInput();
+                globalId = 0;
             }
         }
 
@@ -272,11 +274,15 @@ namespace latihribbon
         {
             SaveData();
         }
-
-        private void dataGridView1_DoubleClick(object sender, EventArgs e)
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
             GetData();
             lblInfo.Text = "UPDATE";
+        }
+
+        private void dataGridView1_DoubleClick(object sender, EventArgs e)
+        {
+            
         }
 
         private void btnNew_Click(object sender, EventArgs e)
@@ -290,5 +296,11 @@ namespace latihribbon
         {
             Delete();
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
     }
 }

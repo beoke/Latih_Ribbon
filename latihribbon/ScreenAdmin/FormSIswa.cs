@@ -29,7 +29,6 @@ namespace latihribbon
             mesBox = new MesBox();
             LoadData();
 
-            InitialEvent();
             InitComponent();
         }
 
@@ -67,7 +66,6 @@ namespace latihribbon
                 listTahun.Add(item.Tahun);
             }
             comboTahunFilter.DataSource = listTahun;
-
         }
 
         public void ControlInsertUpdate()
@@ -85,28 +83,15 @@ namespace latihribbon
             }
         }
 
-        private void InitialEvent()
-        {
-            dataGridView1.SelectionChanged += DataGridView1_SelectionChanged;
-        }
-
-        private void DataGridView1_SelectionChanged(object sender, EventArgs e)
-        {
-            var data = dataGridView1.CurrentRow.Cells["Nis"].Value.ToString();
-
-        }
-
         public void LoadData()
         {
             dataGridView1.DataSource = siswaDal.ListData();
         }
 
-
-        public void GetData()
+        public void GetData(int nis)
         {
-            string nis = dataGridView1.CurrentRow.Cells["Nis"].Value?.ToString() ?? string.Empty;
-            if (nis == string.Empty) return;
-            var getSiswa = siswaDal.GetData(Convert.ToInt32(nis));
+            var getSiswa = siswaDal.GetData(nis);
+            if (getSiswa is null) return;
             txtNIS_FormSiswa.Text = getSiswa.Nis.ToString();
             txtPersensi_FormSiswa.Text = getSiswa.Persensi.ToString();
             txtNama_FormSiswa.Text = getSiswa.Nama;
@@ -211,6 +196,7 @@ namespace latihribbon
             {
                 siswaDal.Delete(Convert.ToInt32(nis));
                 LoadData();
+                Clear();
             }
         }
 
@@ -302,7 +288,7 @@ namespace latihribbon
 
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
         {
-            GetData();
+            
         }
 
         private void txtNIS_FormSiswa_KeyPress(object sender, KeyPressEventArgs e)
@@ -356,6 +342,12 @@ namespace latihribbon
         private void txtNIS_KeyPress(object sender, KeyPressEventArgs e)
         {
             InputNumber(e);
+        }
+
+        private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            string nis = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+            GetData(Convert.ToInt32(nis));
         }
     }
 }

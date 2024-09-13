@@ -227,8 +227,8 @@ namespace latihribbon
 
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
         {
-            GetData();
-            lblInfo.Text = "UPDATE";
+          
+           
         }
 
         private void btnSave_FormSiswa_Click(object sender, EventArgs e)
@@ -256,6 +256,12 @@ namespace latihribbon
             {
                 e.Handled = true;
             }
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            GetData();
+            lblInfo.Text = "UPDATE";
         }
     }
 }
