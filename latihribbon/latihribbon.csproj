@@ -92,6 +92,20 @@
     <Compile Include="Dal\SiswaDal.cs" />
     <Compile Include="Dal\MasukDal.cs" />
     <Compile Include="Dal\DbDal.cs" />
+    <Compile Include="FormRiwayatLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRiwayatLogin.Designer.cs">
+      <DependentUpon>FormRiwayatLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\RiwayatLoginModel.cs" />
+    <Compile Include="Dal\RiwayatLoginDal.cs" />
+    <Compile Include="ScreenUser\FormUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScreenUser\FormUser.Designer.cs">
+      <DependentUpon>FormUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Helper\MesBox.cs" />
     <Compile Include="Model\JurusanModel.cs" />
     <Compile Include="PopUp.cs">
@@ -191,6 +205,12 @@
     <Compile Include="UpdateInsert\SiswaIU.Designer.cs">
       <DependentUpon>SiswaIU.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FormRiwayatLogin.resx">
+      <DependentUpon>FormRiwayatLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ScreenUser\FormUser.resx">
+      <DependentUpon>FormUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PopUp.resx">
       <DependentUpon>PopUp.cs</DependentUpon>
     </EmbeddedResource>
@@ -284,8 +304,6 @@
   <ItemGroup>
     <None Include="Resources\absence %281%29.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ScreenUser\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
