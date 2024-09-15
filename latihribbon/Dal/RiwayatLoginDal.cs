@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media.Animation;
 
 namespace latihribbon
 {
@@ -38,6 +39,15 @@ namespace latihribbon
                 Dp.Add("@Waktu", riwayat.Waktu, DbType.Time);
 
                 Conn.Execute(sql, Dp);
+            }
+        }
+
+        public IEnumerable<RiwayatLoginModel> GetSiswaFilter(string sql , object query)
+        {
+            using ( var Conn = new SqlConnection(conn.connstr()))
+            {
+                var  filterLogin = Conn.Query<RiwayatLoginModel>(sql, query);
+                return filterLogin;
             }
         }
     }

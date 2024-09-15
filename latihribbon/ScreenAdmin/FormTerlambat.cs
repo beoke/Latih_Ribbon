@@ -52,11 +52,14 @@ namespace latihribbon
                 dataGridView1.ColumnHeadersHeight = 35;
             }
         }
+
         private void btn_terlambat_Click(object sender, EventArgs e)
         {
             PrintTerlambat telat = new PrintTerlambat();
             telat.Show();
         }
+
+
 
         string sqlglobal=string.Empty;
         public string Filter(string nis, string nama, string kelas, DateTime tgl1, DateTime tgl2)
@@ -76,8 +79,9 @@ namespace latihribbon
             }
             sqlglobal = "";
             return sql;
-
         }
+
+
 
         public void Filter2()
         {
@@ -96,6 +100,8 @@ namespace latihribbon
             var select = masukDal.GetTerlambatFilter(sql, new { nis = nis, nama = nama, kelas = kelas, tgl1 = tgl1, tgl2 = tgl2 });
             dataGridView1.DataSource = select;
         }
+
+
 
         private void GetData()
         {
