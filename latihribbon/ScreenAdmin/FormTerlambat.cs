@@ -34,8 +34,9 @@ namespace latihribbon
 
         public void InitComponen()
         {
+            //textBox MaxLength
             txtNIS1.MaxLength = 10;
-            txtAlasan1.MaxLength = 50;
+            txtAlasan1.MaxLength = 60;
             
             // DataGrid
             if (dataGridView1.Rows.Count > 0)

@@ -83,11 +83,11 @@
             this.dataGridView1.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(8, 6);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(735, 531);
+            this.dataGridView1.Size = new System.Drawing.Size(735, 591);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
@@ -96,7 +96,7 @@
             // 
             this.tglsatu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tglsatu.Location = new System.Drawing.Point(389, 24);
-            this.tglsatu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tglsatu.Margin = new System.Windows.Forms.Padding(2);
             this.tglsatu.Name = "tglsatu";
             this.tglsatu.Size = new System.Drawing.Size(132, 21);
             this.tglsatu.TabIndex = 19;
@@ -108,7 +108,7 @@
             this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button1.Location = new System.Drawing.Point(1078, 14);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(40, 37);
             this.button1.TabIndex = 18;
@@ -119,7 +119,7 @@
             this.txtKelas.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtKelas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtKelas.Location = new System.Drawing.Point(786, 23);
-            this.txtKelas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtKelas.Margin = new System.Windows.Forms.Padding(2);
             this.txtKelas.Name = "txtKelas";
             this.txtKelas.Size = new System.Drawing.Size(76, 21);
             this.txtKelas.TabIndex = 15;
@@ -152,7 +152,7 @@
             this.txtNama.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNama.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNama.Location = new System.Drawing.Point(210, 23);
-            this.txtNama.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNama.Margin = new System.Windows.Forms.Padding(2);
             this.txtNama.Name = "txtNama";
             this.txtNama.Size = new System.Drawing.Size(114, 21);
             this.txtNama.TabIndex = 12;
@@ -173,7 +173,7 @@
             // 
             this.tgldua.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tgldua.Location = new System.Drawing.Point(584, 23);
-            this.tgldua.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tgldua.Margin = new System.Windows.Forms.Padding(2);
             this.tgldua.Name = "tgldua";
             this.tgldua.Size = new System.Drawing.Size(132, 21);
             this.tgldua.TabIndex = 20;
@@ -195,7 +195,7 @@
             this.txtNIS.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNIS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNIS.Location = new System.Drawing.Point(56, 23);
-            this.txtNIS.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNIS.Margin = new System.Windows.Forms.Padding(2);
             this.txtNIS.Name = "txtNIS";
             this.txtNIS.Size = new System.Drawing.Size(85, 21);
             this.txtNIS.TabIndex = 23;
@@ -222,9 +222,9 @@
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Location = new System.Drawing.Point(0, 68);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1134, 567);
+            this.panel1.Size = new System.Drawing.Size(1134, 627);
             this.panel1.TabIndex = 29;
             // 
             // panel3
@@ -235,9 +235,9 @@
             this.panel3.BackColor = System.Drawing.Color.DarkGray;
             this.panel3.Controls.Add(this.dataGridView1);
             this.panel3.Location = new System.Drawing.Point(7, 10);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(750, 544);
+            this.panel3.Size = new System.Drawing.Size(750, 604);
             this.panel3.TabIndex = 2;
             // 
             // panel4
@@ -247,9 +247,9 @@
             this.panel4.BackColor = System.Drawing.Color.DarkGray;
             this.panel4.Controls.Add(this.panel2);
             this.panel4.Location = new System.Drawing.Point(770, 10);
-            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(352, 544);
+            this.panel4.Size = new System.Drawing.Size(352, 604);
             this.panel4.TabIndex = 3;
             // 
             // panel2
@@ -261,9 +261,9 @@
             this.panel2.Controls.Add(this.panel6);
             this.panel2.Controls.Add(this.panel5);
             this.panel2.Location = new System.Drawing.Point(5, 6);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(342, 532);
+            this.panel2.Size = new System.Drawing.Size(342, 592);
             this.panel2.TabIndex = 4;
             // 
             // panel6
@@ -273,8 +273,8 @@
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel6.Controls.Add(this.btnSave_FormSiswa);
             this.panel6.Controls.Add(this.btnDelete_FormSiswa);
-            this.panel6.Location = new System.Drawing.Point(4, 449);
-            this.panel6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel6.Location = new System.Drawing.Point(4, 509);
+            this.panel6.Margin = new System.Windows.Forms.Padding(2);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(332, 73);
             this.panel6.TabIndex = 6;
@@ -285,7 +285,7 @@
             this.btnSave_FormSiswa.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave_FormSiswa.ForeColor = System.Drawing.Color.White;
             this.btnSave_FormSiswa.Location = new System.Drawing.Point(23, 22);
-            this.btnSave_FormSiswa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSave_FormSiswa.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave_FormSiswa.Name = "btnSave_FormSiswa";
             this.btnSave_FormSiswa.Size = new System.Drawing.Size(90, 32);
             this.btnSave_FormSiswa.TabIndex = 1;
@@ -299,7 +299,7 @@
             this.btnDelete_FormSiswa.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete_FormSiswa.ForeColor = System.Drawing.Color.White;
             this.btnDelete_FormSiswa.Location = new System.Drawing.Point(224, 22);
-            this.btnDelete_FormSiswa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDelete_FormSiswa.Margin = new System.Windows.Forms.Padding(2);
             this.btnDelete_FormSiswa.Name = "btnDelete_FormSiswa";
             this.btnDelete_FormSiswa.Size = new System.Drawing.Size(90, 32);
             this.btnDelete_FormSiswa.TabIndex = 0;
@@ -330,9 +330,9 @@
             this.panel5.Controls.Add(this.label9);
             this.panel5.Controls.Add(this.label10);
             this.panel5.Location = new System.Drawing.Point(4, 6);
-            this.panel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel5.Margin = new System.Windows.Forms.Padding(2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(332, 439);
+            this.panel5.Size = new System.Drawing.Size(332, 499);
             this.panel5.TabIndex = 5;
             // 
             // lblNisTidakDitemukan
@@ -365,8 +365,8 @@
             this.btnNew.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnNew.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNew.ForeColor = System.Drawing.Color.DimGray;
-            this.btnNew.Location = new System.Drawing.Point(227, 388);
-            this.btnNew.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnNew.Location = new System.Drawing.Point(227, 448);
+            this.btnNew.Margin = new System.Windows.Forms.Padding(2);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(90, 32);
             this.btnNew.TabIndex = 23;
@@ -443,9 +443,10 @@
             this.txtTujuan1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTujuan1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTujuan1.Location = new System.Drawing.Point(18, 353);
-            this.txtTujuan1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtTujuan1.Margin = new System.Windows.Forms.Padding(2);
+            this.txtTujuan1.Multiline = true;
             this.txtTujuan1.Name = "txtTujuan1";
-            this.txtTujuan1.Size = new System.Drawing.Size(300, 23);
+            this.txtTujuan1.Size = new System.Drawing.Size(300, 80);
             this.txtTujuan1.TabIndex = 22;
             // 
             // txtNIS1
@@ -454,7 +455,7 @@
             this.txtNIS1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNIS1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtNIS1.Location = new System.Drawing.Point(18, 54);
-            this.txtNIS1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNIS1.Margin = new System.Windows.Forms.Padding(2);
             this.txtNIS1.Name = "txtNIS1";
             this.txtNIS1.Size = new System.Drawing.Size(300, 23);
             this.txtNIS1.TabIndex = 17;
@@ -477,7 +478,7 @@
             this.txtNama1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNama1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNama1.Location = new System.Drawing.Point(18, 103);
-            this.txtNama1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNama1.Margin = new System.Windows.Forms.Padding(2);
             this.txtNama1.Name = "txtNama1";
             this.txtNama1.ReadOnly = true;
             this.txtNama1.Size = new System.Drawing.Size(300, 23);
@@ -488,7 +489,7 @@
             this.txtKelas1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtKelas1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtKelas1.Location = new System.Drawing.Point(18, 152);
-            this.txtKelas1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtKelas1.Margin = new System.Windows.Forms.Padding(2);
             this.txtKelas1.Name = "txtKelas1";
             this.txtKelas1.ReadOnly = true;
             this.txtKelas1.Size = new System.Drawing.Size(300, 23);
@@ -532,7 +533,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1134, 634);
+            this.ClientSize = new System.Drawing.Size(1134, 694);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.txtNIS);
             this.Controls.Add(this.label6);
@@ -545,7 +546,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtNama);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormKeluar";
             this.Text = "FormKeluar";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

@@ -46,6 +46,8 @@
             this.btnSave_FormSiswa = new System.Windows.Forms.Button();
             this.btnDelete_FormSiswa = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.txtTahun_FormSiswa = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.lblNisSudahAda = new System.Windows.Forms.Label();
             this.lblInfo = new System.Windows.Forms.Label();
             this.txtNIS_FormSiswa = new System.Windows.Forms.TextBox();
@@ -61,7 +63,7 @@
             this.XRadio = new System.Windows.Forms.RadioButton();
             this.jurusanCombo = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtTahun_FormSiswa = new System.Windows.Forms.TextBox();
+            this.txtRombel_FromSiswa = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.txtNama_FormSiswa = new System.Windows.Forms.TextBox();
@@ -180,7 +182,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 60);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(964, 593);
+            this.panel1.Size = new System.Drawing.Size(964, 616);
             this.panel1.TabIndex = 14;
             // 
             // panel3
@@ -193,7 +195,7 @@
             this.panel3.Location = new System.Drawing.Point(7, 10);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(580, 570);
+            this.panel3.Size = new System.Drawing.Size(580, 593);
             this.panel3.TabIndex = 2;
             // 
             // dataGridView1
@@ -208,7 +210,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(570, 560);
+            this.dataGridView1.Size = new System.Drawing.Size(570, 583);
             this.dataGridView1.TabIndex = 13;
             this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowEnter);
             this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
@@ -222,7 +224,7 @@
             this.panel4.Location = new System.Drawing.Point(601, 10);
             this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(352, 570);
+            this.panel4.Size = new System.Drawing.Size(352, 593);
             this.panel4.TabIndex = 3;
             // 
             // panel2
@@ -236,7 +238,7 @@
             this.panel2.Location = new System.Drawing.Point(5, 6);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(342, 558);
+            this.panel2.Size = new System.Drawing.Size(342, 581);
             this.panel2.TabIndex = 4;
             // 
             // panel6
@@ -245,7 +247,7 @@
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel6.Controls.Add(this.btnSave_FormSiswa);
             this.panel6.Controls.Add(this.btnDelete_FormSiswa);
-            this.panel6.Location = new System.Drawing.Point(4, 477);
+            this.panel6.Location = new System.Drawing.Point(4, 504);
             this.panel6.Margin = new System.Windows.Forms.Padding(2);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(332, 73);
@@ -283,6 +285,8 @@
             // 
             this.panel5.BackColor = System.Drawing.Color.Gainsboro;
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel5.Controls.Add(this.txtTahun_FormSiswa);
+            this.panel5.Controls.Add(this.label12);
             this.panel5.Controls.Add(this.lblNisSudahAda);
             this.panel5.Controls.Add(this.lblInfo);
             this.panel5.Controls.Add(this.txtNIS_FormSiswa);
@@ -296,7 +300,7 @@
             this.panel5.Controls.Add(this.XRadio);
             this.panel5.Controls.Add(this.jurusanCombo);
             this.panel5.Controls.Add(this.label10);
-            this.panel5.Controls.Add(this.txtTahun_FormSiswa);
+            this.panel5.Controls.Add(this.txtRombel_FromSiswa);
             this.panel5.Controls.Add(this.label9);
             this.panel5.Controls.Add(this.label8);
             this.panel5.Controls.Add(this.txtNama_FormSiswa);
@@ -305,8 +309,30 @@
             this.panel5.Location = new System.Drawing.Point(4, 6);
             this.panel5.Margin = new System.Windows.Forms.Padding(2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(332, 467);
+            this.panel5.Size = new System.Drawing.Size(332, 494);
             this.panel5.TabIndex = 5;
+            // 
+            // txtTahun_FormSiswa
+            // 
+            this.txtTahun_FormSiswa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtTahun_FormSiswa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTahun_FormSiswa.Location = new System.Drawing.Point(18, 415);
+            this.txtTahun_FormSiswa.Margin = new System.Windows.Forms.Padding(2);
+            this.txtTahun_FormSiswa.Name = "txtTahun_FormSiswa";
+            this.txtTahun_FormSiswa.Size = new System.Drawing.Size(300, 23);
+            this.txtTahun_FormSiswa.TabIndex = 64;
+            this.txtTahun_FormSiswa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTahun_FormSiswa_KeyPress);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(15, 396);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(49, 17);
+            this.label12.TabIndex = 63;
+            this.label12.Text = "Tahun";
             // 
             // lblNisSudahAda
             // 
@@ -417,7 +443,7 @@
             this.btnNew.BackColor = System.Drawing.SystemColors.Highlight;
             this.btnNew.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNew.ForeColor = System.Drawing.Color.White;
-            this.btnNew.Location = new System.Drawing.Point(258, 400);
+            this.btnNew.Location = new System.Drawing.Point(258, 463);
             this.btnNew.Margin = new System.Windows.Forms.Padding(2);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(60, 27);
@@ -486,27 +512,27 @@
             this.label10.TabIndex = 25;
             this.label10.Text = "Jurusan";
             // 
-            // txtTahun_FormSiswa
+            // txtRombel_FromSiswa
             // 
-            this.txtTahun_FormSiswa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTahun_FormSiswa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTahun_FormSiswa.Location = new System.Drawing.Point(18, 360);
-            this.txtTahun_FormSiswa.Margin = new System.Windows.Forms.Padding(2);
-            this.txtTahun_FormSiswa.Name = "txtTahun_FormSiswa";
-            this.txtTahun_FormSiswa.Size = new System.Drawing.Size(300, 23);
-            this.txtTahun_FormSiswa.TabIndex = 24;
-            this.txtTahun_FormSiswa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTahun_FormSiswa_KeyPress);
+            this.txtRombel_FromSiswa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtRombel_FromSiswa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRombel_FromSiswa.Location = new System.Drawing.Point(18, 366);
+            this.txtRombel_FromSiswa.Margin = new System.Windows.Forms.Padding(2);
+            this.txtRombel_FromSiswa.Name = "txtRombel_FromSiswa";
+            this.txtRombel_FromSiswa.Size = new System.Drawing.Size(300, 23);
+            this.txtRombel_FromSiswa.TabIndex = 24;
+            this.txtRombel_FromSiswa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRombel_FromSiswa_KeyPress);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(15, 341);
+            this.label9.Location = new System.Drawing.Point(15, 347);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(49, 17);
+            this.label9.Size = new System.Drawing.Size(56, 17);
             this.label9.TabIndex = 23;
-            this.label9.Text = "Tahun";
+            this.label9.Text = "Rombel";
             // 
             // label8
             // 
@@ -565,7 +591,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(962, 652);
+            this.ClientSize = new System.Drawing.Size(962, 675);
             this.Controls.Add(this.comboTahunFilter);
             this.Controls.Add(this.txtNIS);
             this.Controls.Add(this.label5);
@@ -616,7 +642,7 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button btnDelete_FormSiswa;
         private System.Windows.Forms.Button btnSave_FormSiswa;
-        private System.Windows.Forms.TextBox txtTahun_FormSiswa;
+        private System.Windows.Forms.TextBox txtRombel_FromSiswa;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox jurusanCombo;
         private System.Windows.Forms.Label label10;
@@ -635,5 +661,7 @@
         private System.Windows.Forms.TextBox txtNIS_FormSiswa;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboTahunFilter;
+        private System.Windows.Forms.TextBox txtTahun_FormSiswa;
+        private System.Windows.Forms.Label label12;
     }
 }

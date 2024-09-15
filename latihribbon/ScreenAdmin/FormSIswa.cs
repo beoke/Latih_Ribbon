@@ -19,7 +19,7 @@ namespace latihribbon
         private readonly SiswaDal siswaDal;
         private readonly JurusanDal jurusanDal;
         private readonly MesBox mesBox;
-        bool SaveCondition = true;
+        private bool SaveCondition = true;
         public FormSIswa()
         {
             InitializeComponent();
@@ -41,7 +41,7 @@ namespace latihribbon
             foreach (var item in jurusan)
                 listJurusan.Add(item.NamaJurusan);
             jurusanCombo.DataSource = listJurusan;
-            txtNIS_FormSiswa.MaxLength = 9;
+
 
             // DataGrid
             if (dataGridView1.Rows.Count > 0)
@@ -66,6 +66,15 @@ namespace latihribbon
                 listTahun.Add(item.Tahun);
             }
             comboTahunFilter.DataSource = listTahun;
+
+            //textBox MaxLength
+            txtNIS_FormSiswa.MaxLength = 9;
+            txtNama_FormSiswa.MaxLength = 80;
+            txtPersensi_FormSiswa.MaxLength = 3;
+            txtRombel_FromSiswa.MaxLength = 5;
+
+  
+
         }
 
         public void ControlInsertUpdate()
@@ -92,24 +101,25 @@ namespace latihribbon
         {
             var getSiswa = siswaDal.GetData(nis);
             if (getSiswa is null) return;
+            string[] kelas = getSiswa.Kelas.Split(' ');
             txtNIS_FormSiswa.Text = getSiswa.Nis.ToString();
             txtPersensi_FormSiswa.Text = getSiswa.Persensi.ToString();
             txtNama_FormSiswa.Text = getSiswa.Nama;
+            txtRombel_FromSiswa.Text = (kelas.Length == 3) ? kelas[2] : string.Empty;
             txtTahun_FormSiswa.Text = getSiswa.Tahun;
             if (getSiswa.JenisKelamin == "L")
                 lakiRadio.Checked = true;
             else
                 perempuanRadio.Checked = true;
-            string[] tingkat = getSiswa.Kelas.Split(' ');
-            if (tingkat[0] == "X")
+            if (kelas[0] == "X")
                 XRadio.Checked = true;
-            else if (tingkat[0] == "XI")
+            else if (kelas[0] == "XI")
                 XIRadio.Checked = true;
             else
                 XIIRadio.Checked = true;
-            string resultJurusan = (tingkat.Length > 2) ? $"{tingkat[1]} {tingkat[2]}" : $"{tingkat[1]}";
+            string jurusan = kelas[1];
             foreach (var item in jurusanCombo.Items)
-                if ((string)item == resultJurusan)
+                if ((string)item == jurusan)
                     jurusanCombo.SelectedItem = item;
             SaveCondition = false;
             ControlInsertUpdate();
@@ -117,7 +127,7 @@ namespace latihribbon
 
         public void SaveData()
         {
-            string nis, persensi, nama, jenisKelamin = string.Empty, tingkat = string.Empty, jurusan, tahun;
+            string nis, persensi, nama, jenisKelamin = string.Empty, tingkat = string.Empty, jurusan, rombel, tahun;
             nis = txtNIS_FormSiswa.Text;
             nama = txtNama_FormSiswa.Text;
             persensi = txtPersensi_FormSiswa.Text;
@@ -128,14 +138,15 @@ namespace latihribbon
             if (XIRadio.Checked) tingkat = "XI";
             if (XIIRadio.Checked) tingkat = "XII";
             jurusan = jurusanCombo.SelectedItem.ToString() ?? string.Empty;
-            tahun = txtTahun_FormSiswa.Text;
+            rombel = txtRombel_FromSiswa.Text;
+            tahun = txtRombel_FromSiswa.Text;
 
             if (nis == "" || persensi == "" || nama == "" || jenisKelamin == "" || tingkat == "" || tahun == "")
             {
                 mesBox.MesInfo("Seluruh Data Wajib Diisi!");
                 return;
             }
-            string namaKelas = $"{tingkat} {jurusan}";
+            string namaKelas = $"{tingkat} {jurusan} {rombel}";
             var siswa = new SiswaModel
             {
                 Nis = int.Parse(nis),
@@ -182,6 +193,7 @@ namespace latihribbon
             XIIRadio.Checked = false;
             XIRadio.Checked = false;
             jurusanCombo.SelectedIndex = 0;
+            txtRombel_FromSiswa.Clear();
             txtTahun_FormSiswa.Clear();
         }
         private void Delete()
@@ -235,8 +247,8 @@ namespace latihribbon
         public string CekIsi(string nis, string nama, string kelas, string tahun)
         {
             List<string> kondisi = new List<string>();
-            if (nama != "") kondisi.Add(" Nama LIKE @nama+'%'");
-            if (kelas != "") kondisi.Add(" Kelas LIKE @kelas+'%'");
+            if (nama != "") kondisi.Add(" Nama LIKE '%'+@nama+'%'");
+            if (kelas != "") kondisi.Add(" Kelas LIKE '%'+@kelas+'%'");
             if (tahun != "Semua") kondisi.Add(" Tahun LIKE @tahun+'%'");
             if (nis != "") kondisi.Add(" NIS LIKE @nis+'%'");
 
@@ -334,11 +346,6 @@ namespace latihribbon
             LoadData();
         }
 
-        private void txtTahun_FormSiswa_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            InputNumber(e);
-        }
-
         private void txtNIS_KeyPress(object sender, KeyPressEventArgs e)
         {
             InputNumber(e);
@@ -348,6 +355,16 @@ namespace latihribbon
         {
             string nis = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
             GetData(Convert.ToInt32(nis));
+        }
+
+        private void txtTahun_FormSiswa_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            InputNumber(e);
+        }
+
+        private void txtRombel_FromSiswa_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            InputNumber(e);
         }
     }
 }
