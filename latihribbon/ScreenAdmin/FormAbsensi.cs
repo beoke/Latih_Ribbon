@@ -47,6 +47,10 @@ namespace latihribbon
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                 dataGridView1.ColumnHeadersHeight = 35;
             }
+
+            //Max Length
+            txtNIS1.MaxLength = 9;
+
         }
 
         public void LoadData()
@@ -61,8 +65,8 @@ namespace latihribbon
             string sql = @"SELECT p.ID,p.NIS,s.Nama,s.Kelas,p.Tanggal,p.Keterangan
                                      FROM Persensi p INNER JOIN siswa s ON p.NIS=s.NIS";
             if (nis != "") fltr.Add("p.NIS LIKE @NIS+'%'");
-            if (nama != "") fltr.Add("s.Nama LIKE @Nama+'%'");
-            if (kelas != "") fltr.Add("s.Kelas LIKE @Kelas+'%'");
+            if (nama != "") fltr.Add("s.Nama LIKE '%'+@Nama+'%'");
+            if (kelas != "") fltr.Add("s.Kelas LIKE '%'+@Kelas+'%'");
             if (keterangan != "Semua") fltr.Add("p.Keterangan LIKE @keterangan+'%'");
             if (tglchange != "") fltr.Add("p.Tanggal BETWEEN @tgl1 AND @tgl2");
 
@@ -203,6 +207,20 @@ namespace latihribbon
                 txtKelas1.Text = siswa.Kelas;
             }
         }
+
+        private void ControlInsertUpdate()
+        {
+            if(globalId == 0)
+            {
+                lblInfo.Text = "INSERT";
+                txtNIS1.ReadOnly = false;
+            }
+            else
+            {
+                lblInfo.Text = "UPDATE";
+                txtNIS1.ReadOnly = true;
+            }
+        }
         #region EVENT FILTER
         private void txtNIS_TextChanged(object sender, EventArgs e)
         {
@@ -277,7 +295,7 @@ namespace latihribbon
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
             GetData();
-            lblInfo.Text = "UPDATE";
+            ControlInsertUpdate();
         }
 
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
@@ -289,7 +307,7 @@ namespace latihribbon
         {
             ClearInput();
             globalId = 0;
-            lblInfo.Text = "INSERT";
+            ControlInsertUpdate();
         }
 
         private void btnDelete_FormSiswa_Click(object sender, EventArgs e)

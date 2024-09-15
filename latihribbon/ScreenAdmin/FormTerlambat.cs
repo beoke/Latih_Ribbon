@@ -66,8 +66,8 @@ namespace latihribbon
                                     FROM Masuk m INNER JOIN siswa s ON m.NIS = s.Nis";
 
             if (nis != "") fltr.Add("m.NIS LIKE @nis+'%'");
-            if (nama != "") fltr.Add("s.Nama LIKE @nama+'%'");
-            if (kelas != "") fltr.Add("s.Kelas LIKE @kelas+'%'");
+            if (nama != "") fltr.Add("s.Nama LIKE '%'+@nama+'%'");
+            if (kelas != "") fltr.Add("s.Kelas LIKE '%'+@kelas+'%'");
             if (sqlglobal != "") fltr.Add("m.Tanggal BETWEEN @tgl1 AND @tgl2");
 
             if (fltr.Count > 0)

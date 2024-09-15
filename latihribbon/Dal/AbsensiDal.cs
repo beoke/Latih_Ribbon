@@ -15,9 +15,12 @@ namespace latihribbon.Dal
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
             {
-                const string sql = @"";
+                const string sql = @"INSERT INTO Persensi(Nis,Tanggal,Keterangan) VALUES(@Nis,@Tanggal,@Keterangan)";
                 var dp = new DynamicParameters();
-                dp.Add("");
+                dp.Add("@Id", absensi.Id, System.Data.DbType.Int32);
+                dp.Add("@Nis", absensi.Nis, System.Data.DbType.Int32);
+                dp.Add("@Tanggal", absensi.Tanggal, System.Data.DbType.Date);
+                dp.Add("@Keterangan", absensi.Keterangan, System.Data.DbType.String);
             }
         }
 
@@ -40,7 +43,7 @@ namespace latihribbon.Dal
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
             {
-                const string sql = @"SELECT p.ID,p.NIS,s.Nama,s.Persensi,s.Kelas,p.Tanggal,p.Keterangan
+                const string sql = @"SELECT p.ID,p.NIS,s.Nama,s.Kelas,p.Tanggal,p.Keterangan
                                      FROM Persensi p INNER JOIN siswa s ON p.NIS=s.NIS";
                 return koneksi.Query<AbsensiModel>(sql);
             }
@@ -50,7 +53,7 @@ namespace latihribbon.Dal
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
             {
-                const string sql = @"SELECT p.ID,p.NIS,s.Nama,s.Persensi,s.Kelas,p.Tanggal,p.Keterangan
+                const string sql = @"SELECT p.ID,p.NIS,s.Nama,s.Kelas,p.Tanggal,p.Keterangan
                                      FROM Persensi p INNER JOIN siswa s ON p.NIS=s.NIS
                                      WHERE p.ID = @ID";
                 return koneksi.QueryFirstOrDefault<AbsensiModel>(sql, new {ID=ID});

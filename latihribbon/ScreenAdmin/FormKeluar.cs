@@ -35,8 +35,6 @@ namespace latihribbon
 
         public void InitComponent()
         {
-            txtNIS1.MaxLength = 10;
-            txtTujuan1.MaxLength = 100;
 
             // DataGrid
             if (dataGridView1.Rows.Count > 0)
@@ -51,6 +49,10 @@ namespace latihribbon
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                 dataGridView1.ColumnHeadersHeight = 35;
             }
+
+            //TextBox
+            txtNIS1.MaxLength = 9;
+            txtTujuan1.MaxLength = 60;
         }
 
         string sqlglobal;
@@ -60,8 +62,8 @@ namespace latihribbon
             string sql = @"SELECT k.Id,k.Nis,s.Nama,s.Kelas,k.Tanggal,k.JamKeluar,k.JamMasuk,k.Tujuan 
                             FROM Keluar k INNER JOIN siswa s ON k.Nis=s.Nis";
             if (nis != "") fltr.Add("k.Nis LIKE @nis+'%'");
-            if (nama != "") fltr.Add("s.Nama LIKE @nama+'%'");
-            if (kelas != "") fltr.Add("s.Kelas LIKE @kelas+'%'");
+            if (nama != "") fltr.Add("s.Nama LIKE '%'+@nama+'%'");
+            if (kelas != "") fltr.Add("s.Kelas LIKE '%'+@kelas+'%'");
             if (sqlglobal != "") fltr.Add("Tanggal BETWEEN @tgl1 AND @tgl2");
 
             if (fltr.Count > 0)
@@ -167,7 +169,20 @@ namespace latihribbon
                     LoadData();
                 }
             }
+        }
 
+        private void ControlInsertUpdate()
+        {
+            if(globalId == 0)
+            {
+                lblInfo.Text = "INSERT";
+                txtNIS1.ReadOnly = false;
+            }
+            else
+            {
+                lblInfo.Text = "UPDATE";
+                txtNIS1.ReadOnly = true;
+            }
         }
         private void CekNis()
         {
@@ -222,7 +237,7 @@ namespace latihribbon
         {
             ClearInput();
             globalId = 0;
-            lblInfo.Text = "INSERT";
+            ControlInsertUpdate();
         }
 
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
@@ -261,7 +276,7 @@ namespace latihribbon
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
             GetData();
-            lblInfo.Text = "UPDATE";
+            ControlInsertUpdate();
         }
     }
 }
