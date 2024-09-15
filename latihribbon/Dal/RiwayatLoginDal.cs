@@ -2,6 +2,7 @@
 using latihribbon.Conn;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -15,10 +16,29 @@ namespace latihribbon
         {
             using (var Conn = new SqlConnection(conn.connstr()))
             {
-                const string sql = @"SELECT * FROM RiwayatLogin";
+                const string sql = "SELECT * FROM RiwayatLogin";
 
                 return Conn.Query<RiwayatLoginModel>(sql);
             };
+        }
+
+        public void Insert(RiwayatLoginModel riwayat)
+        {
+            using (var Conn = new SqlConnection(conn.connstr()))
+            {
+                const string sql = @"
+                        INSERT INTO RiwayatLogin 
+                            (UserLogin, Tanggal, Waktu)
+                        VALUES 
+                            (@UserLogin, @Tanggal, @Waktu)";
+
+                var Dp = new DynamicParameters();
+                Dp.Add("@UserLogin", riwayat.UserLogin, DbType.String);
+                Dp.Add("@Tanggal", riwayat.Tanggal, DbType.DateTime);
+                Dp.Add("@Waktu", riwayat.Waktu, DbType.Time);
+
+                Conn.Execute(sql, Dp);
+            }
         }
     }
 }

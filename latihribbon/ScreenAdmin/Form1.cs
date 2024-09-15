@@ -25,10 +25,7 @@ namespace latihribbon
 
         }
 
-        private void ribbon_Input_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -86,6 +83,12 @@ namespace latihribbon
         {
             FormRekapPersensi p = new FormRekapPersensi();
             ShowFormInPanel(p);
+        }
+
+        private void ribbon_riwayatLogin_Click(object sender, EventArgs e)
+        {
+            FormRiwayatLogin r = new FormRiwayatLogin();
+            ShowFormInPanel(r);
         }
     }
 }

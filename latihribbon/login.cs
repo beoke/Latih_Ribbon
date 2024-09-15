@@ -12,8 +12,10 @@ namespace latihribbon
 {
     public partial class login : Form
     {
+        private readonly RiwayatLoginDal _riwayatLoginDal;
         public login()
         {
+            _riwayatLoginDal = new RiwayatLoginDal();
             InitializeComponent();
         }
 
@@ -37,6 +39,7 @@ namespace latihribbon
 
             if (user != null)
             {
+                InsertHistori();
                 // If user exists, check the role and open the appropriate dashboard
                 if (user.Role == "admin")
                 {
@@ -55,6 +58,22 @@ namespace latihribbon
                 // If user does not exist, show an error message
                 MessageBox.Show("Invalid username or password", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void InsertHistori()
+        {
+            string username = tx_Username.Text;
+            DateTime tanggal = DateTime.Today;
+            TimeSpan waktu = new TimeSpan(DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
+
+            var riwayat = new RiwayatLoginModel
+            {
+                UserLogin = username,
+                Tanggal = tanggal,
+                Waktu = waktu
+            };
+
+            _riwayatLoginDal.Insert(riwayat);
         }
 
         private void tx_Password_KeyDown(object sender, KeyEventArgs e)

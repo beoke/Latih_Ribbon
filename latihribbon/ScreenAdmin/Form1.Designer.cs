@@ -41,7 +41,7 @@
             this.ribbonPanel4 = new System.Windows.Forms.RibbonPanel();
             this.ribbon_Laporan = new System.Windows.Forms.RibbonButton();
             this.ribbonPanel6 = new System.Windows.Forms.RibbonPanel();
-            this.ribbon_Input = new System.Windows.Forms.RibbonButton();
+            this.ribbon_riwayatLogin = new System.Windows.Forms.RibbonButton();
             this.ribbonPanel7 = new System.Windows.Forms.RibbonPanel();
             this.ribbon_delete = new System.Windows.Forms.RibbonButton();
             this.AbsensiSiswa = new System.Windows.Forms.RibbonTab();
@@ -61,7 +61,7 @@
             // 
             this.ribbon1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.ribbon1.Location = new System.Drawing.Point(0, 0);
-            this.ribbon1.Margin = new System.Windows.Forms.Padding(2);
+            this.ribbon1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ribbon1.Minimized = false;
             this.ribbon1.Name = "ribbon1";
             // 
@@ -74,7 +74,7 @@
             this.ribbon1.OrbDropDown.Size = new System.Drawing.Size(527, 116);
             this.ribbon1.OrbDropDown.TabIndex = 0;
             this.ribbon1.RibbonTabFont = new System.Drawing.Font("Trebuchet MS", 9F);
-            this.ribbon1.Size = new System.Drawing.Size(863, 162);
+            this.ribbon1.Size = new System.Drawing.Size(1151, 199);
             this.ribbon1.TabIndex = 0;
             this.ribbon1.Tabs.Add(this.ribbonTab1);
             this.ribbon1.Tabs.Add(this.AbsensiSiswa);
@@ -158,23 +158,23 @@
             this.ribbon_Laporan.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbon_Laporan.LargeImage")));
             this.ribbon_Laporan.Name = "ribbon_Laporan";
             this.ribbon_Laporan.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbon_Laporan.SmallImage")));
-            this.ribbon_Laporan.Text = "Laporan";
+            this.ribbon_Laporan.Text = "Jurusan";
             this.ribbon_Laporan.Click += new System.EventHandler(this.ribbon_Laporan_Click);
             // 
             // ribbonPanel6
             // 
-            this.ribbonPanel6.Items.Add(this.ribbon_Input);
+            this.ribbonPanel6.Items.Add(this.ribbon_riwayatLogin);
             this.ribbonPanel6.Name = "ribbonPanel6";
             this.ribbonPanel6.Text = "";
             // 
-            // ribbon_Input
+            // ribbon_riwayatLogin
             // 
-            this.ribbon_Input.Image = ((System.Drawing.Image)(resources.GetObject("ribbon_Input.Image")));
-            this.ribbon_Input.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbon_Input.LargeImage")));
-            this.ribbon_Input.Name = "ribbon_Input";
-            this.ribbon_Input.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbon_Input.SmallImage")));
-            this.ribbon_Input.Text = "Input";
-            this.ribbon_Input.Click += new System.EventHandler(this.ribbon_Input_Click);
+            this.ribbon_riwayatLogin.Image = ((System.Drawing.Image)(resources.GetObject("ribbon_riwayatLogin.Image")));
+            this.ribbon_riwayatLogin.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbon_riwayatLogin.LargeImage")));
+            this.ribbon_riwayatLogin.Name = "ribbon_riwayatLogin";
+            this.ribbon_riwayatLogin.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbon_riwayatLogin.SmallImage")));
+            this.ribbon_riwayatLogin.Text = "Histori Login";
+            this.ribbon_riwayatLogin.Click += new System.EventHandler(this.ribbon_riwayatLogin_Click);
             // 
             // ribbonPanel7
             // 
@@ -247,10 +247,10 @@
             // 
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 162);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Location = new System.Drawing.Point(0, 199);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(863, 393);
+            this.panel1.Size = new System.Drawing.Size(1151, 484);
             this.panel1.TabIndex = 1;
             // 
             // dataGridView1
@@ -258,19 +258,21 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(863, 393);
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.Size = new System.Drawing.Size(1151, 484);
             this.dataGridView1.TabIndex = 0;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(863, 555);
+            this.ClientSize = new System.Drawing.Size(1151, 683);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ribbon1);
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "Form1";
@@ -295,7 +297,7 @@
         private System.Windows.Forms.RibbonPanel ribbonPanel4;
         private System.Windows.Forms.RibbonButton ribbon_Laporan;
         private System.Windows.Forms.RibbonPanel ribbonPanel6;
-        private System.Windows.Forms.RibbonButton ribbon_Input;
+        private System.Windows.Forms.RibbonButton ribbon_riwayatLogin;
         private System.Windows.Forms.RibbonPanel ribbonPanel7;
         private System.Windows.Forms.RibbonButton ribbon_delete;
         private System.Windows.Forms.RibbonOrbMenuItem ribbonOrbMenuItem1;

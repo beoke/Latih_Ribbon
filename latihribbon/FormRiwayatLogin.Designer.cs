@@ -37,11 +37,11 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.PanelMainLogin = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.GridListRiwayatLogin = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.PanelMainLogin.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GridListRiwayatLogin)).BeginInit();
             this.SuspendLayout();
             // 
             // label5
@@ -134,27 +134,27 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.BackColor = System.Drawing.Color.DarkGray;
-            this.panel3.Controls.Add(this.dataGridView1);
+            this.panel3.Controls.Add(this.GridListRiwayatLogin);
             this.panel3.Location = new System.Drawing.Point(12, 10);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1185, 465);
             this.panel3.TabIndex = 3;
             // 
-            // dataGridView1
+            // GridListRiwayatLogin
             // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.GridListRiwayatLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.dataGridView1.ColumnHeadersHeight = 29;
-            this.dataGridView1.Location = new System.Drawing.Point(8, 7);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1167, 449);
-            this.dataGridView1.TabIndex = 0;
+            this.GridListRiwayatLogin.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.GridListRiwayatLogin.ColumnHeadersHeight = 29;
+            this.GridListRiwayatLogin.Location = new System.Drawing.Point(8, 7);
+            this.GridListRiwayatLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.GridListRiwayatLogin.Name = "GridListRiwayatLogin";
+            this.GridListRiwayatLogin.RowHeadersWidth = 51;
+            this.GridListRiwayatLogin.RowTemplate.Height = 24;
+            this.GridListRiwayatLogin.Size = new System.Drawing.Size(1167, 449);
+            this.GridListRiwayatLogin.TabIndex = 0;
             // 
             // FormRiwayatLogin
             // 
@@ -169,7 +169,7 @@
             this.panel1.PerformLayout();
             this.PanelMainLogin.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GridListRiwayatLogin)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -185,6 +185,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel PanelMainLogin;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView GridListRiwayatLogin;
     }
 }
