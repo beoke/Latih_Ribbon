@@ -21,6 +21,8 @@ namespace latihribbon.Dal
                 dp.Add("@Nis", absensi.Nis, System.Data.DbType.Int32);
                 dp.Add("@Tanggal", absensi.Tanggal, System.Data.DbType.Date);
                 dp.Add("@Keterangan", absensi.Keterangan, System.Data.DbType.String);
+
+                koneksi.Execute(sql,dp);
             }
         }
 

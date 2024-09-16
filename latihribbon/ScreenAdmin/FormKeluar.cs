@@ -1,4 +1,5 @@
 ﻿using latihribbon.Dal;
+using latihribbon.Helper;
 using latihribbon.Model;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,7 @@ namespace latihribbon
     {
         private readonly SiswaDal siswaDal;
         private readonly KeluarDal keluarDal;
+        private readonly MesBox mesBox = new MesBox();
         int globalId = 0;
         public FormKeluar()
         {
@@ -134,9 +136,15 @@ namespace latihribbon
             jamKeluar = jamKeluarDT.Value.TimeOfDay;
             jamMasuk = jamMasukDT.Value.TimeOfDay;
 
-            if (nis == "" || nama == "" || tujuan == "") 
+            if (nis == "" || nama == "" || tujuan == "" || jamMasuk == TimeSpan.Zero || jamKeluar == TimeSpan.Zero) 
             {
                 MessageBox.Show("Seluruh Data Wajib Diisi!","Warning",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (jamMasuk == jamKeluar)
+            {
+                mesBox.MesInfo("Jam Keluar & Jam Masuk Tidak Valid!");
                 return;
             }
 

@@ -150,8 +150,6 @@ namespace latihribbon
             {
                 Id = globalId,
                 Nis = Convert.ToInt32(nis),
-                Nama = nama,
-                Kelas = kelas,
                 Tanggal = tgl,
                 Keterangan = keterangan
             };
@@ -177,7 +175,7 @@ namespace latihribbon
 
         private void Delete()
         {
-            if(globalId != 0)
+            if(globalId == 0)
             {
                 mesBox.MesInfo("Pilih Data Terlebih Dahulu!");
                 return;

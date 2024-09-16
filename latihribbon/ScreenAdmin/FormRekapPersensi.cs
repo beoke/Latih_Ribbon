@@ -1,4 +1,6 @@
 ﻿using latihribbon.Dal;
+using latihribbon.Model;
+using latihribbon.UpdateInsert;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
 using System;
@@ -22,11 +24,11 @@ namespace latihribbon.ScreenAdmin
         public FormRekapPersensi()
         {
             InitializeComponent();
-            InitComponen();
             rekapPersensiDal = new RekapPersensiDal();
-            dataGridView1.DataSource = rekapPersensiDal.ListData();
-
+            LoadData();
+            InitComponen();
             Event();
+
         }
 
         public void InitComponen()
@@ -47,6 +49,25 @@ namespace latihribbon.ScreenAdmin
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                 dataGridView1.ColumnHeadersHeight = 35;
             }
+        }
+
+        int Page = 1;
+        int totalPage;
+        private void LoadData()
+        {
+           /* var rekap = rekapPersensiDal.ListData().Select(x => new { NIS = x.Nis, Persensi = x.Persensi, Nama = x.Nama, Kelas = x.Kelas, Tanggal = x.Tanggal, Keterangan = x.Keterangan }).ToList();
+            dataGridView1.DataSource = rekap;*/
+
+            string text = "Halaman ";
+            int RowPerPage = 15;
+            int inRowPage = (Page-1)*RowPerPage;
+            var jumlahRow = rekapPersensiDal.CekRows();
+            if (jumlahRow == 0) return;
+            totalPage = jumlahRow/RowPerPage;
+
+            text += $"{Page.ToString()}/{totalPage.ToString()}";
+            lblHalaman.Text = text;
+            dataGridView1.DataSource = rekapPersensiDal.ListData2(inRowPage,RowPerPage);
         }
 
 
@@ -178,5 +199,23 @@ namespace latihribbon.ScreenAdmin
             }
         }
 
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            if(Page < totalPage)
+            {
+                Page++;
+                LoadData();
+            }
+        }
+
+        private void btnPrevious_Click(object sender, EventArgs e)
+        {
+            if(Page > 1)
+            {
+                Page--;
+                LoadData();
+            }
+
+        }
     }
 }
