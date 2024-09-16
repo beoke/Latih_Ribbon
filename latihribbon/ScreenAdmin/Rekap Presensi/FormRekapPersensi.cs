@@ -15,6 +15,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LicenseContext = OfficeOpenXml.LicenseContext;
+using ClosedXML.Excel;
 
 namespace latihribbon.ScreenAdmin
 {
@@ -240,6 +241,209 @@ namespace latihribbon.ScreenAdmin
                 LoadData();
             }
 
+        }
+
+
+
+
+
+        /* public void ImportExcelWithMultipleSheets(string filePath)
+         {
+             using (var workbook = new XLWorkbook(filePath))
+             {
+                 // Loop melalui setiap sheet di workbook
+                 foreach (var worksheet in workbook.Worksheets)
+                 {
+                     int currentRow = 1;
+                     string currentClass = string.Empty;
+
+                     // Loop melalui setiap baris di sheet
+                     while (currentRow <= worksheet.LastRowUsed().RowNumber())
+                     {
+                         var row = worksheet.Row(currentRow);
+                         var firstCell = row.Cell(1).GetValue<string>();
+
+                         // Jika menemukan nama kelas (misalnya dimulai dengan 'X ', 'XI ', 'XII ')
+                         if (!string.IsNullOrEmpty(firstCell) && (firstCell.StartsWith("X ") || firstCell.StartsWith("XI ") || firstCell.StartsWith("XII ")))
+                         {
+                             currentClass = firstCell; // Menyimpan nama kelas saat ditemukan
+                             currentRow++; // Lanjutkan ke baris berikutnya untuk membaca data siswa
+                             currentRow = ReadStudentData(worksheet, currentRow, currentClass);
+                         }
+                         else
+                         {
+                             currentRow++; // Jika tidak menemukan nama kelas, lanjutkan ke baris berikutnya
+                         }
+                     }
+                 }
+             }
+         }
+
+         // Fungsi untuk membaca data siswa
+         public int ReadStudentData(IXLWorksheet worksheet, int startRow, string currentClass)
+         {
+             int currentRow = startRow;
+             var dataTable = new DataTable();
+             dataTable.Columns.Add("Kelas", typeof(string));
+             dataTable.Columns.Add("Persensi", typeof(string));
+             dataTable.Columns.Add("NIS", typeof(string));
+             dataTable.Columns.Add("Nama", typeof(string));
+             dataTable.Columns.Add("JenisKelamin", typeof(string));
+
+             while (currentRow <= worksheet.LastRowUsed().RowNumber())
+             {
+                 var row = worksheet.Row(currentRow);
+                 var firstCell = row.Cell(1).GetValue<string>();
+
+                 // Jika menemukan baris kosong atau nama kelas baru, berhenti
+                 if (string.IsNullOrEmpty(firstCell))
+                 {
+                     currentRow++; // Lompat baris kosong
+                     continue;
+                 }
+
+                 // Jika menemukan nama kelas berikutnya, hentikan pembacaan data siswa dan kembalikan row
+                 if (firstCell.StartsWith("X ") || firstCell.StartsWith("XI ") || firstCell.StartsWith("XII "))
+                 {
+                     break;
+                 }
+
+                 // Ambil data siswa
+                 var persensi = row.Cell(1).GetValue<string>(); // Kolom urt=Persensi
+                 var nis = row.Cell(2).GetValue<string>();      // Kolom NIS
+                 var nama = row.Cell(3).GetValue<string>();     // Kolom NAMA SISWA
+                 var jenisKelamin = row.Cell(4).GetValue<string>(); // Kolom L/P
+
+                 // Tambahkan ke DataTable
+                 dataTable.Rows.Add(currentClass, persensi, nis, nama, jenisKelamin);
+
+                 currentRow++; // Lanjutkan ke baris berikutnya
+             }
+
+             // Setelah selesai membaca siswa, insert data ke database
+             InsertDataToDatabase(dataTable);
+
+             return currentRow;
+         }
+
+         public void InsertDataToDatabase(DataTable dt)
+         {
+             // Implementasi untuk memasukkan data ke database
+             // Misalnya menggunakan Dapper atau ADO.NET
+         }*/
+
+
+
+
+        public void ImportExcelFromSpecificSheet(string filePath)
+        {
+            try
+            {
+                using (var workbook = new XLWorkbook(filePath))
+                {
+                    var worksheet = workbook.Worksheet("X");
+                    if (worksheet != null)
+                    {
+                        int currentRow = 1;
+                        string currentClass = string.Empty;
+
+                        while (currentRow <= worksheet.LastRowUsed().RowNumber())
+                        {
+                            var row = worksheet.Row(currentRow);
+                            var firstCell = row.Cell(1).GetValue<string>();
+
+                            // Debugging
+                            MessageBox.Show($"Row {currentRow}: {firstCell}");
+
+                            if (!string.IsNullOrEmpty(firstCell) && firstCell.Equals("X RPL 1"))
+                            {
+                                currentClass = firstCell;
+                                currentRow++;
+                                currentRow = ReadStudentData(worksheet, currentRow, currentClass);
+                            }
+                            else
+                            {
+                                currentRow++;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Sheet dengan nama 'X' tidak ditemukan.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Terjadi kesalahan: {ex.Message}");
+            }
+        }
+
+        public int ReadStudentData(IXLWorksheet worksheet, int startRow, string currentClass)
+        {
+            int currentRow = startRow;
+            var dataTable = new DataTable();
+            dataTable.Columns.Add("Kelas", typeof(string));
+            dataTable.Columns.Add("Persensi", typeof(string));
+            dataTable.Columns.Add("NIS", typeof(string));
+            dataTable.Columns.Add("Nama", typeof(string));
+            dataTable.Columns.Add("JenisKelamin", typeof(string));
+
+            while (currentRow <= worksheet.LastRowUsed().RowNumber())
+            {
+                var row = worksheet.Row(currentRow);
+                var firstCell = row.Cell(1).GetValue<string>();
+
+                if (string.IsNullOrEmpty(firstCell))
+                {
+                    currentRow++;
+                    continue;
+                }
+
+                if (firstCell.StartsWith("X ") || firstCell.StartsWith("XI ") || firstCell.StartsWith("XII "))
+                {
+                    break;
+                }
+
+                var persensi = row.Cell(1).GetValue<string>();
+                var nis = row.Cell(2).GetValue<string>();
+                var nama = row.Cell(3).GetValue<string>();
+                var jenisKelamin = row.Cell(4).GetValue<string>();
+
+                dataTable.Rows.Add(currentClass, persensi, nis, nama, jenisKelamin);
+
+                currentRow++;
+            }
+
+            // Debugging
+            MessageBox.Show($"DataTable Rows: {dataTable.Rows.Count}");
+
+            // Atur DataSource DataGridView dan refresh
+            dataGridView1.DataSource = dataTable;
+            dataGridView1.Refresh();
+
+            return currentRow;
+        }
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            // Membuka dialog untuk memilih file Excel
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Excel Files|*.xls;*.xlsx";
+            openFileDialog.Title = "Pilih File Excel";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = openFileDialog.FileName; // Mendapatkan path file yang dipilih
+                ImportExcelFromSpecificSheet(filePath); // Memanggil fungsi untuk mengimport data dari Excel
+            }
+        }
+
+        private void btnKelas_Click(object sender, EventArgs e)
+        {
+            PopUpKelas kelas = new PopUpKelas();
+            kelas.ShowDialog();
         }
     }
 }
