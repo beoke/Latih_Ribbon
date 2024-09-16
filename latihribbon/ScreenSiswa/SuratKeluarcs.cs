@@ -275,12 +275,6 @@ namespace latihribbon
         #endregion
 
 
-        public string TextNama{ get { return txtNama.Text; } }
-        public string TextKelas { get { return txtKelas.Text; } }
-        public string TextTanggal { get { return txtTanggal.Text; } }
-        public string TextKeluar { get { return txtTanggal.Text;} }
-        public string PickerMasuk { get { return jamKembali.Value.ToString("HH:mm"); } }
-        public string TextKeperluan { get { return txtAlasan.Text; } }
 
     }
 }

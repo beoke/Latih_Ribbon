@@ -50,7 +50,7 @@ namespace latihribbon
         private string FilterData(string userLogin , DateTime tgl_1, DateTime tgl_2)
         {
             List<string> filter = new List<string>();
-            string sql = "SELECT UserLogin , Tanggal FROM RiwayatLogin";
+            string sql = "SELECT IdLogin, UserLogin , Tanggal FROM RiwayatLogin";
 
             if (!string.IsNullOrEmpty(userLogin)) filter.Add("UserLogin LIKE '%' + @UserLogin + '%'");
             if (!string.IsNullOrEmpty(SqlGlobal)) filter.Add("Tanggal BETWEEN @tgl_1 AND @tgl_2");

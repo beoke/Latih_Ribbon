@@ -21,6 +21,8 @@ namespace latihribbon.ScreenAdmin
     public partial class FormRekapPersensi : Form
     {
         private readonly RekapPersensiDal rekapPersensiDal;
+
+
         public FormRekapPersensi()
         {
             InitializeComponent();
@@ -29,6 +31,7 @@ namespace latihribbon.ScreenAdmin
             InitComponen();
             Event();
 
+            txtNama.Text = "X RPL 1";
         }
 
         public void InitComponen()
@@ -71,18 +74,39 @@ namespace latihribbon.ScreenAdmin
         }
 
 
+
         #region     EVENT
         private void Event()
         {
             btnPrintRekap.Click += BtnPrintRekap_Click;
+            txtKelas.Click += TxtKelas_Click;
         }
 
+        private void TxtKelas_Click(object sender, EventArgs e)
+        {
+            PopUpKelas popUp = new PopUpKelas();
+            popUp.StartPosition = FormStartPosition.CenterScreen;
+            popUp.ShowDialog();
+
+            if (popUp.ShowDialog() == DialogResult.OK)
+            {
+                txtKelas.Text = popUp.KelasText;
+            }
+        }
 
         private void BtnPrintRekap_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Eksport Data ?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 Print();
-            }
+        }
+
+
+        public string Kelas
+        {
+            get { return txtKelas.Text; }
+            set { txtKelas.Text = value;}
+        }
+
 
 
         #endregion

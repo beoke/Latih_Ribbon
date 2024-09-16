@@ -10,7 +10,8 @@ namespace latihribbon.Conn
     {
         public static string connstr()
         {
-            return "Server = (local);Database = RekapSiswa1;Trusted_Connection = True;TrustServerCertificate = True";
+            return "Server = (local);Database = RekapSiswa;Trusted_Connection = True;TrustServerCertificate = True";
         }
     }
 }
+  
