@@ -1,4 +1,4 @@
-﻿using latihribbon.Dal;
+﻿ using latihribbon.Dal;
 using latihribbon.Helper;
 using latihribbon.Model;
 using System;
@@ -298,10 +298,6 @@ namespace latihribbon
         }
         #endregion
 
-        private void dataGridView1_DoubleClick(object sender, EventArgs e)
-        {
-            
-        }
 
         private void txtNIS_FormSiswa_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -365,6 +361,11 @@ namespace latihribbon
         private void txtRombel_FromSiswa_KeyPress(object sender, KeyPressEventArgs e)
         {
             InputNumber(e);
+        }
+
+        private void ButtonInputSIswa_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
