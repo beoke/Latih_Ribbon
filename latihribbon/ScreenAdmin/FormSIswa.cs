@@ -1,11 +1,15 @@
-﻿ using latihribbon.Dal;
+﻿using Dapper;
+using latihribbon.Dal;
 using latihribbon.Helper;
 using latihribbon.Model;
+using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -365,7 +369,50 @@ namespace latihribbon
 
         private void ButtonInputSIswa_Click(object sender, EventArgs e)
         {
+            // Membuka file dialog untuk memilih file Excel
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Excel Files|*.xls;*.xlsx;";
 
-        }
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                // Membaca file Excel
+                FileInfo fileInfo = new FileInfo(openFileDialog.FileName);
+
+                using (ExcelPackage package = new ExcelPackage(fileInfo))
+                {
+                    // Memilih worksheet pertama
+                    ExcelWorksheet worksheet = package.Workbook.Worksheets[0];
+                    int rowCount = worksheet.Dimension.Rows;
+
+                    // Membuka koneksi database
+                    using (IDbConnection db = new SqlConnection(Conn.conn.connstr()))
+                    {
+                        for (int row = 2; row <= rowCount; row++) // Mulai dari baris 2 (mengabaikan header)
+                        {
+                            // Membaca nilai dari Excel
+                            var nis = worksheet.Cells[row, 1].Value?.ToString();
+                            var nama = worksheet.Cells[row, 2].Value?.ToString();
+                            var kelas = worksheet.Cells[row, 3].Value?.ToString();
+                            var tahun = worksheet.Cells[row, 4].Value?.ToString();
+                            var presensi = worksheet.Cells[row, 5].Value?.ToString();
+                            var jenisKelamin = worksheet.Cells[row, 6].Value?.ToString();
+
+                            // Membuat parameter untuk dimasukkan ke database
+                            var parameters = new DynamicParameters();
+                            parameters.Add("@Nis", nis);
+                            parameters.Add("@Nama", nama);
+                            parameters.Add("@Kelas", kelas);
+                            parameters.Add("@Tahun", tahun);
+                            parameters.Add("@Presensi", presensi);
+                            parameters.Add("@JenisKelamin", jenisKelamin);
+
+                            db.Execute("INSERT INTO Siswa (Nis, Nama, Kelas, Tahun, Presensi, JenisKelamin) VALUES (@Nis, @Nama, @Kelas, @Tahun, @Presensi, @JenisKelamin)", parameters);
+                        }
+                    }
+                }
+
+                MessageBox.Show("Data berhasil dimasukkan ke database.");
+            }
+            }
     }
 }
