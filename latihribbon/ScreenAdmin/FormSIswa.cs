@@ -411,41 +411,41 @@ namespace latihribbon
                             if (cekDb != null) 
                             {
                                 const string updateSql = @"
-                        UPDATE siswa
-                        SET Nama = @Nama, 
-                            Kelas = @Kelas, 
-                            Tahun = @Tahun, 
-                            Persensi = @Persensi, 
-                            JenisKelamin = @JenisKelamin
-                        WHERE Nis = @Nis";
+                                    UPDATE siswa
+                                    SET Nama = @Nama, 
+                                        Kelas = @Kelas, 
+                                        Tahun = @Tahun, 
+                                        Persensi = @Persensi, 
+                                        JenisKelamin = @JenisKelamin
+                                    WHERE Nis = @Nis";
 
-                                var updateParams = new DynamicParameters();
-                                updateParams.Add("@Nis", nis, DbType.Int64);
-                                updateParams.Add("@Nama", nama, DbType.String);
-                                updateParams.Add("@Kelas", kelas, DbType.String);
-                                updateParams.Add("@Tahun", tahun, DbType.Int32);
-                                updateParams.Add("@Persensi", presensi, DbType.Int64);
-                                updateParams.Add("@JenisKelamin", jenisKelamin, DbType.String);
+                                var UpdateDp = new DynamicParameters();
+                                UpdateDp.Add("@Nis", nis, DbType.Int64);
+                                UpdateDp.Add("@Nama", nama, DbType.String);
+                                UpdateDp.Add("@Kelas", kelas, DbType.String);
+                                UpdateDp.Add("@Tahun", tahun, DbType.Int32);
+                                UpdateDp.Add("@Persensi", presensi, DbType.Int64);
+                                UpdateDp.Add("@JenisKelamin", jenisKelamin, DbType.String);
 
-                                Conn.Execute(updateSql, updateParams); 
+                                Conn.Execute(updateSql, UpdateDp); 
                             }
                             else 
                             {
                                 const string insertSql = @"
-                        INSERT INTO siswa 
-                            (Nis, Nama, Kelas, Tahun, Persensi, JenisKelamin)
-                        VALUES
-                            (@Nis, @Nama, @Kelas, @Tahun, @Persensi, @JenisKelamin)";
+                                    INSERT INTO siswa 
+                                        (Nis, Nama, Kelas, Tahun, Persensi, JenisKelamin)
+                                    VALUES
+                                        (@Nis, @Nama, @Kelas, @Tahun, @Persensi, @JenisKelamin)";
 
-                                var insertParams = new DynamicParameters();
-                                insertParams.Add("@Nis", nis, DbType.Int64);
-                                insertParams.Add("@Nama", nama, DbType.String);
-                                insertParams.Add("@Kelas", kelas, DbType.String);
-                                insertParams.Add("@Tahun", tahun, DbType.Int32);
-                                insertParams.Add("@Persensi", presensi, DbType.Int64);
-                                insertParams.Add("@JenisKelamin", jenisKelamin, DbType.String);
+                                var InsertDp = new DynamicParameters();
+                                InsertDp.Add("@Nis", nis, DbType.Int64);
+                                InsertDp.Add("@Nama", nama, DbType.String);
+                                InsertDp.Add("@Kelas", kelas, DbType.String);
+                                InsertDp.Add("@Tahun", tahun, DbType.Int32);
+                                InsertDp.Add("@Persensi", presensi, DbType.Int64);
+                                InsertDp.Add("@JenisKelamin", jenisKelamin, DbType.String);
 
-                                Conn.Execute(insertSql, insertParams); 
+                                Conn.Execute(insertSql, InsertDp); 
                             }
                         }
 

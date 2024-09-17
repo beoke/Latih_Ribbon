@@ -37,18 +37,15 @@ namespace latihribbon
             string username = tx_Username.Text;
             string password = tx_Password.Text;
 
-            // Initialize database access layer
             DbDal dbDal = new DbDal();
 
             IEnumerable<UserModel> Users = dbDal.GetUsers();
 
-            // Check if the user exists with the provided username and password
             UserModel user = Users.FirstOrDefault(u => u.Username == username && u.Password == password);
 
             if (user != null)
             {
                 InsertHistori();
-                // If user exists, check the role and open the appropriate dashboard
                 if (user.Role == "admin")
                 {
                     Form1 adminDashboard = new Form1();
@@ -63,7 +60,6 @@ namespace latihribbon
             }
             else
             {
-                // If user does not exist, show an error message
                 MessageBox.Show("Invalid username or password", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -96,8 +92,14 @@ namespace latihribbon
 
         private void Tx_Username_TextChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(tx_Username.Text))
+            string user = tx_Username.Text;
+
+            if (user.EndsWith(" "))
                 LabelWarning.Visible = true;
+            
+            if (user.StartsWith(" "))
+                LabelWarning.Visible = true;
+
             else
                 LabelWarning.Visible = false;
         }
