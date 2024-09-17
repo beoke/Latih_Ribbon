@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using latihribbon.Conn;
 using latihribbon.Dal;
 using latihribbon.Helper;
 using latihribbon.Model;
@@ -371,70 +372,89 @@ namespace latihribbon
 
         private void ButtonInputSIswa_Click(object sender, EventArgs e)
         {
-
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
-
-            // Membuka file dialog untuk memilih file Excel
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Excel Files|*.xls;*.xlsx;";
-
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                // Membaca file Excel
-                FileInfo fileInfo = new FileInfo(openFileDialog.FileName);
-
-                using (ExcelPackage package = new ExcelPackage(fileInfo))
-                {
-                    // Memilih worksheet pertama
-                    ExcelWorksheet worksheet = package.Workbook.Worksheets[0];
-                    int rowCount = worksheet.Dimension.Rows;
-
-                    // Membuka koneksi database
-                    using (IDbConnection db = new SqlConnection(Conn.conn.connstr()))
-                    {
-                        for (int row = 2; row <= rowCount; row++)
-                        {
-                            var nis = worksheet.Cells[row, 1].Value?.ToString();
-                            var nama = worksheet.Cells[row, 2].Value?.ToString();
-                            var kelas = worksheet.Cells[row, 3].Value?.ToString();
-                            var tahun = worksheet.Cells[row, 4].Value?.ToString();
-                            var presensi = worksheet.Cells[row, 5].Value?.ToString();
-                            var jenisKelamin = worksheet.Cells[row, 6].Value?.ToString();
-
-                            var parameters = new DynamicParameters();
-                            parameters.Add("@Nis", nis);
-                            parameters.Add("@Nama", nama);
-                            parameters.Add("@Kelas", kelas);
-                            parameters.Add("@Tahun", tahun);
-                            parameters.Add("@Presensi", presensi);
-                            parameters.Add("@JenisKelamin", jenisKelamin);
-
-                            db.Execute("INSERT INTO Siswa (Nis, Nama, Kelas, Tahun, Persensi, JenisKelamin) VALUES (@Nis, @Nama, @Kelas, @Tahun, @Presensi, @JenisKelamin)", parameters);
-                        }
-                    }
-                }
-
-                MessageBox.Show("Data berhasil dimasukkan ke database.");
-            }
-
-            /*ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
 
             OpenFileDialog openDialog = new OpenFileDialog();
             openDialog.Filter = "File Excel |*.xls; *.xlsx";
 
             if (openDialog.ShowDialog() == DialogResult.OK)
             {
-                FileInfo fileInfo = new FileInfo(openDialog.FileName); //baca info file (Lokasi file)
+                FileInfo fileInfo = new FileInfo(openDialog.FileName); 
 
                 using (ExcelPackage package = new ExcelPackage(fileInfo))
                 {
                     ExcelWorksheet workSheet = package.Workbook.Worksheets[0];
 
-                    int RowCount = workSheet.Row;
+                    int RowCount = workSheet.Dimension.Rows;
+
+                    using (IDbConnection Conn = new SqlConnection(conn.connstr()))
+                    {
+                        for (int row = 2; row <= RowCount; row++)
+                        {
+                            var nis = long.TryParse(workSheet.Cells[row, 1].Value?.ToString(), out long parsedNis) ? parsedNis : (long?)null;
+                            var nama = workSheet.Cells[row, 2].Value?.ToString();
+                            var kelas = workSheet.Cells[row, 3].Value?.ToString();
+                            var tahun = int.TryParse(workSheet.Cells[row, 4].Value?.ToString(), out int parsedTahun) ? parsedTahun : (int?)null;
+                            var presensi = int.TryParse(workSheet.Cells[row, 5].Value?.ToString(), out int parsedPresensi) ? parsedPresensi : (int?)null;
+                            var jenisKelamin = workSheet.Cells[row, 6].Value?.ToString();
+
+                           
+                            if (nis == null || nama == null || kelas == null || tahun == null || presensi == null || jenisKelamin == null)
+                            {
+                                mesBox.MesInfo("Terjadi kesalahan saat mengimport data, pastikan data pada excel berada di format yang benar!");
+                                return;
+                            }
+
+                            
+                            var cekDb = Conn.QueryFirstOrDefault<long?>("SELECT Nis FROM siswa WHERE Nis = @Nis", new { Nis = nis });
+
+                            if (cekDb != null) 
+                            {
+                                const string updateSql = @"
+                        UPDATE siswa
+                        SET Nama = @Nama, 
+                            Kelas = @Kelas, 
+                            Tahun = @Tahun, 
+                            Persensi = @Persensi, 
+                            JenisKelamin = @JenisKelamin
+                        WHERE Nis = @Nis";
+
+                                var updateParams = new DynamicParameters();
+                                updateParams.Add("@Nis", nis, DbType.Int64);
+                                updateParams.Add("@Nama", nama, DbType.String);
+                                updateParams.Add("@Kelas", kelas, DbType.String);
+                                updateParams.Add("@Tahun", tahun, DbType.Int32);
+                                updateParams.Add("@Persensi", presensi, DbType.Int64);
+                                updateParams.Add("@JenisKelamin", jenisKelamin, DbType.String);
+
+                                Conn.Execute(updateSql, updateParams); 
+                            }
+                            else 
+                            {
+                                const string insertSql = @"
+                        INSERT INTO siswa 
+                            (Nis, Nama, Kelas, Tahun, Persensi, JenisKelamin)
+                        VALUES
+                            (@Nis, @Nama, @Kelas, @Tahun, @Persensi, @JenisKelamin)";
+
+                                var insertParams = new DynamicParameters();
+                                insertParams.Add("@Nis", nis, DbType.Int64);
+                                insertParams.Add("@Nama", nama, DbType.String);
+                                insertParams.Add("@Kelas", kelas, DbType.String);
+                                insertParams.Add("@Tahun", tahun, DbType.Int32);
+                                insertParams.Add("@Persensi", presensi, DbType.Int64);
+                                insertParams.Add("@JenisKelamin", jenisKelamin, DbType.String);
+
+                                Conn.Execute(insertSql, insertParams); 
+                            }
+                        }
+
+                        LoadData();
+                        mesBox.MesInfo("Data siswa berhasil ditambahkan atau diperbarui.");
+                    }
                 }
-
-
-            }*/
+            }
         }
+
     }
 }
