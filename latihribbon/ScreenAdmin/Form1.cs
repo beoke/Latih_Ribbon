@@ -90,6 +90,12 @@ namespace latihribbon
             FormRiwayatLogin r = new FormRiwayatLogin();
             ShowFormInPanel(r);
         }
+
+        private void ribbon_InputSiswa_Click(object sender, EventArgs e)
+        {
+            FormKelas fk = new FormKelas();
+            ShowFormInPanel(fk);
+        }
     }
 }
 

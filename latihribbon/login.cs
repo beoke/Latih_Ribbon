@@ -47,7 +47,7 @@ namespace latihribbon
 
             if (user != null)
             {
-                InsertHistori();
+                //InsertHistori();
                 // If user exists, check the role and open the appropriate dashboard
                 if (user.Role == "admin")
                 {
@@ -68,7 +68,7 @@ namespace latihribbon
             }
         }
 
-        private void InsertHistori()
+       /* private void InsertHistori()
         {
             string username = tx_Username.Text;
             DateTime tanggal = DateTime.Today;
@@ -82,7 +82,7 @@ namespace latihribbon
             };
 
             _riwayatLoginDal.Insert(riwayat);
-        }
+        }*/
 
         private void tx_Username_KeyDown(object sender, KeyEventArgs e)
         {

@@ -42,10 +42,8 @@
             this.Radio_XII = new System.Windows.Forms.RadioButton();
             this.Radio_XI = new System.Windows.Forms.RadioButton();
             this.Radio_X = new System.Windows.Forms.RadioButton();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -106,7 +104,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.Gainsboro;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.dataGridView1);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.txtHasil);
             this.panel2.Controls.Add(this.comboRombel);
@@ -163,6 +160,7 @@
             this.ComboJurusanPopUp.Name = "ComboJurusanPopUp";
             this.ComboJurusanPopUp.Size = new System.Drawing.Size(194, 21);
             this.ComboJurusanPopUp.TabIndex = 12;
+            this.ComboJurusanPopUp.SelectedIndexChanged += new System.EventHandler(this.ComboJurusanPopUp_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -200,6 +198,7 @@
             this.Radio_XII.TabStop = true;
             this.Radio_XII.Text = "XII";
             this.Radio_XII.UseVisualStyleBackColor = true;
+            this.Radio_XII.CheckedChanged += new System.EventHandler(this.Radio_XII_CheckedChanged);
             // 
             // Radio_XI
             // 
@@ -213,6 +212,7 @@
             this.Radio_XI.TabStop = true;
             this.Radio_XI.Text = "XI";
             this.Radio_XI.UseVisualStyleBackColor = true;
+            this.Radio_XI.CheckedChanged += new System.EventHandler(this.Radio_XI_CheckedChanged);
             // 
             // Radio_X
             // 
@@ -226,14 +226,7 @@
             this.Radio_X.TabStop = true;
             this.Radio_X.Text = "X";
             this.Radio_X.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(2, 3);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
-            this.dataGridView1.TabIndex = 16;
+            this.Radio_X.CheckedChanged += new System.EventHandler(this.Radio_X_CheckedChanged);
             // 
             // PopUpKelas
             // 
@@ -248,7 +241,6 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -269,6 +261,5 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtHasil;
         private System.Windows.Forms.ComboBox comboRombel;
-        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

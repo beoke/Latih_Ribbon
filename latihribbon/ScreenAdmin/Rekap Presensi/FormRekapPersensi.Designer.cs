@@ -149,7 +149,6 @@
             this.txtKelas.Location = new System.Drawing.Point(404, 17);
             this.txtKelas.Margin = new System.Windows.Forms.Padding(2);
             this.txtKelas.Name = "txtKelas";
-            this.txtKelas.ReadOnly = true;
             this.txtKelas.Size = new System.Drawing.Size(67, 21);
             this.txtKelas.TabIndex = 31;
             // 
