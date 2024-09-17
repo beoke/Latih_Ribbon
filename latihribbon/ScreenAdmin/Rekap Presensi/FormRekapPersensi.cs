@@ -15,7 +15,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LicenseContext = OfficeOpenXml.LicenseContext;
-using ClosedXML.Excel;
 
 namespace latihribbon.ScreenAdmin
 {

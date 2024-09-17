@@ -73,6 +73,16 @@ namespace latihribbon.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap account {
+            get {
+                object obj = ResourceManager.GetObject("account", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap baground {
             get {
                 object obj = ResourceManager.GetObject("baground", resourceCulture);
@@ -156,6 +166,16 @@ namespace latihribbon.Properties {
         internal static System.Drawing.Bitmap ssmea_bg {
             get {
                 object obj = ResourceManager.GetObject("ssmea bg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap walapaper_program {
+            get {
+                object obj = ResourceManager.GetObject("walapaper program", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

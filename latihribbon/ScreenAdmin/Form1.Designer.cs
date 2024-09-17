@@ -43,7 +43,7 @@
             this.ribbonPanel6 = new System.Windows.Forms.RibbonPanel();
             this.ribbon_riwayatLogin = new System.Windows.Forms.RibbonButton();
             this.ribbonPanel7 = new System.Windows.Forms.RibbonPanel();
-            this.ribbon_delete = new System.Windows.Forms.RibbonButton();
+            this.ribbon_InputSiswa = new System.Windows.Forms.RibbonButton();
             this.AbsensiSiswa = new System.Windows.Forms.RibbonTab();
             this.ribbonPanel5 = new System.Windows.Forms.RibbonPanel();
             this.ribbonSiswaAbsensi = new System.Windows.Forms.RibbonButton();
@@ -178,17 +178,17 @@
             // 
             // ribbonPanel7
             // 
-            this.ribbonPanel7.Items.Add(this.ribbon_delete);
+            this.ribbonPanel7.Items.Add(this.ribbon_InputSiswa);
             this.ribbonPanel7.Name = "ribbonPanel7";
             this.ribbonPanel7.Text = "";
             // 
-            // ribbon_delete
+            // ribbon_InputSiswa
             // 
-            this.ribbon_delete.Image = ((System.Drawing.Image)(resources.GetObject("ribbon_delete.Image")));
-            this.ribbon_delete.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbon_delete.LargeImage")));
-            this.ribbon_delete.Name = "ribbon_delete";
-            this.ribbon_delete.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbon_delete.SmallImage")));
-            this.ribbon_delete.Text = "Delete";
+            this.ribbon_InputSiswa.Image = ((System.Drawing.Image)(resources.GetObject("ribbon_InputSiswa.Image")));
+            this.ribbon_InputSiswa.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbon_InputSiswa.LargeImage")));
+            this.ribbon_InputSiswa.Name = "ribbon_InputSiswa";
+            this.ribbon_InputSiswa.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbon_InputSiswa.SmallImage")));
+            this.ribbon_InputSiswa.Text = "Input";
             // 
             // AbsensiSiswa
             // 
@@ -299,7 +299,7 @@
         private System.Windows.Forms.RibbonPanel ribbonPanel6;
         private System.Windows.Forms.RibbonButton ribbon_riwayatLogin;
         private System.Windows.Forms.RibbonPanel ribbonPanel7;
-        private System.Windows.Forms.RibbonButton ribbon_delete;
+        private System.Windows.Forms.RibbonButton ribbon_InputSiswa;
         private System.Windows.Forms.RibbonOrbMenuItem ribbonOrbMenuItem1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.RibbonPanel ribbonPanel8;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using latihribbon.Helper;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,17 +8,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace latihribbon
 {
     public partial class login : Form
     {
         private readonly RiwayatLoginDal _riwayatLoginDal;
+        private readonly MesBox _mesBox = new MesBox();
         public login()
         {
             _riwayatLoginDal = new RiwayatLoginDal();
             InitializeComponent();
+
+            tx_Username.TextChanged += Tx_Username_TextChanged;
+            LabelWarning.Visible = false;
         }
+
+      
 
         private void btn_Login_Click(object sender, EventArgs e)
         {
@@ -76,14 +84,22 @@ namespace latihribbon
             _riwayatLoginDal.Insert(riwayat);
         }
 
+        private void tx_Username_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) tx_Password.Focus();
+        }
+
         private void tx_Password_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter) ENTER();
         }
 
-        private void tx_Username_KeyDown(object sender, KeyEventArgs e)
+        private void Tx_Username_TextChanged(object sender, EventArgs e)
         {
-            if (e.KeyCode == Keys.Enter) tx_Password.Focus();
+            if (string.IsNullOrWhiteSpace(tx_Username.Text))
+                LabelWarning.Visible = true;
+            else
+                LabelWarning.Visible = false;
         }
     }
 }
