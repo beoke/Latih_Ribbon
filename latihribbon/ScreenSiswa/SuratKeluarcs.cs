@@ -92,21 +92,18 @@ namespace latihribbon
                 return;
             }
 
-            if (mesBox.MesKonfirmasi("Apakah data sudah benar 3"))
+            if (mesBox.MesKonfirmasi("Apakah data sudah benar ?"))
             {
                 Print();
-               // Insert();
+                // Insert();
+                System.Threading.Thread.Sleep(1000);
+                this.Close();
             }
 
-           /* PopUp MesPopUp = new PopUp(this);
-            MesPopUp.ShowDialog();*/
+           
 
-          /*
-            printDocumentKeluar.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("Suit Detail", 400, 590);
-            printDocumentKeluar.Print();
-            print++;
-            System.Threading.Thread.Sleep(5000);
-            this.Close();*/
+       
+            
         }
 
         public void Insert()
@@ -148,8 +145,8 @@ namespace latihribbon
         {
             printPreviewDialogKeluar.Document = printDocumentKeluar;
             printDocumentKeluar.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("Suit Detail", 400, 590);
-            //printDocumentKeluar.Print();
-            printPreviewDialogKeluar.ShowDialog();
+            printDocumentKeluar.Print();
+            //printPreviewDialogKeluar.ShowDialog();
         }
         private void printDocumentKeluar_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {

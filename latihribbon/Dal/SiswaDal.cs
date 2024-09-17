@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using latihribbon.Conn;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -99,6 +100,9 @@ namespace latihribbon.Dal
                 return koneksi.Query<SiswaModel>(sql);
             }
         }
+
+
+       
     }
 }
 
