@@ -15,7 +15,7 @@ namespace latihribbon.Dal
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
             {
-                const string sql = @"SELECT IdKelas,NamaKelas FROM Kelas";
+                const string sql = @"SELECT Id,NamaKelas FROM Kelas";
                 return koneksi.Query<KelasModel>(sql);
             }
         }
@@ -24,16 +24,59 @@ namespace latihribbon.Dal
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
             {
-                const string sql = @"INSERT INTO Kelas(idKelas,NamaKelas,Rombel,IdJurusan)
-                                    VALUES(@idKelas,@NamaKelas,@Rombel,@IdJurusan)";
+                const string sql = @"INSERT INTO Kelas(NamaKelas,Rombel,IdJurusan,Tingkat)
+                                    VALUES(@NamaKelas,@Rombel,@IdJurusan,@Tingkat)";
                 var dp = new DynamicParameters();
-                dp.Add("@idKelas",kelas.IdKelas, System.Data.DbType.Int32);
                 dp.Add("@NamaKelas",kelas.NamaKelas, System.Data.DbType.String);
                 dp.Add("@Rombel",kelas.Rombel, System.Data.DbType.String);
                 dp.Add("@idJurusan",kelas.IdJurusan, System.Data.DbType.Int32);
+                dp.Add("@Tingkat",kelas.IdJurusan, System.Data.DbType.Int32);
 
                 koneksi.Execute(sql, dp);
             }
         }
+
+        public void Update(KelasModel kelas)
+        {
+            using (var koneksi = new SqlConnection(Conn.conn.connstr()))
+            {
+                const string sql = @"UPDATE Kelas SET NamaKelas=@NamaKelas,Rombel=@Rombel,idJurusan = @idJurusan,Tingkat = @Tingkat WHERE Id=@Id";
+                var dp = new DynamicParameters();
+                dp.Add("@Id",kelas.Id,System.Data.DbType.Int32);
+                dp.Add("@NamaKelas",kelas.NamaKelas,System.Data.DbType.String);
+                dp.Add("@Rombel",kelas.Rombel,System.Data.DbType.String);
+                dp.Add("@idJurusan",kelas.IdJurusan,System.Data.DbType.Int32);
+                dp.Add("@Tingkat", kelas.IdJurusan, System.Data.DbType.Int32);
+
+                koneksi.Execute(sql,dp);
+            }
+        }
+
+        public KelasModel GetData(int Id)
+        {
+            using (var koneksi = new SqlConnection(Conn.conn.connstr()))
+            {
+                const string sql = @"SELECT * FROM Kelas WHERE Id=@Id";
+                return koneksi.QueryFirstOrDefault<KelasModel>(sql, new {Id=Id});
+            }
+        }
+
+        public void Delete(int Id)
+        {
+            using (var koneksi = new SqlConnection(Conn.conn.connstr()))
+            {
+                const string sql = @"DELETE FROM Kelas WHERE Id=@Id";
+                koneksi.Execute(sql, new {Id=Id});
+            }
+        }
+        public IEnumerable<KelasModel> GetDataRombel(int idJurusan,string Tingkat)
+        {
+            using (var koneksi = new SqlConnection(Conn.conn.connstr()))
+            {
+                const string sql = @"SELECT Rombel FROM Kelas WHERE idJurusan=@idJurusan AND Tingkat=@Tingkat";
+                return koneksi.Query<KelasModel>(sql, new { idJurusan = idJurusan,Tingkat=Tingkat });
+            }
+        }
+
     }
 }

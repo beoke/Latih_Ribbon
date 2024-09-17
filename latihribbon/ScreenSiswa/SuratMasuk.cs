@@ -40,7 +40,6 @@ namespace latihribbon
             string currentTime = DateTime.Now.ToString("HH:mm");
             tx_jam1.Text = currentTime;
             txtTanggal.Text = DateTime.Now.ToString("dddd ,dd MMMM yyyy");
-            txtTanggal.Text = currentTime;
             txtAlasan.MaxLength = 60;
         }
 
@@ -61,8 +60,8 @@ namespace latihribbon
 
             printPreviewDialogMasuk.Document = printDocumentMasuk;
             printDocumentMasuk.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("Suit Default", 400, 590);
+            printDocumentMasuk.Print();
             printPreviewDialogMasuk.ShowDialog();
-
             //Insert();
         }
 

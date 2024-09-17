@@ -33,12 +33,11 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.LabelJurusan = new System.Windows.Forms.Label();
+            this.lblInfo = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.btnNew = new System.Windows.Forms.Button();
             this.txtIdKelas = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.XIIRadio = new System.Windows.Forms.RadioButton();
@@ -51,6 +50,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txtNamaKelas = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.btnNew = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridListKelas)).BeginInit();
             this.panel4.SuspendLayout();
@@ -85,6 +85,7 @@
             this.GridListKelas.RowHeadersWidth = 51;
             this.GridListKelas.Size = new System.Drawing.Size(796, 535);
             this.GridListKelas.TabIndex = 0;
+            this.GridListKelas.SelectionChanged += new System.EventHandler(this.GridListKelas_SelectionChanged);
             // 
             // panel4
             // 
@@ -117,22 +118,22 @@
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel1.BackColor = System.Drawing.Color.Gainsboro;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.LabelJurusan);
+            this.panel1.Controls.Add(this.lblInfo);
             this.panel1.Location = new System.Drawing.Point(4, 6);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(332, 73);
             this.panel1.TabIndex = 7;
             // 
-            // LabelJurusan
+            // lblInfo
             // 
-            this.LabelJurusan.AutoSize = true;
-            this.LabelJurusan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelJurusan.Location = new System.Drawing.Point(125, 27);
-            this.LabelJurusan.Name = "LabelJurusan";
-            this.LabelJurusan.Size = new System.Drawing.Size(80, 20);
-            this.LabelJurusan.TabIndex = 56;
-            this.LabelJurusan.Text = "UPDATE";
+            this.lblInfo.AutoSize = true;
+            this.lblInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInfo.Location = new System.Drawing.Point(125, 27);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Size = new System.Drawing.Size(80, 20);
+            this.lblInfo.TabIndex = 56;
+            this.lblInfo.Text = "UPDATE";
             // 
             // panel6
             // 
@@ -159,6 +160,7 @@
             this.btnDelete.TabIndex = 0;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnSave
             // 
@@ -198,20 +200,6 @@
             this.panel5.Size = new System.Drawing.Size(332, 348);
             this.panel5.TabIndex = 5;
             // 
-            // btnNew
-            // 
-            this.btnNew.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnNew.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnNew.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNew.ForeColor = System.Drawing.Color.DimGray;
-            this.btnNew.Location = new System.Drawing.Point(227, 296);
-            this.btnNew.Margin = new System.Windows.Forms.Padding(2);
-            this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(90, 32);
-            this.btnNew.TabIndex = 62;
-            this.btnNew.Text = "New";
-            this.btnNew.UseVisualStyleBackColor = false;
-            // 
             // txtIdKelas
             // 
             this.txtIdKelas.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -246,6 +234,7 @@
             this.XIIRadio.TabStop = true;
             this.XIIRadio.Text = "XII";
             this.XIIRadio.UseVisualStyleBackColor = true;
+            this.XIIRadio.CheckedChanged += new System.EventHandler(this.XIIRadio_CheckedChanged);
             // 
             // XIRadio
             // 
@@ -259,6 +248,7 @@
             this.XIRadio.TabStop = true;
             this.XIRadio.Text = "XI";
             this.XIRadio.UseVisualStyleBackColor = true;
+            this.XIRadio.CheckedChanged += new System.EventHandler(this.XIRadio_CheckedChanged);
             // 
             // XRadio
             // 
@@ -272,6 +262,7 @@
             this.XRadio.TabStop = true;
             this.XRadio.Text = "X";
             this.XRadio.UseVisualStyleBackColor = true;
+            this.XRadio.CheckedChanged += new System.EventHandler(this.XRadio_CheckedChanged);
             // 
             // jurusanCombo
             // 
@@ -282,6 +273,7 @@
             this.jurusanCombo.Name = "jurusanCombo";
             this.jurusanCombo.Size = new System.Drawing.Size(300, 25);
             this.jurusanCombo.TabIndex = 73;
+            this.jurusanCombo.SelectedIndexChanged += new System.EventHandler(this.jurusanCombo_SelectedIndexChanged);
             // 
             // label10
             // 
@@ -303,6 +295,7 @@
             this.txtRombel.Name = "txtRombel";
             this.txtRombel.Size = new System.Drawing.Size(300, 23);
             this.txtRombel.TabIndex = 71;
+            this.txtRombel.TextChanged += new System.EventHandler(this.txtRombel_TextChanged);
             // 
             // label9
             // 
@@ -348,6 +341,21 @@
             this.label6.TabIndex = 66;
             this.label6.Text = "Nama Kelas";
             // 
+            // btnNew
+            // 
+            this.btnNew.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnNew.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnNew.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNew.ForeColor = System.Drawing.Color.DimGray;
+            this.btnNew.Location = new System.Drawing.Point(227, 296);
+            this.btnNew.Margin = new System.Windows.Forms.Padding(2);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(90, 32);
+            this.btnNew.TabIndex = 62;
+            this.btnNew.Text = "New";
+            this.btnNew.UseVisualStyleBackColor = false;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
+            // 
             // FormKelas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -377,7 +385,7 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label LabelJurusan;
+        private System.Windows.Forms.Label lblInfo;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnSave;
