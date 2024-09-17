@@ -14,6 +14,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LicenseContext = OfficeOpenXml.LicenseContext;
+using LicensiContext = OfficeOpenXml.LicenseContext;
 
 namespace latihribbon
 {
@@ -369,6 +371,9 @@ namespace latihribbon
 
         private void ButtonInputSIswa_Click(object sender, EventArgs e)
         {
+
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+
             // Membuka file dialog untuk memilih file Excel
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "Excel Files|*.xls;*.xlsx;";
@@ -387,9 +392,8 @@ namespace latihribbon
                     // Membuka koneksi database
                     using (IDbConnection db = new SqlConnection(Conn.conn.connstr()))
                     {
-                        for (int row = 2; row <= rowCount; row++) // Mulai dari baris 2 (mengabaikan header)
+                        for (int row = 2; row <= rowCount; row++)
                         {
-                            // Membaca nilai dari Excel
                             var nis = worksheet.Cells[row, 1].Value?.ToString();
                             var nama = worksheet.Cells[row, 2].Value?.ToString();
                             var kelas = worksheet.Cells[row, 3].Value?.ToString();
@@ -397,7 +401,6 @@ namespace latihribbon
                             var presensi = worksheet.Cells[row, 5].Value?.ToString();
                             var jenisKelamin = worksheet.Cells[row, 6].Value?.ToString();
 
-                            // Membuat parameter untuk dimasukkan ke database
                             var parameters = new DynamicParameters();
                             parameters.Add("@Nis", nis);
                             parameters.Add("@Nama", nama);
@@ -406,13 +409,32 @@ namespace latihribbon
                             parameters.Add("@Presensi", presensi);
                             parameters.Add("@JenisKelamin", jenisKelamin);
 
-                            db.Execute("INSERT INTO Siswa (Nis, Nama, Kelas, Tahun, Presensi, JenisKelamin) VALUES (@Nis, @Nama, @Kelas, @Tahun, @Presensi, @JenisKelamin)", parameters);
+                            db.Execute("INSERT INTO Siswa (Nis, Nama, Kelas, Tahun, Persensi, JenisKelamin) VALUES (@Nis, @Nama, @Kelas, @Tahun, @Presensi, @JenisKelamin)", parameters);
                         }
                     }
                 }
 
                 MessageBox.Show("Data berhasil dimasukkan ke database.");
             }
-            }
+
+            /*ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+
+            OpenFileDialog openDialog = new OpenFileDialog();
+            openDialog.Filter = "File Excel |*.xls; *.xlsx";
+
+            if (openDialog.ShowDialog() == DialogResult.OK)
+            {
+                FileInfo fileInfo = new FileInfo(openDialog.FileName); //baca info file (Lokasi file)
+
+                using (ExcelPackage package = new ExcelPackage(fileInfo))
+                {
+                    ExcelWorksheet workSheet = package.Workbook.Worksheets[0];
+
+                    int RowCount = workSheet.Row;
+                }
+
+
+            }*/
+        }
     }
 }
