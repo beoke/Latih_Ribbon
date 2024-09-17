@@ -33,17 +33,19 @@
             this.Button_Atur = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtHasil = new System.Windows.Forms.TextBox();
+            this.comboRombel = new System.Windows.Forms.ComboBox();
             this.ComboJurusanPopUp = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.Radio_XII = new System.Windows.Forms.RadioButton();
             this.Radio_XI = new System.Windows.Forms.RadioButton();
             this.Radio_X = new System.Windows.Forms.RadioButton();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -77,7 +79,7 @@
             this.Button_Atur.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Button_Atur.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Button_Atur.Location = new System.Drawing.Point(83, 290);
-            this.Button_Atur.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Button_Atur.Margin = new System.Windows.Forms.Padding(2);
             this.Button_Atur.Name = "Button_Atur";
             this.Button_Atur.Size = new System.Drawing.Size(74, 28);
             this.Button_Atur.TabIndex = 7;
@@ -92,7 +94,7 @@
             this.panel1.BackColor = System.Drawing.Color.Silver;
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(9, 10);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(262, 359);
             this.panel1.TabIndex = 15;
@@ -104,9 +106,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.Gainsboro;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.dataGridView1);
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.textBox1);
-            this.panel2.Controls.Add(this.comboBox1);
+            this.panel2.Controls.Add(this.txtHasil);
+            this.panel2.Controls.Add(this.comboRombel);
             this.panel2.Controls.Add(this.Button_Atur);
             this.panel2.Controls.Add(this.ComboJurusanPopUp);
             this.panel2.Controls.Add(this.label4);
@@ -117,17 +120,46 @@
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Location = new System.Drawing.Point(9, 10);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(243, 340);
             this.panel2.TabIndex = 16;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(20, 230);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(33, 15);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "Hasil";
+            // 
+            // txtHasil
+            // 
+            this.txtHasil.Location = new System.Drawing.Point(23, 248);
+            this.txtHasil.Name = "txtHasil";
+            this.txtHasil.Size = new System.Drawing.Size(194, 20);
+            this.txtHasil.TabIndex = 14;
+            // 
+            // comboRombel
+            // 
+            this.comboRombel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboRombel.FormattingEnabled = true;
+            this.comboRombel.Location = new System.Drawing.Point(23, 199);
+            this.comboRombel.Margin = new System.Windows.Forms.Padding(2);
+            this.comboRombel.Name = "comboRombel";
+            this.comboRombel.Size = new System.Drawing.Size(194, 21);
+            this.comboRombel.TabIndex = 13;
             // 
             // ComboJurusanPopUp
             // 
             this.ComboJurusanPopUp.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.ComboJurusanPopUp.FormattingEnabled = true;
             this.ComboJurusanPopUp.Location = new System.Drawing.Point(23, 148);
-            this.ComboJurusanPopUp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ComboJurusanPopUp.Margin = new System.Windows.Forms.Padding(2);
             this.ComboJurusanPopUp.Name = "ComboJurusanPopUp";
             this.ComboJurusanPopUp.Size = new System.Drawing.Size(194, 21);
             this.ComboJurusanPopUp.TabIndex = 12;
@@ -161,7 +193,7 @@
             this.Radio_XII.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Radio_XII.AutoSize = true;
             this.Radio_XII.Location = new System.Drawing.Point(179, 91);
-            this.Radio_XII.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Radio_XII.Margin = new System.Windows.Forms.Padding(2);
             this.Radio_XII.Name = "Radio_XII";
             this.Radio_XII.Size = new System.Drawing.Size(38, 17);
             this.Radio_XII.TabIndex = 9;
@@ -174,7 +206,7 @@
             this.Radio_XI.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Radio_XI.AutoSize = true;
             this.Radio_XI.Location = new System.Drawing.Point(99, 91);
-            this.Radio_XI.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Radio_XI.Margin = new System.Windows.Forms.Padding(2);
             this.Radio_XI.Name = "Radio_XI";
             this.Radio_XI.Size = new System.Drawing.Size(35, 17);
             this.Radio_XI.TabIndex = 8;
@@ -187,7 +219,7 @@
             this.Radio_X.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Radio_X.AutoSize = true;
             this.Radio_X.Location = new System.Drawing.Point(23, 91);
-            this.Radio_X.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Radio_X.Margin = new System.Windows.Forms.Padding(2);
             this.Radio_X.Name = "Radio_X";
             this.Radio_X.Size = new System.Drawing.Size(32, 17);
             this.Radio_X.TabIndex = 7;
@@ -195,34 +227,13 @@
             this.Radio_X.Text = "X";
             this.Radio_X.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // dataGridView1
             // 
-            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(23, 199);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(194, 21);
-            this.comboBox1.TabIndex = 13;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(23, 248);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(194, 20);
-            this.textBox1.TabIndex = 14;
-            // 
-            // label5
-            // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(20, 230);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(33, 15);
-            this.label5.TabIndex = 15;
-            this.label5.Text = "Hasil";
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(2, 3);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
+            this.dataGridView1.TabIndex = 16;
             // 
             // PopUpKelas
             // 
@@ -231,12 +242,13 @@
             this.ClientSize = new System.Drawing.Size(280, 379);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "PopUpKelas";
             this.Text = "Atur Kelas";
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -255,7 +267,8 @@
         private System.Windows.Forms.RadioButton Radio_X;
         private System.Windows.Forms.ComboBox ComboJurusanPopUp;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox txtHasil;
+        private System.Windows.Forms.ComboBox comboRombel;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

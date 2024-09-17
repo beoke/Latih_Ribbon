@@ -160,8 +160,15 @@
     <Compile Include="FormRiwayatLogin.Designer.cs">
       <DependentUpon>FormRiwayatLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\KelasModel.cs" />
     <Compile Include="Model\RiwayatLoginModel.cs" />
     <Compile Include="Dal\RiwayatLoginDal.cs" />
+    <Compile Include="ScreenAdmin\FormKelas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScreenAdmin\FormKelas.Designer.cs">
+      <DependentUpon>FormKelas.cs</DependentUpon>
+    </Compile>
     <Compile Include="ScreenUser\FormUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -269,6 +276,9 @@
     </Compile>
     <EmbeddedResource Include="FormRiwayatLogin.resx">
       <DependentUpon>FormRiwayatLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ScreenAdmin\FormKelas.resx">
+      <DependentUpon>FormKelas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ScreenUser\FormUser.resx">
       <DependentUpon>FormUser.cs</DependentUpon>

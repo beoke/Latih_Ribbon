@@ -90,6 +90,15 @@ namespace latihribbon.Dal
                 koneksi.Execute(sql, new { Nis = siswaNis });
             }
         }
+
+        public IEnumerable<SiswaModel> ListKelas()
+        {
+            using (var koneksi = new SqlConnection(Conn.conn.connstr()))
+            {
+                const string sql = @"SELECT DISTINCT Kelas FROM siswa";
+                return koneksi.Query<SiswaModel>(sql);
+            }
+        }
     }
 }
 
