@@ -149,6 +149,7 @@
     <Compile Include="Conn\conn.cs" />
     <Compile Include="Dal\AbsensiDal.cs" />
     <Compile Include="Dal\JurusanDal.cs" />
+    <Compile Include="Dal\KelasDal.cs" />
     <Compile Include="Dal\KeluarDal.cs" />
     <Compile Include="Dal\RekapPersensiDal.cs" />
     <Compile Include="Dal\SiswaDal.cs" />

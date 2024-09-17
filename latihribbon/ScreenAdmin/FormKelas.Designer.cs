@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.panel3 = new System.Windows.Forms.Panel();
-            this.GridListJurusan = new System.Windows.Forms.DataGridView();
+            this.GridListKelas = new System.Windows.Forms.DataGridView();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -52,7 +52,7 @@
             this.txtNamaKelas = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.GridListJurusan)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GridListKelas)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -66,25 +66,25 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.BackColor = System.Drawing.Color.DarkGray;
-            this.panel3.Controls.Add(this.GridListJurusan);
+            this.panel3.Controls.Add(this.GridListKelas);
             this.panel3.Location = new System.Drawing.Point(10, 14);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(810, 549);
             this.panel3.TabIndex = 6;
             // 
-            // GridListJurusan
+            // GridListKelas
             // 
-            this.GridListJurusan.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.GridListKelas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.GridListJurusan.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.GridListJurusan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GridListJurusan.Location = new System.Drawing.Point(7, 6);
-            this.GridListJurusan.Name = "GridListJurusan";
-            this.GridListJurusan.RowHeadersWidth = 51;
-            this.GridListJurusan.Size = new System.Drawing.Size(796, 535);
-            this.GridListJurusan.TabIndex = 0;
+            this.GridListKelas.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.GridListKelas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GridListKelas.Location = new System.Drawing.Point(7, 6);
+            this.GridListKelas.Name = "GridListKelas";
+            this.GridListKelas.RowHeadersWidth = 51;
+            this.GridListKelas.Size = new System.Drawing.Size(796, 535);
+            this.GridListKelas.TabIndex = 0;
             // 
             // panel4
             // 
@@ -172,6 +172,7 @@
             this.btnSave.TabIndex = 1;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // panel5
             // 
@@ -357,7 +358,7 @@
             this.Name = "FormKelas";
             this.Text = "FormKelas";
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.GridListJurusan)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GridListKelas)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -372,7 +373,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.DataGridView GridListJurusan;
+        private System.Windows.Forms.DataGridView GridListKelas;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;

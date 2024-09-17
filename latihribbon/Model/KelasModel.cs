@@ -9,6 +9,9 @@ namespace latihribbon.Model
     public class KelasModel
     {
         public int IdKelas {  get; set; }
-        public string st
+        public string NamaKelas { get; set; }
+
+        public string Rombel {  get; set; }
+        public int IdJurusan {  get; set; }
     }
 }
