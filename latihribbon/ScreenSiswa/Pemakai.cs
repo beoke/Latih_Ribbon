@@ -57,7 +57,7 @@ namespace latihribbon
             var siswa = _dbDal.GetSiswaByNis(nis);
             if (siswa == null)
             {
-                MessageBox.Show("NIS tidak ditemukan di tabel siswa.", "Data Not Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("NIS tidak ditemukan.", "Data Not Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 tx_NIS.Text = "";
             }
             else
@@ -85,6 +85,13 @@ namespace latihribbon
                 this.Hide();
             }
         }
+
+        private void tx_NIS_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
-
