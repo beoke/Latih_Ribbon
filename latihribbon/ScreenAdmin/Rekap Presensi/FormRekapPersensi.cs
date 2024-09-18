@@ -51,13 +51,14 @@ namespace latihribbon.ScreenAdmin
                 dataGridView1.RowTemplate.Height = 30;
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                 dataGridView1.ColumnHeadersHeight = 35;
+                dataGridView1.RowHeadersWidth = 51;
             }
         }
 
         public void LoadHistory()
         {
             var gethistory = historyDal.GetData("RekapPersensi");
-            txtKelas.Text = gethistory!=null ? gethistory.History : "X RPL 2";
+            txtKelas.Text = gethistory != null ? gethistory.History : "X RPL 2";
             LoadData();
         }
 
@@ -65,19 +66,19 @@ namespace latihribbon.ScreenAdmin
         int totalPage;
         private void LoadData()
         {
-           /* var rekap = rekapPersensiDal.ListData().Select(x => new { NIS = x.Nis, Persensi = x.Persensi, Nama = x.Nama, Kelas = x.Kelas, Tanggal = x.Tanggal, Keterangan = x.Keterangan }).ToList();
-            dataGridView1.DataSource = rekap;*/
+            /* var rekap = rekapPersensiDal.ListData().Select(x => new { NIS = x.Nis, Persensi = x.Persensi, Nama = x.Nama, Kelas = x.Kelas, Tanggal = x.Tanggal, Keterangan = x.Keterangan }).ToList();
+             dataGridView1.DataSource = rekap;*/
 
             string text = "Halaman ";
             int RowPerPage = 15;
-            int inRowPage = (Page-1)*RowPerPage;
-            var jumlahRow = rekapPersensiDal.CekRows();
+            int inRowPage = (Page - 1) * RowPerPage;
+            var jumlahRow = rekapPersensiDal.CekRows(txtKelas.Text);
             if (jumlahRow == 0) return;
-            totalPage = jumlahRow/RowPerPage;
+            totalPage = (int)Math.Ceiling((double)jumlahRow / RowPerPage);
 
             text += $"{Page.ToString()}/{totalPage.ToString()}";
             lblHalaman.Text = text;
-            dataGridView1.DataSource = rekapPersensiDal.ListData2(inRowPage,RowPerPage);
+            dataGridView1.DataSource = rekapPersensiDal.ListData2(inRowPage, RowPerPage, txtKelas.Text);
 
 
         }
@@ -91,14 +92,14 @@ namespace latihribbon.ScreenAdmin
 
         private void TxtKelas_Click(object sender, EventArgs e)
         {
-          /*  PopUpKelas popUp = new PopUpKelas();
-            popUp.StartPosition = FormStartPosition.CenterScreen;
-            popUp.ShowDialog();
+            /*  PopUpKelas popUp = new PopUpKelas();
+              popUp.StartPosition = FormStartPosition.CenterScreen;
+              popUp.ShowDialog();
 
-            if (popUp.ShowDialog() == DialogResult.OK)
-            {
-                txtKelas.Text = popUp.KelasText;
-            }*/
+              if (popUp.ShowDialog() == DialogResult.OK)
+              {
+                  txtKelas.Text = popUp.KelasText;
+              }*/
         }
 
         private void BtnPrintRekap_Click(object sender, EventArgs e)
@@ -111,7 +112,7 @@ namespace latihribbon.ScreenAdmin
         public string Kelas
         {
             get { return txtKelas.Text; }
-            set { txtKelas.Text = value;}
+            set { txtKelas.Text = value; }
         }
 
 
@@ -232,7 +233,7 @@ namespace latihribbon.ScreenAdmin
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            if(Page < totalPage)
+            if (Page < totalPage)
             {
                 Page++;
                 LoadData();
@@ -241,19 +242,23 @@ namespace latihribbon.ScreenAdmin
 
         private void btnPrevious_Click(object sender, EventArgs e)
         {
-            if(Page > 1)
+            if (Page > 1)
             {
                 Page--;
                 LoadData();
             }
 
         }
-        
+
         private void btnKelas_Click(object sender, EventArgs e)
         {
-            PopUpKelas kelas = new PopUpKelas(txtKelas.Text);
+            PopUpKelas kelas = new PopUpKelas("RekapPersensi", txtKelas.Text);
             kelas.ShowDialog();
-            if (kelas.DialogResult == DialogResult.OK) LoadHistory();
+            if (kelas.DialogResult == DialogResult.OK)
+            {
+                LoadHistory();
+                InitComponen();
+            }
         }
     }
 }

@@ -22,7 +22,8 @@ namespace latihribbon
         private readonly KelasDal kelasDal;
         private readonly HistoryDal historyDal;
         string NamaKelas = string.Empty;
-        public PopUpKelas(string message)
+        string Nama = string.Empty;
+        public PopUpKelas(string nama, string history)
         {
             _jurusanDal = new JurusanDal();
             siswaDal = new SiswaDal();
@@ -30,8 +31,8 @@ namespace latihribbon
             historyDal = new HistoryDal();
             InitializeComponent();
             InitEvent();
-
-            NamaKelas = message;
+            Nama = nama;
+            NamaKelas = history;
             InitComponent();
             InitIsian();
         }
@@ -64,11 +65,10 @@ namespace latihribbon
         }
 
 
-        private string SetRombel()
+        private void SetRombel()
         {
-            string[] kelas = NamaKelas.Split(' ');
-            string tingkat = kelas[0];
-            string rombel = kelas.Length > 2 ? kelas[2] : string.Empty;
+            string rombel = comboRombel.SelectedItem?.ToString() ?? string.Empty;
+            string tingkat = Radio_X.Checked ? "X":Radio_XI.Checked ? "XI" : "XII";
             string idJurusan = ((JurusanModel)ComboJurusanPopUp.SelectedItem).Id.ToString() ?? string.Empty;
             if (idJurusan != string.Empty || rombel != string.Empty) 
             {
@@ -77,8 +77,8 @@ namespace latihribbon
                 foreach (var item in listRombel)
                     list.Add(item.Rombel);
                 comboRombel.DataSource = list;
+                comboRombel.SelectedItem = rombel;
             }
-            return rombel;
         }
 
         private void SetHasil()
@@ -99,7 +99,7 @@ namespace latihribbon
         private void Button_Atur_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
-            historyDal.Update("RekapPersensi", txtHasil.Text);
+            historyDal.Update(Nama, txtHasil.Text);
             this.Close();
         }
 

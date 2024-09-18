@@ -45,7 +45,7 @@ namespace latihribbon.Dal
             }
         }
 
-        public IEnumerable<AbsensiModel> ListData2(int Offset, int Fetch)
+        public IEnumerable<AbsensiModel> ListData2(int Offset, int Fetch, string Kelas)
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
             {
@@ -63,31 +63,25 @@ namespace latihribbon.Dal
                                COALESCE(a.Keterangan, '*') AS Keterangan
                         FROM SiswaDates sd
                         LEFT JOIN Persensi a ON sd.NIS = a.NIS AND sd.Tanggal = a.Tanggal
+                        WHERE sd.Kelas LIKE  @Kelas+'%'
                         ORDER BY 
                             sd.Persensi ASC,
-                            CASE
-                                WHEN sd.Kelas LIKE 'X %' THEN 1
-                                WHEN sd.Kelas LIKE 'XI %' THEN 2
-                                WHEN sd.Kelas LIKE 'XII %' THEN 3
-                                ELSE 4
-                            END,
-                            SUBSTRING(sd.Kelas, CHARINDEX(' ', sd.Kelas) + 1, LEN(sd.Kelas)) ASC,
                             sd.Tanggal DESC OFFSET @Offset ROWS FETCH NEXT @Fetch ROWS ONLY";
                 
 
-                return koneksi.Query<AbsensiModel>(sql, new { Offset = Offset , Fetch = Fetch});
+                return koneksi.Query<AbsensiModel>(sql, new { Offset = Offset , Fetch = Fetch, Kelas=Kelas});
             }
         }
 
-        public int CekRows()
+        public int CekRows(string Kelas)
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
             {
                 const string sql = @"SELECT
                                         (SELECT COUNT(DISTINCT Tanggal) FROM Persensi) *
-                                        (SELECT COUNT(*) FROM siswa)
+                                        (SELECT COUNT(*) FROM siswa WHERE Kelas LIKE @Kelas+'%')
                                      AS TotalRows";
-                return koneksi.QuerySingle<int>(sql);
+                return koneksi.QuerySingle<int>(sql, new {kelas=Kelas});
             }
         }
 

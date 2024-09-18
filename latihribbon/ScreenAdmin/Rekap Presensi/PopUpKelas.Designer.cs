@@ -138,6 +138,7 @@
             // 
             this.txtHasil.Location = new System.Drawing.Point(23, 248);
             this.txtHasil.Name = "txtHasil";
+            this.txtHasil.ReadOnly = true;
             this.txtHasil.Size = new System.Drawing.Size(194, 20);
             this.txtHasil.TabIndex = 14;
             // 
