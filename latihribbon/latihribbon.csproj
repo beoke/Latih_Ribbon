@@ -145,6 +145,7 @@
   <ItemGroup>
     <Compile Include="Conn\conn.cs" />
     <Compile Include="Dal\AbsensiDal.cs" />
+    <Compile Include="Dal\HistoryDal.cs" />
     <Compile Include="Dal\JurusanDal.cs" />
     <Compile Include="Dal\KelasDal.cs" />
     <Compile Include="Dal\KeluarDal.cs" />
@@ -158,6 +159,7 @@
     <Compile Include="FormRiwayatLogin.Designer.cs">
       <DependentUpon>FormRiwayatLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\HistoryModel.cs" />
     <Compile Include="Model\KelasModel.cs" />
     <Compile Include="Model\RiwayatLoginModel.cs" />
     <Compile Include="Dal\RiwayatLoginDal.cs" />

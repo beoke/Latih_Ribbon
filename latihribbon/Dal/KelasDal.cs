@@ -30,7 +30,7 @@ namespace latihribbon.Dal
                 dp.Add("@NamaKelas",kelas.NamaKelas, System.Data.DbType.String);
                 dp.Add("@Rombel",kelas.Rombel, System.Data.DbType.String);
                 dp.Add("@idJurusan",kelas.IdJurusan, System.Data.DbType.Int32);
-                dp.Add("@Tingkat",kelas.IdJurusan, System.Data.DbType.Int32);
+                dp.Add("@Tingkat",kelas.Tingkat, System.Data.DbType.String);
 
                 koneksi.Execute(sql, dp);
             }
@@ -46,7 +46,7 @@ namespace latihribbon.Dal
                 dp.Add("@NamaKelas",kelas.NamaKelas,System.Data.DbType.String);
                 dp.Add("@Rombel",kelas.Rombel,System.Data.DbType.String);
                 dp.Add("@idJurusan",kelas.IdJurusan,System.Data.DbType.Int32);
-                dp.Add("@Tingkat", kelas.IdJurusan, System.Data.DbType.Int32);
+                dp.Add("@Tingkat", kelas.Tingkat, System.Data.DbType.String);
 
                 koneksi.Execute(sql,dp);
             }
