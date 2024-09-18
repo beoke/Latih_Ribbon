@@ -238,6 +238,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "PopUpKelas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Atur Kelas";
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

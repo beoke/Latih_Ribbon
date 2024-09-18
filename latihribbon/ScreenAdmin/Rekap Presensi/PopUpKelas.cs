@@ -98,8 +98,8 @@ namespace latihribbon
 
         private void Button_Atur_Click(object sender, EventArgs e)
         {
-            
             this.DialogResult = DialogResult.OK;
+            historyDal.Update("RekapPersensi", txtHasil.Text);
             this.Close();
         }
 

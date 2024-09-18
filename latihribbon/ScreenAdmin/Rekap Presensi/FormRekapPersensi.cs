@@ -30,7 +30,6 @@ namespace latihribbon.ScreenAdmin
             rekapPersensiDal = new RekapPersensiDal();
             historyDal = new HistoryDal();
             LoadHistory();
-            LoadData();
             InitComponen();
             Event();
         }
@@ -55,10 +54,11 @@ namespace latihribbon.ScreenAdmin
             }
         }
 
-        private void LoadHistory()
+        public void LoadHistory()
         {
             var gethistory = historyDal.GetData("RekapPersensi");
-            txtKelas.Text = gethistory!=null ? gethistory.History : "X RPL 22";
+            txtKelas.Text = gethistory!=null ? gethistory.History : "X RPL 2";
+            LoadData();
         }
 
         int Page = 1;
@@ -78,9 +78,9 @@ namespace latihribbon.ScreenAdmin
             text += $"{Page.ToString()}/{totalPage.ToString()}";
             lblHalaman.Text = text;
             dataGridView1.DataSource = rekapPersensiDal.ListData2(inRowPage,RowPerPage);
+
+
         }
-
-
 
         #region     EVENT
         private void Event()
@@ -253,6 +253,7 @@ namespace latihribbon.ScreenAdmin
         {
             PopUpKelas kelas = new PopUpKelas(txtKelas.Text);
             kelas.ShowDialog();
+            if (kelas.DialogResult == DialogResult.OK) LoadHistory();
         }
     }
 }

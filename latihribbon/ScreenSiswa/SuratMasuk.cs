@@ -18,17 +18,15 @@ namespace latihribbon
 {
     public partial class SuratMasuk : Form
     {
-        private Form _previousForm; // untuk kembali ke form sebelumnya
+        private Form _previousForm;
         private MesBox mesbox = new MesBox();
         private readonly MasukDal masukDal = new MasukDal();
         public SuratMasuk(Form previousForm)
         {
             InitializeComponent();
-            _previousForm = previousForm; // menyimpan referensi ke form sebelumnya
-
-            // Menyelaraskan ukuran dan lokasi form ini dengan form sebelumnya
-            this.Size = previousForm.Size; // Menyetel ukuran form
-            this.Location = previousForm.Location; // Menyetel lokasi form
+            _previousForm = previousForm;
+            this.Size = previousForm.Size;
+            this.Location = previousForm.Location;
             isian();
         }
 
@@ -37,15 +35,13 @@ namespace latihribbon
             txtNIS.Text = Pemakai.NIS;
             txtNama.Text = Pemakai.nama;
             txtKelas.Text = Pemakai.kelas;
-            string currentTime = DateTime.Now.ToString("HH:mm");
-            tx_jam1.Text = currentTime;
+            tx_jam1.Text = DateTime.Now.ToString("HH:mm");
             txtTanggal.Text = DateTime.Now.ToString("dddd ,dd MMMM yyyy");
             txtAlasan.MaxLength = 60;
         }
 
         private void btn_Kembali_Click(object sender, EventArgs e)
         {
-            // menampilkan form sebelumnya dan menutup form saat ini
             _previousForm.Show();
             this.Close();
         }
@@ -56,7 +52,26 @@ namespace latihribbon
             if (txtAlasan.Text == string.Empty) valid = false;
             return valid;
         }
+        private void Insert()
+        {
+            string nis, alasan;
+            DateTime tanggal;
+            TimeSpan jamMasuk;
 
+            nis = txtNIS.Text;
+            tanggal = DateTime.Now.Date;
+            jamMasuk = TimeSpan.Parse(DateTime.Now.ToString("HH:mm"));
+            alasan = txtAlasan.Text;
+
+            var masuk = new MasukModel
+            {
+                NIS = int.Parse(nis),
+                Tanggal = tanggal,
+                JamMasuk = jamMasuk,
+                Alasan = alasan
+            };
+            masukDal.Insert(masuk);
+        }
         private void btn_PrintMasuk_Click(object sender, EventArgs e)
         {
             if (!Validasi())
@@ -65,9 +80,11 @@ namespace latihribbon
                 return;
             }
             PrintDocument();            
-            Insert();
+            //Insert();
 
             System.Threading.Thread.Sleep(1000);
+            Pemakai pemakai = new Pemakai();
+            pemakai.Show();
             this.Close();
         }
 
@@ -145,7 +162,6 @@ namespace latihribbon
             e.Graphics.DrawString("........................", new Font("Times New Roman", 8), Brushes.Black, new Point(285, 560));
 
 
-            // memisahkan "Alasan Terlambat" jika terlalu panjang
             string alasan = txtAlasan.Text;
             int batasPanjang = 20;
 
@@ -204,34 +220,11 @@ namespace latihribbon
             {
                 e.Graphics.DrawString($": {alasan}", new Font("Times New Roman", 9), Brushes.Black, new Point(125, 140));
             }
-
-
-            //saya dan teman saya mau makan nasi padang seberat 10 kilogram di rumah pak camata
         }
 
         #endregion
 
-        private void Insert()
-        {
-            string nis, alasan;
-            DateTime tanggal;
-            TimeSpan jamMasuk;
-
-
-            nis = txtNIS.Text;
-            tanggal = DateTime.Now.Date;
-            jamMasuk = TimeSpan.Parse(tx_jam1.Text);
-            alasan = txtAlasan.Text;
-
-            var masuk = new MasukModel
-            {
-                NIS = int.Parse(nis),
-                Tanggal = tanggal,
-                JamMasuk = jamMasuk,
-                Alasan = alasan
-            };
-            masukDal.Insert(masuk);
-        }
+       
 
         private void txtAlasan_TextChanged(object sender, EventArgs e)
         {

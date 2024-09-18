@@ -50,6 +50,8 @@ namespace latihribbon
                 dataGridView1.RowTemplate.Height = 30;
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                 dataGridView1.ColumnHeadersHeight = 35;
+
+                
             }
         }
 
