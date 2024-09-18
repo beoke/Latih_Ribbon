@@ -150,6 +150,7 @@
             this.comboRombel.Name = "comboRombel";
             this.comboRombel.Size = new System.Drawing.Size(194, 21);
             this.comboRombel.TabIndex = 13;
+            this.comboRombel.SelectedIndexChanged += new System.EventHandler(this.comboRombel_SelectedIndexChanged);
             // 
             // ComboJurusanPopUp
             // 

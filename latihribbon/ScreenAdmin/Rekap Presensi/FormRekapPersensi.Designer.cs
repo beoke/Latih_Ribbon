@@ -43,7 +43,6 @@
             this.txtNama = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.lblHalaman = new System.Windows.Forms.Label();
             this.btnNext = new System.Windows.Forms.Button();
             this.btnPrevious = new System.Windows.Forms.Button();
@@ -189,7 +188,6 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.lblHalaman);
             this.panel1.Controls.Add(this.btnNext);
             this.panel1.Controls.Add(this.btnPrevious);
@@ -200,15 +198,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1189, 478);
             this.panel1.TabIndex = 40;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(880, 429);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 23;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // lblHalaman
             // 
@@ -329,7 +318,6 @@
         private System.Windows.Forms.Label lblHalaman;
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Button btnPrevious;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnKelas;
     }
 }

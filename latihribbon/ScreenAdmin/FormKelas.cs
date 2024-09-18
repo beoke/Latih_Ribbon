@@ -71,7 +71,8 @@ namespace latihribbon.ScreenAdmin
                 Id = idKelas,
                 NamaKelas = txtNamaKelas.Text,
                 Rombel = Rombel,
-                IdJurusan = int.Parse(idJurusan)
+                IdJurusan = int.Parse(idJurusan),
+                Tingkat = tingkat
             };
 
             if(idKelas == 0)

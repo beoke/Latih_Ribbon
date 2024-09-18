@@ -21,17 +21,18 @@ namespace latihribbon.ScreenAdmin
     public partial class FormRekapPersensi : Form
     {
         private readonly RekapPersensiDal rekapPersensiDal;
+        private readonly HistoryDal historyDal;
 
 
         public FormRekapPersensi()
         {
             InitializeComponent();
             rekapPersensiDal = new RekapPersensiDal();
+            historyDal = new HistoryDal();
+            LoadHistory();
             LoadData();
             InitComponen();
             Event();
-
-            txtNama.Text = "X RPL 1";
         }
 
         public void InitComponen()
@@ -52,6 +53,12 @@ namespace latihribbon.ScreenAdmin
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                 dataGridView1.ColumnHeadersHeight = 35;
             }
+        }
+
+        private void LoadHistory()
+        {
+            var gethistory = historyDal.GetData("RekapPersensi");
+            txtKelas.Text = gethistory!=null ? gethistory.History : "X RPL 22";
         }
 
         int Page = 1;
