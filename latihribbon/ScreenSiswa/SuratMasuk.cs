@@ -50,6 +50,13 @@ namespace latihribbon
             this.Close();
         }
 
+        private bool Validasi()
+        {
+            bool valid = true;
+            if (txtAlasan.Text == string.Empty) valid = false;
+            return valid;
+        }
+
         private void btn_PrintMasuk_Click(object sender, EventArgs e)
         {
             if (!Validasi())
@@ -57,15 +64,22 @@ namespace latihribbon
                 mesbox.MesInfo("Alasan Terlambat Wajib Diisi!");
                 return;
             }
+            PrintDocument();            
+            Insert();
 
-            printPreviewDialogMasuk.Document = printDocumentMasuk;
-            printDocumentMasuk.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("Suit Default", 400, 590);
-            printDocumentMasuk.Print();
-            printPreviewDialogMasuk.ShowDialog();
-            //Insert();
+            System.Threading.Thread.Sleep(1000);
+            this.Close();
         }
 
         #region PRINT
+
+        private void PrintDocument()
+        {
+            printPreviewDialogMasuk.Document = printDocumentMasuk;
+            printDocumentMasuk.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("Suit Default", 400, 590);
+            //printDocumentMasuk.Print();
+            printPreviewDialogMasuk.ShowDialog();
+        }
         private void printDocumentMasuk_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
 
@@ -77,13 +91,13 @@ namespace latihribbon
 
 
             e.Graphics.DrawString("Nama", new Font("Times New Roman", 9), Brushes.Black, new Point(20, 60));
-            e.Graphics.DrawString($": {txtNama.Text}", new Font("Times New Roman", 9), Brushes.Black, new Point(110, 60));
+            e.Graphics.DrawString($": {txtNama.Text}", new Font("Times New Roman", 9), Brushes.Black, new Point(125, 60));
             e.Graphics.DrawString("Kelas", new Font("Times New Roman", 9), Brushes.Black, new Point(20, 80));
-            e.Graphics.DrawString($": {txtKelas.Text}", new Font("Times New Roman", 9), Brushes.Black, new Point(110, 80));
+            e.Graphics.DrawString($": {txtKelas.Text}", new Font("Times New Roman", 9), Brushes.Black, new Point(125, 80));
             e.Graphics.DrawString("Tanggal", new Font("Times New Roman", 9), Brushes.Black, new Point(20, 100));
-            e.Graphics.DrawString($": {txtTanggal.Text}", new Font("Times New Roman", 9), Brushes.Black, new Point(110, 100));
+            e.Graphics.DrawString($": {txtTanggal.Text}", new Font("Times New Roman", 9), Brushes.Black, new Point(125, 100));
             e.Graphics.DrawString("Masuk pada jam", new Font("Times New Roman", 9), Brushes.Black, new Point(20, 120));
-            e.Graphics.DrawString($": {tx_jam1.Text}", new Font("Times New Roman", 9), Brushes.Black, new Point(110, 120));
+            e.Graphics.DrawString($": {tx_jam1.Text}", new Font("Times New Roman", 9), Brushes.Black, new Point(125, 120));
             e.Graphics.DrawString("Alasan Terlambat", new Font("Times New Roman", 9), Brushes.Black, new Point(20, 140));
 
 
@@ -99,13 +113,13 @@ namespace latihribbon
             e.Graphics.DrawString($"Bantul, {tanggal}", new Font("Times New Roman", 7), Brushes.Black, new Point(170, 231));
 
             e.Graphics.DrawString("Nama", new Font("Times New Roman", 9), Brushes.Black, new Point(20, 256));
-            e.Graphics.DrawString($": {txtNama.Text}", new Font("Times New Roman", 9), Brushes.Black, new Point(110, 256));
+            e.Graphics.DrawString($": {txtNama.Text}", new Font("Times New Roman", 9), Brushes.Black, new Point(125, 256));
             e.Graphics.DrawString("Kelas", new Font("Times New Roman", 9), Brushes.Black, new Point(20, 276));
-            e.Graphics.DrawString($": {txtKelas.Text}", new Font("Times New Roman", 9), Brushes.Black, new Point(110, 276));
+            e.Graphics.DrawString($": {txtKelas.Text}", new Font("Times New Roman", 9), Brushes.Black, new Point(125, 276));
             e.Graphics.DrawString("Tanggal", new Font("Times New Roman", 9), Brushes.Black, new Point(20, 296));
-            e.Graphics.DrawString($": {txtTanggal.Text}", new Font("Times New Roman", 9), Brushes.Black, new Point(110, 296));
+            e.Graphics.DrawString($": {txtTanggal.Text}", new Font("Times New Roman", 9), Brushes.Black, new Point(125, 296));
             e.Graphics.DrawString("Masuk pada jam", new Font("Times New Roman", 9), Brushes.Black, new Point(20, 316));
-            e.Graphics.DrawString($": {tx_jam1.Text}", new Font("Times New Roman", 9), Brushes.Black, new Point(110, 316));
+            e.Graphics.DrawString($": {tx_jam1.Text}", new Font("Times New Roman", 9), Brushes.Black, new Point(125, 316));
             e.Graphics.DrawString("Alasan terlambat", new Font("Times New Roman", 9), Brushes.Black, new Point(20, 336));
 
             e.Graphics.DrawString("Tinggal di ruang BK", new Font("Times New Roman", 8), Brushes.Red, new Point(260, 356));
@@ -119,11 +133,11 @@ namespace latihribbon
             e.Graphics.DrawString($"Bantul, {tanggal}", new Font("Times New Roman", 7), Brushes.Black, new Point(170, 429));
 
             e.Graphics.DrawString("Nama", new Font("Times New Roman", 9), Brushes.Black, new Point(20, 454));
-            e.Graphics.DrawString($": {txtNama.Text}", new Font("Times New Roman", 9), Brushes.Black, new Point(110, 454));
+            e.Graphics.DrawString($": {txtNama.Text}", new Font("Times New Roman", 9), Brushes.Black, new Point(125, 454));
             e.Graphics.DrawString("Kelas", new Font("Times New Roman", 9), Brushes.Black, new Point(20, 474));
-            e.Graphics.DrawString($": {txtKelas.Text}", new Font("Times New Roman", 9), Brushes.Black, new Point(110, 474));
+            e.Graphics.DrawString($": {txtKelas.Text}", new Font("Times New Roman", 9), Brushes.Black, new Point(125, 474));
             e.Graphics.DrawString("Tanggal", new Font("Times New Roman", 9), Brushes.Black, new Point(20, 494));
-            e.Graphics.DrawString($": {txtTanggal.Text}", new Font("Times New Roman", 9), Brushes.Black, new Point(110, 494));
+            e.Graphics.DrawString($": {txtTanggal.Text}", new Font("Times New Roman", 9), Brushes.Black, new Point(125, 494));
             e.Graphics.DrawString("Alasan Terlambat", new Font("Times New Roman", 9), Brushes.Black, new Point(20, 514));
 
 
@@ -134,7 +148,7 @@ namespace latihribbon
             // memisahkan "Alasan Terlambat" jika terlalu panjang
             string alasan = txtAlasan.Text;
             int batasPanjang = 20;
-            int batasPanjang2 = 21;
+
             
             if (alasan.Length > batasPanjang)
             {
@@ -160,11 +174,11 @@ namespace latihribbon
                         baris1 += k;
                         baris1 += (char.IsLetterOrDigit(k) && char.IsLetterOrDigit(kata[i + 1])) ? '-' : ' ';
                     }
-                    else if ((baris2.Length + 1) < batasPanjang2)
+                    else if ((baris2.Length + 1) < batasPanjang)
                     {
                         baris2 += k;
                     }
-                    else if ((baris2.Length + 1) == batasPanjang2)
+                    else if ((baris2.Length + 1) == batasPanjang)
                     {
                         baris2 += k;
                         baris2 += (char.IsLetterOrDigit(k) && char.IsLetterOrDigit(kata[i + 1])) ? '-' : ' ';
@@ -174,28 +188,28 @@ namespace latihribbon
                         baris3 += k;
                     }
                 }
-                e.Graphics.DrawString($": {baris1.Trim()}", new Font("Times New Roman", 9), Brushes.Black, new Point(110, 140));
-                e.Graphics.DrawString($"{baris2.Trim()}", new Font("Times New Roman", 9), Brushes.Black, new Point(110, 160));
-                e.Graphics.DrawString($"{baris3.Trim()}", new Font("Times New Roman", 9), Brushes.Black, new Point(110, 180));
+                e.Graphics.DrawString($": {baris1.Trim()}", new Font("Times New Roman", 9), Brushes.Black, new Point(125, 140));
+                e.Graphics.DrawString($"  {baris2.Trim()}", new Font("Times New Roman", 9), Brushes.Black, new Point(125, 160));
+                e.Graphics.DrawString($"  {baris3.Trim()}", new Font("Times New Roman", 9), Brushes.Black, new Point(125, 180));
 
-                e.Graphics.DrawString($": {baris1.Trim()}", new Font("Times New Roman", 9), Brushes.Black, new Point(110, 336));
-                e.Graphics.DrawString($"{baris2.Trim()}", new Font("Times New Roman", 9), Brushes.Black, new Point(110, 356));
-                e.Graphics.DrawString($"{baris3.Trim()}", new Font("Times New Roman", 9), Brushes.Black, new Point(110, 376));
+                e.Graphics.DrawString($": {baris1.Trim()}", new Font("Times New Roman", 9), Brushes.Black, new Point(125, 336));
+                e.Graphics.DrawString($"  {baris2.Trim()}", new Font("Times New Roman", 9), Brushes.Black, new Point(125, 356));
+                e.Graphics.DrawString($"  {baris3.Trim()}", new Font("Times New Roman", 9), Brushes.Black, new Point(125, 376));
 
-                e.Graphics.DrawString($": {baris1.Trim()}", new Font("Times New Roman", 9), Brushes.Black, new Point(110, 475 + 36));
-                e.Graphics.DrawString($"{baris2.Trim()}", new Font("Times New Roman", 9), Brushes.Black, new Point(110, 495 + 36));
-                e.Graphics.DrawString($"{baris3.Trim()}", new Font("Times New Roman", 9), Brushes.Black, new Point(110, 515 + 36));
+                e.Graphics.DrawString($": {baris1.Trim()}", new Font("Times New Roman", 9), Brushes.Black, new Point(125, 475 + 36));
+                e.Graphics.DrawString($"  {baris2.Trim()}", new Font("Times New Roman", 9), Brushes.Black, new Point(125, 495 + 36));
+                e.Graphics.DrawString($"  {baris3.Trim()}", new Font("Times New Roman", 9), Brushes.Black, new Point(125, 515 + 36));
             }
             else
             {
-                e.Graphics.DrawString($": {alasan}", new Font("Times New Roman", 9), Brushes.Black, new Point(110, 140));
+                e.Graphics.DrawString($": {alasan}", new Font("Times New Roman", 9), Brushes.Black, new Point(125, 140));
             }
 
 
             //saya dan teman saya mau makan nasi padang seberat 10 kilogram di rumah pak camata
         }
-        #endregion
 
+        #endregion
 
         private void Insert()
         {
@@ -217,13 +231,6 @@ namespace latihribbon
                 Alasan = alasan
             };
             masukDal.Insert(masuk);
-        }
-
-        private bool Validasi()
-        {
-            bool valid = true;
-            if(txtAlasan.Text == string.Empty) valid = false;
-            return valid;
         }
 
         private void txtAlasan_TextChanged(object sender, EventArgs e)

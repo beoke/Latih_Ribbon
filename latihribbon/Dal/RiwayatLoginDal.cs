@@ -23,7 +23,7 @@ namespace latihribbon
             };
         }
 
-/*        public void Insert(RiwayatLoginModel riwayat)
+        public void Insert(RiwayatLoginModel riwayat)
         {
             using (var Conn = new SqlConnection(conn.connstr()))
             {
@@ -40,7 +40,7 @@ namespace latihribbon
 
                 Conn.Execute(sql, Dp);
             }
-        }*/
+        }
 
         public IEnumerable<RiwayatLoginModel> GetSiswaFilter(string sql , object query)
         {
