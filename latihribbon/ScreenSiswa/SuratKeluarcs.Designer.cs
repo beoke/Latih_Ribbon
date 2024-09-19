@@ -389,7 +389,6 @@
             this.Name = "SuratKeluarcs";
             this.Text = "SuratKeluarcs";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.SuratKeluarcs_Load);
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();

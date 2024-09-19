@@ -13,47 +13,39 @@ namespace latihribbon
 {
     public partial class FormMilih : Form
     {
-        private Form _previousForm;
+        private Form FormPemakai;
 
-        public FormMilih(Form previousForm)
+        public FormMilih(Form pemakai)
         {
             InitializeComponent();
-            _previousForm = previousForm;
+            FormPemakai = pemakai;
 
-            // Menyelaraskan ukuran dan lokasi form ini dengan form sebelumnya
-            this.Size = previousForm.Size; // Menyetel ukuran form
-            this.Location = previousForm.Location; // Menyetel lokasi form
-           // InitializeLabels();
-        }
+            this.Size = pemakai.Size; 
+            this.Location = pemakai.Location;
 
-        private void btn_masuk_Click(object sender, EventArgs e)
-        {
-            // membuka form SuratMasuk dan menyembunyikan MainForm
-            SuratMasuk suratMasuk = new SuratMasuk(this);
-            suratMasuk.Show();
-            this.Hide();
-        }
-
-        private void btn_Keluar_Click(object sender, EventArgs e)
-        {
-            // membuka form SuratKeluar dan menyembunyikan MainForm
-            SuratKeluarcs Keluar = new SuratKeluarcs(this);
-            Keluar.Show();
-            this.Hide();
-        }
-
-        private void FormMilih_Load(object sender, EventArgs e)
-        {
-            txtNIS.Text += " "+Pemakai.NIS;
+            txtNIS.Text += " " + Pemakai.NIS;
             txtNama.Text += " " + Pemakai.nama;
             txtKelas.Text += " " + Pemakai.kelas;
         }
 
+        private void btn_masuk_Click(object sender, EventArgs e)
+        {
+            SuratMasuk suratMasuk = new SuratMasuk(FormPemakai,this);
+            this.Hide();
+            suratMasuk.Show();
+        }
+
+        private void btn_Keluar_Click(object sender, EventArgs e)
+        {
+            SuratKeluarcs Keluar = new SuratKeluarcs(FormPemakai,this);
+            this.Hide();
+            Keluar.Show();
+        }
+
         private void btn_kembali_Click(object sender, EventArgs e)
         {
-            Pemakai p = new Pemakai();
-            p.Show();
-            this.Close();
+            this.Hide();
+            FormPemakai.Show();
         }
     }
 }
