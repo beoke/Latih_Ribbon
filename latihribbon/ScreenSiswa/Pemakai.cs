@@ -83,7 +83,7 @@ namespace latihribbon
                 // Tampilkan FormMilih dan sembunyikan form ini
                 formMilih.Show();
                 this.Hide();
-            }
+            } 
         }
 
         private void tx_NIS_KeyPress(object sender, KeyPressEventArgs e)
@@ -91,6 +91,7 @@ namespace latihribbon
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
+                MessageBox.Show(e.KeyChar.ToString());
             }
         }
     }

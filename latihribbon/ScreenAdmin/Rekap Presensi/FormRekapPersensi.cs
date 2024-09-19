@@ -254,7 +254,7 @@ namespace latihribbon.ScreenAdmin
         {
             PopUpKelas kelas = new PopUpKelas("RekapPersensi", txtKelas.Text);
             kelas.ShowDialog();
-            if (kelas.DialogResult == DialogResult.OK)
+            if (kelas.DialogResult == DialogResult.OK) 
             {
                 LoadHistory();
                 InitComponen();
