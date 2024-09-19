@@ -47,6 +47,7 @@ namespace latihribbon
         private void InitIsian()
         {
             string[] kelas = NamaKelas.Split(' ');
+            if (kelas.Length < 1) return;
             string tingkat = kelas[0];
             string jurusan = kelas[1];
             string rombel = kelas.Length > 2 ? kelas[2] : string.Empty;

@@ -52,11 +52,6 @@ namespace latihribbon
             txtNIS1.MaxLength = 9;
 
         }
-
-        public void LoadData()
-        {
-            dataGridView1.DataSource = absensiDal.ListData();
-        }
        
         string tglchange = string.Empty;
         private string FilterSQL(string nis, string nama, string kelas, string keterangan)
@@ -219,6 +214,21 @@ namespace latihribbon
                 txtNIS1.ReadOnly = true;
             }
         }
+
+        int Page = 1;
+        int totalPage;
+        private void LoadData()
+        {
+            string text = "Halaman ";
+            int RowPerPage = 20;
+            int inRowPage = (Page - 1) * RowPerPage;
+            var jumlahRow = absensiDal.CekRows();
+            totalPage = (int)Math.Ceiling((double)jumlahRow / RowPerPage);
+
+            text += $"{Page.ToString()}/{totalPage.ToString()}";
+            lblHalaman.Text = text;
+            dataGridView1.DataSource = absensiDal.ListData(inRowPage, RowPerPage);
+        }
         #region EVENT FILTER
         private void txtNIS_TextChanged(object sender, EventArgs e)
         {
@@ -318,5 +328,22 @@ namespace latihribbon
 
         }
 
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            if (Page < totalPage)
+            {
+                Page++;
+                LoadData();
+            }
+        }
+
+        private void btnPrevious_Click(object sender, EventArgs e)
+        {
+            if (Page > 1)
+            {
+                Page--;
+                LoadData();
+            }
+        }
     }
 }

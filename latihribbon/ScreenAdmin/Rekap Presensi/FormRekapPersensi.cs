@@ -39,26 +39,27 @@ namespace latihribbon.ScreenAdmin
             List<string> Keterangan = new List<string>() { "Semua", "A", "I", "S" };
             KeteranganCombo.DataSource = Keterangan;
 
-            // DataGrid
-            if (dataGridView1.Rows.Count > 0)
-            {
-                dataGridView1.EnableHeadersVisualStyles = false;
-                dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-
-                dataGridView1.DefaultCellStyle.Font = new Font("Sans Serif", 10);
-                dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Sans Serif", 10, FontStyle.Bold);
-                dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.LightBlue;
-                dataGridView1.RowTemplate.Height = 30;
-                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                dataGridView1.ColumnHeadersHeight = 35;
-                dataGridView1.RowHeadersWidth = 51;
-            }
+            dataGridView1.EnableHeadersVisualStyles = false;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            dataGridView1.DefaultCellStyle.Font = new Font("Sans Serif", 10);
+            dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Sans Serif", 10, FontStyle.Bold);
+            dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.LightBlue;
+            dataGridView1.RowTemplate.Height = 30;
+            //dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridView1.Columns["Nis"].Width = 100;
+            dataGridView1.Columns["Persensi"].Width = 100;
+            dataGridView1.Columns["Nama"].Width = 250;
+            dataGridView1.Columns["Kelas"].Width = 100;
+            dataGridView1.Columns["Tanggal"].Width = 100;
+            dataGridView1.Columns["Keterangan"].Width = 120;
+            dataGridView1.ColumnHeadersHeight = 35;
+            dataGridView1.RowHeadersWidth = 51;
         }
 
         public void LoadHistory()
         {
             var gethistory = historyDal.GetData("RekapPersensi");
-            txtKelas.Text = gethistory != null ? gethistory.History : "X RPL 2";
+            txtKelas.Text = gethistory.History;
             LoadData();
         }
 
@@ -66,21 +67,15 @@ namespace latihribbon.ScreenAdmin
         int totalPage;
         private void LoadData()
         {
-            /* var rekap = rekapPersensiDal.ListData().Select(x => new { NIS = x.Nis, Persensi = x.Persensi, Nama = x.Nama, Kelas = x.Kelas, Tanggal = x.Tanggal, Keterangan = x.Keterangan }).ToList();
-             dataGridView1.DataSource = rekap;*/
-
             string text = "Halaman ";
-            int RowPerPage = 15;
+            int RowPerPage = 20;
             int inRowPage = (Page - 1) * RowPerPage;
             var jumlahRow = rekapPersensiDal.CekRows(txtKelas.Text);
-            if (jumlahRow == 0) return;
             totalPage = (int)Math.Ceiling((double)jumlahRow / RowPerPage);
 
             text += $"{Page.ToString()}/{totalPage.ToString()}";
             lblHalaman.Text = text;
             dataGridView1.DataSource = rekapPersensiDal.ListData2(inRowPage, RowPerPage, txtKelas.Text);
-
-
         }
 
         #region     EVENT

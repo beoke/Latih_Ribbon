@@ -12,7 +12,7 @@ namespace latihribbon.Dal
 {
     public class RekapPersensiDal
     {
-        public IEnumerable<AbsensiModel> ListData()
+        public IEnumerable<RekapPersensiModel> ListData()
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
             {
@@ -41,11 +41,11 @@ namespace latihribbon.Dal
                             SUBSTRING(sd.Kelas, CHARINDEX(' ', sd.Kelas) + 1, LEN(sd.Kelas)) ASC,
                             sd.Tanggal DESC";
 
-                return koneksi.Query<AbsensiModel>(sql);
+                return koneksi.Query<RekapPersensiModel>(sql);
             }
         }
 
-        public IEnumerable<AbsensiModel> ListData2(int Offset, int Fetch, string Kelas)
+        public IEnumerable<RekapPersensiModel> ListData2(int Offset, int Fetch, string Kelas)
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
             {
@@ -69,7 +69,7 @@ namespace latihribbon.Dal
                             sd.Tanggal DESC OFFSET @Offset ROWS FETCH NEXT @Fetch ROWS ONLY";
                 
 
-                return koneksi.Query<AbsensiModel>(sql, new { Offset = Offset , Fetch = Fetch, Kelas=Kelas});
+                return koneksi.Query<RekapPersensiModel>(sql, new { Offset = Offset , Fetch = Fetch, Kelas=Kelas});
             }
         }
 

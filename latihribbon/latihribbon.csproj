@@ -161,6 +161,7 @@
     </Compile>
     <Compile Include="Model\HistoryModel.cs" />
     <Compile Include="Model\KelasModel.cs" />
+    <Compile Include="Model\RekapPersensiModel.cs" />
     <Compile Include="Model\RiwayatLoginModel.cs" />
     <Compile Include="Dal\RiwayatLoginDal.cs" />
     <Compile Include="ScreenAdmin\FormKelas.cs">

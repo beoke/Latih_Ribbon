@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace latihribbon.Dal
 {
@@ -41,13 +42,15 @@ namespace latihribbon.Dal
             }
         }
 
-        public IEnumerable<AbsensiModel> ListData()
+        public IEnumerable<AbsensiModel> ListData(int Offset,int Fetch)
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
             {
                 const string sql = @"SELECT p.ID,p.NIS,s.Nama,s.Kelas,p.Tanggal,p.Keterangan
-                                     FROM Persensi p INNER JOIN siswa s ON p.NIS=s.NIS";
-                return koneksi.Query<AbsensiModel>(sql);
+                                     FROM Persensi p INNER JOIN siswa s ON p.NIS=s.NIS
+                                     ORDER BY Tanggal DESC
+                                     OFFSET @Offset ROWS FETCH NEXT @Fetch ROWS ONLY";
+                return koneksi.Query<AbsensiModel>(sql, new {Offset=Offset,Fetch=Fetch});
             }
         }
 
@@ -78,5 +81,14 @@ namespace latihribbon.Dal
                 return koneksi.Query<AbsensiModel>(sql,param);
             }
         }
+
+         public int CekRows()
+         {
+            using (var koneksi = new SqlConnection(Conn.conn.connstr()))
+            {
+                const string sql = @"SELECT COUNT(*) FROM Persensi";
+                return koneksi.QuerySingle<int>(sql);
+            }
+         }
     }
 }
