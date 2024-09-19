@@ -83,8 +83,26 @@ namespace latihribbon
                 // Tampilkan FormMilih dan sembunyikan form ini
                 formMilih.Show();
                 this.Hide();
+              
             } 
+
+
         }
+        private void CloseOldFormsAndOpenNew(Form newForm)
+        {
+            // Cari semua form yang tipe-nya sama dengan form baru yang akan dibuka
+            foreach (Form form in Application.OpenForms.Cast<Form>().ToList())
+            {
+                if (form.GetType() == newForm.GetType()) // Jika tipe form sama
+                {
+                    form.Close(); // Tutup form lama
+                }
+            }
+
+            // Buka form baru
+            newForm.Show();
+        }
+
 
         private void tx_NIS_KeyPress(object sender, KeyPressEventArgs e)
         {

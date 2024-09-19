@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using Dapper;
 using DocumentFormat.OpenXml.Drawing.ChartDrawing;
@@ -100,6 +101,8 @@ namespace latihribbon
             }
         }
 
+    
+
         public void Insert()
         {
             string nis, tujuan;
@@ -108,7 +111,7 @@ namespace latihribbon
 
             nis = txtNIS.Text;
             tanggal = DateTime.Now.Date;
-            jamkeluar = TimeSpan.Parse(tx_keluar.Text);
+            jamkeluar = TimeSpan.Parse(DateTime.Now.TimeOfDay.ToString());
             jammasuk = TimeSpan.Parse(jamKembali.Text);
             tujuan = txtAlasan.Text;
 
