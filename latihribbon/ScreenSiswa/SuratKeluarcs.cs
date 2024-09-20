@@ -16,6 +16,8 @@ namespace latihribbon
 {
     public partial class SuratKeluarcs : Form
     {
+        private readonly Form FormPemakai;
+        private Form FormMilih;
         private readonly DbDal db;
         private readonly KeluarDal keluarDal;
         int print = 0;
@@ -92,6 +94,8 @@ namespace latihribbon
                 FormMilih fm = new FormMilih(NIS,nama,kelas);
                 fm.Show();
                 this.Close();
+                
+
             }
         }
 

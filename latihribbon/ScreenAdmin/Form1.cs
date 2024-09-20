@@ -87,7 +87,7 @@ namespace latihribbon
 
         private void ribbon_riwayatLogin_Click(object sender, EventArgs e)
         {
-            FormRiwayatLogin r = new FormRiwayatLogin();
+            FormUser_RiwayatLogin r = new FormUser_RiwayatLogin();
             ShowFormInPanel(r);
         }
 
