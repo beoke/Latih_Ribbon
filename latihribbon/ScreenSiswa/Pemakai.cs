@@ -13,20 +13,16 @@ namespace latihribbon
     public partial class Pemakai : Form
     {
         private DbDal _dbDal;
-        public static string NIS; //hooh yoga
-        public static string nama;
-        public static string kelas;
         public Pemakai()
         {
             InitializeComponent();
             _dbDal = new DbDal();
-            FormMilih fm;
 
             // Mengatur form menjadi full screen
-            this.FormBorderStyle = FormBorderStyle.None;
+            /*this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
             this.TopMost = true;  // Menempatkan form di atas semua form lain
-            this.ControlBox = true;  // Menyembunyikan tombol close, minimize, maximize
+            this.ControlBox = true;  // Menyembunyikan tombol close, minimize, maximize*/
             this.KeyPreview = true;  // Agar form dapat menangani key press event
         }
 
@@ -79,12 +75,13 @@ namespace latihribbon
                     ResetForm();
                     return;
                 }
+                string NIS, nama, kelas;
                 NIS = siswa.Nis.ToString();
                 nama = siswa.Nama;
                 kelas = siswa.Kelas;
-                FormMilih formMilih = new FormMilih(this);
-                this.Hide();
+                FormMilih formMilih = new FormMilih(NIS,nama,kelas);
                 formMilih.Show();
+                this.Close();
             } 
         }
 

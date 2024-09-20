@@ -18,30 +18,34 @@ namespace latihribbon
 {
     public partial class SuratMasuk : Form
     {
-        private Form FormPemakai;
-        private Form FormMilih;
         private MesBox mesbox = new MesBox();
         private readonly MasukDal masukDal = new MasukDal();
-        public SuratMasuk(Form pemakai, Form formMilih)
+        private string NIS;
+        private string nama;
+        private string kelas;
+        public SuratMasuk(string NIS, string nama, string kelas)
         {
-            InitializeComponent();
-            FormPemakai = pemakai;
-            this.FormMilih = formMilih;    
-            this.Size = pemakai.Size;
-            this.Location = pemakai.Location;
+            InitializeComponent(); 
+            this.NIS = NIS;
+            this.nama = nama;
+            this.kelas = kelas;
             isian();
-
-            this.FormClosing += new FormClosingEventHandler(Form1_FormClosing);
+/*
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.WindowState = FormWindowState.Maximized;
+            this.TopMost = true;  // Menempatkan form di atas semua form lain
+            this.ControlBox = true;  // Menyembunyikan tombol close, minimize, maximize*/
+            this.KeyPreview = true;  // Agar form dapat menangani key press event
         }
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            FormPemakai.Close();
+            //FormPemakai.Close();
         }
         public void isian()
         {
-            txtNIS.Text = Pemakai.NIS;
-            txtNama.Text = Pemakai.nama;
-            txtKelas.Text = Pemakai.kelas;
+            txtNIS.Text = NIS;
+            txtNama.Text =nama;
+            txtKelas.Text =kelas;
             tx_jam1.Text = DateTime.Now.ToString("HH:mm");
             txtTanggal.Text = DateTime.Now.ToString("dddd ,dd MMMM yyyy");
             txtAlasan.MaxLength = 60;
@@ -49,7 +53,8 @@ namespace latihribbon
 
         private void btn_Kembali_Click(object sender, EventArgs e)
         {
-            FormMilih.Show();
+            FormMilih fm = new FormMilih(NIS,nama,kelas);
+            fm.Show();
             this.Close();
         }
 
@@ -90,12 +95,10 @@ namespace latihribbon
             //Insert();
 
             System.Threading.Thread.Sleep(1000);
-            FormMilih.Close();
-            Pemakai form1 = Application.OpenForms.OfType<Pemakai>().FirstOrDefault();
-            form1.ResetForm();
-            Pemakai p = new Pemakai();
-            p.Show();
+            FormMilih fm = new FormMilih(NIS,nama,kelas);
+            fm.Show();
             this.Close();
+
         }
 
         #region PRINT
@@ -241,6 +244,15 @@ namespace latihribbon
         {
          
             lblLength.Text = $"{txtAlasan.Text.Length}/60";
+        }
+
+        private void SuratMasuk_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.Alt && e.KeyCode == Keys.K)
+            {
+                // Keluar dari aplikasi saat kombinasi tombol Ctrl + Alt + K ditekan
+                Application.Exit();
+            }
         }
     }
     

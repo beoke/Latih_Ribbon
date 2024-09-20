@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DocumentFormat.OpenXml.Wordprocessing;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,51 +14,54 @@ namespace latihribbon
 {
     public partial class FormMilih : Form
     {
-        private Pemakai FormPemakai;
-
-        public FormMilih(Pemakai pemakai)
+        private string NIS;
+        private string nama;
+        private string kelas;
+        public FormMilih(string NIS,string nama,string kelas)
         {
             InitializeComponent();
-            FormPemakai = pemakai;
 
-            this.Size = pemakai.Size; 
-            this.Location = pemakai.Location;
+            this.NIS = NIS;
+            this.nama = nama;
+            this.kelas = kelas;
+            txtNIS.Text += " " + NIS;
+            txtNama.Text += " " + nama;
+            txtKelas.Text += " " + kelas;
 
-            txtNIS.Text += " " + Pemakai.NIS;
-            txtNama.Text += " " + Pemakai.nama;
-            txtKelas.Text += " " + Pemakai.kelas;
-
-            this.FormClosing += new FormClosingEventHandler(Form1_FormClosing);
+/*            this.FormBorderStyle = FormBorderStyle.None;
+            this.WindowState = FormWindowState.Maximized;
+            this.TopMost = true;  // Menempatkan form di atas semua form lain
+            this.ControlBox = true;  // Menyembunyikan tombol close, minimize, maximize*/
+            this.KeyPreview = true;  // Agar form dapat menangani key press event
         }
 
         private void btn_masuk_Click(object sender, EventArgs e)
         {
-            SuratMasuk suratMasuk = new SuratMasuk(FormPemakai,this);
-            this.Hide();
+            SuratMasuk suratMasuk = new SuratMasuk(NIS,nama,kelas);
             suratMasuk.Show();
+            this.Close();
         }
 
         private void btn_Keluar_Click(object sender, EventArgs e)
         {
-            SuratKeluarcs Keluar = new SuratKeluarcs(FormPemakai,this);
-            this.Hide();
+            SuratKeluarcs Keluar = new SuratKeluarcs(NIS,nama,kelas);
             Keluar.Show();
+            this.Close();
         }
 
         private void btn_kembali_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            FormPemakai.Show();
+            Pemakai p = new Pemakai();
+            p.Show();
+            this.Close();
         }
 
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        private void FormMilih_KeyDown(object sender, KeyEventArgs e)
         {
-            foreach (Form form in Application.OpenForms.Cast<Form>().ToList())
+            if (e.Control && e.Alt && e.KeyCode == Keys.K)
             {
-                if (form != this)
-                {
-                    form.Close();
-                }
+                // Keluar dari aplikasi saat kombinasi tombol Ctrl + Alt + K ditekan
+                Application.Exit();
             }
         }
     }
