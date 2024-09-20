@@ -153,6 +153,12 @@
     <Compile Include="Dal\SiswaDal.cs" />
     <Compile Include="Dal\MasukDal.cs" />
     <Compile Include="Dal\DbDal.cs" />
+    <Compile Include="ScreenAdmin\FormAddUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScreenAdmin\FormAddUser.Designer.cs">
+      <DependentUpon>FormAddUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="ScreenAdmin\FormRiwayatLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -275,6 +281,9 @@
     <Compile Include="UpdateInsert\SiswaIU.Designer.cs">
       <DependentUpon>SiswaIU.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ScreenAdmin\FormAddUser.resx">
+      <DependentUpon>FormAddUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ScreenAdmin\FormRiwayatLogin.resx">
       <DependentUpon>FormRiwayatLogin.cs</DependentUpon>
     </EmbeddedResource>
