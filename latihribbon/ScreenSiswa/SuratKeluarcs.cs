@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using Dapper;
 using DocumentFormat.OpenXml.Drawing.ChartDrawing;
@@ -17,28 +18,31 @@ namespace latihribbon
     {
         private readonly DbDal db;
         private readonly KeluarDal keluarDal;
-        private Form _previousForm;
+        private Pemakai formPemakai;
+        private Form formMilih;
         int print = 0;
         private readonly MesBox mesBox = new MesBox();
         DateTime globalCurrentTime = DateTime.Now;
 
 
 
-        public SuratKeluarcs(Form previousForm)
+        public SuratKeluarcs(Pemakai pemakai, Form formMilih)
         {
             InitializeComponent();
             db = new DbDal();
             keluarDal = new KeluarDal();
 
-            this.Load += new System.EventHandler(this.SuratKeluarcs_Load);
-            _previousForm = previousForm; // menyimpan referensi ke form sebelumnya
+            formPemakai = pemakai; // menyimpan referensi ke form sebelumnya
+            this.formMilih = formMilih; // samasajaloh
 
             // Menyelaraskan ukuran dan lokasi form ini dengan form sebelumnya
-            this.Size = previousForm.Size; // Menyetel ukuran form
-            this.Location = previousForm.Location; // Menyetel lokasi form
+            this.Size = pemakai.Size; // Menyetel ukuran form
+            this.Location = pemakai.Location; // Menyetel lokasi form
 
             isian();
             bahasa();
+
+            this.FormClosing += new FormClosingEventHandler(Form1_FormClosing);
         }
 
         public void isian()
@@ -53,20 +57,10 @@ namespace latihribbon
 
         private void btn_kembali_Click(object sender, EventArgs e)
         {
-            // menampilkan form sebelumnya dan menutup form saat ini
-            _previousForm.Show();
+            formMilih.Show();
             this.Close();
         }
 
-
-        private void SuratKeluarcs_Load(object sender, EventArgs e) // ubah ke jam saja
-        {
-            // Format waktu yang diinginkan
-
-            /*
-                        // Opsional: Jika ingin membuat TextBox read-onsly agar tidak bisa diubah pengguna
-                        tx_keluar.ReadOnly = true;*/
-        }
         private bool Validasi()
         {
 
@@ -92,13 +86,16 @@ namespace latihribbon
             if (mesBox.MesKonfirmasi("Apakah data sudah benar ?"))
             {
                 Print();
-                Insert();
+                //Insert();
                 System.Threading.Thread.Sleep(1000);
-                Pemakai p = new Pemakai();
-                p.Show();
+                formMilih.Close();
+                formPemakai.ResetForm();
+                formPemakai.Show();
                 this.Close();
             }
         }
+
+    
 
         public void Insert()
         {
@@ -108,7 +105,7 @@ namespace latihribbon
 
             nis = txtNIS.Text;
             tanggal = DateTime.Now.Date;
-            jamkeluar = TimeSpan.Parse(tx_keluar.Text);
+            jamkeluar = TimeSpan.Parse(DateTime.Now.TimeOfDay.ToString());
             jammasuk = TimeSpan.Parse(jamKembali.Text);
             tujuan = txtAlasan.Text;
 
@@ -122,7 +119,10 @@ namespace latihribbon
             };
             keluarDal.Insert(keluar);
         }
-
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            formPemakai.Close();
+        }
 
         public void bahasa()
         {

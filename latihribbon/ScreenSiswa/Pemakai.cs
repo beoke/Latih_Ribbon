@@ -20,13 +20,23 @@ namespace latihribbon
         {
             InitializeComponent();
             _dbDal = new DbDal();
+            FormMilih fm;
+
+            // Mengatur form menjadi full screen
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.WindowState = FormWindowState.Maximized;
+            this.TopMost = true;  // Menempatkan form di atas semua form lain
+            this.ControlBox = true;  // Menyembunyikan tombol close, minimize, maximize
+            this.KeyPreview = true;  // Agar form dapat menangani key press event
         }
 
+ 
+        
         private void btn_enter_Click(object sender, EventArgs e)
         {
             ENTER();
         }
-        private void ResetForm()
+        public void ResetForm()
         {
             // Mengosongkan TextBox dan mengembalikan fokus ke TextBox NIS
             tx_NIS.Clear();
@@ -62,36 +72,37 @@ namespace latihribbon
             }
             else
             {
-                // Munculkan pesan bahwa data ditemukan dengan pilihan Yes dan No
                 DialogResult result = MessageBox.Show($"NIS: {siswa.Nis} Dengan Nama: {siswa.Nama}", "Data ditemukan", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
-                // Jika pengguna memilih No, reset form dan kembalikan fokus ke input NIS
                 if (result == DialogResult.No)
                 {
                     ResetForm();
                     return;
                 }
-
-                // Jika pengguna memilih Yes, lanjutkan ke FormMilih
-                FormMilih formMilih = new FormMilih(this);
-
-                //yoga iki
                 NIS = siswa.Nis.ToString();
                 nama = siswa.Nama;
                 kelas = siswa.Kelas;
-
-                // Tampilkan FormMilih dan sembunyikan form ini
-                formMilih.Show();
+                FormMilih formMilih = new FormMilih(this);
                 this.Hide();
+                formMilih.Show();
             } 
         }
+
 
         private void tx_NIS_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
-                MessageBox.Show(e.KeyChar.ToString());
+            }
+        }
+
+        private void Pemakai_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.Alt && e.KeyCode == Keys.K)
+            {
+                // Keluar dari aplikasi saat kombinasi tombol Ctrl + Alt + K ditekan
+                Application.Exit();
             }
         }
     }

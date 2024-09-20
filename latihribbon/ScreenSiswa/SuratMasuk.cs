@@ -18,18 +18,25 @@ namespace latihribbon
 {
     public partial class SuratMasuk : Form
     {
-        private Form _previousForm;
+        private Form FormPemakai;
+        private Form FormMilih;
         private MesBox mesbox = new MesBox();
         private readonly MasukDal masukDal = new MasukDal();
-        public SuratMasuk(Form previousForm)
+        public SuratMasuk(Form pemakai, Form formMilih)
         {
             InitializeComponent();
-            _previousForm = previousForm;
-            this.Size = previousForm.Size;
-            this.Location = previousForm.Location;
+            FormPemakai = pemakai;
+            this.FormMilih = formMilih;    
+            this.Size = pemakai.Size;
+            this.Location = pemakai.Location;
             isian();
-        }
 
+            this.FormClosing += new FormClosingEventHandler(Form1_FormClosing);
+        }
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            FormPemakai.Close();
+        }
         public void isian()
         {
             txtNIS.Text = Pemakai.NIS;
@@ -42,7 +49,7 @@ namespace latihribbon
 
         private void btn_Kembali_Click(object sender, EventArgs e)
         {
-            _previousForm.Show();
+            FormMilih.Show();
             this.Close();
         }
 
@@ -83,8 +90,11 @@ namespace latihribbon
             //Insert();
 
             System.Threading.Thread.Sleep(1000);
-            Pemakai pemakai = new Pemakai();
-            pemakai.Show();
+            FormMilih.Close();
+            Pemakai form1 = Application.OpenForms.OfType<Pemakai>().FirstOrDefault();
+            form1.ResetForm();
+            Pemakai p = new Pemakai();
+            p.Show();
             this.Close();
         }
 

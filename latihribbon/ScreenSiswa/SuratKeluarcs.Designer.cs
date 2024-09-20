@@ -48,12 +48,12 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.LabelLenghKeperluan = new System.Windows.Forms.Label();
             this.txtAlasan = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btn_kembali = new System.Windows.Forms.Button();
             this.btn_PrintKeluar = new System.Windows.Forms.Button();
-            this.LabelLenghKeperluan = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -86,7 +86,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1540, 846);
+            this.panel2.Size = new System.Drawing.Size(1540, 983);
             this.panel2.TabIndex = 74;
             // 
             // panel3
@@ -110,7 +110,7 @@
             this.panel3.Location = new System.Drawing.Point(21, 160);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1118, 537);
+            this.panel3.Size = new System.Drawing.Size(1118, 674);
             this.panel3.TabIndex = 76;
             // 
             // txtTanggal
@@ -287,8 +287,20 @@
             this.panel4.Location = new System.Drawing.Point(1169, 160);
             this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(345, 537);
+            this.panel4.Size = new System.Drawing.Size(345, 674);
             this.panel4.TabIndex = 77;
+            // 
+            // LabelLenghKeperluan
+            // 
+            this.LabelLenghKeperluan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.LabelLenghKeperluan.AutoSize = true;
+            this.LabelLenghKeperluan.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelLenghKeperluan.Location = new System.Drawing.Point(249, 618);
+            this.LabelLenghKeperluan.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LabelLenghKeperluan.Name = "LabelLenghKeperluan";
+            this.LabelLenghKeperluan.Size = new System.Drawing.Size(63, 32);
+            this.LabelLenghKeperluan.TabIndex = 65;
+            this.LabelLenghKeperluan.Text = "0/60";
             // 
             // txtAlasan
             // 
@@ -302,7 +314,7 @@
             this.txtAlasan.MaxLength = 60;
             this.txtAlasan.Multiline = true;
             this.txtAlasan.Name = "txtAlasan";
-            this.txtAlasan.Size = new System.Drawing.Size(69, 454);
+            this.txtAlasan.Size = new System.Drawing.Size(69, 591);
             this.txtAlasan.TabIndex = 43;
             this.txtAlasan.TextChanged += new System.EventHandler(this.txtAlasan_TextChanged);
             // 
@@ -326,7 +338,7 @@
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel5.Controls.Add(this.btn_kembali);
             this.panel5.Controls.Add(this.btn_PrintKeluar);
-            this.panel5.Location = new System.Drawing.Point(21, 720);
+            this.panel5.Location = new System.Drawing.Point(21, 857);
             this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1491, 100);
@@ -367,29 +379,16 @@
             this.btn_PrintKeluar.UseVisualStyleBackColor = true;
             this.btn_PrintKeluar.Click += new System.EventHandler(this.btn_PrintKeluar_Click);
             // 
-            // LabelLenghKeperluan
-            // 
-            this.LabelLenghKeperluan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.LabelLenghKeperluan.AutoSize = true;
-            this.LabelLenghKeperluan.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelLenghKeperluan.Location = new System.Drawing.Point(249, 481);
-            this.LabelLenghKeperluan.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.LabelLenghKeperluan.Name = "LabelLenghKeperluan";
-            this.LabelLenghKeperluan.Size = new System.Drawing.Size(63, 32);
-            this.LabelLenghKeperluan.TabIndex = 65;
-            this.LabelLenghKeperluan.Text = "0/60";
-            // 
             // SuratKeluarcs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1540, 846);
+            this.ClientSize = new System.Drawing.Size(1540, 983);
             this.Controls.Add(this.panel2);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "SuratKeluarcs";
             this.Text = "SuratKeluarcs";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.SuratKeluarcs_Load);
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
