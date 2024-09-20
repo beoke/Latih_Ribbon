@@ -16,24 +16,24 @@ namespace latihribbon
 {
     public partial class SuratKeluarcs : Form
     {
+        private readonly Form FormPemakai;
+        private Form FormMilih;
         private readonly DbDal db;
         private readonly KeluarDal keluarDal;
-        private Pemakai formPemakai;
-        private Form formMilih;
         int print = 0;
         private readonly MesBox mesBox = new MesBox();
         DateTime globalCurrentTime = DateTime.Now;
 
 
 
-        public SuratKeluarcs(Pemakai pemakai, Form formMilih)
+        public SuratKeluarcs(Form pemakai, Form formMilih)
         {
             InitializeComponent();
             db = new DbDal();
             keluarDal = new KeluarDal();
 
-            formPemakai = pemakai; // menyimpan referensi ke form sebelumnya
-            this.formMilih = formMilih; // samasajaloh
+            FormPemakai = pemakai; // menyimpan referensi ke form sebelumnya
+            this.FormMilih = formMilih; // samasajaloh
 
             // Menyelaraskan ukuran dan lokasi form ini dengan form sebelumnya
             this.Size = pemakai.Size; // Menyetel ukuran form
@@ -42,7 +42,11 @@ namespace latihribbon
             isian();
             bahasa();
 
-            this.FormClosing += new FormClosingEventHandler(Form1_FormClosing);
+          /*  this.FormBorderStyle = FormBorderStyle.None;
+            this.WindowState = FormWindowState.Maximized;
+            this.TopMost = true;  // Menempatkan form di atas semua form lain
+            this.ControlBox = true;  // Menyembunyikan tombol close, minimize, maximize*/
+            this.KeyPreview = true;  // Agar form dapat menangani key press event
         }
 
         public void isian()
@@ -57,7 +61,7 @@ namespace latihribbon
 
         private void btn_kembali_Click(object sender, EventArgs e)
         {
-            formMilih.Show();
+            FormMilih.Show();
             this.Close();
         }
 
@@ -85,13 +89,15 @@ namespace latihribbon
 
             if (mesBox.MesKonfirmasi("Apakah data sudah benar ?"))
             {
-                Print();
+                //Print();
                 //Insert();
                 System.Threading.Thread.Sleep(1000);
-                formMilih.Close();
-                formPemakai.ResetForm();
-                formPemakai.Show();
+                Pemakai form1 = Application.OpenForms.OfType<Pemakai>().FirstOrDefault();
+                form1.ResetForm();
+                form1.Show();
                 this.Close();
+                
+
             }
         }
 
@@ -118,10 +124,6 @@ namespace latihribbon
                 Tujuan = tujuan
             };
             keluarDal.Insert(keluar);
-        }
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            formPemakai.Close();
         }
 
         public void bahasa()
@@ -281,6 +283,15 @@ namespace latihribbon
             string keperluan = txtAlasan.Text;
 
             LabelLenghKeperluan.Text = $"{keperluan.Length}/60";
+        }
+
+        private void SuratKeluarcs_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.Alt && e.KeyCode == Keys.K)
+            {
+                // Keluar dari aplikasi saat kombinasi tombol Ctrl + Alt + K ditekan
+                Application.Exit();
+            }
         }
     }
 }

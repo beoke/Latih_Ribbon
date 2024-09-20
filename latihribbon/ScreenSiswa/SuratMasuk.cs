@@ -30,12 +30,16 @@ namespace latihribbon
             this.Size = pemakai.Size;
             this.Location = pemakai.Location;
             isian();
-
-            this.FormClosing += new FormClosingEventHandler(Form1_FormClosing);
+/*
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.WindowState = FormWindowState.Maximized;
+            this.TopMost = true;  // Menempatkan form di atas semua form lain
+            this.ControlBox = true;  // Menyembunyikan tombol close, minimize, maximize*/
+            this.KeyPreview = true;  // Agar form dapat menangani key press event
         }
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            FormPemakai.Close();
+            //FormPemakai.Close();
         }
         public void isian()
         {
@@ -93,8 +97,7 @@ namespace latihribbon
             FormMilih.Close();
             Pemakai form1 = Application.OpenForms.OfType<Pemakai>().FirstOrDefault();
             form1.ResetForm();
-            Pemakai p = new Pemakai();
-            p.Show();
+            form1.Show();
             this.Close();
         }
 
@@ -241,6 +244,15 @@ namespace latihribbon
         {
          
             lblLength.Text = $"{txtAlasan.Text.Length}/60";
+        }
+
+        private void SuratMasuk_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.Alt && e.KeyCode == Keys.K)
+            {
+                // Keluar dari aplikasi saat kombinasi tombol Ctrl + Alt + K ditekan
+                Application.Exit();
+            }
         }
     }
     

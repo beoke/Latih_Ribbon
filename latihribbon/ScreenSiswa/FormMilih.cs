@@ -27,7 +27,11 @@ namespace latihribbon
             txtNama.Text += " " + Pemakai.nama;
             txtKelas.Text += " " + Pemakai.kelas;
 
-            this.FormClosing += new FormClosingEventHandler(Form1_FormClosing);
+/*            this.FormBorderStyle = FormBorderStyle.None;
+            this.WindowState = FormWindowState.Maximized;
+            this.TopMost = true;  // Menempatkan form di atas semua form lain
+            this.ControlBox = true;  // Menyembunyikan tombol close, minimize, maximize*/
+            this.KeyPreview = true;  // Agar form dapat menangani key press event
         }
 
         private void btn_masuk_Click(object sender, EventArgs e)
@@ -50,14 +54,12 @@ namespace latihribbon
             FormPemakai.Show();
         }
 
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        private void FormMilih_KeyDown(object sender, KeyEventArgs e)
         {
-            foreach (Form form in Application.OpenForms.Cast<Form>().ToList())
+            if (e.Control && e.Alt && e.KeyCode == Keys.K)
             {
-                if (form != this)
-                {
-                    form.Close();
-                }
+                // Keluar dari aplikasi saat kombinasi tombol Ctrl + Alt + K ditekan
+                Application.Exit();
             }
         }
     }
