@@ -20,6 +20,7 @@ namespace latihribbon
         {
             InitializeComponent();
             _dbDal = new DbDal();
+            FormMilih fm;
 
             // Mengatur form menjadi full screen
             this.FormBorderStyle = FormBorderStyle.None;
@@ -28,6 +29,8 @@ namespace latihribbon
             this.ControlBox = true;  // Menyembunyikan tombol close, minimize, maximize
             this.KeyPreview = true;  // Agar form dapat menangani key press event
         }
+
+ 
         
         private void btn_enter_Click(object sender, EventArgs e)
         {

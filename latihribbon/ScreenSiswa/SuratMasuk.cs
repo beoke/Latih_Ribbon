@@ -30,8 +30,13 @@ namespace latihribbon
             this.Size = pemakai.Size;
             this.Location = pemakai.Location;
             isian();
-        }
 
+            this.FormClosing += new FormClosingEventHandler(Form1_FormClosing);
+        }
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            FormPemakai.Close();
+        }
         public void isian()
         {
             txtNIS.Text = Pemakai.NIS;

@@ -13,9 +13,9 @@ namespace latihribbon
 {
     public partial class FormMilih : Form
     {
-        private Form FormPemakai;
+        private Pemakai FormPemakai;
 
-        public FormMilih(Form pemakai)
+        public FormMilih(Pemakai pemakai)
         {
             InitializeComponent();
             FormPemakai = pemakai;
@@ -26,6 +26,8 @@ namespace latihribbon
             txtNIS.Text += " " + Pemakai.NIS;
             txtNama.Text += " " + Pemakai.nama;
             txtKelas.Text += " " + Pemakai.kelas;
+
+            this.FormClosing += new FormClosingEventHandler(Form1_FormClosing);
         }
 
         private void btn_masuk_Click(object sender, EventArgs e)
@@ -46,6 +48,17 @@ namespace latihribbon
         {
             this.Hide();
             FormPemakai.Show();
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            foreach (Form form in Application.OpenForms.Cast<Form>().ToList())
+            {
+                if (form != this)
+                {
+                    form.Close();
+                }
+            }
         }
     }
 }

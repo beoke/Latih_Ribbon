@@ -18,7 +18,7 @@ namespace latihribbon
     {
         private readonly DbDal db;
         private readonly KeluarDal keluarDal;
-        private Form formPemakai;
+        private Pemakai formPemakai;
         private Form formMilih;
         int print = 0;
         private readonly MesBox mesBox = new MesBox();
@@ -26,7 +26,7 @@ namespace latihribbon
 
 
 
-        public SuratKeluarcs(Form pemakai, Form formMilih)
+        public SuratKeluarcs(Pemakai pemakai, Form formMilih)
         {
             InitializeComponent();
             db = new DbDal();
@@ -41,6 +41,8 @@ namespace latihribbon
 
             isian();
             bahasa();
+
+            this.FormClosing += new FormClosingEventHandler(Form1_FormClosing);
         }
 
         public void isian()
@@ -87,9 +89,7 @@ namespace latihribbon
                 //Insert();
                 System.Threading.Thread.Sleep(1000);
                 formMilih.Close();
-                /*                formPemakai.ResetForm();*/
-                Pemakai form1 = Application.OpenForms.OfType<Pemakai>().FirstOrDefault();
-                form1.ResetForm();
+                formPemakai.ResetForm();
                 formPemakai.Show();
                 this.Close();
             }
@@ -119,7 +119,10 @@ namespace latihribbon
             };
             keluarDal.Insert(keluar);
         }
-
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            formPemakai.Close();
+        }
 
         public void bahasa()
         {
