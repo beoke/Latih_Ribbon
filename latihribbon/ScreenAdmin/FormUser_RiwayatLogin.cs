@@ -13,11 +13,11 @@ using System.Windows.Forms;
 
 namespace latihribbon
 {
-    public partial class FormRiwayatLogin : Form
+    public partial class FormUser_RiwayatLogin : Form
     {
 
         private readonly RiwayatLoginDal _riwayatLoginDal;
-        public FormRiwayatLogin()
+        public FormUser_RiwayatLogin()
         {
             _riwayatLoginDal = new RiwayatLoginDal();
             InitializeComponent();
