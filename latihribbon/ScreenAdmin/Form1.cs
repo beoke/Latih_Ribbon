@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -19,20 +20,9 @@ namespace latihribbon
             InitializeComponent();
 
         }
-
-        private void ribbon1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
         private void ShowFormInPanel(Form form) // untuk menambahkan form di dalam panel
         {
+           
             form.TopLevel = false; // Memberitahu bahwa form ini bagian dari form lain
             form.FormBorderStyle = FormBorderStyle.None; // Menghilangkan border form
             form.Dock = DockStyle.Fill; // Menyesuaikan ukuran form dengan panel
@@ -69,6 +59,10 @@ namespace latihribbon
 
         private void ribbonSiswaAbsensi_Click(object sender, EventArgs e)
         {
+            LoadingForm lf = new LoadingForm();
+            ShowFormInPanel(lf);
+            System.Threading.Thread.Sleep(2000);
+
             FormSIswa dataSiswa = new FormSIswa();
             ShowFormInPanel(dataSiswa);
         }

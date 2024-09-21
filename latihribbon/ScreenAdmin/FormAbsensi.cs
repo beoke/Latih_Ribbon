@@ -2,6 +2,7 @@
 using latihribbon.Dal;
 using latihribbon.Helper;
 using latihribbon.Model;
+using latihribbon.ScreenAdmin;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,8 +10,10 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace latihribbon
 {
@@ -19,21 +22,34 @@ namespace latihribbon
         private readonly AbsensiDal absensiDal;
         private readonly SiswaDal siswaDal;
         private MesBox mesBox = new MesBox();
-        int globalId = 0;
+        private int globalId = 0;
         public FormAbsensi()
         {
-            InitializeComponent();
             absensiDal = new AbsensiDal();
             siswaDal = new SiswaDal();
+            InitializeComponent();
+            buf();
             InitComponent();
             LoadData();
         }
+
+        public void buf()
+        {
+            typeof(DataGridView).InvokeMember("DoubleBuffered",
+        System.Reflection.BindingFlags.NonPublic |
+        System.Reflection.BindingFlags.Instance |
+        System.Reflection.BindingFlags.SetProperty,
+        null,
+        dataGridView1,
+        new object[] { true });
+        }
+  
 
         public void InitComponent()
         {
             List<string> ketCombo = new List<string>() { "Semua","A","I","S"};
             KeteranganCombo.DataSource = ketCombo;
-
+    
             // DataGrid
             if (dataGridView1.Rows.Count > 0)
             {
@@ -52,26 +68,37 @@ namespace latihribbon
             txtNIS1.MaxLength = 9;
 
         }
-       
         string tglchange = string.Empty;
-        private string FilterSQL(string nis, string nama, string kelas, string keterangan)
+        private string FilterSQL(string digunakanUntuk,string nis, string nama, string kelas, string keterangan)
         {
+            string sqlc = string.Empty;
             List<string> fltr = new List<string>();
-            string sql = @"SELECT p.ID,p.NIS,s.Nama,s.Kelas,p.Tanggal,p.Keterangan
-                                     FROM Persensi p INNER JOIN siswa s ON p.NIS=s.NIS";
-            if (nis != "") fltr.Add("p.NIS LIKE @NIS+'%'");
-            if (nama != "") fltr.Add("s.Nama LIKE '%'+@Nama+'%'");
-            if (kelas != "") fltr.Add("s.Kelas LIKE '%'+@Kelas+'%'");
-            if (keterangan != "Semua") fltr.Add("p.Keterangan LIKE @keterangan+'%'");
-            if (tglchange != "") fltr.Add("p.Tanggal BETWEEN @tgl1 AND @tgl2");
-
+            if (digunakanUntuk == "data")
+            {
+                if (nis != "") fltr.Add("p.NIS LIKE @NIS+'%'");
+                if (nama != "") fltr.Add("s.Nama LIKE '%'+@Nama+'%'");
+                if (kelas != "") fltr.Add("s.Kelas LIKE '%'+@Kelas+'%'");
+                if (keterangan != "Semua") fltr.Add("p.Keterangan LIKE @Keterangan+'%'");
+                if (tglchange != "") fltr.Add("p.Tanggal BETWEEN @tgl1 AND @tgl2");
+            }
+            else
+            {
+                if (nis != "") fltr.Add("p.NIS LIKE @NIS+'%'");
+                if (nama != "") fltr.Add("Nama LIKE '%'+@Nama+'%'");
+                if (kelas != "") fltr.Add("Kelas LIKE '%'+@Kelas+'%'");
+                if (keterangan != "Semua") fltr.Add("Keterangan LIKE @Keterangan+'%'");
+                if (tglchange != "") fltr.Add("Tanggal BETWEEN @tgl1 AND @tgl2");
+            }
+       
             if (fltr.Count > 0)
-                sql += " WHERE " + string.Join(" AND ",fltr);
+                sqlc += " WHERE " + string.Join(" AND ",fltr);
             tglchange = string.Empty;
-            return sql;
+            return sqlc;
         }
 
-        private void Filter()
+        int Page = 1;
+        int totalPage;
+        private void LoadData()
         {
             string nis, nama, kelas, keterangan;
             DateTime tgl1, tgl2;
@@ -83,16 +110,28 @@ namespace latihribbon
             tgl1 = tglsatu.Value.Date;
             tgl2 = tgldua.Value.Date;
 
-            var sql = FilterSQL(nis,nama,kelas,keterangan);
+            var sqlc = FilterSQL("data",nis, nama, kelas, keterangan);
+            var sqlcRow = FilterSQL("JumlahBaris", nis, nama, kelas, keterangan);
             var dp = new DynamicParameters();
-            dp.Add("@NIS",nis);
-            dp.Add("@Nama",nama);
-            dp.Add("@Keterangan",keterangan);
-            dp.Add("@Kelas",kelas);
-            dp.Add("@tgl1",tgl1);
-            dp.Add("@tgl2",tgl2);
+            dp.Add("@NIS", nis);
+            dp.Add("@Nama", nama);
+            dp.Add("@Keterangan", keterangan);
+            dp.Add("@Kelas", kelas);
+            dp.Add("@tgl1", tgl1);
+            dp.Add("@tgl2", tgl2);
 
-            dataGridView1.DataSource = absensiDal.Filter(sql,dp);
+            string text = "Halaman ";
+            int RowPerPage = 200;
+            int inRowPage = (Page - 1) * RowPerPage;
+            var jumlahRow = absensiDal.CekRows(sqlcRow,dp);
+            totalPage = (int)Math.Ceiling((double)jumlahRow / RowPerPage);
+
+            text += $"{Page.ToString()}/{totalPage.ToString()}";
+            lblHalaman.Text = text;
+            dp.Add("@Offset",inRowPage);
+            dp.Add("@Fetch",RowPerPage);
+            dataGridView1.DataSource = absensiDal.ListData(sqlc,dp);
+
 
         }
 
@@ -215,51 +254,38 @@ namespace latihribbon
             }
         }
 
-        int Page = 1;
-        int totalPage;
-        private void LoadData()
-        {
-            string text = "Halaman ";
-            int RowPerPage = 20;
-            int inRowPage = (Page - 1) * RowPerPage;
-            var jumlahRow = absensiDal.CekRows();
-            totalPage = (int)Math.Ceiling((double)jumlahRow / RowPerPage);
-
-            text += $"{Page.ToString()}/{totalPage.ToString()}";
-            lblHalaman.Text = text;
-            dataGridView1.DataSource = absensiDal.ListData(inRowPage, RowPerPage);
-        }
+    
         #region EVENT FILTER
         private void txtNIS_TextChanged(object sender, EventArgs e)
         {
-            Filter();
+            LoadData();
         }
 
         private void tglsatu_ValueChanged(object sender, EventArgs e)
         {
             tglchange = "change";
-            Filter();
+            LoadData();
         }
 
         private void tgldua_ValueChanged(object sender, EventArgs e)
         {
             tglchange = "change";
-            Filter();
+            LoadData();
         }
 
         private void txtNama_TextChanged(object sender, EventArgs e)
         {
-            Filter();
+            LoadData();
         }
 
         private void txtKelas_TextChanged(object sender, EventArgs e)
         {
-            Filter();
+            LoadData();
         }
 
         private void KeteranganCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Filter();
+            LoadData();
         }
         #endregion
 
@@ -271,7 +297,7 @@ namespace latihribbon
             KeteranganCombo.SelectedIndex = 0;
             tglsatu.Value = DateTime.Now;
             tgldua.Value = DateTime.Now;
-            Filter();
+            LoadData();
         }
 
         private void txtNIS1_TextChanged(object sender, EventArgs e)
