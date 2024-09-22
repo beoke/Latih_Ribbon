@@ -53,6 +53,7 @@
             this.ribbonRekapPersensi = new System.Windows.Forms.RibbonButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ribbonPanel11 = new System.Windows.Forms.RibbonPanel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -61,7 +62,7 @@
             // 
             this.ribbon1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.ribbon1.Location = new System.Drawing.Point(0, 0);
-            this.ribbon1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ribbon1.Margin = new System.Windows.Forms.Padding(2);
             this.ribbon1.Minimized = false;
             this.ribbon1.Name = "ribbon1";
             // 
@@ -196,6 +197,7 @@
             this.AbsensiSiswa.Panels.Add(this.ribbonPanel5);
             this.AbsensiSiswa.Panels.Add(this.ribbonPanel9);
             this.AbsensiSiswa.Panels.Add(this.ribbonPanel10);
+            this.AbsensiSiswa.Panels.Add(this.ribbonPanel11);
             this.AbsensiSiswa.Text = "Absensi Siswa";
             // 
             // ribbonPanel5
@@ -248,7 +250,7 @@
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 162);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(863, 393);
             this.panel1.TabIndex = 1;
@@ -263,6 +265,11 @@
             this.dataGridView1.Size = new System.Drawing.Size(863, 393);
             this.dataGridView1.TabIndex = 0;
             // 
+            // ribbonPanel11
+            // 
+            this.ribbonPanel11.Name = "ribbonPanel11";
+            this.ribbonPanel11.Text = "ribbonPanel11";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -271,7 +278,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ribbon1);
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "Form1";
@@ -309,6 +316,7 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.RibbonPanel ribbonPanel10;
         private System.Windows.Forms.RibbonButton ribbonRekapPersensi;
+        private System.Windows.Forms.RibbonPanel ribbonPanel11;
     }
 }
 

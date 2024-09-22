@@ -30,6 +30,7 @@ namespace latihribbon
         public FormSIswa()
         {
             InitializeComponent();
+            //buf();
             db = new DbDal();
             siswaDal = new SiswaDal();
             jurusanDal = new JurusanDal();
@@ -39,6 +40,23 @@ namespace latihribbon
             InitComponent();
         }
 
+        public async Task LoadDataInBackgroundAsync()
+        {
+            await Task.Run(() => buf());
+            this.Show();
+        }
+
+        public void buf()
+        {
+            typeof(DataGridView).InvokeMember("DoubleBuffered",
+            System.Reflection.BindingFlags.NonPublic |
+            System.Reflection.BindingFlags.Instance |
+            System.Reflection.BindingFlags.SetProperty,
+            null,
+            dataGridView1,
+            new object[] { true });
+            
+        }
         public void InitComponent()
         {
             // Jurusan Combo

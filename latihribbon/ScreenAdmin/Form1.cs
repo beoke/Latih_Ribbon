@@ -30,6 +30,11 @@ namespace latihribbon
             panel1.Controls.Add(form);
             form.Show();
         }
+        private void ribbonSiswaAbsensi_Click(object sender, EventArgs e)
+        {
+            FormSIswa fs = new FormSIswa();
+            ShowFormInPanel(fs);
+        }
 
         private void ribbon_terlambat_Click(object sender, EventArgs e) // untuk menampilkan form di dalam panel
         {
@@ -57,20 +62,11 @@ namespace latihribbon
             ShowFormInPanel(dataSiswa);
         }
 
-        private void ribbonSiswaAbsensi_Click(object sender, EventArgs e)
-        {
-            LoadingForm lf = new LoadingForm();
-            ShowFormInPanel(lf);
-            System.Threading.Thread.Sleep(2000);
-
-            FormSIswa dataSiswa = new FormSIswa();
-            ShowFormInPanel(dataSiswa);
-        }
 
         private void ribbonAbsensi_Click(object sender, EventArgs e)
         {
-            FormAbsensi fa = new FormAbsensi();
-            ShowFormInPanel(fa);
+            FormAbsensi dataSiswa = new FormAbsensi();
+            ShowFormInPanel(dataSiswa);
         }
 
         private void ribbonRekapPersensi_Click(object sender, EventArgs e)

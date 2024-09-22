@@ -36,12 +36,12 @@ namespace latihribbon
         public void buf()
         {
             typeof(DataGridView).InvokeMember("DoubleBuffered",
-        System.Reflection.BindingFlags.NonPublic |
-        System.Reflection.BindingFlags.Instance |
-        System.Reflection.BindingFlags.SetProperty,
-        null,
-        dataGridView1,
-        new object[] { true });
+            System.Reflection.BindingFlags.NonPublic |
+            System.Reflection.BindingFlags.Instance |
+            System.Reflection.BindingFlags.SetProperty,
+            null,
+            dataGridView1,
+            new object[] { true });
         }
   
 
@@ -68,6 +68,46 @@ namespace latihribbon
             txtNIS1.MaxLength = 9;
 
         }
+
+        int Page = 1;
+        int totalPage;
+        public void LoadData()
+        {
+            string nis, nama, kelas, keterangan;
+            DateTime tgl1, tgl2;
+
+            nis = txtNIS.Text;
+            nama = txtNama.Text;
+            kelas = txtKelas.Text;
+            keterangan = KeteranganCombo.SelectedItem.ToString() ?? string.Empty;
+            tgl1 = tglsatu.Value.Date;
+            tgl2 = tgldua.Value.Date;
+
+            var sqlc = FilterSQL("data", nis, nama, kelas, keterangan);
+            var sqlcRow = FilterSQL("JumlahBaris", nis, nama, kelas, keterangan);
+            var dp = new DynamicParameters();
+            dp.Add("@NIS", nis);
+            dp.Add("@Nama", nama);
+            dp.Add("@Keterangan", keterangan);
+            dp.Add("@Kelas", kelas);
+            dp.Add("@tgl1", tgl1);
+            dp.Add("@tgl2", tgl2);
+
+            string text = "Halaman ";
+            int RowPerPage = 200;
+            int inRowPage = (Page - 1) * RowPerPage;
+            var jumlahRow = absensiDal.CekRows(sqlcRow, dp);
+            totalPage = (int)Math.Ceiling((double)jumlahRow / RowPerPage);
+
+            text += $"{Page.ToString()}/{totalPage.ToString()}";
+            lblHalaman.Text = text;
+            dp.Add("@Offset", inRowPage);
+            dp.Add("@Fetch", RowPerPage);
+            dataGridView1.DataSource = absensiDal.ListData(sqlc, dp);
+
+
+        }
+
         string tglchange = string.Empty;
         private string FilterSQL(string digunakanUntuk,string nis, string nama, string kelas, string keterangan)
         {
@@ -96,44 +136,7 @@ namespace latihribbon
             return sqlc;
         }
 
-        int Page = 1;
-        int totalPage;
-        private void LoadData()
-        {
-            string nis, nama, kelas, keterangan;
-            DateTime tgl1, tgl2;
-
-            nis = txtNIS.Text;
-            nama = txtNama.Text;
-            kelas = txtKelas.Text;
-            keterangan = KeteranganCombo.SelectedItem.ToString() ?? string.Empty;
-            tgl1 = tglsatu.Value.Date;
-            tgl2 = tgldua.Value.Date;
-
-            var sqlc = FilterSQL("data",nis, nama, kelas, keterangan);
-            var sqlcRow = FilterSQL("JumlahBaris", nis, nama, kelas, keterangan);
-            var dp = new DynamicParameters();
-            dp.Add("@NIS", nis);
-            dp.Add("@Nama", nama);
-            dp.Add("@Keterangan", keterangan);
-            dp.Add("@Kelas", kelas);
-            dp.Add("@tgl1", tgl1);
-            dp.Add("@tgl2", tgl2);
-
-            string text = "Halaman ";
-            int RowPerPage = 200;
-            int inRowPage = (Page - 1) * RowPerPage;
-            var jumlahRow = absensiDal.CekRows(sqlcRow,dp);
-            totalPage = (int)Math.Ceiling((double)jumlahRow / RowPerPage);
-
-            text += $"{Page.ToString()}/{totalPage.ToString()}";
-            lblHalaman.Text = text;
-            dp.Add("@Offset",inRowPage);
-            dp.Add("@Fetch",RowPerPage);
-            dataGridView1.DataSource = absensiDal.ListData(sqlc,dp);
-
-
-        }
+       
 
         private void GetData()
         {
