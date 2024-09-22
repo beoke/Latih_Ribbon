@@ -46,6 +46,7 @@ namespace latihribbon
         private  async void FormSIswa_Load(object sender, EventArgs e)
         {
             FormLoading formLoad = new FormLoading();
+            formLoad.StartPosition = FormStartPosition.CenterScreen;
             formLoad.Show();
 
             await LoadDataInBackgroundAsync();
