@@ -13,6 +13,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LicenseContext = OfficeOpenXml.LicenseContext;
@@ -27,6 +28,8 @@ namespace latihribbon
         private readonly JurusanDal jurusanDal;
         private readonly MesBox mesBox;
         private bool SaveCondition = true;
+        //private FormLoading formLoading;
+
         public FormSIswa()
         {
             InitializeComponent();
@@ -38,6 +41,16 @@ namespace latihribbon
             LoadData();
 
             InitComponent();
+        }
+
+        private  async void FormSIswa_Load(object sender, EventArgs e)
+        {
+            FormLoading formLoad = new FormLoading();
+            formLoad.Show();
+
+            await LoadDataInBackgroundAsync();
+            formLoad.Close();
+                
         }
 
         public async Task LoadDataInBackgroundAsync()
@@ -55,7 +68,9 @@ namespace latihribbon
             null,
             dataGridView1,
             new object[] { true });
-            
+
+
+            Thread.Sleep(3000);
         }
         public void InitComponent()
         {
@@ -474,5 +489,6 @@ namespace latihribbon
             }
         }
 
+       
     }
 }
