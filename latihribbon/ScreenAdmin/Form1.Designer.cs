@@ -79,7 +79,6 @@
             this.ribbon1.Tabs.Add(this.ribbonTab1);
             this.ribbon1.Tabs.Add(this.AbsensiSiswa);
             this.ribbon1.Text = "ribbon1";
-            this.ribbon1.Click += new System.EventHandler(this.ribbon1_Click);
             // 
             // ribbonOrbMenuItem1
             // 
@@ -277,7 +276,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

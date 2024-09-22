@@ -42,15 +42,16 @@ namespace latihribbon.Dal
             }
         }
 
-        public IEnumerable<AbsensiModel> ListData(int Offset,int Fetch)
+        public IEnumerable<AbsensiModel> ListData(string sqlc, object dp)
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
             {
-                const string sql = @"SELECT p.ID,p.NIS,s.Nama,s.Kelas,p.Tanggal,p.Keterangan
-                                     FROM Persensi p INNER JOIN siswa s ON p.NIS=s.NIS
-                                     ORDER BY Tanggal DESC
-                                     OFFSET @Offset ROWS FETCH NEXT @Fetch ROWS ONLY";
-                return koneksi.Query<AbsensiModel>(sql, new {Offset=Offset,Fetch=Fetch});
+                string sql = @"SELECT p.ID,p.NIS,s.Nama,s.Kelas,p.Tanggal,p.Keterangan
+                                     FROM Persensi p INNER JOIN siswa s ON p.NIS=s.NIS";
+                if (sqlc != string.Empty) sql += sqlc;
+                sql += @" ORDER BY Tanggal DESC OFFSET @Offset ROWS FETCH NEXT @Fetch ROWS ONLY";
+
+                return koneksi.Query<AbsensiModel>(sql, dp);
             }
         }
 
@@ -82,12 +83,15 @@ namespace latihribbon.Dal
             }
         }
 
-         public int CekRows()
+         public int CekRows(string sqlcRow, object dp)
          {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
             {
-                const string sql = @"SELECT COUNT(*) FROM Persensi";
-                return koneksi.QuerySingle<int>(sql);
+                string sql = @"SELECT COUNT(*)
+                                    FROM Persensi p
+                                    INNER JOIN Siswa s ON p.NIS = s.NIS";
+                if (sqlcRow != string.Empty) sql += sqlcRow;
+                return koneksi.QuerySingle<int>(sql,dp);
             }
          }
     }

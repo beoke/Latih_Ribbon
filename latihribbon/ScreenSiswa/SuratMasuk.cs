@@ -95,8 +95,8 @@ namespace latihribbon
             //Insert();
 
             System.Threading.Thread.Sleep(1000);
-            FormMilih fm = new FormMilih(NIS,nama,kelas);
-            fm.Show();
+            Pemakai p = new Pemakai();
+            p.Show();
             this.Close();
 
         }
