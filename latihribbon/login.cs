@@ -14,11 +14,11 @@ namespace latihribbon
 {
     public partial class login : Form
     {
-        private readonly RiwayatLoginDal _riwayatLoginDal;
+        private readonly RiwayatLogin_UserDal _riwayatLoginDal;
         private readonly MesBox _mesBox = new MesBox();
         public login()
         {
-            _riwayatLoginDal = new RiwayatLoginDal();
+            _riwayatLoginDal = new RiwayatLogin_UserDal();
             InitializeComponent();
 
             tx_Username.TextChanged += Tx_Username_TextChanged;

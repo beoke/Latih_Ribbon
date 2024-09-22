@@ -106,7 +106,7 @@ namespace latihribbon.ScreenAdmin
         private void DeleteData()
         {
             if(txtIdKelas.Text == string.Empty)
-            {
+            { 
                 mesBox.MesInfo("Pilih Data Terlebih Dahulu!");
                 return;
             }

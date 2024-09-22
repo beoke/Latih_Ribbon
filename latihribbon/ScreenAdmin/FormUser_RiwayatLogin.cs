@@ -16,20 +16,20 @@ namespace latihribbon
     public partial class FormUser_RiwayatLogin : Form
     {
 
-        private readonly RiwayatLoginDal _riwayatLoginDal;
+        private readonly RiwayatLogin_UserDal _riwayatLoginDal;
+
         public FormUser_RiwayatLogin()
         {
-            _riwayatLoginDal = new RiwayatLoginDal();
+            _riwayatLoginDal = new RiwayatLogin_UserDal();
             InitializeComponent();
-            InitialGrid();
+            LoadData();
             InitialEvent();
+            ClearUser();
         }
 
-        private void InitialGrid()
+        private void LoadData()
         {
             GridListRiwayatLogin.DataSource = _riwayatLoginDal.ListData();
-
-
             if (GridListRiwayatLogin.Rows.Count > 0)
             {
                 GridListRiwayatLogin.ReadOnly = true;
@@ -42,6 +42,23 @@ namespace latihribbon
                 GridListRiwayatLogin.RowTemplate.Height = 30;
                 GridListRiwayatLogin.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                 GridListRiwayatLogin.ColumnHeadersHeight = 35;
+            }
+
+
+
+            GridListUser.DataSource = _riwayatLoginDal.ListUser();
+            if (GridListUser.Rows.Count > 0)
+            {
+                GridListUser.ReadOnly = true;
+                GridListUser.EnableHeadersVisualStyles = false;
+                GridListUser.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+
+                GridListUser.DefaultCellStyle.Font = new Font("Sans Serif", 10);
+                GridListUser.ColumnHeadersDefaultCellStyle.Font = new Font("Sans Serif", 10, FontStyle.Bold);
+                GridListUser.ColumnHeadersDefaultCellStyle.BackColor = Color.LightBlue;
+                GridListUser.RowTemplate.Height = 30;
+                GridListUser.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                GridListUser.ColumnHeadersHeight = 35;
             }
         }
 
@@ -80,7 +97,40 @@ namespace latihribbon
         {
             TextUserName.TextChanged += TextUserName_TextChanged;
             PickerRentan_1.ValueChanged += PickerRentan_ValueChanged;
-            PickerRentan_2.ValueChanged += PickerRentan_ValueChanged; 
+            PickerRentan_2.ValueChanged += PickerRentan_ValueChanged;
+
+            ButtonNewUser.Click += ButtonNewUser_Click;
+            ButtonDeleteUser.Click += ButtonDeleteUser_Click;
+            ButtonSaveUser.Click += ButtonSaveUser_Click;
+            GridListUser.SelectionChanged += GridListUser_SelectionChanged;
+
+        }
+
+        private void GridListUser_SelectionChanged(object sender, EventArgs e)
+        {
+            int idUser = Convert.ToInt32(GridListUser.CurrentRow.Cells[0].Value);
+            GetUser(idUser);
+        }
+
+        private void ButtonSaveUser_Click(object sender, EventArgs e)
+        {
+            int idUser = TextIdUser.Text == string.Empty ? 0 : Convert.ToInt32(TextIdUser.Text);
+            SaveUser(idUser);
+
+            LoadData();
+        }
+
+        private void ButtonDeleteUser_Click(object sender, EventArgs e)
+        {
+            int idUser = Convert.ToInt32(TextIdUser.Text);
+            _riwayatLoginDal.DeleteUser(idUser);
+
+            LoadData();
+        }
+
+        private void ButtonNewUser_Click(object sender, EventArgs e)
+        {
+            ClearUser();
         }
 
         private void PickerRentan_ValueChanged(object sender, EventArgs e)
@@ -92,9 +142,49 @@ namespace latihribbon
         private void TextUserName_TextChanged(object sender, EventArgs e)
         {
             if (TextUserName.Text == string.Empty)
-                InitialGrid();
+                LoadData();
             else
                 FilterData2();
+        }
+
+        private void GetUser(int idUser)
+        {
+            var user = _riwayatLoginDal.GetUser(idUser);
+
+            TextIdUser.Text = user.Id.ToString();
+            TextNameUser.Text = user.Username;
+            TextPassword.Text = user.Password;
+            TextRole.Text = user.Role;
+        }
+
+        private int SaveUser(int idUser)
+        {
+            var user = new UserModel
+            {
+                Id = idUser,
+                Username = TextNameUser.Text,
+                Password = TextPassword.Text,
+                Role = TextRole.Text,
+            };
+
+            if (idUser == 0)
+            {
+                _riwayatLoginDal.Insert(user);
+            }
+            else
+            {
+                _riwayatLoginDal.Update(user);
+            }
+
+            return idUser;
+        }
+
+        private void ClearUser()
+        {
+            TextIdUser.Clear();
+            TextNameUser.Clear();
+            TextPassword.Clear();
+            TextRole.Clear();
         }
     }
 }

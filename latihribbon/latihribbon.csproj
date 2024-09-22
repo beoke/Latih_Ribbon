@@ -150,16 +150,9 @@
     <Compile Include="Dal\KelasDal.cs" />
     <Compile Include="Dal\KeluarDal.cs" />
     <Compile Include="Dal\RekapPersensiDal.cs" />
-    <Compile Include="Dal\UserDal.cs" />
     <Compile Include="Dal\SiswaDal.cs" />
     <Compile Include="Dal\MasukDal.cs" />
     <Compile Include="Dal\DbDal.cs" />
-    <Compile Include="ScreenAdmin\FormAddUser.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ScreenAdmin\FormAddUser.Designer.cs">
-      <DependentUpon>FormAddUser.cs</DependentUpon>
-    </Compile>
     <Compile Include="ScreenAdmin\FormUser_RiwayatLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,7 +163,7 @@
     <Compile Include="Model\KelasModel.cs" />
     <Compile Include="Model\RekapPersensiModel.cs" />
     <Compile Include="Model\RiwayatLoginModel.cs" />
-    <Compile Include="Dal\RiwayatLoginDal.cs" />
+    <Compile Include="Dal\RiwayatLogin_UserDal.cs" />
     <Compile Include="ScreenAdmin\FormKelas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -282,9 +275,6 @@
     <Compile Include="UpdateInsert\SiswaIU.Designer.cs">
       <DependentUpon>SiswaIU.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ScreenAdmin\FormAddUser.resx">
-      <DependentUpon>FormAddUser.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ScreenAdmin\FormUser_RiwayatLogin.resx">
       <DependentUpon>FormUser_RiwayatLogin.cs</DependentUpon>
     </EmbeddedResource>
