@@ -23,10 +23,10 @@ namespace latihribbon
 {
     public partial class FormSIswa : Form
     {
-        private DbDal db;
-        private SiswaDal siswaDal;
-        private JurusanDal jurusanDal;
-        private MesBox mesBox;
+        private readonly DbDal db;
+        private readonly SiswaDal siswaDal;
+        private readonly JurusanDal jurusanDal;
+        private readonly MesBox mesBox;
         private bool SaveCondition = true;
         //private FormLoading formLoading;
 
@@ -41,16 +41,6 @@ namespace latihribbon
             InitCombo();
             InitComponent();
             LoadData();
-        }
-
-        private async void FormSIswa_Load(object sender, EventArgs e)
-        {
-           /* FormLoading formLoad = new FormLoading();
-            formLoad.StartPosition = FormStartPosition.CenterScreen;
-            formLoad.Show();
-            await LoadDataInBackgroundAsync();
-            formLoad.Close();*/
-                
         }
 
         public async Task LoadDataInBackgroundAsync()
@@ -68,14 +58,6 @@ namespace latihribbon
             null,
             dataGridView1,
             new object[] { true });
-            db = new DbDal();
-            siswaDal = new SiswaDal();
-            jurusanDal = new JurusanDal();
-            mesBox = new MesBox();
-            LoadData();
-
-            InitComponent();
-            Thread.Sleep(3000);
         }
 
         public void InitCombo()
