@@ -153,12 +153,6 @@
     <Compile Include="Dal\SiswaDal.cs" />
     <Compile Include="Dal\MasukDal.cs" />
     <Compile Include="Dal\DbDal.cs" />
-    <Compile Include="ScreenAdmin\LoadingForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ScreenAdmin\LoadingForm.Designer.cs">
-      <DependentUpon>LoadingForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="ScreenAdmin\FormUser_RiwayatLogin.cs">
       <SubType>Form</SubType>
     </Compile>
