@@ -33,14 +33,11 @@ namespace latihribbon
 
             this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
-            this.TopMost = true;  // Menempatkan form di atas semua form lain
+            //this.TopMost = true;  // Menempatkan form di atas semua form lain
             this.ControlBox = true;  // Menyembunyikan tombol close, minimize, maximize
             this.KeyPreview = true;  // Agar form dapat menangani key press event
         }
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            //FormPemakai.Close();
-        }
+      
         public void isian()
         {
             txtNIS.Text = NIS;
@@ -92,7 +89,7 @@ namespace latihribbon
                 return;
             }
             PrintDocument();            
-            //Insert();
+            Insert();
 
             System.Threading.Thread.Sleep(1000);
             Pemakai p = new Pemakai();
@@ -233,7 +230,7 @@ namespace latihribbon
             {
                 e.Graphics.DrawString($": {alasan}", new Font("Times New Roman", 9), Brushes.Black, new Point(125, 140));
                 e.Graphics.DrawString($": {alasan}", new Font("Times New Roman", 9), Brushes.Black, new Point(125, 336));
-                e.Graphics.DrawString($": {alasan}", new Font("Times New Roman", 9), Brushes.Black, new Point(125, 475 + 36));
+                e.Graphics.DrawString($": {alasan}", new Font("Times New Roman", 9), Brushes.Black, new Point(125, 514 + 20));
             }
         }
         #endregion
