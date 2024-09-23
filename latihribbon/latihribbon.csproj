@@ -153,6 +153,7 @@
     <Compile Include="Dal\SiswaDal.cs" />
     <Compile Include="Dal\MasukDal.cs" />
     <Compile Include="Dal\DbDal.cs" />
+    <Compile Include="RiwayatLogin_UserDal.cs" />
     <Compile Include="ScreenAdmin\FormUser_RiwayatLogin.cs">
       <SubType>Form</SubType>
     </Compile>
