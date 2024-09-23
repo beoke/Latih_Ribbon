@@ -11,12 +11,13 @@ namespace latihribbon.Dal
 {
     public class SiswaDal
     {
-        public IEnumerable<SiswaModel> ListData()
+        public IEnumerable<SiswaModel> ListData(string sqlc,object dp)
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
             {
-                const string sql = @"SELECT Nis,Nama,JenisKelamin,Persensi,Kelas,Tahun FROM Siswa
-                                    ORDER BY 
+                string sql = @"SELECT Nis,Nama,JenisKelamin,Persensi,Kelas,Tahun FROM Siswa";
+                if (sqlc != string.Empty) sql += sqlc;
+                sql += @" ORDER BY 
                             Persensi ASC,
                             CASE
                                 WHEN Kelas LIKE 'X %' THEN 1
@@ -24,8 +25,9 @@ namespace latihribbon.Dal
                                 WHEN Kelas LIKE 'XII %' THEN 3
                                 ELSE 4
                             END,
-                            SUBSTRING( Kelas, CHARINDEX(' ', Kelas) + 1, LEN(Kelas)) ASC ";
-                return koneksi.Query<SiswaModel>(sql);  
+                            SUBSTRING( Kelas, CHARINDEX(' ', Kelas) + 1, LEN(Kelas)) ASC 
+                            OFFSET @Offset ROWS FETCH NEXT @Fetch ROWS ONLY";
+                return koneksi.Query<SiswaModel>(sql,dp);  
             }
         }
 
@@ -101,8 +103,15 @@ namespace latihribbon.Dal
             }
         }
 
-
-       
+        public int CekRows(string sqlc, object dp)
+        {
+            using (var koneksi = new SqlConnection(Conn.conn.connstr()))
+            {
+                string sql = @"SELECT COUNT(*) FROM siswa";
+                if (sqlc != string.Empty) sql += sqlc;
+                return koneksi.QuerySingle<int>(sql,dp);
+            }
+        }
     }
 }
 

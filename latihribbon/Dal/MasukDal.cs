@@ -12,13 +12,15 @@ namespace latihribbon.Dal
 {
     public class MasukDal
     {
-        public IEnumerable<MasukModel> ListData()
+        public IEnumerable<MasukModel> ListData(string sqlc, object dp)
         {
             using (var koneksi = new SqlConnection(conn.connstr()))
             {
-                const string sql = @"SELECT m.id, m.NIS, s.Nama, s.Kelas, m.Tanggal, m.JamMasuk, m.Alasan
+                string sql = @"SELECT m.id, m.NIS, s.Nama, s.Kelas, m.Tanggal, m.JamMasuk, m.Alasan
                                     FROM Masuk m INNER JOIN siswa s ON m.NIS = s.NIS";
-                return koneksi.Query<MasukModel>(sql);
+                if (sqlc != string.Empty) sql += sqlc;
+                sql += @" ORDER BY m.Tanggal DESC OFFSET @Offset ROWS FETCH NEXT @Fetch ROWS ONLY";
+                return koneksi.Query<MasukModel>(sql,dp);
             }
         }
 
@@ -73,13 +75,23 @@ namespace latihribbon.Dal
                 koneksi.Execute(sql, dp);
             }
         }
-
         public void Delete(int IdMasuk)
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
             {
                 const string sql = @"DELETE FROM Masuk WHERE Id=@Id";
                 koneksi.Execute(sql, new { Id=IdMasuk });
+            }
+        }
+
+        public int CekRows(string sqlc, object dp)
+        {
+            using (var koneksi = new SqlConnection(Conn.conn.connstr()))
+            {
+                string sql = @"SELECT COUNT(*) FROM Masuk m 
+                                INNER JOIN siswa s ON m.Nis=s.Nis";
+                if (sqlc != string.Empty) sql += sqlc;
+                return koneksi.QuerySingle<int>(sql,dp);
             }
         }
     }

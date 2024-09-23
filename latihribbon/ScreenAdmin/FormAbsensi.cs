@@ -94,7 +94,7 @@ namespace latihribbon
             dp.Add("@tgl2", tgl2);
 
             string text = "Halaman ";
-            int RowPerPage = 200;
+            int RowPerPage = 15;
             int inRowPage = (Page - 1) * RowPerPage;
             var jumlahRow = absensiDal.CekRows(sqlcRow, dp);
             totalPage = (int)Math.Ceiling((double)jumlahRow / RowPerPage);

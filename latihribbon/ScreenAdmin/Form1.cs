@@ -32,9 +32,12 @@ namespace latihribbon
             panel1.Controls.Add(form);
             form.Show();
         }
-        private void ribbonSiswaAbsensi_Click(object sender, EventArgs e)
+        private async void ribbonSiswaAbsensi_Click(object sender, EventArgs e)
         {
+            LoadingForm f = new LoadingForm();
+            ShowFormInPanel(f);
             FormSIswa fs = new FormSIswa();
+            await fs.LoadDataInBackgroundAsync();
             ShowFormInPanel(fs);
         }
 

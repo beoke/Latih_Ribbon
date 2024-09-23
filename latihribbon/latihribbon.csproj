@@ -153,18 +153,6 @@
     <Compile Include="Dal\SiswaDal.cs" />
     <Compile Include="Dal\MasukDal.cs" />
     <Compile Include="Dal\DbDal.cs" />
-    <Compile Include="ScreenAdmin\Loading Form\FormLoading.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ScreenAdmin\Loading Form\FormLoading.Designer.cs">
-      <DependentUpon>FormLoading.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ScreenAdmin\LoadingForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ScreenAdmin\LoadingForm.Designer.cs">
-      <DependentUpon>LoadingForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="ScreenAdmin\FormUser_RiwayatLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -175,7 +163,6 @@
     <Compile Include="Model\KelasModel.cs" />
     <Compile Include="Model\RekapPersensiModel.cs" />
     <Compile Include="Model\RiwayatLoginModel.cs" />
-    <Compile Include="Dal\RiwayatLogin_UserDal.cs" />
     <Compile Include="ScreenAdmin\FormKelas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -292,9 +279,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ScreenAdmin\FormKelas.resx">
       <DependentUpon>FormKelas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ScreenAdmin\Loading Form\FormLoading.resx">
-      <DependentUpon>FormLoading.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ScreenUser\FormUser.resx">
       <DependentUpon>FormUser.cs</DependentUpon>
