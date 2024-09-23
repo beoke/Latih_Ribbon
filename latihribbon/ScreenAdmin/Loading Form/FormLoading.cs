@@ -26,7 +26,7 @@ namespace latihribbon
         {
             if (ProgresBarLoading.Value < 100)
             {
-                ProgresBarLoading.Value += 1;
+                ProgresBarLoading.Value += 3;
                 LabelLoading.Text = ProgresBarLoading.Value.ToString() + "%";
             }
             else
