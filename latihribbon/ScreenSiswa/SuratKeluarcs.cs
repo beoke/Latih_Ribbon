@@ -40,10 +40,10 @@ namespace latihribbon
             isian();
             bahasa();
 
-          /*  this.FormBorderStyle = FormBorderStyle.None;
+            this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
             this.TopMost = true;  // Menempatkan form di atas semua form lain
-            this.ControlBox = true;  // Menyembunyikan tombol close, minimize, maximize*/
+            this.ControlBox = true;  // Menyembunyikan tombol close, minimize, maximize
             this.KeyPreview = true;  // Agar form dapat menangani key press event
         }
 

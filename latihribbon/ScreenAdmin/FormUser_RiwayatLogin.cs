@@ -22,29 +22,17 @@ namespace latihribbon
         {
             _riwayatLoginDal = new RiwayatLogin_UserDal();
             InitializeComponent();
-            LoadData();
+            LoadRiwayatLogin();
             InitialEvent();
             ClearUser();
+            LoadUser();
+
+         
         }
+        
 
-        private void LoadData()
+        private void LoadUser()
         {
-            GridListRiwayatLogin.DataSource = _riwayatLoginDal.ListData();
-            if (GridListRiwayatLogin.Rows.Count > 0)
-            {
-                GridListRiwayatLogin.ReadOnly = true;
-                GridListRiwayatLogin.EnableHeadersVisualStyles = false;
-                GridListRiwayatLogin.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-
-                GridListRiwayatLogin.DefaultCellStyle.Font = new Font("Sans Serif", 10);
-                GridListRiwayatLogin.ColumnHeadersDefaultCellStyle.Font = new Font("Sans Serif", 10, FontStyle.Bold);
-                GridListRiwayatLogin.ColumnHeadersDefaultCellStyle.BackColor = Color.LightBlue;
-                GridListRiwayatLogin.RowTemplate.Height = 30;
-                GridListRiwayatLogin.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                GridListRiwayatLogin.ColumnHeadersHeight = 35;
-            }
-
-
 
             GridListUser.DataSource = _riwayatLoginDal.ListUser();
             if (GridListUser.Rows.Count > 0)
@@ -57,8 +45,39 @@ namespace latihribbon
                 GridListUser.ColumnHeadersDefaultCellStyle.Font = new Font("Sans Serif", 10, FontStyle.Bold);
                 GridListUser.ColumnHeadersDefaultCellStyle.BackColor = Color.LightBlue;
                 GridListUser.RowTemplate.Height = 30;
-                GridListUser.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                 GridListUser.ColumnHeadersHeight = 35;
+
+                GridListUser.Columns["password"].Visible = false;
+                GridListUser.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                GridListUser.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+                GridListUser.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                GridListUser.Columns[2].Width = 50;
+            }
+        }
+
+        private void LoadRiwayatLogin()
+        {
+            GridListRiwayatLogin.DataSource = _riwayatLoginDal.ListData();
+            if (GridListRiwayatLogin.Rows.Count > 0)
+            {
+                GridListRiwayatLogin.ReadOnly = true;
+                GridListRiwayatLogin.EnableHeadersVisualStyles = false;
+                GridListRiwayatLogin.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+
+                GridListRiwayatLogin.DefaultCellStyle.Font = new Font("Sans Serif", 10);
+                GridListRiwayatLogin.ColumnHeadersDefaultCellStyle.Font = new Font("Sans Serif", 10, FontStyle.Bold);
+                GridListRiwayatLogin.ColumnHeadersDefaultCellStyle.BackColor = Color.LightBlue;
+                GridListRiwayatLogin.RowTemplate.Height = 30;
+                GridListRiwayatLogin.ColumnHeadersHeight = 35;
+
+
+                GridListRiwayatLogin.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+                GridListRiwayatLogin.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+                GridListRiwayatLogin.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                GridListRiwayatLogin.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                GridListRiwayatLogin.Columns[3].Width = 150;
+
             }
         }
 
@@ -110,6 +129,9 @@ namespace latihribbon
         {
             int idUser = Convert.ToInt32(GridListUser.CurrentRow.Cells[0].Value);
             GetUser(idUser);
+            LabelAddUser.Text = "Update User";
+
+
         }
 
         private void ButtonSaveUser_Click(object sender, EventArgs e)
@@ -117,20 +139,23 @@ namespace latihribbon
             int idUser = TextIdUser.Text == string.Empty ? 0 : Convert.ToInt32(TextIdUser.Text);
             SaveUser(idUser);
 
-            LoadData();
+            LoadUser();
         }
 
         private void ButtonDeleteUser_Click(object sender, EventArgs e)
         {
-            int idUser = Convert.ToInt32(TextIdUser.Text);
+            var idUser = Convert.ToInt32(GridListUser.CurrentRow.Cells[0].Value);
             _riwayatLoginDal.DeleteUser(idUser);
 
-            LoadData();
+
+            LoadUser();
         }
 
         private void ButtonNewUser_Click(object sender, EventArgs e)
         {
             ClearUser();
+            LabelAddUser.Text = "Add User";
+
         }
 
         private void PickerRentan_ValueChanged(object sender, EventArgs e)
@@ -142,19 +167,26 @@ namespace latihribbon
         private void TextUserName_TextChanged(object sender, EventArgs e)
         {
             if (TextUserName.Text == string.Empty)
-                LoadData();
+                LoadRiwayatLogin();
             else
                 FilterData2();
         }
 
         private void GetUser(int idUser)
         {
+
             var user = _riwayatLoginDal.GetUser(idUser);
 
-            TextIdUser.Text = user.Id.ToString();
-            TextNameUser.Text = user.Username;
-            TextPassword.Text = user.Password;
-            TextRole.Text = user.Role;
+            if (user != null)
+            {
+                TextIdUser.Text = idUser.ToString();
+                TextNameUser.Text = user.Username;
+                TextPassword.Text = user.Password;
+                TextRole.Text = user.Role;
+            }
+
+            return;
+            
         }
 
         private int SaveUser(int idUser)
@@ -185,6 +217,11 @@ namespace latihribbon
             TextNameUser.Clear();
             TextPassword.Clear();
             TextRole.Clear();
+        }
+
+        private void FormUser_RiwayatLogin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

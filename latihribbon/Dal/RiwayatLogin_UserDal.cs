@@ -114,7 +114,7 @@ namespace latihribbon
         {
             using (var Conn = new SqlConnection(conn.connstr()))
             {
-                const string sql = @"SELECT * FROM Users";
+                const string sql = @"SELECT id, username, role FROM Users";
 
                 return Conn.Query<UserModel>(sql);
             }
@@ -130,7 +130,8 @@ namespace latihribbon
                 var Dp = new DynamicParameters();
                 Dp.Add("@id", idUser, DbType.Int32);
 
-                return Conn.QuerySingle<UserModel>(sql, Dp);
+                var result = Conn.QuerySingleOrDefault<UserModel>(sql, Dp);
+                return result;
             }
         }
     }

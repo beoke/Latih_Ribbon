@@ -33,6 +33,9 @@ namespace latihribbon.ScreenAdmin
         public void LoadData()
         {
             GridListKelas.DataSource = kelasDal.listKelas().Select(x => new {Id = x.Id, NamaKelas = x.NamaKelas}).ToList();
+
+            GridListKelas.Columns[0].Width = 100;
+            GridListKelas.Columns[1].Width = 300;
         }
 
         public void InitComponent()

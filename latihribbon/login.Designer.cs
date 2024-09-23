@@ -180,55 +180,64 @@
             this.panel2.Controls.Add(this.pictureBox4);
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(629, 746);
+            this.panel2.Size = new System.Drawing.Size(607, 746);
             this.panel2.TabIndex = 7;
             // 
             // panel7
             // 
+            this.panel7.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.panel7.BackColor = System.Drawing.Color.LightGray;
-            this.panel7.Location = new System.Drawing.Point(343, 622);
+            this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel7.Location = new System.Drawing.Point(503, 515);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(77, 123);
+            this.panel7.Size = new System.Drawing.Size(77, 230);
             this.panel7.TabIndex = 10;
             // 
             // panel6
             // 
+            this.panel6.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.panel6.BackColor = System.Drawing.Color.Silver;
-            this.panel6.Location = new System.Drawing.Point(260, 530);
+            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel6.Location = new System.Drawing.Point(380, 416);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(77, 215);
+            this.panel6.Size = new System.Drawing.Size(77, 330);
             this.panel6.TabIndex = 10;
             // 
             // panel5
             // 
+            this.panel5.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.panel5.BackColor = System.Drawing.Color.DarkGray;
-            this.panel5.Location = new System.Drawing.Point(177, 423);
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel5.Location = new System.Drawing.Point(257, 326);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(77, 322);
+            this.panel5.Size = new System.Drawing.Size(77, 420);
             this.panel5.TabIndex = 10;
             // 
             // panel4
             // 
+            this.panel4.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.panel4.BackColor = System.Drawing.Color.Gray;
-            this.panel4.Location = new System.Drawing.Point(94, 333);
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Location = new System.Drawing.Point(134, 235);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(77, 412);
+            this.panel4.Size = new System.Drawing.Size(77, 510);
             this.panel4.TabIndex = 9;
             // 
             // panel3
             // 
+            this.panel3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.panel3.BackColor = System.Drawing.Color.DimGray;
-            this.panel3.Location = new System.Drawing.Point(11, 263);
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Location = new System.Drawing.Point(11, 145);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(77, 482);
+            this.panel3.Size = new System.Drawing.Size(77, 600);
             this.panel3.TabIndex = 8;
             // 
             // label3
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(221, 38);
+            this.label3.Location = new System.Drawing.Point(164, 66);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(159, 33);
             this.label3.TabIndex = 10;
@@ -236,13 +245,12 @@
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
             this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox4.Location = new System.Drawing.Point(106, 2);
+            this.pictureBox4.Location = new System.Drawing.Point(-1, -1);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(117, 96);
+            this.pictureBox4.Size = new System.Drawing.Size(178, 154);
             this.pictureBox4.TabIndex = 9;
             this.pictureBox4.TabStop = false;
             // 

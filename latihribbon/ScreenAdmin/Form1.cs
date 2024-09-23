@@ -19,6 +19,8 @@ namespace latihribbon
         {
             InitializeComponent();
 
+            this.MinimumSize = new Size(1200, 900);
+
         }
         private void ShowFormInPanel(Form form) // untuk menambahkan form di dalam panel
         {

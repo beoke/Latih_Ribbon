@@ -53,7 +53,6 @@
             this.ribbonRekapPersensi = new System.Windows.Forms.RibbonButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.ribbonPanel11 = new System.Windows.Forms.RibbonPanel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -62,7 +61,7 @@
             // 
             this.ribbon1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.ribbon1.Location = new System.Drawing.Point(0, 0);
-            this.ribbon1.Margin = new System.Windows.Forms.Padding(2);
+            this.ribbon1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ribbon1.Minimized = false;
             this.ribbon1.Name = "ribbon1";
             // 
@@ -75,7 +74,7 @@
             this.ribbon1.OrbDropDown.Size = new System.Drawing.Size(527, 116);
             this.ribbon1.OrbDropDown.TabIndex = 0;
             this.ribbon1.RibbonTabFont = new System.Drawing.Font("Trebuchet MS", 9F);
-            this.ribbon1.Size = new System.Drawing.Size(863, 162);
+            this.ribbon1.Size = new System.Drawing.Size(1282, 199);
             this.ribbon1.TabIndex = 0;
             this.ribbon1.Tabs.Add(this.ribbonTab1);
             this.ribbon1.Tabs.Add(this.AbsensiSiswa);
@@ -197,7 +196,6 @@
             this.AbsensiSiswa.Panels.Add(this.ribbonPanel5);
             this.AbsensiSiswa.Panels.Add(this.ribbonPanel9);
             this.AbsensiSiswa.Panels.Add(this.ribbonPanel10);
-            this.AbsensiSiswa.Panels.Add(this.ribbonPanel11);
             this.AbsensiSiswa.Text = "Absensi Siswa";
             // 
             // ribbonPanel5
@@ -249,10 +247,10 @@
             // 
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 162);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Location = new System.Drawing.Point(0, 199);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(863, 393);
+            this.panel1.Size = new System.Drawing.Size(1282, 504);
             this.panel1.TabIndex = 1;
             // 
             // dataGridView1
@@ -260,25 +258,21 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(863, 393);
+            this.dataGridView1.Size = new System.Drawing.Size(1282, 504);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // ribbonPanel11
-            // 
-            this.ribbonPanel11.Name = "ribbonPanel11";
-            this.ribbonPanel11.Text = "ribbonPanel11";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(863, 555);
+            this.ClientSize = new System.Drawing.Size(1282, 703);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ribbon1);
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "Form1";
@@ -316,7 +310,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.RibbonPanel ribbonPanel10;
         private System.Windows.Forms.RibbonButton ribbonRekapPersensi;
-        private System.Windows.Forms.RibbonPanel ribbonPanel11;
     }
 }
 
