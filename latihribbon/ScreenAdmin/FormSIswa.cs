@@ -38,26 +38,9 @@ namespace latihribbon
             siswaDal = new SiswaDal();
             jurusanDal = new JurusanDal();
             mesBox = new MesBox();
-            LoadData();
-
+            InitCombo();
             InitComponent();
-        }
-
-        private  async void FormSIswa_Load(object sender, EventArgs e)
-        {
-            FormLoading formLoad = new FormLoading();
-            formLoad.StartPosition = FormStartPosition.CenterScreen;
-            formLoad.Show();
-
-            await LoadDataInBackgroundAsync();
-            formLoad.Close();
-                
-        }
-
-        public async Task LoadDataInBackgroundAsync()
-        {
-            await Task.Run(() => buf());
-            this.Show();
+            LoadData();
         }
 
         public void buf()
@@ -72,7 +55,8 @@ namespace latihribbon
 
 
         }
-        public void InitComponent()
+
+        public void InitCombo()
         {
             // Jurusan Combo
             var jurusan = jurusanDal.ListData();
@@ -81,21 +65,6 @@ namespace latihribbon
             foreach (var item in jurusan)
                 listJurusan.Add(item.NamaJurusan);
             jurusanCombo.DataSource = listJurusan;
-
-
-            // DataGrid
-            if (dataGridView1.Rows.Count > 0)
-            {
-                dataGridView1.EnableHeadersVisualStyles = false;
-                dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-
-                dataGridView1.DefaultCellStyle.Font = new Font("Sans Serif", 10);
-                dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Sans Serif", 10, FontStyle.Bold);
-                dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.LightBlue;
-                dataGridView1.RowTemplate.Height = 30;
-                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                dataGridView1.ColumnHeadersHeight = 35;
-            }
 
             // Combo Filter
             var data = db.ListTahun();
@@ -112,9 +81,22 @@ namespace latihribbon
             txtNama_FormSiswa.MaxLength = 80;
             txtPersensi_FormSiswa.MaxLength = 3;
             txtRombel_FromSiswa.MaxLength = 5;
+        }
+        public void InitComponent()
+        {
+            // DataGrid
+            if (dataGridView1.Rows.Count > 0)
+            {
+                dataGridView1.EnableHeadersVisualStyles = false;
+                dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
 
-  
-
+                dataGridView1.DefaultCellStyle.Font = new Font("Sans Serif", 10);
+                dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Sans Serif", 10, FontStyle.Bold);
+                dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.LightBlue;
+                dataGridView1.RowTemplate.Height = 30;
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                dataGridView1.ColumnHeadersHeight = 35;
+            }
         }
 
         public void ControlInsertUpdate()
@@ -130,11 +112,6 @@ namespace latihribbon
                 txtNIS_FormSiswa.ReadOnly = true;
                 lblNisSudahAda.Visible = false;
             }
-        }
-
-        public void LoadData()
-        {
-            dataGridView1.DataSource = siswaDal.ListData();
         }
 
         public void GetData(int nis)
@@ -276,65 +253,75 @@ namespace latihribbon
 
 
         #region FILTER
-        public void filter(string nis, string nama, string kelas, string tahun)
-        {
-            string sql = CekIsi(nis, nama, kelas, tahun);
-
-            var fltr = siswaDal.GetSiswaFilter(sql, new { nis = nis, nama = nama, kelas = kelas, tahun = tahun });
-            dataGridView1.DataSource = fltr;
-        }
-
-        public string CekIsi(string nis, string nama, string kelas, string tahun)
-        {
-            List<string> kondisi = new List<string>();
-            if (nama != "") kondisi.Add(" Nama LIKE '%'+@nama+'%'");
-            if (kelas != "") kondisi.Add(" Kelas LIKE '%'+@kelas+'%'");
-            if (tahun != "Semua") kondisi.Add(" Tahun LIKE @tahun+'%'");
-            if (nis != "") kondisi.Add(" NIS LIKE @nis+'%'");
-
-            string sql = "SELECT * FROM siswa";
-
-            if (kondisi.Count > 0)
-            {
-                sql += " WHERE" + string.Join(" AND ", kondisi);
-            }
-            return sql;
-        }
-        public void fltr()
+        int Page = 1;
+        int totalPage;
+        public void LoadData()
         {
             string nis, nama, kelas, tahun;
+
             nis = txtNIS.Text;
             nama = txtNama.Text;
             kelas = txtKelas.Text;
-            tahun = comboTahunFilter.SelectedItem.ToString() ?? string.Empty;
+            tahun = comboTahunFilter.SelectedItem.ToString();
 
-            filter(nis, nama, kelas, tahun);
+            var sqlc = FilterSQL(nis, nama, kelas, tahun);
+            var dp = new DynamicParameters();
+            dp.Add("@Nis", nis);
+            dp.Add("@Nama", nama);
+            dp.Add("@Kelas", kelas);
+            dp.Add("@Tahun", tahun);
+
+            string text = "Halaman ";
+            int RowPerPage = 15;
+            int inRowPage = (Page - 1) * RowPerPage;
+            var jumlahRow = siswaDal.CekRows(sqlc, dp);
+            totalPage = (int)Math.Ceiling((double)jumlahRow / RowPerPage);
+
+            text += $"{Page.ToString()}/{totalPage.ToString()}";
+            lblHalaman.Text = text;
+            dp.Add("@Offset", inRowPage);
+            dp.Add("@Fetch", RowPerPage);
+            dataGridView1.DataSource = siswaDal.ListData(sqlc, dp);
+        }
+
+        private string FilterSQL(string nis, string nama, string kelas, string tahun)
+        {
+            string sqlc = string.Empty;
+            List<string> fltr = new List<string>();
+            if (nis != "") fltr.Add("Nis LIKE @NIS+'%'");
+            if (nama != "") fltr.Add("Nama LIKE '%'+@Nama+'%'");
+            if (kelas != "") fltr.Add("Kelas LIKE '%'+@Kelas+'%'");
+            if (tahun != "Semua") fltr.Add("Tahun LIKE @Tahun+'%'");
+
+            if (fltr.Count > 0)
+                sqlc += " WHERE " + string.Join(" AND ", fltr);
+            return sqlc;
         }
         #endregion
 
         #region EVENT FILTER
         private void txtNama_TextChanged(object sender, EventArgs e)
         {
-            fltr();
+            LoadData();
         }
 
         private void txtKelas_TextChanged(object sender, EventArgs e)
         {
-            fltr();
+            LoadData();
         }
 
         private void txtTahun_TextChanged(object sender, EventArgs e)
         {
-            fltr();
+            LoadData();
         }
         private void txtNIS_TextChanged(object sender, EventArgs e)
         {
-            fltr();
+            LoadData();
         }
 
         private void comboTahunFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
-            fltr();
+            LoadData();
         }
         #endregion
 
@@ -489,6 +476,22 @@ namespace latihribbon
             }
         }
 
-       
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            if(Page < totalPage)
+            {
+                Page++;
+                LoadData();
+            }
+        }
+
+        private void btnPrevious_Click(object sender, EventArgs e)
+        {
+            if(Page > 1)
+            {
+                Page--;
+                LoadData();
+            }
+        }
     }
 }
