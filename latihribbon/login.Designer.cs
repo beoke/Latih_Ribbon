@@ -113,7 +113,7 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.tx_Username);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(666, 114);
+            this.panel1.Location = new System.Drawing.Point(743, 130);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(404, 517);
             this.panel1.TabIndex = 6;
@@ -180,7 +180,7 @@
             this.panel2.Controls.Add(this.pictureBox4);
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(439, 746);
+            this.panel2.Size = new System.Drawing.Size(629, 746);
             this.panel2.TabIndex = 7;
             // 
             // panel7
@@ -228,7 +228,7 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(126, 38);
+            this.label3.Location = new System.Drawing.Point(221, 38);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(159, 33);
             this.label3.TabIndex = 10;
@@ -239,7 +239,7 @@
             this.pictureBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
             this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox4.Location = new System.Drawing.Point(11, 2);
+            this.pictureBox4.Location = new System.Drawing.Point(106, 2);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(117, 96);

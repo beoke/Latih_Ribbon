@@ -21,8 +21,6 @@ namespace latihribbon
             _riwayatLoginDal = new RiwayatLogin_UserDal();
             InitializeComponent();
 
-            tx_Username.TextChanged += Tx_Username_TextChanged;
-            LabelWarning.Visible = false;
         }
 
       
@@ -90,18 +88,6 @@ namespace latihribbon
             if (e.KeyCode == Keys.Enter) ENTER();
         }
 
-        private void Tx_Username_TextChanged(object sender, EventArgs e)
-        {
-            string user = tx_Username.Text;
-
-            if (user.EndsWith(" "))
-                LabelWarning.Visible = true;
-            
-            if (user.StartsWith(" "))
-                LabelWarning.Visible = true;
-
-            else
-                LabelWarning.Visible = false;
-        }
+       
     }
 }

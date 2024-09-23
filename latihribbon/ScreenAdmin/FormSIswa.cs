@@ -71,7 +71,6 @@ namespace latihribbon
             new object[] { true });
 
 
-            Thread.Sleep(3000);
         }
         public void InitComponent()
         {
