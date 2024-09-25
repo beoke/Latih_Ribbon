@@ -74,7 +74,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.comboTahunFilter = new System.Windows.Forms.ComboBox();
             this.ButtonDownloadFormat = new System.Windows.Forms.Button();
-//            this.btnResetFilter = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -219,7 +218,7 @@
             // 
             this.btnNext.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnNext.Location = new System.Drawing.Point(459, 681);
-            this.btnNext.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNext.Margin = new System.Windows.Forms.Padding(4);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(100, 28);
             this.btnNext.TabIndex = 27;
@@ -231,7 +230,7 @@
             // 
             this.btnPrevious.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnPrevious.Location = new System.Drawing.Point(195, 681);
-            this.btnPrevious.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPrevious.Margin = new System.Windows.Forms.Padding(4);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(100, 28);
             this.btnPrevious.TabIndex = 26;
@@ -298,7 +297,7 @@
             this.btnSave_FormSiswa.BackColor = System.Drawing.Color.LimeGreen;
             this.btnSave_FormSiswa.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave_FormSiswa.ForeColor = System.Drawing.Color.White;
-            this.btnSave_FormSiswa.Location = new System.Drawing.Point(44, 27);
+            this.btnSave_FormSiswa.Location = new System.Drawing.Point(24, 27);
             this.btnSave_FormSiswa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSave_FormSiswa.Name = "btnSave_FormSiswa";
             this.btnSave_FormSiswa.Size = new System.Drawing.Size(99, 33);
@@ -312,7 +311,7 @@
             this.btnDelete_FormSiswa.BackColor = System.Drawing.Color.Red;
             this.btnDelete_FormSiswa.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete_FormSiswa.ForeColor = System.Drawing.Color.White;
-            this.btnDelete_FormSiswa.Location = new System.Drawing.Point(299, 27);
+            this.btnDelete_FormSiswa.Location = new System.Drawing.Point(324, 27);
             this.btnDelete_FormSiswa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDelete_FormSiswa.Name = "btnDelete_FormSiswa";
             this.btnDelete_FormSiswa.Size = new System.Drawing.Size(99, 33);
@@ -425,9 +424,9 @@
             this.groupBox1.Controls.Add(this.perempuanRadio);
             this.groupBox1.Controls.Add(this.lakiRadio);
             this.groupBox1.Location = new System.Drawing.Point(24, 267);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(337, 33);
             this.groupBox1.TabIndex = 31;
             this.groupBox1.TabStop = false;
@@ -481,13 +480,14 @@
             // 
             // btnNew
             // 
+            this.btnNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnNew.BackColor = System.Drawing.SystemColors.Highlight;
             this.btnNew.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNew.ForeColor = System.Drawing.Color.White;
-            this.btnNew.Location = new System.Drawing.Point(344, 570);
+            this.btnNew.Location = new System.Drawing.Point(324, 554);
             this.btnNew.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(80, 33);
+            this.btnNew.Size = new System.Drawing.Size(99, 33);
             this.btnNew.TabIndex = 2;
             this.btnNew.Text = "New";
             this.btnNew.UseVisualStyleBackColor = false;
@@ -617,7 +617,7 @@
             // 
             this.comboTahunFilter.FormattingEnabled = true;
             this.comboTahunFilter.Location = new System.Drawing.Point(816, 28);
-            this.comboTahunFilter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboTahunFilter.Margin = new System.Windows.Forms.Padding(4);
             this.comboTahunFilter.Name = "comboTahunFilter";
             this.comboTahunFilter.Size = new System.Drawing.Size(160, 24);
             this.comboTahunFilter.TabIndex = 15;
