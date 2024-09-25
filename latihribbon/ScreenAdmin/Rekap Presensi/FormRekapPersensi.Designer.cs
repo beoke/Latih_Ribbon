@@ -43,6 +43,7 @@
             this.txtNama = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtPersensi = new System.Windows.Forms.TextBox();
             this.lblHalaman = new System.Windows.Forms.Label();
             this.btnNext = new System.Windows.Forms.Button();
             this.btnPrevious = new System.Windows.Forms.Button();
@@ -92,6 +93,7 @@
             this.KeteranganCombo.Name = "KeteranganCombo";
             this.KeteranganCombo.Size = new System.Drawing.Size(121, 21);
             this.KeteranganCombo.TabIndex = 37;
+            this.KeteranganCombo.SelectedIndexChanged += new System.EventHandler(this.KeteranganCombo_SelectedIndexChanged);
             // 
             // tgldua
             // 
@@ -110,6 +112,7 @@
             this.tglsatu.Name = "tglsatu";
             this.tglsatu.Size = new System.Drawing.Size(132, 21);
             this.tglsatu.TabIndex = 35;
+            this.tglsatu.ValueChanged += new System.EventHandler(this.tglsatu_ValueChanged);
             // 
             // label4
             // 
@@ -171,6 +174,7 @@
             this.txtNama.Name = "txtNama";
             this.txtNama.Size = new System.Drawing.Size(163, 21);
             this.txtNama.TabIndex = 29;
+            this.txtNama.TextChanged += new System.EventHandler(this.txtNama_TextChanged);
             // 
             // label1
             // 
@@ -189,6 +193,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.txtPersensi);
             this.panel1.Controls.Add(this.lblHalaman);
             this.panel1.Controls.Add(this.btnNext);
             this.panel1.Controls.Add(this.btnPrevious);
@@ -199,6 +204,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1189, 478);
             this.panel1.TabIndex = 40;
+            // 
+            // txtPersensi
+            // 
+            this.txtPersensi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtPersensi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPersensi.Location = new System.Drawing.Point(36, 423);
+            this.txtPersensi.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPersensi.Name = "txtPersensi";
+            this.txtPersensi.Size = new System.Drawing.Size(84, 21);
+            this.txtPersensi.TabIndex = 43;
             // 
             // lblHalaman
             // 
@@ -320,5 +335,6 @@
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Button btnPrevious;
         private System.Windows.Forms.Button btnKelas;
+        private System.Windows.Forms.TextBox txtPersensi;
     }
 }

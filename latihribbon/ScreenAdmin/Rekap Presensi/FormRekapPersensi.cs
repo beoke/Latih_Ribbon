@@ -30,9 +30,9 @@ namespace latihribbon.ScreenAdmin
             InitializeComponent();
             rekapPersensiDal = new RekapPersensiDal();
             historyDal = new HistoryDal();
-            LoadHistory();
             InitComponen();
             Event();
+            LoadHistory();
         }
 
         public void InitComponen()
@@ -47,14 +47,14 @@ namespace latihribbon.ScreenAdmin
             dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.LightBlue;
             dataGridView1.RowTemplate.Height = 30;
             //dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dataGridView1.Columns["Nis"].Width = 100;
+           /* dataGridView1.Columns["Nis"].Width = 100;
             dataGridView1.Columns["Persensi"].Width = 100;
             dataGridView1.Columns["Nama"].Width = 250;
             dataGridView1.Columns["Kelas"].Width = 100;
             dataGridView1.Columns["Tanggal"].Width = 100;
             dataGridView1.Columns["Keterangan"].Width = 120;
             dataGridView1.ColumnHeadersHeight = 35;
-            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.RowHeadersWidth = 51;*/
         }
 
         public void LoadHistory()
@@ -66,31 +66,37 @@ namespace latihribbon.ScreenAdmin
 
 
         string tglchange = string.Empty;
-        private string FilterSQL(string digunakanUntuk,string nis, string nama, string kelas ,string keterangan)
+        string sqlc2 = string.Empty;
+        private string FilterSQL(string digunakanUntuk,string nis, string nama, string persensi,string keterangan)
         {
             string sqlc = string.Empty;
+            
             List<string> fltr = new List<string>();
-            if(digunakanUntuk == "data")
+            List<string> fltr2 = new List<string>();
+            
+            if (digunakanUntuk == "data")
             {
+                fltr.Add("sd.Kelas LIKE @Kelas+'%'");
                 if (nis != "") fltr.Add("sd.NIS LIKE @NIS+'%'");
                 if (nama != "") fltr.Add("sd.Nama LIKE '%'+@Nama+'%'");
-                if (persensi != "") fltr.Add("s.Nama LIKE '%'+@Persensi+'%'");
-                if (kelas != "") fltr.Add("s.Kelas LIKE '%'+@Kelas+'%'");
-                if (keterangan != "Semua") fltr.Add("p.Keterangan LIKE @Keterangan+'%'");
-                if (tglchange != "") fltr.Add("p.Tanggal BETWEEN @tgl1 AND @tgl2");
+                if (persensi != "") fltr.Add("sd.Persensi LIKE '%'+@Persensi+'%'");
+                if (keterangan != "Semua") fltr.Add("COALESCE(a.Keterangan, '*') LIKE @Keterangan+'%'");
+                if (tglchange != "") fltr.Add("sd.Tanggal BETWEEN @tgl1 AND @tgl2");
             }
             else
             {
-                if (nis != "") fltr.Add("p.NIS LIKE @NIS+'%'");
-                if (nama != "") fltr.Add("s.Nama LIKE '%'+@Nama+'%'");
-                if (persensi != "") fltr.Add("s.Nama LIKE '%'+@Persensi+'%'");
-                if (kelas != "") fltr.Add("s.Kelas LIKE '%'+@Kelas+'%'");
-                if (keterangan != "Semua") fltr.Add("p.Keterangan LIKE @Keterangan+'%'");
-                if (tglchange != "") fltr.Add("p.Tanggal BETWEEN @tgl1 AND @tgl2");
+                fltr.Add("Kelas LIKE @Kelas+'%'");
+                if (nis != "") fltr.Add("NIS LIKE @NIS+'%'");
+                if (nama != "") fltr.Add("Nama LIKE '%'+@Nama+'%'");
+                if (persensi != "") fltr.Add("Persensi LIKE @Persensi+'%'");
+                if (keterangan != "Semua") fltr2.Add("Keterangan LIKE @Keterangan+'%'");
+                if (tglchange != "") fltr2.Add("Tanggal BETWEEN @tgl1 AND @tgl2");
             }
 
             if (fltr.Count > 0)
-                sqlc += " WHERE " + string.Join(" AND ", fltr);
+                sqlc += " WHERE "+string.Join(" AND ", fltr);
+            if (fltr2.Count > 0)
+                sqlc2 += " WHERE "+string.Join(" AND ", fltr2);
             return sqlc;
         }
 
@@ -98,35 +104,41 @@ namespace latihribbon.ScreenAdmin
         int totalPage;
         private void LoadData()
         {
-            string nis, nama, kelas, keterangan;
+            string nis, nama,persensi, kelas, keterangan;
             DateTime tgl1, tgl2;
 
             nis = txtNIS.Text;
             nama = txtNama.Text;
+            persensi = txtPersensi.Text;
             kelas = txtKelas.Text;
             keterangan = KeteranganCombo.SelectedItem.ToString() ?? string.Empty;
             tgl1 = tglsatu.Value.Date;
             tgl2 = tgldua.Value.Date;
 
-            var sqlc = FilterSQL("data",nis, nama, kelas, keterangan);
-            var sqlcRow = FilterSQL("cekRow",nis, nama, kelas, keterangan);
+            var sqlc = FilterSQL("data",nis, nama,persensi, keterangan);
+            var sqlcRow = FilterSQL("cekRow",nis, nama,persensi, keterangan);
             var dp = new DynamicParameters();
             dp.Add("@NIS", nis);
             dp.Add("@Nama", nama);
-            dp.Add("@Keterangan", keterangan);
             dp.Add("@Kelas", kelas);
+            dp.Add("@Persensi", persensi);
+            dp.Add("@Keterangan", keterangan);
             dp.Add("@tgl1", tgl1);
             dp.Add("@tgl2", tgl2);
 
             string text = "Halaman ";
             int RowPerPage = 20;
             int inRowPage = (Page - 1) * RowPerPage;
-            var jumlahRow = rekapPersensiDal.CekRows(txtKelas.Text,filter1,filter2);
+            var jumlahRow = rekapPersensiDal.CekRows(sqlcRow,sqlc2,dp);
             totalPage = (int)Math.Ceiling((double)jumlahRow / RowPerPage);
 
+            dp.Add("Offset",inRowPage);
+            dp.Add("Fetch",RowPerPage);
             text += $"{Page.ToString()}/{totalPage.ToString()}";
             lblHalaman.Text = text;
-            dataGridView1.DataSource = rekapPersensiDal.ListData2(inRowPage, RowPerPage, txtKelas.Text);
+            dataGridView1.DataSource = rekapPersensiDal.ListData2(sqlc,dp);
+
+            sqlc2 = string.Empty;
         }
 
         #region     EVENT
@@ -134,6 +146,24 @@ namespace latihribbon.ScreenAdmin
         {
             btnPrintRekap.Click += BtnPrintRekap_Click;
             txtKelas.Click += TxtKelas_Click;
+
+            txtNIS.TextChanged += txt_TextChanged;
+            txtNama.TextChanged += txt_TextChanged;
+            txtPersensi.TextChanged += txt_TextChanged;
+            KeteranganCombo.SelectedIndexChanged += txt_TextChanged;
+            tglsatu.ValueChanged += tgl_ValueChanged;
+            tgldua.ValueChanged += tgl_ValueChanged;
+        }
+
+        private void txt_TextChanged(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        private void tgl_ValueChanged(object sender,EventArgs e)
+        {
+            tglchange = "0";
+            LoadData();
         }
 
         private void TxtKelas_Click(object sender, EventArgs e)
@@ -153,16 +183,6 @@ namespace latihribbon.ScreenAdmin
             if (MessageBox.Show("Eksport Data ?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 Print();
         }
-
-
-        public string Kelas
-        {
-            get { return txtKelas.Text; }
-            set { txtKelas.Text = value; }
-        }
-
-
-
         #endregion
 
 
@@ -317,5 +337,27 @@ namespace latihribbon.ScreenAdmin
             tglchange = string.Empty;
             LoadData();
         }
+
+        private void txtNama_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void KeteranganCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tglsatu_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
+
+public class ListFilter 
+{
+    public string filter1 { get; set; }
+    public string filter2 { get; set; }
+}
+

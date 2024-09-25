@@ -45,11 +45,11 @@ namespace latihribbon.Dal
             }
         }
 
-        public IEnumerable<RekapPersensiModel> ListData2(int Offset, int Fetch, string Kelas)
+        public IEnumerable<RekapPersensiModel> ListData2(string filter, object dp)
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
             {
-                const string sql = @"WITH UniqueDates AS (
+                string sql = $@"WITH UniqueDates AS (
                             SELECT DISTINCT Tanggal
                             FROM Persensi)
 
@@ -62,26 +62,26 @@ namespace latihribbon.Dal
                                sd.Tanggal,
                                COALESCE(a.Keterangan, '*') AS Keterangan
                         FROM SiswaDates sd
-                        LEFT JOIN Persensi a ON sd.NIS = a.NIS AND sd.Tanggal = a.Tanggal
-                        WHERE sd.Kelas LIKE  @Kelas+'%'
+                        LEFT JOIN Persensi a ON sd.NIS = a.NIS AND sd.Tanggal = a.Tanggal 
+                        {filter} 
                         ORDER BY 
                             sd.Persensi ASC,
                             sd.Tanggal DESC OFFSET @Offset ROWS FETCH NEXT @Fetch ROWS ONLY";
                 
 
-                return koneksi.Query<RekapPersensiModel>(sql, new { Offset = Offset , Fetch = Fetch, Kelas=Kelas});
+                return koneksi.Query<RekapPersensiModel>(sql, dp);
             }
         }
 
-        public int CekRows(string Kelas, string filter1, string filter2)
+        public int CekRows(string filter1, string filter2, object dp)
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
             {
                 string sql = $@"SELECT  
-                                      (SELECT COUNT(DISTINCT Tanggal) FROM Persensi {filter1}) *
-                                      (SELECT COUNT(*) FROM siswa {filter2})
+                                      (SELECT COUNT(DISTINCT Tanggal) FROM Persensi {filter2}) *
+                                      (SELECT COUNT(*) FROM siswa {filter1})
                                AS TotalRows";
-                return koneksi.QuerySingle<int>(sql, new {kelas=Kelas});
+                return koneksi.QuerySingle<int>(sql,dp);
             }
         }
 
