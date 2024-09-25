@@ -307,25 +307,30 @@ namespace latihribbon
         #region EVENT FILTER
         private void txtNama_TextChanged(object sender, EventArgs e)
         {
+            Page = 1;
             LoadData();
         }
 
         private void txtKelas_TextChanged(object sender, EventArgs e)
         {
+            Page = 1;
             LoadData();
         }
 
         private void txtTahun_TextChanged(object sender, EventArgs e)
         {
+            Page = 1;
             LoadData();
         }
         private void txtNIS_TextChanged(object sender, EventArgs e)
         {
+            Page = 1;
             LoadData();
         }
 
         private void comboTahunFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Page = 1;
             LoadData();
         }
         #endregion
@@ -594,6 +599,15 @@ namespace latihribbon
             }
 
 
+        }
+
+        private void btnResetFilter_Click(object sender, EventArgs e)
+        {
+            txtNIS.Clear();
+            txtNama.Clear();
+            txtKelas.Clear();
+            comboTahunFilter.SelectedIndex = 0;
+            LoadData();
         }
     }
 }

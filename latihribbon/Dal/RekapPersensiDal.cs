@@ -73,20 +73,17 @@ namespace latihribbon.Dal
             }
         }
 
-        public int CekRows(string Kelas)
+        public int CekRows(string Kelas, string filter1, string filter2)
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
             {
-                const string sql = @"SELECT
-                                        (SELECT COUNT(DISTINCT Tanggal) FROM Persensi) *
-                                        (SELECT COUNT(*) FROM siswa WHERE Kelas LIKE @Kelas+'%')
-                                     AS TotalRows";
+                string sql = $@"SELECT  
+                                      (SELECT COUNT(DISTINCT Tanggal) FROM Persensi {filter1}) *
+                                      (SELECT COUNT(*) FROM siswa {filter2})
+                               AS TotalRows";
                 return koneksi.QuerySingle<int>(sql, new {kelas=Kelas});
             }
         }
-
-
-
 
 
         public void InsertDataToDatabase(DataTable dataTable)

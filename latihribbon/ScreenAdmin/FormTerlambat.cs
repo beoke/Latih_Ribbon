@@ -106,7 +106,6 @@ namespace latihribbon
             if (tglchange != "") fltr.Add("m.Tanggal BETWEEN @tgl1 AND @tgl2");
             if (fltr.Count > 0)
                 sqlc += " WHERE " + string.Join(" AND ", fltr);
-            tglchange = string.Empty;
             return sqlc;
         }
 
@@ -210,28 +209,33 @@ namespace latihribbon
         #region EVENT FILTER
         private void txtNIS_TextChanged(object sender, EventArgs e)
         {
+            Page = 1;
             LoadData();
         }
 
         private void txtNama_TextChanged(object sender, EventArgs e)
         {
+            Page = 1;
             LoadData();
         }
 
         private void tglsatu_ValueChanged(object sender, EventArgs e)
         {
+            Page = 1;
             tglchange = "0";
             LoadData();
         }
 
         private void tgldua_ValueChanged(object sender, EventArgs e)
         {
+            Page = 1;
             tglchange = "0";
             LoadData();
         }
 
         private void txtKelas_TextChanged(object sender, EventArgs e)
         {
+            Page = 1;
             LoadData();
         }
         #endregion
@@ -288,6 +292,17 @@ namespace latihribbon
             GetData();
             lblInfo.Text = "UPDATE";
             txtNIS1.ReadOnly = true;
+        }
+
+        private void btnResetFilter_Click(object sender, EventArgs e)
+        {
+            txtNIS.Clear();
+            txtNama.Clear();
+            txtKelas.Clear();
+            tglsatu.Value = DateTime.Now;
+            tgldua.Value = DateTime.Now;
+            tglchange = string.Empty;
+            LoadData();
         }
     }
 }

@@ -74,6 +74,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.comboTahunFilter = new System.Windows.Forms.ComboBox();
             this.ButtonDownloadFormat = new System.Windows.Forms.Button();
+            this.btnResetFilter = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();

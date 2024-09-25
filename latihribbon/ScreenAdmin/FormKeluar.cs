@@ -1,4 +1,5 @@
-﻿using latihribbon.Dal;
+﻿using Dapper;
+using latihribbon.Dal;
 using latihribbon.Helper;
 using latihribbon.Model;
 using System;
@@ -30,11 +31,6 @@ namespace latihribbon
             InitComponent();
         }
 
-        public void LoadData()
-        {
-            dataGridView1.DataSource = keluarDal.ListData();
-        }
-
         public void InitComponent()
         {
 
@@ -57,31 +53,9 @@ namespace latihribbon
             txtTujuan1.MaxLength = 60;
         }
 
-        string sqlglobal;
-        public string Filter(string nis,string nama, string kelas,DateTime tgl1,DateTime tgl2)
-        {
-            List<string> fltr = new List<string>();
-            string sql = @"SELECT k.Id,k.Nis,s.Nama,s.Kelas,k.Tanggal,k.JamKeluar,k.JamMasuk,k.Tujuan 
-                            FROM Keluar k INNER JOIN siswa s ON k.Nis=s.Nis";
-            if (nis != "") fltr.Add("k.Nis LIKE @nis+'%'");
-            if (nama != "") fltr.Add("s.Nama LIKE '%'+@nama+'%'");
-            if (kelas != "") fltr.Add("s.Kelas LIKE '%'+@kelas+'%'");
-            if (sqlglobal != "") fltr.Add("Tanggal BETWEEN @tgl1 AND @tgl2");
-
-            if (fltr.Count > 0)
-            {
-                sql += " WHERE " + string.Join(" AND ", fltr);
-            }
-            sqlglobal = "";
-            return sql;
-        }
-
-        public void FilterTGL()
-        {
-            sqlglobal = "0";
-        }
-
-        public void Filter2()
+        int Page = 1;
+        int totalPage;
+        public void LoadData()
         {
             string nis, nama, kelas;
             DateTime tgl1, tgl2;
@@ -89,12 +63,44 @@ namespace latihribbon
             nis = txtNIS.Text;
             nama = txtNama.Text;
             kelas = txtKelas.Text;
-            tgl1 = tglsatu.Value;
-            tgl2 = tgldua.Value;
+            tgl1 = tglsatu.Value.Date;
+            tgl2 = tgldua.Value.Date;
 
-            string sql = Filter(nis,nama,kelas,tgl1,tgl2);
-            var select = keluarDal.GetKeluarFilter(sql, new {nis=nis, nama=nama,kelas=kelas,tgl1=tgl1,tgl2=tgl2});
-            dataGridView1.DataSource = select;
+            var sqlc = FilterSQL(nis, nama, kelas);
+            var dp = new DynamicParameters();
+            dp.Add("@NIS", nis);
+            dp.Add("@Nama", nama);
+            dp.Add("@Kelas", kelas);
+            dp.Add("@tgl1", tgl1);
+            dp.Add("@tgl2", tgl2);
+
+            string text = "Halaman ";
+            int RowPerPage = 15;
+            int inRowPage = (Page - 1) * RowPerPage;
+            var jumlahRow = keluarDal.CekRows(sqlc, dp);
+            totalPage = (int)Math.Ceiling((double)jumlahRow / RowPerPage);
+
+            text += $"{Page.ToString()}/{totalPage.ToString()}";
+            lblHalaman.Text = text;
+            dp.Add("@Offset", inRowPage);
+            dp.Add("@Fetch", RowPerPage);
+            dataGridView1.DataSource = keluarDal.ListData(sqlc, dp);
+
+
+        }
+
+        string tglchange = string.Empty;
+        private string FilterSQL(string nis, string nama, string kelas)
+        {
+            string sqlc = string.Empty;
+            List<string> fltr = new List<string>();
+            if (nis != "") fltr.Add("l.NIS LIKE @NIS+'%'");
+            if (nama != "") fltr.Add("s.Nama LIKE '%'+@Nama+'%'");
+            if (kelas != "") fltr.Add("s.Kelas LIKE '%'+@Kelas+'%'");
+            if (tglchange != "") fltr.Add("k.Tanggal BETWEEN @tgl1 AND @tgl2");
+            if (fltr.Count > 0)
+                sqlc += " WHERE " + string.Join(" AND ", fltr);
+            return sqlc;
         }
 
         private void GetData()
@@ -212,32 +218,40 @@ namespace latihribbon
         #region EVENT FILTER
         private void txtNIS_TextChanged(object sender, EventArgs e)
         {
-            Filter2();
+            Page = 1;
+            LoadData();
         }
 
         private void txtNama_TextChanged(object sender, EventArgs e)
         {
-            Filter2();
+            Page = 1;
+            LoadData();
         }
 
         private void txtKelas_TextChanged(object sender, EventArgs e)
         {
-            Filter2();
+            Page = 1;
+            LoadData();
         }
 
         private void txtTahun_TextChanged(object sender, EventArgs e)
         {
-            Filter2();
+            Page = 1;
+            LoadData();
         }
 
         private void tglsatu_ValueChanged(object sender, EventArgs e)
         {
-            FilterTGL();
+            Page = 1;
+            tglchange = "0";
+            LoadData();
         }
 
         private void tgldua_ValueChanged(object sender, EventArgs e)
         {
-            FilterTGL();
+            Page = 1;
+            tglchange = "0";
+            LoadData();
         }
         #endregion
 
@@ -285,6 +299,35 @@ namespace latihribbon
         {
             GetData();
             ControlInsertUpdate();
+        }
+
+        private void btnResetFilter_Click(object sender, EventArgs e)
+        {
+            txtNIS.Clear();
+            txtNama.Clear();
+            txtKelas.Clear();
+            tglsatu.Value = DateTime.Now;
+            tgldua.Value = DateTime.Now;
+            tglchange = string.Empty;
+            LoadData();
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            if (Page < totalPage)
+            {
+                Page++;
+                LoadData();
+            }
+        }
+
+        private void btnPrevious_Click(object sender, EventArgs e)
+        {
+            if (Page > totalPage)
+            {
+                Page--;
+                LoadData();
+            }
         }
     }
 }
