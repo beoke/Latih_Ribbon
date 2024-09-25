@@ -4,6 +4,7 @@ using latihribbon.Dal;
 using latihribbon.Helper;
 using latihribbon.Model;
 using OfficeOpenXml;
+using OfficeOpenXml.Style;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -403,86 +404,99 @@ namespace latihribbon
         {
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
 
-            OpenFileDialog openDialog = new OpenFileDialog();
-            openDialog.Filter = "File Excel |*.xls; *.xlsx";
+            OpenFileDialog dialogOpen = new OpenFileDialog();
+            dialogOpen.Filter = "File Excel |*.xls; *.xlsx";
 
-            if (openDialog.ShowDialog() == DialogResult.OK)
+            if (dialogOpen.ShowDialog() == DialogResult.OK)
             {
-                FileInfo fileInfo = new FileInfo(openDialog.FileName); 
+                FileInfo infoFile = new FileInfo(dialogOpen.FileName);
 
-                using (ExcelPackage package = new ExcelPackage(fileInfo))
+                using (ExcelPackage package = new ExcelPackage(infoFile))
                 {
-                    ExcelWorksheet workSheet = package.Workbook.Worksheets[0];
-
-                    int RowCount = workSheet.Dimension.Rows;
-
-                    using (IDbConnection Conn = new SqlConnection(conn.connstr()))
+                    foreach (var sheet in package.Workbook.Worksheets)
                     {
-                        for (int row = 2; row <= RowCount; row++)
+                        int RowCount = sheet.Dimension.Rows;
+
+                        using (IDbConnection Conn = new SqlConnection(conn.connstr()))
                         {
-                            var nis = long.TryParse(workSheet.Cells[row, 1].Value?.ToString(), out long parsedNis) ? parsedNis : (long?)null;
-                            var nama = workSheet.Cells[row, 2].Value?.ToString();
-                            var kelas = workSheet.Cells[row, 3].Value?.ToString();
-                            var tahun = int.TryParse(workSheet.Cells[row, 4].Value?.ToString(), out int parsedTahun) ? parsedTahun : (int?)null;
-                            var presensi = int.TryParse(workSheet.Cells[row, 5].Value?.ToString(), out int parsedPresensi) ? parsedPresensi : (int?)null;
-                            var jenisKelamin = workSheet.Cells[row, 6].Value?.ToString();
-
-                           
-                            if (nis == null || nama == null || kelas == null || tahun == null || presensi == null || jenisKelamin == null)
+                            for (int baris = 2; baris <= RowCount; baris++)
                             {
-                                mesBox.MesInfo("Terjadi kesalahan saat mengimport data, pastikan data pada excel berada di format yang benar!");
-                                return;
-                            }
+                                var nis = long.TryParse(sheet.Cells[baris, 2].Value?.ToString(), out long parsedNis) ? parsedNis : (long?)null;
+                                var nama = sheet.Cells[baris, 3].Value?.ToString();
+                                var kelas = sheet.Cells[baris, 4].Value?.ToString();
+                                var tahun = int.TryParse(sheet.Cells[baris, 6].Value?.ToString(), out int parsedTahun) ? parsedTahun : (int?)null;
+                                var presensi = int.TryParse(sheet.Cells[baris, 1].Value?.ToString(), out int parsedPresensi) ? parsedPresensi : (int?)null;
+                                var jenisKelamin = sheet.Cells[baris, 5].Value?.ToString();
 
-                            
-                            var cekDb = Conn.QueryFirstOrDefault<long?>("SELECT Nis FROM siswa WHERE Nis = @Nis", new { Nis = nis });
+                                bool isBarisKosong =
+                                    nis == null &&
+                                    string.IsNullOrWhiteSpace(nama) &&
+                                    string.IsNullOrWhiteSpace(kelas) &&
+                                    tahun == null &&
+                                    presensi == null &&
+                                    string.IsNullOrWhiteSpace(jenisKelamin);
 
-                            if (cekDb != null) 
-                            {
-                                const string updateSql = @"
-                                    UPDATE siswa
-                                    SET Nama = @Nama, 
-                                        Kelas = @Kelas, 
-                                        Tahun = @Tahun, 
-                                        Persensi = @Persensi, 
-                                        JenisKelamin = @JenisKelamin
-                                    WHERE Nis = @Nis";
+                                if (isBarisKosong)
+                                {
+                                    continue;
+                                }
 
-                                var UpdateDp = new DynamicParameters();
-                                UpdateDp.Add("@Nis", nis, DbType.Int64);
-                                UpdateDp.Add("@Nama", nama, DbType.String);
-                                UpdateDp.Add("@Kelas", kelas, DbType.String);
-                                UpdateDp.Add("@Tahun", tahun, DbType.Int32);
-                                UpdateDp.Add("@Persensi", presensi, DbType.Int64);
-                                UpdateDp.Add("@JenisKelamin", jenisKelamin, DbType.String);
+                                if (nis == null || nama == null || kelas == null || tahun == null || presensi == null || jenisKelamin == null)
+                                {
+                                    continue;
+                                }
 
-                                Conn.Execute(updateSql, UpdateDp); 
-                            }
-                            else 
-                            {
-                                const string insertSql = @"
-                                    INSERT INTO siswa 
-                                        (Nis, Nama, Kelas, Tahun, Persensi, JenisKelamin)
-                                    VALUES
-                                        (@Nis, @Nama, @Kelas, @Tahun, @Persensi, @JenisKelamin)";
+                                var cekDb = Conn.QueryFirstOrDefault<long?>("SELECT Nis FROM siswa WHERE Nis = @Nis", new { Nis = nis });
 
-                                var InsertDp = new DynamicParameters();
-                                InsertDp.Add("@Nis", nis, DbType.Int64);
-                                InsertDp.Add("@Nama", nama, DbType.String);
-                                InsertDp.Add("@Kelas", kelas, DbType.String);
-                                InsertDp.Add("@Tahun", tahun, DbType.Int32);
-                                InsertDp.Add("@Persensi", presensi, DbType.Int64);
-                                InsertDp.Add("@JenisKelamin", jenisKelamin, DbType.String);
+                                if (cekDb != null)
+                                {
+                                    const string updateSql = @"
+                            UPDATE siswa
+                            SET Nama = @Nama, 
+                                Kelas = @Kelas, 
+                                Tahun = @Tahun, 
+                                Persensi = @Persensi, 
+                                JenisKelamin = @JenisKelamin
+                            WHERE Nis = @Nis";
 
-                                Conn.Execute(insertSql, InsertDp); 
+                                    var UpdateDp = new DynamicParameters();
+                                    UpdateDp.Add("@Nis", nis, DbType.Int64);
+                                    UpdateDp.Add("@Nama", nama, DbType.String);
+                                    UpdateDp.Add("@Kelas", kelas, DbType.String);
+                                    UpdateDp.Add("@Tahun", tahun, DbType.Int32);
+                                    UpdateDp.Add("@Persensi", presensi, DbType.Int64);
+                                    UpdateDp.Add("@JenisKelamin", jenisKelamin, DbType.String);
+
+                                    Conn.Execute(updateSql, UpdateDp);
+                                }
+                                else
+                                {
+                                    const string insertSql = @"
+                            INSERT INTO siswa 
+                                (Nis, Nama, Kelas, Tahun, Persensi, JenisKelamin)
+                            VALUES
+                                (@Nis, @Nama, @Kelas, @Tahun, @Persensi, @JenisKelamin)";
+
+                                    var InsertDp = new DynamicParameters();
+                                    InsertDp.Add("@Nis", nis, DbType.Int64);
+                                    InsertDp.Add("@Nama", nama, DbType.String);
+                                    InsertDp.Add("@Kelas", kelas, DbType.String);
+                                    InsertDp.Add("@Tahun", tahun, DbType.Int32);
+                                    InsertDp.Add("@Persensi", presensi, DbType.Int64);
+                                    InsertDp.Add("@JenisKelamin", jenisKelamin, DbType.String);
+
+                                    Conn.Execute(insertSql, InsertDp);
+                                }
                             }
                         }
-
-                        LoadData();
-                        mesBox.MesInfo("Data siswa berhasil ditambahkan atau diperbarui.");
                     }
+
+                    LoadData(); 
+                    mesBox.MesInfo("Data siswa berhasil ditambahkan atau diperbarui.");
                 }
             }
+
+
         }
 
         private void btnNext_Click(object sender, EventArgs e)
@@ -501,6 +515,90 @@ namespace latihribbon
                 Page--;
                 LoadData();
             }
+        }
+
+        private void ButtonDownloadFormat_Click(object sender, EventArgs e)
+        {
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+            using (var package = new ExcelPackage())
+            {
+                var sheet_X = package.Workbook.Worksheets.Add("X");
+                var sheet_XI = package.Workbook.Worksheets.Add("XI");
+                var sheet_XII = package.Workbook.Worksheets.Add("XII");
+
+                void CreateTables(ExcelWorksheet sheetExcel)
+                {
+                    int barisAwal = 1;
+
+                    for (int tabelIndek = 0; tabelIndek < 16; tabelIndek++)
+                    {
+                        sheetExcel.Cells[barisAwal, 1].Value = "Presensi";
+                        sheetExcel.Cells[barisAwal, 2].Value = "NIS";
+                        sheetExcel.Cells[barisAwal, 3].Value = "Nama";
+                        sheetExcel.Cells[barisAwal, 4].Value = "Kelas";
+                        sheetExcel.Cells[barisAwal, 5].Value = "Jenis Kelamin";
+                        sheetExcel.Cells[barisAwal, 6].Value = "Tahun";
+
+                        using (var range = sheetExcel.Cells[barisAwal, 1, barisAwal, 6])
+                        {
+                            range.Style.Font.Bold = true;
+                            range.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                            range.Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.LightGray);
+                            range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                            range.Style.Border.Top.Style = ExcelBorderStyle.Thin;
+                            range.Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
+                            range.Style.Border.Left.Style = ExcelBorderStyle.Thin;
+                            range.Style.Border.Right.Style = ExcelBorderStyle.Thin;
+                        }
+
+                        for (int barisIndek = 1; barisIndek <= 37; barisIndek++)
+                        {
+                            var range = sheetExcel.Cells[barisAwal + barisIndek, 1, barisAwal + barisIndek, 6];
+                            range.Value = "";
+
+                            range.Style.Border.Top.Style = ExcelBorderStyle.Thin;
+                            range.Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
+                            range.Style.Border.Left.Style = ExcelBorderStyle.Thin;
+                            range.Style.Border.Right.Style = ExcelBorderStyle.Thin;
+                        }
+
+                        barisAwal += 37 + 6;
+                    }
+                }
+
+                CreateTables(sheet_X);
+                CreateTables(sheet_XI);
+                CreateTables(sheet_XII);
+
+                var saveDialog = new SaveFileDialog
+                {
+                    Filter = "Excel Files|*.xlsx",
+                    Title = "Save Excel File",
+                    FileName = "FormatDataSiswa.xlsx"
+                };
+
+                if (saveDialog.ShowDialog() == DialogResult.OK)
+                {
+                    var filePath = saveDialog.FileName;
+                    var directory = Path.GetDirectoryName(filePath);
+                    var fileName = Path.GetFileNameWithoutExtension(filePath);
+                    var extension = Path.GetExtension(filePath);
+                    int counter = 1;
+
+                    while (File.Exists(filePath))
+                    {
+                        filePath = Path.Combine(directory, $"{fileName}({counter}){extension}");
+                        counter++;
+                    }
+
+                    FileInfo fi = new FileInfo(filePath);
+                    package.SaveAs(fi);
+
+                    MessageBox.Show("File Excel berhasil disimpan!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+
+
         }
 
         private void btnResetFilter_Click(object sender, EventArgs e)
