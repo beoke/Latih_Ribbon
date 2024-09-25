@@ -83,8 +83,7 @@ namespace latihribbon
             tgl1 = tglsatu.Value.Date;
             tgl2 = tgldua.Value.Date;
 
-            var sqlc = FilterSQL("data", nis, nama, kelas, keterangan);
-            var sqlcRow = FilterSQL("JumlahBaris", nis, nama, kelas, keterangan);
+            var sqlc = FilterSQL(nis, nama, kelas, keterangan);
             var dp = new DynamicParameters();
             dp.Add("@NIS", nis);
             dp.Add("@Nama", nama);
@@ -96,7 +95,7 @@ namespace latihribbon
             string text = "Halaman ";
             int RowPerPage = 15;
             int inRowPage = (Page - 1) * RowPerPage;
-            var jumlahRow = absensiDal.CekRows(sqlcRow, dp);
+            var jumlahRow = absensiDal.CekRows(sqlc, dp);
             totalPage = (int)Math.Ceiling((double)jumlahRow / RowPerPage);
 
             text += $"{Page.ToString()}/{totalPage.ToString()}";
@@ -109,30 +108,18 @@ namespace latihribbon
         }
 
         string tglchange = string.Empty;
-        private string FilterSQL(string digunakanUntuk,string nis, string nama, string kelas, string keterangan)
+        private string FilterSQL(string nis, string nama, string kelas, string keterangan)
         {
             string sqlc = string.Empty;
             List<string> fltr = new List<string>();
-            if (digunakanUntuk == "data")
-            {
-                if (nis != "") fltr.Add("p.NIS LIKE @NIS+'%'");
-                if (nama != "") fltr.Add("s.Nama LIKE '%'+@Nama+'%'");
-                if (kelas != "") fltr.Add("s.Kelas LIKE '%'+@Kelas+'%'");
-                if (keterangan != "Semua") fltr.Add("p.Keterangan LIKE @Keterangan+'%'");
-                if (tglchange != "") fltr.Add("p.Tanggal BETWEEN @tgl1 AND @tgl2");
-            }
-            else
-            {
-                if (nis != "") fltr.Add("p.NIS LIKE @NIS+'%'");
-                if (nama != "") fltr.Add("Nama LIKE '%'+@Nama+'%'");
-                if (kelas != "") fltr.Add("Kelas LIKE '%'+@Kelas+'%'");
-                if (keterangan != "Semua") fltr.Add("Keterangan LIKE @Keterangan+'%'");
-                if (tglchange != "") fltr.Add("Tanggal BETWEEN @tgl1 AND @tgl2");
-            }
-       
+            if (nis != "") fltr.Add("p.NIS LIKE @NIS+'%'");
+            if (nama != "") fltr.Add("s.Nama LIKE '%'+@Nama+'%'");
+            if (kelas != "") fltr.Add("s.Kelas LIKE '%'+@Kelas+'%'");
+            if (keterangan != "Semua") fltr.Add("p.Keterangan LIKE @Keterangan+'%'");
+            if (tglchange != "") fltr.Add("p.Tanggal BETWEEN @tgl1 AND @tgl2");
+
             if (fltr.Count > 0)
                 sqlc += " WHERE " + string.Join(" AND ",fltr);
-            tglchange = string.Empty;
             return sqlc;
         }
 
@@ -261,33 +248,39 @@ namespace latihribbon
         #region EVENT FILTER
         private void txtNIS_TextChanged(object sender, EventArgs e)
         {
+            Page = 1;
             LoadData();
         }
 
         private void tglsatu_ValueChanged(object sender, EventArgs e)
         {
+            Page = 1;
             tglchange = "change";
             LoadData();
         }
 
         private void tgldua_ValueChanged(object sender, EventArgs e)
         {
+            Page = 1;
             tglchange = "change";
             LoadData();
         }
 
         private void txtNama_TextChanged(object sender, EventArgs e)
         {
+            Page = 1;
             LoadData();
         }
 
         private void txtKelas_TextChanged(object sender, EventArgs e)
         {
+            Page = 1;
             LoadData();
         }
 
         private void KeteranganCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Page = 1;
             LoadData();
         }
         #endregion
@@ -300,6 +293,7 @@ namespace latihribbon
             KeteranganCombo.SelectedIndex = 0;
             tglsatu.Value = DateTime.Now;
             tgldua.Value = DateTime.Now;
+            tglchange = string.Empty;
             LoadData();
         }
 

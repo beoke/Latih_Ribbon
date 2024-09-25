@@ -1,4 +1,5 @@
-﻿using latihribbon.Dal;
+﻿using Dapper;
+using latihribbon.Dal;
 using latihribbon.Model;
 using latihribbon.UpdateInsert;
 using OfficeOpenXml;
@@ -63,14 +64,64 @@ namespace latihribbon.ScreenAdmin
             LoadData();
         }
 
+
+        string tglchange = string.Empty;
+        private string FilterSQL(string digunakanUntuk,string nis, string nama, string kelas ,string keterangan)
+        {
+            string sqlc = string.Empty;
+            List<string> fltr = new List<string>();
+            if(digunakanUntuk == "data")
+            {
+                if (nis != "") fltr.Add("sd.NIS LIKE @NIS+'%'");
+                if (nama != "") fltr.Add("sd.Nama LIKE '%'+@Nama+'%'");
+                if (persensi != "") fltr.Add("s.Nama LIKE '%'+@Persensi+'%'");
+                if (kelas != "") fltr.Add("s.Kelas LIKE '%'+@Kelas+'%'");
+                if (keterangan != "Semua") fltr.Add("p.Keterangan LIKE @Keterangan+'%'");
+                if (tglchange != "") fltr.Add("p.Tanggal BETWEEN @tgl1 AND @tgl2");
+            }
+            else
+            {
+                if (nis != "") fltr.Add("p.NIS LIKE @NIS+'%'");
+                if (nama != "") fltr.Add("s.Nama LIKE '%'+@Nama+'%'");
+                if (persensi != "") fltr.Add("s.Nama LIKE '%'+@Persensi+'%'");
+                if (kelas != "") fltr.Add("s.Kelas LIKE '%'+@Kelas+'%'");
+                if (keterangan != "Semua") fltr.Add("p.Keterangan LIKE @Keterangan+'%'");
+                if (tglchange != "") fltr.Add("p.Tanggal BETWEEN @tgl1 AND @tgl2");
+            }
+
+            if (fltr.Count > 0)
+                sqlc += " WHERE " + string.Join(" AND ", fltr);
+            return sqlc;
+        }
+
         int Page = 1;
         int totalPage;
         private void LoadData()
         {
+            string nis, nama, kelas, keterangan;
+            DateTime tgl1, tgl2;
+
+            nis = txtNIS.Text;
+            nama = txtNama.Text;
+            kelas = txtKelas.Text;
+            keterangan = KeteranganCombo.SelectedItem.ToString() ?? string.Empty;
+            tgl1 = tglsatu.Value.Date;
+            tgl2 = tgldua.Value.Date;
+
+            var sqlc = FilterSQL("data",nis, nama, kelas, keterangan);
+            var sqlcRow = FilterSQL("cekRow",nis, nama, kelas, keterangan);
+            var dp = new DynamicParameters();
+            dp.Add("@NIS", nis);
+            dp.Add("@Nama", nama);
+            dp.Add("@Keterangan", keterangan);
+            dp.Add("@Kelas", kelas);
+            dp.Add("@tgl1", tgl1);
+            dp.Add("@tgl2", tgl2);
+
             string text = "Halaman ";
             int RowPerPage = 20;
             int inRowPage = (Page - 1) * RowPerPage;
-            var jumlahRow = rekapPersensiDal.CekRows(txtKelas.Text);
+            var jumlahRow = rekapPersensiDal.CekRows(txtKelas.Text,filter1,filter2);
             totalPage = (int)Math.Ceiling((double)jumlahRow / RowPerPage);
 
             text += $"{Page.ToString()}/{totalPage.ToString()}";
@@ -254,6 +305,17 @@ namespace latihribbon.ScreenAdmin
                 LoadHistory();
                 InitComponen();
             }
+        }
+
+        private void btnResetFilter_Click(object sender, EventArgs e)
+        {
+            txtNIS.Clear();
+            txtNama.Clear();
+            KeteranganCombo.SelectedIndex = 0;
+            tglsatu.Value = DateTime.Now;
+            tgldua.Value = DateTime.Now;
+            tglchange = string.Empty;
+            LoadData();
         }
     }
 }

@@ -73,6 +73,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.comboTahunFilter = new System.Windows.Forms.ComboBox();
+            this.btnResetFilter = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -625,12 +626,23 @@
             this.comboTahunFilter.TabIndex = 15;
             this.comboTahunFilter.SelectedIndexChanged += new System.EventHandler(this.comboTahunFilter_SelectedIndexChanged);
             // 
+            // btnResetFilter
+            // 
+            this.btnResetFilter.Location = new System.Drawing.Point(768, 22);
+            this.btnResetFilter.Name = "btnResetFilter";
+            this.btnResetFilter.Size = new System.Drawing.Size(75, 23);
+            this.btnResetFilter.TabIndex = 28;
+            this.btnResetFilter.Text = "Reset";
+            this.btnResetFilter.UseVisualStyleBackColor = true;
+            this.btnResetFilter.Click += new System.EventHandler(this.btnResetFilter_Click);
+            // 
             // FormSIswa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(962, 675);
+            this.Controls.Add(this.btnResetFilter);
             this.Controls.Add(this.comboTahunFilter);
             this.Controls.Add(this.txtNIS);
             this.Controls.Add(this.label5);
@@ -706,5 +718,6 @@
         private System.Windows.Forms.Label lblHalaman;
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Button btnPrevious;
+        private System.Windows.Forms.Button btnResetFilter;
     }
 }
