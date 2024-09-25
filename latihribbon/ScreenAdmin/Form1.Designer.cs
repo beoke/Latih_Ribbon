@@ -51,9 +51,16 @@
             this.ribbonAbsensi = new System.Windows.Forms.RibbonButton();
             this.ribbonPanel10 = new System.Windows.Forms.RibbonPanel();
             this.ribbonRekapPersensi = new System.Windows.Forms.RibbonButton();
+            this.ribbonTab2 = new System.Windows.Forms.RibbonTab();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.ribbonTab2 = new System.Windows.Forms.RibbonTab();
+            this.ribbonTab3 = new System.Windows.Forms.RibbonTab();
+            this.ribbonPanel12 = new System.Windows.Forms.RibbonPanel();
+            this.ribbonButton2 = new System.Windows.Forms.RibbonButton();
+            this.ribbonPanel13 = new System.Windows.Forms.RibbonPanel();
+            this.ribbonPanel14 = new System.Windows.Forms.RibbonPanel();
+            this.ribbonButton3 = new System.Windows.Forms.RibbonButton();
+            this.ribbonButton4 = new System.Windows.Forms.RibbonButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -62,7 +69,7 @@
             // 
             this.ribbon1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.ribbon1.Location = new System.Drawing.Point(0, 0);
-            this.ribbon1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ribbon1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ribbon1.Minimized = false;
             this.ribbon1.Name = "ribbon1";
             // 
@@ -75,11 +82,12 @@
             this.ribbon1.OrbDropDown.Size = new System.Drawing.Size(527, 116);
             this.ribbon1.OrbDropDown.TabIndex = 0;
             this.ribbon1.RibbonTabFont = new System.Drawing.Font("Trebuchet MS", 9F);
-            this.ribbon1.Size = new System.Drawing.Size(1282, 199);
+            this.ribbon1.Size = new System.Drawing.Size(962, 162);
             this.ribbon1.TabIndex = 0;
             this.ribbon1.Tabs.Add(this.ribbonTab1);
             this.ribbon1.Tabs.Add(this.AbsensiSiswa);
             this.ribbon1.Tabs.Add(this.ribbonTab2);
+            this.ribbon1.Tabs.Add(this.ribbonTab3);
             this.ribbon1.Text = "ribbon1";
             // 
             // ribbonOrbMenuItem1
@@ -245,14 +253,19 @@
             this.ribbonRekapPersensi.Text = "Rekap";
             this.ribbonRekapPersensi.Click += new System.EventHandler(this.ribbonRekapPersensi_Click);
             // 
+            // ribbonTab2
+            // 
+            this.ribbonTab2.Name = "ribbonTab2";
+            this.ribbonTab2.Text = "";
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 199);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Location = new System.Drawing.Point(0, 162);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1282, 504);
+            this.panel1.Size = new System.Drawing.Size(962, 409);
             this.panel1.TabIndex = 1;
             // 
             // dataGridView1
@@ -260,26 +273,70 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(1282, 504);
+            this.dataGridView1.Size = new System.Drawing.Size(962, 409);
             this.dataGridView1.TabIndex = 0;
             // 
-            // ribbonTab2
+            // ribbonTab3
             // 
-            this.ribbonTab2.Name = "ribbonTab2";
-            this.ribbonTab2.Text = "";
+            this.ribbonTab3.Name = "ribbonTab3";
+            this.ribbonTab3.Panels.Add(this.ribbonPanel12);
+            this.ribbonTab3.Panels.Add(this.ribbonPanel13);
+            this.ribbonTab3.Panels.Add(this.ribbonPanel14);
+            this.ribbonTab3.Text = "Data Lainnya";
+            // 
+            // ribbonPanel12
+            // 
+            this.ribbonPanel12.Items.Add(this.ribbonButton2);
+            this.ribbonPanel12.Name = "ribbonPanel12";
+            this.ribbonPanel12.Text = "ribbonPanel12";
+            // 
+            // ribbonButton2
+            // 
+            this.ribbonButton2.Image = ((System.Drawing.Image)(resources.GetObject("ribbonButton2.Image")));
+            this.ribbonButton2.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton2.LargeImage")));
+            this.ribbonButton2.Name = "ribbonButton2";
+            this.ribbonButton2.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton2.SmallImage")));
+            this.ribbonButton2.Text = "ribbonButton2";
+            // 
+            // ribbonPanel13
+            // 
+            this.ribbonPanel13.Items.Add(this.ribbonButton3);
+            this.ribbonPanel13.Name = "ribbonPanel13";
+            this.ribbonPanel13.Text = "ribbonPanel13";
+            // 
+            // ribbonPanel14
+            // 
+            this.ribbonPanel14.Items.Add(this.ribbonButton4);
+            this.ribbonPanel14.Name = "ribbonPanel14";
+            this.ribbonPanel14.Text = "ribbonPanel14";
+            // 
+            // ribbonButton3
+            // 
+            this.ribbonButton3.Image = ((System.Drawing.Image)(resources.GetObject("ribbonButton3.Image")));
+            this.ribbonButton3.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton3.LargeImage")));
+            this.ribbonButton3.Name = "ribbonButton3";
+            this.ribbonButton3.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton3.SmallImage")));
+            this.ribbonButton3.Text = "ribbonButton3";
+            // 
+            // ribbonButton4
+            // 
+            this.ribbonButton4.Image = ((System.Drawing.Image)(resources.GetObject("ribbonButton4.Image")));
+            this.ribbonButton4.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton4.LargeImage")));
+            this.ribbonButton4.Name = "ribbonButton4";
+            this.ribbonButton4.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton4.SmallImage")));
+            this.ribbonButton4.Text = "ribbonButton4";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1282, 703);
+            this.ClientSize = new System.Drawing.Size(962, 571);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ribbon1);
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "Form1";
@@ -318,6 +375,13 @@
         private System.Windows.Forms.RibbonPanel ribbonPanel10;
         private System.Windows.Forms.RibbonButton ribbonRekapPersensi;
         private System.Windows.Forms.RibbonTab ribbonTab2;
+        private System.Windows.Forms.RibbonTab ribbonTab3;
+        private System.Windows.Forms.RibbonPanel ribbonPanel12;
+        private System.Windows.Forms.RibbonButton ribbonButton2;
+        private System.Windows.Forms.RibbonPanel ribbonPanel13;
+        private System.Windows.Forms.RibbonButton ribbonButton3;
+        private System.Windows.Forms.RibbonPanel ribbonPanel14;
+        private System.Windows.Forms.RibbonButton ribbonButton4;
     }
 }
 
