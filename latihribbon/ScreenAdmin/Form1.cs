@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -36,32 +37,41 @@ namespace latihribbon
         {
             FormSIswa fs = new FormSIswa();
             ShowFormInPanel(fs);
+
+            ClearCheckRibbon();
+            ribbonSiswaAbsensi.CheckOnClick = true;
+            ribbonSiswaAbsensi.Checked = true;
         }
 
         private void ribbon_terlambat_Click(object sender, EventArgs e) // untuk menampilkan form di dalam panel
         {
             FormTerlambat formTerlambat = new FormTerlambat();
             ShowFormInPanel(formTerlambat);
+
+            ClearCheckRibbon();
+            ribbon_terlambat.CheckOnClick = true;
+            ribbon_terlambat.Checked = true;
         }
 
         private void ribbon_keluar_Click(object sender, EventArgs e)
         {
             FormKeluar formkeluar  = new FormKeluar(); 
             ShowFormInPanel (formkeluar);
-        }
 
-        private void ribbon_Laporan_Click(object sender, EventArgs e)
-        {
-          FormJurusan jurusan  = new FormJurusan();
-          ShowFormInPanel(jurusan);
+            ClearCheckRibbon();
+            ribbon_keluar.CheckOnClick = true;
+            ribbon_keluar.Checked = true;
         }
-
      
 
         private void ribbon_Siswa_Click(object sender, EventArgs e)
         {
             FormSIswa dataSiswa = new FormSIswa();
             ShowFormInPanel(dataSiswa);
+
+            ClearCheckRibbon();
+            ribbon_Siswa.CheckOnClick = true;
+            ribbon_Siswa.Checked = true;
         }
 
 
@@ -69,24 +79,73 @@ namespace latihribbon
         {
             FormAbsensi dataSiswa = new FormAbsensi();
             ShowFormInPanel(dataSiswa);
+
+            ClearCheckRibbon();
+            ribbonAbsensi.CheckOnClick = true;
+            ribbonAbsensi.Checked = true;
         }
 
         private void ribbonRekapPersensi_Click(object sender, EventArgs e)
         {
             FormRekapPersensi p = new FormRekapPersensi();
             ShowFormInPanel(p);
+
+            ClearCheckRibbon();
+            ribbonRekapPersensi.CheckOnClick = true;
+            ribbonRekapPersensi.Checked = true;
         }
 
-        private void ribbon_riwayatLogin_Click(object sender, EventArgs e)
+        private void ribbonUserLogin_Click(object sender, EventArgs e)
         {
-            FormUser_RiwayatLogin r = new FormUser_RiwayatLogin();
-            ShowFormInPanel(r);
+            FormUser_RiwayatLogin formUser_RiwayatLogin = new FormUser_RiwayatLogin();
+            ShowFormInPanel(formUser_RiwayatLogin);
+
+            ClearCheckRibbon();
+            ribbonUserLogin.CheckOnClick = true;
+            ribbonUserLogin.Checked = true;
         }
 
-        private void ribbon_InputSiswa_Click(object sender, EventArgs e)
+        private void ribbonKelas_Click(object sender, EventArgs e)
         {
-            FormKelas fk = new FormKelas();
-            ShowFormInPanel(fk);
+            FormKelas formKelas = new FormKelas();
+            ShowFormInPanel(formKelas);
+
+            ClearCheckRibbon();
+            ribbonKelas.CheckOnClick = true;
+            ribbonKelas.Checked = true;
+        }
+
+        private void ribbonJurusan_Click(object sender, EventArgs e)
+        {
+            FormJurusan formJurusan = new FormJurusan();
+            ShowFormInPanel(formJurusan);
+
+            ClearCheckRibbon();
+            ribbonJurusan.CheckOnClick = true;
+            ribbonJurusan.Checked = true;
+        }
+
+        private void ClearCheckRibbon()
+        {
+            ribbonJurusan.CheckOnClick = false;
+            ribbonKelas.CheckOnClick = false;
+            ribbonUserLogin.CheckOnClick = false;
+            ribbonRekapPersensi.CheckOnClick = false;
+            ribbonAbsensi.CheckOnClick = false;
+            ribbon_Siswa.CheckOnClick = false;
+            ribbon_keluar.CheckOnClick = false;
+            ribbon_terlambat.CheckOnClick = false;
+            ribbonSiswaAbsensi.CheckOnClick = false;
+
+            ribbonJurusan.Checked = false;
+            ribbonKelas.Checked = false;
+            ribbonUserLogin.Checked = false;
+            ribbonRekapPersensi.Checked = false;
+            ribbonAbsensi.Checked = false;
+            ribbon_Siswa.Checked = false;
+            ribbon_keluar.Checked = false;
+            ribbon_terlambat.Checked = false;
+            ribbonSiswaAbsensi.Checked = false;
         }
     }
 }
