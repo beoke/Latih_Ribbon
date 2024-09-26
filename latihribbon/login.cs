@@ -46,7 +46,7 @@ namespace latihribbon
                 InsertHistori();
                 if (user.Role == "admin")
                 {
-                    Form1 adminDashboard = new Form1();
+                    Form1 adminDashboard = new Form1(this);
                     adminDashboard.Show();
                 }
                 else if (user.Role == "siswa")

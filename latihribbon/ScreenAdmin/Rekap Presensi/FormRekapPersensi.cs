@@ -321,7 +321,7 @@ namespace latihribbon.ScreenAdmin
 
         private void btnKelas_Click(object sender, EventArgs e)
         {
-            PopUpKelas kelas = new PopUpKelas("RekapPersensi", txtKelas.Text);
+            PopUpKelas kelas = new PopUpKelas("RekapPersensi");
             kelas.ShowDialog();
             if (kelas.DialogResult == DialogResult.OK) 
             {
@@ -342,10 +342,3 @@ namespace latihribbon.ScreenAdmin
         }
     }
 }
-
-public class ListFilter 
-{
-    public string filter1 { get; set; }
-    public string filter2 { get; set; }
-}
-

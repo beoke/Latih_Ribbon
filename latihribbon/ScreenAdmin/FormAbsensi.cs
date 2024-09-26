@@ -21,14 +21,17 @@ namespace latihribbon
     {
         private readonly AbsensiDal absensiDal;
         private readonly SiswaDal siswaDal;
+        private readonly HistoryDal historyDal;
         private MesBox mesBox = new MesBox();
         private int globalId = 0;
         public FormAbsensi()
         {
             absensiDal = new AbsensiDal();
             siswaDal = new SiswaDal();
+            historyDal = new HistoryDal();
             InitializeComponent();
             buf();
+            RegisterEvent();
             InitComponent();
             LoadData();
         }
@@ -44,6 +47,11 @@ namespace latihribbon
             new object[] { true });
         }
   
+        private void RegisterEvent()
+        {
+            txtPersensi1.TextChanged += perkas_TextChanged;
+            txtKelas1.TextChanged += perkas_TextChanged;
+        }
 
         public void InitComponent()
         {
@@ -152,13 +160,26 @@ namespace latihribbon
             alphaRadio.Checked = false;
         }
 
+        private AbsensiModel ValidasiInput()
+        {
+            int Persensi = string.IsNullOrEmpty(txtPersensi1.Text) ? 0 : Convert.ToInt32(txtPersensi1.Text);
+            string Kelas = txtKelas1.Text;
+            var cekData = absensiDal.GetByPerKas(" WHERE s.Persensi=@Persensi AND s.Kelas=@Kelas", new {Persensi = Persensi,Kelas=Kelas});
+            var absensi = new AbsensiModel 
+            {
+                Nis = cekData?.Nis ?? 0,
+                Nama = cekData?.Nama ?? string.Empty,
+            };
+            return absensi;
+        }
         private void SaveData()
         {
-            string nis, nama, kelas, keterangan=string.Empty;
+            string nis, nama,persensi, kelas, keterangan=string.Empty;
             DateTime tgl;
 
             nis = txtNIS1.Text;
             nama = txtNama1.Text;
+            persensi = txtPersensi1.Text;
             kelas = txtKelas1.Text;
             tgl = tglDT.Value;
             if (Izinradio.Checked) keterangan = "I";
@@ -170,6 +191,9 @@ namespace latihribbon
                 MessageBox.Show("Seluruh Data Wajib Diisi!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
+
+           /* var cekData = absensiDal.GetByPerKas(" WHERE Persensi");*/
 
             var masuk = new AbsensiModel
             {
@@ -222,12 +246,14 @@ namespace latihribbon
                 lblNisTidakDitemukan.Visible = true;
                 txtNama1.Text = string.Empty;
                 txtKelas1.Text = string.Empty;
+                txtPersensi1.Text = string.Empty;
             }
             else
             {
                 lblNisTidakDitemukan.Visible = false;
                 txtNama1.Text = siswa.Nama;
                 txtKelas1.Text = siswa.Kelas;
+                txtPersensi1.Text = siswa.Persensi.ToString() ?? string.Empty;
             }
         }
 
@@ -286,6 +312,15 @@ namespace latihribbon
         }
         #endregion
 
+        private void perkas_TextChanged(object sender, EventArgs e)
+        {
+            if(!string.IsNullOrEmpty(txtPersensi1.Text) && !string.IsNullOrEmpty(txtKelas1.Text))
+            {
+                var hasil = ValidasiInput();
+                txtNIS1.Text = hasil.Nis != 0 ? hasil.Nis.ToString() : string.Empty; 
+                txtNama1.Text = hasil.Nama;
+            }
+        }
         private void btnResetFilter_Click(object sender, EventArgs e)
         {
             txtNIS.Clear();
@@ -307,7 +342,7 @@ namespace latihribbon
             else
             {
                 txtNama1.Text = string.Empty;
-                txtKelas1.Text = string.Empty;
+                txtKelas1.Text = "RakTenan";
                 lblNisTidakDitemukan.Visible = false;
             }
         }
@@ -330,11 +365,6 @@ namespace latihribbon
             ControlInsertUpdate();
         }
 
-        private void dataGridView1_DoubleClick(object sender, EventArgs e)
-        {
-            
-        }
-
         private void btnNew_Click(object sender, EventArgs e)
         {
             ClearInput();
@@ -347,10 +377,6 @@ namespace latihribbon
             Delete();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
 
         private void btnNext_Click(object sender, EventArgs e)
         {
@@ -368,6 +394,19 @@ namespace latihribbon
                 Page--;
                 LoadData();
             }
+        }
+
+        private void btnKelas_Click(object sender, EventArgs e)
+        {
+            PopUpKelas kelas = new PopUpKelas("Absensi");
+            kelas.ShowDialog();
+            if (kelas.DialogResult == DialogResult.OK)
+                txtKelas1.Text = historyDal.GetData("Absensi").History.ToString() ?? string.Empty;
+        }
+
+        private void tglDT_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

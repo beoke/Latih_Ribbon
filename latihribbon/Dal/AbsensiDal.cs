@@ -92,5 +92,16 @@ namespace latihribbon.Dal
                 return koneksi.QuerySingle<int>(sql,dp);
             }
          }
+
+        public AbsensiModel GetByPerKas(string condition,object dp)
+        {
+            using (var koneksi = new SqlConnection(Conn.conn.connstr()))
+            {
+                string sql = $@"SELECT p.ID,p.NIS,s.Nama,s.Kelas,p.Tanggal,p.Keterangan
+                                     FROM Persensi p INNER JOIN siswa s ON p.NIS=s.NIS
+                                     {condition}";
+                return koneksi.QueryFirstOrDefault<AbsensiModel>(sql, dp);
+            }
+        }
     }
 }

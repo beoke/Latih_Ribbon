@@ -15,10 +15,11 @@ namespace latihribbon
 {
     public partial class Form1 : RibbonForm
     {
-        // halo rek
-        public Form1()
+        private readonly login l;
+        public Form1(login l)
         {
             InitializeComponent();
+            this.l = l;
 
             this.MinimumSize = new Size(1200, 900);
 
@@ -146,6 +147,11 @@ namespace latihribbon
             ribbon_keluar.Checked = false;
             ribbon_terlambat.Checked = false;
             ribbonSiswaAbsensi.Checked = false;
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+           Application.Exit();
         }
     }
 }
