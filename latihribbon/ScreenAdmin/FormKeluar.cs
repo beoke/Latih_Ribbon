@@ -53,6 +53,20 @@ namespace latihribbon
             txtTujuan1.MaxLength = 60;
         }
 
+        bool tglchange = false;
+        private string FilterSQL(string nis, string nama, string kelas)
+        {
+            string sqlc = string.Empty;
+            List<string> fltr = new List<string>();
+            if (nis != "") fltr.Add("l.NIS LIKE @NIS+'%'");
+            if (nama != "") fltr.Add("s.Nama LIKE '%'+@Nama+'%'");
+            if (kelas != "") fltr.Add("s.Kelas LIKE '%'+@Kelas+'%'");
+            if (tglchange) fltr.Add("k.Tanggal BETWEEN @tgl1 AND @tgl2");
+            if (fltr.Count > 0)
+                sqlc += " WHERE " + string.Join(" AND ", fltr);
+            return sqlc;
+        }
+
         int Page = 1;
         int totalPage;
         public void LoadData()
@@ -68,11 +82,14 @@ namespace latihribbon
 
             var sqlc = FilterSQL(nis, nama, kelas);
             var dp = new DynamicParameters();
-            dp.Add("@NIS", nis);
-            dp.Add("@Nama", nama);
-            dp.Add("@Kelas", kelas);
-            dp.Add("@tgl1", tgl1);
-            dp.Add("@tgl2", tgl2);
+            if(nis != "")dp.Add("@NIS", nis);
+            if (nama != "") dp.Add("@Nama", nama);
+            if (kelas != "") dp.Add("@Kelas", kelas);
+            if (tglchange) 
+            {
+                dp.Add("@tgl1", tgl1);
+                dp.Add("@tgl2", tgl2);
+            }
 
             string text = "Halaman ";
             int RowPerPage = 15;
@@ -85,22 +102,6 @@ namespace latihribbon
             dp.Add("@Offset", inRowPage);
             dp.Add("@Fetch", RowPerPage);
             dataGridView1.DataSource = keluarDal.ListData(sqlc, dp);
-
-
-        }
-
-        string tglchange = string.Empty;
-        private string FilterSQL(string nis, string nama, string kelas)
-        {
-            string sqlc = string.Empty;
-            List<string> fltr = new List<string>();
-            if (nis != "") fltr.Add("l.NIS LIKE @NIS+'%'");
-            if (nama != "") fltr.Add("s.Nama LIKE '%'+@Nama+'%'");
-            if (kelas != "") fltr.Add("s.Kelas LIKE '%'+@Kelas+'%'");
-            if (tglchange != "") fltr.Add("k.Tanggal BETWEEN @tgl1 AND @tgl2");
-            if (fltr.Count > 0)
-                sqlc += " WHERE " + string.Join(" AND ", fltr);
-            return sqlc;
         }
 
         private void GetData()
@@ -243,14 +244,14 @@ namespace latihribbon
         private void tglsatu_ValueChanged(object sender, EventArgs e)
         {
             Page = 1;
-            tglchange = "0";
+            tglchange = true;
             LoadData();
         }
 
         private void tgldua_ValueChanged(object sender, EventArgs e)
         {
             Page = 1;
-            tglchange = "0";
+            tglchange = true;
             LoadData();
         }
         #endregion
@@ -308,7 +309,7 @@ namespace latihribbon
             txtKelas.Clear();
             tglsatu.Value = DateTime.Now;
             tgldua.Value = DateTime.Now;
-            tglchange = string.Empty;
+            tglchange = false;
             LoadData();
         }
 

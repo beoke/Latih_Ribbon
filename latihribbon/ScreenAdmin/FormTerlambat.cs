@@ -9,6 +9,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -16,16 +17,20 @@ namespace latihribbon
 {
     public partial class FormTerlambat : Form
     {
-        private  MasukDal masukDal;
-        private SiswaDal siswaDal;
+        private readonly MasukDal masukDal;
+        private readonly SiswaDal siswaDal;
+        private readonly MesBox mesBox;
         int globalId = 0;
         public FormTerlambat()
         {
             InitializeComponent();
             masukDal = new MasukDal();
             siswaDal = new SiswaDal();
+            mesBox = new MesBox();
+            RegisterEvent();
             LoadData();
             InitComponen();
+            
         }
 
         public void InitComponen()
@@ -58,6 +63,19 @@ namespace latihribbon
         }
 
 
+        bool tglchange = false;
+        private string FilterSQL(string nis, string nama, string kelas)
+        {
+            string sqlc = string.Empty;
+            List<string> fltr = new List<string>();
+            if (nis != "") fltr.Add("m.NIS LIKE @NIS+'%'");
+            if (nama != "") fltr.Add("s.Nama LIKE '%'+@Nama+'%'");
+            if (kelas != "") fltr.Add("s.Kelas LIKE '%'+@Kelas+'%'");
+            if (tglchange) fltr.Add("m.Tanggal BETWEEN @tgl1 AND @tgl2");
+            if (fltr.Count > 0)
+                sqlc += " WHERE " + string.Join(" AND ", fltr);
+            return sqlc;
+        }
 
         int Page = 1;
         int totalPage;
@@ -74,12 +92,14 @@ namespace latihribbon
 
             var sqlc = FilterSQL(nis, nama, kelas);
             var dp = new DynamicParameters();
-            dp.Add("@NIS", nis);
-            dp.Add("@Nama", nama);
-            dp.Add("@Kelas", kelas);
-            dp.Add("@tgl1", tgl1);
-            dp.Add("@tgl2", tgl2);
-
+            if(nis != "")dp.Add("@NIS", nis);
+            if (nama != "") dp.Add("@Nama", nama);
+            if (kelas != "") dp.Add("@Kelas", kelas);
+            if (tglchange)
+            {
+                dp.Add("@tgl1", tgl1);
+                dp.Add("@tgl2", tgl2);
+            }
             string text = "Halaman ";
             int RowPerPage = 15;
             int inRowPage = (Page - 1) * RowPerPage;
@@ -91,30 +111,12 @@ namespace latihribbon
             dp.Add("@Offset", inRowPage);
             dp.Add("@Fetch", RowPerPage);
             dataGridView1.DataSource = masukDal.ListData(sqlc, dp);
-
-
         }
-
-        string tglchange = string.Empty;
-        private string FilterSQL(string nis, string nama, string kelas)
-        {
-            string sqlc = string.Empty;
-            List<string> fltr = new List<string>();
-            if (nis != "") fltr.Add("m.NIS LIKE @NIS+'%'");
-            if (nama != "") fltr.Add("s.Nama LIKE '%'+@Nama+'%'");
-            if (kelas != "") fltr.Add("s.Kelas LIKE '%'+@Kelas+'%'");
-            if (tglchange != "") fltr.Add("m.Tanggal BETWEEN @tgl1 AND @tgl2");
-            if (fltr.Count > 0)
-                sqlc += " WHERE " + string.Join(" AND ", fltr);
-            return sqlc;
-        }
-
-
 
         private void GetData()
         {
             var Id = dataGridView1.CurrentRow.Cells["Id"].Value?.ToString() ?? string.Empty;
-            globalId = Id == string.Empty ? 0 : int.Parse(Id); // set global varibel
+            globalId = Id == string.Empty ? 0 : int.Parse(Id);
             var data = masukDal.GetData(Convert.ToInt32(Id));
             if (data == null) return;
             txtNIS1.Text = data.NIS.ToString();
@@ -149,7 +151,7 @@ namespace latihribbon
 
             if (nis == "" || nama == "" || alasan == "")
             {
-                MessageBox.Show("Seluruh Data Wajib Diisi!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                mesBox.MesInfo("Seluruh Data Wajib Diisi!");
                 return;
             }
 
@@ -166,27 +168,28 @@ namespace latihribbon
 
             if (masuk.Id == 0)
             {
-                if (MessageBox.Show("Input Data?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    masukDal.Insert(masuk);
-                    LoadData();
-                }
-
+                if (!mesBox.MesKonfirmasi("Input Data?")) return;
+                masukDal.Insert(masuk);
+                LoadData();
             }
             else
             {
-                if (MessageBox.Show("Update Data?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    masukDal.Update(masuk);
-                    LoadData();
-                }
+                if (!mesBox.MesKonfirmasi("Update Data?")) return;
+                masukDal.Update(masuk);
+                LoadData();
             }
-
         }
 
         private void Delete()
         {
-         
+            if(globalId == 0)
+            {
+                mesBox.MesInfo("Pilih Data Terlebih Dahulu!");
+                return;
+            }
+            if (!mesBox.MesKonfirmasi("Hapus Data?")) return;
+            masukDal.Delete(globalId);
+            LoadData();
         }
 
         private void CekNis()
@@ -206,39 +209,27 @@ namespace latihribbon
             }
         }
 
-        #region EVENT FILTER
-        private void txtNIS_TextChanged(object sender, EventArgs e)
+        #region EVENT
+        private void RegisterEvent()
         {
-            Page = 1;
-            LoadData();
+            txtNIS.TextChanged += filter_TextChanged;
+            txtNama.TextChanged += filter_TextChanged;
+            txtKelas.TextChanged += filter_TextChanged;
+            tglsatu.ValueChanged += filter_tglChanged;
+            tgldua.ValueChanged += filter_tglChanged;
         }
 
-        private void txtNama_TextChanged(object sender, EventArgs e)
+        private void filter_TextChanged(object sender, EventArgs e)
         {
             Page = 1;
             LoadData();
         }
-
-        private void tglsatu_ValueChanged(object sender, EventArgs e)
+        private void filter_tglChanged(object sender, EventArgs e)
         {
             Page = 1;
-            tglchange = "0";
+            tglchange = true;
             LoadData();
         }
-
-        private void tgldua_ValueChanged(object sender, EventArgs e)
-        {
-            Page = 1;
-            tglchange = "0";
-            LoadData();
-        }
-
-        private void txtKelas_TextChanged(object sender, EventArgs e)
-        {
-            Page = 1;
-            LoadData();
-        }
-        #endregion
 
         private void btnNew_Click(object sender, EventArgs e)
         {
@@ -248,13 +239,6 @@ namespace latihribbon
             txtNIS1.ReadOnly = false;
 
         }
-
-        private void dataGridView1_DoubleClick(object sender, EventArgs e)
-        {
-           
-           
-        }
-
         private void btnSave_FormSiswa_Click(object sender, EventArgs e)
         {
             SaveData();
@@ -301,8 +285,10 @@ namespace latihribbon
             txtKelas.Clear();
             tglsatu.Value = DateTime.Now;
             tgldua.Value = DateTime.Now;
-            tglchange = string.Empty;
+            tglchange = true;
             LoadData();
         }
+        #endregion
+
     }
 }

@@ -84,9 +84,9 @@ namespace latihribbon
         {
             string sqlc = string.Empty;
             List<string> fltr = new List<string>();
-            if (!string.IsNullOrEmpty(nis)) fltr.Add("p.NIS LIKE @NIS+'%'");
-            if (!string.IsNullOrEmpty(nama)) fltr.Add("s.Nama LIKE '%'+@Nama+'%'");
-            if (!string.IsNullOrEmpty(kelas)) fltr.Add("s.Kelas LIKE '%'+@Kelas+'%'");
+            if (nis != "") fltr.Add("p.NIS LIKE @NIS+'%'");
+            if (nama != "") fltr.Add("s.Nama LIKE '%'+@Nama+'%'");
+            if (kelas != "") fltr.Add("s.Kelas LIKE '%'+@Kelas+'%'");
             if (keterangan != "Semua") fltr.Add("p.Keterangan LIKE @Keterangan+'%'");
             if (tglchange) fltr.Add("p.Tanggal BETWEEN @tgl1 AND @tgl2");
 
@@ -112,10 +112,10 @@ namespace latihribbon
             var sqlc = FilterSQL(nis, nama, kelas, keterangan);
 
             var dp = new DynamicParameters();
-            if(!string.IsNullOrEmpty(nis)) dp.Add("@NIS", nis);
-            if (!string.IsNullOrEmpty(nama)) dp.Add("@Nama", nama);
+            if (nis != "") dp.Add("@NIS", nis);
+            if (nama != "") dp.Add("@Nama", nama);
             if (keterangan != "Semua") dp.Add("@Keterangan", keterangan);
-            if (!string.IsNullOrEmpty(kelas)) dp.Add("@Kelas", kelas);
+            if (kelas != "") dp.Add("@Kelas", kelas);
             if (tglchange)
             {
                 dp.Add("@tgl1", tgl1);
@@ -155,7 +155,7 @@ namespace latihribbon
             txtNIS1.Clear();
             txtNama1.Clear();
             txtKelas1.Clear();
-            tglDT.Value = new DateTime(2000, 01, 01);
+            tglDT.Value = DateTime.Now;
             Izinradio.Checked = false;
             sakitRadio.Checked = false;
             alphaRadio.Checked = false;
@@ -193,8 +193,13 @@ namespace latihribbon
                 return;
             }
 
-
-           /* var cekData = absensiDal.GetByPerKas(" WHERE Persensi");*/
+            var dataCek = absensiDal.GetByPerKas(" WHERE Nis=@Nis", new { Nis = Convert.ToInt32(nis) });
+            if (dataCek != null)
+            {
+                mesBox.MesInfo($"{nama} sudah Absensi pada " + tgl.ToString("dd/MM/yyyy"));
+                return;
+            }
+             
 
             var masuk = new AbsensiModel
             {
@@ -315,6 +320,7 @@ namespace latihribbon
 
         private void perkas_TextChanged(object sender, EventArgs e)
         {
+            if (!InternalTextChange) return;
             if(!string.IsNullOrEmpty(txtPersensi1.Text) && !string.IsNullOrEmpty(txtKelas1.Text))
             {
                 InternalTextChange = false;
@@ -329,6 +335,7 @@ namespace latihribbon
         private void txtNIS1_TextChanged(object sender, EventArgs e)
         {
             if (!InternalTextChange) return;
+            InternalTextChange= false;
             if (txtNIS1.Text.Length >= 5)
             {
                 CekNis();
@@ -340,6 +347,7 @@ namespace latihribbon
                 txtKelas1.Text = string.Empty;
                 lblNisTidakDitemukan.Visible = false;
             }
+            InternalTextChange = true;
         }
         private void btnResetFilter_Click(object sender, EventArgs e)
         {
