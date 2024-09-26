@@ -171,11 +171,11 @@
     <Compile Include="ScreenAdmin\FormKelas.Designer.cs">
       <DependentUpon>FormKelas.cs</DependentUpon>
     </Compile>
-    <Compile Include="ScreenUser\FormUser.cs">
+    <Compile Include="ScreenUser\FormSurveyKepuasan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ScreenUser\FormUser.Designer.cs">
-      <DependentUpon>FormUser.cs</DependentUpon>
+    <Compile Include="ScreenUser\FormSurveyKepuasan.Designer.cs">
+      <DependentUpon>FormSurveyKepuasan.cs</DependentUpon>
     </Compile>
     <Compile Include="Helper\MesBox.cs" />
     <Compile Include="Model\JurusanModel.cs" />
@@ -282,8 +282,8 @@
     <EmbeddedResource Include="ScreenAdmin\FormKelas.resx">
       <DependentUpon>FormKelas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ScreenUser\FormUser.resx">
-      <DependentUpon>FormUser.cs</DependentUpon>
+    <EmbeddedResource Include="ScreenUser\FormSurveyKepuasan.resx">
+      <DependentUpon>FormSurveyKepuasan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ScreenAdmin\Rekap Presensi\PopUpKelas.resx">
       <DependentUpon>PopUpKelas.cs</DependentUpon>
@@ -383,6 +383,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\account.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bintang_Kosong.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bintang_Full.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
