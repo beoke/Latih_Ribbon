@@ -634,6 +634,7 @@
             this.ButtonDownloadFormat.Size = new System.Drawing.Size(55, 46);
             this.ButtonDownloadFormat.TabIndex = 16;
             this.ButtonDownloadFormat.UseVisualStyleBackColor = true;
+            this.ButtonDownloadFormat.Click += new System.EventHandler(this.ButtonDownloadFormat_Click_1);
             // 
             // FormSIswa
             // 
