@@ -154,7 +154,7 @@
     <Compile Include="Dal\SiswaDal.cs" />
     <Compile Include="Dal\MasukDal.cs" />
     <Compile Include="Dal\DbDal.cs" />
-    <Compile Include="RiwayatLogin_UserDal.cs" />
+    <Compile Include="Dal\RiwayatLogin_UserDal.cs" />
     <Compile Include="ScreenAdmin\FormUser_RiwayatLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -389,6 +389,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Bintang_Full.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SQL Script\CekData.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

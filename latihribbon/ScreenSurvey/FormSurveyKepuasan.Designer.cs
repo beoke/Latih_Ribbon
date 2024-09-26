@@ -30,21 +30,22 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSurveyKepuasan));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.LabelLenghText = new System.Windows.Forms.Label();
+            this.TextKritikSaran = new System.Windows.Forms.TextBox();
+            this.PictureBintang_5 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.ButtonKirim = new System.Windows.Forms.Button();
             this.PictureBintang_2 = new System.Windows.Forms.PictureBox();
             this.PictureBintang_3 = new System.Windows.Forms.PictureBox();
-            this.PictureBintang_5 = new System.Windows.Forms.PictureBox();
             this.PictureBintang_4 = new System.Windows.Forms.PictureBox();
             this.PictureBintang_1 = new System.Windows.Forms.PictureBox();
             this.ribbon_terlambat = new System.Windows.Forms.RibbonButton();
             this.ribbonButton1 = new System.Windows.Forms.RibbonButton();
-            this.TextBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.ButtonBatal = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBintang_5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBintang_2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBintang_3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBintang_5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBintang_4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBintang_1)).BeginInit();
             this.SuspendLayout();
@@ -54,11 +55,12 @@
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.BackColor = System.Drawing.Color.LightGray;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.TextBox);
+            this.panel1.Controls.Add(this.ButtonBatal);
+            this.panel1.Controls.Add(this.LabelLenghText);
+            this.panel1.Controls.Add(this.TextKritikSaran);
             this.panel1.Controls.Add(this.PictureBintang_5);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.ButtonKirim);
             this.panel1.Controls.Add(this.PictureBintang_2);
             this.panel1.Controls.Add(this.PictureBintang_3);
             this.panel1.Controls.Add(this.PictureBintang_4);
@@ -67,6 +69,37 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1260, 690);
             this.panel1.TabIndex = 0;
+            // 
+            // LabelLenghText
+            // 
+            this.LabelLenghText.AutoSize = true;
+            this.LabelLenghText.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelLenghText.Location = new System.Drawing.Point(607, 474);
+            this.LabelLenghText.Name = "LabelLenghText";
+            this.LabelLenghText.Size = new System.Drawing.Size(44, 23);
+            this.LabelLenghText.TabIndex = 9;
+            this.LabelLenghText.Text = "0/40";
+            // 
+            // TextKritikSaran
+            // 
+            this.TextKritikSaran.BackColor = System.Drawing.Color.Gainsboro;
+            this.TextKritikSaran.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TextKritikSaran.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextKritikSaran.Location = new System.Drawing.Point(380, 376);
+            this.TextKritikSaran.Multiline = true;
+            this.TextKritikSaran.Name = "TextKritikSaran";
+            this.TextKritikSaran.Size = new System.Drawing.Size(495, 95);
+            this.TextKritikSaran.TabIndex = 8;
+            // 
+            // PictureBintang_5
+            // 
+            this.PictureBintang_5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PictureBintang_5.Location = new System.Drawing.Point(940, 235);
+            this.PictureBintang_5.Name = "PictureBintang_5";
+            this.PictureBintang_5.Size = new System.Drawing.Size(100, 94);
+            this.PictureBintang_5.TabIndex = 2;
+            this.PictureBintang_5.TabStop = false;
+            this.PictureBintang_5.Tag = "5";
             // 
             // label1
             // 
@@ -78,14 +111,17 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "BERIKAN PENILAIAN TERHADAP LAYANAN SEKOLAH INI";
             // 
-            // button2
+            // ButtonKirim
             // 
-            this.button2.Location = new System.Drawing.Point(533, 606);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(176, 49);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.ButtonKirim.BackColor = System.Drawing.Color.Gray;
+            this.ButtonKirim.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonKirim.ForeColor = System.Drawing.Color.White;
+            this.ButtonKirim.Location = new System.Drawing.Point(699, 558);
+            this.ButtonKirim.Name = "ButtonKirim";
+            this.ButtonKirim.Size = new System.Drawing.Size(142, 46);
+            this.ButtonKirim.TabIndex = 6;
+            this.ButtonKirim.Text = "Kirim";
+            this.ButtonKirim.UseVisualStyleBackColor = false;
             // 
             // PictureBintang_2
             // 
@@ -106,16 +142,6 @@
             this.PictureBintang_3.TabIndex = 3;
             this.PictureBintang_3.TabStop = false;
             this.PictureBintang_3.Tag = "3";
-            // 
-            // PictureBintang_5
-            // 
-            this.PictureBintang_5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PictureBintang_5.Location = new System.Drawing.Point(940, 235);
-            this.PictureBintang_5.Name = "PictureBintang_5";
-            this.PictureBintang_5.Size = new System.Drawing.Size(100, 94);
-            this.PictureBintang_5.TabIndex = 2;
-            this.PictureBintang_5.TabStop = false;
-            this.PictureBintang_5.Tag = "5";
             // 
             // PictureBintang_4
             // 
@@ -153,24 +179,17 @@
             this.ribbonButton1.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton1.SmallImage")));
             this.ribbonButton1.Text = "Terlambat";
             // 
-            // TextBox
+            // ButtonBatal
             // 
-            this.TextBox.BackColor = System.Drawing.Color.Gainsboro;
-            this.TextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TextBox.Location = new System.Drawing.Point(380, 376);
-            this.TextBox.Multiline = true;
-            this.TextBox.Name = "TextBox";
-            this.TextBox.Size = new System.Drawing.Size(495, 95);
-            this.TextBox.TabIndex = 8;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(602, 535);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 16);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "label2";
+            this.ButtonBatal.BackColor = System.Drawing.Color.Gray;
+            this.ButtonBatal.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonBatal.ForeColor = System.Drawing.Color.White;
+            this.ButtonBatal.Location = new System.Drawing.Point(426, 558);
+            this.ButtonBatal.Name = "ButtonBatal";
+            this.ButtonBatal.Size = new System.Drawing.Size(142, 46);
+            this.ButtonBatal.TabIndex = 10;
+            this.ButtonBatal.Text = "Batal";
+            this.ButtonBatal.UseVisualStyleBackColor = false;
             // 
             // FormSurveyKepuasan
             // 
@@ -183,9 +202,9 @@
             this.Text = "FormMainUser";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBintang_5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBintang_2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBintang_3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBintang_5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBintang_4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBintang_1)).EndInit();
             this.ResumeLayout(false);
@@ -201,9 +220,10 @@
         private System.Windows.Forms.PictureBox PictureBintang_3;
         private System.Windows.Forms.PictureBox PictureBintang_5;
         private System.Windows.Forms.PictureBox PictureBintang_4;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button ButtonKirim;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox TextBox;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox TextKritikSaran;
+        private System.Windows.Forms.Label LabelLenghText;
+        private System.Windows.Forms.Button ButtonBatal;
     }
 }
