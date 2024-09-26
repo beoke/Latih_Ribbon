@@ -628,7 +628,7 @@
             this.ButtonDownloadFormat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ButtonDownloadFormat.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonDownloadFormat.BackgroundImage")));
             this.ButtonDownloadFormat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ButtonDownloadFormat.Location = new System.Drawing.Point(1118, 16);
+            this.ButtonDownloadFormat.Location = new System.Drawing.Point(1118, 17);
             this.ButtonDownloadFormat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonDownloadFormat.Name = "ButtonDownloadFormat";
             this.ButtonDownloadFormat.Size = new System.Drawing.Size(55, 46);

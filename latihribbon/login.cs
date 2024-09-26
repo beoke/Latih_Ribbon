@@ -54,6 +54,11 @@ namespace latihribbon
                     Pemakai userDashboard = new Pemakai();
                     userDashboard.Show();
                 }
+                else if (user.Role == "survey")
+                {
+                    FormSurveyKepuasan Survey = new FormSurveyKepuasan();
+                    Survey.Show();
+                }
                 this.Hide();
             }
             else
