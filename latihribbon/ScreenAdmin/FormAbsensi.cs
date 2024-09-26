@@ -24,6 +24,7 @@ namespace latihribbon
         private readonly HistoryDal historyDal;
         private MesBox mesBox = new MesBox();
         private int globalId = 0;
+        private bool InternalTextChange = true;
         public FormAbsensi()
         {
             absensiDal = new AbsensiDal();
@@ -164,7 +165,7 @@ namespace latihribbon
         {
             int Persensi = string.IsNullOrEmpty(txtPersensi1.Text) ? 0 : Convert.ToInt32(txtPersensi1.Text);
             string Kelas = txtKelas1.Text;
-            var cekData = absensiDal.GetByPerKas(" WHERE s.Persensi=@Persensi AND s.Kelas=@Kelas", new {Persensi = Persensi,Kelas=Kelas});
+            var cekData = absensiDal.GetByPerKas(" WHERE Persensi=@Persensi AND Kelas=@Kelas", new {Persensi = Persensi,Kelas=Kelas});
             var absensi = new AbsensiModel 
             {
                 Nis = cekData?.Nis ?? 0,
@@ -316,9 +317,28 @@ namespace latihribbon
         {
             if(!string.IsNullOrEmpty(txtPersensi1.Text) && !string.IsNullOrEmpty(txtKelas1.Text))
             {
+                InternalTextChange = false;
+
                 var hasil = ValidasiInput();
                 txtNIS1.Text = hasil.Nis != 0 ? hasil.Nis.ToString() : string.Empty; 
                 txtNama1.Text = hasil.Nama;
+
+                InternalTextChange = true;
+            }
+        }
+        private void txtNIS1_TextChanged(object sender, EventArgs e)
+        {
+            if (!InternalTextChange) return;
+            if (txtNIS1.Text.Length >= 5)
+            {
+                CekNis();
+            }
+            else
+            {
+                txtNama1.Text = string.Empty;
+                txtPersensi1.Text = string.Empty;
+                txtKelas1.Text = string.Empty;
+                lblNisTidakDitemukan.Visible = false;
             }
         }
         private void btnResetFilter_Click(object sender, EventArgs e)
@@ -333,19 +353,6 @@ namespace latihribbon
             LoadData();
         }
 
-        private void txtNIS1_TextChanged(object sender, EventArgs e)
-        {
-            if (txtNIS1.Text.Length >= 5)
-            {
-                CekNis();
-            }
-            else
-            {
-                txtNama1.Text = string.Empty;
-                txtKelas1.Text = "RakTenan";
-                lblNisTidakDitemukan.Visible = false;
-            }
-        }
 
         private void txtNIS1_KeyPress(object sender, KeyPressEventArgs e)
         {
