@@ -46,11 +46,9 @@ namespace latihribbon.Dal
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
             {
-                string sql = @"SELECT p.ID,p.NIS,s.Nama,s.Kelas,p.Tanggal,p.Keterangan
-                                     FROM Persensi p INNER JOIN siswa s ON p.NIS=s.NIS";
-                if (sqlc != string.Empty) sql += sqlc;
-                sql += @" ORDER BY Tanggal DESC OFFSET @Offset ROWS FETCH NEXT @Fetch ROWS ONLY";
-
+                string sql = $@"SELECT p.ID,p.NIS,s.Nama,s.Persensi,s.Kelas,p.Tanggal,p.Keterangan
+                                     FROM Persensi p INNER JOIN siswa s ON p.NIS=s.NIS {sqlc} 
+                                     ORDER BY Tanggal DESC OFFSET @Offset ROWS FETCH NEXT @Fetch ROWS ONLY";
                 return koneksi.Query<AbsensiModel>(sql, dp);
             }
         }

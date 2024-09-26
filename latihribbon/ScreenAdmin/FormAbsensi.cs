@@ -69,6 +69,23 @@ namespace latihribbon
 
         }
 
+
+        bool tglchange = false;
+        private string FilterSQL(string nis, string nama, string kelas, string keterangan)
+        {
+            string sqlc = string.Empty;
+            List<string> fltr = new List<string>();
+            if (!string.IsNullOrEmpty(nis)) fltr.Add("p.NIS LIKE @NIS+'%'");
+            if (!string.IsNullOrEmpty(nama)) fltr.Add("s.Nama LIKE '%'+@Nama+'%'");
+            if (!string.IsNullOrEmpty(kelas)) fltr.Add("s.Kelas LIKE '%'+@Kelas+'%'");
+            if (keterangan != "Semua") fltr.Add("p.Keterangan LIKE @Keterangan+'%'");
+            if (tglchange) fltr.Add("p.Tanggal BETWEEN @tgl1 AND @tgl2");
+
+            if (fltr.Count > 0)
+                sqlc += " WHERE " + string.Join(" AND ", fltr);
+            return sqlc;
+        }
+
         int Page = 1;
         int totalPage;
         public void LoadData()
@@ -84,13 +101,17 @@ namespace latihribbon
             tgl2 = tgldua.Value.Date;
 
             var sqlc = FilterSQL(nis, nama, kelas, keterangan);
+
             var dp = new DynamicParameters();
-            dp.Add("@NIS", nis);
-            dp.Add("@Nama", nama);
-            dp.Add("@Keterangan", keterangan);
-            dp.Add("@Kelas", kelas);
-            dp.Add("@tgl1", tgl1);
-            dp.Add("@tgl2", tgl2);
+            if(!string.IsNullOrEmpty(nis)) dp.Add("@NIS", nis);
+            if (!string.IsNullOrEmpty(nama)) dp.Add("@Nama", nama);
+            if (keterangan != "Semua") dp.Add("@Keterangan", keterangan);
+            if (!string.IsNullOrEmpty(kelas)) dp.Add("@Kelas", kelas);
+            if (tglchange)
+            {
+                dp.Add("@tgl1", tgl1);
+                dp.Add("@tgl2", tgl2);
+            }
 
             string text = "Halaman ";
             int RowPerPage = 15;
@@ -103,27 +124,7 @@ namespace latihribbon
             dp.Add("@Offset", inRowPage);
             dp.Add("@Fetch", RowPerPage);
             dataGridView1.DataSource = absensiDal.ListData(sqlc, dp);
-
-
         }
-
-        string tglchange = string.Empty;
-        private string FilterSQL(string nis, string nama, string kelas, string keterangan)
-        {
-            string sqlc = string.Empty;
-            List<string> fltr = new List<string>();
-            if (nis != "") fltr.Add("p.NIS LIKE @NIS+'%'");
-            if (nama != "") fltr.Add("s.Nama LIKE '%'+@Nama+'%'");
-            if (kelas != "") fltr.Add("s.Kelas LIKE '%'+@Kelas+'%'");
-            if (keterangan != "Semua") fltr.Add("p.Keterangan LIKE @Keterangan+'%'");
-            if (tglchange != "") fltr.Add("p.Tanggal BETWEEN @tgl1 AND @tgl2");
-
-            if (fltr.Count > 0)
-                sqlc += " WHERE " + string.Join(" AND ",fltr);
-            return sqlc;
-        }
-
-       
 
         private void GetData()
         {
@@ -255,14 +256,14 @@ namespace latihribbon
         private void tglsatu_ValueChanged(object sender, EventArgs e)
         {
             Page = 1;
-            tglchange = "change";
+            tglchange = true;
             LoadData();
         }
 
         private void tgldua_ValueChanged(object sender, EventArgs e)
         {
             Page = 1;
-            tglchange = "change";
+            tglchange = true;
             LoadData();
         }
 
@@ -293,7 +294,7 @@ namespace latihribbon
             KeteranganCombo.SelectedIndex = 0;
             tglsatu.Value = DateTime.Now;
             tgldua.Value = DateTime.Now;
-            tglchange = string.Empty;
+            tglchange = false;
             LoadData();
         }
 

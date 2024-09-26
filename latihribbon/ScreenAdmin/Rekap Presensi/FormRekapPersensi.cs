@@ -65,32 +65,32 @@ namespace latihribbon.ScreenAdmin
         }
 
 
-        string tglchange = string.Empty;
+        bool tglchange = false;
         string sqlc2 = string.Empty;
-        private string FilterSQL(string digunakanUntuk,string nis, string nama, string persensi,string keterangan)
+        private string FilterSQL(bool data,string nis, string nama, string persensi,string keterangan)
         {
             string sqlc = string.Empty;
             
             List<string> fltr = new List<string>();
             List<string> fltr2 = new List<string>();
             
-            if (digunakanUntuk == "data")
+            if (data)
             {
                 fltr.Add("sd.Kelas LIKE @Kelas+'%'");
-                if (nis != "") fltr.Add("sd.NIS LIKE @NIS+'%'");
-                if (nama != "") fltr.Add("sd.Nama LIKE '%'+@Nama+'%'");
-                if (persensi != "") fltr.Add("sd.Persensi LIKE '%'+@Persensi+'%'");
+                if (!string.IsNullOrEmpty(nis)) fltr.Add("sd.NIS LIKE @NIS+'%'");
+                if (!string.IsNullOrEmpty(nama)) fltr.Add("sd.Nama LIKE '%'+@Nama+'%'");
+                if (!string.IsNullOrEmpty(persensi)) fltr.Add("sd.Persensi LIKE '%'+@Persensi+'%'");
                 if (keterangan != "Semua") fltr.Add("COALESCE(a.Keterangan, '*') LIKE @Keterangan+'%'");
-                if (tglchange != "") fltr.Add("sd.Tanggal BETWEEN @tgl1 AND @tgl2");
+                if (tglchange) fltr.Add("sd.Tanggal BETWEEN @tgl1 AND @tgl2");
             }
             else
             {
                 fltr.Add("Kelas LIKE @Kelas+'%'");
-                if (nis != "") fltr.Add("NIS LIKE @NIS+'%'");
-                if (nama != "") fltr.Add("Nama LIKE '%'+@Nama+'%'");
-                if (persensi != "") fltr.Add("Persensi LIKE @Persensi+'%'");
+                if (!string.IsNullOrEmpty(nis)) fltr.Add("NIS LIKE @NIS+'%'");
+                if (!string.IsNullOrEmpty(nama)) fltr.Add("Nama LIKE '%'+@Nama+'%'");
+                if (!string.IsNullOrEmpty(persensi)) fltr.Add("Persensi LIKE @Persensi+'%'");
                 if (keterangan != "Semua") fltr2.Add("Keterangan LIKE @Keterangan+'%'");
-                if (tglchange != "") fltr2.Add("Tanggal BETWEEN @tgl1 AND @tgl2");
+                if (tglchange) fltr2.Add("Tanggal BETWEEN @tgl1 AND @tgl2");
             }
 
             if (fltr.Count > 0)
@@ -104,27 +104,28 @@ namespace latihribbon.ScreenAdmin
         int totalPage;
         private void LoadData()
         {
-            string nis, nama,persensi, kelas, keterangan;
-            DateTime tgl1, tgl2;
+            string nis = txtNIS.Text;
+            string nama = txtNama.Text;
+            string persensi = txtPersensi.Text;
+            string kelas = txtKelas.Text;
+            string keterangan = KeteranganCombo.SelectedItem.ToString() ?? string.Empty;
+            DateTime tgl1 = tglsatu.Value.Date;
+            DateTime tgl2 = tgldua.Value.Date;
 
-            nis = txtNIS.Text;
-            nama = txtNama.Text;
-            persensi = txtPersensi.Text;
-            kelas = txtKelas.Text;
-            keterangan = KeteranganCombo.SelectedItem.ToString() ?? string.Empty;
-            tgl1 = tglsatu.Value.Date;
-            tgl2 = tgldua.Value.Date;
+            var sqlc = FilterSQL(true,nis, nama,persensi, keterangan);
+            var sqlcRow = FilterSQL(false,nis, nama,persensi, keterangan);
 
-            var sqlc = FilterSQL("data",nis, nama,persensi, keterangan);
-            var sqlcRow = FilterSQL("cekRow",nis, nama,persensi, keterangan);
             var dp = new DynamicParameters();
-            dp.Add("@NIS", nis);
-            dp.Add("@Nama", nama);
             dp.Add("@Kelas", kelas);
-            dp.Add("@Persensi", persensi);
-            dp.Add("@Keterangan", keterangan);
-            dp.Add("@tgl1", tgl1);
-            dp.Add("@tgl2", tgl2);
+            if (!string.IsNullOrEmpty(nis))dp.Add("@NIS", nis);
+            if (!string.IsNullOrEmpty(nama)) dp.Add("@Nama", nama);
+            if (!string.IsNullOrEmpty(persensi)) dp.Add("@Persensi", persensi);
+            if (!string.IsNullOrEmpty(keterangan)) dp.Add("@Keterangan", keterangan);
+            if (tglchange)
+            {
+                dp.Add("@tgl1", tgl1);
+                dp.Add("@tgl2", tgl2);
+            }
 
             string text = "Halaman ";
             int RowPerPage = 20;
@@ -157,12 +158,14 @@ namespace latihribbon.ScreenAdmin
 
         private void txt_TextChanged(object sender, EventArgs e)
         {
+            Page = 1;
             LoadData();
         }
 
         private void tgl_ValueChanged(object sender,EventArgs e)
         {
-            tglchange = "0";
+            Page = 1;
+            tglchange = true;
             LoadData();
         }
 
@@ -334,23 +337,8 @@ namespace latihribbon.ScreenAdmin
             KeteranganCombo.SelectedIndex = 0;
             tglsatu.Value = DateTime.Now;
             tgldua.Value = DateTime.Now;
-            tglchange = string.Empty;
+            tglchange = false;
             LoadData();
-        }
-
-        private void txtNama_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void KeteranganCombo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tglsatu_ValueChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
