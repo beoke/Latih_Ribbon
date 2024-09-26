@@ -171,10 +171,10 @@
     <Compile Include="ScreenAdmin\FormKelas.Designer.cs">
       <DependentUpon>FormKelas.cs</DependentUpon>
     </Compile>
-    <Compile Include="ScreenUser\FormSurveyKepuasan.cs">
+    <Compile Include="ScreenSurvey\FormSurveyKepuasan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ScreenUser\FormSurveyKepuasan.Designer.cs">
+    <Compile Include="ScreenSurvey\FormSurveyKepuasan.Designer.cs">
       <DependentUpon>FormSurveyKepuasan.cs</DependentUpon>
     </Compile>
     <Compile Include="Helper\MesBox.cs" />
@@ -282,7 +282,7 @@
     <EmbeddedResource Include="ScreenAdmin\FormKelas.resx">
       <DependentUpon>FormKelas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ScreenUser\FormSurveyKepuasan.resx">
+    <EmbeddedResource Include="ScreenSurvey\FormSurveyKepuasan.resx">
       <DependentUpon>FormSurveyKepuasan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ScreenAdmin\Rekap Presensi\PopUpKelas.resx">
