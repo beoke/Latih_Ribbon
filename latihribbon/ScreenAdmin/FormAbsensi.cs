@@ -48,11 +48,7 @@ namespace latihribbon
             new object[] { true });
         }
   
-        private void RegisterEvent()
-        {
-            txtPersensi1.TextChanged += perkas_TextChanged;
-            txtKelas1.TextChanged += perkas_TextChanged;
-        }
+       
 
         public void InitComponent()
         {
@@ -80,12 +76,13 @@ namespace latihribbon
 
 
         bool tglchange = false;
-        private string FilterSQL(string nis, string nama, string kelas, string keterangan)
+        private string FilterSQL(string nis, string nama,string persensi, string kelas, string keterangan)
         {
             string sqlc = string.Empty;
             List<string> fltr = new List<string>();
             if (nis != "") fltr.Add("p.NIS LIKE @NIS+'%'");
             if (nama != "") fltr.Add("s.Nama LIKE '%'+@Nama+'%'");
+            if (persensi != "") fltr.Add("s.Persensi LIKE @Persensi+'%'");
             if (kelas != "") fltr.Add("s.Kelas LIKE '%'+@Kelas+'%'");
             if (keterangan != "Semua") fltr.Add("p.Keterangan LIKE @Keterangan+'%'");
             if (tglchange) fltr.Add("p.Tanggal BETWEEN @tgl1 AND @tgl2");
@@ -99,21 +96,20 @@ namespace latihribbon
         int totalPage;
         public void LoadData()
         {
-            string nis, nama, kelas, keterangan;
-            DateTime tgl1, tgl2;
+            string nis = txtNIS.Text;
+            string nama = txtNama.Text;
+            string persensi = txtPersensi.Text;
+            string kelas = txtKelas.Text;
+            string keterangan = KeteranganCombo.SelectedItem.ToString() ?? string.Empty;
+            DateTime tgl1 = tglsatu.Value.Date;
+            DateTime tgl2 = tgldua.Value.Date;
 
-            nis = txtNIS.Text;
-            nama = txtNama.Text;
-            kelas = txtKelas.Text;
-            keterangan = KeteranganCombo.SelectedItem.ToString() ?? string.Empty;
-            tgl1 = tglsatu.Value.Date;
-            tgl2 = tgldua.Value.Date;
-
-            var sqlc = FilterSQL(nis, nama, kelas, keterangan);
+            var sqlc = FilterSQL(nis, nama,persensi, kelas, keterangan);
 
             var dp = new DynamicParameters();
             if (nis != "") dp.Add("@NIS", nis);
             if (nama != "") dp.Add("@Nama", nama);
+            if (persensi != "") dp.Add("@Persensi", persensi);
             if (keterangan != "Semua") dp.Add("@Keterangan", keterangan);
             if (kelas != "") dp.Add("@Kelas", kelas);
             if (tglchange)
@@ -138,7 +134,7 @@ namespace latihribbon
         private void GetData()
         {
             var Id = dataGridView1.CurrentRow.Cells["Id"].Value?.ToString() ?? string.Empty;
-            globalId = Id == string.Empty ? 0 : int.Parse(Id); // set global varibel
+            globalId = Id == string.Empty ? 0 : int.Parse(Id);
             var data = absensiDal.GetData(Convert.ToInt32(Id));
             if (data == null) return;
             txtNIS1.Text = data.Nis.ToString();
@@ -189,7 +185,7 @@ namespace latihribbon
 
             if (nis == "" || nama == "" || keterangan == "")
             {
-                MessageBox.Show("Seluruh Data Wajib Diisi!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                mesBox.MesInfo("Seluruh Data Wajib Diisi!");
                 return;
             }
 
@@ -211,20 +207,15 @@ namespace latihribbon
 
             if (masuk.Id == 0)
             {
-                if (MessageBox.Show("Input Data?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    absensiDal.Insert(masuk);
-                    LoadData();
-                }
-
+                if (!mesBox.MesKonfirmasi("Input Data?")) return;
+                absensiDal.Insert(masuk);
+                LoadData();
             }
             else
             {
-                if (MessageBox.Show("Update Data?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    absensiDal.Update(masuk);
-                    LoadData();
-                }
+                if (!mesBox.MesKonfirmasi("Update Data?")) return;
+                absensiDal.Update(masuk);
+                LoadData();
             }
         }
 
@@ -277,47 +268,34 @@ namespace latihribbon
             }
         }
 
-    
-        #region EVENT FILTER
-        private void txtNIS_TextChanged(object sender, EventArgs e)
+
+        #region EVENT
+
+        private void RegisterEvent()
+        {
+            txtPersensi1.TextChanged += perkas_TextChanged;
+            txtKelas1.TextChanged += perkas_TextChanged;
+
+            txtNIS.TextChanged += filter_TextChanged;
+            txtNama.TextChanged += filter_TextChanged;
+            txtPersensi.TextChanged += filter_TextChanged;
+            txtKelas.TextChanged += filter_TextChanged;
+            KeteranganCombo.SelectedIndexChanged += filter_TextChanged;
+
+            tglsatu.ValueChanged += filter_tglChanged;
+            tgldua.ValueChanged += filter_tglChanged;
+        }
+        private void filter_TextChanged(object sender,EventArgs e)
         {
             Page = 1;
             LoadData();
         }
-
-        private void tglsatu_ValueChanged(object sender, EventArgs e)
+        private void filter_tglChanged(object sender, EventArgs e)
         {
             Page = 1;
             tglchange = true;
             LoadData();
         }
-
-        private void tgldua_ValueChanged(object sender, EventArgs e)
-        {
-            Page = 1;
-            tglchange = true;
-            LoadData();
-        }
-
-        private void txtNama_TextChanged(object sender, EventArgs e)
-        {
-            Page = 1;
-            LoadData();
-        }
-
-        private void txtKelas_TextChanged(object sender, EventArgs e)
-        {
-            Page = 1;
-            LoadData();
-        }
-
-        private void KeteranganCombo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Page = 1;
-            LoadData();
-        }
-        #endregion
-
         private void perkas_TextChanged(object sender, EventArgs e)
         {
             if (!InternalTextChange) return;
@@ -418,10 +396,6 @@ namespace latihribbon
             if (kelas.DialogResult == DialogResult.OK)
                 txtKelas1.Text = historyDal.GetData("Absensi").History.ToString() ?? string.Empty;
         }
-
-        private void tglDT_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
+        #endregion
     }
 }

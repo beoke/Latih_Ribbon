@@ -27,6 +27,7 @@ namespace latihribbon
             InitializeComponent();
             siswaDal = new SiswaDal();
             keluarDal = new KeluarDal();
+            RegisterEvent();
             LoadData();
             InitComponent();
         }
@@ -124,7 +125,7 @@ namespace latihribbon
             txtNIS1.Clear();
             txtNama1.Clear();
             txtKelas1.Clear();
-            tglDT.Value = new DateTime(2000,01,01);
+            tglDT.Value = DateTime.Now;
             jamKeluarDT.Value = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day, 0, 0, 0);
             jamMasukDT.Value = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day, 0, 0, 0);
             txtTujuan1.Clear();
@@ -145,7 +146,7 @@ namespace latihribbon
 
             if (nis == "" || nama == "" || tujuan == "" || jamMasuk == TimeSpan.Zero || jamKeluar == TimeSpan.Zero) 
             {
-                MessageBox.Show("Seluruh Data Wajib Diisi!","Warning",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                mesBox.MesInfo("Seluruh Data Wajib Diisi!");
                 return;
             }
 
@@ -169,20 +170,15 @@ namespace latihribbon
 
             if(keluar.Id == 0)
             {
-                if (MessageBox.Show("Input Data?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) 
-                {
-                    keluarDal.Insert(keluar);
-                    LoadData();
-                }
-
+                if (!mesBox.MesKonfirmasi("Input Data?")) return;
+                keluarDal.Insert(keluar);
+                LoadData();
             }
             else
             {
-                if (MessageBox.Show("Update Data?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    keluarDal.Update(keluar);
-                    LoadData();
-                }
+                if (!mesBox.MesKonfirmasi("Update Data?")) return;
+                keluarDal.Update(keluar);
+                LoadData();
             }
         }
 
@@ -216,57 +212,34 @@ namespace latihribbon
             }
         }
 
-        #region EVENT FILTER
-        private void txtNIS_TextChanged(object sender, EventArgs e)
+        #region EVENT
+       private void RegisterEvent()
+        {
+            txtNIS.TextChanged += filter_TextChanged;
+            txtNama.TextChanged += filter_TextChanged;
+            txtKelas.TextChanged += filter_TextChanged;
+
+            tglsatu.ValueChanged += filter_tglChanged;
+            tgldua.ValueChanged += filter_tglChanged;
+        }
+
+        private void filter_TextChanged(object sender, EventArgs e)
         {
             Page = 1;
             LoadData();
         }
 
-        private void txtNama_TextChanged(object sender, EventArgs e)
-        {
-            Page = 1;
-            LoadData();
-        }
-
-        private void txtKelas_TextChanged(object sender, EventArgs e)
-        {
-            Page = 1;
-            LoadData();
-        }
-
-        private void txtTahun_TextChanged(object sender, EventArgs e)
-        {
-            Page = 1;
-            LoadData();
-        }
-
-        private void tglsatu_ValueChanged(object sender, EventArgs e)
+        private void filter_tglChanged(object sender, EventArgs e)
         {
             Page = 1;
             tglchange = true;
             LoadData();
         }
-
-        private void tgldua_ValueChanged(object sender, EventArgs e)
-        {
-            Page = 1;
-            tglchange = true;
-            LoadData();
-        }
-        #endregion
-
         private void btnNew_Click(object sender, EventArgs e)
         {
             ClearInput();
             globalId = 0;
             ControlInsertUpdate();
-        }
-
-        private void dataGridView1_DoubleClick(object sender, EventArgs e)
-        {
-          
-           
         }
 
         private void btnSave_FormSiswa_Click(object sender, EventArgs e)
@@ -330,5 +303,6 @@ namespace latihribbon
                 LoadData();
             }
         }
+        #endregion
     }
 }
