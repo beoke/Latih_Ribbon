@@ -10,6 +10,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -28,11 +29,23 @@ namespace latihribbon.ScreenAdmin
         public FormRekapPersensi()
         {
             InitializeComponent();
+            buf();
             rekapPersensiDal = new RekapPersensiDal();
             historyDal = new HistoryDal();
             InitComponen();
             Event();
             LoadHistory();
+        }
+
+        public void buf()
+        {
+            typeof(DataGridView).InvokeMember("DoubleBuffered",
+            System.Reflection.BindingFlags.NonPublic |
+            System.Reflection.BindingFlags.Instance |
+            System.Reflection.BindingFlags.SetProperty,
+            null,
+            dataGridView1,
+            new object[] { true });
         }
 
         public void InitComponen()
@@ -146,7 +159,6 @@ namespace latihribbon.ScreenAdmin
         private void Event()
         {
             btnPrintRekap.Click += BtnPrintRekap_Click;
-            txtKelas.Click += TxtKelas_Click;
 
             txtNIS.TextChanged += txt_TextChanged;
             txtNama.TextChanged += txt_TextChanged;
@@ -167,18 +179,6 @@ namespace latihribbon.ScreenAdmin
             Page = 1;
             tglchange = true;
             LoadData();
-        }
-
-        private void TxtKelas_Click(object sender, EventArgs e)
-        {
-            /*  PopUpKelas popUp = new PopUpKelas();
-              popUp.StartPosition = FormStartPosition.CenterScreen;
-              popUp.ShowDialog();
-
-              if (popUp.ShowDialog() == DialogResult.OK)
-              {
-                  txtKelas.Text = popUp.KelasText;
-              }*/
         }
 
         private void BtnPrintRekap_Click(object sender, EventArgs e)

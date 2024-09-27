@@ -15,19 +15,25 @@ namespace latihribbon.ScreenAdmin
     public partial class FormJurusan : Form
     {
         private readonly JurusanDal _jurusanDal;
-       
-
         public FormJurusan()
         {
-            _jurusanDal = new JurusanDal();
-
             InitializeComponent();
-
-
+            buf();
+            _jurusanDal = new JurusanDal();
             LoadData();
             InitEvent();
         }
 
+        public void buf()
+        {
+            typeof(DataGridView).InvokeMember("DoubleBuffered",
+            System.Reflection.BindingFlags.NonPublic |
+            System.Reflection.BindingFlags.Instance |
+            System.Reflection.BindingFlags.SetProperty,
+            null,
+            GridListJurusan,
+            new object[] { true });
+        }
         private void LoadData()
         {
             GridListJurusan.DataSource = _jurusanDal.ListData();
@@ -38,9 +44,6 @@ namespace latihribbon.ScreenAdmin
             GridListJurusan.Columns["Id"].Width = 100;
             GridListJurusan.Columns["NamaJurusan"].Width = 200;
 
-            // DataGrid
-            if (GridListJurusan.Rows.Count > 0)
-            {
                 GridListJurusan.EnableHeadersVisualStyles = false;
                 GridListJurusan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
 
@@ -50,7 +53,6 @@ namespace latihribbon.ScreenAdmin
                 GridListJurusan.RowTemplate.Height = 30;
                 GridListJurusan.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                 GridListJurusan.ColumnHeadersHeight = 35;
-            }
         }
 
         private void InitEvent()

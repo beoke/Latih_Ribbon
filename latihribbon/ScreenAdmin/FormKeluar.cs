@@ -25,13 +25,23 @@ namespace latihribbon
         public FormKeluar()
         {
             InitializeComponent();
+            buf();
             siswaDal = new SiswaDal();
             keluarDal = new KeluarDal();
             RegisterEvent();
             LoadData();
             InitComponent();
         }
-
+        public void buf()
+        {
+            typeof(DataGridView).InvokeMember("DoubleBuffered",
+            System.Reflection.BindingFlags.NonPublic |
+            System.Reflection.BindingFlags.Instance |
+            System.Reflection.BindingFlags.SetProperty,
+            null,
+            dataGridView1,
+            new object[] { true });
+        }
         public void InitComponent()
         {
 

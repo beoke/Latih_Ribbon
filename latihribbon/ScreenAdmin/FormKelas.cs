@@ -23,12 +23,22 @@ namespace latihribbon.ScreenAdmin
         public FormKelas()
         {
             InitializeComponent();
+            buf();
             jurusanDal = new JurusanDal();
             kelasDal = new KelasDal();
-            LoadData();
             InitComponent();
+            LoadData();
         }
-
+        public void buf()
+        {
+            typeof(DataGridView).InvokeMember("DoubleBuffered",
+            System.Reflection.BindingFlags.NonPublic |
+            System.Reflection.BindingFlags.Instance |
+            System.Reflection.BindingFlags.SetProperty,
+            null,
+            GridListKelas,
+            new object[] { true });
+        }
 
         public void LoadData()
         {
@@ -36,6 +46,16 @@ namespace latihribbon.ScreenAdmin
 
             GridListKelas.Columns[0].Width = 100;
             GridListKelas.Columns[1].Width = 300;
+
+            GridListKelas.EnableHeadersVisualStyles = false;
+            GridListKelas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+
+            GridListKelas.DefaultCellStyle.Font = new System.Drawing.Font("Sans Serif", 10);
+            GridListKelas.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Sans Serif", 10, FontStyle.Bold);
+            GridListKelas.ColumnHeadersDefaultCellStyle.BackColor = System.Drawing.Color.LightBlue;
+            GridListKelas.RowTemplate.Height = 30;
+            GridListKelas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            GridListKelas.ColumnHeadersHeight = 35;
         }
 
         public void InitComponent()

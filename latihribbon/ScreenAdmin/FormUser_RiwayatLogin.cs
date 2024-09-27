@@ -26,8 +26,6 @@ namespace latihribbon
             InitialEvent();
             ClearUser();
             LoadUser();
-
-         
         }
         
 
@@ -82,21 +80,19 @@ namespace latihribbon
         }
 
 
-        string SqlGlobal = string.Empty;
-        private string FilterData(string userLogin , DateTime tgl_1, DateTime tgl_2)
+        bool SqlGlobal = false;
+        private string FilterData(string userLogin)
         {
             List<string> filter = new List<string>();
             string sql = "SELECT IdLogin, UserLogin , Tanggal FROM RiwayatLogin";
 
-            if (!string.IsNullOrEmpty(userLogin)) filter.Add("UserLogin LIKE '%' + @UserLogin + '%'");
-            if (!string.IsNullOrEmpty(SqlGlobal)) filter.Add("Tanggal BETWEEN @tgl_1 AND @tgl_2");
+            if (userLogin != "") filter.Add("UserLogin LIKE '%' + @UserLogin + '%'");
+            if (SqlGlobal) filter.Add("Tanggal BETWEEN @tgl_1 AND @tgl_2");
 
             if (filter.Count > 0)
             {
                 sql += " WHERE " + string.Join(" AND ", filter);
             }
-
-            SqlGlobal = string.Empty; 
             return sql;
         }
 
@@ -106,8 +102,16 @@ namespace latihribbon
             DateTime tgl_1 = PickerRentan_1.Value;
             DateTime tgl_2 = PickerRentan_2.Value;
 
-            string sql = FilterData(userLogin, tgl_1, tgl_2);
-            var filter = _riwayatLoginDal.GetSiswaFilter(sql, new { userLogin = userLogin, tgl_1 = tgl_1, tgl_2 = tgl_2 });
+            var dp = new DynamicParameters();
+            if (userLogin != "") dp.Add("@UserLogin",userLogin);
+            if (SqlGlobal) 
+            {
+                dp.Add("@tgl_1",tgl_1);
+                dp.Add("@tgl_2",tgl_2);
+            } 
+
+            string sql = FilterData(userLogin);
+            var filter = _riwayatLoginDal.GetSiswaFilter(sql, dp);
             GridListRiwayatLogin.DataSource = filter;
 
         }
@@ -160,7 +164,7 @@ namespace latihribbon
 
         private void PickerRentan_ValueChanged(object sender, EventArgs e)
         {
-            SqlGlobal = "0"; 
+            SqlGlobal = true; 
             FilterData2();
         }
 
@@ -184,9 +188,7 @@ namespace latihribbon
                 TextPassword.Text = user.Password;
                 TextRole.Text = user.Role;
             }
-
             return;
-            
         }
 
         private int SaveUser(int idUser)
@@ -222,6 +224,15 @@ namespace latihribbon
         private void FormUser_RiwayatLogin_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnResetFilter_Click(object sender, EventArgs e)
+        {
+            TextUserName.Clear();
+            PickerRentan_1.Value = DateTime.Now;
+            PickerRentan_2.Value = DateTime.Now;
+            SqlGlobal = false;
+            FilterData2();
         }
     }
 }
