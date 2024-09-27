@@ -53,8 +53,32 @@ namespace latihribbon
 
             TextKritikSaran.MaxLength = 40;
             TextKritikSaran.Text = string.Empty;
-            TextKritikSaran.
+
+            PictureBintang_RataRata.BackgroundImage = Properties.Resources.Bintang_Full;
+            PictureBintang_RataRata.BackgroundImageLayout = ImageLayout.Stretch;
+
+            RataRataBintang();
         }
+
+        private void RataRataBintang()
+        {
+            using (var Conn = new SqlConnection(conn.connstr()))
+            {
+                const string sql = @"
+                    SELECT 
+                        CAST (ROUND ( AVG(Bintang), 1 ) AS FLOAT)
+                    FROM 
+                        Rating
+                    WHERE
+                        Bintang BETWEEN 1 AND 5";
+
+                var rataRata = Conn.ExecuteScalar<Decimal>(sql);
+
+                LabelRataRataRating.Text = rataRata.ToString();
+            }
+        }
+
+
 
 
         #region Event
@@ -72,6 +96,7 @@ namespace latihribbon
             this.KeyDown += FormSurveyKepuasan_KeyDown; ;
         }
 
+
         private void FormSurveyKepuasan_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
         {
             if (e.Control && e.Alt && e.KeyCode == Keys.K)
@@ -82,7 +107,6 @@ namespace latihribbon
             }
         }
 
-   
 
         private void TextKritikSaran_TextChanged(object sender, EventArgs e)
         {
@@ -127,8 +151,8 @@ namespace latihribbon
 
                     Conn.Execute(sql, Dp);
                 }
-                MessageBox.Show("Terima kasih telah memberi ulasan", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 InitialProperti();
+                MessageBox.Show("Terima kasih telah memberi penilaian", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
         }
@@ -143,6 +167,8 @@ namespace latihribbon
         }
 
         #endregion
+
+
 
         private void UpdateBintang(int tagBintang)
         {
@@ -164,91 +190,8 @@ namespace latihribbon
         }
 
 
+       
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        /* private void InitialiBintang()
-         {
-             Bintang = new PictureBox[5] { PictureBintang_1, PictureBintang_2, PictureBintang_3, PictureBintang_4, PictureBintang_5 };
-         }
-
-         private void InitialTag()
-         {
-             PictureBintang_1.Tag = 1;
-             PictureBintang_2.Tag = 2;
-             PictureBintang_3.Tag = 3;
-             PictureBintang_4.Tag = 4;
-             PictureBintang_5.Tag = 5;
-
-             PictureBintang_1.BackgroundImage = Properties.Resources.Bintang_Kosong;
-             PictureBintang_2.BackgroundImage = Properties.Resources.Bintang_Kosong;
-             PictureBintang_3.BackgroundImage = Properties.Resources.Bintang_Kosong;
-             PictureBintang_4.BackgroundImage = Properties.Resources.Bintang_Kosong;
-             PictureBintang_5.BackgroundImage = Properties.Resources.Bintang_Kosong;
-
-             foreach (var style in Bintang)
-             {
-                 style.BackgroundImageLayout = ImageLayout.Stretch;
-             }
-         }
-
-         private void ControlEvent()
-         {
-             PictureBintang_1.Click += PictureBintang_Click;
-             PictureBintang_2.Click += PictureBintang_Click;
-             PictureBintang_3.Click += PictureBintang_Click;
-             PictureBintang_4.Click += PictureBintang_Click;
-             PictureBintang_5.Click += PictureBintang_Click;
-         }
-
-         private void PictureBintang_Click(object sender, EventArgs e)
-         {
-             PictureBox BintangClick = (PictureBox)sender;
-
-             int indexBintang = (int)BintangClick.Tag;
-             UpdateBintang(indexBintang);
-         }
-
-         private void UpdateBintang(int indexBintang)
-         {
-             cekBintangClick = indexBintang;
-
-             for (int i = 0; i < Bintang.Length; i++)
-             {
-                 if (i < indexBintang)
-                 {
-                     Bintang[i].BackgroundImage = Properties.Resources.Bintang_Full;
-                     Bintang[i].BackgroundImageLayout = ImageLayout.Stretch;
-                 }
-                 else
-                 {
-                     Bintang[i].BackgroundImage = Properties.Resources.Bintang_Kosong;
-                     Bintang[i].BackgroundImageLayout = ImageLayout.Stretch;
-
-                 }
-             }
-         }*/
+        
     }
 }

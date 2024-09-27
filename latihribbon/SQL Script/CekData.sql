@@ -1,6 +1,12 @@
 ﻿DROP TABLE Rating;
 
 CREATE TABLE Rating (
-	Bintang INT NOT NULL DEFAULT (''),
+	Bintang DECIMAL NOT NULL DEFAULT (''),
 	Pesan VARCHAR(50) NOT NULL DEFAULT('')
 	)
+
+
+
+SELECT CAST (ROUND (AVG(Bintang), 1) AS FLOAT)
+FROM Rating
+WHERE Bintang BETWEEN 1 AND 5;

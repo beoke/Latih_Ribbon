@@ -42,12 +42,15 @@
             this.PictureBintang_1 = new System.Windows.Forms.PictureBox();
             this.ribbon_terlambat = new System.Windows.Forms.RibbonButton();
             this.ribbonButton1 = new System.Windows.Forms.RibbonButton();
+            this.PictureBintang_RataRata = new System.Windows.Forms.PictureBox();
+            this.LabelRataRataRating = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBintang_5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBintang_2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBintang_3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBintang_4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBintang_1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBintang_RataRata)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -55,6 +58,8 @@
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.BackColor = System.Drawing.Color.LightGray;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.LabelRataRataRating);
+            this.panel1.Controls.Add(this.PictureBintang_RataRata);
             this.panel1.Controls.Add(this.ButtonBatal);
             this.panel1.Controls.Add(this.LabelLenghText);
             this.panel1.Controls.Add(this.TextKritikSaran);
@@ -117,7 +122,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(245, 92);
+            this.label1.Location = new System.Drawing.Point(245, 134);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(740, 38);
             this.label1.TabIndex = 7;
@@ -191,6 +196,27 @@
             this.ribbonButton1.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton1.SmallImage")));
             this.ribbonButton1.Text = "Terlambat";
             // 
+            // PictureBintang_RataRata
+            // 
+            this.PictureBintang_RataRata.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PictureBintang_RataRata.Location = new System.Drawing.Point(1166, 593);
+            this.PictureBintang_RataRata.Name = "PictureBintang_RataRata";
+            this.PictureBintang_RataRata.Size = new System.Drawing.Size(70, 70);
+            this.PictureBintang_RataRata.TabIndex = 11;
+            this.PictureBintang_RataRata.TabStop = false;
+            this.PictureBintang_RataRata.Tag = "5";
+            // 
+            // LabelRataRataRating
+            // 
+            this.LabelRataRataRating.AutoSize = true;
+            this.LabelRataRataRating.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelRataRataRating.Location = new System.Drawing.Point(1078, 602);
+            this.LabelRataRataRating.Name = "LabelRataRataRating";
+            this.LabelRataRataRating.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.LabelRataRataRating.Size = new System.Drawing.Size(82, 52);
+            this.LabelRataRataRating.TabIndex = 12;
+            this.LabelRataRataRating.Text = "5.0";
+            // 
             // FormSurveyKepuasan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -207,6 +233,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.PictureBintang_3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBintang_4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBintang_1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBintang_RataRata)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -225,5 +252,7 @@
         private System.Windows.Forms.TextBox TextKritikSaran;
         private System.Windows.Forms.Label LabelLenghText;
         private System.Windows.Forms.Button ButtonBatal;
+        private System.Windows.Forms.PictureBox PictureBintang_RataRata;
+        private System.Windows.Forms.Label LabelRataRataRating;
     }
 }
