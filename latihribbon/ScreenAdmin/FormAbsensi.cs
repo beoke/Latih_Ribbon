@@ -27,11 +27,11 @@ namespace latihribbon
         private bool InternalTextChange = true;
         public FormAbsensi()
         {
+            InitializeComponent();
+            buf();
             absensiDal = new AbsensiDal();
             siswaDal = new SiswaDal();
             historyDal = new HistoryDal();
-            InitializeComponent();
-            buf();
             RegisterEvent();
             InitComponent();
             LoadData();
@@ -192,7 +192,7 @@ namespace latihribbon
             var dataCek = absensiDal.GetByPerKas(" WHERE Nis=@Nis", new { Nis = Convert.ToInt32(nis) });
             if (dataCek != null)
             {
-                mesBox.MesInfo($"{nama} sudah Absensi pada " + tgl.ToString("dd/MM/yyyy"));
+                mesBox.MesInfo($"{nama} Sudah Absensi Pada " + tgl.ToString("dd/MM/yyyy"));
                 return;
             }
              

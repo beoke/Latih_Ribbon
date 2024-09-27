@@ -41,11 +41,11 @@ namespace latihribbon
             }
         }
 
-        public IEnumerable<RiwayatLoginModel> GetSiswaFilter(string sql, object query)
+        public IEnumerable<RiwayatLoginModel> GetSiswaFilter(string sql, object dp)
         {
             using (var Conn = new SqlConnection(conn.connstr()))
             {
-                var filterLogin = Conn.Query<RiwayatLoginModel>(sql, query);
+                var filterLogin = Conn.Query<RiwayatLoginModel>(sql, dp);
                 return filterLogin;
             }
         }

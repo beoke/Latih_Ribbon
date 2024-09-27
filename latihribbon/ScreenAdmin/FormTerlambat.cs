@@ -24,6 +24,7 @@ namespace latihribbon
         public FormTerlambat()
         {
             InitializeComponent();
+            buf();
             masukDal = new MasukDal();
             siswaDal = new SiswaDal();
             mesBox = new MesBox();
@@ -32,7 +33,16 @@ namespace latihribbon
             InitComponen();
             
         }
-
+        public void buf()
+        {
+            typeof(DataGridView).InvokeMember("DoubleBuffered",
+            System.Reflection.BindingFlags.NonPublic |
+            System.Reflection.BindingFlags.Instance |
+            System.Reflection.BindingFlags.SetProperty,
+            null,
+            dataGridView1,
+            new object[] { true });
+        }
         public void InitComponen()
         {
             //textBox MaxLength

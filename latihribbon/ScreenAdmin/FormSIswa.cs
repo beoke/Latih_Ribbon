@@ -33,7 +33,7 @@ namespace latihribbon
         public FormSIswa()
         {
             InitializeComponent();
-            //buf();
+            buf();
             db = new DbDal();
             siswaDal = new SiswaDal();
             jurusanDal = new JurusanDal();
@@ -42,12 +42,6 @@ namespace latihribbon
             InitComponent();
             LoadData();
             RegisterEvent();
-        }
-
-        public async Task LoadDataInBackgroundAsync()
-        {
-            await Task.Run(() => buf());
-            //this.Show();
         }
 
         public void buf()
