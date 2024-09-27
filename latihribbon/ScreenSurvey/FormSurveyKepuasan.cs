@@ -11,6 +11,7 @@ using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Input;
 
 namespace latihribbon
 {
@@ -21,11 +22,17 @@ namespace latihribbon
         public FormSurveyKepuasan()
         {
             InitializeComponent();
-            InitialBintang();
+            InitialProperti();
             ControlEvent();
+
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.WindowState = FormWindowState.Maximized;
+            this.ControlBox = true;
+            this.TopMost = true;
+            this.KeyPreview = true;
         }
 
-        private void InitialBintang()
+        private void InitialProperti()
         { 
             Bintang = new PictureBox[5] 
             {
@@ -43,10 +50,15 @@ namespace latihribbon
                 Bintang[i].BackgroundImageLayout = ImageLayout.Stretch;
                 Bintang[i].Tag = i + 1;
             }
+
+            TextKritikSaran.MaxLength = 40;
+            TextKritikSaran.Text = string.Empty;
+            TextKritikSaran.
         }
 
 
-        private  void ControlEvent()
+        #region Event
+        private void ControlEvent()
         {
             PictureBintang_1.Click += PictureBintang_Click;
             PictureBintang_2.Click += PictureBintang_Click;
@@ -57,7 +69,20 @@ namespace latihribbon
             ButtonKirim.Click += ButtonKirim_Click;
             ButtonBatal.Click += ButtonBatal_Click;
             TextKritikSaran.TextChanged += TextKritikSaran_TextChanged;
+            this.KeyDown += FormSurveyKepuasan_KeyDown; ;
         }
+
+        private void FormSurveyKepuasan_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            if (e.Control && e.Alt && e.KeyCode == Keys.K)
+            {
+                login login = new login();
+                login.Show();
+                this.Close();
+            }
+        }
+
+   
 
         private void TextKritikSaran_TextChanged(object sender, EventArgs e)
         {
@@ -70,7 +95,7 @@ namespace latihribbon
         {
            if ( MessageBox.Show("Anda yakin ingin membatalkan pengisian ?", "Pertanyaan", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK)
             {
-                InitialBintang();
+                InitialProperti();
                 TextKritikSaran.Text = string.Empty;
             }
         }
@@ -81,20 +106,20 @@ namespace latihribbon
 
             if (cekBintangClick == 0)
             {
-                MessageBox.Show("Pilih bintang terlebih dahulu");
+                MessageBox.Show("Pilih bintang terlebih dahulu", "Perhatian", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
-         
-            else
+           else
             {
                 using (var Conn = new SqlConnection(conn.connstr()))
                 {
                     const string sql = @"
-                INSERT INTO Rating 
-                    (Bintang,
-                    Pesan)
-                VALUES
-                    (@Bintang,
-                    @Pesan)";
+                        INSERT INTO Rating 
+                            (Bintang,
+                            Pesan)
+                        VALUES
+                            (@Bintang,
+                            @Pesan)";
 
                     var Dp = new DynamicParameters();
                     Dp.Add("@Bintang", cekBintangClick, DbType.Int32);
@@ -102,7 +127,10 @@ namespace latihribbon
 
                     Conn.Execute(sql, Dp);
                 }
+                MessageBox.Show("Terima kasih telah memberi ulasan", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                InitialProperti();
             }
+
         }
 
 
@@ -114,6 +142,7 @@ namespace latihribbon
             UpdateBintang(tagBintang);
         }
 
+        #endregion
 
         private void UpdateBintang(int tagBintang)
         {

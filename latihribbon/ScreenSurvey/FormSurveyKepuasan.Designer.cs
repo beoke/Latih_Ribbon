@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSurveyKepuasan));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.ButtonBatal = new System.Windows.Forms.Button();
             this.LabelLenghText = new System.Windows.Forms.Label();
             this.TextKritikSaran = new System.Windows.Forms.TextBox();
             this.PictureBintang_5 = new System.Windows.Forms.PictureBox();
@@ -41,7 +42,6 @@
             this.PictureBintang_1 = new System.Windows.Forms.PictureBox();
             this.ribbon_terlambat = new System.Windows.Forms.RibbonButton();
             this.ribbonButton1 = new System.Windows.Forms.RibbonButton();
-            this.ButtonBatal = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBintang_5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBintang_2)).BeginInit();
@@ -69,6 +69,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1260, 690);
             this.panel1.TabIndex = 0;
+            // 
+            // ButtonBatal
+            // 
+            this.ButtonBatal.BackColor = System.Drawing.Color.Gray;
+            this.ButtonBatal.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonBatal.ForeColor = System.Drawing.Color.White;
+            this.ButtonBatal.Location = new System.Drawing.Point(426, 558);
+            this.ButtonBatal.Name = "ButtonBatal";
+            this.ButtonBatal.Size = new System.Drawing.Size(142, 46);
+            this.ButtonBatal.TabIndex = 10;
+            this.ButtonBatal.Text = "Batal";
+            this.ButtonBatal.UseVisualStyleBackColor = false;
             // 
             // LabelLenghText
             // 
@@ -178,18 +190,6 @@
             this.ribbonButton1.Name = "ribbonButton1";
             this.ribbonButton1.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton1.SmallImage")));
             this.ribbonButton1.Text = "Terlambat";
-            // 
-            // ButtonBatal
-            // 
-            this.ButtonBatal.BackColor = System.Drawing.Color.Gray;
-            this.ButtonBatal.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonBatal.ForeColor = System.Drawing.Color.White;
-            this.ButtonBatal.Location = new System.Drawing.Point(426, 558);
-            this.ButtonBatal.Name = "ButtonBatal";
-            this.ButtonBatal.Size = new System.Drawing.Size(142, 46);
-            this.ButtonBatal.TabIndex = 10;
-            this.ButtonBatal.Text = "Batal";
-            this.ButtonBatal.UseVisualStyleBackColor = false;
             // 
             // FormSurveyKepuasan
             // 
