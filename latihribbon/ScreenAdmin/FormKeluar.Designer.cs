@@ -94,7 +94,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(735, 540);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
-            this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
             // 
             // tglsatu
             // 
@@ -104,7 +103,6 @@
             this.tglsatu.Name = "tglsatu";
             this.tglsatu.Size = new System.Drawing.Size(132, 21);
             this.tglsatu.TabIndex = 19;
-            this.tglsatu.ValueChanged += new System.EventHandler(this.tglsatu_ValueChanged);
             // 
             // button1
             // 
@@ -127,7 +125,6 @@
             this.txtKelas.Name = "txtKelas";
             this.txtKelas.Size = new System.Drawing.Size(76, 21);
             this.txtKelas.TabIndex = 15;
-            this.txtKelas.TextChanged += new System.EventHandler(this.txtKelas_TextChanged);
             // 
             // label3
             // 
@@ -160,7 +157,6 @@
             this.txtNama.Name = "txtNama";
             this.txtNama.Size = new System.Drawing.Size(114, 21);
             this.txtNama.TabIndex = 12;
-            this.txtNama.TextChanged += new System.EventHandler(this.txtNama_TextChanged);
             // 
             // label1
             // 
@@ -181,7 +177,6 @@
             this.tgldua.Name = "tgldua";
             this.tgldua.Size = new System.Drawing.Size(132, 21);
             this.tgldua.TabIndex = 20;
-            this.tgldua.ValueChanged += new System.EventHandler(this.tgldua_ValueChanged);
             // 
             // label5
             // 
@@ -203,7 +198,6 @@
             this.txtNIS.Name = "txtNIS";
             this.txtNIS.Size = new System.Drawing.Size(85, 21);
             this.txtNIS.TabIndex = 23;
-            this.txtNIS.TextChanged += new System.EventHandler(this.txtNIS_TextChanged);
             // 
             // label6
             // 

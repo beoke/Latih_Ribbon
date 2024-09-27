@@ -92,86 +92,82 @@
             this.dataGridView1.Size = new System.Drawing.Size(721, 497);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
-            this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
             // 
             // tglsatu
             // 
             this.tglsatu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tglsatu.Location = new System.Drawing.Point(442, 26);
+            this.tglsatu.Location = new System.Drawing.Point(472, 26);
             this.tglsatu.Margin = new System.Windows.Forms.Padding(2);
             this.tglsatu.Name = "tglsatu";
             this.tglsatu.Size = new System.Drawing.Size(138, 21);
             this.tglsatu.TabIndex = 19;
-            this.tglsatu.ValueChanged += new System.EventHandler(this.tglsatu_ValueChanged);
             // 
             // txtKelas
             // 
             this.txtKelas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtKelas.Location = new System.Drawing.Point(802, 26);
+            this.txtKelas.Location = new System.Drawing.Point(840, 26);
             this.txtKelas.Margin = new System.Windows.Forms.Padding(2);
             this.txtKelas.Name = "txtKelas";
             this.txtKelas.Size = new System.Drawing.Size(76, 21);
             this.txtKelas.TabIndex = 15;
-            this.txtKelas.TextChanged += new System.EventHandler(this.txtKelas_TextChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(758, 28);
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
+            this.label3.Location = new System.Drawing.Point(785, 28);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 15);
+            this.label3.Size = new System.Drawing.Size(49, 19);
             this.label3.TabIndex = 14;
             this.label3.Text = "Kelas :";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(386, 28);
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
+            this.label2.Location = new System.Drawing.Point(403, 28);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 15);
+            this.label2.Size = new System.Drawing.Size(65, 19);
             this.label2.TabIndex = 13;
             this.label2.Text = "Tanggal :";
             // 
             // txtNama
             // 
             this.txtNama.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNama.Location = new System.Drawing.Point(200, 26);
+            this.txtNama.Location = new System.Drawing.Point(226, 26);
             this.txtNama.Margin = new System.Windows.Forms.Padding(2);
             this.txtNama.Name = "txtNama";
             this.txtNama.Size = new System.Drawing.Size(163, 21);
             this.txtNama.TabIndex = 12;
-            this.txtNama.TextChanged += new System.EventHandler(this.txtNama_TextChanged);
+
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(153, 28);
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(169, 27);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 15);
+            this.label1.Size = new System.Drawing.Size(53, 19);
             this.label1.TabIndex = 11;
             this.label1.Text = "Nama :";
             // 
             // tgldua
             // 
             this.tgldua.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tgldua.Location = new System.Drawing.Point(601, 27);
+            this.tgldua.Location = new System.Drawing.Point(631, 27);
             this.tgldua.Margin = new System.Windows.Forms.Padding(2);
             this.tgldua.Name = "tgldua";
             this.tgldua.Size = new System.Drawing.Size(138, 21);
             this.tgldua.TabIndex = 20;
-            this.tgldua.ValueChanged += new System.EventHandler(this.tgldua_ValueChanged);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(584, 23);
+            this.label5.Location = new System.Drawing.Point(614, 23);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(15, 15);
@@ -181,21 +177,20 @@
             // txtNIS
             // 
             this.txtNIS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNIS.Location = new System.Drawing.Point(46, 26);
+            this.txtNIS.Location = new System.Drawing.Point(67, 26);
             this.txtNIS.Margin = new System.Windows.Forms.Padding(2);
             this.txtNIS.Name = "txtNIS";
             this.txtNIS.Size = new System.Drawing.Size(86, 21);
             this.txtNIS.TabIndex = 23;
-            this.txtNIS.TextChanged += new System.EventHandler(this.txtNIS_TextChanged);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(12, 28);
+            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
+            this.label6.Location = new System.Drawing.Point(24, 27);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(33, 15);
+            this.label6.Size = new System.Drawing.Size(39, 19);
             this.label6.TabIndex = 22;
             this.label6.Text = "NIS :";
             // 
@@ -540,7 +535,7 @@
             // 
             // btnResetFilter
             // 
-            this.btnResetFilter.Location = new System.Drawing.Point(908, 24);
+            this.btnResetFilter.Location = new System.Drawing.Point(926, 25);
             this.btnResetFilter.Name = "btnResetFilter";
             this.btnResetFilter.Size = new System.Drawing.Size(75, 23);
             this.btnResetFilter.TabIndex = 30;

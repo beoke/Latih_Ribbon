@@ -77,18 +77,18 @@ namespace latihribbon.ScreenAdmin
             if (data)
             {
                 fltr.Add("sd.Kelas LIKE @Kelas+'%'");
-                if (!string.IsNullOrEmpty(nis)) fltr.Add("sd.NIS LIKE @NIS+'%'");
-                if (!string.IsNullOrEmpty(nama)) fltr.Add("sd.Nama LIKE '%'+@Nama+'%'");
-                if (!string.IsNullOrEmpty(persensi)) fltr.Add("sd.Persensi LIKE '%'+@Persensi+'%'");
+                if (nis != "") fltr.Add("sd.NIS LIKE @NIS+'%'");
+                if (nama != "") fltr.Add("sd.Nama LIKE '%'+@Nama+'%'");
+                if (persensi != "") fltr.Add("sd.Persensi LIKE '%'+@Persensi+'%'");
                 if (keterangan != "Semua") fltr.Add("COALESCE(a.Keterangan, '*') LIKE @Keterangan+'%'");
                 if (tglchange) fltr.Add("sd.Tanggal BETWEEN @tgl1 AND @tgl2");
             }
             else
             {
                 fltr.Add("Kelas LIKE @Kelas+'%'");
-                if (!string.IsNullOrEmpty(nis)) fltr.Add("NIS LIKE @NIS+'%'");
-                if (!string.IsNullOrEmpty(nama)) fltr.Add("Nama LIKE '%'+@Nama+'%'");
-                if (!string.IsNullOrEmpty(persensi)) fltr.Add("Persensi LIKE @Persensi+'%'");
+                if (nis != "") fltr.Add("NIS LIKE @NIS+'%'");
+                if (nama != "") fltr.Add("Nama LIKE '%'+@Nama+'%'");
+                if (persensi != "") fltr.Add("Persensi LIKE @Persensi+'%'");
                 if (keterangan != "Semua") fltr2.Add("Keterangan LIKE @Keterangan+'%'");
                 if (tglchange) fltr2.Add("Tanggal BETWEEN @tgl1 AND @tgl2");
             }
@@ -117,10 +117,10 @@ namespace latihribbon.ScreenAdmin
 
             var dp = new DynamicParameters();
             dp.Add("@Kelas", kelas);
-            if (!string.IsNullOrEmpty(nis))dp.Add("@NIS", nis);
-            if (!string.IsNullOrEmpty(nama)) dp.Add("@Nama", nama);
-            if (!string.IsNullOrEmpty(persensi)) dp.Add("@Persensi", persensi);
-            if (!string.IsNullOrEmpty(keterangan)) dp.Add("@Keterangan", keterangan);
+            if (nis != "") dp.Add("@NIS", nis);
+            if (nama != "") dp.Add("@Nama", nama);
+            if (persensi != "") dp.Add("@Persensi", persensi);
+            if (nis != "Semua") dp.Add("@Keterangan", keterangan);
             if (tglchange)
             {
                 dp.Add("@tgl1", tgl1);

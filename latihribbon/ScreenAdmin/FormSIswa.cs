@@ -1,4 +1,4 @@
-﻿using Dapper;
+﻿ using Dapper;
 using latihribbon.Conn;
 using latihribbon.Dal;
 using latihribbon.Helper;
@@ -18,7 +18,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LicenseContext = OfficeOpenXml.LicenseContext;
-using LicensiContext = OfficeOpenXml.LicenseContext;
 
 namespace latihribbon
 {
@@ -42,6 +41,7 @@ namespace latihribbon
             InitCombo();
             InitComponent();
             LoadData();
+            RegisterEvent();
         }
 
         public async Task LoadDataInBackgroundAsync()
@@ -90,8 +90,6 @@ namespace latihribbon
         public void InitComponent()
         {
             // DataGrid
-            if (dataGridView1.Rows.Count > 0)
-            {
                 dataGridView1.EnableHeadersVisualStyles = false;
                 dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
 
@@ -101,7 +99,6 @@ namespace latihribbon
                 dataGridView1.RowTemplate.Height = 30;
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                 dataGridView1.ColumnHeadersHeight = 35;
-            }
         }
 
         public void ControlInsertUpdate()
@@ -168,6 +165,13 @@ namespace latihribbon
                 mesBox.MesInfo("Seluruh Data Wajib Diisi!");
                 return;
             }
+
+            if (lblNisSudahAda.Visible == true)
+            {
+                mesBox.MesInfo("Nis Sudah Ada!!");
+                return;
+            };
+
             string namaKelas = $"{tingkat} {jurusan} {rombel}";
             var siswa = new SiswaModel
             {
@@ -178,27 +182,18 @@ namespace latihribbon
                 Kelas = namaKelas,
                 Tahun = tahun,
             };
-            if (lblNisSudahAda.Visible == true)
-            {
-                mesBox.MesInfo("Nis Sudah Ada!!");
-                return;
-            };
-
+         
             if (SaveCondition)
             {
-                if(mesBox.MesKonfirmasi("Input Data?"))
-                {
-                    siswaDal.Insert(siswa);
-                    LoadData();
-                }
+                if (!mesBox.MesKonfirmasi("Input Data?")) return;
+                siswaDal.Insert(siswa);
+                LoadData();
             }
             else
             {
-                if (mesBox.MesKonfirmasi("Update Data?"))
-                {
-                    siswaDal.Update(siswa);
-                    LoadData();
-                }    
+                if (!mesBox.MesKonfirmasi("Update Data?")) return;
+                siswaDal.Update(siswa);
+                LoadData();
             }
         }
 
@@ -248,33 +243,24 @@ namespace latihribbon
             }
         }
 
-        private void InputNumber(KeyPressEventArgs e)
-        {
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
-            {
-                e.Handled = true;
-            }
-        }
-
-
         #region FILTER
         int Page = 1;
         int totalPage;
         public void LoadData()
         {
-            string nis, nama, kelas, tahun;
+            string nis = txtNIS.Text;
+            string nama = txtNama.Text;
+            string persensi = txtPersensi.Text;
+            string kelas = txtKelas.Text;
+            string tahun = comboTahunFilter.SelectedItem.ToString();
 
-            nis = txtNIS.Text;
-            nama = txtNama.Text;
-            kelas = txtKelas.Text;
-            tahun = comboTahunFilter.SelectedItem.ToString();
-
-            var sqlc = FilterSQL(nis, nama, kelas, tahun);
+            var sqlc = FilterSQL(nis, nama,persensi, kelas, tahun);
             var dp = new DynamicParameters();
-            dp.Add("@Nis", nis);
-            dp.Add("@Nama", nama);
-            dp.Add("@Kelas", kelas);
-            dp.Add("@Tahun", tahun);
+            if (nis != "") dp.Add("@Nis", nis);
+            if (nama != "") dp.Add("@Nama", nama);
+            if (persensi != "") dp.Add("@Persensi", persensi);
+            if (kelas != "") dp.Add("@Kelas", kelas);
+            if (tahun != "Semua") dp.Add("@Tahun", tahun);
 
             string text = "Halaman ";
             int RowPerPage = 15;
@@ -289,12 +275,13 @@ namespace latihribbon
             dataGridView1.DataSource = siswaDal.ListData(sqlc, dp);
         }
 
-        private string FilterSQL(string nis, string nama, string kelas, string tahun)
+        private string FilterSQL(string nis, string nama, string persensi, string kelas, string tahun)
         {
             string sqlc = string.Empty;
             List<string> fltr = new List<string>();
             if (nis != "") fltr.Add("Nis LIKE @NIS+'%'");
             if (nama != "") fltr.Add("Nama LIKE '%'+@Nama+'%'");
+            if (persensi != "") fltr.Add("Persensi LIKE @Persensi+'%'");
             if (kelas != "") fltr.Add("Kelas LIKE '%'+@Kelas+'%'");
             if (tahun != "Semua") fltr.Add("Tahun LIKE @Tahun+'%'");
 
@@ -304,51 +291,40 @@ namespace latihribbon
         }
         #endregion
 
-        #region EVENT FILTER
-        private void txtNama_TextChanged(object sender, EventArgs e)
+        #region EVENT
+        private void RegisterEvent()
+        {
+            txtNIS.TextChanged += txtFilter_TextChanged;
+            txtNama.TextChanged += txtFilter_TextChanged;
+            txtPersensi.TextChanged += txtFilter_TextChanged;
+            txtKelas.TextChanged += txtFilter_TextChanged;
+            comboTahunFilter.SelectedIndexChanged += txtFilter_TextChanged;
+
+            txtNIS_FormSiswa.KeyPress += input_KeyPress;
+            txtPersensi_FormSiswa.KeyPress += input_KeyPress;
+            txtRombel_FromSiswa.KeyPress += input_KeyPress;
+            txtTahun_FormSiswa.KeyPress += input_KeyPress;
+
+            btnResetFilter.Click += BtnResetFilter_Click;
+        }
+
+        private void txtFilter_TextChanged(object sender,EventArgs e)
         {
             Page = 1;
             LoadData();
         }
 
-        private void txtKelas_TextChanged(object sender, EventArgs e)
+        private void input_KeyPress(object sender,KeyPressEventArgs e)
         {
-            Page = 1;
-            LoadData();
-        }
-
-        private void txtTahun_TextChanged(object sender, EventArgs e)
-        {
-            Page = 1;
-            LoadData();
-        }
-        private void txtNIS_TextChanged(object sender, EventArgs e)
-        {
-            Page = 1;
-            LoadData();
-        }
-
-        private void comboTahunFilter_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Page = 1;
-            LoadData();
-        }
-        #endregion
-
-
-        private void txtNIS_FormSiswa_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
             {
                 e.Handled = true;
             }
         }
-
         private void btnNew_Click(object sender, EventArgs e)
         {
             Clear();
         }
-
         private void btnSave_FormSiswa_Click(object sender, EventArgs e)
         {
             SaveData();
@@ -362,43 +338,44 @@ namespace latihribbon
             else
                 lblNisSudahAda.Visible = false;
         }
-
-        private void txtNIS_FormSiswa_KeyPress_1(object sender, KeyPressEventArgs e)
-        {
-            InputNumber(e);
-        }
-
-        private void txtPersensi_FormSiswa_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            InputNumber(e);
-        }
-
         private void btnDelete_FormSiswa_Click(object sender, EventArgs e)
         {
             Delete();
             LoadData();
         }
-
-        private void txtNIS_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            InputNumber(e);
-        }
-
         private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
             string nis = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
             GetData(Convert.ToInt32(nis));
         }
 
-        private void txtTahun_FormSiswa_KeyPress(object sender, KeyPressEventArgs e)
+        private void btnNext_Click(object sender, EventArgs e)
         {
-            InputNumber(e);
+            if(Page < totalPage)
+            {
+                Page++;
+                LoadData();
+            }
         }
 
-        private void txtRombel_FromSiswa_KeyPress(object sender, KeyPressEventArgs e)
+        private void btnPrevious_Click(object sender, EventArgs e)
         {
-            InputNumber(e);
+            if(Page > 1)
+            {
+                Page--;
+                LoadData();
+            }
         }
+        private void BtnResetFilter_Click(object sender, EventArgs e)
+        {
+            txtNIS.Clear();
+            txtNama.Clear();
+            txtKelas.Clear();
+            comboTahunFilter.SelectedIndex = 0;
+            LoadData();
+        }
+        #endregion
+
 
         private void ButtonInputSIswa_Click(object sender, EventArgs e)
         {
@@ -491,40 +468,12 @@ namespace latihribbon
                         }
                     }
 
-                    LoadData(); 
+                    LoadData();
                     mesBox.MesInfo("Data siswa berhasil ditambahkan atau diperbarui.");
                 }
             }
 
 
-        }
-
-        private void btnNext_Click(object sender, EventArgs e)
-        {
-            if(Page < totalPage)
-            {
-                Page++;
-                LoadData();
-            }
-        }
-
-        private void btnPrevious_Click(object sender, EventArgs e)
-        {
-            if(Page > 1)
-            {
-                Page--;
-                LoadData();
-            }
-        }
-
-
-        private void btnResetFilter_Click(object sender, EventArgs e)
-        {
-            txtNIS.Clear();
-            txtNama.Clear();
-            txtKelas.Clear();
-            comboTahunFilter.SelectedIndex = 0;
-            LoadData();
         }
 
         private void ButtonDownloadFormat_Click_1(object sender, EventArgs e)
