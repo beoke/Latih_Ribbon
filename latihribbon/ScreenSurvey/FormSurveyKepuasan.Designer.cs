@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSurveyKepuasan));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.LabelKritikSaran = new System.Windows.Forms.Label();
+            this.LabelRataRataRating = new System.Windows.Forms.Label();
+            this.PictureBintang_RataRata = new System.Windows.Forms.PictureBox();
             this.ButtonBatal = new System.Windows.Forms.Button();
             this.LabelLenghText = new System.Windows.Forms.Label();
             this.TextKritikSaran = new System.Windows.Forms.TextBox();
@@ -42,15 +45,13 @@
             this.PictureBintang_1 = new System.Windows.Forms.PictureBox();
             this.ribbon_terlambat = new System.Windows.Forms.RibbonButton();
             this.ribbonButton1 = new System.Windows.Forms.RibbonButton();
-            this.PictureBintang_RataRata = new System.Windows.Forms.PictureBox();
-            this.LabelRataRataRating = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBintang_RataRata)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBintang_5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBintang_2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBintang_3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBintang_4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBintang_1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBintang_RataRata)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -58,6 +59,7 @@
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.BackColor = System.Drawing.Color.LightGray;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.LabelKritikSaran);
             this.panel1.Controls.Add(this.LabelRataRataRating);
             this.panel1.Controls.Add(this.PictureBintang_RataRata);
             this.panel1.Controls.Add(this.ButtonBatal);
@@ -75,6 +77,40 @@
             this.panel1.Size = new System.Drawing.Size(1260, 690);
             this.panel1.TabIndex = 0;
             // 
+            // LabelKritikSaran
+            // 
+            this.LabelKritikSaran.AutoSize = true;
+            this.LabelKritikSaran.BackColor = System.Drawing.Color.Gainsboro;
+            this.LabelKritikSaran.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.LabelKritikSaran.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelKritikSaran.ForeColor = System.Drawing.Color.Gray;
+            this.LabelKritikSaran.Location = new System.Drawing.Point(394, 383);
+            this.LabelKritikSaran.Name = "LabelKritikSaran";
+            this.LabelKritikSaran.Size = new System.Drawing.Size(332, 28);
+            this.LabelKritikSaran.TabIndex = 13;
+            this.LabelKritikSaran.Text = "Masukan kritik dan saran ( Optional )";
+            // 
+            // LabelRataRataRating
+            // 
+            this.LabelRataRataRating.AutoSize = true;
+            this.LabelRataRataRating.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelRataRataRating.Location = new System.Drawing.Point(1078, 602);
+            this.LabelRataRataRating.Name = "LabelRataRataRating";
+            this.LabelRataRataRating.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.LabelRataRataRating.Size = new System.Drawing.Size(82, 51);
+            this.LabelRataRataRating.TabIndex = 12;
+            this.LabelRataRataRating.Text = "5.0";
+            // 
+            // PictureBintang_RataRata
+            // 
+            this.PictureBintang_RataRata.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.PictureBintang_RataRata.Location = new System.Drawing.Point(1166, 599);
+            this.PictureBintang_RataRata.Name = "PictureBintang_RataRata";
+            this.PictureBintang_RataRata.Size = new System.Drawing.Size(60, 60);
+            this.PictureBintang_RataRata.TabIndex = 11;
+            this.PictureBintang_RataRata.TabStop = false;
+            this.PictureBintang_RataRata.Tag = "5";
+            // 
             // ButtonBatal
             // 
             this.ButtonBatal.BackColor = System.Drawing.Color.Gray;
@@ -90,10 +126,10 @@
             // LabelLenghText
             // 
             this.LabelLenghText.AutoSize = true;
-            this.LabelLenghText.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelLenghText.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelLenghText.Location = new System.Drawing.Point(607, 474);
             this.LabelLenghText.Name = "LabelLenghText";
-            this.LabelLenghText.Size = new System.Drawing.Size(44, 23);
+            this.LabelLenghText.Size = new System.Drawing.Size(53, 28);
             this.LabelLenghText.TabIndex = 9;
             this.LabelLenghText.Text = "0/40";
             // 
@@ -101,7 +137,7 @@
             // 
             this.TextKritikSaran.BackColor = System.Drawing.Color.Gainsboro;
             this.TextKritikSaran.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TextKritikSaran.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextKritikSaran.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TextKritikSaran.Location = new System.Drawing.Point(380, 376);
             this.TextKritikSaran.Multiline = true;
             this.TextKritikSaran.Name = "TextKritikSaran";
@@ -122,7 +158,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(245, 134);
+            this.label1.Location = new System.Drawing.Point(245, 99);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(740, 38);
             this.label1.TabIndex = 7;
@@ -196,27 +232,6 @@
             this.ribbonButton1.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton1.SmallImage")));
             this.ribbonButton1.Text = "Terlambat";
             // 
-            // PictureBintang_RataRata
-            // 
-            this.PictureBintang_RataRata.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PictureBintang_RataRata.Location = new System.Drawing.Point(1166, 593);
-            this.PictureBintang_RataRata.Name = "PictureBintang_RataRata";
-            this.PictureBintang_RataRata.Size = new System.Drawing.Size(70, 70);
-            this.PictureBintang_RataRata.TabIndex = 11;
-            this.PictureBintang_RataRata.TabStop = false;
-            this.PictureBintang_RataRata.Tag = "5";
-            // 
-            // LabelRataRataRating
-            // 
-            this.LabelRataRataRating.AutoSize = true;
-            this.LabelRataRataRating.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelRataRataRating.Location = new System.Drawing.Point(1078, 602);
-            this.LabelRataRataRating.Name = "LabelRataRataRating";
-            this.LabelRataRataRating.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.LabelRataRataRating.Size = new System.Drawing.Size(82, 52);
-            this.LabelRataRataRating.TabIndex = 12;
-            this.LabelRataRataRating.Text = "5.0";
-            // 
             // FormSurveyKepuasan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -228,12 +243,12 @@
             this.Text = "FormMainUser";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBintang_RataRata)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBintang_5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBintang_2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBintang_3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBintang_4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBintang_1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBintang_RataRata)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -254,5 +269,6 @@
         private System.Windows.Forms.Button ButtonBatal;
         private System.Windows.Forms.PictureBox PictureBintang_RataRata;
         private System.Windows.Forms.Label LabelRataRataRating;
+        private System.Windows.Forms.Label LabelKritikSaran;
     }
 }

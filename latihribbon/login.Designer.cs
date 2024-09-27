@@ -46,6 +46,8 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.LabelUsername = new System.Windows.Forms.Label();
+            this.LabelPassword = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -105,6 +107,8 @@
             this.panel1.BackColor = System.Drawing.Color.LightGray;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.LabelPassword);
+            this.panel1.Controls.Add(this.LabelUsername);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Controls.Add(this.pictureBox2);
@@ -254,6 +258,32 @@
             this.pictureBox4.TabIndex = 9;
             this.pictureBox4.TabStop = false;
             // 
+            // LabelUsername
+            // 
+            this.LabelUsername.AutoSize = true;
+            this.LabelUsername.BackColor = System.Drawing.Color.White;
+            this.LabelUsername.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.LabelUsername.Font = new System.Drawing.Font("Segoe UI", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelUsername.ForeColor = System.Drawing.Color.Gray;
+            this.LabelUsername.Location = new System.Drawing.Point(30, 203);
+            this.LabelUsername.Name = "LabelUsername";
+            this.LabelUsername.Size = new System.Drawing.Size(215, 31);
+            this.LabelUsername.TabIndex = 14;
+            this.LabelUsername.Text = "Masukan Username";
+            // 
+            // LabelPassword
+            // 
+            this.LabelPassword.AutoSize = true;
+            this.LabelPassword.BackColor = System.Drawing.Color.White;
+            this.LabelPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.LabelPassword.Font = new System.Drawing.Font("Segoe UI", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelPassword.ForeColor = System.Drawing.Color.Gray;
+            this.LabelPassword.Location = new System.Drawing.Point(30, 327);
+            this.LabelPassword.Name = "LabelPassword";
+            this.LabelPassword.Size = new System.Drawing.Size(208, 31);
+            this.LabelPassword.TabIndex = 15;
+            this.LabelPassword.Text = "Masukan Password";
+            // 
             // login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -298,5 +328,7 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label LabelPassword;
+        private System.Windows.Forms.Label LabelUsername;
     }
 }

@@ -57,6 +57,7 @@ namespace latihribbon
             PictureBintang_RataRata.BackgroundImage = Properties.Resources.Bintang_Full;
             PictureBintang_RataRata.BackgroundImageLayout = ImageLayout.Stretch;
 
+
             RataRataBintang();
         }
 
@@ -90,11 +91,40 @@ namespace latihribbon
             PictureBintang_4.Click += PictureBintang_Click;
             PictureBintang_5.Click += PictureBintang_Click;
 
+
             ButtonKirim.Click += ButtonKirim_Click;
             ButtonBatal.Click += ButtonBatal_Click;
             TextKritikSaran.TextChanged += TextKritikSaran_TextChanged;
-            this.KeyDown += FormSurveyKepuasan_KeyDown; ;
+            TextKritikSaran.TextChanged += TextKritikSaran_TextChanged1; ;
+            TextKritikSaran.Leave += TextKritikSaran_Leave;
+            LabelKritikSaran.Click += LabelKritikSaran_Click;
+            this.KeyDown += FormSurveyKepuasan_KeyDown; 
         }
+
+        private void TextKritikSaran_TextChanged1(object sender, EventArgs e)
+        {
+            if (TextKritikSaran.Text.Length > 0)
+            {
+                LabelKritikSaran.Visible = false;
+            }
+            else
+            {
+                LabelKritikSaran.Visible = true;
+            }
+        }
+
+        private void LabelKritikSaran_Click(object sender, EventArgs e)
+        {
+            TextKritikSaran.Focus();
+        }
+
+
+        private void TextKritikSaran_Leave(object sender, EventArgs e)
+        {
+            LabelKritikSaran.Visible = true;
+        }
+
+
 
 
         private void FormSurveyKepuasan_KeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
@@ -119,6 +149,7 @@ namespace latihribbon
         {
            if ( MessageBox.Show("Anda yakin ingin membatalkan pengisian ?", "Pertanyaan", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)==DialogResult.OK)
             {
+                cekBintangClick = 0;
                 InitialProperti();
                 TextKritikSaran.Text = string.Empty;
             }
@@ -133,7 +164,7 @@ namespace latihribbon
                 MessageBox.Show("Pilih bintang terlebih dahulu", "Perhatian", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-           else
+            else
             {
                 using (var Conn = new SqlConnection(conn.connstr()))
                 {

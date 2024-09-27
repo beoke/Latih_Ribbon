@@ -1,4 +1,5 @@
-﻿using latihribbon.Helper;
+﻿using DocumentFormat.OpenXml.Vml;
+using latihribbon.Helper;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,9 +22,56 @@ namespace latihribbon
             _riwayatLoginDal = new RiwayatLogin_UserDal();
             InitializeComponent();
 
+            ControlEvent();
         }
 
-      
+
+        #region EVENT
+
+        private void ControlEvent()
+        {
+            tx_Username.TextChanged += Tx_Username_TextChanged;
+            tx_Password.TextChanged += Tx_Password_TextChanged;
+
+            tx_Username.Leave += Tx_Username_Leave;
+            tx_Password.Leave += Tx_Password_Leave;
+        }
+
+        private void Tx_Password_Leave(object sender, EventArgs e)
+        {
+            if (tx_Password.Text.Length > 0)
+                LabelPassword.Visible = false;
+            else
+                LabelPassword.Visible = true;
+        }
+
+        private void Tx_Username_Leave(object sender, EventArgs e)
+        {
+            if (tx_Username.Text.Length > 0)
+                LabelUsername.Visible = false; 
+            else
+                LabelUsername.Visible = true;
+        }
+
+        private void Tx_Password_TextChanged(object sender, EventArgs e)
+        {
+             if(tx_Password.Text.Length > 0)
+                LabelPassword.Visible = false;
+            else
+                LabelPassword.Visible = true;
+        }
+
+        private void Tx_Username_TextChanged(object sender, EventArgs e)
+        {
+            if (tx_Username.Text.Length > 0)
+                LabelUsername.Visible = false;
+            else
+                LabelUsername.Visible = true;
+        }
+
+        #endregion
+
+
 
         private void btn_Login_Click(object sender, EventArgs e)
         {
