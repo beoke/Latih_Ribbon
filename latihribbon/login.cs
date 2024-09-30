@@ -24,8 +24,6 @@ namespace latihribbon
 
             ControlEvent();
         }
-
-
         #region EVENT
 
         private void ControlEvent()
