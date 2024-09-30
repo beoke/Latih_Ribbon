@@ -689,7 +689,6 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormSIswa";
             this.Text = "FormSIswa";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
