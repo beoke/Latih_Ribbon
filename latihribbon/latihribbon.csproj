@@ -155,6 +155,12 @@
     <Compile Include="Dal\MasukDal.cs" />
     <Compile Include="Dal\DbDal.cs" />
     <Compile Include="Dal\RiwayatLogin_UserDal.cs" />
+    <Compile Include="ScreenAdmin\Rekap Presensi\FormSetPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScreenAdmin\Rekap Presensi\FormSetPrint.Designer.cs">
+      <DependentUpon>FormSetPrint.cs</DependentUpon>
+    </Compile>
     <Compile Include="ScreenAdmin\FormUser_RiwayatLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -270,6 +276,7 @@
       <DependentUpon>SuratMasuk.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\UserModel.cs" />
+    <Compile Include="Dal\SetPrintDal.cs" />
     <Compile Include="UpdateInsert\SiswaIU.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -281,6 +288,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ScreenAdmin\FormKelas.resx">
       <DependentUpon>FormKelas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ScreenAdmin\Rekap Presensi\FormSetPrint.resx">
+      <DependentUpon>FormSetPrint.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ScreenSurvey\FormSurveyKepuasan.resx">
       <DependentUpon>FormSurveyKepuasan.cs</DependentUpon>
