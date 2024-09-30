@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace latihribbon
 {
     public partial class FormSetPrint : Form
@@ -54,10 +55,12 @@ namespace latihribbon
                 {
                     dt += item.ToString();
                 }
+
+                MessageBox.Show("Data berhasil dieksport", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show("");
+                MessageBox.Show("Pilih data kelas terlebih dahulu", "Perhatian", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -78,5 +81,16 @@ namespace latihribbon
                 }
             }
         }
+
+
+        private void Print()
+        {
+            
+        }
+        
     }
 }
+
+
+
+

@@ -65,7 +65,7 @@
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(1923, 608);
+            this.dataGridView1.Size = new System.Drawing.Size(1895, 608);
             this.dataGridView1.TabIndex = 0;
             // 
             // btnResetFilter
@@ -191,7 +191,7 @@
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Location = new System.Drawing.Point(2, 83);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1950, 735);
+            this.panel1.Size = new System.Drawing.Size(1925, 735);
             this.panel1.TabIndex = 40;
             // 
             // lblHalaman
@@ -199,7 +199,7 @@
             this.lblHalaman.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblHalaman.AutoSize = true;
             this.lblHalaman.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHalaman.Location = new System.Drawing.Point(836, 666);
+            this.lblHalaman.Location = new System.Drawing.Point(854, 666);
             this.lblHalaman.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblHalaman.Name = "lblHalaman";
             this.lblHalaman.Size = new System.Drawing.Size(134, 25);
@@ -209,7 +209,7 @@
             // btnNext
             // 
             this.btnNext.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnNext.Location = new System.Drawing.Point(993, 662);
+            this.btnNext.Location = new System.Drawing.Point(1011, 662);
             this.btnNext.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(112, 35);
@@ -221,7 +221,7 @@
             // btnPrevious
             // 
             this.btnPrevious.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnPrevious.Location = new System.Drawing.Point(696, 662);
+            this.btnPrevious.Location = new System.Drawing.Point(714, 662);
             this.btnPrevious.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(112, 35);
