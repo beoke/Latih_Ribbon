@@ -41,12 +41,13 @@ namespace latihribbon
             }
         }
 
-        public IEnumerable<RiwayatLoginModel> GetSiswaFilter(string sql, object dp)
+        public IEnumerable<RiwayatLoginModel> GetSiswaFilter(string sqlc, object dp)
         {
             using (var Conn = new SqlConnection(conn.connstr()))
             {
-                var filterLogin = Conn.Query<RiwayatLoginModel>(sql, dp);
-                return filterLogin;
+                string sql = $@"SELECT IdLogin, UserLogin , Tanggal, Waktu FROM RiwayatLogin {sqlc} 
+                                ORDER BY Tanggal DESC,Waktu DESC OFFSET @Offset ROWS FETCH NEXT @Fetch ROWS ONLY";
+                return Conn.Query<RiwayatLoginModel>(sql, dp);
             }
         }
 
@@ -131,6 +132,15 @@ namespace latihribbon
 
                 var result = Conn.QuerySingleOrDefault<UserModel>(sql, Dp);
                 return result;
+            }
+        }
+
+        public int CekRows(string sqlc, object dp)
+        {
+            using(var koneksi = new SqlConnection(conn.connstr()))
+            {
+                string sql = $@"SELECT COUNT(*) FROM RiwayatLogin {sqlc}";
+                return koneksi.QuerySingle<int>(sql, dp);
             }
         }
     }

@@ -141,7 +141,6 @@
             this.txtNama.Name = "txtNama";
             this.txtNama.Size = new System.Drawing.Size(163, 21);
             this.txtNama.TabIndex = 12;
-
             // 
             // label1
             // 

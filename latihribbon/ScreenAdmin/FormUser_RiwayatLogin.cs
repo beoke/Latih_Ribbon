@@ -1,5 +1,6 @@
 ﻿  using Dapper;
 using latihribbon.Conn;
+using latihribbon.Dal;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,14 +21,27 @@ namespace latihribbon
 
         public FormUser_RiwayatLogin()
         {
-            _riwayatLoginDal = new RiwayatLogin_UserDal();
             InitializeComponent();
+            buf();
+            _riwayatLoginDal = new RiwayatLogin_UserDal();
             LoadRiwayatLogin();
             InitialEvent();
-            ClearUser();
+            LoadData();
             LoadUser();
+            LoadRiwayatLogin();
         }
-        
+
+
+        public void buf()
+        {
+            typeof(DataGridView).InvokeMember("DoubleBuffered",
+            System.Reflection.BindingFlags.NonPublic |
+            System.Reflection.BindingFlags.Instance |
+            System.Reflection.BindingFlags.SetProperty,
+            null,
+            GridListRiwayatLogin,
+            new object[] { true });
+        }
 
         private void LoadUser()
         {
@@ -45,7 +59,7 @@ namespace latihribbon
                 GridListUser.RowTemplate.Height = 30;
                 GridListUser.ColumnHeadersHeight = 35;
 
-                GridListUser.Columns["password"].Visible = false;
+                //GridListUser.Columns["password"].Visible = false;
                 GridListUser.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 GridListUser.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
                 GridListUser.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
@@ -55,7 +69,7 @@ namespace latihribbon
 
         private void LoadRiwayatLogin()
         {
-            GridListRiwayatLogin.DataSource = _riwayatLoginDal.ListData();
+
             if (GridListRiwayatLogin.Rows.Count > 0)
             {
                 GridListRiwayatLogin.ReadOnly = true;
@@ -68,12 +82,9 @@ namespace latihribbon
                 GridListRiwayatLogin.RowTemplate.Height = 30;
                 GridListRiwayatLogin.ColumnHeadersHeight = 35;
 
-
-                GridListRiwayatLogin.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
-                GridListRiwayatLogin.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+                GridListRiwayatLogin.Columns[0].Width = 80;
                 GridListRiwayatLogin.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                GridListRiwayatLogin.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                GridListRiwayatLogin.Columns[2].Width = 200;
                 GridListRiwayatLogin.Columns[3].Width = 150;
 
             }
@@ -84,7 +95,7 @@ namespace latihribbon
         private string FilterData(string userLogin)
         {
             List<string> filter = new List<string>();
-            string sql = "SELECT IdLogin, UserLogin , Tanggal FROM RiwayatLogin";
+            string sql = string.Empty;
 
             if (userLogin != "") filter.Add("UserLogin LIKE '%' + @UserLogin + '%'");
             if (SqlGlobal) filter.Add("Tanggal BETWEEN @tgl_1 AND @tgl_2");
@@ -96,7 +107,9 @@ namespace latihribbon
             return sql;
         }
 
-        private void FilterData2()
+        int Page = 1;
+        int totalPage;
+        private void LoadData()
         {
             string userLogin = TextUserName.Text;
             DateTime tgl_1 = PickerRentan_1.Value;
@@ -108,12 +121,21 @@ namespace latihribbon
             {
                 dp.Add("@tgl_1",tgl_1);
                 dp.Add("@tgl_2",tgl_2);
-            } 
+            }
+            string sqlc = FilterData(userLogin);
 
-            string sql = FilterData(userLogin);
-            var filter = _riwayatLoginDal.GetSiswaFilter(sql, dp);
-            GridListRiwayatLogin.DataSource = filter;
+            string text = "Halaman ";
+            int RowPerPage = 15;
+            int inRowPage = (Page - 1) * RowPerPage;
+            var jumlahRow = _riwayatLoginDal.CekRows(sqlc, dp);
+            totalPage = (int)Math.Ceiling((double)jumlahRow / RowPerPage);
 
+            text += $"{Page.ToString()}/{totalPage.ToString()}";
+            lblHalaman.Text = text;
+
+            dp.Add("@Offset",inRowPage);
+            dp.Add("@Fetch",RowPerPage);
+            GridListRiwayatLogin.DataSource = _riwayatLoginDal.GetSiswaFilter(sqlc, dp);
         }
 
         private void InitialEvent()
@@ -164,8 +186,8 @@ namespace latihribbon
 
         private void PickerRentan_ValueChanged(object sender, EventArgs e)
         {
-            SqlGlobal = true; 
-            FilterData2();
+            SqlGlobal = true;
+            LoadData();
         }
 
         private void TextUserName_TextChanged(object sender, EventArgs e)
@@ -173,7 +195,7 @@ namespace latihribbon
             if (TextUserName.Text == string.Empty)
                 LoadRiwayatLogin();
             else
-                FilterData2();
+                LoadData();
         }
 
         private void GetUser(int idUser)
@@ -232,7 +254,25 @@ namespace latihribbon
             PickerRentan_1.Value = DateTime.Now;
             PickerRentan_2.Value = DateTime.Now;
             SqlGlobal = false;
-            FilterData2();
+            LoadData();
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            if(Page < totalPage)
+            {
+                Page++;
+                LoadData();
+            }
+        }
+
+        private void btnPrevious_Click(object sender, EventArgs e)
+        {
+            if(Page > 1)
+            {
+                Page--;
+                LoadData();
+            }
         }
     }
 }

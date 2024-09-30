@@ -8,6 +8,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Management;
 using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,12 +24,14 @@ namespace latihribbon
         private string NIS;
         private string nama;
         private string kelas;
+        private DateTime jam;
         public SuratMasuk(string NIS, string nama, string kelas)
         {
             InitializeComponent(); 
             this.NIS = NIS;
             this.nama = nama;
             this.kelas = kelas;
+            jam = DateTime.Now;
             isian();
 
             this.FormBorderStyle = FormBorderStyle.None;
@@ -43,7 +46,7 @@ namespace latihribbon
             txtNIS.Text = NIS;
             txtNama.Text =nama;
             txtKelas.Text =kelas;
-            tx_jam1.Text = DateTime.Now.ToString("HH:mm");
+            tx_jam1.Text = jam.ToString("HH:mm");
             txtTanggal.Text = DateTime.Now.ToString("dddd ,dd MMMM yyyy");
             txtAlasan.MaxLength = 60;
         }
@@ -69,7 +72,7 @@ namespace latihribbon
 
             nis = txtNIS.Text;
             tanggal = DateTime.Now.Date;
-            jamMasuk = TimeSpan.Parse(DateTime.Now.ToString("HH:mm"));
+            jamMasuk = TimeSpan.Parse(jam.TimeOfDay.ToString());
             alasan = txtAlasan.Text;
 
             var masuk = new MasukModel
@@ -88,30 +91,47 @@ namespace latihribbon
                 mesbox.MesInfo("Alasan Terlambat Wajib Diisi!");
                 return;
             }
-            PrintDocument();            
-            Insert();
 
+            if (!mesbox.MesKonfirmasi("Apakah data sudah benar ?")) return;
+            Print();
+           /* Insert();
             System.Threading.Thread.Sleep(1000);
             Pemakai p = new Pemakai();
             p.Show();
-            this.Close();
-
+            this.Close();*/
         }
 
         #region PRINT
 
-        private void PrintDocument()
+       public bool Print()
         {
-            printDocumentMasuk.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("Suit Default", 400, 590);
-            //printDocumentMasuk.Print();
+            try
+            {
+                printDocumentMasuk.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("Suit Detail", 400, 700);
 
-            printPreviewDialogMasuk.Document = printDocumentMasuk;
-            printPreviewDialogMasuk.ShowDialog();
+                if (!PrinterIsAvailable())
+                {
+                    MessageBox.Show("Printer tidak tersedia atau offline.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+                printPreviewDialogMasuk.Document = printDocumentMasuk;
+                printPreviewDialogMasuk.ShowDialog();
+
+                //printDocumentMasuk.Print();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                // Jika terjadi error saat proses print
+                MessageBox.Show($"Gagal Mencetak Surat: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
         }
         private void printDocumentMasuk_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-
-            var tanggal = DateTime.Now.ToString("dd MMM yyyy");
+            try
+            {
+                var tanggal = DateTime.Now.ToString("dd MMM yyyy");
 
 
             e.Graphics.DrawString("SURAT IZIN MENGIKUTI PELAJARAN", new Font("Times New Roman", 10), Brushes.Black, new Point(75, 15));
@@ -173,58 +193,66 @@ namespace latihribbon
 
 
             string alasan = txtAlasan.Text;
-            int batasPanjang = 20;
+            int batasPiksel = 140;
 
-
-            if (alasan.Length > batasPanjang)
+            if (GetTextWidth(alasan, new Font("Times New Roman", 9), e.Graphics) > batasPiksel)
             {
-                char[] kata = alasan.ToCharArray();
+                string[] kataarr = alasan.Split(' ');
                 string baris1 = "";
                 string baris2 = "";
                 string baris3 = "";
 
-                if (kata == null || kata.Length == 0)
-                {
-                    throw new Exception("String 'kata' tidak boleh null atau kosong.");
-                }
-                for (int i = 0; i < kata.Length; i++)
-                {
-                    char k = kata[i];
+                Font font = new Font("Times New Roman", 9);
+                int totalWidth = 0;
 
-                    if ((baris1.Length + 1) < batasPanjang)
+                    for (int i = 0; i < kataarr.Length; i++)
                     {
-                        baris1 += k;
+                        int kataWidth = GetTextWidth(kataarr[i] + " ", font, e.Graphics);
+                        if (totalWidth + kataWidth <= batasPiksel)
+                        {
+                            baris1 += kataarr[i] + " ";
+                            totalWidth += kataWidth;
+                        }
+                        else
+                        {
+                            totalWidth = 0;
+                            for (int j = i; j < kataarr.Length; j++)
+                            {
+                                kataWidth = GetTextWidth(kataarr[j] + " ", font, e.Graphics);
+                                if (totalWidth + kataWidth <= batasPiksel)
+                                {
+                                    baris2 += kataarr[j] + " ";
+                                    totalWidth += kataWidth;
+                                }
+                                else
+                                {
+                                    totalWidth = 0;
+                                    for (int k = j; k < kataarr.Length; k++)
+                                    {
+                                        kataWidth = GetTextWidth(kataarr[k] + " ", font, e.Graphics);
+                                        if (totalWidth + kataWidth <= batasPiksel)
+                                        {
+                                            baris3 += kataarr[k] + " ";
+                                            totalWidth += kataWidth;
+                                        }
+                                    }
+                                    break;
+                                }
+                            }
+                            break;
+                        }
                     }
-                    else if ((baris1.Length + 1) == batasPanjang)
-                    {
-                        baris1 += k;
-                        baris1 += (char.IsLetterOrDigit(k) && char.IsLetterOrDigit(kata[i + 1])) ? '-' : ' ';
-                    }
-                    else if ((baris2.Length + 1) < batasPanjang)
-                    {
-                        baris2 += k;
-                    }
-                    else if ((baris2.Length + 1) == batasPanjang)
-                    {
-                        baris2 += k;
-                        baris2 += (char.IsLetterOrDigit(k) && char.IsLetterOrDigit(kata[i + 1])) ? '-' : ' ';
-                    }
-                    else
-                    {
-                        baris3 += k;
-                    }
-                }
-                e.Graphics.DrawString($": {baris1.Trim()}", new Font("Times New Roman", 9), Brushes.Black, new Point(125, 140));
-                e.Graphics.DrawString($"  {baris2.Trim()}", new Font("Times New Roman", 9), Brushes.Black, new Point(125, 160));
-                e.Graphics.DrawString($"  {baris3.Trim()}", new Font("Times New Roman", 9), Brushes.Black, new Point(125, 180));
+                    e.Graphics.DrawString($": {baris1.Trim()}", font, Brushes.Black, new Point(125, 140));
+                e.Graphics.DrawString($"  {baris2.Trim()}", font, Brushes.Black, new Point(125, 160));
+                e.Graphics.DrawString($"  {baris3.Trim()}", font, Brushes.Black, new Point(125, 180));
 
-                e.Graphics.DrawString($": {baris1.Trim()}", new Font("Times New Roman", 9), Brushes.Black, new Point(125, 336));
-                e.Graphics.DrawString($"  {baris2.Trim()}", new Font("Times New Roman", 9), Brushes.Black, new Point(125, 356));
-                e.Graphics.DrawString($"  {baris3.Trim()}", new Font("Times New Roman", 9), Brushes.Black, new Point(125, 376));
+                e.Graphics.DrawString($": {baris1.Trim()}", font, Brushes.Black, new Point(125, 336));
+                e.Graphics.DrawString($"  {baris2.Trim()}", font, Brushes.Black, new Point(125, 356));
+                e.Graphics.DrawString($"  {baris3.Trim()}", font, Brushes.Black, new Point(125, 376));
 
-                e.Graphics.DrawString($": {baris1.Trim()}", new Font("Times New Roman", 9), Brushes.Black, new Point(125, 514 + 20));
-                e.Graphics.DrawString($"  {baris2.Trim()}", new Font("Times New Roman", 9), Brushes.Black, new Point(125, 514 + 40));
-                e.Graphics.DrawString($"  {baris3.Trim()}", new Font("Times New Roman", 9), Brushes.Black, new Point(125, 514 + 60));
+                e.Graphics.DrawString($": {baris1.Trim()}", font, Brushes.Black, new Point(125, 514 + 20));
+                e.Graphics.DrawString($"  {baris2.Trim()}", font, Brushes.Black, new Point(125, 514 + 40));
+                e.Graphics.DrawString($"  {baris3.Trim()}", font, Brushes.Black, new Point(125, 514 + 60));
             }
             else
             {
@@ -232,6 +260,37 @@ namespace latihribbon
                 e.Graphics.DrawString($": {alasan}", new Font("Times New Roman", 9), Brushes.Black, new Point(125, 336));
                 e.Graphics.DrawString($": {alasan}", new Font("Times New Roman", 9), Brushes.Black, new Point(125, 514 + 20));
             }
+           }
+           catch (Exception ex)
+           {
+                MessageBox.Show($"Terjadi kesalahan saat mencetak: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+           }
+        }
+        private int GetTextWidth(string text, Font font, Graphics g)
+        {
+            SizeF size = g.MeasureString(text, font);
+            return (int)size.Width;
+        }
+        private bool PrinterIsAvailable()
+        {
+            string query = "SELECT * FROM Win32_Printer";
+            ManagementObjectSearcher searcher = new ManagementObjectSearcher(query);
+
+            foreach (ManagementObject printer in searcher.Get())
+            {
+                if (printer["Default"] != null && (bool)printer["Default"] == true)
+                {
+                    string printerStatus = printer["PrinterStatus"].ToString();
+                    string printerState = printer["WorkOffline"].ToString();
+
+                    if (printerStatus == "3" && printerState == "False")
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
         }
         #endregion
 

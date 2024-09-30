@@ -39,8 +39,8 @@ namespace latihribbon
             jurusanDal = new JurusanDal();
             mesBox = new MesBox();
             InitCombo();
-            InitComponent();
             LoadData();
+            InitComponent();
             RegisterEvent();
         }
 
@@ -93,6 +93,13 @@ namespace latihribbon
                 dataGridView1.RowTemplate.Height = 30;
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                 dataGridView1.ColumnHeadersHeight = 35;
+
+                /*dataGridView1.Columns[0].Width = 80;
+                dataGridView1.Columns[1].Width = 100;
+                dataGridView1.Columns[2].Width = 400;
+                dataGridView1.Columns[3].Width = 120;
+                dataGridView1.Columns[4].Width = 150;
+                dataGridView1.Columns[5].Width = 100;*/
         }
 
         public void ControlInsertUpdate()
