@@ -594,7 +594,6 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormKeluar";
             this.Text = "FormKeluar";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
