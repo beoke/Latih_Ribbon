@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace latihribbon.Dal
 {
@@ -74,6 +75,32 @@ namespace latihribbon.Dal
                     VALUES (@Kelas, @Persensi, @NIS, @Nama, @JenisKelamin)";
 
                     connection.Execute(query, parameters);
+                }
+            }
+        }
+
+
+        public IEnumerable<RekapPersensiModel> GetStudentDataByClass(string kelas)
+        {
+            using (var koneksi = new SqlConnection(Conn.conn.connstr()))
+            {
+                string sql = @"
+            SELECT s.NIS, s.Nama, s.Kelas, p.Keterangan
+            FROM Siswa s
+            LEFT JOIN Persensi p ON s.NIS = p.NIS
+            WHERE s.Kelas = @Kelas
+            ORDER BY s.Nama";
+
+                var parameters = new { Kelas = kelas };
+
+                try
+                {
+                    return koneksi.Query<RekapPersensiModel>(sql, parameters);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error while fetching data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return Enumerable.Empty<RekapPersensiModel>();
                 }
             }
         }
