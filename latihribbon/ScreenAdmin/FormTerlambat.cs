@@ -64,11 +64,7 @@ namespace latihribbon
                 dataGridView1.ColumnHeadersHeight = 35;
         }
 
-        private void btn_terlambat_Click(object sender, EventArgs e)
-        {
-            PrintTerlambat telat = new PrintTerlambat();
-            telat.Show();
-        }
+    
 
 
         bool tglchange = false;
