@@ -93,7 +93,7 @@
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(1078, 562);
+            this.dataGridView1.Size = new System.Drawing.Size(838, 562);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
@@ -227,7 +227,7 @@
             this.panel1.Location = new System.Drawing.Point(3, 69);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1608, 658);
+            this.panel1.Size = new System.Drawing.Size(1368, 658);
             this.panel1.TabIndex = 28;
             // 
             // panel3
@@ -243,7 +243,7 @@
             this.panel3.Location = new System.Drawing.Point(9, 12);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1097, 630);
+            this.panel3.Size = new System.Drawing.Size(857, 630);
             this.panel3.TabIndex = 2;
             // 
             // lblHalaman
@@ -251,7 +251,7 @@
             this.lblHalaman.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblHalaman.AutoSize = true;
             this.lblHalaman.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHalaman.Location = new System.Drawing.Point(493, 590);
+            this.lblHalaman.Location = new System.Drawing.Point(373, 590);
             this.lblHalaman.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblHalaman.Name = "lblHalaman";
             this.lblHalaman.Size = new System.Drawing.Size(113, 20);
@@ -261,7 +261,7 @@
             // btnNext
             // 
             this.btnNext.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnNext.Location = new System.Drawing.Point(634, 586);
+            this.btnNext.Location = new System.Drawing.Point(514, 586);
             this.btnNext.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(100, 28);
@@ -273,7 +273,7 @@
             // btnPrevious
             // 
             this.btnPrevious.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnPrevious.Location = new System.Drawing.Point(369, 586);
+            this.btnPrevious.Location = new System.Drawing.Point(249, 586);
             this.btnPrevious.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(100, 28);
@@ -288,7 +288,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel4.BackColor = System.Drawing.Color.DarkGray;
             this.panel4.Controls.Add(this.panel2);
-            this.panel4.Location = new System.Drawing.Point(1124, 12);
+            this.panel4.Location = new System.Drawing.Point(884, 12);
             this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(469, 630);
@@ -617,7 +617,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1615, 730);
+            this.ClientSize = new System.Drawing.Size(1375, 730);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.txtPersensi);
             this.Controls.Add(this.label6);

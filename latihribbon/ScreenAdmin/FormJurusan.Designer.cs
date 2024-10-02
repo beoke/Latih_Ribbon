@@ -62,7 +62,7 @@
             this.panel3.Location = new System.Drawing.Point(12, 25);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1080, 569);
+            this.panel3.Size = new System.Drawing.Size(586, 569);
             this.panel3.TabIndex = 4;
             // 
             // GridListJurusan
@@ -76,7 +76,7 @@
             this.GridListJurusan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.GridListJurusan.Name = "GridListJurusan";
             this.GridListJurusan.RowHeadersWidth = 51;
-            this.GridListJurusan.Size = new System.Drawing.Size(1061, 551);
+            this.GridListJurusan.Size = new System.Drawing.Size(567, 551);
             this.GridListJurusan.TabIndex = 0;
             // 
             // panel4
@@ -85,7 +85,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel4.BackColor = System.Drawing.Color.DarkGray;
             this.panel4.Controls.Add(this.panel2);
-            this.panel4.Location = new System.Drawing.Point(1109, 25);
+            this.panel4.Location = new System.Drawing.Point(615, 25);
             this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(469, 569);
@@ -243,7 +243,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1592, 603);
+            this.ClientSize = new System.Drawing.Size(1098, 603);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel4);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
