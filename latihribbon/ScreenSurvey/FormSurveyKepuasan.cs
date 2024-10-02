@@ -57,7 +57,7 @@ namespace latihribbon
             PictureBintang_RataRata.BackgroundImage = Properties.Resources.Bintang_Full;
             PictureBintang_RataRata.BackgroundImageLayout = ImageLayout.Stretch;
 
-
+            cekBintangClick = 0;
             RataRataBintang();
         }
 
@@ -161,6 +161,7 @@ namespace latihribbon
 
             if (cekBintangClick == 0)
             {
+                LabelKritikSaran.Visible = false;
                 MessageBox.Show("Pilih bintang terlebih dahulu", "Perhatian", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
