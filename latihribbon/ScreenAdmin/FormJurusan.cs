@@ -62,7 +62,7 @@ namespace latihribbon.ScreenAdmin
             btnDeleteJurusan.Click += BtnDeleteJurusan_Click;
             GridListJurusan.DoubleClick += GridListJurusan_DoubleClick;
         }
-        string jurusanNameGlobal
+        string jurusanNameGlobal;
         private void GridListJurusan_DoubleClick(object sender, EventArgs e)
         {
             LabelJurusan.Text = "UPDATE";
