@@ -19,6 +19,8 @@ namespace latihribbon
     {
         private readonly MasukDal masukDal;
         private readonly SiswaDal siswaDal;
+        private readonly KelasDal kelasDal;
+        
         private readonly MesBox mesBox;
         int globalId = 0;
         public FormTerlambat()
@@ -27,6 +29,7 @@ namespace latihribbon
             buf();
             masukDal = new MasukDal();
             siswaDal = new SiswaDal();
+            kelasDal = new KelasDal();
             mesBox = new MesBox();
             RegisterEvent();
             LoadData();
@@ -50,8 +53,6 @@ namespace latihribbon
             txtAlasan1.MaxLength = 60;
             
             // DataGrid
-            if (dataGridView1.Rows.Count > 0)
-            {
                 dataGridView1.EnableHeadersVisualStyles = false;
                 dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
 
@@ -61,9 +62,6 @@ namespace latihribbon
                 dataGridView1.RowTemplate.Height = 30;
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                 dataGridView1.ColumnHeadersHeight = 35;
-
-                
-            }
         }
 
         private void btn_terlambat_Click(object sender, EventArgs e)
@@ -131,7 +129,7 @@ namespace latihribbon
             if (data == null) return;
             txtNIS1.Text = data.NIS.ToString();
             txtNama1.Text = data.Nama;
-            txtKelas1.Text = data.Kelas;
+            txtKelas1.Text = data.NamaKelas;
             tglDT.Value = data.Tanggal;
             jamMasukDT.Value = DateTime.Today.Add(data.JamMasuk);
             txtAlasan1.Text = data.Alasan;
@@ -142,22 +140,18 @@ namespace latihribbon
             txtNIS1.Clear();
             txtNama1.Clear();
             txtKelas1.Clear();
-            tglDT.Value = new DateTime(2000, 01, 01);
+            tglDT.Value = DateTime.Now;
             jamMasukDT.Value = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day, 0, 0, 0);
             txtAlasan1.Clear();
         }
 
         private void SaveData()
         {
-            string nis, nama, kelas, alasan;
-            DateTime tgl;
-            TimeSpan jamMasuk;
-            nis = txtNIS1.Text;
-            nama = txtNama1.Text;
-            kelas = txtKelas1.Text;
-            alasan = txtAlasan1.Text;
-            tgl = tglDT.Value;
-            jamMasuk = jamMasukDT.Value.TimeOfDay;
+            string nis = txtNIS1.Text;
+            string nama = txtNama1.Text;
+            string alasan = txtAlasan1.Text;
+            DateTime tgl = tglDT.Value;
+            TimeSpan jamMasuk = jamMasukDT.Value.TimeOfDay;
 
             if (nis == "" || nama == "" || alasan == "")
             {
@@ -169,8 +163,6 @@ namespace latihribbon
             {
                 Id = globalId,
                 NIS = Convert.ToInt32(nis),
-                Nama = nama,
-                Kelas = kelas,
                 Tanggal = tgl,
                 JamMasuk = jamMasuk,
                 Alasan = alasan
@@ -215,7 +207,7 @@ namespace latihribbon
             {
                 lblNisTidakDitemukan.Visible = false;
                 txtNama1.Text = siswa.Nama;
-                txtKelas1.Text = siswa.Kelas;
+                txtKelas1.Text = siswa.NamaKelas;
             }
         }
 
@@ -295,7 +287,7 @@ namespace latihribbon
             txtKelas.Clear();
             tglsatu.Value = DateTime.Now;
             tgldua.Value = DateTime.Now;
-            tglchange = true;
+            tglchange = false;
             LoadData();
         }
         #endregion

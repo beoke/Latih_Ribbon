@@ -15,7 +15,7 @@ namespace latihribbon.Dal
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
             {
-                const string sql = @"SELECT Id,NamaKelas FROM Kelas";
+                const string sql = @"SELECT * FROM Kelas";
                 return koneksi.Query<KelasModel>(sql);
             }
         }
@@ -56,7 +56,10 @@ namespace latihribbon.Dal
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
             {
-                const string sql = @"SELECT * FROM Kelas WHERE Id=@Id";
+                const string sql = @"SELECT k.Id,k.NamaKelas,k.Rombel,k.IdJurusan,
+                                        k.Tingkat,j.NamaJurusan 
+                                    FROM Kelas k INNER JOIN Jurusan j ON k.IdJurusan = j.Id
+                                    WHERE k.Id=@Id";
                 return koneksi.QueryFirstOrDefault<KelasModel>(sql, new {Id=Id});
             }
         }
@@ -73,7 +76,7 @@ namespace latihribbon.Dal
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
             {
-                const string sql = @"SELECT Rombel FROM Kelas WHERE idJurusan=@idJurusan AND Tingkat=@Tingkat";
+                const string sql = @"SELECT Rombel,Id FROM Kelas WHERE idJurusan=@idJurusan AND Tingkat=@Tingkat";
                 return koneksi.Query<KelasModel>(sql, new { idJurusan = idJurusan,Tingkat=Tingkat });
             }
         }

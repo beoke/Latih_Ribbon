@@ -15,18 +15,18 @@ namespace latihribbon.Dal
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
             {
-                string sql = @"SELECT Nis,Nama,JenisKelamin,Persensi,Kelas,Tahun FROM Siswa";
-                if (sqlc != string.Empty) sql += sqlc;
-                sql += @" ORDER BY 
-                            Persensi ASC,
-                            CASE
-                                WHEN Kelas LIKE 'X %' THEN 1
-                                WHEN Kelas LIKE 'XI %' THEN 2
-                                WHEN Kelas LIKE 'XII %' THEN 3
-                                ELSE 4
-                            END,
-                            SUBSTRING( Kelas, CHARINDEX(' ', Kelas) + 1, LEN(Kelas)) ASC 
-                            OFFSET @Offset ROWS FETCH NEXT @Fetch ROWS ONLY";
+                string sql = $@"SELECT s.Nis,s.Nama,s.JenisKelamin,s.Persensi,k.NamaKelas,s.Tahun FROM siswa s 
+                                INNER JOIN Kelas k ON s.IdKelas = k.Id {sqlc} 
+                                ORDER BY 
+                                    Persensi ASC,
+                                    CASE
+                                        WHEN k.NamaKelas LIKE 'X %' THEN 1
+                                        WHEN k.NamaKelas LIKE 'XI %' THEN 2
+                                        WHEN k.NamaKelas LIKE 'XII %' THEN 3
+                                        ELSE 4
+                                    END,
+                                    SUBSTRING( k.NamaKelas, CHARINDEX(' ', k.NamaKelas) + 1, LEN(k.NamaKelas)) ASC 
+                                    OFFSET @Offset ROWS FETCH NEXT @Fetch ROWS ONLY";
                 return koneksi.Query<SiswaModel>(sql,dp);  
             }
         }
@@ -44,7 +44,9 @@ namespace latihribbon.Dal
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
             {
-                const string sql = @"SELECT * FROM siswa WHERE Nis=@Nis";
+                const string sql = @"SELECT s.Nis,s.Nama,s.JenisKelamin,s.Persensi,s.IdKelas,k.NamaKelas,s.Tahun FROM siswa s 
+                                INNER JOIN Kelas k ON s.IdKelas = k.Id
+                                WHERE s.Nis=@Nis";
                 return koneksi.QueryFirstOrDefault<SiswaModel>(sql, new {Nis=Nis});
             }
         }
@@ -53,14 +55,14 @@ namespace latihribbon.Dal
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
             {
-                const string sql = @"INSERT INTO siswa(Nis,Nama,JenisKelamin,Persensi,Kelas,Tahun)
-                                VALUES(@Nis,@Nama,@JenisKelamin,@Persensi,@Kelas,@Tahun)";
+                const string sql = @"INSERT INTO siswa(Nis,Nama,JenisKelamin,Persensi,IdKelas,Tahun)
+                                VALUES(@Nis,@Nama,@JenisKelamin,@Persensi,@IdKelas,@Tahun)";
                 var dp = new DynamicParameters();
                 dp.Add("@Nis", siswa.Nis, System.Data.DbType.Int32);
                 dp.Add("@Nama", siswa.Nama, System.Data.DbType.String);
                 dp.Add("@JenisKelamin", siswa.JenisKelamin, System.Data.DbType.String);
                 dp.Add("@Persensi", siswa.Persensi, System.Data.DbType.Int16);
-                dp.Add("@Kelas", siswa.Kelas, System.Data.DbType.String);
+                dp.Add("@IdKelas", siswa.IdKelas, System.Data.DbType.Int32);
                 dp.Add("@Tahun", siswa.Tahun, System.Data.DbType.String);
 
                 koneksi.Execute(sql,dp);
@@ -71,14 +73,14 @@ namespace latihribbon.Dal
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
             {
-                const string sql = @"UPDATE siswa SET Nama=@Nama,JenisKelamin=@JenisKelamin,Persensi=@Persensi,Kelas=@Kelas,Tahun=@Tahun
+                const string sql = @"UPDATE siswa SET Nama=@Nama,JenisKelamin=@JenisKelamin,Persensi=@Persensi,IdKelas=@IdKelas,Tahun=@Tahun
                                      WHERE Nis = @Nis";
                 var dp = new DynamicParameters();
                 dp.Add("@Nis", siswa.Nis, System.Data.DbType.Int32);
                 dp.Add("@Nama", siswa.Nama, System.Data.DbType.String);
                 dp.Add("@JenisKelamin", siswa.JenisKelamin, System.Data.DbType.String);
                 dp.Add("@Persensi", siswa.Persensi, System.Data.DbType.Int16);
-                dp.Add("@Kelas", siswa.Kelas, System.Data.DbType.String);
+                dp.Add("@IdKelas", siswa.IdKelas, System.Data.DbType.Int32);
                 dp.Add("@Tahun", siswa.Tahun, System.Data.DbType.String);
 
                 koneksi.Execute(sql,dp);
@@ -107,8 +109,7 @@ namespace latihribbon.Dal
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
             {
-                string sql = @"SELECT COUNT(*) FROM siswa";
-                if (sqlc != string.Empty) sql += sqlc;
+                string sql = $@"SELECT COUNT(*) FROM siswa s INNER JOIN Kelas k ON s.IdKelas = k.Id {sqlc}";
                 return koneksi.QuerySingle<int>(sql,dp);
             }
         }

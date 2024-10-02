@@ -89,7 +89,7 @@ namespace latihribbon.ScreenAdmin
             
             if (data)
             {
-                fltr.Add("sd.Kelas LIKE @Kelas+'%'");
+                fltr.Add("sd.NamaKelas LIKE @Kelas+'%'");
                 if (nis != "") fltr.Add("sd.NIS LIKE @NIS+'%'");
                 if (nama != "") fltr.Add("sd.Nama LIKE '%'+@Nama+'%'");
                 if (persensi != "") fltr.Add("sd.Persensi LIKE '%'+@Persensi+'%'");
@@ -98,7 +98,7 @@ namespace latihribbon.ScreenAdmin
             }
             else
             {
-                fltr.Add("Kelas LIKE @Kelas+'%'");
+                fltr.Add("k.NamaKelas LIKE @Kelas+'%'");
                 if (nis != "") fltr.Add("NIS LIKE @NIS+'%'");
                 if (nama != "") fltr.Add("Nama LIKE '%'+@Nama+'%'");
                 if (persensi != "") fltr.Add("Persensi LIKE @Persensi+'%'");
@@ -166,6 +166,8 @@ namespace latihribbon.ScreenAdmin
             KeteranganCombo.SelectedIndexChanged += txt_TextChanged;
             tglsatu.ValueChanged += tgl_ValueChanged;
             tgldua.ValueChanged += tgl_ValueChanged;
+
+            btnResetFilter.Click += btnReset_Click;
         }
 
         private void txt_TextChanged(object sender, EventArgs e)
@@ -185,6 +187,18 @@ namespace latihribbon.ScreenAdmin
         {
             if (MessageBox.Show("Eksport Data ?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 Print();
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            txtNIS.Clear();
+            txtNama.Clear();
+            txtPersensi.Clear();
+            KeteranganCombo.SelectedIndex = 0;
+            tglsatu.Value = DateTime.Now;
+            tgldua.Value = DateTime.Now;
+            tglchange = false;
+            LoadData();
         }
         #endregion
 
@@ -328,17 +342,6 @@ namespace latihribbon.ScreenAdmin
                 LoadHistory();
                 InitComponen();
             }
-        }
-
-        private void btnResetFilter_Click(object sender, EventArgs e)
-        {
-            txtNIS.Clear();
-            txtNama.Clear();
-            KeteranganCombo.SelectedIndex = 0;
-            tglsatu.Value = DateTime.Now;
-            tgldua.Value = DateTime.Now;
-            tglchange = false;
-            LoadData();
         }
     }
 }

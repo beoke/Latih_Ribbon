@@ -12,39 +12,6 @@ namespace latihribbon.Dal
 {
     public class RekapPersensiDal
     {
-        public IEnumerable<RekapPersensiModel> ListData()
-        {
-            using (var koneksi = new SqlConnection(Conn.conn.connstr()))
-            {
-                const string sql = @"WITH UniqueDates AS (
-                            SELECT DISTINCT Tanggal
-                            FROM Persensi)
-
-                        ,SiswaDates AS (
-                            SELECT s.NIS, s.Nama,s.Persensi,s.Kelas, d.Tanggal
-                            FROM Siswa s
-                            CROSS JOIN UniqueDates d)
-
-                        SELECT sd.NIS, sd.Nama,sd.Persensi,sd.Kelas,
-                               sd.Tanggal,
-                               COALESCE(a.Keterangan, '*') AS Keterangan
-                        FROM SiswaDates sd
-                        LEFT JOIN Persensi a ON sd.NIS = a.NIS AND sd.Tanggal = a.Tanggal
-                        ORDER BY 
-                            sd.Persensi ASC,
-                            CASE
-                                WHEN sd.Kelas LIKE 'X %' THEN 1
-                                WHEN sd.Kelas LIKE 'XI %' THEN 2
-                                WHEN sd.Kelas LIKE 'XII %' THEN 3
-                                ELSE 4
-                            END,
-                            SUBSTRING(sd.Kelas, CHARINDEX(' ', sd.Kelas) + 1, LEN(sd.Kelas)) ASC,
-                            sd.Tanggal DESC";
-
-                return koneksi.Query<RekapPersensiModel>(sql);
-            }
-        }
-
         public IEnumerable<RekapPersensiModel> ListData2(string filter, object dp)
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
@@ -54,11 +21,12 @@ namespace latihribbon.Dal
                             FROM Persensi)
 
                         ,SiswaDates AS (
-                            SELECT s.NIS, s.Nama,s.Persensi,s.Kelas, d.Tanggal
+                            SELECT s.NIS, s.Nama,s.Persensi,k.NamaKelas, d.Tanggal
                             FROM Siswa s
+                            INNER JOIN Kelas k ON s.IdKelas = k.Id
                             CROSS JOIN UniqueDates d)
 
-                        SELECT sd.NIS, sd.Nama,sd.Persensi,sd.Kelas,
+                        SELECT sd.NIS, sd.Nama,sd.Persensi,sd.NamaKelas,
                                sd.Tanggal,
                                COALESCE(a.Keterangan, '*') AS Keterangan
                         FROM SiswaDates sd
@@ -79,7 +47,7 @@ namespace latihribbon.Dal
             {
                 string sql = $@"SELECT  
                                       (SELECT COUNT(DISTINCT Tanggal) FROM Persensi {filter2}) *
-                                      (SELECT COUNT(*) FROM siswa {filter1})
+                                      (SELECT COUNT(*) FROM siswa s INNER JOIN Kelas k ON s.IdKelas = k.Id {filter1})
                                AS TotalRows";
                 return koneksi.QuerySingle<int>(sql,dp);
             }

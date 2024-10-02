@@ -20,6 +20,7 @@ namespace latihribbon
     {
         private readonly SiswaDal siswaDal;
         private readonly KeluarDal keluarDal;
+        private readonly KelasDal kelasDal;
         private readonly MesBox mesBox = new MesBox();
         int globalId = 0;
         public FormKeluar()
@@ -28,6 +29,7 @@ namespace latihribbon
             buf();
             siswaDal = new SiswaDal();
             keluarDal = new KeluarDal();
+            kelasDal = new KelasDal();
             RegisterEvent();
             LoadData();
             InitComponent();
@@ -46,8 +48,7 @@ namespace latihribbon
         {
 
             // DataGrid
-            if (dataGridView1.Rows.Count > 0)
-            {
+
                 dataGridView1.EnableHeadersVisualStyles = false;
                 dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
 
@@ -57,7 +58,7 @@ namespace latihribbon
                 dataGridView1.RowTemplate.Height = 30;
                 dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                 dataGridView1.ColumnHeadersHeight = 35;
-            }
+
 
             //TextBox
             txtNIS1.MaxLength = 9;
@@ -69,9 +70,9 @@ namespace latihribbon
         {
             string sqlc = string.Empty;
             List<string> fltr = new List<string>();
-            if (nis != "") fltr.Add("l.NIS LIKE @NIS+'%'");
+            if (nis != "") fltr.Add("k.NIS LIKE @NIS+'%'");
             if (nama != "") fltr.Add("s.Nama LIKE '%'+@Nama+'%'");
-            if (kelas != "") fltr.Add("s.Kelas LIKE '%'+@Kelas+'%'");
+            if (kelas != "") fltr.Add("kls.NamaKelas LIKE '%'+@NamaKelas+'%'");
             if (tglchange) fltr.Add("k.Tanggal BETWEEN @tgl1 AND @tgl2");
             if (fltr.Count > 0)
                 sqlc += " WHERE " + string.Join(" AND ", fltr);
@@ -95,7 +96,7 @@ namespace latihribbon
             var dp = new DynamicParameters();
             if(nis != "")dp.Add("@NIS", nis);
             if (nama != "") dp.Add("@Nama", nama);
-            if (kelas != "") dp.Add("@Kelas", kelas);
+            if (kelas != "") dp.Add("@NamaKelas", kelas);
             if (tglchange) 
             {
                 dp.Add("@tgl1", tgl1);
@@ -118,12 +119,12 @@ namespace latihribbon
         private void GetData()
         {
             var Id = dataGridView1.CurrentRow.Cells["Id"].Value?.ToString() ?? string.Empty;
-            globalId = Id==string.Empty ? 0 : int.Parse(Id); // set global varibel
+            globalId = Id==string.Empty ? 0 : int.Parse(Id);
             var data = keluarDal.GetData(Convert.ToInt32(Id));
             if (data == null) return;
             txtNIS1.Text = data.Nis.ToString();
             txtNama1.Text = data.Nama;
-            txtKelas1.Text = data.Kelas;
+            txtKelas1.Text = data.NamaKelas;
             tglDT.Value = data.Tanggal;
             jamKeluarDT.Value = DateTime.Today.Add(data.JamKeluar);
             jamMasukDT.Value = DateTime.Today.Add(data.JamMasuk);
@@ -148,7 +149,6 @@ namespace latihribbon
             TimeSpan jamKeluar, jamMasuk;
             nis = txtNIS1.Text;
             nama = txtNama1.Text;
-            kelas = txtKelas1.Text;
             tujuan = txtTujuan1.Text;
             tgl = tglDT.Value;
             jamKeluar = jamKeluarDT.Value.TimeOfDay;
@@ -170,8 +170,6 @@ namespace latihribbon
             {
                 Id = globalId,
                 Nis = Convert.ToInt32(nis),
-                Nama = nama,
-                Kelas = kelas,
                 Tanggal= tgl,
                 JamKeluar = jamKeluar,
                 JamMasuk = jamMasuk,
@@ -218,7 +216,7 @@ namespace latihribbon
             {
                 lblNisTidakDitemukan.Visible = false;
                 txtNama1.Text = siswa.Nama;
-                txtKelas1.Text = siswa.Kelas;
+                txtKelas1.Text = kelasDal.GetData(siswa.IdKelas)?.NamaKelas ?? string.Empty;
             }
         }
 

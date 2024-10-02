@@ -66,7 +66,6 @@
             this.XRadio = new System.Windows.Forms.RadioButton();
             this.jurusanCombo = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtRombel_FromSiswa = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.txtNama_FormSiswa = new System.Windows.Forms.TextBox();
@@ -77,6 +76,7 @@
             this.txtPersensi = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.btnResetFilter = new System.Windows.Forms.Button();
+            this.rombelCombo = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -327,6 +327,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel5.BackColor = System.Drawing.Color.Gainsboro;
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel5.Controls.Add(this.rombelCombo);
             this.panel5.Controls.Add(this.txtTahun_FormSiswa);
             this.panel5.Controls.Add(this.label12);
             this.panel5.Controls.Add(this.lblNisSudahAda);
@@ -342,7 +343,6 @@
             this.panel5.Controls.Add(this.XRadio);
             this.panel5.Controls.Add(this.jurusanCombo);
             this.panel5.Controls.Add(this.label10);
-            this.panel5.Controls.Add(this.txtRombel_FromSiswa);
             this.panel5.Controls.Add(this.label9);
             this.panel5.Controls.Add(this.label8);
             this.panel5.Controls.Add(this.txtNama_FormSiswa);
@@ -358,7 +358,7 @@
             // 
             this.txtTahun_FormSiswa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTahun_FormSiswa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTahun_FormSiswa.Location = new System.Drawing.Point(18, 415);
+            this.txtTahun_FormSiswa.Location = new System.Drawing.Point(18, 416);
             this.txtTahun_FormSiswa.Margin = new System.Windows.Forms.Padding(2);
             this.txtTahun_FormSiswa.Name = "txtTahun_FormSiswa";
             this.txtTahun_FormSiswa.Size = new System.Drawing.Size(300, 23);
@@ -368,7 +368,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(15, 396);
+            this.label12.Location = new System.Drawing.Point(15, 397);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(49, 17);
@@ -552,16 +552,6 @@
             this.label10.TabIndex = 25;
             this.label10.Text = "Jurusan";
             // 
-            // txtRombel_FromSiswa
-            // 
-            this.txtRombel_FromSiswa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtRombel_FromSiswa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRombel_FromSiswa.Location = new System.Drawing.Point(18, 366);
-            this.txtRombel_FromSiswa.Margin = new System.Windows.Forms.Padding(2);
-            this.txtRombel_FromSiswa.Name = "txtRombel_FromSiswa";
-            this.txtRombel_FromSiswa.Size = new System.Drawing.Size(300, 23);
-            this.txtRombel_FromSiswa.TabIndex = 24;
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -569,9 +559,9 @@
             this.label9.Location = new System.Drawing.Point(15, 347);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(56, 17);
+            this.label9.Size = new System.Drawing.Size(126, 17);
             this.label9.TabIndex = 23;
-            this.label9.Text = "Rombel";
+            this.label9.Text = "Rombel (Opsional)";
             // 
             // label8
             // 
@@ -666,6 +656,16 @@
             this.btnResetFilter.Text = "Reset";
             this.btnResetFilter.UseVisualStyleBackColor = true;
             // 
+            // rombelCombo
+            // 
+            this.rombelCombo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rombelCombo.FormattingEnabled = true;
+            this.rombelCombo.Location = new System.Drawing.Point(18, 366);
+            this.rombelCombo.Margin = new System.Windows.Forms.Padding(2);
+            this.rombelCombo.Name = "rombelCombo";
+            this.rombelCombo.Size = new System.Drawing.Size(300, 25);
+            this.rombelCombo.TabIndex = 65;
+            // 
             // FormSIswa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -726,7 +726,6 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button btnDelete_FormSiswa;
         private System.Windows.Forms.Button btnSave_FormSiswa;
-        private System.Windows.Forms.TextBox txtRombel_FromSiswa;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox jurusanCombo;
         private System.Windows.Forms.Label label10;
@@ -754,5 +753,6 @@
         private System.Windows.Forms.TextBox txtPersensi;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button btnResetFilter;
+        private System.Windows.Forms.ComboBox rombelCombo;
     }
 }

@@ -22,6 +22,7 @@ namespace latihribbon
         private readonly AbsensiDal absensiDal;
         private readonly SiswaDal siswaDal;
         private readonly HistoryDal historyDal;
+        private readonly KelasDal kelasDal;
         private MesBox mesBox = new MesBox();
         private int globalId = 0;
         private bool InternalTextChange = true;
@@ -31,6 +32,7 @@ namespace latihribbon
             buf();
             absensiDal = new AbsensiDal();
             siswaDal = new SiswaDal();
+            kelasDal = new KelasDal();
             historyDal = new HistoryDal();
             RegisterEvent();
             InitComponent();
@@ -83,7 +85,7 @@ namespace latihribbon
             if (nis != "") fltr.Add("p.NIS LIKE @NIS+'%'");
             if (nama != "") fltr.Add("s.Nama LIKE '%'+@Nama+'%'");
             if (persensi != "") fltr.Add("s.Persensi LIKE @Persensi+'%'");
-            if (kelas != "") fltr.Add("s.Kelas LIKE '%'+@Kelas+'%'");
+            if (kelas != "") fltr.Add("kls.NamaKelas LIKE '%'+@NamaKelas+'%'");
             if (keterangan != "Semua") fltr.Add("p.Keterangan LIKE @Keterangan+'%'");
             if (tglchange) fltr.Add("p.Tanggal BETWEEN @tgl1 AND @tgl2");
 
@@ -111,7 +113,7 @@ namespace latihribbon
             if (nama != "") dp.Add("@Nama", nama);
             if (persensi != "") dp.Add("@Persensi", persensi);
             if (keterangan != "Semua") dp.Add("@Keterangan", keterangan);
-            if (kelas != "") dp.Add("@Kelas", kelas);
+            if (kelas != "") dp.Add("@NamaKelas", kelas);
             if (tglchange)
             {
                 dp.Add("@tgl1", tgl1);
@@ -139,7 +141,7 @@ namespace latihribbon
             if (data == null) return;
             txtNIS1.Text = data.Nis.ToString();
             txtNama1.Text = data.Nama;
-            txtKelas1.Text = data.Kelas;
+            txtKelas1.Text = data.NamaKelas;
             tglDT.Value = data.Tanggal;
             if(data.Keterangan == "I") Izinradio.Checked = true;
             if(data.Keterangan == "S") sakitRadio.Checked = true;
@@ -161,7 +163,7 @@ namespace latihribbon
         {
             int Persensi = string.IsNullOrEmpty(txtPersensi1.Text) ? 0 : Convert.ToInt32(txtPersensi1.Text);
             string Kelas = txtKelas1.Text;
-            var cekData = absensiDal.GetByPerKas(" WHERE Persensi=@Persensi AND Kelas=@Kelas", new {Persensi = Persensi,Kelas=Kelas});
+            var cekData = absensiDal.GetByPerKas(" WHERE s.Persensi=@Persensi AND kls.NamaKelas=@Kelas", new {Persensi = Persensi,Kelas=Kelas});
             var absensi = new AbsensiModel 
             {
                 Nis = cekData?.Nis ?? 0,
@@ -188,15 +190,6 @@ namespace latihribbon
                 mesBox.MesInfo("Seluruh Data Wajib Diisi!");
                 return;
             }
-
-            var dataCek = absensiDal.GetByPerKas(" WHERE Nis=@Nis", new { Nis = Convert.ToInt32(nis) });
-            if (dataCek != null)
-            {
-                mesBox.MesInfo($"{nama} Sudah Absensi Pada " + tgl.ToString("dd/MM/yyyy"));
-                return;
-            }
-             
-
             var masuk = new AbsensiModel
             {
                 Id = globalId,
@@ -205,14 +198,26 @@ namespace latihribbon
                 Keterangan = keterangan
             };
 
+            var dataCek = absensiDal.GetByPerKas(" WHERE p.NIS=@NIS AND p.Tanggal = @Tanggal", new { NIS = nis, Tanggal = tgl });
             if (masuk.Id == 0)
             {
+                if (dataCek != null)
+                {
+                    mesBox.MesInfo($"{nama} Sudah Absensi Pada " + tgl.ToString("dd/MM/yyyy"));
+                    return;
+                }
                 if (!mesBox.MesKonfirmasi("Input Data?")) return;
                 absensiDal.Insert(masuk);
                 LoadData();
             }
             else
             {
+                var dataCek2 = absensiDal.GetByPerKas(" WHERE p.ID = @ID", new { ID=globalId });
+                if (dataCek2.Tanggal != tgl && dataCek != null) 
+                {
+                    mesBox.MesInfo($"{nama} Sudah Absensi Pada " + tgl.ToString("dd/MM/yyyy"));
+                    return;
+                }
                 if (!mesBox.MesKonfirmasi("Update Data?")) return;
                 absensiDal.Update(masuk);
                 LoadData();
@@ -249,7 +254,7 @@ namespace latihribbon
             {
                 lblNisTidakDitemukan.Visible = false;
                 txtNama1.Text = siswa.Nama;
-                txtKelas1.Text = siswa.Kelas;
+                txtKelas1.Text = siswa.NamaKelas;
                 txtPersensi1.Text = siswa.Persensi.ToString() ?? string.Empty;
             }
         }

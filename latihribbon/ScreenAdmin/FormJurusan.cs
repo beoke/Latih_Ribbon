@@ -62,7 +62,7 @@ namespace latihribbon.ScreenAdmin
             btnDeleteJurusan.Click += BtnDeleteJurusan_Click;
             GridListJurusan.DoubleClick += GridListJurusan_DoubleClick;
         }
-
+        string jurusanNameGlobal
         private void GridListJurusan_DoubleClick(object sender, EventArgs e)
         {
             LabelJurusan.Text = "UPDATE";
@@ -125,7 +125,7 @@ namespace latihribbon.ScreenAdmin
             }
             else
             {
-                if (MessageBox.Show($"Update Data \" {namaJurusan} \" ?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show($"Update Data? \n Kelas dengan Jurusan {namaJurusan} akan berubah menjadi {namaJurusan} ", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     var jurusanUpdate = new JurusanModel()
                     {

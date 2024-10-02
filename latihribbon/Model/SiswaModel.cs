@@ -12,7 +12,8 @@ namespace latihribbon
         public int Persensi { get; set; }
         public string Nama { get; set; }
         public string JenisKelamin { get; set; }
-        public string Kelas { get; set; }
+        public int IdKelas { get; set; }
+        public string NamaKelas { get; set; }
         public string Tahun {  get; set; }
     }
 }

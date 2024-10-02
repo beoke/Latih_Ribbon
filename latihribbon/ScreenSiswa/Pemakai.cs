@@ -1,4 +1,5 @@
-﻿using System;
+﻿using latihribbon.Dal;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,10 +14,14 @@ namespace latihribbon
     public partial class Pemakai : Form
     {
         private DbDal _dbDal;
+        private readonly SiswaDal siswaDal;
+        private readonly KelasDal kelasDal;
         public Pemakai()
         {
             InitializeComponent();
             _dbDal = new DbDal();
+            siswaDal = new SiswaDal();
+            kelasDal = new KelasDal();
 
             // Mengatur form menjadi full screen
             this.FormBorderStyle = FormBorderStyle.None;
@@ -60,7 +65,7 @@ namespace latihribbon
             }
 
             // Cari NIS di tabel siswa 
-            var siswa = _dbDal.GetSiswaByNis(nis);
+            var siswa = siswaDal.GetData(nis);
             if (siswa == null)
             {
                 MessageBox.Show("NIS tidak ditemukan.", "Data Not Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -78,7 +83,7 @@ namespace latihribbon
                 string NIS, nama, kelas;
                 NIS = siswa.Nis.ToString();
                 nama = siswa.Nama;
-                kelas = siswa.Kelas;
+                kelas = kelasDal.GetData(siswa.IdKelas).NamaKelas ?? string.Empty;
                 FormMilih formMilih = new FormMilih(NIS,nama,kelas);
                 formMilih.Show();
                 this.Close();

@@ -16,10 +16,12 @@ namespace latihribbon.Dal
         {
             using (var koneksi = new SqlConnection(conn.connstr()))
             {
-                string sql = @"SELECT m.id, m.NIS, s.Nama, s.Kelas, m.Tanggal, m.JamMasuk, m.Alasan
-                                    FROM Masuk m INNER JOIN siswa s ON m.NIS = s.NIS";
-                if (sqlc != string.Empty) sql += sqlc;
-                sql += @" ORDER BY m.Tanggal DESC OFFSET @Offset ROWS FETCH NEXT @Fetch ROWS ONLY";
+                string sql = $@"SELECT m.id, m.NIS, s.Nama, kls.NamaKelas, m.Tanggal, m.JamMasuk, m.Alasan
+                                    FROM Masuk m 
+                                    INNER JOIN siswa s ON m.NIS = s.NIS
+                                    INNER JOIN Kelas kls ON s.IdKelas = kls.Id 
+                                    {sqlc} 
+                                    ORDER BY m.Tanggal DESC OFFSET @Offset ROWS FETCH NEXT @Fetch ROWS ONLY";
                 return koneksi.Query<MasukModel>(sql,dp);
             }
         }
@@ -37,8 +39,11 @@ namespace latihribbon.Dal
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
             {
-                const string sql = @"SELECT m.id, m.NIS, s.Nama, s.Kelas, m.Tanggal, m.JamMasuk, m.Alasan
-                                    FROM Masuk m INNER JOIN siswa s ON m.NIS = s.NIS WHERE id=@id";
+                const string sql = @"SELECT m.id, m.NIS, s.Nama, kls.NamaKelas, m.Tanggal, m.JamMasuk, m.Alasan
+                                    FROM Masuk m 
+                                    INNER JOIN siswa s ON m.NIS = s.NIS
+                                    INNER JOIN Kelas kls ON s.IdKelas = kls.Id 
+                                    WHERE m.id=@id";
                 return koneksi.QueryFirstOrDefault<MasukModel>(sql, new {id=id});
             }
         }
