@@ -83,7 +83,7 @@
             this.GridListKelas.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.GridListKelas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.GridListKelas.Location = new System.Drawing.Point(9, 7);
-            this.GridListKelas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.GridListKelas.Margin = new System.Windows.Forms.Padding(4);
             this.GridListKelas.Name = "GridListKelas";
             this.GridListKelas.RowHeadersWidth = 51;
             this.GridListKelas.Size = new System.Drawing.Size(516, 658);
@@ -150,6 +150,7 @@
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel6.Controls.Add(this.btnDelete);
             this.panel6.Controls.Add(this.btnSave);
+            this.panel6.Controls.Add(this.btnNew);
             this.panel6.Location = new System.Drawing.Point(6, 558);
             this.panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel6.Name = "panel6";
@@ -161,7 +162,7 @@
             this.btnDelete.BackColor = System.Drawing.Color.Red;
             this.btnDelete.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(399, 25);
+            this.btnDelete.Location = new System.Drawing.Point(219, 25);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(120, 39);
@@ -175,7 +176,7 @@
             this.btnSave.BackColor = System.Drawing.Color.LimeGreen;
             this.btnSave.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(40, 25);
+            this.btnSave.Location = new System.Drawing.Point(415, 25);
             this.btnSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(120, 39);
@@ -203,7 +204,6 @@
             this.panel5.Controls.Add(this.label8);
             this.panel5.Controls.Add(this.txtNamaKelas);
             this.panel5.Controls.Add(this.label6);
-            this.panel5.Controls.Add(this.btnNew);
             this.panel5.Location = new System.Drawing.Point(6, 113);
             this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel5.Name = "panel5";
@@ -364,7 +364,7 @@
             this.btnNew.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnNew.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNew.ForeColor = System.Drawing.Color.DimGray;
-            this.btnNew.Location = new System.Drawing.Point(399, 366);
+            this.btnNew.Location = new System.Drawing.Point(23, 25);
             this.btnNew.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(120, 39);
@@ -391,7 +391,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1194, 710);
             this.Controls.Add(this.panel7);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormKelas";
             this.Text = "FormKelas";
             this.panel3.ResumeLayout(false);
