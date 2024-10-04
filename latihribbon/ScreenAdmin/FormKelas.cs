@@ -42,7 +42,7 @@ namespace latihribbon.ScreenAdmin
 
         public void LoadData()
         {
-            GridListKelas.DataSource = kelasDal.listKelas();
+            GridListKelas.DataSource = kelasDal.listKelas(string.Empty, new { });
 
             GridListKelas.Columns[0].Width = 100;
             GridListKelas.Columns[1].Width = 300;

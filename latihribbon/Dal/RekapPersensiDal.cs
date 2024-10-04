@@ -80,18 +80,19 @@ namespace latihribbon.Dal
         }
 
 
-        public IEnumerable<RekapPersensiModel> GetStudentDataByClass(string kelas)
+        public IEnumerable<RekapPersensiModel> GetStudentDataByClass(string kelas,DateTime tgl1, DateTime tgl2)
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
             {
                 string sql = @"
-            SELECT s.NIS, s.Nama, s.Kelas, p.Keterangan
+            SELECT s.NIS, s.Nama, k.NamaKelas, p.Keterangan
             FROM Siswa s
+            INNER JOIN Kelas k ON s.IdKelas = k.Id
             LEFT JOIN Persensi p ON s.NIS = p.NIS
-            WHERE s.Kelas = @Kelas
+            WHERE k.NamaKelas = @Kelas AND p.Tanggal BETWEEN @tgl1 AND @tgl2
             ORDER BY s.Nama";
 
-                var parameters = new { Kelas = kelas };
+                var parameters = new { Kelas = kelas, tgl1=tgl1,tgl2=tgl2};
 
                 try
                 {

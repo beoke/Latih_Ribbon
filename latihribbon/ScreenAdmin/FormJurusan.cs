@@ -15,11 +15,14 @@ namespace latihribbon.ScreenAdmin
     public partial class FormJurusan : Form
     {
         private readonly JurusanDal _jurusanDal;
+        private readonly KelasDal kelasDal;
+        private string NamaJurusanGlobal;
         public FormJurusan()
         {
             InitializeComponent();
             buf();
             _jurusanDal = new JurusanDal();
+            kelasDal = new KelasDal();
             LoadData();
             InitEvent();
         }
@@ -68,10 +71,10 @@ namespace latihribbon.ScreenAdmin
             LabelJurusan.Text = "UPDATE";
 
             var jurusanId = GridListJurusan.CurrentRow.Cells[0].Value.ToString();
-            var jurusanName = GridListJurusan.CurrentRow.Cells[1].Value.ToString();
+            NamaJurusanGlobal = GridListJurusan.CurrentRow.Cells[1].Value.ToString();
 
             txtIdJurusan.Text = jurusanId;
-            txtNamaJurusan.Text = jurusanName;
+            txtNamaJurusan.Text = NamaJurusanGlobal;
         }
 
         private void BtnDeleteJurusan_Click(object sender, EventArgs e)
@@ -79,7 +82,7 @@ namespace latihribbon.ScreenAdmin
             var jurusanId = Convert.ToInt32(GridListJurusan.CurrentRow.Cells[0].Value);
             var jurusanName = GridListJurusan.CurrentRow.Cells[1].Value;
 
-            if (MessageBox.Show($"Anda yakin ingin menghapus data \" {jurusanName} \" ?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            if (MessageBox.Show($"Anda yakin ingin menghapus data \" {jurusanName} \" ? \n Jika Dihapus, maka data yang terhubung akan ikut Terhapus", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 _jurusanDal.Delete(jurusanId);
 
             LoadData();
@@ -114,7 +117,7 @@ namespace latihribbon.ScreenAdmin
 
             if (txtIdJurusan.Text == string.Empty)
             {
-                if (MessageBox.Show($"Simpan Data \" {namaJurusan} \" ?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question)==DialogResult.Yes)
+                if (MessageBox.Show($"Insert Data?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question)==DialogResult.Yes)
                 {
                     var jurusanInsert = new JurusanModel()
                     {
@@ -125,14 +128,23 @@ namespace latihribbon.ScreenAdmin
             }
             else
             {
-                if (MessageBox.Show($"Update Data? \n Kelas dengan Jurusan {namaJurusan} akan berubah menjadi {namaJurusan} ", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show($"Update Data? \n Kelas dengan Jurusan {NamaJurusanGlobal} dan semua yang berhubungan, akan berubah menjadi {namaJurusan} ", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    var jurusanUpdate = new JurusanModel()
+                    var jurusan = new JurusanModel()
                     {
                         Id = Convert.ToInt32(txtIdJurusan.Text),
                         NamaJurusan = txtNamaJurusan.Text
                     };
-                    _jurusanDal.Update(jurusanUpdate);
+                    _jurusanDal.Update(jurusan);
+                    var dataKelas = kelasDal.listKelas("WHERE k.idJurusan=@idJurusan", new { idJurusan = jurusan.Id});
+                    List<string> listKelas = new List<string>();
+                    foreach (var x in dataKelas)
+                    {
+                        string namaKelas = $"{x.Tingkat} {x.NamaJurusan} {x.Rombel}".Trim();
+                        listKelas.Add(namaKelas);
+                    }
+                    MessageBox.Show(string.Join("?/",listKelas));
+                    //kelasDal.UpdateNamaKelas(listKelas,jurusan.Id);
                 }
             }
         }

@@ -3,6 +3,7 @@ using latihribbon.Conn;
 using latihribbon.Dal;
 using latihribbon.Helper;
 using latihribbon.Model;
+using latihribbon.ScreenAdmin;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
 using System;
@@ -34,7 +35,7 @@ namespace latihribbon
         public FormSIswa()
         {
             InitializeComponent();
-            buf();
+            //buf();
             db = new DbDal();
             siswaDal = new SiswaDal();
             jurusanDal = new JurusanDal();
@@ -283,7 +284,7 @@ namespace latihribbon
             if (nis != "") dp.Add("@Nis", nis);
             if (nama != "") dp.Add("@Nama", nama);
             if (persensi != "") dp.Add("@Persensi", persensi);
-            if (kelas != "") dp.Add("@NamaKelas", kelas);
+            if (kelas != "") dp.Add("@Kelas", kelas);
             if (tahun != "Semua") dp.Add("@Tahun", tahun);
 
             string text = "Halaman ";
@@ -413,10 +414,11 @@ namespace latihribbon
         }
 
         #endregion
-
-
         private void ButtonInputSIswa_Click(object sender, EventArgs e)
         {
+            FormKetentuanImport ketentuan = new FormKetentuanImport();
+            if (ketentuan.ShowDialog() != DialogResult.OK) return;
+
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
 
             OpenFileDialog dialogOpen = new OpenFileDialog();
@@ -425,6 +427,7 @@ namespace latihribbon
             if (dialogOpen.ShowDialog() == DialogResult.OK)
             {
                 FileInfo infoFile = new FileInfo(dialogOpen.FileName);
+                List<string> daftarKelasError = new List<string>();
 
                 using (ExcelPackage package = new ExcelPackage(infoFile))
                 {
@@ -439,6 +442,7 @@ namespace latihribbon
                                 var nis = long.TryParse(sheet.Cells[baris, 2].Value?.ToString(), out long parsedNis) ? parsedNis : (long?)null;
                                 var nama = sheet.Cells[baris, 3].Value?.ToString();
                                 var kelas = sheet.Cells[baris, 4].Value?.ToString();
+                                        
                                 var tahun = int.TryParse(sheet.Cells[baris, 6].Value?.ToString(), out int parsedTahun) ? parsedTahun : (int?)null;
                                 var presensi = int.TryParse(sheet.Cells[baris, 1].Value?.ToString(), out int parsedPresensi) ? parsedPresensi : (int?)null;
                                 var jenisKelamin = sheet.Cells[baris, 5].Value?.ToString();
@@ -460,47 +464,47 @@ namespace latihribbon
                                 {
                                     continue;
                                 }
-
-                                var cekDb = Conn.QueryFirstOrDefault<long?>("SELECT Nis FROM siswa WHERE Nis = @Nis", new { Nis = nis });
-
-                                if (cekDb != null)
+                                string[] kelasName = kelas.Trim().Split(' ', (char)StringSplitOptions.RemoveEmptyEntries);
+                                string namaKelas = string.Join(" ",kelasName);
+                                int idKelas = kelasDal.GetIdKelas(namaKelas);
+                                /*MessageBox.Show(idKelas.ToString()); return;*/
+                                if (idKelas != 0)
                                 {
-                                    const string updateSql = @"
-                            UPDATE siswa
-                            SET Nama = @Nama, 
-                                Kelas = @Kelas, 
-                                Tahun = @Tahun, 
-                                Persensi = @Persensi, 
-                                JenisKelamin = @JenisKelamin
-                            WHERE Nis = @Nis";
+                                    var cekDb = Conn.QueryFirstOrDefault<long?>("SELECT Nis FROM siswa WHERE Nis = @Nis", new { Nis = nis });
 
-                                    var UpdateDp = new DynamicParameters();
-                                    UpdateDp.Add("@Nis", nis, DbType.Int64);
-                                    UpdateDp.Add("@Nama", nama, DbType.String);
-                                    UpdateDp.Add("@Kelas", kelas, DbType.String);
-                                    UpdateDp.Add("@Tahun", tahun, DbType.Int32);
-                                    UpdateDp.Add("@Persensi", presensi, DbType.Int64);
-                                    UpdateDp.Add("@JenisKelamin", jenisKelamin, DbType.String);
+                                    var dp = new DynamicParameters();
+                                    dp.Add("@Nis", nis, DbType.Int64);
+                                    dp.Add("@Nama", nama, DbType.String);
+                                    dp.Add("@IdKelas", idKelas, DbType.Int32);
+                                    dp.Add("@Tahun", tahun, DbType.Int32);
+                                    dp.Add("@Persensi", presensi, DbType.Int64);
+                                    dp.Add("@JenisKelamin", jenisKelamin, DbType.String);
 
-                                    Conn.Execute(updateSql, UpdateDp);
+                                    if (cekDb != null)
+                                    {
+                                        const string updateSql = @"
+                                                            UPDATE siswa
+                                                            SET Nama = @Nama,
+                                                                IdKelas = @IdKelas, 
+                                                                Tahun = @Tahun, 
+                                                                Persensi = @Persensi, 
+                                                                JenisKelamin = @JenisKelamin
+                                                            WHERE Nis = @Nis";
+                                        Conn.Execute(updateSql, dp);
+                                    }
+                                    else
+                                    {
+                                        const string insertSql = @"
+                                                                INSERT INTO siswa 
+                                                                    (Nis, Nama, IdKelas, Tahun, Persensi, JenisKelamin)
+                                                                VALUES
+                                                                    (@Nis, @Nama, @IdKelas, @Tahun, @Persensi, @JenisKelamin)";
+                                        Conn.Execute(insertSql, dp);
+                                    }
                                 }
                                 else
                                 {
-                                    const string insertSql = @"
-                            INSERT INTO siswa 
-                                (Nis, Nama, Kelas, Tahun, Persensi, JenisKelamin)
-                            VALUES
-                                (@Nis, @Nama, @Kelas, @Tahun, @Persensi, @JenisKelamin)";
-
-                                    var InsertDp = new DynamicParameters();
-                                    InsertDp.Add("@Nis", nis, DbType.Int64);
-                                    InsertDp.Add("@Nama", nama, DbType.String);
-                                    InsertDp.Add("@Kelas", kelas, DbType.String);
-                                    InsertDp.Add("@Tahun", tahun, DbType.Int32);
-                                    InsertDp.Add("@Persensi", presensi, DbType.Int64);
-                                    InsertDp.Add("@JenisKelamin", jenisKelamin, DbType.String);
-
-                                    Conn.Execute(insertSql, InsertDp);
+                                    if(!daftarKelasError.Contains(namaKelas)) daftarKelasError.Add(namaKelas);
                                 }
                             }
                         }
@@ -508,6 +512,8 @@ namespace latihribbon
 
                     LoadData();
                     mesBox.MesInfo("Data siswa berhasil ditambahkan atau diperbarui.");
+                    string daftarKelas = daftarKelasError.Count < 1 ? "Tidak Ada" : string.Join(",", daftarKelasError);
+                    mesBox.MesInfo($"Daftar Kelas Error: {daftarKelas}");
                 }
             }
 

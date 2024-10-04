@@ -2,8 +2,10 @@
 using latihribbon.Model;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Cryptography.Xml;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,12 +13,19 @@ namespace latihribbon.Dal
 {
     public class KelasDal
     {
-        public IEnumerable<KelasModel> listKelas()
+        public IEnumerable<KelasModel> listKelas(string sqlc, object dp)
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
             {
-                const string sql = @"SELECT * FROM Kelas";
-                return koneksi.Query<KelasModel>(sql);
+                string sql = $@"SELECT k.Id,k.NamaKelas,k.Rombel,k.IdJurusan,k.Tingkat,j.NamaJurusan FROM Kelas k
+                                INNER JOIN Jurusan j ON k.IdJurusan=j.Id {sqlc} 
+                                ORDER BY CASE 
+                                        WHEN k.Tingkat = 'X' THEN 1
+                                        WHEN k.Tingkat = 'XI' THEN 2
+                                        WHEN k.Tingkat = 'XII' THEN 3
+                                        ELSE 4
+                                    END";
+                return koneksi.Query<KelasModel>(sql,dp);
             }
         }
 
@@ -52,6 +61,16 @@ namespace latihribbon.Dal
             }
         }
 
+        public void UpdateNamaKelas(List<string> listKelas, int idJurusan)
+        {
+            using (var koneksi = new SqlConnection(Conn.conn.connstr()))
+            {
+                const string sql = @"UPDATE Kelas SET NamaKelas=@NamaKelas WHERE idJurusan=@idJurusan";
+                foreach (var x in listKelas)
+                    koneksi.Execute(sql, new {NamaKelas = x, idJurusan=idJurusan});
+            }
+        }
+
         public KelasModel GetData(int Id)
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
@@ -78,6 +97,15 @@ namespace latihribbon.Dal
             {
                 const string sql = @"SELECT Rombel,Id FROM Kelas WHERE idJurusan=@idJurusan AND Tingkat=@Tingkat";
                 return koneksi.Query<KelasModel>(sql, new { idJurusan = idJurusan,Tingkat=Tingkat });
+            }
+        }
+
+        public int GetIdKelas(string NamaKelas)
+        {
+            using (var koneksi = new SqlConnection(Conn.conn.connstr()))
+            {
+                string sql = $@"SELECT Id FROM Kelas WHERE NamaKelas = @NamaKelas";
+                return koneksi.QuerySingleOrDefault<int>(sql, new {NamaKelas = NamaKelas});
             }
         }
 

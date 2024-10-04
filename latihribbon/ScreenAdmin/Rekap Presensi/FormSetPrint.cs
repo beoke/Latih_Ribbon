@@ -1,5 +1,6 @@
 ﻿using DocumentFormat.OpenXml.Presentation;
 using latihribbon.Dal;
+using latihribbon.Helper;
 using latihribbon.Model;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
@@ -23,11 +24,13 @@ namespace latihribbon
     {
         private readonly RekapPersensiDal rekapPersensiDal;
         private readonly SetPrintDal _setPrintDal;
+        private readonly MesBox mesBox;
 
         public FormSetPrint()
         {
             _setPrintDal = new SetPrintDal();
             rekapPersensiDal = new RekapPersensiDal();
+            mesBox = new MesBox();
             InitializeComponent();
             ControlEvent();
             InitialListBox();
@@ -71,26 +74,27 @@ namespace latihribbon
                 }
             }
         }
-
-
         private void ButtonAturPrint_Click(object sender, EventArgs e)
         {
-            if (ListBoxKelas.CheckedItems.Count > 0)
+            if(tgl1DT.Value == tgl2DT.Value)
             {
-                List<string> data = new List<string>();
-                foreach (var item in ListBoxKelas.CheckedItems)
-                {
-                    data.Add(item.ToString());
-                }
-                ExportToExcel(data);
+                mesBox.MesInfo("Atur Rentang Tanggal Terlebih Dahulu!");
+                return;
             }
-            else
+            if (ListBoxKelas.CheckedItems.Count < 1)
             {
-                MessageBox.Show("Pilih data kelas terlebih dahulu", "Perhatian", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                mesBox.MesInfo("Pilih data kelas terlebih dahulu!");
+                return;
             }
+            List<string> data = new List<string>();
+            foreach (var item in ListBoxKelas.CheckedItems)
+            {
+                data.Add(item.ToString());
+            }
+            ExportToExcel(data,tgl1DT.Value,tgl2DT.Value);
         }
 
-        private void ExportToExcel(List<string> selectedClasses)
+        private void ExportToExcel(List<string> selectedClasses,DateTime tgl1, DateTime tgl2)
         {
             try
             {
@@ -102,7 +106,7 @@ namespace latihribbon
 
                     foreach (var kelas in selectedClasses)
                     {
-                        var studentsData = rekapPersensiDal.GetStudentDataByClass(kelas).ToList();
+                        var studentsData = rekapPersensiDal.GetStudentDataByClass(kelas,tgl1,tgl2).ToList();
 
                         var angkatan = kelas.Trim().Split(' ', (char)StringSplitOptions.RemoveEmptyEntries).First();
 
@@ -123,7 +127,7 @@ namespace latihribbon
                             continue;
                         }
 
-                        var groupedByKelas = studentsInAngkatan.GroupBy(s => s.Kelas).ToList();
+                        var groupedByKelas = studentsInAngkatan.GroupBy(s => s.NamaKelas).ToList();
 
                         var worksheet = package.Workbook.Worksheets.Add(angkatan);
 
@@ -139,7 +143,7 @@ namespace latihribbon
                             var rekapPerSiswa = uniqueStudents.Select(student => new
                             {
                                 student.Nama,
-                                student.Kelas,
+                                student.NamaKelas,
                                 S = studentsInAngkatan.Count(s => s.Nama == student.Nama && s.Keterangan == "S"),
                                 I = studentsInAngkatan.Count(s => s.Nama == student.Nama && s.Keterangan == "I"),
                                 A = studentsInAngkatan.Count(s => s.Nama == student.Nama && s.Keterangan == "A")
@@ -176,14 +180,13 @@ namespace latihribbon
 
                                 worksheet.Cells[currentRow, 1].Value = currentRow - 3; // No (mulai dari 1)
                                 worksheet.Cells[currentRow, 2].Value = rekap.Nama; // Nama siswa
-                                worksheet.Cells[currentRow, 3].Value = rekap.Kelas; // Kelas siswa
+                                worksheet.Cells[currentRow, 3].Value = rekap.NamaKelas; // Kelas siswa
                                 worksheet.Cells[currentRow, 4].Value = rekap.S; // Jumlah Sakit
                                 worksheet.Cells[currentRow, 5].Value = rekap.I; // Jumlah Izin
                                 worksheet.Cells[currentRow, 6].Value = rekap.A; // Jumlah Alpa
 
                                 currentRow++;
                             }
-
                             currentRow += 5;
                         }
                     }
