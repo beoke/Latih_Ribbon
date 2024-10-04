@@ -18,13 +18,13 @@ namespace latihribbon.Dal
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
             {
                 string sql = $@"SELECT k.Id,k.NamaKelas,k.Rombel,k.IdJurusan,k.Tingkat,j.NamaJurusan FROM Kelas k
-                                INNER JOIN Jurusan j ON k.IdJurusan=j.Id {sqlc} 
+                                INNER JOIN Jurusan j ON k.IdJurusan=j.Id  {sqlc}
                                 ORDER BY CASE 
                                         WHEN k.Tingkat = 'X' THEN 1
                                         WHEN k.Tingkat = 'XI' THEN 2
                                         WHEN k.Tingkat = 'XII' THEN 3
                                         ELSE 4
-                                    END";
+                                    END, idJurusan, Rombel";
                 return koneksi.Query<KelasModel>(sql,dp);
             }
         }

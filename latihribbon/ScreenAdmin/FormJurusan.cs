@@ -39,13 +39,14 @@ namespace latihribbon.ScreenAdmin
         }
         private void LoadData()
         {
-            GridListJurusan.DataSource = _jurusanDal.ListData();
+            GridListJurusan.DataSource = _jurusanDal.ListData().Select(x => new 
+            {
+                IdJurusan = x.Id,
+                NamaJurusan = x.NamaJurusan
+            }).ToList();
 
-            GridListJurusan.Columns["Id"].HeaderText = "Id Jurusan";
-            GridListJurusan.Columns["NamaJurusan"].HeaderText = "Nama Jurusan";
-
-            GridListJurusan.Columns["Id"].Width = 100;
-            GridListJurusan.Columns["NamaJurusan"].Width = 200;
+            GridListJurusan.Columns[0].Width = 100;
+            GridListJurusan.Columns[1].Width = 200;
 
                 GridListJurusan.EnableHeadersVisualStyles = false;
                 GridListJurusan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
@@ -63,10 +64,10 @@ namespace latihribbon.ScreenAdmin
             btnNewJurusan.Click += BtnNewJurusan_Click;
             btnSaveJurusan.Click += BtnSaveJurusan_Click;
             btnDeleteJurusan.Click += BtnDeleteJurusan_Click;
-            GridListJurusan.DoubleClick += GridListJurusan_DoubleClick;
+            GridListJurusan.SelectionChanged += GridListJurusan_SelectionChange;
         }
         string jurusanNameGlobal;
-        private void GridListJurusan_DoubleClick(object sender, EventArgs e)
+        private void GridListJurusan_SelectionChange(object sender, EventArgs e)
         {
             LabelJurusan.Text = "UPDATE";
 

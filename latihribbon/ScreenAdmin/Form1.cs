@@ -24,13 +24,13 @@ namespace latihribbon
             this.MinimumSize = new Size(1200, 900);
 
         }
-        private void ShowFormInPanel(Form form) // untuk menambahkan form di dalam panel
+        private void ShowFormInPanel(Form form) 
         {
            
-            form.TopLevel = false; // Memberitahu bahwa form ini bagian dari form lain
-            form.FormBorderStyle = FormBorderStyle.None; // Menghilangkan border form
-            form.Dock = DockStyle.Fill; // Menyesuaikan ukuran form dengan panel
-            panel1.Controls.Clear(); // Membersihkan panel dari form atau kontrol lainnya
+            form.TopLevel = false; 
+            form.FormBorderStyle = FormBorderStyle.None; 
+            form.Dock = DockStyle.Fill; 
+            panel1.Controls.Clear(); 
             panel1.Controls.Add(form);
             form.Show();
         }
@@ -44,7 +44,7 @@ namespace latihribbon
             ribbonSiswaAbsensi.Checked = true;
         }
 
-        private void ribbon_terlambat_Click(object sender, EventArgs e) // untuk menampilkan form di dalam panel
+        private void ribbon_terlambat_Click(object sender, EventArgs e) 
         {
             FormTerlambat formTerlambat = new FormTerlambat();
             ShowFormInPanel(formTerlambat);

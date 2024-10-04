@@ -114,7 +114,7 @@ namespace latihribbon
         {
             using (var Conn = new SqlConnection(conn.connstr()))
             {
-                const string sql = @"SELECT id, username, role FROM Users";
+                const string sql = @"SELECT id, username, role FROM Users ORDER BY id ASC";
 
                 return Conn.Query<UserModel>(sql);
             }
@@ -141,6 +141,16 @@ namespace latihribbon
             {
                 string sql = $@"SELECT COUNT(*) FROM RiwayatLogin {sqlc}";
                 return koneksi.QuerySingle<int>(sql, dp);
+            }
+        }
+
+        public void DeleteOtomatis(DateTime tanggal)
+        {
+            using (var koneksi = new SqlConnection(conn.connstr()))
+            {
+                string sql = $"DELETE FROM RiwayatLogin WHERE Tanggal <= @Tanggal";
+
+                koneksi.Execute(sql, new { Tanggal = tanggal});
             }
         }
     }

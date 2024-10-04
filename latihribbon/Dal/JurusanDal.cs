@@ -17,7 +17,7 @@ namespace latihribbon.Dal
         {
             using (var Conn = new SqlConnection(conn.connstr()))
             {
-                const string sql = "SELECT * FROM Jurusan";
+                const string sql = "SELECT * FROM Jurusan ORDER BY Id ASC";
                 return Conn.Query<JurusanModel>(sql);
             }
         }

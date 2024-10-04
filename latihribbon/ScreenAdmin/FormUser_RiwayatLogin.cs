@@ -26,9 +26,16 @@ namespace latihribbon
             _riwayatLoginDal = new RiwayatLogin_UserDal();
             LoadRiwayatLogin();
             InitialEvent();
+            DeleteOtomatis();
             LoadData();
             LoadUser();
             LoadRiwayatLogin();
+        }
+
+        private void DeleteOtomatis()
+        {
+            var tanggal = DateTime.Today.AddDays(-30);
+            _riwayatLoginDal.DeleteOtomatis(tanggal);
         }
 
 
