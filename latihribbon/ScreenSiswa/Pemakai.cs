@@ -23,12 +23,11 @@ namespace latihribbon
             siswaDal = new SiswaDal();
             kelasDal = new KelasDal();
 
-            // Mengatur form menjadi full screen
             this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
-            this.TopMost = true;  // Menempatkan form di atas semua form lain
-            this.ControlBox = true;  // Menyembunyikan tombol close, minimize, maximize
-            this.KeyPreview = true;  // Agar form dapat menangani key press event
+            this.TopMost = true;
+            this.ControlBox = true;
+            this.KeyPreview = true;// Agar form dapat menangani key press event
         }
 
  
@@ -103,8 +102,12 @@ namespace latihribbon
         {
             if (e.Control && e.Alt && e.KeyCode == Keys.K)
             {
+                login log = new login();
+                log.Show();
+                this.Close();
+
                 // Keluar dari aplikasi saat kombinasi tombol Ctrl + Alt + K ditekan
-                Application.Exit();
+                //Application.Exit();
             }
         }
     }

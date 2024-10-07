@@ -43,9 +43,9 @@ namespace latihribbon
 
             this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
-            //this.TopMost = true;  // Menempatkan form di atas semua form lain
-            this.ControlBox = true;  // Menyembunyikan tombol close, minimize, maximize
-            this.KeyPreview = true;  // Agar form dapat menangani key press event
+            this.TopMost = true;
+            this.ControlBox = true;
+            this.KeyPreview = true;
         }
 
         public void isian()
@@ -89,11 +89,11 @@ namespace latihribbon
 
             if (!mesBox.MesKonfirmasi("Apakah data sudah benar ?")) return;
             Print();
-          /*  Insert();
+            Insert();
             System.Threading.Thread.Sleep(1000);
             Pemakai p = new Pemakai();
             p.Show();
-            this.Close();*/
+            this.Close();
         }
 
     
@@ -141,10 +141,10 @@ namespace latihribbon
                     MessageBox.Show("Printer tidak tersedia atau offline.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
-                printPreviewDialogKeluar.Document = printDocumentKeluar;
-                printPreviewDialogKeluar.ShowDialog();
+                //printPreviewDialogKeluar.Document = printDocumentKeluar;
+                //printPreviewDialogKeluar.ShowDialog();
 
-                //printDocumentKeluar.Print();
+                printDocumentKeluar.Print();
                 return true;
             }
             catch (Exception ex)
@@ -341,7 +341,9 @@ namespace latihribbon
             if (e.Control && e.Alt && e.KeyCode == Keys.K)
             {
                 // Keluar dari aplikasi saat kombinasi tombol Ctrl + Alt + K ditekan
-                Application.Exit();
+                login log = new login();
+                log.Show();
+                this.Close();
             }
         }
     }

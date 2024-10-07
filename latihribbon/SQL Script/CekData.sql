@@ -1,8 +1,7 @@
 ﻿DROP TABLE Rating;
 
 CREATE TABLE Rating (
-	Bintang DECIMAL NOT NULL DEFAULT (''),
-	Pesan VARCHAR(50) NOT NULL DEFAULT('')
+	
 	)
 
 

@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.IO.IsolatedStorage;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -60,8 +61,13 @@ namespace latihribbon
         {
             if (e.Control && e.Alt && e.KeyCode == Keys.K)
             {
+                login log = new login();
+                log.Show();
+
+                this.Close();
+
                 // Keluar dari aplikasi saat kombinasi tombol Ctrl + Alt + K ditekan
-                Application.Exit();
+                //Application.Exit();
             }
         }
     }
