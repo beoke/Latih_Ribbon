@@ -1,4 +1,5 @@
 ﻿using latihribbon.Dal;
+using latihribbon.Helper;
 using latihribbon.Model;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,7 @@ namespace latihribbon.ScreenAdmin
     {
         private readonly JurusanDal _jurusanDal;
         private readonly KelasDal kelasDal;
+        private readonly MesBox mesBox;
         private string NamaJurusanGlobal;
         public FormJurusan()
         {
@@ -23,6 +25,7 @@ namespace latihribbon.ScreenAdmin
             buf();
             _jurusanDal = new JurusanDal();
             kelasDal = new KelasDal();
+            mesBox = new MesBox();
             LoadData();
             InitEvent();
         }
@@ -91,16 +94,7 @@ namespace latihribbon.ScreenAdmin
 
         private void BtnSaveJurusan_Click(object sender, EventArgs e)
         {
-            if (txtIdJurusan.Text == string.Empty || txtNamaJurusan.Text == string.Empty)
-            {
-                MessageBox.Show("Pilih data terlebih dahulu !");
-                return;
-            }
-
             SaveData();
-            LoadData();
-            LabelJurusan.Text = "UPDATE";
-
         }
 
         private void BtnNewJurusan_Click(object sender, EventArgs e)
@@ -108,24 +102,24 @@ namespace latihribbon.ScreenAdmin
             if (MessageBox.Show("Masukan data baru ?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 Cleardata();
-                LabelJurusan.Text = "INSERT";
             }
         }
 
         private void SaveData()
         {
             var namaJurusan = txtNamaJurusan.Text;
+            if(namaJurusan == string.Empty)
+            {
+                mesBox.MesInfo("Nama Jurusan Wajib Diisi!");
+                return;
+            }
 
             if (txtIdJurusan.Text == string.Empty)
             {
-                if (MessageBox.Show($"Insert Data?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question)==DialogResult.Yes)
-                {
-                    var jurusanInsert = new JurusanModel()
-                    {
-                        NamaJurusan = txtNamaJurusan.Text
-                    };
-                    _jurusanDal.Insert(jurusanInsert);
-                }
+                if (!mesBox.MesKonfirmasi("Input Data?")) return;
+                _jurusanDal.Insert(namaJurusan);
+                LoadData();
+                Cleardata();
             }
             else
             {
@@ -138,14 +132,12 @@ namespace latihribbon.ScreenAdmin
                     };
                     _jurusanDal.Update(jurusan);
                     var dataKelas = kelasDal.listKelas("WHERE k.idJurusan=@idJurusan", new { idJurusan = jurusan.Id});
-                    List<string> listKelas = new List<string>();
                     foreach (var x in dataKelas)
                     {
                         string namaKelas = $"{x.Tingkat} {x.NamaJurusan} {x.Rombel}".Trim();
-                        listKelas.Add(namaKelas);
+                        kelasDal.UpdateNamaKelas(x.Id,namaKelas);
                     }
-                    MessageBox.Show(string.Join("?/",listKelas));
-                    //kelasDal.UpdateNamaKelas(listKelas,jurusan.Id);
+                    LoadData();
                 }
             }
         }
@@ -154,6 +146,7 @@ namespace latihribbon.ScreenAdmin
         {
             txtIdJurusan.Text = string.Empty;
             txtNamaJurusan.Text= string.Empty;
+            LabelJurusan.Text = "INSERT";
         }
 
         private void txtIdJurusan_KeyPress(object sender, KeyPressEventArgs e)

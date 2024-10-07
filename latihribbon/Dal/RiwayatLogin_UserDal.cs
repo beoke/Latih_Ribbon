@@ -7,6 +7,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Configuration;
 
 namespace latihribbon
 {
@@ -51,6 +52,14 @@ namespace latihribbon
             }
         }
 
+        public void DeleteAfter30Days()
+        {
+            using (var koneksi = new SqlConnection(conn.connstr()))
+            {
+                const string sql = @"DELETE FROM RiwayatLogin WHERE DATEDIFF(DAY, Tanggal, GETDATE()) > 29";
+                koneksi.Execute(sql);
+            }
+        }
 
 
         //USER

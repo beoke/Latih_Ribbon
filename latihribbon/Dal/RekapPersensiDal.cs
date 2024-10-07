@@ -88,8 +88,8 @@ namespace latihribbon.Dal
             SELECT s.NIS, s.Nama, k.NamaKelas, p.Keterangan
             FROM Siswa s
             INNER JOIN Kelas k ON s.IdKelas = k.Id
-            LEFT JOIN Persensi p ON s.NIS = p.NIS
-            WHERE k.NamaKelas = @Kelas AND p.Tanggal BETWEEN @tgl1 AND @tgl2
+            LEFT JOIN Persensi p ON s.NIS = p.NIS AND p.Tanggal BETWEEN @tgl1 AND @tgl2
+            WHERE k.NamaKelas = @Kelas
             ORDER BY s.Nama";
 
                 var parameters = new { Kelas = kelas, tgl1=tgl1,tgl2=tgl2};

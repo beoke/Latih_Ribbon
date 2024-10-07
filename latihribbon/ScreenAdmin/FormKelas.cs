@@ -102,6 +102,8 @@ namespace latihribbon.ScreenAdmin
             {
                 kelasDal.Insert(kelas);
                 LoadData();
+                ClearData();
+                CekInsertUpdate();
             }
             else
             {

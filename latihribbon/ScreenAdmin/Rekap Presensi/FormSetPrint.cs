@@ -123,8 +123,8 @@ namespace latihribbon
                         var studentsInAngkatan = groupedData[angkatan];
                         if (studentsInAngkatan == null || studentsInAngkatan.Count == 0)
                         {
-                            MessageBox.Show($"Tidak ada data untuk angkatan {angkatan}.", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            continue;
+                            mesBox.MesInfo($"Tidak ada data untuk angkatan {angkatan}.");
+                            return;
                         }
 
                         var groupedByKelas = studentsInAngkatan.GroupBy(s => s.NamaKelas).ToList();
@@ -167,7 +167,7 @@ namespace latihribbon
                                 headerRange.Style.Fill.BackgroundColor.SetColor(Color.LightGray);
                                 headerRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
                             }
-
+                            
                             currentRow++;
 
                             foreach (var rekap in rekapPerSiswa)
@@ -189,6 +189,7 @@ namespace latihribbon
                             }
                             currentRow += 5;
                         }
+                        worksheet.Column(2).AutoFit();
                     }
 
                     SaveFileDialog saveFileDialog = new SaveFileDialog

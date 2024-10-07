@@ -61,13 +61,12 @@ namespace latihribbon.Dal
             }
         }
 
-        public void UpdateNamaKelas(List<string> listKelas, int idJurusan)
+        public void UpdateNamaKelas(int Id, string NamaKelas)
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
             {
-                const string sql = @"UPDATE Kelas SET NamaKelas=@NamaKelas WHERE idJurusan=@idJurusan";
-                foreach (var x in listKelas)
-                    koneksi.Execute(sql, new {NamaKelas = x, idJurusan=idJurusan});
+                const string sql = @"UPDATE Kelas SET NamaKelas=@NamaKelas WHERE Id=@Id";
+                koneksi.Execute(sql, new {Id=Id,NamaKelas=NamaKelas});
             }
         }
 

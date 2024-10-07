@@ -22,7 +22,7 @@ namespace latihribbon.Dal
             }
         }
 
-        public void Insert(JurusanModel jurusan)
+        public void Insert(string namaJurusan)
         {
             using (var Conn = new SqlConnection(conn.connstr()))
             {
@@ -33,7 +33,7 @@ namespace latihribbon.Dal
                         (@NamaJurusan)";
 
                 var Dp = new DynamicParameters();
-                Dp.Add("@NamaJurusan", jurusan.NamaJurusan, System.Data.DbType.String);
+                Dp.Add("@NamaJurusan", namaJurusan, System.Data.DbType.String);
 
                 Conn.Execute(sql, Dp);
             }

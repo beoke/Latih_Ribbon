@@ -127,6 +127,7 @@ namespace latihribbon
             };
 
             _riwayatLoginDal.Insert(riwayat);
+            _riwayatLoginDal.DeleteAfter30Days();
         }
 
         private void tx_Username_KeyDown(object sender, KeyEventArgs e)

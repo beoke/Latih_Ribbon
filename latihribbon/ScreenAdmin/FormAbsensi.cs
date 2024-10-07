@@ -153,7 +153,7 @@ namespace latihribbon
             txtNIS1.Clear();
             txtNama1.Clear();
             txtKelas1.Clear();
-            tglDT.Value = DateTime.Now;
+            tglDT.Value = DateTime.Today;
             Izinradio.Checked = false;
             sakitRadio.Checked = false;
             alphaRadio.Checked = false;
@@ -198,7 +198,7 @@ namespace latihribbon
                 Keterangan = keterangan
             };
 
-            var dataCek = absensiDal.GetByPerKas(" WHERE p.NIS=@NIS AND p.Tanggal = @Tanggal", new { NIS = nis, Tanggal = tgl });
+            var dataCek = absensiDal.GetByPerKas(" WHERE p.NIS=@NIS AND p.Tanggal = @Tanggal", new { NIS = masuk.Nis, Tanggal = masuk.Tanggal });
             if (masuk.Id == 0)
             {
                 if (dataCek != null)
@@ -209,13 +209,17 @@ namespace latihribbon
                 if (!mesBox.MesKonfirmasi("Input Data?")) return;
                 absensiDal.Insert(masuk);
                 LoadData();
+
+                ClearInput();
+                globalId = 0;
+                ControlInsertUpdate();
             }
             else
             {
                 var dataCek2 = absensiDal.GetByPerKas(" WHERE p.ID = @ID", new { ID=globalId });
                 if (dataCek2.Tanggal != tgl && dataCek != null) 
                 {
-                    mesBox.MesInfo($"{nama} Sudah Absensi Pada " + tgl.ToString("dd/MM/yyyy"));
+                    mesBox.MesInfo($"{nama} Sudah Absensi Pada "+ tgl.ToString("dd/MM/yyyy"));
                     return;
                 }
                 if (!mesBox.MesKonfirmasi("Update Data?")) return;
