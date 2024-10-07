@@ -105,6 +105,11 @@ namespace latihribbon
                     FormSurveyKepuasan Survey = new FormSurveyKepuasan();
                     Survey.Show();
                 }
+                else if (user.Role == "Kepuasan")
+                {
+                    Kepuasan kepuasan = new Kepuasan();
+                    kepuasan.Show();
+                }
                 this.Hide();
             }
             else

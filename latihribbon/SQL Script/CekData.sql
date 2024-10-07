@@ -28,3 +28,7 @@ select * from RiwayatLogin;
 
 INSERT INTO RiwayatLogin(UserLogin, Tanggal, Waktu)
 VALUES ('jhbdjcsdmn fvd', '2024-02-20', '12:58:23');
+
+
+
+DROP TABLE Survey;

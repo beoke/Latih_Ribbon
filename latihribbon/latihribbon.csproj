@@ -51,6 +51,9 @@
     <Reference Include="ExcelNumberFormat, Version=1.1.0.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL">
       <HintPath>..\packages\ExcelNumberFormat.1.1.0\lib\net20\ExcelNumberFormat.dll</HintPath>
     </Reference>
+    <Reference Include="Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
+      <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.6\lib\net472\Guna.UI2.dll</HintPath>
+    </Reference>
     <Reference Include="Irony, Version=1.0.11.0, Culture=neutral, PublicKeyToken=ca48ace7223ead47, processorArchitecture=MSIL">
       <HintPath>..\packages\Irony.NetCore.1.0.11\lib\net461\Irony.dll</HintPath>
     </Reference>
@@ -72,6 +75,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
     <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
       <Private>True</Private>
@@ -127,6 +131,7 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms.Ribbon, Version=2.0.0.0, Culture=neutral, PublicKeyToken=928736e248aa81f9, processorArchitecture=MSIL">
       <HintPath>..\packages\RibbonWinForms.5.0.1.1\lib\net472\System.Windows.Forms.Ribbon.dll</HintPath>
     </Reference>
@@ -155,10 +160,10 @@
     <Compile Include="Dal\MasukDal.cs" />
     <Compile Include="Dal\DbDal.cs" />
     <Compile Include="Dal\RiwayatLogin_UserDal.cs" />
-    <Compile Include="Kepuasan.cs">
+    <Compile Include="ScreenSurvey\Kepuasan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Kepuasan.Designer.cs">
+    <Compile Include="ScreenSurvey\Kepuasan.Designer.cs">
       <DependentUpon>Kepuasan.cs</DependentUpon>
     </Compile>
     <Compile Include="ScreenAdmin\FormKetentuanImport.cs">
@@ -289,7 +294,7 @@
     <Compile Include="UpdateInsert\SiswaIU.Designer.cs">
       <DependentUpon>SiswaIU.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Kepuasan.resx">
+    <EmbeddedResource Include="ScreenSurvey\Kepuasan.resx">
       <DependentUpon>Kepuasan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ScreenAdmin\FormKetentuanImport.resx">
@@ -410,6 +415,12 @@
     <None Include="Resources\Bintang_Full.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\happiness.png" />
+    <None Include="Resources\sad.png" />
+    <None Include="Resources\Puas_Polos.png" />
+    <None Include="Resources\Puas_Warna.png" />
+    <None Include="Resources\TidakPuas_Polos.png" />
+    <None Include="Resources\TidakPuas_Warna.png" />
     <Content Include="SQL Script\CekData.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
