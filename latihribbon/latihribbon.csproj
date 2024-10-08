@@ -190,6 +190,12 @@
     <Compile Include="Dal\MasukDal.cs" />
     <Compile Include="Dal\DbDal.cs" />
     <Compile Include="Dal\RiwayatLogin_UserDal.cs" />
+    <Compile Include="FormIndex.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormIndex.Designer.cs">
+      <DependentUpon>FormIndex.cs</DependentUpon>
+    </Compile>
     <Compile Include="ScreenAdmin\FormDataSurvey.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -292,10 +298,10 @@
     <Compile Include="ScreenAdmin\FormTerlambat.Designer.cs">
       <DependentUpon>FormTerlambat.cs</DependentUpon>
     </Compile>
-    <Compile Include="login.cs">
+    <Compile Include="ScreenAdmin\login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="login.Designer.cs">
+    <Compile Include="ScreenAdmin\login.Designer.cs">
       <DependentUpon>login.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\AbsensiModel.cs" />
@@ -331,6 +337,9 @@
     <Compile Include="UpdateInsert\SiswaIU.Designer.cs">
       <DependentUpon>SiswaIU.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FormIndex.resx">
+      <DependentUpon>FormIndex.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ScreenAdmin\FormDataSurvey.resx">
       <DependentUpon>FormDataSurvey.cs</DependentUpon>
     </EmbeddedResource>
@@ -379,7 +388,7 @@
     <EmbeddedResource Include="ScreenAdmin\FormTerlambat.resx">
       <DependentUpon>FormTerlambat.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="login.resx">
+    <EmbeddedResource Include="ScreenAdmin\login.resx">
       <DependentUpon>login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ScreenSiswa\Pemakai.resx">

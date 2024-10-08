@@ -18,10 +18,27 @@ namespace latihribbon
         public FormDataSurvey()
         {
             InitializeComponent();
-            GridListSurvey.DataSource = ListData();
+            GridListSurvey.DataSource = ListData()
+                                        .Select( x => new
+                                        {
+                                            Id = x.SurveyId,
+                                            Jawaban_Survey = x.HasilSurvey == 1 ? "Puas" : "Tidak Puas",
+                                            Tanggal = x.Tanggal.ToString("dd/MM/yyyy"), 
+                                            Waktu = x.Waktu
+                                        }).ToList();
             buf();
 
             GridListSurvey.RowEnter += GridListSurvey_RowEnter;
+
+
+
+
+
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.WindowState = FormWindowState.Maximized;
+            this.TopMost = true;
+            this.ControlBox = true;
+            this.KeyPreview = true;
         }
 
         public void buf()
@@ -58,7 +75,7 @@ namespace latihribbon
 
             TextSurveyId.Text = data.SurveyId.ToString();
             TexthasilSurvey.Text = hasil;
-            TextTanggal.Text = data.Tanggal.ToString();
+            PickerTanggal.Value = data.Tanggal;
             TextWaktu.Text = data.Waktu.ToString();
 
 

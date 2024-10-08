@@ -28,6 +28,12 @@ namespace latihribbon
             this.mainForm = mainForm;
 
             this.KeyPreview = true;
+
+
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.WindowState = FormWindowState.Maximized;
+            this.TopMost = true;
+            this.ControlBox = true;
         }
 
         private void InitialPicture()

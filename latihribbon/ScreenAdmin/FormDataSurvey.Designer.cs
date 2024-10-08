@@ -38,12 +38,12 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.TextWaktu = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.TextTanggal = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.TexthasilSurvey = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.TextSurveyId = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.PickerTanggal = new System.Windows.Forms.DateTimePicker();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridListSurvey)).BeginInit();
@@ -152,9 +152,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel8.BackColor = System.Drawing.Color.Gainsboro;
             this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel8.Controls.Add(this.PickerTanggal);
             this.panel8.Controls.Add(this.TextWaktu);
             this.panel8.Controls.Add(this.label3);
-            this.panel8.Controls.Add(this.TextTanggal);
             this.panel8.Controls.Add(this.label4);
             this.panel8.Controls.Add(this.TexthasilSurvey);
             this.panel8.Controls.Add(this.label7);
@@ -175,6 +175,7 @@
             this.TextWaktu.Location = new System.Drawing.Point(32, 321);
             this.TextWaktu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextWaktu.Name = "TextWaktu";
+            this.TextWaktu.ReadOnly = true;
             this.TextWaktu.Size = new System.Drawing.Size(381, 27);
             this.TextWaktu.TabIndex = 66;
             // 
@@ -188,20 +189,6 @@
             this.label3.TabIndex = 64;
             this.label3.Text = "Waktu";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // TextTanggal
-            // 
-            this.TextTanggal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TextTanggal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TextTanggal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextTanggal.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.TextTanggal.Location = new System.Drawing.Point(32, 244);
-            this.TextTanggal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.TextTanggal.Name = "TextTanggal";
-            this.TextTanggal.PasswordChar = '*';
-            this.TextTanggal.Size = new System.Drawing.Size(381, 27);
-            this.TextTanggal.TabIndex = 65;
             // 
             // label4
             // 
@@ -222,6 +209,7 @@
             this.TexthasilSurvey.Location = new System.Drawing.Point(32, 168);
             this.TexthasilSurvey.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TexthasilSurvey.Name = "TexthasilSurvey";
+            this.TexthasilSurvey.ReadOnly = true;
             this.TexthasilSurvey.Size = new System.Drawing.Size(381, 27);
             this.TexthasilSurvey.TabIndex = 51;
             // 
@@ -259,6 +247,16 @@
             this.label9.TabIndex = 48;
             this.label9.Text = "Id Survey";
             // 
+            // PickerTanggal
+            // 
+            this.PickerTanggal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PickerTanggal.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.PickerTanggal.Location = new System.Drawing.Point(32, 245);
+            this.PickerTanggal.Name = "PickerTanggal";
+            this.PickerTanggal.ShowUpDown = true;
+            this.PickerTanggal.Size = new System.Drawing.Size(381, 27);
+            this.PickerTanggal.TabIndex = 67;
+            // 
             // FormDataSurvey
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -290,12 +288,12 @@
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.TextBox TextWaktu;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox TextTanggal;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox TexthasilSurvey;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox TextSurveyId;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button ButtonDeleteUser;
+        private System.Windows.Forms.DateTimePicker PickerTanggal;
     }
 }

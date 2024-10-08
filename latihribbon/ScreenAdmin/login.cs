@@ -17,7 +17,9 @@ namespace latihribbon
     {
         private readonly RiwayatLogin_UserDal _riwayatLoginDal;
         private readonly MesBox _mesBox = new MesBox();
-        public login()
+
+        private Form mainForm;
+        public login(Form mainForm)
         {
             _riwayatLoginDal = new RiwayatLogin_UserDal();
             InitializeComponent();
@@ -25,6 +27,7 @@ namespace latihribbon
             ControlEvent();
 
             tx_Username.Focus();
+            this.mainForm = mainForm;
         }
         #region EVENT
 
@@ -99,21 +102,7 @@ namespace latihribbon
                     Form1 adminDashboard = new Form1(this);
                     adminDashboard.Show();
                 }
-                else if (user.Role == "siswa")
-                {
-                    Pemakai userDashboard = new Pemakai(this);
-                    userDashboard.Show();
-                }
-                else if (user.Role == "survey")
-                {
-                    FormSurveyKepuasan Survey = new FormSurveyKepuasan(this);
-                    Survey.Show();
-                }
-                else if (user.Role == "Kepuasan")
-                {
-                    FormSurvey kepuasan = new FormSurvey(this);
-                    kepuasan.Show();
-                }
+              
                 tx_Username.Clear();
                 tx_Password.Clear();
 
