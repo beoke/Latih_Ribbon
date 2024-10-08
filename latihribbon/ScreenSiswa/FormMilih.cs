@@ -18,7 +18,8 @@ namespace latihribbon
         private string NIS;
         private string nama;
         private string kelas;
-        public FormMilih(string NIS,string nama,string kelas)
+        private Form mainForm;
+        public FormMilih(Form mainForm,string NIS,string nama,string kelas)
         {
             InitializeComponent();
 
@@ -34,25 +35,26 @@ namespace latihribbon
             this.TopMost = true;  
             this.ControlBox = true;  
             this.KeyPreview = true;  
+            this.mainForm = mainForm;
         }
 
         private void btn_masuk_Click(object sender, EventArgs e)
         {
-            SuratMasuk suratMasuk = new SuratMasuk(NIS,nama,kelas);
+            SuratMasuk suratMasuk = new SuratMasuk(mainForm, NIS,nama,kelas);
             suratMasuk.Show();
             this.Close();
         }
 
         private void btn_Keluar_Click(object sender, EventArgs e)
         {
-            SuratKeluarcs Keluar = new SuratKeluarcs(NIS,nama,kelas);
+            SuratKeluarcs Keluar = new SuratKeluarcs(mainForm, NIS,nama,kelas);
             Keluar.Show();
             this.Close();
         }
 
         private void btn_kembali_Click(object sender, EventArgs e)
         {
-            Pemakai p = new Pemakai();
+            Pemakai p = new Pemakai(this);
             p.Show();
             this.Close();
         }
@@ -61,8 +63,7 @@ namespace latihribbon
         {
             if (e.Control && e.Alt && e.KeyCode == Keys.K)
             {
-                login log = new login();
-                log.Show();
+                mainForm.Show();
 
                 this.Close();
 

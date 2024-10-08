@@ -16,7 +16,9 @@ namespace latihribbon
         private DbDal _dbDal;
         private readonly SiswaDal siswaDal;
         private readonly KelasDal kelasDal;
-        public Pemakai()
+
+        private Form mainForm;
+        public Pemakai(Form mainForm)
         {
             InitializeComponent();
             _dbDal = new DbDal();
@@ -28,6 +30,7 @@ namespace latihribbon
             this.TopMost = true;
             this.ControlBox = true;
             this.KeyPreview = true;// Agar form dapat menangani key press event
+            this.mainForm = mainForm;
         }
 
  
@@ -83,7 +86,7 @@ namespace latihribbon
                 NIS = siswa.Nis.ToString();
                 nama = siswa.Nama;
                 kelas = kelasDal.GetData(siswa.IdKelas).NamaKelas ?? string.Empty;
-                FormMilih formMilih = new FormMilih(NIS,nama,kelas);
+                FormMilih formMilih = new FormMilih(mainForm,NIS,nama,kelas);
                 formMilih.Show();
                 this.Close();
             } 
@@ -102,8 +105,7 @@ namespace latihribbon
         {
             if (e.Control && e.Alt && e.KeyCode == Keys.K)
             {
-                login log = new login();
-                log.Show();
+                mainForm.Show();
                 this.Close();
 
                 // Keluar dari aplikasi saat kombinasi tombol Ctrl + Alt + K ditekan

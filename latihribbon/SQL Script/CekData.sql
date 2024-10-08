@@ -1,8 +1,5 @@
 ﻿DROP TABLE Rating;
 
-CREATE TABLE Rating (
-	
-	)
 
 
 
@@ -32,3 +29,13 @@ VALUES ('jhbdjcsdmn fvd', '2024-02-20', '12:58:23');
 
 
 DROP TABLE Survey;
+
+create table Survey (
+    SurveyId INT IDENTITY(1,1),
+    HasilSurvey INT NOT NULL DEFAULT(0),
+    Tanggal DATETIME,
+    Waktu TIME
+    )
+
+
+    select * from Survey

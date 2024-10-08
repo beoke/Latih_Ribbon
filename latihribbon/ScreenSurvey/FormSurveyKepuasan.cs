@@ -19,7 +19,8 @@ namespace latihribbon
     {
         private PictureBox[] Bintang;
         private int cekBintangClick = 0;
-        public FormSurveyKepuasan()
+        private Form mainForm;
+        public FormSurveyKepuasan(Form mainForm)
         {
             InitializeComponent();
             InitialProperti();
@@ -30,6 +31,7 @@ namespace latihribbon
             this.ControlBox = true;
             this.TopMost = true;
             this.KeyPreview = true;
+            this.mainForm = mainForm;
         }
 
         private void InitialProperti()
@@ -131,8 +133,7 @@ namespace latihribbon
         {
             if (e.Control && e.Alt && e.KeyCode == Keys.K)
             {
-                login login = new login();
-                login.Show();
+                mainForm.Show();
                 this.Close();
             }
         }

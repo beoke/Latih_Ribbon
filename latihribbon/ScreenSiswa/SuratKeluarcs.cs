@@ -28,9 +28,9 @@ namespace latihribbon
         private string nama;
         private string kelas;
 
+        private Form mainForm;
 
-
-        public SuratKeluarcs(string NIS, string nama,string kelas)
+        public SuratKeluarcs( Form mainForm,string NIS, string nama,string kelas)
         {
             InitializeComponent();
             db = new DbDal();
@@ -46,6 +46,7 @@ namespace latihribbon
             this.TopMost = true;
             this.ControlBox = true;
             this.KeyPreview = true;
+            this.mainForm = mainForm;
         }
 
         public void isian()
@@ -60,7 +61,7 @@ namespace latihribbon
 
         private void btn_kembali_Click(object sender, EventArgs e)
         {
-            FormMilih fm = new FormMilih(NIS,nama,kelas);
+            FormMilih fm = new FormMilih(mainForm,NIS,nama,kelas);
             fm.Show();
             this.Close();
         }
@@ -91,7 +92,7 @@ namespace latihribbon
             Print();
             Insert();
             System.Threading.Thread.Sleep(1000);
-            Pemakai p = new Pemakai();
+            Pemakai p = new Pemakai(this);
             p.Show();
             this.Close();
         }
@@ -341,8 +342,7 @@ namespace latihribbon
             if (e.Control && e.Alt && e.KeyCode == Keys.K)
             {
                 // Keluar dari aplikasi saat kombinasi tombol Ctrl + Alt + K ditekan
-                login log = new login();
-                log.Show();
+                mainForm.Show();
                 this.Close();
             }
         }

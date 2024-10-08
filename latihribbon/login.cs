@@ -74,6 +74,8 @@ namespace latihribbon
         private void btn_Login_Click(object sender, EventArgs e)
         {
             ENTER();
+
+          
         }
 
         public void ENTER()
@@ -97,19 +99,22 @@ namespace latihribbon
                 }
                 else if (user.Role == "siswa")
                 {
-                    Pemakai userDashboard = new Pemakai();
+                    Pemakai userDashboard = new Pemakai(this);
                     userDashboard.Show();
                 }
                 else if (user.Role == "survey")
                 {
-                    FormSurveyKepuasan Survey = new FormSurveyKepuasan();
+                    FormSurveyKepuasan Survey = new FormSurveyKepuasan(this);
                     Survey.Show();
                 }
                 else if (user.Role == "Kepuasan")
                 {
-                    Kepuasan kepuasan = new Kepuasan();
+                    Kepuasan kepuasan = new Kepuasan(this);
                     kepuasan.Show();
                 }
+                tx_Username.Clear();
+                tx_Password.Clear();
+
                 this.Hide();
             }
             else

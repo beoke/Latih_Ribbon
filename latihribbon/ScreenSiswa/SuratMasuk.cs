@@ -25,12 +25,15 @@ namespace latihribbon
         private string nama;
         private string kelas;
         private DateTime jam;
-        public SuratMasuk(string NIS, string nama, string kelas)
+
+        private Form mainForm;
+        public SuratMasuk(Form mainForm ,string NIS, string nama, string kelas)
         {
             InitializeComponent(); 
             this.NIS = NIS;
             this.nama = nama;
             this.kelas = kelas;
+            
             jam = DateTime.Now;
             isian();
 
@@ -42,6 +45,7 @@ namespace latihribbon
             this.TopMost = true;
             this.ControlBox = true;
             this.KeyPreview = true;
+            this.mainForm = mainForm;
         }
       
         public void isian()
@@ -56,7 +60,7 @@ namespace latihribbon
 
         private void btn_Kembali_Click(object sender, EventArgs e)
         {
-            FormMilih fm = new FormMilih(NIS,nama,kelas);
+            FormMilih fm = new FormMilih(mainForm,NIS,nama,kelas);
             fm.Show();
             this.Close();
         }
@@ -99,7 +103,7 @@ namespace latihribbon
             Print();
             Insert();
             System.Threading.Thread.Sleep(1000);
-            Pemakai p = new Pemakai();
+            Pemakai p = new Pemakai(this);
             p.Show();
             this.Close();
         }
@@ -309,8 +313,7 @@ namespace latihribbon
         {
             if (e.Control && e.Alt && e.KeyCode == Keys.K)
             {
-                login log = new login();
-                log.Show();
+                mainForm.Show();
 
                 this.Close();
 

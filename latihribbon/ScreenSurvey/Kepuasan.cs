@@ -17,12 +17,18 @@ namespace latihribbon
     public partial class Kepuasan : Form
     {
         private int Data;
-        public Kepuasan()
+        private Form mainForm;
+
+        public Kepuasan(Form mainForm)
         {
             InitializeComponent();
             InitialPicture();
 
             ControlEvent();
+            this.mainForm = mainForm;
+
+            this.KeyPreview = true;
+
         }
 
         private void InitialPicture()
@@ -40,14 +46,33 @@ namespace latihribbon
             PictureBoxTidakPuas.Click += PictureBoxTidakPuas_Click;
 
             ButtonSave.Click += ButtonSave_Click;
+            this.KeyDown += Kepuasan_KeyDown;
         }
 
+        private void Kepuasan_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.Alt && e.KeyCode == Keys.K)
+            {
+                mainForm.Show();
+                this.Close();
+            }
+        }
         private void ButtonSave_Click(object sender, EventArgs e)
         {
-            var tanggal = DateTime.Now;
-            var kepuasan = Data;
+            var puas = new KepuasanModel
+            {
+                HasilSurvey = Data,
+                Tanggal =  DateTime.Today,
+                Waktu = DateTime.Now.TimeOfDay,
+            };
+            SaveData(puas);
 
-            SaveData(kepuasan, tanggal);
+            if (Data == 1)
+                MessageBox.Show("Terima kasih,  respon anda sangat berharga bagi kami :)", "Pesan", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+                MessageBox.Show("🖕 🐶 🖕", "Pesan", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            clear();
         }
 
         private void PictureBoxTidakPuas_Click(object sender, EventArgs e)
@@ -74,16 +99,31 @@ namespace latihribbon
             PictureBoxTidakPuas.BackgroundImage = Properties.Resources.TidakPuas_Polos;
         }
 
-        private void SaveData(int kepuasan, DateTime tanggal)
+        private void SaveData(KepuasanModel puas)
         {
             using (var Conn = new SqlConnection(conn.connstr()))
             {
                 const string sql = @"
-                INSERT INTO Survey (Kepuasan, Tanggal)
-                VALUES (@Puas , @Tanggal)";
+                INSERT INTO Survey (HasilSurvey, Tanggal, Waktu)
+                VALUES (@HasilSurvey, @Tanggal, @Waktu)";
 
-                Conn.Execute(sql, new { Puas = kepuasan , Tanggal = tanggal });
+
+                var Dp = new DynamicParameters();
+                Dp.Add("@HasilSurvey", puas.HasilSurvey, DbType.Int16);
+                Dp.Add("@Tanggal", puas.Tanggal, DbType.DateTime);
+                Dp.Add("@Waktu", puas.Waktu, DbType.Time);
+
+                Conn.Execute(sql,Dp);
             }
+        }
+
+
+
+        public class KepuasanModel
+        { 
+            public int HasilSurvey { get; set; }
+            public DateTime Tanggal { get; set; }
+            public TimeSpan Waktu { get; set; }
         }
     }
 }

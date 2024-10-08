@@ -83,6 +83,16 @@ namespace latihribbon.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Animation___1728355941486 {
+            get {
+                object obj = ResourceManager.GetObject("Animation - 1728355941486", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap baground {
             get {
                 object obj = ResourceManager.GetObject("baground", resourceCulture);
