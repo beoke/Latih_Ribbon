@@ -52,6 +52,8 @@
             this.ribbonKelas = new System.Windows.Forms.RibbonButton();
             this.ribbonPanel14 = new System.Windows.Forms.RibbonPanel();
             this.ribbonUserLogin = new System.Windows.Forms.RibbonButton();
+            this.ribbonPanel4 = new System.Windows.Forms.RibbonPanel();
+            this.ribbonButtonSurvey = new System.Windows.Forms.RibbonButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
@@ -62,7 +64,7 @@
             // 
             this.ribbon1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.ribbon1.Location = new System.Drawing.Point(0, 0);
-            this.ribbon1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ribbon1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ribbon1.Minimized = false;
             this.ribbon1.Name = "ribbon1";
             // 
@@ -75,7 +77,7 @@
             this.ribbon1.OrbDropDown.Size = new System.Drawing.Size(527, 116);
             this.ribbon1.OrbDropDown.TabIndex = 0;
             this.ribbon1.RibbonTabFont = new System.Drawing.Font("Trebuchet MS", 9F);
-            this.ribbon1.Size = new System.Drawing.Size(962, 162);
+            this.ribbon1.Size = new System.Drawing.Size(1283, 199);
             this.ribbon1.TabIndex = 0;
             this.ribbon1.Tabs.Add(this.ribbonTab1);
             this.ribbon1.Tabs.Add(this.AbsensiSiswa);
@@ -203,6 +205,7 @@
             this.ribbonTab3.Panels.Add(this.ribbonPanel12);
             this.ribbonTab3.Panels.Add(this.ribbonPanel13);
             this.ribbonTab3.Panels.Add(this.ribbonPanel14);
+            this.ribbonTab3.Panels.Add(this.ribbonPanel4);
             this.ribbonTab3.Text = "Data Lainnya";
             // 
             // ribbonPanel12
@@ -250,14 +253,29 @@
             this.ribbonUserLogin.Text = "User Login";
             this.ribbonUserLogin.Click += new System.EventHandler(this.ribbonUserLogin_Click);
             // 
+            // ribbonPanel4
+            // 
+            this.ribbonPanel4.Items.Add(this.ribbonButtonSurvey);
+            this.ribbonPanel4.Name = "ribbonPanel4";
+            this.ribbonPanel4.Text = "";
+            // 
+            // ribbonButtonSurvey
+            // 
+            this.ribbonButtonSurvey.Image = global::latihribbon.Properties.Resources.satisfaction__1_;
+            this.ribbonButtonSurvey.LargeImage = global::latihribbon.Properties.Resources.satisfaction__1_;
+            this.ribbonButtonSurvey.Name = "ribbonButtonSurvey";
+            this.ribbonButtonSurvey.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButtonSurvey.SmallImage")));
+            this.ribbonButtonSurvey.Text = "Survey";
+            this.ribbonButtonSurvey.Click += new System.EventHandler(this.ribbonButtonSurvey_Click);
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 162);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Location = new System.Drawing.Point(0, 199);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(962, 409);
+            this.panel1.Size = new System.Drawing.Size(1283, 504);
             this.panel1.TabIndex = 1;
             // 
             // dataGridView1
@@ -265,20 +283,21 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(962, 409);
+            this.dataGridView1.Size = new System.Drawing.Size(1283, 504);
             this.dataGridView1.TabIndex = 0;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(962, 571);
+            this.ClientSize = new System.Drawing.Size(1283, 703);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ribbon1);
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "ATM RESI";
@@ -318,6 +337,9 @@
         private System.Windows.Forms.RibbonButton ribbonKelas;
         private System.Windows.Forms.RibbonPanel ribbonPanel14;
         private System.Windows.Forms.RibbonButton ribbonUserLogin;
+        private System.Windows.Forms.RibbonPanel ribbonPanel4;
+        private System.Windows.Forms.RibbonButton ribbonButtonSurvey;
+        private System.Windows.Forms.RibbonPanel ribbonPanel6;
     }
 }
 

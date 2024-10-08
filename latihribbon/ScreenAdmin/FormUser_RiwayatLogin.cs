@@ -66,7 +66,7 @@ namespace latihribbon
                 GridListUser.RowTemplate.Height = 30;
                 GridListUser.ColumnHeadersHeight = 35;
 
-                //GridListUser.Columns["password"].Visible = false;
+                GridListUser.Columns["Password"].Visible = false;
                 GridListUser.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 GridListUser.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
                 GridListUser.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;

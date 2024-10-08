@@ -23,6 +23,8 @@ namespace latihribbon
             InitializeComponent();
 
             ControlEvent();
+
+            tx_Username.Focus();
         }
         #region EVENT
 
@@ -109,7 +111,7 @@ namespace latihribbon
                 }
                 else if (user.Role == "Kepuasan")
                 {
-                    Kepuasan kepuasan = new Kepuasan(this);
+                    FormSurvey kepuasan = new FormSurvey(this);
                     kepuasan.Show();
                 }
                 tx_Username.Clear();

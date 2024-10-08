@@ -103,7 +103,7 @@ namespace latihribbon
             Print();
             Insert();
             System.Threading.Thread.Sleep(1000);
-            Pemakai p = new Pemakai(this);
+            Pemakai p = new Pemakai(mainForm);
             p.Show();
             this.Close();
         }

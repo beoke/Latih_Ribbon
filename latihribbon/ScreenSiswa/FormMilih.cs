@@ -17,7 +17,7 @@ namespace latihribbon
     {
         private string NIS;
         private string nama;
-        private string kelas;
+        private string kelas;                                               
         private Form mainForm;
         public FormMilih(Form mainForm,string NIS,string nama,string kelas)
         {
@@ -54,7 +54,7 @@ namespace latihribbon
 
         private void btn_kembali_Click(object sender, EventArgs e)
         {
-            Pemakai p = new Pemakai(this);
+            Pemakai p = new Pemakai(mainForm);
             p.Show();
             this.Close();
         }

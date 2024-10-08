@@ -126,6 +126,18 @@ namespace latihribbon
             ribbonJurusan.Checked = true;
         }
 
+        private void ribbonButtonSurvey_Click(object sender, EventArgs e)
+        {
+            FormDataSurvey survey = new FormDataSurvey();
+            ShowFormInPanel(survey);
+
+            ClearCheckRibbon();
+            ribbonButtonSurvey.CheckOnClick = true;
+            ribbonButtonSurvey.Checked = true;
+        }
+
+
+
         private void ClearCheckRibbon()
         {
             ribbonJurusan.CheckOnClick = false;
@@ -137,6 +149,7 @@ namespace latihribbon
             ribbon_keluar.CheckOnClick = false;
             ribbon_terlambat.CheckOnClick = false;
             ribbonSiswaAbsensi.CheckOnClick = false;
+            ribbonButtonSurvey.CheckOnClick = false;
 
             ribbonJurusan.Checked = false;
             ribbonKelas.Checked = false;
@@ -147,12 +160,15 @@ namespace latihribbon
             ribbon_keluar.Checked = false;
             ribbon_terlambat.Checked = false;
             ribbonSiswaAbsensi.Checked = false;
+            ribbonButtonSurvey.Checked = false;
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
            Application.Exit();
         }
+
+        
     }
 }
 

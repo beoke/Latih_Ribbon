@@ -1,6 +1,6 @@
 ﻿namespace latihribbon
 {
-    partial class Kepuasan
+    partial class FormSurvey
     {
         /// <summary>
         /// Required designer variable.

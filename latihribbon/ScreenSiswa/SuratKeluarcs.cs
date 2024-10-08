@@ -30,7 +30,7 @@ namespace latihribbon
 
         private Form mainForm;
 
-        public SuratKeluarcs( Form mainForm,string NIS, string nama,string kelas)
+        public SuratKeluarcs(Form mainForm,string NIS, string nama,string kelas)
         {
             InitializeComponent();
             db = new DbDal();
@@ -92,7 +92,7 @@ namespace latihribbon
             Print();
             Insert();
             System.Threading.Thread.Sleep(1000);
-            Pemakai p = new Pemakai(this);
+            Pemakai p = new Pemakai(mainForm);
             p.Show();
             this.Close();
         }

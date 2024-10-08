@@ -190,11 +190,17 @@
     <Compile Include="Dal\MasukDal.cs" />
     <Compile Include="Dal\DbDal.cs" />
     <Compile Include="Dal\RiwayatLogin_UserDal.cs" />
-    <Compile Include="ScreenSurvey\Kepuasan.cs">
+    <Compile Include="ScreenAdmin\FormDataSurvey.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScreenAdmin\FormDataSurvey.Designer.cs">
+      <DependentUpon>FormDataSurvey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ScreenSurvey\FormSurvey.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ScreenSurvey\Kepuasan.Designer.cs">
-      <DependentUpon>Kepuasan.cs</DependentUpon>
+      <DependentUpon>FormSurvey.cs</DependentUpon>
     </Compile>
     <Compile Include="ScreenAdmin\FormKetentuanImport.cs">
       <SubType>Form</SubType>
@@ -318,14 +324,18 @@
     </Compile>
     <Compile Include="Model\UserModel.cs" />
     <Compile Include="Dal\SetPrintDal.cs" />
+    <Compile Include="SurveyModel.cs" />
     <Compile Include="UpdateInsert\SiswaIU.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UpdateInsert\SiswaIU.Designer.cs">
       <DependentUpon>SiswaIU.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ScreenAdmin\FormDataSurvey.resx">
+      <DependentUpon>FormDataSurvey.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ScreenSurvey\Kepuasan.resx">
-      <DependentUpon>Kepuasan.cs</DependentUpon>
+      <DependentUpon>FormSurvey.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ScreenAdmin\FormKetentuanImport.resx">
       <DependentUpon>FormKetentuanImport.cs</DependentUpon>
@@ -452,6 +462,8 @@
     <None Include="Resources\TidakPuas_Polos.png" />
     <None Include="Resources\TidakPuas_Warna.png" />
     <None Include="Resources\Animation - 1728355941486.gif" />
+    <None Include="Resources\satisfaction.png" />
+    <None Include="Resources\satisfaction %281%29.png" />
     <Content Include="SQL Script\CekData.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
