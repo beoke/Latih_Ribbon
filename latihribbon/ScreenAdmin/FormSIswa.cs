@@ -278,7 +278,6 @@ namespace latihribbon
             string persensi = txtPersensi.Text;
             string kelas = txtKelas.Text;
             string tahun = comboTahunFilter.SelectedItem.ToString();
-
             var sqlc = FilterSQL(nis, nama,persensi, kelas, tahun);
             var dp = new DynamicParameters();
             if (nis != "") dp.Add("@Nis", nis);
@@ -409,7 +408,6 @@ namespace latihribbon
                 return;
             }
             var cari = kelasDal.GetDataRombel(Convert.ToInt32(jurusan),tingkat);
-            if (!cari.Any()) return;
             rombelCombo.DataSource = cari.Select(item => item.Rombel).ToList();
         }
 
@@ -434,7 +432,6 @@ namespace latihribbon
                     foreach (var sheet in package.Workbook.Worksheets)
                     {
                         int RowCount = sheet.Dimension.Rows;
-
                         using (IDbConnection Conn = new SqlConnection(conn.connstr()))
                         {
                             for (int baris = 2; baris <= RowCount; baris++)
