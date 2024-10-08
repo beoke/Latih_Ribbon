@@ -18,19 +18,9 @@ namespace latihribbon
         public FormDataSurvey()
         {
             InitializeComponent();
-            GridListSurvey.DataSource = ListData()
-                                        .Select( x => new
-                                        {
-                                            Id = x.SurveyId,
-                                            Jawaban_Survey = x.HasilSurvey == 1 ? "Puas" : "Tidak Puas",
-                                            Tanggal = x.Tanggal.ToString("dd/MM/yyyy"), 
-                                            Waktu = x.Waktu
-                                        }).ToList();
             buf();
-
+            LoadData();
             GridListSurvey.RowEnter += GridListSurvey_RowEnter;
-
-
 
 
 
@@ -39,6 +29,36 @@ namespace latihribbon
             this.TopMost = true;
             this.ControlBox = true;
             this.KeyPreview = true;
+        }
+
+
+        private void LoadData()
+        {
+            GridListSurvey.DataSource = ListData()
+                                        .Select(x => new
+                                        {
+                                            Id = x.SurveyId,
+                                            Jawaban_Survey = x.HasilSurvey == 1 ? "Puas" : "Tidak Puas",
+                                            Tanggal = x.Tanggal.ToString("dd/MM/yyyy"),
+                                            Waktu = x.Waktu.ToString(@"hh\:mm")
+                                        }).ToList();
+
+
+            if (GridListSurvey.Rows.Count > 0)
+            {
+                GridListSurvey.ReadOnly = true;
+                GridListSurvey.EnableHeadersVisualStyles = false;
+                GridListSurvey.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+
+                GridListSurvey.DefaultCellStyle.Font = new Font("Sans Serif", 10);
+                GridListSurvey.ColumnHeadersDefaultCellStyle.Font = new Font("Sans Serif", 10, FontStyle.Bold);
+                GridListSurvey.ColumnHeadersDefaultCellStyle.BackColor = Color.LightBlue;
+                GridListSurvey.RowTemplate.Height = 30;
+                GridListSurvey.ColumnHeadersHeight = 35;
+
+                GridListSurvey.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+               
+            }
         }
 
         public void buf()
@@ -76,7 +96,7 @@ namespace latihribbon
             TextSurveyId.Text = data.SurveyId.ToString();
             TexthasilSurvey.Text = hasil;
             PickerTanggal.Value = data.Tanggal;
-            TextWaktu.Text = data.Waktu.ToString();
+            TextWaktu.Text = data.Waktu.ToString(@"hh\:mm");
 
 
         }

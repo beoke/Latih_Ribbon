@@ -47,6 +47,8 @@ namespace latihribbon
             this.ControlBox = true;
             this.KeyPreview = true;
             this.mainForm = mainForm;
+
+            
         }
 
         public void isian()
@@ -89,11 +91,11 @@ namespace latihribbon
             }
 
             if (!mesBox.MesKonfirmasi("Apakah data sudah benar ?")) return;
-            Print();
-            Insert();
+            if (Print()) Insert();
+            
+
             System.Threading.Thread.Sleep(1000);
-            Pemakai p = new Pemakai(mainForm);
-            p.Show();
+            mainForm.Show();
             this.Close();
         }
 
@@ -107,7 +109,7 @@ namespace latihribbon
 
             nis = txtNIS.Text;
             tanggal = globalCurrentTime;
-            jamkeluar = TimeSpan.Parse(globalCurrentTime.TimeOfDay.ToString());
+            jamkeluar = TimeSpan.Parse(tx_keluar.Text);
             jammasuk = TimeSpan.Parse(jamKembali.Text);
             tujuan = txtAlasan.Text;
 

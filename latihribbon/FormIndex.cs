@@ -21,6 +21,17 @@ namespace latihribbon
             this.WindowState = FormWindowState.Maximized;
             this.TopMost = true;
             this.ControlBox = true;
+            this.KeyPreview = true;
+
+            this.KeyDown += FormIndex_KeyDown;
+        }
+
+        private void FormIndex_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.Alt && e.KeyCode == Keys.K)
+            {
+                Application.Exit();
+            }
         }
 
         private void ControlEvent()

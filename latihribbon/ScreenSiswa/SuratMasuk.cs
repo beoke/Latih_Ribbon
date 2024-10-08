@@ -100,17 +100,18 @@ namespace latihribbon
             }
 
             if (!mesbox.MesKonfirmasi("Apakah data sudah benar ?")) return;
-            Print();
-            Insert();
+
+            if (Print()) Insert();
+
+
             System.Threading.Thread.Sleep(1000);
-            Pemakai p = new Pemakai(mainForm);
-            p.Show();
+            mainForm.Show();
             this.Close();
         }
 
         #region PRINT
 
-       public bool Print()
+        public bool Print()
         {
             try
             {
@@ -125,6 +126,7 @@ namespace latihribbon
                 //printPreviewDialogMasuk.ShowDialog();
 
                 printDocumentMasuk.Print();
+
                 return true;
             }
             catch (Exception ex)

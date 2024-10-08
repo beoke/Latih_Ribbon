@@ -36,6 +36,7 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.ButtonDeleteUser = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.PickerTanggal = new System.Windows.Forms.DateTimePicker();
             this.TextWaktu = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -43,7 +44,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.TextSurveyId = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.PickerTanggal = new System.Windows.Forms.DateTimePicker();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridListSurvey)).BeginInit();
@@ -54,15 +54,17 @@
             // 
             // panel4
             // 
-            this.panel4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel4.BackColor = System.Drawing.Color.DarkGray;
             this.panel4.Controls.Add(this.panel2);
             this.panel4.Controls.Add(this.GridListSurvey);
             this.panel4.Controls.Add(this.panel5);
-            this.panel4.Location = new System.Drawing.Point(55, 77);
+            this.panel4.Location = new System.Drawing.Point(12, 11);
             this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1090, 596);
+            this.panel4.Size = new System.Drawing.Size(1176, 729);
             this.panel4.TabIndex = 36;
             // 
             // panel2
@@ -75,7 +77,7 @@
             this.panel2.Location = new System.Drawing.Point(13, 9);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(588, 79);
+            this.panel2.Size = new System.Drawing.Size(674, 79);
             this.panel2.TabIndex = 8;
             // 
             // label6
@@ -83,7 +85,7 @@
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(233, 25);
+            this.label6.Location = new System.Drawing.Point(276, 25);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(131, 25);
@@ -101,7 +103,7 @@
             this.GridListSurvey.Margin = new System.Windows.Forms.Padding(4);
             this.GridListSurvey.Name = "GridListSurvey";
             this.GridListSurvey.RowHeadersWidth = 51;
-            this.GridListSurvey.Size = new System.Drawing.Size(588, 491);
+            this.GridListSurvey.Size = new System.Drawing.Size(674, 624);
             this.GridListSurvey.TabIndex = 0;
             // 
             // panel5
@@ -112,10 +114,10 @@
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel5.Controls.Add(this.panel7);
             this.panel5.Controls.Add(this.panel8);
-            this.panel5.Location = new System.Drawing.Point(608, 7);
+            this.panel5.Location = new System.Drawing.Point(694, 7);
             this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(469, 580);
+            this.panel5.Size = new System.Drawing.Size(469, 713);
             this.panel5.TabIndex = 4;
             // 
             // panel7
@@ -125,7 +127,7 @@
             this.panel7.BackColor = System.Drawing.Color.Gainsboro;
             this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel7.Controls.Add(this.ButtonDeleteUser);
-            this.panel7.Location = new System.Drawing.Point(12, 486);
+            this.panel7.Location = new System.Drawing.Point(12, 619);
             this.panel7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(442, 80);
@@ -163,8 +165,18 @@
             this.panel8.Location = new System.Drawing.Point(12, 18);
             this.panel8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(442, 443);
+            this.panel8.Size = new System.Drawing.Size(442, 576);
             this.panel8.TabIndex = 5;
+            // 
+            // PickerTanggal
+            // 
+            this.PickerTanggal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PickerTanggal.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.PickerTanggal.Location = new System.Drawing.Point(32, 245);
+            this.PickerTanggal.Name = "PickerTanggal";
+            this.PickerTanggal.ShowUpDown = true;
+            this.PickerTanggal.Size = new System.Drawing.Size(381, 27);
+            this.PickerTanggal.TabIndex = 67;
             // 
             // TextWaktu
             // 
@@ -246,16 +258,6 @@
             this.label9.Size = new System.Drawing.Size(88, 24);
             this.label9.TabIndex = 48;
             this.label9.Text = "Id Survey";
-            // 
-            // PickerTanggal
-            // 
-            this.PickerTanggal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PickerTanggal.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.PickerTanggal.Location = new System.Drawing.Point(32, 245);
-            this.PickerTanggal.Name = "PickerTanggal";
-            this.PickerTanggal.ShowUpDown = true;
-            this.PickerTanggal.Size = new System.Drawing.Size(381, 27);
-            this.PickerTanggal.TabIndex = 67;
             // 
             // FormDataSurvey
             // 

@@ -113,7 +113,18 @@ namespace latihribbon
             lblHalaman.Text = text;
             dp.Add("@Offset", inRowPage);
             dp.Add("@Fetch", RowPerPage);
-            dataGridView1.DataSource = keluarDal.ListData(sqlc, dp);
+            dataGridView1.DataSource = keluarDal.ListData(sqlc, dp)
+                .Select(x => new 
+                { 
+                    Id = x.Id,
+                    NIS = x.Nis,
+                    Nama = x.Nama,
+                    NamaKelas = x.NamaKelas,
+                    Tanggal = x.Tanggal,
+                    JamKeluar = x.JamKeluar.ToString(@"hh\:mm"),
+                    JamMasuk = x.JamMasuk.ToString(@"hh\:mm"),
+                    Tujuan = x.Tujuan,
+                }).ToList();
         }
 
         private void GetData()
