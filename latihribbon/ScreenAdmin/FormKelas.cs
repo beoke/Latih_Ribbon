@@ -83,22 +83,22 @@ namespace latihribbon.ScreenAdmin
 
         public void SaveData()
         {
-            string Rombel, idJurusan, tingkat;
-            int idKelas = txtIdKelas.Text==string.Empty ? 0: Convert.ToInt32(txtIdKelas.Text) ;
-            idJurusan = jurusanCombo.SelectedValue.ToString();
-            Rombel = txtRombel.Text;
-            tingkat = XRadio.Checked ? "X" : XIRadio.Checked ? "XI" : XIIRadio.Checked ? "XII" : string.Empty;
-
             var kelas = new KelasModel
             {
-                Id = idKelas,
-                NamaKelas = txtNamaKelas.Text,
-                Rombel = Rombel,
-                IdJurusan = int.Parse(idJurusan),
-                Tingkat = tingkat
+                Id = txtIdKelas.Text == string.Empty ? 0 : Convert.ToInt32(txtIdKelas.Text),
+                NamaKelas = txtNamaKelas.Text.Trim(),
+                Rombel = txtRombel.Text,
+                IdJurusan = int.Parse(jurusanCombo.SelectedValue.ToString()),
+                Tingkat = XRadio.Checked ? "X" : XIRadio.Checked ? "XI" : XIIRadio.Checked ? "XII" : string.Empty
             };
 
-            if(idKelas == 0)
+            if(kelas.NamaKelas == "" || kelas.Tingkat == "")
+            {
+                mesBox.MesInfo("Seluruh Data Wajib Diisi Kecuali ID !");
+                return;
+            }
+
+            if(kelas.Id == 0)
             {
                 kelasDal.Insert(kelas);
                 LoadData();

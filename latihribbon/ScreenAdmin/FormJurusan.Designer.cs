@@ -60,7 +60,7 @@
             this.panel3.BackColor = System.Drawing.Color.DarkGray;
             this.panel3.Controls.Add(this.GridListJurusan);
             this.panel3.Location = new System.Drawing.Point(9, 20);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(440, 462);
             this.panel3.TabIndex = 4;
@@ -85,7 +85,7 @@
             this.panel4.BackColor = System.Drawing.Color.DarkGray;
             this.panel4.Controls.Add(this.panel2);
             this.panel4.Location = new System.Drawing.Point(461, 20);
-            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(352, 462);
             this.panel4.TabIndex = 5;
@@ -99,7 +99,7 @@
             this.panel2.Controls.Add(this.panel6);
             this.panel2.Controls.Add(this.panel5);
             this.panel2.Location = new System.Drawing.Point(5, 6);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(342, 450);
             this.panel2.TabIndex = 4;
@@ -111,7 +111,7 @@
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.LabelJurusan);
             this.panel1.Location = new System.Drawing.Point(4, 6);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(332, 73);
             this.panel1.TabIndex = 7;
@@ -135,7 +135,7 @@
             this.panel6.Controls.Add(this.btnSaveJurusan);
             this.panel6.Controls.Add(this.btnNewJurusan);
             this.panel6.Location = new System.Drawing.Point(4, 366);
-            this.panel6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel6.Margin = new System.Windows.Forms.Padding(2);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(332, 73);
             this.panel6.TabIndex = 6;
@@ -146,7 +146,7 @@
             this.btnDeleteJurusan.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteJurusan.ForeColor = System.Drawing.Color.White;
             this.btnDeleteJurusan.Location = new System.Drawing.Point(119, 21);
-            this.btnDeleteJurusan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDeleteJurusan.Margin = new System.Windows.Forms.Padding(2);
             this.btnDeleteJurusan.Name = "btnDeleteJurusan";
             this.btnDeleteJurusan.Size = new System.Drawing.Size(90, 32);
             this.btnDeleteJurusan.TabIndex = 0;
@@ -159,7 +159,7 @@
             this.btnSaveJurusan.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSaveJurusan.ForeColor = System.Drawing.Color.White;
             this.btnSaveJurusan.Location = new System.Drawing.Point(224, 21);
-            this.btnSaveJurusan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSaveJurusan.Margin = new System.Windows.Forms.Padding(2);
             this.btnSaveJurusan.Name = "btnSaveJurusan";
             this.btnSaveJurusan.Size = new System.Drawing.Size(90, 32);
             this.btnSaveJurusan.TabIndex = 1;
@@ -173,7 +173,7 @@
             this.btnNewJurusan.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNewJurusan.ForeColor = System.Drawing.Color.DimGray;
             this.btnNewJurusan.Location = new System.Drawing.Point(15, 21);
-            this.btnNewJurusan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnNewJurusan.Margin = new System.Windows.Forms.Padding(2);
             this.btnNewJurusan.Name = "btnNewJurusan";
             this.btnNewJurusan.Size = new System.Drawing.Size(90, 32);
             this.btnNewJurusan.TabIndex = 62;
@@ -190,7 +190,7 @@
             this.panel5.Controls.Add(this.txtIdJurusan);
             this.panel5.Controls.Add(this.label9);
             this.panel5.Location = new System.Drawing.Point(4, 92);
-            this.panel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel5.Margin = new System.Windows.Forms.Padding(2);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(332, 261);
             this.panel5.TabIndex = 5;
@@ -200,7 +200,7 @@
             this.txtNamaJurusan.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNamaJurusan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNamaJurusan.Location = new System.Drawing.Point(24, 121);
-            this.txtNamaJurusan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNamaJurusan.Margin = new System.Windows.Forms.Padding(2);
             this.txtNamaJurusan.Name = "txtNamaJurusan";
             this.txtNamaJurusan.Size = new System.Drawing.Size(286, 23);
             this.txtNamaJurusan.TabIndex = 51;
@@ -222,7 +222,7 @@
             this.txtIdJurusan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIdJurusan.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtIdJurusan.Location = new System.Drawing.Point(24, 55);
-            this.txtIdJurusan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtIdJurusan.Margin = new System.Windows.Forms.Padding(2);
             this.txtIdJurusan.Name = "txtIdJurusan";
             this.txtIdJurusan.ReadOnly = true;
             this.txtIdJurusan.Size = new System.Drawing.Size(286, 23);
@@ -247,7 +247,7 @@
             this.ClientSize = new System.Drawing.Size(824, 490);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel4);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormJurusan";
             this.Text = "FormJurusan";
             this.panel3.ResumeLayout(false);

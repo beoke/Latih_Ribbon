@@ -148,8 +148,8 @@ namespace latihribbon
             DateTime tgl;
             TimeSpan jamKeluar, jamMasuk;
             nis = txtNIS1.Text;
-            nama = txtNama1.Text;
-            tujuan = txtTujuan1.Text;
+            nama = txtNama1.Text.Trim();
+            tujuan = txtTujuan1.Text.Trim();
             tgl = tglDT.Value;
             jamKeluar = jamKeluarDT.Value.TimeOfDay;
             jamMasuk = jamMasukDT.Value.TimeOfDay;
