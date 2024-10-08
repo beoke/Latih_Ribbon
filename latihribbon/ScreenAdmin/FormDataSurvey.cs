@@ -19,17 +19,31 @@ namespace latihribbon
         {
             InitializeComponent();
             GridListSurvey.DataSource = ListData();
+            buf();
 
             GridListSurvey.RowEnter += GridListSurvey_RowEnter;
         }
 
+        public void buf()
+        {
+            typeof(DataGridView).InvokeMember("DoubleBuffered",
+            System.Reflection.BindingFlags.NonPublic |
+            System.Reflection.BindingFlags.Instance |
+            System.Reflection.BindingFlags.SetProperty,
+            null,
+            GridListSurvey,
+            new object[] { true });
+        }
+
+
+
         private void GridListSurvey_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex != 0)
+            if (e.RowIndex != null)
             {
-                var surveyId = GridListSurvey.CurrentRow.Cells[0].Value;
+                var surveyId = GridListSurvey.Rows[e.RowIndex].Cells[0].Value;
 
-
+                GetDataFromGrid(Convert.ToInt32(surveyId));
 
             }
         }
