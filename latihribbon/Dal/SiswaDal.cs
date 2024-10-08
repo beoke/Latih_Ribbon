@@ -13,9 +13,9 @@ namespace latihribbon.Dal
     {
         public IEnumerable<SiswaModel> ListData(string sqlc,object dp)
         {
-            using (var koneksi = new SqlConnection(Conn.conn.connstr()))
-            {
-                string sql = $@"SELECT s.Nis,s.Nama,s.JenisKelamin,s.Persensi,k.NamaKelas,s.Tahun FROM siswa s 
+                using (var koneksi = new SqlConnection(Conn.conn.connstr()))
+                {
+                    string sql = $@"SELECT s.Nis,s.Nama,s.JenisKelamin,s.Persensi,k.NamaKelas,s.Tahun FROM siswa s 
                                 INNER JOIN Kelas k ON s.IdKelas = k.Id {sqlc} 
                                 ORDER BY 
                                     Nis ASC,
@@ -27,8 +27,8 @@ namespace latihribbon.Dal
                                     END,
                                     SUBSTRING( k.NamaKelas, CHARINDEX(' ', k.NamaKelas) + 1, LEN(k.NamaKelas)) ASC 
                                     OFFSET @Offset ROWS FETCH NEXT @Fetch ROWS ONLY";
-                return koneksi.Query<SiswaModel>(sql,dp);  
-            }
+                    return koneksi.Query<SiswaModel>(sql, dp);
+                }
         }
 
         public IEnumerable<SiswaModel> GetSiswaFilter(string sql, object mbuh)
@@ -42,13 +42,13 @@ namespace latihribbon.Dal
 
         public SiswaModel GetData(int Nis)
         {
-            using (var koneksi = new SqlConnection(Conn.conn.connstr()))
-            {
-                const string sql = @"SELECT s.Nis,s.Nama,s.JenisKelamin,s.Persensi,s.IdKelas,k.NamaKelas,s.Tahun FROM siswa s 
+                using (var koneksi = new SqlConnection(Conn.conn.connstr()))
+                {
+                    const string sql = @"SELECT s.Nis,s.Nama,s.JenisKelamin,s.Persensi,s.IdKelas,k.NamaKelas,s.Tahun FROM siswa s 
                                 INNER JOIN Kelas k ON s.IdKelas = k.Id
                                 WHERE s.Nis=@Nis";
-                return koneksi.QueryFirstOrDefault<SiswaModel>(sql, new {Nis=Nis});
-            }
+                    return koneksi.QueryFirstOrDefault<SiswaModel>(sql, new { Nis = Nis });
+                }
         }
 
         public void Insert(SiswaModel siswa)

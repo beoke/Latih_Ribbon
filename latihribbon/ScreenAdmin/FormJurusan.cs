@@ -107,7 +107,7 @@ namespace latihribbon.ScreenAdmin
 
         private void SaveData()
         {
-            var namaJurusan = txtNamaJurusan.Text;
+            var namaJurusan = txtNamaJurusan.Text.Trim();
             if(namaJurusan == string.Empty)
             {
                 mesBox.MesInfo("Nama Jurusan Wajib Diisi!");

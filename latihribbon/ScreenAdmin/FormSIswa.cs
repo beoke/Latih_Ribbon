@@ -35,7 +35,7 @@ namespace latihribbon
         public FormSIswa()
         {
             InitializeComponent();
-            //buf();
+            buf();
             db = new DbDal();
             siswaDal = new SiswaDal();
             jurusanDal = new JurusanDal();
@@ -157,7 +157,7 @@ namespace latihribbon
         {
             string nis, persensi, nama, jenisKelamin = string.Empty, tingkat = string.Empty, rombel, tahun;
             nis = txtNIS_FormSiswa.Text;
-            nama = txtNama_FormSiswa.Text;
+            nama = txtNama_FormSiswa.Text.Trim();
             persensi = txtPersensi_FormSiswa.Text;
             if (lakiRadio.Checked) jenisKelamin = "L";
             if (perempuanRadio.Checked) jenisKelamin = "P";

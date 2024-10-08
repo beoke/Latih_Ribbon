@@ -177,7 +177,7 @@ namespace latihribbon
             DateTime tgl;
 
             nis = txtNIS1.Text;
-            nama = txtNama1.Text;
+            nama = txtNama1.Text.Trim();
             persensi = txtPersensi1.Text;
             kelas = txtKelas1.Text;
             tgl = tglDT.Value;

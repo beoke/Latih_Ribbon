@@ -144,8 +144,8 @@ namespace latihribbon
         private void SaveData()
         {
             string nis = txtNIS1.Text;
-            string nama = txtNama1.Text;
-            string alasan = txtAlasan1.Text;
+            string nama = txtNama1.Text.Trim();
+            string alasan = txtAlasan1.Text.Trim();
             DateTime tgl = tglDT.Value;
             TimeSpan jamMasuk = jamMasukDT.Value.TimeOfDay;
 
