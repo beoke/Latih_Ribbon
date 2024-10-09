@@ -27,7 +27,26 @@ namespace latihribbon
             ControlEvent();
 
             tx_Username.Focus();
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.WindowState = FormWindowState.Maximized;
+            this.TopMost = true;
+            this.ControlBox = true;
             this.mainForm = mainForm;
+            this.KeyPreview = true;
+
+            this.KeyDown += Login_KeyDown;
+        }
+
+        private void Login_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.Alt && e.KeyCode == Keys.K)
+            {
+                mainForm.Show();
+                this.Close();
+
+            }
+
+
         }
         #region EVENT
 
@@ -99,7 +118,7 @@ namespace latihribbon
                 InsertHistori();
                 if (user.Role == "admin")
                 {
-                    Form1 adminDashboard = new Form1(this);
+                    Form1 adminDashboard = new Form1(mainForm);
                     adminDashboard.Show();
                 }
               

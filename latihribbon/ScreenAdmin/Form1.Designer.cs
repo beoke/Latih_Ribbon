@@ -56,6 +56,7 @@
             this.ribbonButtonSurvey = new System.Windows.Forms.RibbonButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ButtonLogOut = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -77,7 +78,7 @@
             this.ribbon1.OrbDropDown.Size = new System.Drawing.Size(527, 116);
             this.ribbon1.OrbDropDown.TabIndex = 0;
             this.ribbon1.RibbonTabFont = new System.Drawing.Font("Trebuchet MS", 9F);
-            this.ribbon1.Size = new System.Drawing.Size(1283, 199);
+            this.ribbon1.Size = new System.Drawing.Size(1083, 199);
             this.ribbon1.TabIndex = 0;
             this.ribbon1.Tabs.Add(this.ribbonTab1);
             this.ribbon1.Tabs.Add(this.AbsensiSiswa);
@@ -275,7 +276,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 199);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1283, 504);
+            this.panel1.Size = new System.Drawing.Size(1083, 504);
             this.panel1.TabIndex = 1;
             // 
             // dataGridView1
@@ -286,16 +287,38 @@
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(1283, 504);
+            this.dataGridView1.Size = new System.Drawing.Size(1083, 504);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // ButtonLogOut
+            // 
+            this.ButtonLogOut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ButtonLogOut.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.ButtonLogOut.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.ButtonLogOut.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.ButtonLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonLogOut.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonLogOut.ForeColor = System.Drawing.Color.Black;
+            this.ButtonLogOut.Image = global::latihribbon.Properties.Resources.LogOutIcon;
+            this.ButtonLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.ButtonLogOut.Location = new System.Drawing.Point(931, 110);
+            this.ButtonLogOut.Name = "ButtonLogOut";
+            this.ButtonLogOut.Size = new System.Drawing.Size(114, 44);
+            this.ButtonLogOut.TabIndex = 1;
+            this.ButtonLogOut.Text = "LogOut";
+            this.ButtonLogOut.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ButtonLogOut.UseVisualStyleBackColor = false;
+            this.ButtonLogOut.Click += new System.EventHandler(this.ButtonLogOut_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1283, 703);
+            this.ClientSize = new System.Drawing.Size(1083, 703);
+            this.Controls.Add(this.ButtonLogOut);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ribbon1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
@@ -340,6 +363,7 @@
         private System.Windows.Forms.RibbonPanel ribbonPanel4;
         private System.Windows.Forms.RibbonButton ribbonButtonSurvey;
         private System.Windows.Forms.RibbonPanel ribbonPanel6;
+        private System.Windows.Forms.Button ButtonLogOut;
     }
 }
 

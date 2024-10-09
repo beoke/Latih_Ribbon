@@ -173,6 +173,26 @@ namespace latihribbon.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap LogOut {
+            get {
+                object obj = ResourceManager.GetObject("LogOut", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LogOutIcon {
+            get {
+                object obj = ResourceManager.GetObject("LogOutIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Puas_Polos {
             get {
                 object obj = ResourceManager.GetObject("Puas_Polos", resourceCulture);
@@ -276,6 +296,16 @@ namespace latihribbon.Properties {
         internal static System.Drawing.Bitmap TidakPuas_Warna {
             get {
                 object obj = ResourceManager.GetObject("TidakPuas_Warna", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TidakPuas_WarnaEdit {
+            get {
+                object obj = ResourceManager.GetObject("TidakPuas_WarnaEdit", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

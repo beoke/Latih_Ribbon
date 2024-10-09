@@ -1,4 +1,6 @@
-﻿using latihribbon.ScreenAdmin;
+﻿using DocumentFormat.OpenXml.Drawing.ChartDrawing;
+using latihribbon.Helper;
+using latihribbon.ScreenAdmin;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,13 +17,23 @@ namespace latihribbon
 {
     public partial class Form1 : RibbonForm
     {
-        private readonly login l;
-        public Form1(login l)
-        {
-            InitializeComponent();
-            this.l = l;
 
-            this.MinimumSize = new Size(1200, 900);
+        private Form mainForm;
+        private readonly MesBox _mesbox;
+
+        public Form1(Form mainForm)
+        {
+
+            InitializeComponent();
+            _mesbox = new MesBox();
+
+            this.mainForm = mainForm;
+            this.WindowState = FormWindowState.Maximized;
+            
+            this.MinimizeBox = false;
+            this.MaximizeBox = true;
+            this.MinimumSize = new Size(1500, 800);
+
 
         }
         private void ShowFormInPanel(Form form) 
@@ -163,12 +175,30 @@ namespace latihribbon
             ribbonButtonSurvey.Checked = false;
         }
 
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        bool Closing = true;
+
+
+        private void ButtonLogOut_Click(object sender, EventArgs e)
         {
-           Application.Exit();
+            if(MessageBox.Show("Anda yakin ingin keluar ? ", "Perhatian", MessageBoxButtons.YesNo , MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Closing = false;
+                mainForm.Show();
+                this.Close();
+            }
         }
 
-        
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (Closing)
+            {
+                _mesbox.MesInfo("ANDA HARUS LOGOUT");
+                e.Cancel = true;
+            }
+        }
+
+
+
     }
 }
 

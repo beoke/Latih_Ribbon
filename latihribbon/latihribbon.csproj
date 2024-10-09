@@ -187,10 +187,10 @@
     <Compile Include="Dal\MasukDal.cs" />
     <Compile Include="Dal\DbDal.cs" />
     <Compile Include="Dal\RiwayatLogin_UserDal.cs" />
-    <Compile Include="SurveyForm.cs">
+    <Compile Include="ScreenSurvey\SurveyForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SurveyForm.Designer.cs">
+    <Compile Include="ScreenSurvey\SurveyForm.Designer.cs">
       <DependentUpon>SurveyForm.cs</DependentUpon>
     </Compile>
     <Compile Include="FormIndex.cs">
@@ -321,14 +321,8 @@
     </Compile>
     <Compile Include="Model\UserModel.cs" />
     <Compile Include="Dal\SetPrintDal.cs" />
-    <Compile Include="SurveyModel.cs" />
-    <Compile Include="UpdateInsert\SiswaIU.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UpdateInsert\SiswaIU.Designer.cs">
-      <DependentUpon>SiswaIU.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="SurveyForm.resx">
+    <Compile Include="ScreenSurvey\SurveyModel.cs" />
+    <EmbeddedResource Include="ScreenSurvey\SurveyForm.resx">
       <DependentUpon>SurveyForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormIndex.resx">
@@ -461,10 +455,11 @@
     <None Include="Resources\Animation - 1728355941486.gif" />
     <None Include="Resources\satisfaction.png" />
     <None Include="Resources\satisfaction %281%29.png" />
+    <None Include="Resources\TidakPuas_WarnaEdit.png" />
+    <None Include="Resources\LogOut.png" />
+    <None Include="Resources\LogOutIcon.png" />
     <Content Include="SQL Script\CekData.sql" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ScreenSurvey\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

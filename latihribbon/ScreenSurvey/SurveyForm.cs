@@ -86,6 +86,8 @@ namespace latihribbon
                 MessageBox.Show("Terima kasih,  respon anda sangat berharga bagi kami :)", "Pesan", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
                 MessageBox.Show("🖕 🐶 🖕", "Pesan", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            mainForm.Show();
+            this.Close();
 
             clear();
         }
@@ -103,7 +105,7 @@ namespace latihribbon
             {
                 clear();
 
-                PictureBoxTidakPuas.BackgroundImage = Properties.Resources.TidakPuas_Warna;
+                PictureBoxTidakPuas.BackgroundImage = Properties.Resources.TidakPuas_WarnaEdit;
                 PictureBoxTidakPuas.BackgroundImageLayout = ImageLayout.Stretch;
 
                 TidakPuasOn = true;

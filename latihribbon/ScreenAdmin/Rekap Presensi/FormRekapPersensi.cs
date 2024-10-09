@@ -1,7 +1,6 @@
 ﻿using Dapper;
 using latihribbon.Dal;
 using latihribbon.Model;
-using latihribbon.UpdateInsert;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
 using System;
