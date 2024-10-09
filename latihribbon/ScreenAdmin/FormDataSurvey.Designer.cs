@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.panel4 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.GridListSurvey = new System.Windows.Forms.DataGridView();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.ButtonDeleteUser = new System.Windows.Forms.Button();
@@ -44,12 +41,25 @@
             this.label7 = new System.Windows.Forms.Label();
             this.TextSurveyId = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.ComboFilter = new System.Windows.Forms.ComboBox();
+            this.ButtonResetFilter = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.PickerRentan_1 = new System.Windows.Forms.DateTimePicker();
+            this.PickerRentan_2 = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.LabelHalaman = new System.Windows.Forms.Label();
+            this.GridListSurvey = new System.Windows.Forms.DataGridView();
             this.panel4.SuspendLayout();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.GridListSurvey)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel8.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GridListSurvey)).BeginInit();
             this.SuspendLayout();
             // 
             // panel4
@@ -58,53 +68,12 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel4.BackColor = System.Drawing.Color.DarkGray;
-            this.panel4.Controls.Add(this.panel2);
-            this.panel4.Controls.Add(this.GridListSurvey);
             this.panel4.Controls.Add(this.panel5);
-            this.panel4.Location = new System.Drawing.Point(12, 11);
+            this.panel4.Location = new System.Drawing.Point(694, 89);
             this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1176, 729);
+            this.panel4.Size = new System.Drawing.Size(490, 652);
             this.panel4.TabIndex = 36;
-            // 
-            // panel2
-            // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.BackColor = System.Drawing.Color.Gainsboro;
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.label6);
-            this.panel2.Location = new System.Drawing.Point(13, 9);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(674, 79);
-            this.panel2.TabIndex = 8;
-            // 
-            // label6
-            // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(276, 25);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(131, 25);
-            this.label6.TabIndex = 58;
-            this.label6.Text = "Data Survey";
-            // 
-            // GridListSurvey
-            // 
-            this.GridListSurvey.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.GridListSurvey.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.GridListSurvey.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GridListSurvey.Location = new System.Drawing.Point(13, 94);
-            this.GridListSurvey.Margin = new System.Windows.Forms.Padding(4);
-            this.GridListSurvey.Name = "GridListSurvey";
-            this.GridListSurvey.RowHeadersWidth = 51;
-            this.GridListSurvey.Size = new System.Drawing.Size(674, 624);
-            this.GridListSurvey.TabIndex = 0;
             // 
             // panel5
             // 
@@ -114,10 +83,10 @@
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel5.Controls.Add(this.panel7);
             this.panel5.Controls.Add(this.panel8);
-            this.panel5.Location = new System.Drawing.Point(694, 7);
+            this.panel5.Location = new System.Drawing.Point(8, 7);
             this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(469, 713);
+            this.panel5.Size = new System.Drawing.Size(469, 636);
             this.panel5.TabIndex = 4;
             // 
             // panel7
@@ -127,7 +96,7 @@
             this.panel7.BackColor = System.Drawing.Color.Gainsboro;
             this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel7.Controls.Add(this.ButtonDeleteUser);
-            this.panel7.Location = new System.Drawing.Point(12, 619);
+            this.panel7.Location = new System.Drawing.Point(12, 542);
             this.panel7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(442, 80);
@@ -165,7 +134,7 @@
             this.panel8.Location = new System.Drawing.Point(12, 18);
             this.panel8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(442, 576);
+            this.panel8.Size = new System.Drawing.Size(442, 499);
             this.panel8.TabIndex = 5;
             // 
             // PickerTanggal
@@ -259,22 +228,160 @@
             this.label9.TabIndex = 48;
             this.label9.Text = "Id Survey";
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.panel3);
+            this.panel1.Controls.Add(this.panel4);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1196, 751);
+            this.panel1.TabIndex = 37;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel2.Controls.Add(this.ComboFilter);
+            this.panel2.Controls.Add(this.ButtonResetFilter);
+            this.panel2.Controls.Add(this.label5);
+            this.panel2.Controls.Add(this.PickerRentan_1);
+            this.panel2.Controls.Add(this.PickerRentan_2);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1196, 84);
+            this.panel2.TabIndex = 40;
+            // 
+            // ComboFilter
+            // 
+            this.ComboFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ComboFilter.FormattingEnabled = true;
+            this.ComboFilter.Location = new System.Drawing.Point(33, 29);
+            this.ComboFilter.Name = "ComboFilter";
+            this.ComboFilter.Size = new System.Drawing.Size(121, 26);
+            this.ComboFilter.TabIndex = 39;
+            // 
+            // ButtonResetFilter
+            // 
+            this.ButtonResetFilter.Location = new System.Drawing.Point(736, 29);
+            this.ButtonResetFilter.Margin = new System.Windows.Forms.Padding(4);
+            this.ButtonResetFilter.Name = "ButtonResetFilter";
+            this.ButtonResetFilter.Size = new System.Drawing.Size(100, 28);
+            this.ButtonResetFilter.TabIndex = 32;
+            this.ButtonResetFilter.Text = "Reset";
+            this.ButtonResetFilter.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(512, 25);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(17, 18);
+            this.label5.TabIndex = 31;
+            this.label5.Text = "_";
+            // 
+            // PickerRentan_1
+            // 
+            this.PickerRentan_1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.PickerRentan_1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PickerRentan_1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.PickerRentan_1.Location = new System.Drawing.Point(322, 28);
+            this.PickerRentan_1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.PickerRentan_1.Name = "PickerRentan_1";
+            this.PickerRentan_1.Size = new System.Drawing.Size(183, 27);
+            this.PickerRentan_1.TabIndex = 29;
+            // 
+            // PickerRentan_2
+            // 
+            this.PickerRentan_2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.PickerRentan_2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PickerRentan_2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.PickerRentan_2.Location = new System.Drawing.Point(534, 29);
+            this.PickerRentan_2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.PickerRentan_2.Name = "PickerRentan_2";
+            this.PickerRentan_2.Size = new System.Drawing.Size(183, 27);
+            this.PickerRentan_2.TabIndex = 30;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(198, 32);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(118, 20);
+            this.label2.TabIndex = 26;
+            this.label2.Text = "Rentan Tanggal :";
+            // 
+            // panel3
+            // 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.BackColor = System.Drawing.Color.DarkGray;
+            this.panel3.Controls.Add(this.LabelHalaman);
+            this.panel3.Controls.Add(this.GridListSurvey);
+            this.panel3.Location = new System.Drawing.Point(10, 89);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(678, 652);
+            this.panel3.TabIndex = 39;
+            // 
+            // LabelHalaman
+            // 
+            this.LabelHalaman.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.LabelHalaman.AutoSize = true;
+            this.LabelHalaman.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelHalaman.Location = new System.Drawing.Point(257, 595);
+            this.LabelHalaman.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LabelHalaman.Name = "LabelHalaman";
+            this.LabelHalaman.Size = new System.Drawing.Size(113, 20);
+            this.LabelHalaman.TabIndex = 38;
+            this.LabelHalaman.Text = "Halaman 1/10";
+            // 
+            // GridListSurvey
+            // 
+            this.GridListSurvey.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.GridListSurvey.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.GridListSurvey.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GridListSurvey.Location = new System.Drawing.Point(9, 7);
+            this.GridListSurvey.Margin = new System.Windows.Forms.Padding(4);
+            this.GridListSurvey.Name = "GridListSurvey";
+            this.GridListSurvey.RowHeadersWidth = 51;
+            this.GridListSurvey.Size = new System.Drawing.Size(660, 545);
+            this.GridListSurvey.TabIndex = 37;
+            // 
             // FormDataSurvey
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 751);
-            this.Controls.Add(this.panel4);
+            this.ClientSize = new System.Drawing.Size(1196, 751);
+            this.Controls.Add(this.panel1);
             this.Name = "FormDataSurvey";
             this.Text = "FormDataSurvey";
             this.panel4.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.GridListSurvey)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GridListSurvey)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -282,9 +389,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DataGridView GridListSurvey;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel8;
@@ -297,5 +401,16 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button ButtonDeleteUser;
         private System.Windows.Forms.DateTimePicker PickerTanggal;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.DataGridView GridListSurvey;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DateTimePicker PickerRentan_1;
+        private System.Windows.Forms.DateTimePicker PickerRentan_2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button ButtonResetFilter;
+        private System.Windows.Forms.Label LabelHalaman;
+        private System.Windows.Forms.ComboBox ComboFilter;
     }
 }
