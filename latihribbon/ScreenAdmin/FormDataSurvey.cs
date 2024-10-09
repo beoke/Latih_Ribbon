@@ -19,9 +19,13 @@ namespace latihribbon
         {
             InitializeComponent();
             buf();
-            LoadData();
-            GridListSurvey.RowEnter += GridListSurvey_RowEnter;
-            ButtonDeleteUser.Click += ButtonDeleteUser_Click;
+
+            ControlEvent();
+            //init Combo
+            ComboFilter.Items.Add("Semua");
+            ComboFilter.Items.Add("Hari ini");
+            ComboFilter.SelectedIndex = 0;
+            LoadData("");
 
 
 
@@ -30,6 +34,60 @@ namespace latihribbon
             this.TopMost = true;
             this.ControlBox = true;
             this.KeyPreview = true;
+        }
+        private void ControlEvent()
+        {
+            GridListSurvey.RowEnter += GridListSurvey_RowEnter;
+            ButtonDeleteUser.Click += ButtonDeleteUser_Click;
+
+            ComboFilter.SelectedValueChanged += ComboFilter_SelectedValueChanged;
+            PickerRentan_1.ValueChanged += PickerRentan_ValueChanged;
+            PickerRentan_2.ValueChanged += PickerRentan_ValueChanged;
+
+            ButtonResetFilter.Click += ButtonResetFilter_Click;
+        }
+
+        private void ButtonResetFilter_Click(object sender, EventArgs e)
+        {
+            ComboFilter.SelectedIndex = 0;
+            PickerRentan_1.Value = DateTime.Today;
+            PickerRentan_2.Value = DateTime.Today;
+            LoadData("");
+        }
+
+        private async void PickerRentan_ValueChanged(object sender, EventArgs e)
+        {
+            string tanggal_1 = PickerRentan_1.Value.ToString("yyyy-MM-dd");
+            string tanggal_2 = PickerRentan_2.Value.ToString("yyyy-MM-dd");
+
+
+            string Filter = $"WHERE Tanggal  BETWEEN '{tanggal_1}' AND '{tanggal_2}' ";
+
+            await Task.Delay(300);
+
+            LoadData(Filter);
+            ComboFilter.SelectedIndex = 0;
+        }
+
+
+        private void ComboFilter_SelectedValueChanged(object sender, EventArgs e)
+        {
+            var tanggal = DateTime.Today.ToString("yyyy-MM-dd");
+            if (ComboFilter.SelectedItem.ToString() == "Semua")
+            {
+                LoadData("");
+            }
+            else if (ComboFilter.SelectedItem.ToString() == "Hari ini")
+            {
+                MessageBox.Show(tanggal.ToString());
+                string Filter = $"WHERE CAST (Tanggal AS DATE) = '{tanggal}'";
+                LoadData(Filter);
+            }
+            
+
+
+
+
         }
 
         private void ButtonDeleteUser_Click(object sender, EventArgs e)
@@ -46,9 +104,9 @@ namespace latihribbon
 
         }
 
-        private void LoadData()
+        private void LoadData(string Filter)
         {
-            GridListSurvey.DataSource = ListData()
+            GridListSurvey.DataSource = ListData(Filter)
                                         .Select(x => new
                                         {
                                             Id = x.SurveyId,
@@ -118,11 +176,11 @@ namespace latihribbon
     
 
         #region DAL
-        private IEnumerable<SurveyModel> ListData()
+        private IEnumerable<SurveyModel> ListData(string Filter)
         {
             using (var Conn = new SqlConnection(conn.connstr()))
             {
-                const string sql = @"SELECT * FROM Survey ORDER BY SurveyId ASC";
+                string sql = $@"SELECT * FROM Survey {Filter} ORDER BY SurveyId DESC";
 
                 return Conn.Query<SurveyModel>(sql);
             }
@@ -151,5 +209,6 @@ namespace latihribbon
         }
 
         #endregion
+
     }
 }
