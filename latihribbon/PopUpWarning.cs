@@ -15,7 +15,9 @@ namespace latihribbon
         public PopUpWarning()
         {
             InitializeComponent();
+             
             this.Load += LoadForm;
+            this.Text = "";
         }
         private async void LoadForm(object sender, EventArgs e)
         {

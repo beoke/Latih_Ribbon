@@ -12,6 +12,7 @@ namespace latihribbon
 {
     public partial class FormIndex : Form
     {
+        private bool TopMost = true;
         public FormIndex()
         {
             InitializeComponent();
@@ -46,15 +47,14 @@ namespace latihribbon
             login log = new login(this);
             log.Show();
 
-            this.Hide();
+            this.Opacity = 0;
         }
 
         private void ButtonSurvey_Click(object sender, EventArgs e)
         {
             SurveyForm survey = new SurveyForm(this);
             survey.Show();
-
-            this.Hide();
+            this.Opacity = 0;
         }
 
         private void ButtonSimResi_Click(object sender, EventArgs e)
@@ -62,7 +62,7 @@ namespace latihribbon
             Pemakai pakai = new Pemakai(this);
             pakai.Show();
 
-            this.Hide();
+            this.Opacity = 0;
         }
     }
 }

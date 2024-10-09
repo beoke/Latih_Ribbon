@@ -43,10 +43,7 @@ namespace latihribbon
             {
                 mainForm.Show();
                 this.Close();
-
             }
-
-
         }
         #region EVENT
 
@@ -57,8 +54,13 @@ namespace latihribbon
 
             tx_Username.Leave += Tx_Username_Leave;
             tx_Password.Leave += Tx_Password_Leave;
+            btn_kembali.Click += btn_kembali_Click;
         }
-
+        private void btn_kembali_Click(object sender, EventArgs e)
+        {
+            mainForm.Opacity = 1;
+            this.Close();
+        }
         private void Tx_Password_Leave(object sender, EventArgs e)
         {
             if (tx_Password.Text.Length > 0)

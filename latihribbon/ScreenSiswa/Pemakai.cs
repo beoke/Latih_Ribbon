@@ -1,4 +1,5 @@
 ﻿using latihribbon.Dal;
+using latihribbon.Helper;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,21 +17,22 @@ namespace latihribbon
         private DbDal _dbDal;
         private readonly SiswaDal siswaDal;
         private readonly KelasDal kelasDal;
+        private readonly MesBox mesBox;
 
         private Form mainForm;
         public Pemakai(Form mainForm)
         {
             InitializeComponent();
+            this.WindowState = FormWindowState.Maximized;
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.TopMost = true;
+            this.ControlBox = true;
+            this.KeyPreview = true;
+            this.mainForm = mainForm;
             _dbDal = new DbDal();
             siswaDal = new SiswaDal();
             kelasDal = new KelasDal();
-
-            this.FormBorderStyle = FormBorderStyle.None;
-            this.WindowState = FormWindowState.Maximized;
-            this.TopMost = true;
-            this.ControlBox = true;
-            this.KeyPreview = true;// Agar form dapat menangani key press event
-            this.mainForm = mainForm;
+            mesBox = new MesBox();
         }
 
  
@@ -41,7 +43,6 @@ namespace latihribbon
         }
         public void ResetForm()
         {
-            // Mengosongkan TextBox dan mengembalikan fokus ke TextBox NIS
             tx_NIS.Clear();
             tx_NIS.Focus();
         }
@@ -56,12 +57,11 @@ namespace latihribbon
 
         public void ENTER()
         {
-            // Validasi input untuk memastikan hanya angka yang bisa dimasukkan
             int nis;
            
             if (!int.TryParse(tx_NIS.Text, out nis))
             {
-                MessageBox.Show($"Harap masukkan angka yang valid untuk NIS.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                mesBox.MesInfo("Harap masukkan angka yang valid untuk NIS!");
                 tx_NIS.Text = "";
                 return;
             }
@@ -70,7 +70,7 @@ namespace latihribbon
             var siswa = siswaDal.GetData(nis);
             if (siswa == null)
             {
-                MessageBox.Show("NIS tidak ditemukan.", "Data Not Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("NIS tidak ditemukan.", "Data Not Found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 tx_NIS.Text = "";
             }
             else
@@ -111,6 +111,12 @@ namespace latihribbon
                 // Keluar dari aplikasi saat kombinasi tombol Ctrl + Alt + K ditekan
                 //Application.Exit();
             }
+        }
+
+        private void btn_kembali_Click(object sender, EventArgs e)
+        {
+            mainForm.Opacity = 1;
+            this.Close();
         }
     }
 }
