@@ -196,9 +196,5 @@ namespace latihribbon
                 e.Cancel = true;
             }
         }
-
-
-
     }
 }
-

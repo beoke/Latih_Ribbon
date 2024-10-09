@@ -108,7 +108,7 @@ namespace latihribbon
             {
                 clear();
 
-                PictureBoxTidakPuas.BackgroundImage = Properties.Resources.TidakPuas_WarnaEdit;
+                PictureBoxTidakPuas.BackgroundImage = Properties.Resources.TidakPuas_Warna;
                 PictureBoxTidakPuas.BackgroundImageLayout = ImageLayout.Stretch;
 
                 TidakPuasOn = true;

@@ -61,7 +61,7 @@
             this.ButtonKirim.BackColor = System.Drawing.Color.Gray;
             this.ButtonKirim.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonKirim.ForeColor = System.Drawing.Color.White;
-            this.ButtonKirim.Location = new System.Drawing.Point(527, 549);
+            this.ButtonKirim.Location = new System.Drawing.Point(527, 416);
             this.ButtonKirim.Name = "ButtonKirim";
             this.ButtonKirim.Size = new System.Drawing.Size(209, 59);
             this.ButtonKirim.TabIndex = 27;
@@ -72,7 +72,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(788, 232);
+            this.label3.Location = new System.Drawing.Point(810, 232);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(62, 31);
             this.label3.TabIndex = 26;
@@ -93,28 +93,28 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(340, 91);
+            this.label1.Location = new System.Drawing.Point(338, 91);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(605, 76);
             this.label1.TabIndex = 19;
-            this.label1.Text = "BAGAIMANA PENILAIAN ANDA TERHADAP \r\nPELAYANAN  DISEKOLAH INI ";
+            this.label1.Text = "BAGAIMANA PENILAIAN ANDA TERHADAP \r\nPELAYANAN  DI SEKOLAH INI ";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // PictureBoxPuas
             // 
             this.PictureBoxPuas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PictureBoxPuas.Location = new System.Drawing.Point(749, 275);
+            this.PictureBoxPuas.Location = new System.Drawing.Point(764, 275);
             this.PictureBoxPuas.Name = "PictureBoxPuas";
-            this.PictureBoxPuas.Size = new System.Drawing.Size(150, 150);
+            this.PictureBoxPuas.Size = new System.Drawing.Size(155, 155);
             this.PictureBoxPuas.TabIndex = 24;
             this.PictureBoxPuas.TabStop = false;
             // 
             // PictureBoxTidakPuas
             // 
             this.PictureBoxTidakPuas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PictureBoxTidakPuas.Location = new System.Drawing.Point(340, 275);
+            this.PictureBoxTidakPuas.Location = new System.Drawing.Point(345, 275);
             this.PictureBoxTidakPuas.Name = "PictureBoxTidakPuas";
-            this.PictureBoxTidakPuas.Size = new System.Drawing.Size(155, 150);
+            this.PictureBoxTidakPuas.Size = new System.Drawing.Size(155, 155);
             this.PictureBoxTidakPuas.TabIndex = 23;
             this.PictureBoxTidakPuas.TabStop = false;
             // 
