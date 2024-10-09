@@ -70,7 +70,10 @@ namespace latihribbon
         {
             if (PuasOn == false && TidakPuasOn == false)
             {
-                MessageBox.Show("Mohon berikan penilaian terlebih dahulu ", "Perhatian", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.TopMost = false;
+                PopUpWarning p = new PopUpWarning();
+                p.ShowDialog();
+                this.TopMost = true;
                 return;
             }
 

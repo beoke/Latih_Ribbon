@@ -187,6 +187,12 @@
     <Compile Include="Dal\MasukDal.cs" />
     <Compile Include="Dal\DbDal.cs" />
     <Compile Include="Dal\RiwayatLogin_UserDal.cs" />
+    <Compile Include="PopUpWarning.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PopUpWarning.Designer.cs">
+      <DependentUpon>PopUpWarning.cs</DependentUpon>
+    </Compile>
     <Compile Include="ScreenSurvey\SurveyForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -322,6 +328,9 @@
     <Compile Include="Model\UserModel.cs" />
     <Compile Include="Dal\SetPrintDal.cs" />
     <Compile Include="ScreenSurvey\SurveyModel.cs" />
+    <EmbeddedResource Include="PopUpWarning.resx">
+      <DependentUpon>PopUpWarning.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ScreenSurvey\SurveyForm.resx">
       <DependentUpon>SurveyForm.cs</DependentUpon>
     </EmbeddedResource>
