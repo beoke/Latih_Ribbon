@@ -51,7 +51,7 @@ namespace latihribbon
 
         private void ButtonSurvey_Click(object sender, EventArgs e)
         {
-            FormSurvey survey = new FormSurvey(this);
+            SurveyForm survey = new SurveyForm(this);
             survey.Show();
 
             this.Hide();

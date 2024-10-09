@@ -21,6 +21,7 @@ namespace latihribbon
             buf();
             LoadData();
             GridListSurvey.RowEnter += GridListSurvey_RowEnter;
+            ButtonDeleteUser.Click += ButtonDeleteUser_Click;
 
 
 
@@ -31,6 +32,19 @@ namespace latihribbon
             this.KeyPreview = true;
         }
 
+        private void ButtonDeleteUser_Click(object sender, EventArgs e)
+        {
+            var id = GridListSurvey.CurrentRow.Cells[0].Value;
+
+            if (id != null)
+            {
+                if (MessageBox.Show("Hapus data ?", "Konfirmasi", MessageBoxButtons.OKCancel, MessageBoxIcon.Question)== DialogResult.OK)
+                {
+                    Delete(Convert.ToInt16(id));
+                }
+            }
+
+        }
 
         private void LoadData()
         {
@@ -55,7 +69,7 @@ namespace latihribbon
                 GridListSurvey.ColumnHeadersDefaultCellStyle.BackColor = Color.LightBlue;
                 GridListSurvey.RowTemplate.Height = 30;
                 GridListSurvey.ColumnHeadersHeight = 35;
-
+                      
                 GridListSurvey.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                
             }
@@ -81,7 +95,6 @@ namespace latihribbon
                 var surveyId = GridListSurvey.Rows[e.RowIndex].Cells[0].Value;
 
                 GetDataFromGrid(Convert.ToInt32(surveyId));
-
             }
         }
 
@@ -109,7 +122,7 @@ namespace latihribbon
         {
             using (var Conn = new SqlConnection(conn.connstr()))
             {
-                const string sql = @"SELECT * FROM Survey";
+                const string sql = @"SELECT * FROM Survey ORDER BY SurveyId ASC";
 
                 return Conn.Query<SurveyModel>(sql);
             }
@@ -125,6 +138,18 @@ namespace latihribbon
                 return Conn.QueryFirstOrDefault<SurveyModel>(sql , new {SurveyId = surveyId});
             }
         }
+
+
+        private void Delete(int SurveyId)
+        {
+            using (var Conn = new SqlConnection(conn.connstr()))
+            {
+                const string sql = "DELETE FROM Survey WHERE SurveyId = @SurveyId";
+
+                Conn.Execute(sql, new { SurveyId = SurveyId });
+            }
+        }
+
         #endregion
     }
 }

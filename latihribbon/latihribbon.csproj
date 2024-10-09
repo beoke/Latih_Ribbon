@@ -57,9 +57,6 @@
     <Reference Include="ExcelNumberFormat, Version=1.1.0.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL">
       <HintPath>..\packages\ExcelNumberFormat.1.1.0\lib\net20\ExcelNumberFormat.dll</HintPath>
     </Reference>
-    <Reference Include="Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
-      <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.6\lib\net472\Guna.UI2.dll</HintPath>
-    </Reference>
     <Reference Include="Irony, Version=1.0.11.0, Culture=neutral, PublicKeyToken=ca48ace7223ead47, processorArchitecture=MSIL">
       <HintPath>..\packages\Irony.NetCore.1.0.11\lib\net461\Irony.dll</HintPath>
     </Reference>
@@ -190,6 +187,12 @@
     <Compile Include="Dal\MasukDal.cs" />
     <Compile Include="Dal\DbDal.cs" />
     <Compile Include="Dal\RiwayatLogin_UserDal.cs" />
+    <Compile Include="SurveyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SurveyForm.Designer.cs">
+      <DependentUpon>SurveyForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormIndex.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -201,12 +204,6 @@
     </Compile>
     <Compile Include="ScreenAdmin\FormDataSurvey.Designer.cs">
       <DependentUpon>FormDataSurvey.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ScreenSurvey\FormSurvey.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ScreenSurvey\Kepuasan.Designer.cs">
-      <DependentUpon>FormSurvey.cs</DependentUpon>
     </Compile>
     <Compile Include="ScreenAdmin\FormKetentuanImport.cs">
       <SubType>Form</SubType>
@@ -235,12 +232,6 @@
     </Compile>
     <Compile Include="ScreenAdmin\FormKelas.Designer.cs">
       <DependentUpon>FormKelas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ScreenSurvey\FormSurveyKepuasan.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ScreenSurvey\FormSurveyKepuasan.Designer.cs">
-      <DependentUpon>FormSurveyKepuasan.cs</DependentUpon>
     </Compile>
     <Compile Include="Helper\MesBox.cs" />
     <Compile Include="Model\JurusanModel.cs" />
@@ -337,14 +328,14 @@
     <Compile Include="UpdateInsert\SiswaIU.Designer.cs">
       <DependentUpon>SiswaIU.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SurveyForm.resx">
+      <DependentUpon>SurveyForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormIndex.resx">
       <DependentUpon>FormIndex.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ScreenAdmin\FormDataSurvey.resx">
       <DependentUpon>FormDataSurvey.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ScreenSurvey\Kepuasan.resx">
-      <DependentUpon>FormSurvey.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ScreenAdmin\FormKetentuanImport.resx">
       <DependentUpon>FormKetentuanImport.cs</DependentUpon>
@@ -357,9 +348,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ScreenAdmin\Rekap Presensi\FormSetPrint.resx">
       <DependentUpon>FormSetPrint.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ScreenSurvey\FormSurveyKepuasan.resx">
-      <DependentUpon>FormSurveyKepuasan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ScreenAdmin\Rekap Presensi\PopUpKelas.resx">
       <DependentUpon>PopUpKelas.cs</DependentUpon>
@@ -474,6 +462,9 @@
     <None Include="Resources\satisfaction.png" />
     <None Include="Resources\satisfaction %281%29.png" />
     <Content Include="SQL Script\CekData.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ScreenSurvey\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
