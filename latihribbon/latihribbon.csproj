@@ -478,6 +478,8 @@
     <None Include="Resources\LogOutIcon.png" />
     <None Include="Resources\GIFTUTOR.gif" />
     <None Include="Resources\question.png" />
+    <None Include="Resources\question %281%29.png" />
+    <None Include="Resources\question %282%29.png" />
     <Content Include="SQL Script\CekData.sql" />
   </ItemGroup>
   <ItemGroup />

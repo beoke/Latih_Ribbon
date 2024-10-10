@@ -334,16 +334,10 @@ namespace latihribbon
             fm.Show();
             this.Close();
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             ScreenSiswa.FormTutorJam f = new ScreenSiswa.FormTutorJam();
             f.ShowDialog();
-        }
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }
