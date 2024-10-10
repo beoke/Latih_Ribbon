@@ -74,13 +74,13 @@ namespace latihribbon
             }
             else
             {
-                DialogResult result = MessageBox.Show($"NIS: {siswa.Nis} Dengan Nama: {siswa.Nama}", "Data ditemukan", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                /*DialogResult result = MessageBox.Show($"NIS: {siswa.Nis} Dengan Nama: {siswa.Nama}", "Data ditemukan", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
                 if (result == DialogResult.No)
                 {
                     ResetForm();
                     return;
-                }
+                }*/
                 string NIS, nama, kelas;
                 NIS = siswa.Nis.ToString();
                 nama = siswa.Nama;

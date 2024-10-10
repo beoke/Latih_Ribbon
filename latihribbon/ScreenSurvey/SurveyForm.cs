@@ -50,28 +50,12 @@ namespace latihribbon
 
             ButtonKirim.Click += ButtonSave_Click;
             btn_kembali.Click += btn_kembali_Click;
-            //this.Load += LoadForm;
             this.KeyDown += Kepuasan_KeyDown;
         }
-        private async void LoadForm(object sender,EventArgs e)
-        {
-            this.Opacity = 0;
-            for (double i = 0; i <= 1; i += 0.1)
-            {
-                this.Opacity = i;
-                await Task.Delay(3);
-            }
-        }
-        private async void btn_kembali_Click(object sender,EventArgs e)
+
+        private async void btn_kembali_Click(object sender, EventArgs e)
         {
             mainForm.Opacity = 1;
-
-            this.Opacity = 1;
-            for (double i = 0; i >= 0; i -= 0.1)
-            {
-                this.Opacity = i;
-                await Task.Delay(5);
-            }
             this.Close();
         }
 
@@ -94,6 +78,11 @@ namespace latihribbon
                 return;
             }
 
+            this.TopMost = false;
+            PopUp popUp = new PopUp();
+            popUp.ShowDialog();
+            this.TopMost = true;
+
             var puas = new SurveyModel
             {
                 HasilSurvey = _data,
@@ -102,14 +91,8 @@ namespace latihribbon
             };
             SaveData(puas);
 
-            if (_data == 1)
-                MessageBox.Show("Terima kasih,  respon anda sangat berharga bagi kami :)", "Pesan", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            else
-                MessageBox.Show("🖕 🐶 🖕", "Pesan", MessageBoxButtons.OK, MessageBoxIcon.Information);
             mainForm.Opacity = 1;
             this.Close();
-
-            clear();
         }
 
         private void PictureBoxTidakPuas_Click(object sender, EventArgs e)
@@ -130,7 +113,7 @@ namespace latihribbon
 
                 TidakPuasOn = true;
             }
-            
+
             _data = 0;
         }
 

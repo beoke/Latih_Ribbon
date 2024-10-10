@@ -180,7 +180,7 @@ namespace latihribbon
 
         private void ButtonLogOut_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show("Anda yakin ingin keluar ? ", "Perhatian", MessageBoxButtons.YesNo , MessageBoxIcon.Question) == DialogResult.Yes)
+            if(MessageBox.Show("Anda yakin ingin Logout ? ", "Logout", MessageBoxButtons.YesNo , MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 Closing = false;
                 mainForm.Opacity = 1;
@@ -188,6 +188,7 @@ namespace latihribbon
             }
         }
 
+        
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (Closing)

@@ -15,6 +15,7 @@ using System.Windows.Forms;
 
 namespace latihribbon
 {
+    
     public partial class FormTerlambat : Form
     {
         private readonly MasukDal masukDal;

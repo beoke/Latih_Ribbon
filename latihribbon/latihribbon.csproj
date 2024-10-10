@@ -187,10 +187,16 @@
     <Compile Include="Dal\MasukDal.cs" />
     <Compile Include="Dal\DbDal.cs" />
     <Compile Include="Dal\RiwayatLogin_UserDal.cs" />
-    <Compile Include="PopUpWarning.cs">
+    <Compile Include="ScreenSurvey\PopUp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PopUpWarning.Designer.cs">
+    <Compile Include="ScreenSurvey\PopUp.Designer.cs">
+      <DependentUpon>PopUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ScreenSurvey\PopUpWarning.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScreenSurvey\PopUpWarning.Designer.cs">
       <DependentUpon>PopUpWarning.cs</DependentUpon>
     </Compile>
     <Compile Include="ScreenSiswa\FormTutorJam.cs">
@@ -334,7 +340,10 @@
     <Compile Include="Model\UserModel.cs" />
     <Compile Include="Dal\SetPrintDal.cs" />
     <Compile Include="ScreenSurvey\SurveyModel.cs" />
-    <EmbeddedResource Include="PopUpWarning.resx">
+    <EmbeddedResource Include="ScreenSurvey\PopUp.resx">
+      <DependentUpon>PopUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ScreenSurvey\PopUpWarning.resx">
       <DependentUpon>PopUpWarning.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ScreenSiswa\FormTutorJam.resx">
@@ -480,6 +489,10 @@
     <None Include="Resources\question.png" />
     <None Include="Resources\question %281%29.png" />
     <None Include="Resources\question %282%29.png" />
+    <None Include="Resources\Admin Icon.png" />
+    <None Include="Resources\RESI.png" />
+    <None Include="Resources\ATM.png" />
+    <None Include="Resources\Survey.png" />
     <Content Include="SQL Script\CekData.sql" />
   </ItemGroup>
   <ItemGroup />

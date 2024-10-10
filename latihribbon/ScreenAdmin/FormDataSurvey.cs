@@ -115,6 +115,10 @@ namespace latihribbon
                                             Waktu = x.Waktu.ToString(@"hh\:mm")
                                         }).ToList();
 
+            TextTotalPuas.Text = ListData(Filter).Count(x => x.HasilSurvey == 1).ToString();
+            TextTotalTidakPuas.Text = ListData(Filter).Count(x => x.HasilSurvey == 0).ToString();
+
+
 
             if (GridListSurvey.Rows.Count > 0)
             {
@@ -166,7 +170,7 @@ namespace latihribbon
 
             TextSurveyId.Text = data.SurveyId.ToString();
             TexthasilSurvey.Text = hasil;
-            PickerTanggal.Value = data.Tanggal;
+            TextTanggal.Text = data.Tanggal.ToString("dd/MM/yyyy");
             TextWaktu.Text = data.Waktu.ToString(@"hh\:mm");
 
 
@@ -180,7 +184,7 @@ namespace latihribbon
         {
             using (var Conn = new SqlConnection(conn.connstr()))
             {
-                string sql = $@"SELECT * FROM Survey {Filter} ORDER BY SurveyId DESC";
+                string sql = $@"SELECT * FROM Survey  {Filter} ORDER BY SurveyId DESC";
 
                 return Conn.Query<SurveyModel>(sql);
             }

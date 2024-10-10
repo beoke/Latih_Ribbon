@@ -31,7 +31,7 @@ namespace latihribbon
         private readonly MesBox mesBox;
         private bool SaveCondition = true;
         //private FormLoading formLoading;
-
+        
         public FormSIswa()
         {
             InitializeComponent();
