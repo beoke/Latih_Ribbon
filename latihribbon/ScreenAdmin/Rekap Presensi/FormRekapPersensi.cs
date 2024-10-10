@@ -58,6 +58,7 @@ namespace latihribbon.ScreenAdmin
             dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Sans Serif", 10, FontStyle.Bold);
             dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.LightBlue;
             dataGridView1.RowTemplate.Height = 30;
+            dataGridView1.Columns[3].HeaderText = "Nama Kelas";
             //dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
            /* dataGridView1.Columns["Nis"].Width = 100;
             dataGridView1.Columns["Persensi"].Width = 100;

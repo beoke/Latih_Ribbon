@@ -46,6 +46,7 @@ namespace latihribbon.ScreenAdmin
 
             GridListKelas.Columns[0].Width = 100;
             GridListKelas.Columns[1].Width = 300;
+            GridListKelas.Columns["NamaKelas"].HeaderText = "Nama Kelas";
 
             GridListKelas.EnableHeadersVisualStyles = false;
             GridListKelas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
