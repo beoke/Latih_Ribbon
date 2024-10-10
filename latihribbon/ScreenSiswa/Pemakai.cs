@@ -27,7 +27,6 @@ namespace latihribbon
             this.FormBorderStyle = FormBorderStyle.None;
             this.TopMost = true;
             this.ControlBox = true;
-            this.KeyPreview = true;
             this.mainForm = mainForm;
             _dbDal = new DbDal();
             siswaDal = new SiswaDal();
@@ -98,18 +97,6 @@ namespace latihribbon
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
-            }
-        }
-
-        private void Pemakai_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Control && e.Alt && e.KeyCode == Keys.K)
-            {
-                mainForm.Show();
-                this.Close();
-
-                // Keluar dari aplikasi saat kombinasi tombol Ctrl + Alt + K ditekan
-                //Application.Exit();
             }
         }
 

@@ -32,19 +32,8 @@ namespace latihribbon
             this.TopMost = true;
             this.ControlBox = true;
             this.mainForm = mainForm;
-            this.KeyPreview = true;
-
-            this.KeyDown += Login_KeyDown;
         }
 
-        private void Login_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Control && e.Alt && e.KeyCode == Keys.K)
-            {
-                mainForm.Show();
-                this.Close();
-            }
-        }
         #region EVENT
 
         private void ControlEvent()

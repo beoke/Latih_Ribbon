@@ -33,8 +33,7 @@ namespace latihribbon
             this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
             this.TopMost = true;  
-            this.ControlBox = true;  
-            this.KeyPreview = true;  
+            this.ControlBox = true;    
             this.mainForm = mainForm;
         }
 
@@ -57,19 +56,6 @@ namespace latihribbon
             Pemakai p = new Pemakai(mainForm);
             p.Show();
             this.Close();
-        }
-
-        private void FormMilih_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Control && e.Alt && e.KeyCode == Keys.K)
-            {
-                mainForm.Show();
-
-                this.Close();
-
-                // Keluar dari aplikasi saat kombinasi tombol Ctrl + Alt + K ditekan
-                //Application.Exit();
-            }
         }
     }
 }
