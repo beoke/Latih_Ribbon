@@ -24,21 +24,15 @@ namespace latihribbon
         public SurveyForm(Form mainForm)
         {
             InitializeComponent();
-            InitialPicture();
-
-            ControlEvent();
-            this.mainForm = mainForm;
-
-            this.KeyPreview = true;
-
-
-            this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.mainForm = mainForm;
+            this.KeyPreview = true;
             this.TopMost = true;
             this.ControlBox = true;
+            ControlEvent();
+            InitialPicture();
         }
-
-
 
         private void InitialPicture()
         {
@@ -55,7 +49,23 @@ namespace latihribbon
             PictureBoxTidakPuas.Click += PictureBoxTidakPuas_Click;
 
             ButtonKirim.Click += ButtonSave_Click;
+            btn_kembali.Click += btn_kembali_Click;
+            //this.Load += LoadForm;
             this.KeyDown += Kepuasan_KeyDown;
+        }
+        private async void LoadForm(object sender,EventArgs e)
+        {
+            this.Opacity = 0;
+            for (double i = 0; i <= 1; i += 0.1)
+            {
+                this.Opacity = i;
+                await Task.Delay(5);
+            }
+        }
+        private void btn_kembali_Click(object sender,EventArgs e)
+        {
+            mainForm.Opacity = 1;
+            this.Close();
         }
 
         private void Kepuasan_KeyDown(object sender, KeyEventArgs e)
