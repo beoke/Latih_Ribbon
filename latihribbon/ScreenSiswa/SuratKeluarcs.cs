@@ -11,6 +11,8 @@ using latihribbon.Dal;
 using latihribbon.Helper;
 using latihribbon.Model;
 using System.Management;
+using System.Globalization;
+using System.Threading;
 
 
 namespace latihribbon
@@ -43,11 +45,13 @@ namespace latihribbon
             this.NIS = NIS;
             this.nama = nama;
             this.kelas = kelas;
+
+            CultureInfo culture = new CultureInfo("id-ID");
+            Thread.CurrentThread.CurrentCulture = culture;
+            Thread.CurrentThread.CurrentUICulture = culture;
+
             isian();
-            bahasa();
-
-
-            
+            bahasa(); 
         }
 
         public void isian()
@@ -56,7 +60,8 @@ namespace latihribbon
             txtNama.Text = nama;
             txtKelas.Text = kelas;
             tx_keluar.Text = globalCurrentTime.ToString("HH:mm");
-            txtTanggal.Text = globalCurrentTime.ToString("dd MMM yyyy");
+            txtTanggal.Text = globalCurrentTime.ToString("dddd, dd MMMM yyyy");
+            jamKembali.Focus();
         }
 
 
@@ -165,7 +170,7 @@ namespace latihribbon
                 e.Graphics.DrawString("Kelas", Times8Regular, Brushes.Black, new Point(30, 60));
                 e.Graphics.DrawString($": {txtKelas.Text}", Times8Bold, Brushes.Black, new Point(125, 60));
                 e.Graphics.DrawString("Tanggal", Times8Regular, Brushes.Black, new Point(30, 80));
-                e.Graphics.DrawString($": {globalCurrentTime.ToString("dd/MM/yyyy")}", Times8Bold, Brushes.Black, new Point(125, 80));
+                e.Graphics.DrawString($": {txtTanggal.Text}", Times8Bold, Brushes.Black, new Point(125, 80));
                 e.Graphics.DrawString("Keluar pada jam", Times8Regular, Brushes.Black, new Point(30, 100));
                 e.Graphics.DrawString($": {tx_keluar.Text}", Times8Bold, Brushes.Black, new Point(125, 100));
                 e.Graphics.DrawString("Kembali pada jam", Times8Regular, Brushes.Black, new Point(30, 120));
@@ -190,7 +195,7 @@ namespace latihribbon
                 e.Graphics.DrawString("Kelas", Times8Regular, Brushes.Black, new Point(30, 270));
                 e.Graphics.DrawString($": {txtKelas.Text}", Times8Bold, Brushes.Black, new Point(125, 270));
                 e.Graphics.DrawString("Tanggal", Times8Regular, Brushes.Black, new Point(30, 290));
-                e.Graphics.DrawString($": {globalCurrentTime.ToString("dd/MM/yyyy")}", Times8Bold, Brushes.Black, new Point(125, 290));
+                e.Graphics.DrawString($": {txtTanggal.Text}", Times8Bold, Brushes.Black, new Point(125, 290));
                 e.Graphics.DrawString("Keluar pada jam", Times8Regular, Brushes.Black, new Point(30, 310));
                 e.Graphics.DrawString($": {tx_keluar.Text}", Times8Bold, Brushes.Black, new Point(125, 310));
                 e.Graphics.DrawString("Kembali pada jam", Times8Regular, Brushes.Black, new Point(30, 330));
@@ -212,7 +217,7 @@ namespace latihribbon
                 e.Graphics.DrawString("Kelas", Times8Regular, Brushes.Black, new Point(30, 460 + 15));
                 e.Graphics.DrawString($": {txtKelas.Text}", Times8Bold, Brushes.Black, new Point(125, 460 + 15));
                 e.Graphics.DrawString("Tanggal", Times8Regular, Brushes.Black, new Point(30, 480 + 15));
-                e.Graphics.DrawString($": {globalCurrentTime.ToString("dd/MM/yyyy")}", Times8Bold, Brushes.Black, new Point(125, 480 + 15));
+                e.Graphics.DrawString($": {txtTanggal.Text}", Times8Bold, Brushes.Black, new Point(125, 480 + 15));
                 e.Graphics.DrawString("Keluar pada jam", Times8Regular, Brushes.Black, new Point(30, 500 + 15));
                 e.Graphics.DrawString($": {tx_keluar.Text}", Times8Bold, Brushes.Black, new Point(125, 500 + 15));
                 e.Graphics.DrawString("Kembali pada jam", Times8Regular, Brushes.Black, new Point(30, 520 + 15));

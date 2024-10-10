@@ -57,6 +57,7 @@ namespace latihribbon
             tx_jam1.Text = jam.ToString("HH:mm");
             txtTanggal.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy");
             txtAlasan.MaxLength = 60;
+            txtAlasan.Focus();
         }
 
         private void btn_Kembali_Click(object sender, EventArgs e)
