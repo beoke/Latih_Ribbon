@@ -54,7 +54,7 @@ namespace latihribbon
         {
             SurveyForm survey = new SurveyForm(this);
             survey.Show();
-            this.Opacity = 0;
+            //this.Opacity = 0;
         }
 
         private void ButtonSimResi_Click(object sender, EventArgs e)

@@ -59,12 +59,19 @@ namespace latihribbon
             for (double i = 0; i <= 1; i += 0.1)
             {
                 this.Opacity = i;
-                await Task.Delay(5);
+                await Task.Delay(3);
             }
         }
-        private void btn_kembali_Click(object sender,EventArgs e)
+        private async void btn_kembali_Click(object sender,EventArgs e)
         {
             mainForm.Opacity = 1;
+
+            this.Opacity = 1;
+            for (double i = 0; i >= 0; i -= 0.1)
+            {
+                this.Opacity = i;
+                await Task.Delay(5);
+            }
             this.Close();
         }
 
