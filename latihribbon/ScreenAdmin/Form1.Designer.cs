@@ -301,9 +301,9 @@
             this.ButtonLogOut.ForeColor = System.Drawing.Color.Black;
             this.ButtonLogOut.Image = global::latihribbon.Properties.Resources.LogOutIcon;
             this.ButtonLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.ButtonLogOut.Location = new System.Drawing.Point(931, 110);
+            this.ButtonLogOut.Location = new System.Drawing.Point(912, 110);
             this.ButtonLogOut.Name = "ButtonLogOut";
-            this.ButtonLogOut.Size = new System.Drawing.Size(114, 44);
+            this.ButtonLogOut.Size = new System.Drawing.Size(133, 44);
             this.ButtonLogOut.TabIndex = 1;
             this.ButtonLogOut.Text = "LogOut";
             this.ButtonLogOut.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;

@@ -209,11 +209,11 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.WhiteSmoke;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(59, 559);
+            this.label6.Location = new System.Drawing.Point(60, 559);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(360, 42);
+            this.label6.Size = new System.Drawing.Size(353, 42);
             this.label6.TabIndex = 36;
-            this.label6.Text = "Kembali Pada Jam ke  :";
+            this.label6.Text = "Kembali Pada Jam      :";
             // 
             // label4
             // 

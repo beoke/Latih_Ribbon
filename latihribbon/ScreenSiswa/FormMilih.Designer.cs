@@ -122,10 +122,10 @@ namespace latihribbon
             this.btn_kembali.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_kembali.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_kembali.ForeColor = System.Drawing.Color.White;
-            this.btn_kembali.Location = new System.Drawing.Point(15, 12);
+            this.btn_kembali.Location = new System.Drawing.Point(20, 26);
             this.btn_kembali.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_kembali.Name = "btn_kembali";
-            this.btn_kembali.Size = new System.Drawing.Size(95, 95);
+            this.btn_kembali.Size = new System.Drawing.Size(70, 70);
             this.btn_kembali.TabIndex = 53;
             this.btn_kembali.UseVisualStyleBackColor = false;
             this.btn_kembali.Click += new System.EventHandler(this.btn_kembali_Click);
