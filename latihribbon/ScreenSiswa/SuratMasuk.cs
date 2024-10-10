@@ -54,7 +54,7 @@ namespace latihribbon
             txtNIS.Text = NIS;
             txtNama.Text =nama;
             txtKelas.Text =kelas;
-            tx_jam1.Text = jam.ToString("HH:mm");
+            tx_jam1.Text = jam.ToString("HH:mm", System.Globalization.CultureInfo.InvariantCulture);
             txtTanggal.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy");
             txtAlasan.MaxLength = 60;
             txtAlasan.Focus();
@@ -102,9 +102,7 @@ namespace latihribbon
             }
 
             if (!mesbox.MesKonfirmasi("Apakah data sudah benar ?")) return;
-
             if (Print()) Insert();
-
 
             System.Threading.Thread.Sleep(1000);
             mainForm.Opacity = 1;
@@ -119,16 +117,14 @@ namespace latihribbon
             {
                 printDocumentMasuk.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("Suit Detail", 400, 700);
 
-               /* if (!PrinterIsAvailable())
+                if (!PrinterIsAvailable())
                 {
                     MessageBox.Show("Printer tidak tersedia atau offline.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
-                }*/
-               printPreviewDialogMasuk.Document = printDocumentMasuk;
-               printPreviewDialogMasuk.ShowDialog();
-
-                //printDocumentMasuk.Print();
-
+                }
+                printPreviewDialogMasuk.Document = printDocumentMasuk;
+                printPreviewDialogMasuk.ShowDialog();
+                printDocumentMasuk.Print();
                 return true;
             }
             catch (Exception ex)
@@ -142,28 +138,22 @@ namespace latihribbon
         private void printDocumentMasuk_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             Font Times8Regular = new Font("Times New Roman", 8, FontStyle.Regular);
-            Font Times8Bold = new Font("Times New Roman", 8, FontStyle.Bold);
             Font Times7Regular = new Font("Times New Roman", 7, FontStyle.Regular);
-
-            
-
 
             try
             {
                 var tanggal = DateTime.Now.ToString("dd MMM yyyy");
 
-
                 e.Graphics.DrawString("SURAT IZIN MENGIKUTI PELAJARAN", new Font("Times New Roman", 10), Brushes.Black, new Point(75, 15));
 
-
                 e.Graphics.DrawString("Nama", Times8Regular, Brushes.Black, new Point(20, 60));
-                e.Graphics.DrawString($": {txtNama.Text}", Times8Bold, Brushes.Black, new Point(125, 60));
+                e.Graphics.DrawString($": {txtNama.Text}", Times8Regular, Brushes.Black, new Point(125, 60));
                 e.Graphics.DrawString("Kelas", Times8Regular, Brushes.Black, new Point(20, 80));
-                e.Graphics.DrawString($": {txtKelas.Text}", Times8Bold, Brushes.Black, new Point(125, 80));
+                e.Graphics.DrawString($": {txtKelas.Text}", Times8Regular, Brushes.Black, new Point(125, 80));
                 e.Graphics.DrawString("Tanggal", Times8Regular, Brushes.Black, new Point(20, 100));
-                e.Graphics.DrawString($": {txtTanggal.Text}", Times8Bold, Brushes.Black, new Point(125, 100));
+                e.Graphics.DrawString($": {txtTanggal.Text}", Times8Regular, Brushes.Black, new Point(125, 100));
                 e.Graphics.DrawString("Masuk pada jam", Times8Regular, Brushes.Black, new Point(20, 120));
-                e.Graphics.DrawString($": {tx_jam1.Text}", Times8Bold, Brushes.Black, new Point(125, 120));
+                e.Graphics.DrawString($": {tx_jam1.Text}", Times8Regular, Brushes.Black, new Point(125, 120));
                 e.Graphics.DrawString("Alasan Terlambat", Times8Regular, Brushes.Black, new Point(20, 140));
 
 
@@ -178,13 +168,13 @@ namespace latihribbon
                 e.Graphics.DrawString("SURAT IZIN MENGIKUTI PELAJARAN", new Font("Times New Roman", 10), Brushes.Black, new Point(75, 211));
 
                 e.Graphics.DrawString("Nama", Times8Regular, Brushes.Black, new Point(20, 256));
-                e.Graphics.DrawString($": {txtNama.Text}", Times8Bold, Brushes.Black, new Point(125, 256));
+                e.Graphics.DrawString($": {txtNama.Text}", Times8Regular, Brushes.Black, new Point(125, 256));
                 e.Graphics.DrawString("Kelas", Times8Regular, Brushes.Black, new Point(20, 276));
-                e.Graphics.DrawString($": {txtKelas.Text}", Times8Bold, Brushes.Black, new Point(125, 276));
+                e.Graphics.DrawString($": {txtKelas.Text}", Times8Regular, Brushes.Black, new Point(125, 276));
                 e.Graphics.DrawString("Tanggal", Times8Regular, Brushes.Black, new Point(20, 296));
-                e.Graphics.DrawString($": {txtTanggal.Text}", Times8Bold, Brushes.Black, new Point(125, 296));
+                e.Graphics.DrawString($": {txtTanggal.Text}", Times8Regular, Brushes.Black, new Point(125, 296));
                 e.Graphics.DrawString("Masuk pada jam", Times8Regular, Brushes.Black, new Point(20, 316));
-                e.Graphics.DrawString($": {tx_jam1.Text}", Times8Bold, Brushes.Black, new Point(125, 316));
+                e.Graphics.DrawString($": {tx_jam1.Text}", Times8Regular, Brushes.Black, new Point(125, 316));
                 e.Graphics.DrawString("Alasan terlambat", Times8Regular, Brushes.Black, new Point(20, 336));
 
                 e.Graphics.DrawString("*Tinggal di ruang BK", Times7Regular, Brushes.Red, new Point(275, 376));
@@ -197,13 +187,13 @@ namespace latihribbon
                 e.Graphics.DrawString("SURAT IZIN MENGIKUTI PELAJARAN", new Font("Times New Roman", 10), Brushes.Black, new Point(75, 409));
 
                 e.Graphics.DrawString("Nama", Times8Regular, Brushes.Black, new Point(20, 454));
-                e.Graphics.DrawString($": {txtNama.Text}", Times8Bold, Brushes.Black, new Point(125, 454));
+                e.Graphics.DrawString($": {txtNama.Text}", Times8Regular, Brushes.Black, new Point(125, 454));
                 e.Graphics.DrawString("Kelas", Times8Regular, Brushes.Black, new Point(20, 474));
-                e.Graphics.DrawString($": {txtKelas.Text}", Times8Bold, Brushes.Black, new Point(125, 474));
+                e.Graphics.DrawString($": {txtKelas.Text}", Times8Regular, Brushes.Black, new Point(125, 474));
                 e.Graphics.DrawString("Tanggal", Times8Regular, Brushes.Black, new Point(20, 494));
-                e.Graphics.DrawString($": {txtTanggal.Text}", Times8Bold, Brushes.Black, new Point(125, 494));
+                e.Graphics.DrawString($": {txtTanggal.Text}", Times8Regular, Brushes.Black, new Point(125, 494));
                 e.Graphics.DrawString("Masuk pada jam", Times8Regular, Brushes.Black, new Point(20, 494 + 20));
-                e.Graphics.DrawString($": {tx_jam1.Text}", Times8Bold, Brushes.Black, new Point(125, 494 + 20));
+                e.Graphics.DrawString($": {tx_jam1.Text}", Times8Regular, Brushes.Black, new Point(125, 494 + 20));
                 e.Graphics.DrawString("Alasan Terlambat", Times8Regular, Brushes.Black, new Point(20, 514 + 20));
 
 
@@ -214,7 +204,7 @@ namespace latihribbon
                 string alasan = txtAlasan.Text;
                 int batasPiksel = 140;
 
-                if (GetTextWidth(alasan, Times8Bold, e.Graphics) > batasPiksel)
+                if (GetTextWidth(alasan, Times8Regular, e.Graphics) > batasPiksel)
                 {
                     string[] kataarr = alasan.Split(' ');
                     string baris1 = "";
@@ -225,7 +215,7 @@ namespace latihribbon
 
                     for (int i = 0; i < kataarr.Length; i++)
                     {
-                        int kataWidth = GetTextWidth(kataarr[i] + " ", Times8Bold, e.Graphics);
+                        int kataWidth = GetTextWidth(kataarr[i] + " ", Times8Regular, e.Graphics);
                         if (totalWidth + kataWidth <= batasPiksel)
                         {
                             baris1 += kataarr[i] + " ";
@@ -236,7 +226,7 @@ namespace latihribbon
                             totalWidth = 0;
                             for (int j = i; j < kataarr.Length; j++)
                             {
-                                kataWidth = GetTextWidth(kataarr[j] + " ", Times8Bold, e.Graphics);
+                                kataWidth = GetTextWidth(kataarr[j] + " ", Times8Regular, e.Graphics);
                                 if (totalWidth + kataWidth <= batasPiksel)
                                 {
                                     baris2 += kataarr[j] + " ";
@@ -247,7 +237,7 @@ namespace latihribbon
                                     totalWidth = 0;
                                     for (int k = j; k < kataarr.Length; k++)
                                     {
-                                        kataWidth = GetTextWidth(kataarr[k] + " ", Times8Bold, e.Graphics);
+                                        kataWidth = GetTextWidth(kataarr[k] + " ", Times8Regular, e.Graphics);
                                         if (totalWidth + kataWidth <= batasPiksel)
                                         {
                                             baris3 += kataarr[k] + " ";
@@ -260,23 +250,23 @@ namespace latihribbon
                             break;
                         }
                     }
-                    e.Graphics.DrawString($": {baris1.Trim()}", Times8Bold, Brushes.Black, new Point(125, 140));
-                    e.Graphics.DrawString($"  {baris2.Trim()}", Times8Bold, Brushes.Black, new Point(125, 160));
-                    e.Graphics.DrawString($"  {baris3.Trim()}", Times8Bold, Brushes.Black, new Point(125, 180));
+                    e.Graphics.DrawString($": {baris1.Trim()}", Times8Regular, Brushes.Black, new Point(125, 140));
+                    e.Graphics.DrawString($"  {baris2.Trim()}", Times8Regular, Brushes.Black, new Point(125, 160));
+                    e.Graphics.DrawString($"  {baris3.Trim()}", Times8Regular, Brushes.Black, new Point(125, 180));
 
-                    e.Graphics.DrawString($": {baris1.Trim()}", Times8Bold, Brushes.Black, new Point(125, 336));
-                    e.Graphics.DrawString($"  {baris2.Trim()}", Times8Bold, Brushes.Black, new Point(125, 356));
-                    e.Graphics.DrawString($"  {baris3.Trim()}", Times8Bold, Brushes.Black, new Point(125, 376));
+                    e.Graphics.DrawString($": {baris1.Trim()}", Times8Regular, Brushes.Black, new Point(125, 336));
+                    e.Graphics.DrawString($"  {baris2.Trim()}", Times8Regular, Brushes.Black, new Point(125, 356));
+                    e.Graphics.DrawString($"  {baris3.Trim()}", Times8Regular, Brushes.Black, new Point(125, 376));
 
-                    e.Graphics.DrawString($": {baris1.Trim()}", Times8Bold, Brushes.Black, new Point(125, 514 + 20));
-                    e.Graphics.DrawString($"  {baris2.Trim()}", Times8Bold, Brushes.Black, new Point(125, 514 + 40));
-                    e.Graphics.DrawString($"  {baris3.Trim()}", Times8Bold, Brushes.Black, new Point(125, 514 + 60));
+                    e.Graphics.DrawString($": {baris1.Trim()}", Times8Regular, Brushes.Black, new Point(125, 514 + 20));
+                    e.Graphics.DrawString($"  {baris2.Trim()}", Times8Regular, Brushes.Black, new Point(125, 514 + 40));
+                    e.Graphics.DrawString($"  {baris3.Trim()}", Times8Regular, Brushes.Black, new Point(125, 514 + 60));
                 }
                 else
                 {
-                    e.Graphics.DrawString($": {alasan}", Times8Bold, Brushes.Black, new Point(125, 140));
-                    e.Graphics.DrawString($": {alasan}", Times8Bold, Brushes.Black, new Point(125, 336));
-                    e.Graphics.DrawString($": {alasan}", Times8Bold, Brushes.Black, new Point(125, 514 + 20));
+                    e.Graphics.DrawString($": {alasan}", Times8Regular, Brushes.Black, new Point(125, 140));
+                    e.Graphics.DrawString($": {alasan}", Times8Regular, Brushes.Black, new Point(125, 336));
+                    e.Graphics.DrawString($": {alasan}", Times8Regular, Brushes.Black, new Point(125, 514 + 20));
                 }
             }
             catch (Exception ex)

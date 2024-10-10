@@ -58,6 +58,7 @@
             this.txtAlasan = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.btn_Kembali = new System.Windows.Forms.Button();
             this.btn_PrintKeluar = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
@@ -71,7 +72,7 @@
             // 
             this.printPreviewDialogKeluar.AutoScrollMargin = new System.Drawing.Size(0, 0);
             this.printPreviewDialogKeluar.AutoScrollMinSize = new System.Drawing.Size(0, 0);
-            this.printPreviewDialogKeluar.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialogKeluar.ClientSize = new System.Drawing.Size(636, 706);
             this.printPreviewDialogKeluar.Enabled = true;
             this.printPreviewDialogKeluar.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialogKeluar.Icon")));
             this.printPreviewDialogKeluar.Name = "printPreviewDialogKeluar";
@@ -92,7 +93,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1562, 1035);
+            this.panel2.Size = new System.Drawing.Size(1562, 1038);
             this.panel2.TabIndex = 74;
             // 
             // panel3
@@ -101,6 +102,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panel3.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.button1);
             this.panel3.Controls.Add(this.label14);
             this.panel3.Controls.Add(this.label13);
             this.panel3.Controls.Add(this.label12);
@@ -122,8 +124,9 @@
             this.panel3.Location = new System.Drawing.Point(21, 180);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1118, 685);
+            this.panel3.Size = new System.Drawing.Size(1118, 688);
             this.panel3.TabIndex = 0;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // label14
             // 
@@ -213,7 +216,7 @@
             this.jamKembali.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.jamKembali.Name = "jamKembali";
             this.jamKembali.ShowUpDown = true;
-            this.jamKembali.Size = new System.Drawing.Size(559, 45);
+            this.jamKembali.Size = new System.Drawing.Size(495, 45);
             this.jamKembali.TabIndex = 0;
             // 
             // label1
@@ -293,9 +296,9 @@
             this.label6.Font = new System.Drawing.Font("Times New Roman", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(59, 560);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(333, 42);
+            this.label6.Size = new System.Drawing.Size(290, 42);
             this.label6.TabIndex = 36;
-            this.label6.Text = "Kembali Pada Jam ke";
+            this.label6.Text = "Kembali Pada Jam";
             // 
             // label4
             // 
@@ -370,7 +373,7 @@
             this.panel4.Location = new System.Drawing.Point(1169, 180);
             this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(371, 685);
+            this.panel4.Size = new System.Drawing.Size(371, 688);
             this.panel4.TabIndex = 1;
             // 
             // LabelLenghKeperluan
@@ -420,11 +423,26 @@
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel5.Controls.Add(this.btn_Kembali);
             this.panel5.Controls.Add(this.btn_PrintKeluar);
-            this.panel5.Location = new System.Drawing.Point(21, 888);
+            this.panel5.Location = new System.Drawing.Point(21, 891);
             this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1519, 125);
             this.panel5.TabIndex = 2;
+            // 
+            // button1
+            // 
+            this.button1.BackgroundImage = global::latihribbon.Properties.Resources.question;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(1006, 557);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(45, 45);
+            this.button1.TabIndex = 82;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btn_Kembali
             // 
@@ -465,7 +483,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1562, 1035);
+            this.ClientSize = new System.Drawing.Size(1562, 1038);
             this.Controls.Add(this.panel2);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "SuratKeluarcs";
@@ -515,5 +533,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btn_Kembali;
+        private System.Windows.Forms.Button button1;
     }
 }

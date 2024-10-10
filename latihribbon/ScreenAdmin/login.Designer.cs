@@ -41,19 +41,18 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btn_Login = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btn_kembali = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.btn_kembali = new System.Windows.Forms.Button();
+            this.panel7 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel2.SuspendLayout();
-            this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
@@ -221,17 +220,6 @@
             this.panel2.Size = new System.Drawing.Size(389, 861);
             this.panel2.TabIndex = 7;
             // 
-            // panel7
-            // 
-            this.panel7.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.panel7.BackColor = System.Drawing.Color.LightGray;
-            this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel7.Location = new System.Drawing.Point(302, 630);
-            this.panel7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(77, 230);
-            this.panel7.TabIndex = 10;
-            // 
             // panel6
             // 
             this.panel6.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
@@ -259,12 +247,28 @@
             this.panel4.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.panel4.BackColor = System.Drawing.Color.Gray;
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.btn_kembali);
             this.panel4.Location = new System.Drawing.Point(8, 347);
             this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(77, 510);
             this.panel4.TabIndex = 9;
+            // 
+            // btn_kembali
+            // 
+            this.btn_kembali.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_kembali.BackColor = System.Drawing.Color.Transparent;
+            this.btn_kembali.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_kembali.BackgroundImage")));
+            this.btn_kembali.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_kembali.FlatAppearance.BorderSize = 0;
+            this.btn_kembali.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_kembali.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_kembali.ForeColor = System.Drawing.Color.White;
+            this.btn_kembali.Location = new System.Drawing.Point(417, 770);
+            this.btn_kembali.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_kembali.Name = "btn_kembali";
+            this.btn_kembali.Size = new System.Drawing.Size(70, 70);
+            this.btn_kembali.TabIndex = 55;
+            this.btn_kembali.UseVisualStyleBackColor = false;
             // 
             // label3
             // 
@@ -287,22 +291,16 @@
             this.pictureBox4.TabIndex = 9;
             this.pictureBox4.TabStop = false;
             // 
-            // btn_kembali
+            // panel7
             // 
-            this.btn_kembali.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_kembali.BackColor = System.Drawing.Color.Transparent;
-            this.btn_kembali.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_kembali.BackgroundImage")));
-            this.btn_kembali.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_kembali.FlatAppearance.BorderSize = 0;
-            this.btn_kembali.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_kembali.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_kembali.ForeColor = System.Drawing.Color.White;
-            this.btn_kembali.Location = new System.Drawing.Point(2, 436);
-            this.btn_kembali.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_kembali.Name = "btn_kembali";
-            this.btn_kembali.Size = new System.Drawing.Size(70, 70);
-            this.btn_kembali.TabIndex = 55;
-            this.btn_kembali.UseVisualStyleBackColor = false;
+            this.panel7.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.panel7.BackColor = System.Drawing.Color.LightGray;
+            this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel7.Location = new System.Drawing.Point(302, 630);
+            this.panel7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(77, 230);
+            this.panel7.TabIndex = 10;
             // 
             // login
             // 
@@ -311,6 +309,7 @@
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1380, 860);
+            this.Controls.Add(this.btn_kembali);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -325,7 +324,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
 

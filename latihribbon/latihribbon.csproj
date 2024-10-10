@@ -193,6 +193,12 @@
     <Compile Include="PopUpWarning.Designer.cs">
       <DependentUpon>PopUpWarning.cs</DependentUpon>
     </Compile>
+    <Compile Include="ScreenSiswa\FormTutorJam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScreenSiswa\FormTutorJam.Designer.cs">
+      <DependentUpon>FormTutorJam.cs</DependentUpon>
+    </Compile>
     <Compile Include="ScreenSurvey\SurveyForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -331,6 +337,9 @@
     <EmbeddedResource Include="PopUpWarning.resx">
       <DependentUpon>PopUpWarning.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ScreenSiswa\FormTutorJam.resx">
+      <DependentUpon>FormTutorJam.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ScreenSurvey\SurveyForm.resx">
       <DependentUpon>SurveyForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -467,6 +476,8 @@
     <None Include="Resources\TidakPuas_WarnaEdit.png" />
     <None Include="Resources\LogOut.png" />
     <None Include="Resources\LogOutIcon.png" />
+    <None Include="Resources\GIFTUTOR.gif" />
+    <None Include="Resources\question.png" />
     <Content Include="SQL Script\CekData.sql" />
   </ItemGroup>
   <ItemGroup />

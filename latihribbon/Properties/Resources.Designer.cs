@@ -143,6 +143,16 @@ namespace latihribbon.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap GIFTUTOR {
+            get {
+                object obj = ResourceManager.GetObject("GIFTUTOR", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap happiness {
             get {
                 object obj = ResourceManager.GetObject("happiness", resourceCulture);
@@ -206,6 +216,16 @@ namespace latihribbon.Properties {
         internal static System.Drawing.Bitmap Puas_Warna {
             get {
                 object obj = ResourceManager.GetObject("Puas_Warna", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap question {
+            get {
+                object obj = ResourceManager.GetObject("question", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
