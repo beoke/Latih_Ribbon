@@ -183,7 +183,7 @@ namespace latihribbon
             if(MessageBox.Show("Anda yakin ingin keluar ? ", "Perhatian", MessageBoxButtons.YesNo , MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 Closing = false;
-                mainForm.Show();
+                mainForm.Opacity = 1;
                 this.Close();
             }
         }

@@ -33,6 +33,12 @@ namespace latihribbon
         public SuratKeluarcs(Form mainForm,string NIS, string nama,string kelas)
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.WindowState = FormWindowState.Maximized;
+            this.TopMost = true;
+            this.ControlBox = true;
+            this.KeyPreview = true;
+            this.mainForm = mainForm;
             db = new DbDal();
             keluarDal = new KeluarDal();
             this.NIS = NIS;
@@ -41,12 +47,6 @@ namespace latihribbon
             isian();
             bahasa();
 
-            this.FormBorderStyle = FormBorderStyle.None;
-            this.WindowState = FormWindowState.Maximized;
-            this.TopMost = true;
-            this.ControlBox = true;
-            this.KeyPreview = true;
-            this.mainForm = mainForm;
 
             
         }
@@ -95,7 +95,7 @@ namespace latihribbon
             
 
             System.Threading.Thread.Sleep(1000);
-            mainForm.Show();
+            mainForm.Opacity = 1;
             this.Close();
         }
 

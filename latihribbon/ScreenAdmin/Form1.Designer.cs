@@ -65,7 +65,7 @@
             // 
             this.ribbon1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.ribbon1.Location = new System.Drawing.Point(0, 0);
-            this.ribbon1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ribbon1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ribbon1.Minimized = false;
             this.ribbon1.Name = "ribbon1";
             // 
@@ -78,7 +78,7 @@
             this.ribbon1.OrbDropDown.Size = new System.Drawing.Size(527, 116);
             this.ribbon1.OrbDropDown.TabIndex = 0;
             this.ribbon1.RibbonTabFont = new System.Drawing.Font("Trebuchet MS", 9F);
-            this.ribbon1.Size = new System.Drawing.Size(1083, 199);
+            this.ribbon1.Size = new System.Drawing.Size(882, 162);
             this.ribbon1.TabIndex = 0;
             this.ribbon1.Tabs.Add(this.ribbonTab1);
             this.ribbon1.Tabs.Add(this.AbsensiSiswa);
@@ -273,10 +273,10 @@
             // 
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 199);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Location = new System.Drawing.Point(0, 162);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1083, 504);
+            this.panel1.Size = new System.Drawing.Size(882, 453);
             this.panel1.TabIndex = 1;
             // 
             // dataGridView1
@@ -284,10 +284,9 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(1083, 504);
+            this.dataGridView1.Size = new System.Drawing.Size(882, 453);
             this.dataGridView1.TabIndex = 0;
             // 
             // ButtonLogOut
@@ -301,9 +300,10 @@
             this.ButtonLogOut.ForeColor = System.Drawing.Color.Black;
             this.ButtonLogOut.Image = global::latihribbon.Properties.Resources.LogOutIcon;
             this.ButtonLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.ButtonLogOut.Location = new System.Drawing.Point(931, 110);
+            this.ButtonLogOut.Location = new System.Drawing.Point(750, 89);
+            this.ButtonLogOut.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ButtonLogOut.Name = "ButtonLogOut";
-            this.ButtonLogOut.Size = new System.Drawing.Size(114, 44);
+            this.ButtonLogOut.Size = new System.Drawing.Size(104, 36);
             this.ButtonLogOut.TabIndex = 1;
             this.ButtonLogOut.Text = "LogOut";
             this.ButtonLogOut.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -312,15 +312,15 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1083, 703);
+            this.ClientSize = new System.Drawing.Size(882, 615);
             this.Controls.Add(this.ButtonLogOut);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ribbon1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "ATM RESI";

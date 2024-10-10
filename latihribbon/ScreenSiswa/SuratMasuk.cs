@@ -30,22 +30,18 @@ namespace latihribbon
         public SuratMasuk(Form mainForm ,string NIS, string nama, string kelas)
         {
             InitializeComponent(); 
-            this.NIS = NIS;
-            this.nama = nama;
-            this.kelas = kelas;
-            
-            jam = DateTime.Now;
-            isian();
-
-          
-
-
             this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
             this.TopMost = true;
             this.ControlBox = true;
             this.KeyPreview = true;
             this.mainForm = mainForm;
+            this.NIS = NIS;
+            this.nama = nama;
+            this.kelas = kelas;
+            
+            jam = DateTime.Now;
+            isian();
         }
       
         public void isian()
@@ -105,7 +101,7 @@ namespace latihribbon
 
 
             System.Threading.Thread.Sleep(1000);
-            mainForm.Show();
+            mainForm.Opacity = 1;
             this.Close();
         }
 

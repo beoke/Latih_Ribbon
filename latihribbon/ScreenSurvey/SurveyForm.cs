@@ -30,8 +30,8 @@ namespace latihribbon
             this.KeyPreview = true;
             this.TopMost = true;
             this.ControlBox = true;
-            ControlEvent();
             InitialPicture();
+            ControlEvent();
         }
 
         private void InitialPicture()
@@ -99,7 +99,7 @@ namespace latihribbon
                 MessageBox.Show("Terima kasih,  respon anda sangat berharga bagi kami :)", "Pesan", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
                 MessageBox.Show("🖕 🐶 🖕", "Pesan", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            mainForm.Show();
+            mainForm.Opacity = 1;
             this.Close();
 
             clear();
