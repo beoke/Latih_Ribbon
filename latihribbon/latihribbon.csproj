@@ -493,6 +493,7 @@
     <None Include="Resources\RESI.png" />
     <None Include="Resources\ATM.png" />
     <None Include="Resources\Survey.png" />
+    <None Include="Resources\software-engineer.png" />
     <Content Include="SQL Script\CekData.sql" />
   </ItemGroup>
   <ItemGroup />

@@ -124,6 +124,9 @@
   <data name="LogOut" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LogOut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="LogOutIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LogOutIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="left-arrow-removebg-preview" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\left-arrow-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -136,6 +139,9 @@
   <data name="Bintang_Kosong" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Bintang_Kosong.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ATM" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ATM.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="TidakPuas_Polos" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TidakPuas_Polos.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -144,6 +150,9 @@
   </data>
   <data name="Puas_Warna" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Puas_Warna.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Survey" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Survey.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="sad" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sad.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -156,6 +165,9 @@
   </data>
   <data name="account" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\account.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Admin Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Admin Icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="login" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\login.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -175,9 +187,6 @@
   <data name="baground" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\baground.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="TidakPuas_Warna" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TidakPuas_Warna.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="walapaper program" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\walapaper program.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -186,6 +195,9 @@
   </data>
   <data name="ssmea bg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ssmea bg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RESI" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RESI.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="question" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\question.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -196,8 +208,8 @@
   <data name="absence (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\absence (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="LogOutIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\LogOutIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="TidakPuas_Warna" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TidakPuas_Warna.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Bintang_Full" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Bintang_Full.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -208,16 +220,7 @@
   <data name="question (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\question (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Admin Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Admin Icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="RESI" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RESI.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ATM" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ATM.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Survey" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Survey.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="software-engineer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\software-engineer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

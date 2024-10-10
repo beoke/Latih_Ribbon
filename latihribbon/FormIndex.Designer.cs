@@ -113,13 +113,14 @@
             // ButtonAdmin
             // 
             this.ButtonAdmin.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.ButtonAdmin.BackColor = System.Drawing.Color.Silver;
-            this.ButtonAdmin.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonAdmin.Image = global::latihribbon.Properties.Resources.Admin_Icon;
-            this.ButtonAdmin.Location = new System.Drawing.Point(746, 777);
+            this.ButtonAdmin.BackColor = System.Drawing.Color.DarkGray;
+            this.ButtonAdmin.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonAdmin.ForeColor = System.Drawing.Color.White;
+            this.ButtonAdmin.Image = global::latihribbon.Properties.Resources.software_engineer;
+            this.ButtonAdmin.Location = new System.Drawing.Point(687, 741);
             this.ButtonAdmin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonAdmin.Name = "ButtonAdmin";
-            this.ButtonAdmin.Size = new System.Drawing.Size(139, 54);
+            this.ButtonAdmin.Size = new System.Drawing.Size(244, 90);
             this.ButtonAdmin.TabIndex = 60;
             this.ButtonAdmin.Text = "ADMIN";
             this.ButtonAdmin.TextAlign = System.Drawing.ContentAlignment.MiddleRight;

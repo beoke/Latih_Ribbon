@@ -44,6 +44,8 @@ namespace latihribbon
 
             PictureRESI.Click += PictureRESI_Click;
             PictureSurvey.Click += PictureSurvey_Click;
+
+
         }
 
         private void PictureSurvey_Click(object sender, EventArgs e)

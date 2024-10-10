@@ -343,6 +343,16 @@ namespace latihribbon.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap software_engineer {
+            get {
+                object obj = ResourceManager.GetObject("software-engineer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ssmea_bg {
             get {
                 object obj = ResourceManager.GetObject("ssmea bg", resourceCulture);
