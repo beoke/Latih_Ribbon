@@ -83,7 +83,7 @@ namespace latihribbon.Dal
             }
         }
 
-        private void Delete(int IdKeluar)
+        public void Delete(int IdKeluar)
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
             {

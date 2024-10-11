@@ -85,7 +85,7 @@ namespace latihribbon.Dal
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
             {
                 string sql = @"
-            SELECT s.NIS, s.Nama, k.NamaKelas, p.Keterangan
+            SELECT s.NIS, s.Persensi, s.Nama, k.NamaKelas, p.Keterangan
             FROM Siswa s
             INNER JOIN Kelas k ON s.IdKelas = k.Id
             LEFT JOIN Persensi p ON s.NIS = p.NIS AND p.Tanggal BETWEEN @tgl1 AND @tgl2
