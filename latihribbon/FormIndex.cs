@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,6 +27,7 @@ namespace latihribbon
 
 
             this.KeyDown += FormIndex_KeyDown;
+
         }
 
         private void FormIndex_KeyDown(object sender, KeyEventArgs e)
@@ -107,5 +109,8 @@ namespace latihribbon
 
             this.Opacity = 0;
         }
+
+
+       
     }
 }

@@ -62,16 +62,16 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 9);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(1150, 482);
+            this.dataGridView1.Size = new System.Drawing.Size(922, 482);
             this.dataGridView1.TabIndex = 0;
             // 
             // btnResetFilter
             // 
             this.btnResetFilter.Location = new System.Drawing.Point(1613, 16);
-            this.btnResetFilter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnResetFilter.Margin = new System.Windows.Forms.Padding(4);
             this.btnResetFilter.Name = "btnResetFilter";
             this.btnResetFilter.Size = new System.Drawing.Size(100, 28);
             this.btnResetFilter.TabIndex = 39;
@@ -92,7 +92,7 @@
             // 
             this.KeteranganCombo.FormattingEnabled = true;
             this.KeteranganCombo.Location = new System.Drawing.Point(1424, 18);
-            this.KeteranganCombo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.KeteranganCombo.Margin = new System.Windows.Forms.Padding(4);
             this.KeteranganCombo.Name = "KeteranganCombo";
             this.KeteranganCombo.Size = new System.Drawing.Size(160, 24);
             this.KeteranganCombo.TabIndex = 37;
@@ -197,7 +197,7 @@
             this.panel1.Location = new System.Drawing.Point(3, 66);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1177, 584);
+            this.panel1.Size = new System.Drawing.Size(949, 584);
             this.panel1.TabIndex = 40;
             // 
             // lblHalaman
@@ -205,7 +205,7 @@
             this.lblHalaman.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblHalaman.AutoSize = true;
             this.lblHalaman.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHalaman.Location = new System.Drawing.Point(492, 529);
+            this.lblHalaman.Location = new System.Drawing.Point(378, 529);
             this.lblHalaman.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblHalaman.Name = "lblHalaman";
             this.lblHalaman.Size = new System.Drawing.Size(113, 20);
@@ -215,8 +215,8 @@
             // btnNext
             // 
             this.btnNext.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnNext.Location = new System.Drawing.Point(632, 525);
-            this.btnNext.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNext.Location = new System.Drawing.Point(518, 525);
+            this.btnNext.Margin = new System.Windows.Forms.Padding(4);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(100, 28);
             this.btnNext.TabIndex = 21;
@@ -227,8 +227,8 @@
             // btnPrevious
             // 
             this.btnPrevious.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnPrevious.Location = new System.Drawing.Point(368, 525);
-            this.btnPrevious.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPrevious.Location = new System.Drawing.Point(254, 525);
+            this.btnPrevious.Margin = new System.Windows.Forms.Padding(4);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(100, 28);
             this.btnPrevious.TabIndex = 20;
@@ -242,7 +242,7 @@
             this.btnPrintRekap.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPrintRekap.BackgroundImage")));
             this.btnPrintRekap.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnPrintRekap.FlatAppearance.BorderSize = 2;
-            this.btnPrintRekap.Location = new System.Drawing.Point(1078, 517);
+            this.btnPrintRekap.Location = new System.Drawing.Point(850, 517);
             this.btnPrintRekap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnPrintRekap.Name = "btnPrintRekap";
             this.btnPrintRekap.Size = new System.Drawing.Size(61, 46);
@@ -281,7 +281,7 @@
             // btnKelas
             // 
             this.btnKelas.Location = new System.Drawing.Point(777, 20);
-            this.btnKelas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnKelas.Margin = new System.Windows.Forms.Padding(4);
             this.btnKelas.Name = "btnKelas";
             this.btnKelas.Size = new System.Drawing.Size(53, 28);
             this.btnKelas.TabIndex = 42;
@@ -294,7 +294,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1184, 654);
+            this.ClientSize = new System.Drawing.Size(956, 654);
             this.Controls.Add(this.txtPersensi);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btnKelas);
@@ -312,7 +312,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtNama);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormRekapPersensi";
             this.Text = "FormRekapPersensi";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

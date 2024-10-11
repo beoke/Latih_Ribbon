@@ -72,7 +72,7 @@ namespace latihribbon.ScreenAdmin
         public void LoadHistory()
         {
             var gethistory = historyDal.GetData("RekapPersensi");
-            txtKelas.Text = gethistory.History;
+            txtKelas.Text = gethistory?.History ?? string.Empty;
             LoadData();
         }
 

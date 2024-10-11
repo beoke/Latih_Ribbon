@@ -42,7 +42,12 @@ namespace latihribbon.ScreenAdmin
 
         public void LoadData()
         {
-            GridListKelas.DataSource = kelasDal.listKelas(string.Empty, new { });
+            GridListKelas.DataSource = kelasDal.listKelas("", new { })
+                                               .Select(x => new
+                                               {
+                                                   IdKelas = x.Id,
+                                                   NamaKelas = x.NamaKelas
+                                               }).ToList();
 
             GridListKelas.Columns[0].Width = 100;
             GridListKelas.Columns[1].Width = 300;
@@ -77,7 +82,7 @@ namespace latihribbon.ScreenAdmin
         public void SetNamaKelas()
         {
             string tingkat = XRadio.Checked ? "X" : XIRadio.Checked ? "XI" : XIIRadio.Checked ? "XII" : string.Empty;
-            string jurusan = ((JurusanModel)jurusanCombo.SelectedItem).NamaJurusan;
+            string jurusan = ((JurusanModel)jurusanCombo.SelectedItem)?.NamaJurusan ?? string.Empty;
             string rombel = txtRombel.Text;
             txtNamaKelas.Text = $"{tingkat} {jurusan} {rombel}";
         }
@@ -148,8 +153,13 @@ namespace latihribbon.ScreenAdmin
             XRadio.Checked = true;
             XIRadio.Checked = false;
             XIIRadio.Checked = false;
-            jurusanCombo.SelectedIndex = 0;
             txtRombel.Text=string.Empty;
+
+
+            if (jurusanCombo.Items.Count == 0) return;
+                
+            jurusanCombo.SelectedIndex = 0;
+
         }
 
         private void btnSave_Click(object sender, EventArgs e)

@@ -31,50 +31,20 @@ namespace latihribbon
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMilih));
-            this.btn_Keluar = new System.Windows.Forms.Button();
-            this.btn_masuk = new System.Windows.Forms.Button();
             this.txtNIS = new System.Windows.Forms.Label();
             this.txtNama = new System.Windows.Forms.Label();
             this.txtKelas = new System.Windows.Forms.Label();
-            this.btn_kembali = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.btn_masuk = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btn_Keluar = new System.Windows.Forms.Button();
+            this.btn_kembali = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btn_Keluar
-            // 
-            this.btn_Keluar.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btn_Keluar.BackColor = System.Drawing.Color.DarkGray;
-            this.btn_Keluar.Font = new System.Drawing.Font("Calibri", 60F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Keluar.ForeColor = System.Drawing.SystemColors.Control;
-            this.btn_Keluar.Location = new System.Drawing.Point(833, 478);
-            this.btn_Keluar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_Keluar.Name = "btn_Keluar";
-            this.btn_Keluar.Size = new System.Drawing.Size(557, 302);
-            this.btn_Keluar.TabIndex = 1;
-            this.btn_Keluar.Text = "SURAT KELUAR";
-            this.btn_Keluar.UseVisualStyleBackColor = false;
-            this.btn_Keluar.Click += new System.EventHandler(this.btn_Keluar_Click);
-            // 
-            // btn_masuk
-            // 
-            this.btn_masuk.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btn_masuk.BackColor = System.Drawing.Color.BlueViolet;
-            this.btn_masuk.Font = new System.Drawing.Font("Calibri", 60F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_masuk.ForeColor = System.Drawing.SystemColors.Control;
-            this.btn_masuk.Location = new System.Drawing.Point(205, 478);
-            this.btn_masuk.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_masuk.Name = "btn_masuk";
-            this.btn_masuk.Size = new System.Drawing.Size(557, 302);
-            this.btn_masuk.TabIndex = 0;
-            this.btn_masuk.Text = "SURAT MASUK";
-            this.btn_masuk.UseVisualStyleBackColor = false;
-            this.btn_masuk.Click += new System.EventHandler(this.btn_masuk_Click);
             // 
             // txtNIS
             // 
@@ -82,7 +52,7 @@ namespace latihribbon
             this.txtNIS.AutoSize = true;
             this.txtNIS.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtNIS.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNIS.Location = new System.Drawing.Point(533, 194);
+            this.txtNIS.Location = new System.Drawing.Point(533, 173);
             this.txtNIS.Name = "txtNIS";
             this.txtNIS.Size = new System.Drawing.Size(165, 46);
             this.txtNIS.TabIndex = 8;
@@ -94,7 +64,7 @@ namespace latihribbon
             this.txtNama.AutoSize = true;
             this.txtNama.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtNama.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNama.Location = new System.Drawing.Point(536, 256);
+            this.txtNama.Location = new System.Drawing.Point(536, 235);
             this.txtNama.Name = "txtNama";
             this.txtNama.Size = new System.Drawing.Size(157, 46);
             this.txtNama.TabIndex = 9;
@@ -106,50 +76,21 @@ namespace latihribbon
             this.txtKelas.AutoSize = true;
             this.txtKelas.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtKelas.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtKelas.Location = new System.Drawing.Point(533, 318);
+            this.txtKelas.Location = new System.Drawing.Point(533, 297);
             this.txtKelas.Name = "txtKelas";
             this.txtKelas.Size = new System.Drawing.Size(161, 46);
             this.txtKelas.TabIndex = 11;
             this.txtKelas.Text = "Kelas   : ";
             // 
-            // btn_kembali
-            // 
-            this.btn_kembali.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_kembali.BackColor = System.Drawing.Color.Transparent;
-            this.btn_kembali.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_kembali.BackgroundImage")));
-            this.btn_kembali.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_kembali.FlatAppearance.BorderSize = 0;
-            this.btn_kembali.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_kembali.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_kembali.ForeColor = System.Drawing.Color.White;
-            this.btn_kembali.Location = new System.Drawing.Point(20, 26);
-            this.btn_kembali.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_kembali.Name = "btn_kembali";
-            this.btn_kembali.Size = new System.Drawing.Size(70, 70);
-            this.btn_kembali.TabIndex = 53;
-            this.btn_kembali.UseVisualStyleBackColor = false;
-            this.btn_kembali.Click += new System.EventHandler(this.btn_kembali_Click);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(131, 50);
+            this.label2.Location = new System.Drawing.Point(137, 54);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(159, 33);
             this.label2.TabIndex = 55;
             this.label2.Text = "Rekap Siswa";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 2);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(155, 126);
-            this.pictureBox1.TabIndex = 54;
-            this.pictureBox1.TabStop = false;
             // 
             // panel1
             // 
@@ -157,7 +98,6 @@ namespace latihribbon
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.btn_masuk);
             this.panel1.Controls.Add(this.pictureBox1);
@@ -180,6 +120,71 @@ namespace latihribbon
             this.panel2.Size = new System.Drawing.Size(1599, 121);
             this.panel2.TabIndex = 57;
             // 
+            // btn_masuk
+            // 
+            this.btn_masuk.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btn_masuk.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.btn_masuk.Font = new System.Drawing.Font("Calibri", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_masuk.ForeColor = System.Drawing.Color.White;
+            this.btn_masuk.Image = global::latihribbon.Properties.Resources.Group_13;
+            this.btn_masuk.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btn_masuk.Location = new System.Drawing.Point(172, 409);
+            this.btn_masuk.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_masuk.Name = "btn_masuk";
+            this.btn_masuk.Size = new System.Drawing.Size(600, 361);
+            this.btn_masuk.TabIndex = 0;
+            this.btn_masuk.Text = "SURAT IZIN \r\nMASUK";
+            this.btn_masuk.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_masuk.UseVisualStyleBackColor = false;
+            this.btn_masuk.Click += new System.EventHandler(this.btn_masuk_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(9, 6);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(155, 126);
+            this.pictureBox1.TabIndex = 54;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btn_Keluar
+            // 
+            this.btn_Keluar.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btn_Keluar.BackColor = System.Drawing.Color.Silver;
+            this.btn_Keluar.Font = new System.Drawing.Font("Calibri", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Keluar.ForeColor = System.Drawing.Color.White;
+            this.btn_Keluar.Image = global::latihribbon.Properties.Resources.Group_14;
+            this.btn_Keluar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btn_Keluar.Location = new System.Drawing.Point(835, 409);
+            this.btn_Keluar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_Keluar.Name = "btn_Keluar";
+            this.btn_Keluar.Size = new System.Drawing.Size(600, 361);
+            this.btn_Keluar.TabIndex = 1;
+            this.btn_Keluar.Text = "SURAT IZIN\r\nKELUAR";
+            this.btn_Keluar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_Keluar.UseVisualStyleBackColor = false;
+            this.btn_Keluar.Click += new System.EventHandler(this.btn_Keluar_Click);
+            // 
+            // btn_kembali
+            // 
+            this.btn_kembali.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_kembali.BackColor = System.Drawing.Color.Transparent;
+            this.btn_kembali.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_kembali.BackgroundImage")));
+            this.btn_kembali.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_kembali.FlatAppearance.BorderSize = 0;
+            this.btn_kembali.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_kembali.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_kembali.ForeColor = System.Drawing.Color.White;
+            this.btn_kembali.Location = new System.Drawing.Point(20, 26);
+            this.btn_kembali.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_kembali.Name = "btn_kembali";
+            this.btn_kembali.Size = new System.Drawing.Size(70, 70);
+            this.btn_kembali.TabIndex = 53;
+            this.btn_kembali.UseVisualStyleBackColor = false;
+            this.btn_kembali.Click += new System.EventHandler(this.btn_kembali_Click);
+            // 
             // FormMilih
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -195,10 +200,10 @@ namespace latihribbon
             this.Name = "FormMilih";
             this.Text = "FormMilih";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

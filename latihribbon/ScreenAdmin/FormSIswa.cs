@@ -220,10 +220,12 @@ namespace latihribbon
             XRadio.Checked = false;
             XIIRadio.Checked = false;
             XIRadio.Checked = false;
-            jurusanCombo.SelectedIndex = 0;
             txtTahun_FormSiswa.Clear();
             if(rombelCombo.Items.Count < 1) return;
             rombelCombo.SelectedIndex = 0;
+
+            if (jurusanCombo.Items.Count == 0) return;  
+            jurusanCombo.SelectedIndex = 0;
         }
         private void Delete()
         {
@@ -278,7 +280,7 @@ namespace latihribbon
             string nama = txtNama.Text;
             string persensi = txtPersensi.Text;
             string kelas = txtKelas.Text;
-            string tahun = comboTahunFilter.SelectedItem.ToString();
+            string tahun = comboTahunFilter.SelectedItem?.ToString()?? string.Empty;
             var sqlc = FilterSQL(nis, nama,persensi, kelas, tahun);
             var dp = new DynamicParameters();
             if (nis != "") dp.Add("@Nis", nis);

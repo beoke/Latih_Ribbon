@@ -180,6 +180,7 @@ namespace latihribbon
                 if (MessageBox.Show("Hapus data ?", "Konfirmasi", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                 {
                     Delete(Convert.ToInt16(id));
+                    LoadData();
                 }
             }
 

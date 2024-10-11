@@ -177,17 +177,24 @@ namespace latihribbon
 
         private void ButtonDeleteUser_Click(object sender, EventArgs e)
         {
+            
             var idUser = Convert.ToInt32(GridListUser.CurrentRow.Cells[0].Value);
-            _riwayatLoginDal.DeleteUser(idUser);
 
+            if (idUser == 0)
+                return;
 
-            LoadUser();
+            if (MessageBox.Show("Hapus Data User ?","Perhatian", MessageBoxButtons.YesNo, MessageBoxIcon.Question)== DialogResult.Yes)
+            {
+                _riwayatLoginDal.DeleteUser(idUser);
+                LoadUser();
+            }
         }
 
         private void ButtonNewUser_Click(object sender, EventArgs e)
         {
             ClearUser();
             LabelAddUser.Text = "Add User";
+
 
         }
 
