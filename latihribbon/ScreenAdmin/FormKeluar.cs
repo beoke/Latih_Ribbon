@@ -205,6 +205,9 @@ namespace latihribbon
                 if (!mesBox.MesKonfirmasi("Input Data?")) return;
                 keluarDal.Insert(keluar);
                 LoadData();
+                globalId = 0;
+                ClearInput();
+                ControlInsertUpdate();
             }
             else
             {
@@ -253,6 +256,20 @@ namespace latihribbon
 
             tglsatu.ValueChanged += filter_tglChanged;
             tgldua.ValueChanged += filter_tglChanged;
+            btnDelete_FormSiswa.Click += BtnDelete_FormSiswa_Click;
+        }
+
+
+        private void BtnDelete_FormSiswa_Click(object sender, EventArgs e)
+        {
+            if(globalId == 0)
+            {
+                mesBox.MesInfo("Pilih Data Terlebih Dahulu !");
+                return;
+            }
+            if (!mesBox.MesKonfirmasi("Hapus Data?")) return;
+            keluarDal.Delete(globalId);
+            LoadData();
         }
 
         private void filter_TextChanged(object sender, EventArgs e)

@@ -105,6 +105,7 @@ namespace latihribbon.Dal
             {
                 string sql = $@"SELECT p.ID,p.NIS,s.Nama,s.Persensi,k.NamaKelas,p.Tanggal,p.Keterangan
                                      FROM siswa s 
+                                     INNER JOIN Persensi p ON s.Nis = p.NIS
                                      INNER JOIN Kelas k ON s.IdKelas = k.Id {condition}";
                 return koneksi.QueryFirstOrDefault<AbsensiModel>(sql, dp);
             }

@@ -184,12 +184,8 @@ namespace latihribbon.ScreenAdmin
 
         private void BtnPrintRekap_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Eksport Data ?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                FormSetPrint formPrint = new FormSetPrint();
-
-                formPrint.ShowDialog();
-            }
+            FormSetPrint formPrint = new FormSetPrint();
+            formPrint.ShowDialog();
         }
 
         private void btnReset_Click(object sender, EventArgs e)

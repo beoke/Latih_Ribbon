@@ -161,7 +161,7 @@ namespace latihribbon
         {
             int Persensi = string.IsNullOrEmpty(txtPersensi1.Text) ? 0 : Convert.ToInt32(txtPersensi1.Text);
             string Kelas = txtKelas1.Text;
-            var cekData = absensiDal.GetByPerKas(" WHERE s.Persensi=@Persensi AND kls.NamaKelas=@Kelas", new {Persensi = Persensi,Kelas=Kelas});
+            var cekData = absensiDal.GetByPerKas(" WHERE s.Persensi=@Persensi AND k.NamaKelas=@Kelas", new {Persensi = Persensi,Kelas=Kelas});
             var absensi = new AbsensiModel 
             {
                 Nis = cekData?.Nis ?? 0,

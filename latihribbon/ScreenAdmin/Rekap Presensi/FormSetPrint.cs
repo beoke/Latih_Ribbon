@@ -168,7 +168,7 @@ namespace latihribbon
                                 headerRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
                             }
                             
-                            currentRow++;
+                            //currentRow++;
 
                             foreach (var rekap in rekapPerSiswa)
                             {
