@@ -103,11 +103,13 @@ namespace latihribbon
                 using (var package = new ExcelPackage())
                 {
                     var groupedData = new Dictionary<string, List<RekapPersensiModel>>();
+                    var KelasCek = new List<string>();
 
                     foreach (var kelas in selectedClasses)
                     {
                         var studentsData = rekapPersensiDal.GetStudentDataByClass(kelas,tgl1,tgl2).ToList();
 
+                        if(!studentsData.Any()) KelasCek.Add(kelas);
                         var angkatan = kelas.Trim().Split(' ', (char)StringSplitOptions.RemoveEmptyEntries).First();
 
                         if (!groupedData.ContainsKey(angkatan))
@@ -117,18 +119,15 @@ namespace latihribbon
 
                         groupedData[angkatan].AddRange(studentsData);
                     }
-
+                    if(KelasCek.Count != 0)
+                    {
+                        mesBox.MesInfo("Tidak Ada Data Untuk Kelas : " +  string.Join(", ",KelasCek));
+                        return;
+                    }
                     foreach (var angkatan in groupedData.Keys)
                     {
                         var studentsInAngkatan = groupedData[angkatan];
-                        if (studentsInAngkatan == null || studentsInAngkatan.Count == 0)
-                        {
-                            mesBox.MesInfo($"Tidak ada data untuk angkatan {angkatan}.");
-                            return;
-                        }
-
                         var groupedByKelas = studentsInAngkatan.GroupBy(s => s.NamaKelas).ToList();
-
                         var worksheet = package.Workbook.Worksheets.Add(angkatan);
 
                         worksheet.Cells[1, 1].Value = $"Data Siswa Angkatan: {angkatan}";
@@ -142,11 +141,12 @@ namespace latihribbon
 
                             var rekapPerSiswa = uniqueStudents.Select(student => new
                             {
+                                student.Persensi,
                                 student.Nama,
                                 student.NamaKelas,
-                                S = studentsInAngkatan.Count(s => s.Nama == student.Nama && s.Keterangan == "S"),
-                                I = studentsInAngkatan.Count(s => s.Nama == student.Nama && s.Keterangan == "I"),
-                                A = studentsInAngkatan.Count(s => s.Nama == student.Nama && s.Keterangan == "A")
+                                S = studentsInAngkatan.Count(s => s.Nama == student.Nama && s.Keterangan == "S") == 0 ? (int?)null : studentsInAngkatan.Count(s => s.Nama == student.Nama && s.Keterangan == "S"),
+                                I = studentsInAngkatan.Count(s => s.Nama == student.Nama && s.Keterangan == "I") == 0 ? (int?)null : studentsInAngkatan.Count(s => s.Nama == student.Nama && s.Keterangan == "I"),
+                                A = studentsInAngkatan.Count(s => s.Nama == student.Nama && s.Keterangan == "A") == 0 ? (int?)null : studentsInAngkatan.Count(s => s.Nama == student.Nama && s.Keterangan == "A")
                             }).ToList();
 
                             worksheet.Cells[currentRow, 1].Value = $"Tabel Kelas: {kelasGroup.Key}";
@@ -168,7 +168,7 @@ namespace latihribbon
                                 headerRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
                             }
                             
-                            //currentRow++;
+                            currentRow++;
 
                             foreach (var rekap in rekapPerSiswa)
                             {
@@ -178,7 +178,7 @@ namespace latihribbon
                                     return;
                                 }
 
-                                worksheet.Cells[currentRow, 1].Value = currentRow - 3; // No (mulai dari 1)
+                                worksheet.Cells[currentRow, 1].Value = rekap.Persensi; // No (mulai dari 1)
                                 worksheet.Cells[currentRow, 2].Value = rekap.Nama; // Nama siswa
                                 worksheet.Cells[currentRow, 3].Value = rekap.NamaKelas; // Kelas siswa
                                 worksheet.Cells[currentRow, 4].Value = rekap.S; // Jumlah Sakit
