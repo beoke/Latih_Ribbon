@@ -15,5 +15,6 @@ namespace latihribbon
 
         public int TotalPuas { get; set; }
         public int TotalTidakPuas { get; set; }
+
     }
 }

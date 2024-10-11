@@ -50,7 +50,6 @@ namespace latihribbon
 
             ButtonKirim.Click += ButtonSave_Click;
             btn_kembali.Click += btn_kembali_Click;
-            this.KeyDown += Kepuasan_KeyDown;
         }
 
         private async void btn_kembali_Click(object sender, EventArgs e)
@@ -59,14 +58,6 @@ namespace latihribbon
             this.Close();
         }
 
-        private void Kepuasan_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Control && e.Alt && e.KeyCode == Keys.K)
-            {
-                mainForm.Show();
-                this.Close();
-            }
-        }
         private void ButtonSave_Click(object sender, EventArgs e)
         {
             if (PuasOn == false && TidakPuasOn == false)
