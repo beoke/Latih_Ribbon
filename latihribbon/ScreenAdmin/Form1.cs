@@ -23,15 +23,11 @@ namespace latihribbon
 
         public Form1(Form mainForm)
         {
-
             InitializeComponent();
             _mesbox = new MesBox();
-
             this.mainForm = mainForm;
             this.WindowState = FormWindowState.Maximized;
-            
-            this.MinimizeBox = false;
-            this.MaximizeBox = true;
+           
             this.MinimumSize = new Size(1500, 800);
 
 
@@ -75,8 +71,6 @@ namespace latihribbon
             ribbon_keluar.CheckOnClick = true;
             ribbon_keluar.Checked = true;
         }
-     
-
         private void ribbon_Siswa_Click(object sender, EventArgs e)
         {
             FormSIswa dataSiswa = new FormSIswa();
@@ -193,7 +187,7 @@ namespace latihribbon
         {
             if (Closing)
             {
-                _mesbox.MesInfo("ANDA HARUS LOGOUT");
+                if (_mesbox.MesKonfirmasi("Apakah Anda Ingin Menutup Aplikasi ?")) mainForm.Close();
                 e.Cancel = true;
             }
         }

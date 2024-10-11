@@ -151,10 +151,12 @@ namespace latihribbon
             tglDT.Value = data.Tanggal;
             jamMasukDT.Value = DateTime.Today.Add(data.JamMasuk);
             txtAlasan1.Text = data.Alasan;
+            ControlInsertUpdate();
         }
 
         private void ClearInput()
         {
+            txtNIS1.ReadOnly = false;
             txtNIS1.Clear();
             txtNama1.Clear();
             txtKelas1.Clear();
@@ -162,7 +164,13 @@ namespace latihribbon
             jamMasukDT.Value = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day, 0, 0, 0);
             txtAlasan1.Clear();
         }
-
+        private void ControlInsertUpdate()
+        {
+            if (globalId == 0)
+                lblInfo.Text = "INSERT";
+            else
+                lblInfo.Text = "UPDATE";
+        }
         private void SaveData()
         {
             string nis = txtNIS1.Text;
@@ -191,6 +199,9 @@ namespace latihribbon
                 if (!mesBox.MesKonfirmasi("Input Data?")) return;
                 masukDal.Insert(masuk);
                 LoadData();
+                globalId = 0;
+                ClearInput();
+                ControlInsertUpdate();
             }
             else
             {
@@ -255,9 +266,7 @@ namespace latihribbon
         {
             ClearInput();
             globalId = 0;
-            lblInfo.Text = "INSERT";
-            txtNIS1.ReadOnly = false;
-
+            ControlInsertUpdate();
         }
         private void btnSave_FormSiswa_Click(object sender, EventArgs e)
         {
@@ -294,7 +303,7 @@ namespace latihribbon
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
             GetData();
-            lblInfo.Text = "UPDATE";
+            ControlInsertUpdate();
             txtNIS1.ReadOnly = true;
         }
 
