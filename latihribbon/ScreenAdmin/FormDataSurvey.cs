@@ -19,21 +19,22 @@ namespace latihribbon
         {
             InitializeComponent();
             buf();
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.WindowState = FormWindowState.Maximized;
+            this.TopMost = true;
+            this.ControlBox = true;
+            this.KeyPreview = true;
 
             ControlEvent();
             //init Combo
             ComboFilter.Items.Add("Semua");
             ComboFilter.Items.Add("Hari ini");
             ComboFilter.SelectedIndex = 0;
-            LoadData("");
+            LoadData();
+            InitGrid();
 
 
 
-            this.FormBorderStyle = FormBorderStyle.None;
-            this.WindowState = FormWindowState.Maximized;
-            this.TopMost = true;
-            this.ControlBox = true;
-            this.KeyPreview = true;
         }
         private void ControlEvent()
         {
@@ -46,48 +47,74 @@ namespace latihribbon
 
             ButtonResetFilter.Click += ButtonResetFilter_Click;
         }
+        private void InitGrid()
+        {
+            GridListSurvey.ReadOnly = true;
+            GridListSurvey.EnableHeadersVisualStyles = false;
+            GridListSurvey.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
 
+            GridListSurvey.DefaultCellStyle.Font = new Font("Sans Serif", 10);
+            GridListSurvey.ColumnHeadersDefaultCellStyle.Font = new Font("Sans Serif", 10, FontStyle.Bold);
+            GridListSurvey.ColumnHeadersDefaultCellStyle.BackColor = Color.LightBlue;
+            GridListSurvey.RowTemplate.Height = 30;
+            GridListSurvey.ColumnHeadersHeight = 35;
+
+            GridListSurvey.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
+        bool TanggalCanged = false;
+        private void LoadData()
+        {
+            DateTime FilterToday = DateTime.Today;
+            DateTime tgl1 = PickerRentan_1.Value;
+            DateTime tgl2 = PickerRentan_2.Value;
+
+            var dp = new DynamicParameters();
+            string sqlc = string.Empty;
+            List<string> list = new List<string>();
+            if (ComboFilter.SelectedIndex != 0)
+            {
+                list.Add("Tanggal = @FilterToday");
+                dp.Add("@FilterToday", FilterToday);
+            }
+            if (TanggalCanged)
+            {
+                list.Add("Tanggal BETWEEN @tgl1 AND @tgl2");
+                dp.Add("@tgl1", tgl1);
+                dp.Add("@tgl2", tgl2);
+            }
+            if (list.Count > 0)
+                sqlc += " WHERE " + string.Join(" AND ", list);
+
+            GridListSurvey.DataSource = ListData(sqlc, "OFFSET @Offset ROWS FETCH NEXT @Fetch ROWS ONLY", dp)
+                                        .Select(x => new
+                                        {
+                                            Id = x.SurveyId,
+                                            Jawaban_Survey = x.HasilSurvey == 1 ? "Puas" : "Tidak Puas",
+                                            Tanggal = x.Tanggal.ToString("dd/MM/yyyy"),
+                                            Waktu = x.Waktu.ToString(@"hh\:mm")
+                                        }).ToList();
+
+            TextTotalPuas.Text = ListData(sqlc,string.Empty, dp).Count(x => x.HasilSurvey == 1).ToString();
+            TextTotalTidakPuas.Text = ListData(sqlc,string.Empty, dp).Count(x => x.HasilSurvey == 0).ToString();
+        }
         private void ButtonResetFilter_Click(object sender, EventArgs e)
         {
             ComboFilter.SelectedIndex = 0;
             PickerRentan_1.Value = DateTime.Today;
             PickerRentan_2.Value = DateTime.Today;
-            LoadData("");
+            LoadData();
         }
 
-        private async void PickerRentan_ValueChanged(object sender, EventArgs e)
+        private void PickerRentan_ValueChanged(object sender, EventArgs e)
         {
-            string tanggal_1 = PickerRentan_1.Value.ToString("yyyy-MM-dd");
-            string tanggal_2 = PickerRentan_2.Value.ToString("yyyy-MM-dd");
-
-
-            string Filter = $"WHERE Tanggal  BETWEEN '{tanggal_1}' AND '{tanggal_2}' ";
-
-            await Task.Delay(300);
-
-            LoadData(Filter);
-            ComboFilter.SelectedIndex = 0;
+            TanggalCanged = true;
+            LoadData();
         }
 
 
         private void ComboFilter_SelectedValueChanged(object sender, EventArgs e)
         {
-            var tanggal = DateTime.Today.ToString("yyyy-MM-dd");
-            if (ComboFilter.SelectedItem.ToString() == "Semua")
-            {
-                LoadData("");
-            }
-            else if (ComboFilter.SelectedItem.ToString() == "Hari ini")
-            {
-                MessageBox.Show(tanggal.ToString());
-                string Filter = $"WHERE CAST (Tanggal AS DATE) = '{tanggal}'";
-                LoadData(Filter);
-            }
-            
-
-
-
-
+            LoadData();
         }
 
         private void ButtonDeleteUser_Click(object sender, EventArgs e)
@@ -103,39 +130,7 @@ namespace latihribbon
             }
 
         }
-
-        private void LoadData(string Filter)
-        {
-            GridListSurvey.DataSource = ListData(Filter)
-                                        .Select(x => new
-                                        {
-                                            Id = x.SurveyId,
-                                            Jawaban_Survey = x.HasilSurvey == 1 ? "Puas" : "Tidak Puas",
-                                            Tanggal = x.Tanggal.ToString("dd/MM/yyyy"),
-                                            Waktu = x.Waktu.ToString(@"hh\:mm")
-                                        }).ToList();
-
-            TextTotalPuas.Text = ListData(Filter).Count(x => x.HasilSurvey == 1).ToString();
-            TextTotalTidakPuas.Text = ListData(Filter).Count(x => x.HasilSurvey == 0).ToString();
-
-
-
-            if (GridListSurvey.Rows.Count > 0)
-            {
-                GridListSurvey.ReadOnly = true;
-                GridListSurvey.EnableHeadersVisualStyles = false;
-                GridListSurvey.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-
-                GridListSurvey.DefaultCellStyle.Font = new Font("Sans Serif", 10);
-                GridListSurvey.ColumnHeadersDefaultCellStyle.Font = new Font("Sans Serif", 10, FontStyle.Bold);
-                GridListSurvey.ColumnHeadersDefaultCellStyle.BackColor = Color.LightBlue;
-                GridListSurvey.RowTemplate.Height = 30;
-                GridListSurvey.ColumnHeadersHeight = 35;
-                      
-                GridListSurvey.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-               
-            }
-        }
+        
 
         public void buf()
         {
@@ -180,13 +175,14 @@ namespace latihribbon
     
 
         #region DAL
-        private IEnumerable<SurveyModel> ListData(string Filter)
+        private IEnumerable<SurveyModel> ListData(string Filter,string Pagination, object dp)
         {
             using (var Conn = new SqlConnection(conn.connstr()))
             {
-                string sql = $@"SELECT * FROM Survey  {Filter} ORDER BY SurveyId DESC";
+                string sql = $@"SELECT * FROM Survey  {Filter} 
+                                ORDER BY SurveyId DESC {Pagination}";
 
-                return Conn.Query<SurveyModel>(sql);
+                return Conn.Query<SurveyModel>(sql,dp);
             }
 
         }
