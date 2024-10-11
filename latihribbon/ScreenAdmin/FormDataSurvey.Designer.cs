@@ -33,6 +33,11 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.ButtonDeleteUser = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.TextTotalTidakPuas = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.TextTanggal = new System.Windows.Forms.TextBox();
+            this.TextTotalPuas = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.TextWaktu = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -51,11 +56,8 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.LabelHalaman = new System.Windows.Forms.Label();
             this.GridListSurvey = new System.Windows.Forms.DataGridView();
-            this.TextTotalPuas = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.TextTanggal = new System.Windows.Forms.TextBox();
-            this.TextTotalTidakPuas = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.ButtonNext = new System.Windows.Forms.Button();
+            this.ButtonPrevious = new System.Windows.Forms.Button();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -144,6 +146,68 @@
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(442, 499);
             this.panel8.TabIndex = 5;
+            // 
+            // TextTotalTidakPuas
+            // 
+            this.TextTotalTidakPuas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TextTotalTidakPuas.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TextTotalTidakPuas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextTotalTidakPuas.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.TextTotalTidakPuas.Location = new System.Drawing.Point(280, 444);
+            this.TextTotalTidakPuas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TextTotalTidakPuas.Name = "TextTotalTidakPuas";
+            this.TextTotalTidakPuas.ReadOnly = true;
+            this.TextTotalTidakPuas.Size = new System.Drawing.Size(133, 27);
+            this.TextTotalTidakPuas.TabIndex = 72;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(270, 418);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(149, 24);
+            this.label6.TabIndex = 71;
+            this.label6.Text = "Total Tidak Puas";
+            // 
+            // TextTanggal
+            // 
+            this.TextTanggal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TextTanggal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TextTanggal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextTanggal.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.TextTanggal.Location = new System.Drawing.Point(32, 244);
+            this.TextTanggal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TextTanggal.Name = "TextTanggal";
+            this.TextTanggal.ReadOnly = true;
+            this.TextTanggal.Size = new System.Drawing.Size(381, 27);
+            this.TextTanggal.TabIndex = 70;
+            // 
+            // TextTotalPuas
+            // 
+            this.TextTotalPuas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TextTotalPuas.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TextTotalPuas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextTotalPuas.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.TextTotalPuas.Location = new System.Drawing.Point(32, 444);
+            this.TextTotalPuas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TextTotalPuas.Name = "TextTotalPuas";
+            this.TextTotalPuas.ReadOnly = true;
+            this.TextTotalPuas.Size = new System.Drawing.Size(133, 27);
+            this.TextTotalPuas.TabIndex = 69;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(38, 418);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(98, 24);
+            this.label1.TabIndex = 68;
+            this.label1.Text = "Total Puas";
             // 
             // TextWaktu
             // 
@@ -328,6 +392,8 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.BackColor = System.Drawing.Color.DarkGray;
+            this.panel3.Controls.Add(this.ButtonNext);
+            this.panel3.Controls.Add(this.ButtonPrevious);
             this.panel3.Controls.Add(this.LabelHalaman);
             this.panel3.Controls.Add(this.GridListSurvey);
             this.panel3.Location = new System.Drawing.Point(10, 89);
@@ -361,67 +427,27 @@
             this.GridListSurvey.Size = new System.Drawing.Size(660, 545);
             this.GridListSurvey.TabIndex = 37;
             // 
-            // TextTotalPuas
+            // ButtonNext
             // 
-            this.TextTotalPuas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TextTotalPuas.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TextTotalPuas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextTotalPuas.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.TextTotalPuas.Location = new System.Drawing.Point(32, 444);
-            this.TextTotalPuas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.TextTotalPuas.Name = "TextTotalPuas";
-            this.TextTotalPuas.ReadOnly = true;
-            this.TextTotalPuas.Size = new System.Drawing.Size(133, 27);
-            this.TextTotalPuas.TabIndex = 69;
+            this.ButtonNext.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.ButtonNext.Location = new System.Drawing.Point(395, 587);
+            this.ButtonNext.Margin = new System.Windows.Forms.Padding(4);
+            this.ButtonNext.Name = "ButtonNext";
+            this.ButtonNext.Size = new System.Drawing.Size(100, 28);
+            this.ButtonNext.TabIndex = 40;
+            this.ButtonNext.Text = ">";
+            this.ButtonNext.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // ButtonPrevious
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(38, 418);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 24);
-            this.label1.TabIndex = 68;
-            this.label1.Text = "Total Puas";
-            // 
-            // TextTanggal
-            // 
-            this.TextTanggal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TextTanggal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TextTanggal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextTanggal.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.TextTanggal.Location = new System.Drawing.Point(32, 244);
-            this.TextTanggal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.TextTanggal.Name = "TextTanggal";
-            this.TextTanggal.ReadOnly = true;
-            this.TextTanggal.Size = new System.Drawing.Size(381, 27);
-            this.TextTanggal.TabIndex = 70;
-            // 
-            // TextTotalTidakPuas
-            // 
-            this.TextTotalTidakPuas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TextTotalTidakPuas.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TextTotalTidakPuas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextTotalTidakPuas.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.TextTotalTidakPuas.Location = new System.Drawing.Point(280, 444);
-            this.TextTotalTidakPuas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.TextTotalTidakPuas.Name = "TextTotalTidakPuas";
-            this.TextTotalTidakPuas.ReadOnly = true;
-            this.TextTotalTidakPuas.Size = new System.Drawing.Size(133, 27);
-            this.TextTotalTidakPuas.TabIndex = 72;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(270, 418);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(149, 24);
-            this.label6.TabIndex = 71;
-            this.label6.Text = "Total Tidak Puas";
+            this.ButtonPrevious.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.ButtonPrevious.Location = new System.Drawing.Point(131, 587);
+            this.ButtonPrevious.Margin = new System.Windows.Forms.Padding(4);
+            this.ButtonPrevious.Name = "ButtonPrevious";
+            this.ButtonPrevious.Size = new System.Drawing.Size(100, 28);
+            this.ButtonPrevious.TabIndex = 39;
+            this.ButtonPrevious.Text = "<";
+            this.ButtonPrevious.UseVisualStyleBackColor = true;
             // 
             // FormDataSurvey
             // 
@@ -476,5 +502,7 @@
         private System.Windows.Forms.TextBox TextTanggal;
         private System.Windows.Forms.TextBox TextTotalPuas;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button ButtonNext;
+        private System.Windows.Forms.Button ButtonPrevious;
     }
 }

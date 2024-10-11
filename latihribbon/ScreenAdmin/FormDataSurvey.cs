@@ -15,12 +15,14 @@ namespace latihribbon
 {
     public partial class FormDataSurvey : Form
     {
+
         public FormDataSurvey()
         {
             InitializeComponent();
             buf();
 
             ControlEvent();
+
             //init Combo
             ComboFilter.Items.Add("Semua");
             ComboFilter.Items.Add("Hari ini");
@@ -35,6 +37,8 @@ namespace latihribbon
             this.ControlBox = true;
             this.KeyPreview = true;
         }
+
+        #region EVENT
         private void ControlEvent()
         {
             GridListSurvey.RowEnter += GridListSurvey_RowEnter;
@@ -45,6 +49,19 @@ namespace latihribbon
             PickerRentan_2.ValueChanged += PickerRentan_ValueChanged;
 
             ButtonResetFilter.Click += ButtonResetFilter_Click;
+
+            ButtonPrevious.Click += ButtonPrevious_Click;
+            ButtonNext.Click += ButtonNext_Click;
+        }
+
+        private void ButtonNext_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void ButtonPrevious_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         private void ButtonResetFilter_Click(object sender, EventArgs e)
@@ -104,8 +121,16 @@ namespace latihribbon
 
         }
 
+        #endregion
+
+
+                                                                                                                                                        
+        
+
+
         private void LoadData(string Filter)
         {
+
             GridListSurvey.DataSource = ListData(Filter)
                                         .Select(x => new
                                         {
