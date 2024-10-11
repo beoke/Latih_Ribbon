@@ -113,6 +113,16 @@ namespace latihribbon.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ATM_TINGGI {
+            get {
+                object obj = ResourceManager.GetObject("ATM TINGGI", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap baground {
             get {
                 object obj = ResourceManager.GetObject("baground", resourceCulture);
@@ -366,6 +376,16 @@ namespace latihribbon.Properties {
         internal static System.Drawing.Bitmap Survey {
             get {
                 object obj = ResourceManager.GetObject("Survey", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SURVEY_TINGGI {
+            get {
+                object obj = ResourceManager.GetObject("SURVEY TINGGI", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
