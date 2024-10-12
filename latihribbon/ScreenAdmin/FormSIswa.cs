@@ -164,6 +164,7 @@ namespace latihribbon
             if (lakiRadio.Checked) jenisKelamin = "L";
             if (perempuanRadio.Checked) jenisKelamin = "P";
 
+            var idJurusan = (int)jurusanCombo.SelectedValue;
             if (XRadio.Checked) tingkat = "X";
             if (XIRadio.Checked) tingkat = "XI";
             if (XIIRadio.Checked) tingkat = "XII";
@@ -189,7 +190,7 @@ namespace latihribbon
                 Nis = int.Parse(nis),
                 Nama = nama,
                 Persensi = int.Parse(persensi),
-                JenisKelamin = jenisKelamin,
+                JenisKelamin = jenisKelamin, 
                 IdKelas = idKelas,
                 Tahun = tahun,
             };

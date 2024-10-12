@@ -80,3 +80,6 @@ INNER JOIN Kelas k ON s.IdKelas = k.Id
 ORDER BY 
     CAST(s.Tahun AS INT) DESC, s.IdKelas ASC,
     RIGHT(k.NamaKelas, LEN(k.NamaKelas) - CHARINDEX(' ', k.NamaKelas)) ASC;
+
+
+    SELECT Rombel,Id FROM Kelas WHERE idJurusan= 1 AND Tingkat='X'
