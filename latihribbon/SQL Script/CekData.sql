@@ -39,3 +39,44 @@ create table Survey (
 
 
     select * from Survey
+
+
+
+
+    SELECT DISTINCT Tahun
+                                 FROM siswa
+                                 ORDER BY Tahun ASC
+
+
+
+
+
+
+
+
+                                 SELECT k.Id,k.NamaKelas,k.Rombel,k.IdJurusan,k.Tingkat,j.NamaJurusan FROM Kelas k
+                                INNER JOIN Jurusan j ON k.IdJurusan=j.Id  
+                                ORDER BY Id, CASE 
+                                        WHEN k.Tingkat = 'X' THEN 1
+                                        WHEN k.Tingkat = 'XI' THEN 2
+                                        WHEN k.Tingkat = 'XII' THEN 3
+                                        ELSE 4
+                                    ENd
+
+                                    select * from Siswa where Tahun = '2026' 
+
+
+
+
+
+                                    SELECT s.Nis,s.Nama,s.JenisKelamin,s.Persensi,k.NamaKelas,s.Tahun FROM siswa s 
+                                INNER JOIN Kelas k ON s.IdKelas = k.Id  
+                                ORDER BY 
+                                    CAST(Tahun AS INT) DESC, s.IdKelas ASC,
+                                    SUBSTRING( k.NamaKelas, CHARINDEX(' ', k.NamaKelas) + 1, LEN(k.NamaKelas)) ASC 
+                                   SELECT s.Nis, s.Nama, s.JenisKelamin, s.Persensi, k.NamaKelas, s.Tahun 
+FROM siswa s 
+INNER JOIN Kelas k ON s.IdKelas = k.Id  
+ORDER BY 
+    CAST(s.Tahun AS INT) DESC, s.IdKelas ASC,
+    RIGHT(k.NamaKelas, LEN(k.NamaKelas) - CHARINDEX(' ', k.NamaKelas)) ASC;

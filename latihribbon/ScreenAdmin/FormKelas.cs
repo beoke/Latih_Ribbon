@@ -117,10 +117,10 @@ namespace latihribbon.ScreenAdmin
                 LoadData();
             }
         }
-
+         
         public void GetData(int Id)
         {
-            var kelas = kelasDal.GetData(Id);
+            var kelas = kelasDal.GetData(Id); 
             if (kelas == null) return;
             txtIdKelas.Text = kelas.Id.ToString();
             txtNamaKelas.Text = kelas.NamaKelas;
@@ -150,6 +150,7 @@ namespace latihribbon.ScreenAdmin
         {
             txtIdKelas.Clear();
             txtNamaKelas.Clear();
+            
             XRadio.Checked = true;
             XIRadio.Checked = false;
             XIIRadio.Checked = false;
@@ -165,6 +166,7 @@ namespace latihribbon.ScreenAdmin
         private void btnSave_Click(object sender, EventArgs e)
         {
             SaveData();
+            ClearData();
         }
 
         #region EventSetNamakelas

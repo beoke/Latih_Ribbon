@@ -84,7 +84,7 @@ namespace latihribbon
                 string NIS, nama, kelas;
                 NIS = siswa.Nis.ToString();
                 nama = siswa.Nama;
-                kelas = kelasDal.GetData(siswa.IdKelas).NamaKelas ?? string.Empty;
+                kelas = kelasDal.GetData(siswa.IdKelas)?.NamaKelas ?? string.Empty;
                 FormMilih formMilih = new FormMilih(mainForm,NIS,nama,kelas);
                 formMilih.Show();
                 this.Close();

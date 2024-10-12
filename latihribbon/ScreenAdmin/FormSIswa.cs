@@ -68,6 +68,7 @@ namespace latihribbon
             jurusanCombo.ValueMember = "Id";
 
             // Combo Filter
+       
             var data = db.ListTahun();
             List<string> listTahun = new List<string>();
             listTahun.Add("Semua");
@@ -166,7 +167,6 @@ namespace latihribbon
             if (XRadio.Checked) tingkat = "X";
             if (XIRadio.Checked) tingkat = "XI";
             if (XIIRadio.Checked) tingkat = "XII";
-            int idJurusan = ((JurusanModel)jurusanCombo.SelectedItem).Id;
             rombel = rombelCombo.SelectedItem?.ToString() ?? string.Empty;
             tahun = txtTahun_FormSiswa.Text;
 
@@ -193,6 +193,7 @@ namespace latihribbon
                 IdKelas = idKelas,
                 Tahun = tahun,
             };
+
          
             if (SaveCondition)
             {
@@ -280,7 +281,7 @@ namespace latihribbon
             string nama = txtNama.Text;
             string persensi = txtPersensi.Text;
             string kelas = txtKelas.Text;
-            string tahun = comboTahunFilter.SelectedItem?.ToString()?? string.Empty;
+            string tahun = comboTahunFilter.SelectedItem?.ToString() ?? string.Empty;
             var sqlc = FilterSQL(nis, nama,persensi, kelas, tahun);
             var dp = new DynamicParameters();
             if (nis != "") dp.Add("@Nis", nis);
@@ -397,7 +398,10 @@ namespace latihribbon
             txtNIS.Clear();
             txtNama.Clear();
             txtKelas.Clear();
+
+            if (comboTahunFilter.Items.Count == 0) return;
             comboTahunFilter.SelectedIndex = 0;
+            
             LoadData();
         }
 
