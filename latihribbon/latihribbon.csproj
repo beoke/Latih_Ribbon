@@ -187,6 +187,12 @@
     <Compile Include="Dal\MasukDal.cs" />
     <Compile Include="Dal\DbDal.cs" />
     <Compile Include="Dal\RiwayatLogin_UserDal.cs" />
+    <Compile Include="ScreenAdmin\FormPopUpNaikKelas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScreenAdmin\FormPopUpNaikKelas.Designer.cs">
+      <DependentUpon>FormPopUpNaikKelas.cs</DependentUpon>
+    </Compile>
     <Compile Include="ScreenSurvey\PopUp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -340,6 +346,9 @@
     <Compile Include="Model\UserModel.cs" />
     <Compile Include="Dal\SetPrintDal.cs" />
     <Compile Include="ScreenSurvey\SurveyModel.cs" />
+    <EmbeddedResource Include="ScreenAdmin\FormPopUpNaikKelas.resx">
+      <DependentUpon>FormPopUpNaikKelas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ScreenSurvey\PopUp.resx">
       <DependentUpon>PopUp.cs</DependentUpon>
     </EmbeddedResource>

@@ -612,5 +612,12 @@ namespace latihribbon
 
             }
         }
+
+        private void ButtonNaikKelas_Click(object sender, EventArgs e)
+        {
+            FormPopUpNaikKelas pop = new FormPopUpNaikKelas();
+
+            pop.ShowDialog();   
+        }
     }
 }
