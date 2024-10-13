@@ -89,6 +89,7 @@ namespace latihribbon.ScreenAdmin
 
         public void SaveData()
         {
+            if (jurusanCombo.Items.Count == 0) { mesBox.MesInfo("Data Jurusan Kosong!"); return; }
             var kelas = new KelasModel
             {
                 Id = txtIdKelas.Text == string.Empty ? 0 : Convert.ToInt32(txtIdKelas.Text),

@@ -401,7 +401,7 @@ namespace latihribbon
             PopUpKelas kelas = new PopUpKelas("Absensi");
             kelas.ShowDialog();
             if (kelas.DialogResult == DialogResult.OK)
-                txtKelas1.Text = historyDal.GetData("Absensi").History.ToString() ?? string.Empty;
+                txtKelas1.Text = historyDal.GetData("Absensi")?.History.ToString() ?? string.Empty;
         }
         #endregion
     }

@@ -203,19 +203,23 @@ namespace latihribbon
 
         private void GridListSurvey_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex != null)
-            {
-                var surveyId = GridListSurvey.Rows[e.RowIndex].Cells[0].Value;
-
-                GetDataFromGrid(Convert.ToInt32(surveyId));
-            }
+            var surveyId = GridListSurvey.Rows[e.RowIndex].Cells[0].Value;
+            GetDataFromGrid(Convert.ToInt32(surveyId));
         }
 
         private void GetDataFromGrid(int surveyId)
         {
             var data = GetData(surveyId);
-
-            if (data == null) return;
+            if (data == null)
+            {
+                TextSurveyId.Clear();
+                TexthasilSurvey.Clear();
+                TextTanggal.Clear();
+                TextWaktu.Clear();
+                TextTotalPuas.Clear();
+                TextTotalTidakPuas.Clear();
+                return;
+            }
 
             var hasil = data.HasilSurvey == 1 ? "Puas" : "Tidak Puas";
 
@@ -223,13 +227,7 @@ namespace latihribbon
             TexthasilSurvey.Text = hasil;
             TextTanggal.Text = data.Tanggal.ToString("dd/MM/yyyy");
             TextWaktu.Text = data.Waktu.ToString(@"hh\:mm");
-
-
         }
-
-
-
-
         #region DAL
         private IEnumerable<SurveyModel> ListData(string Filter, string Pagination, object dp)
         {
@@ -279,6 +277,5 @@ namespace latihribbon
         }
 
         #endregion
-
     }
 }
