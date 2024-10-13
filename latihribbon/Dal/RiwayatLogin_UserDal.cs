@@ -97,13 +97,12 @@ namespace latihribbon
                 var Dp = new DynamicParameters();
                 Dp.Add("@id", user.Id, DbType.Int32);
                 Dp.Add("@username", user.Username, DbType.String);
-                Dp.Add("@password", user.Username, DbType.String);
+                Dp.Add("@password", user.Password, DbType.String);
                 Dp.Add("@role", user.Role, DbType.String);
 
                 Conn.Execute(sql, Dp);
             }
         }
-
 
         public void DeleteUser(int idUser)
         {
@@ -118,7 +117,6 @@ namespace latihribbon
                 Conn.Execute(sql, Dp);
             }
         }
-
         public IEnumerable<UserModel> ListUser()
         {
             using (var Conn = new SqlConnection(conn.connstr()))

@@ -15,6 +15,7 @@ namespace latihribbon.ScreenSiswa
         public FormTutorJam()
         {
             InitializeComponent();
+            this.Text = "";
         }
 
         private void button1_Click(object sender, EventArgs e)
