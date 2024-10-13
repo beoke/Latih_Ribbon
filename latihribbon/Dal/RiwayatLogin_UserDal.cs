@@ -160,5 +160,14 @@ namespace latihribbon
                 koneksi.Execute(sql, new { Tanggal = tanggal});
             }
         }
+
+        public void UpdateUserRiwayat(string UserLogin,string userLama)
+        {
+            using (var koneksi = new SqlConnection(conn.connstr()))
+            {
+                const string sql = @"UPDATE RiwayatLogin SET UserLogin = @UserLogin WHERE UserLogin = @userLama";
+                koneksi.Execute(sql, new {UserLogin=UserLogin, userLama=userLama});
+            }
+        }
     }
 }

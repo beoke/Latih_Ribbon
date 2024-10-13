@@ -110,5 +110,14 @@ namespace latihribbon.Dal
                 return koneksi.QueryFirstOrDefault<AbsensiModel>(sql, dp);
             }
         }
+
+        public AbsensiModel GetByAbsensiKelas(string NamaKelas, int Persensi)
+        {
+            using (var koneksi = new SqlConnection(Conn.conn.connstr()))
+            {
+                const string sql = @"SELECT s.NIS, s.Nama FROM siswa s INNER JOIN Kelas k ON k.Id = s.IdKelas WHERE s.Persensi = @Persensi AND k.NamaKelas = @NamaKelas";
+                return koneksi.QueryFirstOrDefault<AbsensiModel>(sql, new { Persensi = Persensi, NamaKelas = NamaKelas });
+            }
+        }
     }
 }
