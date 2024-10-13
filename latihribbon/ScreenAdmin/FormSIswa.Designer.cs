@@ -180,6 +180,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.BackColor = System.Drawing.Color.Silver;
+            this.panel3.Controls.Add(this.ButtonNaikKelas);
             this.panel3.Controls.Add(this.lblHalaman);
             this.panel3.Controls.Add(this.btnNext);
             this.panel3.Controls.Add(this.btnPrevious);
@@ -331,7 +332,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel5.BackColor = System.Drawing.Color.Gainsboro;
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel5.Controls.Add(this.ButtonNaikKelas);
             this.panel5.Controls.Add(this.rombelCombo);
             this.panel5.Controls.Add(this.txtTahun_FormSiswa);
             this.panel5.Controls.Add(this.label12);
@@ -363,13 +363,13 @@
             // 
             this.LabelLulus.AutoSize = true;
             this.LabelLulus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelLulus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.LabelLulus.Location = new System.Drawing.Point(119, 332);
+            this.LabelLulus.ForeColor = System.Drawing.Color.Red;
+            this.LabelLulus.Location = new System.Drawing.Point(315, 329);
             this.LabelLulus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LabelLulus.Name = "LabelLulus";
-            this.LabelLulus.Size = new System.Drawing.Size(139, 18);
+            this.LabelLulus.Size = new System.Drawing.Size(95, 18);
             this.LabelLulus.TabIndex = 66;
-            this.LabelLulus.Text = "*Siswa Sudah Lulus";
+            this.LabelLulus.Text = "*Sudah Lulus";
             this.LabelLulus.Visible = false;
             // 
             // rombelCombo
@@ -657,10 +657,10 @@
             // ButtonNaikKelas
             // 
             this.ButtonNaikKelas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.ButtonNaikKelas.BackColor = System.Drawing.Color.DarkGray;
+            this.ButtonNaikKelas.BackColor = System.Drawing.Color.Gray;
             this.ButtonNaikKelas.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonNaikKelas.ForeColor = System.Drawing.Color.White;
-            this.ButtonNaikKelas.Location = new System.Drawing.Point(24, 550);
+            this.ButtonNaikKelas.Location = new System.Drawing.Point(917, 680);
             this.ButtonNaikKelas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonNaikKelas.Name = "ButtonNaikKelas";
             this.ButtonNaikKelas.Size = new System.Drawing.Size(99, 33);

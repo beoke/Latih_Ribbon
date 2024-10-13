@@ -309,7 +309,7 @@ namespace latihribbon
                     Persensi = x.Persensi,
                     Nama = x.Nama,
                     JenisKelamin = x.JenisKelamin,
-                    Kelas = x.NamaKelas,
+                    Kelas = x.NamaKelas == null ? "Sudah Lulus" : x.NamaKelas,
                     Tahun = x.Tahun
                 }).ToList();
         }
@@ -524,8 +524,6 @@ namespace latihribbon
                     mesBox.MesInfo($"Daftar Kelas Error: {daftarKelas}");
                 }
             }
-
-
         }
 
         private void ButtonDownloadFormat_Click_1(object sender, EventArgs e)
@@ -618,8 +616,86 @@ namespace latihribbon
         private void ButtonNaikKelas_Click(object sender, EventArgs e)
         {
             FormPopUpNaikKelas pop = new FormPopUpNaikKelas();
-
             pop.ShowDialog();   
+
+
+            if (pop.DialogResult == DialogResult.OK)
+            {
+                FormNaikKelas naik = new FormNaikKelas();
+                naik.ShowDialog();
+
+                if (naik.DialogResult == DialogResult.OK)
+                {
+                    UpdateNaikKelas();
+                    LoadData();
+                    mesBox.MesInfo("Proses kenaikan kelas berhasil ");
+                }
+            }
         }
+
+        private void UpdateNaikKelas()
+        {
+            using (var Conn = new SqlConnection(conn.connstr()))
+            {
+                const string sqlKenaikan_X = @"
+                        UPDATE 
+                            siswa 
+                        SET 
+                            IdKelas = (
+                                        SELECT TOP 1 
+                                            k2.Id 
+                                        FROM 
+                                            Kelas k1
+                                        INNER JOIN 
+                                            Kelas k2 ON k1.idJurusan = k2.idJurusan AND k1.Rombel = k2.Rombel 
+                                        WHERE 
+                                            k1.Tingkat = 'X' AND k2.Tingkat = 'XI' AND k1.Id = siswa.IdKelas
+                                        ORDER BY k2.Id) -- atau urutkan berdasarkan kriteria lain
+                        WHERE EXISTS
+                            (SELECT 
+                                1 
+                            FROM
+                                Kelas k1
+                            WHERE k1.Tingkat = 'X' AND k1.Id = siswa.IdKelas)";
+
+
+
+                const string sqlKenaikan_XI = @"
+                            UPDATE 
+                                siswa 
+                            SET 
+                                IdKelas = (
+                                            SELECT TOP 1 
+                                                k2.Id 
+                                            FROM 
+                                                Kelas k1
+                                            INNER JOIN 
+                                                Kelas k2 ON k1.idJurusan = k2.idJurusan AND k1.Rombel = k2.Rombel 
+                                            WHERE 
+                                                k1.Tingkat = 'XI' AND k2.Tingkat = 'XII' AND k1.Id = siswa.IdKelas
+                                            ORDER BY k2.Id)
+                            WHERE EXISTS
+                                (SELECT 
+                                    1 
+                                FROM
+                                    Kelas k1
+                                WHERE k1.Tingkat = 'XI' AND k1.Id = siswa.IdKelas)";
+
+
+
+                const string sqlKelulusan = @"  
+                                UPDATE 
+                                    siswa
+                                SET
+                                    IdKelas = null
+                                WHERE
+                                    IdKelas = (SELECT TOP 1 Id FROM Kelas WHERE Tingkat = 'XII')";
+
+                Conn.Execute(sqlKenaikan_X);
+                Conn.Execute(sqlKenaikan_XI);
+                Conn.Execute(sqlKelulusan);
+            }
+        }
+
     }
 }

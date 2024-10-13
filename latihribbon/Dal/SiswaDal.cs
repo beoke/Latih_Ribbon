@@ -18,14 +18,14 @@ namespace latihribbon.Dal
                     string sql = $@"SELECT s.Nis,s.Nama,s.JenisKelamin,s.Persensi,k.NamaKelas,s.Tahun FROM siswa s 
                                 INNER JOIN Kelas k ON s.IdKelas = k.Id {sqlc} 
                                 ORDER BY 
-                                    Nis ASC,
                                     CASE
                                         WHEN k.NamaKelas LIKE 'X %' THEN 1
                                         WHEN k.NamaKelas LIKE 'XI %' THEN 2
                                         WHEN k.NamaKelas LIKE 'XII %' THEN 3
                                         ELSE 4
                                     END,
-                                    SUBSTRING( k.NamaKelas, CHARINDEX(' ', k.NamaKelas) + 1, LEN(k.NamaKelas)) ASC 
+                                    SUBSTRING( k.NamaKelas, CHARINDEX(' ', k.NamaKelas) + 1, LEN(k.NamaKelas)) ASC ,
+                                    s.IdKelas ASC
                                     OFFSET @Offset ROWS FETCH NEXT @Fetch ROWS ONLY";
                     return koneksi.Query<SiswaModel>(sql, dp);
                 }

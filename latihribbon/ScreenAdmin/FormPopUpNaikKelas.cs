@@ -19,7 +19,14 @@ namespace latihribbon
 
         private void ButtonOK_Click(object sender, EventArgs e)
         {
+            DialogResult = DialogResult.OK;
+            this.Close();
+        }
 
+        private void ButtonCancel_Click(object sender, EventArgs e)
+        {
+            DialogResult=DialogResult.Cancel;
+            this.Close();
         }
     }
 }
