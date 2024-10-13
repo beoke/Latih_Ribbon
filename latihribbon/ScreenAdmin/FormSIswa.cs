@@ -238,12 +238,10 @@ namespace latihribbon
                 mesBox.MesInfo("Pilih Data Terlebih Dahulu!");
                 return;
             }
-            if (mesBox.MesKonfirmasi("Hapus Data?"))
-            {
-                siswaDal.Delete(Convert.ToInt32(nis));
-                LoadData();
-                Clear();
-            }
+            if (MessageBox.Show($"Anda yakin ingin menghapus data dengan NIS\" {nis} \" ? \n Jika Dihapus, maka data yang terhubung akan ikut Terhapus", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes) return;
+            siswaDal.Delete(Convert.ToInt32(nis));
+            LoadData();
+            Clear();
         }
 
         public void CekNis(int nis)

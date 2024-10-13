@@ -19,7 +19,7 @@ namespace latihribbon.ScreenAdmin
         private readonly JurusanDal jurusanDal;
         private readonly KelasDal kelasDal;
         private readonly MesBox mesBox = new MesBox();
-
+        private string NamaKelasGlobal = string.Empty;
         public FormKelas()
         {
             InitializeComponent();
@@ -107,6 +107,7 @@ namespace latihribbon.ScreenAdmin
 
             if(kelas.Id == 0)
             {
+                if (!mesBox.MesKonfirmasi("Input Data?")) return;
                 kelasDal.Insert(kelas);
                 LoadData();
                 ClearData();
@@ -114,6 +115,7 @@ namespace latihribbon.ScreenAdmin
             }
             else
             {
+                if (!mesBox.MesKonfirmasi($"Update Data? \n Data Dengan Kelas {NamaKelasGlobal} dan semua yang berhubungan akan berubah menjadi {kelas.NamaKelas}")) return;
                 kelasDal.Update(kelas);
                 LoadData();
             }
@@ -125,6 +127,7 @@ namespace latihribbon.ScreenAdmin
             if (kelas == null) return;
             txtIdKelas.Text = kelas.Id.ToString();
             txtNamaKelas.Text = kelas.NamaKelas;
+            NamaKelasGlobal = kelas.NamaKelas;
             string[] arrKelas = kelas.NamaKelas.Split(' ');
             if (arrKelas[0] == "X") XRadio.Checked = true;
             if (arrKelas[0] == "XI") XIRadio.Checked = true; 
@@ -142,8 +145,8 @@ namespace latihribbon.ScreenAdmin
                 mesBox.MesInfo("Pilih Data Terlebih Dahulu!");
                 return;
             }
-            if (!mesBox.MesKonfirmasi("Hapus Data?")) return;
-            kelasDal.Delete(int.Parse(txtIdKelas.Text));
+            if (MessageBox.Show($"Anda yakin ingin menghapus data \" {NamaKelasGlobal} \" ? \n Jika Dihapus, maka data yang terhubung akan ikut Terhapus", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes) return;
+                kelasDal.Delete(int.Parse(txtIdKelas.Text));
             LoadData();
         }
 
