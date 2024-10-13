@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="label1.Text" xml:space="preserve">
-    <value>Ketentuan Import Data:
+    <value>
 1. Data di Ambil atau di Scan dari file Excel (format harus sama seperti contoh)
 2. Jika Nis yang Di Import Sudah Ada di Table Siswa,
   Maka data akan Diganti atau Ditimpa

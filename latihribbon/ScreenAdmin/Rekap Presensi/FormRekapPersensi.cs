@@ -233,5 +233,10 @@ namespace latihribbon.ScreenAdmin
                 InitComponen();
             }
         }
+
+        private void FormRekapPersensi_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

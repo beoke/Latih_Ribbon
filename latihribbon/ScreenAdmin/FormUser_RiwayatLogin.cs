@@ -222,7 +222,6 @@ namespace latihribbon
                 TextIdUser.Text = idUser.ToString();
                 TextNameUser.Text = user.Username;
                 TextPassword.Text = user.Password;
-                TextRole.Text = user.Role;
             }
             return;
         }
@@ -234,7 +233,7 @@ namespace latihribbon
                 Id = idUser,
                 Username = TextNameUser.Text,
                 Password = TextPassword.Text,
-                Role = TextRole.Text,
+                Role = "admin",
             };
 
             if (idUser == 0)
@@ -254,12 +253,6 @@ namespace latihribbon
             TextIdUser.Clear();
             TextNameUser.Clear();
             TextPassword.Clear();
-            TextRole.Clear();
-        }
-
-        private void FormUser_RiwayatLogin_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void btnResetFilter_Click(object sender, EventArgs e)
