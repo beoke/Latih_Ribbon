@@ -65,11 +65,19 @@ namespace latihribbon
             dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Sans Serif", 10, FontStyle.Bold);
             dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.LightBlue;
             dataGridView1.RowTemplate.Height = 30;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            //dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dataGridView1.ColumnHeadersHeight = 35;
             dataGridView1.Columns[4].HeaderText = "Nama Kelas";
             txtNIS1.MaxLength = 9;
             txtPersensi1.MaxLength = 3;
+
+            dataGridView1.Columns[0].Width = 60;
+            dataGridView1.Columns[1].Width = 80;
+            dataGridView1.Columns[2].Width = 100;
+            dataGridView1.Columns[3].Width = 350;
+            dataGridView1.Columns[4].Width = 130;
+            dataGridView1.Columns[5].Width = 110;
+            dataGridView1.Columns[6].Width = 130;
         }
 
 
