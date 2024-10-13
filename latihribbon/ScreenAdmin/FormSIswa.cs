@@ -157,8 +157,6 @@ namespace latihribbon
 
         public void SaveData()
         {
-            if (jurusanCombo.Items.Count == 0) return;
-
             string nis, persensi, nama, jenisKelamin = string.Empty, tingkat = string.Empty, rombel, tahun;
             nis = txtNIS_FormSiswa.Text;
             nama = txtNama_FormSiswa.Text.Trim(); 
@@ -166,7 +164,8 @@ namespace latihribbon
             if (lakiRadio.Checked) jenisKelamin = "L";
             if (perempuanRadio.Checked) jenisKelamin = "P";
 
-            var idJurusan = jurusanCombo.Items.Count == 0 ? (int)jurusanCombo.SelectedValue : 0;
+            var idJurusan = jurusanCombo.Items.Count < 1 ? 0 : (int)jurusanCombo.SelectedValue;
+            if (idJurusan == 0) return;
             if (XRadio.Checked) tingkat = "X";
             if (XIRadio.Checked) tingkat = "XI";
             if (XIIRadio.Checked) tingkat = "XII";
