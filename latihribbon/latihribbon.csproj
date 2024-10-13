@@ -502,6 +502,7 @@
     <None Include="Resources\Group 14.png" />
     <None Include="Resources\Admin.png" />
     <None Include="Resources\output.gif" />
+    <None Include="Resources\arrow-square-left.png" />
     <Content Include="SQL Script\CekData.sql" />
   </ItemGroup>
   <ItemGroup />

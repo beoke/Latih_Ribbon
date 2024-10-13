@@ -33,6 +33,7 @@
             this.printDocumentKeluar = new System.Drawing.Printing.PrintDocument();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -60,7 +61,6 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.btn_Kembali = new System.Windows.Forms.Button();
             this.btn_PrintKeluar = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -126,6 +126,19 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1118, 699);
             this.panel3.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.button1.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button1.Location = new System.Drawing.Point(994, 560);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(57, 45);
+            this.button1.TabIndex = 82;
+            this.button1.Text = "?";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label14
             // 
@@ -432,7 +445,7 @@
             // 
             this.btn_Kembali.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btn_Kembali.BackColor = System.Drawing.Color.Transparent;
-            this.btn_Kembali.BackgroundImage = global::latihribbon.Properties.Resources.left_arrow_removebg_preview;
+            this.btn_Kembali.BackgroundImage = global::latihribbon.Properties.Resources.arrow_square_left;
             this.btn_Kembali.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_Kembali.FlatAppearance.BorderSize = 0;
             this.btn_Kembali.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -462,19 +475,6 @@
             this.btn_PrintKeluar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_PrintKeluar.UseVisualStyleBackColor = true;
             this.btn_PrintKeluar.Click += new System.EventHandler(this.btn_PrintKeluar_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.button1.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button1.Location = new System.Drawing.Point(994, 560);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(57, 45);
-            this.button1.TabIndex = 82;
-            this.button1.Text = "?";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // SuratKeluarcs
             // 

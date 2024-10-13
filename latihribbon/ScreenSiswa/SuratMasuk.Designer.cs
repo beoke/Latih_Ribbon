@@ -366,7 +366,7 @@
             // 
             this.btn_Kembali.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btn_Kembali.BackColor = System.Drawing.Color.Transparent;
-            this.btn_Kembali.BackgroundImage = global::latihribbon.Properties.Resources.left_arrow_removebg_preview;
+            this.btn_Kembali.BackgroundImage = global::latihribbon.Properties.Resources.arrow_square_left;
             this.btn_Kembali.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_Kembali.FlatAppearance.BorderSize = 0;
             this.btn_Kembali.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
