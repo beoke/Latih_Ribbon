@@ -131,8 +131,8 @@ namespace latihribbon
                     MessageBox.Show("Printer tidak tersedia atau offline.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
-                printPreviewDialogKeluar.Document = printDocumentKeluar;
-                printPreviewDialogKeluar.ShowDialog();
+               /* printPreviewDialogKeluar.Document = printDocumentKeluar;
+                printPreviewDialogKeluar.ShowDialog();*/
 
                 printDocumentKeluar.Print();
                 return true;

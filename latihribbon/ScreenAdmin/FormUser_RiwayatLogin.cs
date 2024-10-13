@@ -171,8 +171,6 @@ namespace latihribbon
         {
             int idUser = TextIdUser.Text == string.Empty ? 0 : Convert.ToInt32(TextIdUser.Text);
             SaveUser(idUser);
-
-            LoadUser();
         }
 
         private void ButtonDeleteUser_Click(object sender, EventArgs e)
@@ -194,8 +192,6 @@ namespace latihribbon
         {
             ClearUser();
             LabelAddUser.Text = "Add User";
-
-
         }
 
         private void PickerRentan_ValueChanged(object sender, EventArgs e)
@@ -211,7 +207,7 @@ namespace latihribbon
             else
                 LoadData();
         }
-
+        string Userlama = string.Empty;
         private void GetUser(int idUser)
         {
 
@@ -222,6 +218,7 @@ namespace latihribbon
                 TextIdUser.Text = idUser.ToString();
                 TextNameUser.Text = user.Username;
                 TextPassword.Text = user.Password;
+                Userlama = user.Username;
             }
             return;
         }
@@ -239,12 +236,20 @@ namespace latihribbon
             if (idUser == 0)
             {
                 _riwayatLoginDal.Insert(user);
+                LabelAddUser.Text = "Add User";
+                ClearUser();
+                LoadData();
+                LoadUser();
+                LoadRiwayatLogin();
             }
             else
             {
                 _riwayatLoginDal.Update(user);
+                _riwayatLoginDal.UpdateUserRiwayat(user.Username,Userlama);
+                LoadData();
+                LoadUser();
+                LoadRiwayatLogin();
             }
-
             return idUser;
         }
 

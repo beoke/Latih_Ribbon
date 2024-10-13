@@ -68,10 +68,8 @@ namespace latihribbon
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dataGridView1.ColumnHeadersHeight = 35;
             dataGridView1.Columns[4].HeaderText = "Nama Kelas";
-
-            //Max Length
             txtNIS1.MaxLength = 9;
-
+            txtPersensi1.MaxLength = 3;
         }
 
 
@@ -161,7 +159,7 @@ namespace latihribbon
         {
             int Persensi = string.IsNullOrEmpty(txtPersensi1.Text) ? 0 : Convert.ToInt32(txtPersensi1.Text);
             string Kelas = txtKelas1.Text;
-            var cekData = absensiDal.GetByPerKas(" WHERE s.Persensi=@Persensi AND k.NamaKelas=@Kelas", new {Persensi = Persensi,Kelas=Kelas});
+            var cekData = absensiDal.GetByAbsensiKelas(Kelas, Persensi);
             var absensi = new AbsensiModel 
             {
                 Nis = cekData?.Nis ?? 0,
