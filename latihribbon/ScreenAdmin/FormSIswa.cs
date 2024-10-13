@@ -473,6 +473,8 @@ namespace latihribbon
                                 string[] kelasName = kelas.Trim().Split(' ', (char)StringSplitOptions.RemoveEmptyEntries);
                                 string namaKelas = string.Join(" ",kelasName);
                                 int idKelas = kelasDal.GetIdKelas(namaKelas);
+
+                                string gender = jenisKelamin.Trim();
                                 /*MessageBox.Show(idKelas.ToString()); return;*/
                                 if (idKelas != 0)
                                 {
@@ -484,7 +486,7 @@ namespace latihribbon
                                     dp.Add("@IdKelas", idKelas, DbType.Int32);
                                     dp.Add("@Tahun", tahun, DbType.Int32);
                                     dp.Add("@Persensi", presensi, DbType.Int64);
-                                    dp.Add("@JenisKelamin", jenisKelamin, DbType.String);
+                                    dp.Add("@JenisKelamin", gender, DbType.String);
 
                                     if (cekDb != null)
                                     {
