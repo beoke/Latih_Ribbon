@@ -99,10 +99,7 @@ namespace latihribbon.ScreenAdmin
 
         private void BtnNewJurusan_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Masukan data baru ?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                Cleardata();
-            }
+            Cleardata();
         }
 
         private void SaveData()

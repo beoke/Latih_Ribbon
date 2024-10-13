@@ -60,6 +60,11 @@ namespace latihribbon
 
         public void InitCombo()
         {
+            //textBox MaxLength
+            txtNIS_FormSiswa.MaxLength = 9;
+            txtNama_FormSiswa.MaxLength = 80;
+            txtPersensi_FormSiswa.MaxLength = 3;
+
             // Jurusan Combo
             var jurusan = jurusanDal.ListData();
             if (!jurusan.Any()) return;
@@ -77,11 +82,6 @@ namespace latihribbon
                 listTahun.Add(item.Tahun);
             }
             comboTahunFilter.DataSource = listTahun;
-
-            //textBox MaxLength
-            txtNIS_FormSiswa.MaxLength = 9;
-            txtNama_FormSiswa.MaxLength = 80;
-            txtPersensi_FormSiswa.MaxLength = 3;
         }
         public void InitComponent()
         {
@@ -157,14 +157,16 @@ namespace latihribbon
 
         public void SaveData()
         {
+            if (jurusanCombo.Items.Count == 0) return;
+
             string nis, persensi, nama, jenisKelamin = string.Empty, tingkat = string.Empty, rombel, tahun;
             nis = txtNIS_FormSiswa.Text;
-            nama = txtNama_FormSiswa.Text.Trim();
+            nama = txtNama_FormSiswa.Text.Trim(); 
             persensi = txtPersensi_FormSiswa.Text;
             if (lakiRadio.Checked) jenisKelamin = "L";
             if (perempuanRadio.Checked) jenisKelamin = "P";
 
-            var idJurusan = (int)jurusanCombo.SelectedValue;
+            var idJurusan = jurusanCombo.Items.Count == 0 ? (int)jurusanCombo.SelectedValue : 0;
             if (XRadio.Checked) tingkat = "X";
             if (XIRadio.Checked) tingkat = "XI";
             if (XIIRadio.Checked) tingkat = "XII";
@@ -183,19 +185,19 @@ namespace latihribbon
                 return;
             };
             bool cekRombel = rombel != string.Empty ? true : false;
-            int idKelas = kelasDal.GetDataRombel(idJurusan,tingkat).FirstOrDefault(x => cekRombel ? x.Rombel == rombel : true)?.Id ?? 0;
+            int idKelas = kelasDal.GetDataRombel(idJurusan, tingkat).FirstOrDefault(x => cekRombel ? x.Rombel == rombel : true)?.Id ?? 0;
             if (idKelas == 0) return;
             var siswa = new SiswaModel
             {
                 Nis = int.Parse(nis),
                 Nama = nama,
                 Persensi = int.Parse(persensi),
-                JenisKelamin = jenisKelamin, 
+                JenisKelamin = jenisKelamin,
                 IdKelas = idKelas,
                 Tahun = tahun,
             };
 
-         
+
             if (SaveCondition)
             {
                 if (!mesBox.MesKonfirmasi("Input Data?")) return;
@@ -409,8 +411,8 @@ namespace latihribbon
         private void radio_CheckedChange(object sender, EventArgs e)
         {
             string tingkat = XRadio.Checked ? "X" : XIRadio.Checked ? "XI" : XIIRadio.Checked ? "XII" : string.Empty;
-            string jurusan = ((JurusanModel)jurusanCombo.SelectedItem).Id.ToString() ?? string.Empty;
-            if (tingkat == string.Empty)
+            string jurusan = ((JurusanModel)jurusanCombo.SelectedItem)?.Id.ToString() ?? string.Empty;
+            if (tingkat == string.Empty || jurusan == "")
             {
                 rombelCombo.DataSource = null;
                 return;
