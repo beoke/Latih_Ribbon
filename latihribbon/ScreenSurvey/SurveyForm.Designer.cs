@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SurveyForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.ButtonKirim = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -53,10 +52,10 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.PictureBoxPuas);
             this.panel1.Controls.Add(this.PictureBoxTidakPuas);
-            this.panel1.Location = new System.Drawing.Point(168, 117);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Location = new System.Drawing.Point(224, 144);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(946, 561);
+            this.panel1.Size = new System.Drawing.Size(1261, 690);
             this.panel1.TabIndex = 1;
             // 
             // ButtonKirim
@@ -64,10 +63,10 @@
             this.ButtonKirim.BackColor = System.Drawing.Color.Gray;
             this.ButtonKirim.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonKirim.ForeColor = System.Drawing.Color.White;
-            this.ButtonKirim.Location = new System.Drawing.Point(395, 480);
-            this.ButtonKirim.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ButtonKirim.Location = new System.Drawing.Point(527, 591);
+            this.ButtonKirim.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonKirim.Name = "ButtonKirim";
-            this.ButtonKirim.Size = new System.Drawing.Size(157, 48);
+            this.ButtonKirim.Size = new System.Drawing.Size(209, 59);
             this.ButtonKirim.TabIndex = 27;
             this.ButtonKirim.Text = "Kirim";
             this.ButtonKirim.UseVisualStyleBackColor = false;
@@ -76,10 +75,9 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(608, 188);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(811, 231);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 25);
+            this.label3.Size = new System.Drawing.Size(62, 31);
             this.label3.TabIndex = 26;
             this.label3.Text = "Puas";
             // 
@@ -87,10 +85,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(268, 188);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(357, 231);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(103, 25);
+            this.label2.Size = new System.Drawing.Size(125, 31);
             this.label2.TabIndex = 25;
             this.label2.Text = "Tidak Puas";
             // 
@@ -99,10 +96,9 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(248, 74);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(331, 91);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(464, 60);
+            this.label1.Size = new System.Drawing.Size(600, 76);
             this.label1.TabIndex = 19;
             this.label1.Text = "BAGAIMANA PENDAPAT ANDA TERHADAP \r\nPELAYANAN  DI SEKOLAH INI ";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -110,20 +106,20 @@
             // PictureBoxPuas
             // 
             this.PictureBoxPuas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PictureBoxPuas.Location = new System.Drawing.Point(573, 223);
-            this.PictureBoxPuas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PictureBoxPuas.Location = new System.Drawing.Point(764, 274);
+            this.PictureBoxPuas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PictureBoxPuas.Name = "PictureBoxPuas";
-            this.PictureBoxPuas.Size = new System.Drawing.Size(126, 126);
+            this.PictureBoxPuas.Size = new System.Drawing.Size(168, 155);
             this.PictureBoxPuas.TabIndex = 24;
             this.PictureBoxPuas.TabStop = false;
             // 
             // PictureBoxTidakPuas
             // 
             this.PictureBoxTidakPuas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.PictureBoxTidakPuas.Location = new System.Drawing.Point(259, 223);
-            this.PictureBoxTidakPuas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PictureBoxTidakPuas.Location = new System.Drawing.Point(345, 274);
+            this.PictureBoxTidakPuas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PictureBoxTidakPuas.Name = "PictureBoxTidakPuas";
-            this.PictureBoxTidakPuas.Size = new System.Drawing.Size(126, 126);
+            this.PictureBoxTidakPuas.Size = new System.Drawing.Size(168, 155);
             this.PictureBoxTidakPuas.TabIndex = 23;
             this.PictureBoxTidakPuas.TabStop = false;
             // 
@@ -131,27 +127,27 @@
             // 
             this.btn_kembali.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btn_kembali.BackColor = System.Drawing.Color.Transparent;
-            this.btn_kembali.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_kembali.BackgroundImage")));
+            this.btn_kembali.BackgroundImage = global::latihribbon.Properties.Resources.arrow_square_left;
             this.btn_kembali.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_kembali.FlatAppearance.BorderSize = 0;
             this.btn_kembali.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_kembali.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_kembali.ForeColor = System.Drawing.Color.White;
-            this.btn_kembali.Location = new System.Drawing.Point(25, 699);
-            this.btn_kembali.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_kembali.Location = new System.Drawing.Point(33, 860);
+            this.btn_kembali.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_kembali.Name = "btn_kembali";
-            this.btn_kembali.Size = new System.Drawing.Size(71, 77);
+            this.btn_kembali.Size = new System.Drawing.Size(95, 95);
             this.btn_kembali.TabIndex = 54;
             this.btn_kembali.UseVisualStyleBackColor = false;
             // 
             // SurveyForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1281, 797);
+            this.ClientSize = new System.Drawing.Size(1708, 981);
             this.Controls.Add(this.btn_kembali);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "SurveyForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Survey Form";
