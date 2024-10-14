@@ -521,6 +521,7 @@
     <None Include="Resources\Admin.png" />
     <None Include="Resources\output.gif" />
     <None Include="Resources\arrow-square-left.png" />
+    <None Include="Resources\verify.png" />
     <Content Include="SQL Script\CekData.sql" />
   </ItemGroup>
   <ItemGroup />
