@@ -16,13 +16,13 @@ namespace latihribbon
         {
             InitializeComponent();
 
-            PictureGif.Image = Properties.Resources.Animation___1728355941486;
+            PictureGif.Image = Properties.Resources.verify;
             PictureGif.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
         private async void PuasPupUp_Load(object sender, EventArgs e)
         {
-            await Task.Delay(2500);
+            await Task.Delay(2000);
 
             for (double i = 1; i >= 0; i -= 0.2)
             {
