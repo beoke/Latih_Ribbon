@@ -65,7 +65,7 @@
             // 
             this.ribbon1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.ribbon1.Location = new System.Drawing.Point(0, 0);
-            this.ribbon1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ribbon1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ribbon1.Minimized = false;
             this.ribbon1.Name = "ribbon1";
             // 
@@ -78,7 +78,7 @@
             this.ribbon1.OrbDropDown.Size = new System.Drawing.Size(527, 116);
             this.ribbon1.OrbDropDown.TabIndex = 0;
             this.ribbon1.RibbonTabFont = new System.Drawing.Font("Trebuchet MS", 9F);
-            this.ribbon1.Size = new System.Drawing.Size(882, 162);
+            this.ribbon1.Size = new System.Drawing.Size(1176, 199);
             this.ribbon1.TabIndex = 0;
             this.ribbon1.Tabs.Add(this.ribbonTab1);
             this.ribbon1.Tabs.Add(this.AbsensiSiswa);
@@ -144,7 +144,7 @@
             this.ribbon_keluar.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbon_keluar.LargeImage")));
             this.ribbon_keluar.Name = "ribbon_keluar";
             this.ribbon_keluar.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbon_keluar.SmallImage")));
-            this.ribbon_keluar.Text = "Keluar";
+            this.ribbon_keluar.Text = "Izin Keluar";
             this.ribbon_keluar.Click += new System.EventHandler(this.ribbon_keluar_Click);
             // 
             // AbsensiSiswa
@@ -273,10 +273,10 @@
             // 
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 162);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Location = new System.Drawing.Point(0, 199);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(882, 453);
+            this.panel1.Size = new System.Drawing.Size(1176, 558);
             this.panel1.TabIndex = 1;
             // 
             // dataGridView1
@@ -284,9 +284,10 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(882, 453);
+            this.dataGridView1.Size = new System.Drawing.Size(1176, 558);
             this.dataGridView1.TabIndex = 0;
             // 
             // ButtonLogOut
@@ -300,10 +301,10 @@
             this.ButtonLogOut.ForeColor = System.Drawing.Color.Black;
             this.ButtonLogOut.Image = global::latihribbon.Properties.Resources.LogOutIcon;
             this.ButtonLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.ButtonLogOut.Location = new System.Drawing.Point(750, 89);
-            this.ButtonLogOut.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ButtonLogOut.Location = new System.Drawing.Point(1000, 110);
+            this.ButtonLogOut.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonLogOut.Name = "ButtonLogOut";
-            this.ButtonLogOut.Size = new System.Drawing.Size(104, 36);
+            this.ButtonLogOut.Size = new System.Drawing.Size(139, 44);
             this.ButtonLogOut.TabIndex = 1;
             this.ButtonLogOut.Text = "LogOut";
             this.ButtonLogOut.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -312,15 +313,15 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(882, 615);
+            this.ClientSize = new System.Drawing.Size(1176, 757);
             this.Controls.Add(this.ButtonLogOut);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ribbon1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "ATM RESI";
