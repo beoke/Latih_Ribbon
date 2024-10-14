@@ -38,6 +38,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.ButtonNaikKelas = new System.Windows.Forms.Button();
             this.lblHalaman = new System.Windows.Forms.Label();
             this.btnNext = new System.Windows.Forms.Button();
             this.btnPrevious = new System.Windows.Forms.Button();
@@ -49,7 +50,6 @@
             this.btnDelete_FormSiswa = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.LabelLulus = new System.Windows.Forms.Label();
             this.rombelCombo = new System.Windows.Forms.ComboBox();
             this.txtTahun_FormSiswa = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -76,7 +76,6 @@
             this.txtPersensi = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.btnResetFilter = new System.Windows.Forms.Button();
-            this.ButtonNaikKelas = new System.Windows.Forms.Button();
             this.ButtonDownloadFormat = new System.Windows.Forms.Button();
             this.ButtonInputSIswa = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
@@ -190,6 +189,22 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1035, 730);
             this.panel3.TabIndex = 2;
+            // 
+            // ButtonNaikKelas
+            // 
+            this.ButtonNaikKelas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ButtonNaikKelas.BackColor = System.Drawing.Color.Gray;
+            this.ButtonNaikKelas.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonNaikKelas.ForeColor = System.Drawing.Color.White;
+            this.ButtonNaikKelas.Location = new System.Drawing.Point(917, 680);
+            this.ButtonNaikKelas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonNaikKelas.Name = "ButtonNaikKelas";
+            this.ButtonNaikKelas.Size = new System.Drawing.Size(99, 33);
+            this.ButtonNaikKelas.TabIndex = 3;
+            this.ButtonNaikKelas.Text = "Naik Kelas";
+            this.ButtonNaikKelas.UseVisualStyleBackColor = false;
+            this.ButtonNaikKelas.Visible = false;
+            this.ButtonNaikKelas.Click += new System.EventHandler(this.ButtonNaikKelas_Click);
             // 
             // lblHalaman
             // 
@@ -352,25 +367,11 @@
             this.panel5.Controls.Add(this.txtNama_FormSiswa);
             this.panel5.Controls.Add(this.label6);
             this.panel5.Controls.Add(this.label7);
-            this.panel5.Controls.Add(this.LabelLulus);
             this.panel5.Location = new System.Drawing.Point(5, 7);
             this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(442, 608);
             this.panel5.TabIndex = 5;
-            // 
-            // LabelLulus
-            // 
-            this.LabelLulus.AutoSize = true;
-            this.LabelLulus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelLulus.ForeColor = System.Drawing.Color.Red;
-            this.LabelLulus.Location = new System.Drawing.Point(315, 329);
-            this.LabelLulus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.LabelLulus.Name = "LabelLulus";
-            this.LabelLulus.Size = new System.Drawing.Size(95, 18);
-            this.LabelLulus.TabIndex = 66;
-            this.LabelLulus.Text = "*Sudah Lulus";
-            this.LabelLulus.Visible = false;
             // 
             // rombelCombo
             // 
@@ -654,21 +655,6 @@
             this.btnResetFilter.Text = "Reset";
             this.btnResetFilter.UseVisualStyleBackColor = true;
             // 
-            // ButtonNaikKelas
-            // 
-            this.ButtonNaikKelas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.ButtonNaikKelas.BackColor = System.Drawing.Color.Gray;
-            this.ButtonNaikKelas.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonNaikKelas.ForeColor = System.Drawing.Color.White;
-            this.ButtonNaikKelas.Location = new System.Drawing.Point(917, 680);
-            this.ButtonNaikKelas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ButtonNaikKelas.Name = "ButtonNaikKelas";
-            this.ButtonNaikKelas.Size = new System.Drawing.Size(99, 33);
-            this.ButtonNaikKelas.TabIndex = 3;
-            this.ButtonNaikKelas.Text = "Naik Kelas";
-            this.ButtonNaikKelas.UseVisualStyleBackColor = false;
-            this.ButtonNaikKelas.Click += new System.EventHandler(this.ButtonNaikKelas_Click);
-            // 
             // ButtonDownloadFormat
             // 
             this.ButtonDownloadFormat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -784,7 +770,6 @@
         private System.Windows.Forms.RadioButton XIRadio;
         private System.Windows.Forms.ComboBox jurusanCombo;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label LabelLulus;
         private System.Windows.Forms.Button ButtonNaikKelas;
     }
 }

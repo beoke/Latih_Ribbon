@@ -17,7 +17,7 @@ namespace latihribbon.Dal
                 {
                     string sql = $@"SELECT s.Nis,s.Nama,s.JenisKelamin,s.Persensi,k.NamaKelas,s.Tahun FROM siswa s 
                                 INNER JOIN Kelas k ON s.IdKelas = k.Id {sqlc} 
-                                ORDER BY 
+                                ORDER BY  
                                     CASE
                                         WHEN k.NamaKelas LIKE 'X %' THEN 1
                                         WHEN k.NamaKelas LIKE 'XI %' THEN 2
