@@ -34,8 +34,9 @@ namespace latihribbon.Dal
                         LEFT JOIN Persensi a ON sd.NIS = a.NIS AND sd.Tanggal = a.Tanggal 
                         {filter} 
                         ORDER BY 
-                            sd.Persensi ASC,
-                            sd.Tanggal DESC OFFSET @Offset ROWS FETCH NEXT @Fetch ROWS ONLY";
+                            sd.Tanggal DESC,
+                            sd.Persensi ASC
+                        OFFSET @Offset ROWS FETCH NEXT @Fetch ROWS ONLY";
                 
 
                 return koneksi.Query<RekapPersensiModel>(sql, dp);

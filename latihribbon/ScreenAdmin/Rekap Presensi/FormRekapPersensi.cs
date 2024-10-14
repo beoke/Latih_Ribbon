@@ -31,9 +31,9 @@ namespace latihribbon.ScreenAdmin
             buf();
             rekapPersensiDal = new RekapPersensiDal();
             historyDal = new HistoryDal();
-            InitComponen();
             Event();
             LoadHistory();
+            InitComponen();
         }
 
         public void buf()
@@ -49,9 +49,6 @@ namespace latihribbon.ScreenAdmin
 
         public void InitComponen()
         {
-            List<string> Keterangan = new List<string>() { "Semua", "A", "I", "S" };
-            KeteranganCombo.DataSource = Keterangan;
-
             dataGridView1.EnableHeadersVisualStyles = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             dataGridView1.DefaultCellStyle.Font = new Font("Sans Serif", 10);
@@ -59,18 +56,21 @@ namespace latihribbon.ScreenAdmin
             dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.LightBlue;
             dataGridView1.RowTemplate.Height = 30;
             //dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-           /* dataGridView1.Columns["Nis"].Width = 100;
-            dataGridView1.Columns["Persensi"].Width = 100;
-            dataGridView1.Columns["Nama"].Width = 250;
-            dataGridView1.Columns["Kelas"].Width = 100;
-            dataGridView1.Columns["Tanggal"].Width = 100;
-            dataGridView1.Columns["Keterangan"].Width = 120;
             dataGridView1.ColumnHeadersHeight = 35;
-            dataGridView1.RowHeadersWidth = 51;*/
+            dataGridView1.RowHeadersWidth = 51;
+
+            dataGridView1.Columns[0].Width = 80;
+            dataGridView1.Columns[1].Width = 100;
+            dataGridView1.Columns[2].Width = 350;
+            dataGridView1.Columns[3].Width = 120;
+            dataGridView1.Columns[4].Width = 150;
+            dataGridView1.Columns[5].Width = 100;
         }
 
         public void LoadHistory()
         {
+            List<string> Keterangan = new List<string>() { "Semua", "A", "I", "S" };
+            KeteranganCombo.DataSource = Keterangan;
             var gethistory = historyDal.GetData("RekapPersensi");
             txtKelas.Text = gethistory?.History ?? string.Empty;
             LoadData();

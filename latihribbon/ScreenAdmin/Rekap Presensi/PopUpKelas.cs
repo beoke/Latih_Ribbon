@@ -50,8 +50,9 @@ namespace latihribbon
             this.NamaKelas = namaKelas;
 
             if (string.IsNullOrEmpty(NamaKelas)) return;
-            string[] kelas = NamaKelas.Split(' ');
-            if (kelas.Length < 1) return;
+            string[] kelas = NamaKelas.Trim().Split(' ');
+            if (kelas.Length < 2) return;
+  
             string tingkat = kelas[0];
             string jurusan = kelas[1];
             string rombel = kelas.Length > 2 ? kelas[2] : string.Empty;
@@ -92,7 +93,7 @@ namespace latihribbon
             if (jurusan == string.Empty) return;
             string rombel = comboRombel.Items.Count <= 0 ? "" : " "+comboRombel.SelectedItem;
             string NamaKelas = $"{tingkat} {jurusan}{rombel}";
-            txtHasil.Text = NamaKelas;
+            txtHasil.Text = NamaKelas.Trim();
         }
 
         private void InitEvent()
