@@ -31,6 +31,7 @@ namespace latihribbon
         private readonly MesBox mesBox;
         private bool SaveCondition = true;
         //private FormLoading formLoading;
+        private ToolTip toolTip;
         
         public FormSIswa()
         {
@@ -41,6 +42,7 @@ namespace latihribbon
             jurusanDal = new JurusanDal();
             kelasDal = new KelasDal();
             mesBox = new MesBox();
+            toolTip = new ToolTip();
             InitCombo();
             LoadData();
             InitComponent();
@@ -91,6 +93,11 @@ namespace latihribbon
                 listTahun.Add(item.Tahun);
             }
             comboTahunFilter.DataSource = listTahun;
+
+            toolTip = new ToolTip();
+
+            toolTip.SetToolTip(ButtonDownloadFormat, "Template Import Data");
+            toolTip.SetToolTip(ButtonInputSIswa, "Import Data");
         }
         public void InitComponent()
         {
@@ -137,8 +144,6 @@ namespace latihribbon
             string jenisKelamin = data.Cells[3].Value.ToString();
             string[] namaKelas = (data.Cells[4].Value.ToString()).Split(' ');
             string tahun = data.Cells[5].Value.ToString();
-
-
 
             txtNIS_FormSiswa.Text = nis.ToString();
             txtNama_FormSiswa.Text = nama;
@@ -416,8 +421,8 @@ namespace latihribbon
         }
         private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
-            /*string nis = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
-            GetData(Convert.ToInt32(nis));*/
+            //string nis = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+            //GetData(Convert.ToInt32(nis));
              GetDataGrid(e);
         }
 
