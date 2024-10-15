@@ -57,6 +57,15 @@ namespace latihribbon
             dataGridView1,
             new object[] { true });
         }
+        private void Form1_Shown(object sender, EventArgs e)
+        {
+            if (dataGridView1.Rows.Count > 0)
+            {
+                dataGridView1.CurrentCell = dataGridView1.Rows[0].Cells[0];
+                dataGridView1.Rows[0].Selected = true;
+                dataGridView1.Focus();
+            }
+        }
 
         public void InitCombo()
         {
@@ -119,7 +128,40 @@ namespace latihribbon
                 lblNisSudahAda.Visible = false;
             }
         }
+        public void GetDataGrid(DataGridViewCellEventArgs e)
+        {
+            var data = dataGridView1.Rows[e.RowIndex];
+            int nis = Convert.ToInt32(data.Cells[0].Value);
+            int persensi = Convert.ToInt32(data.Cells[1].Value);
+            string nama = data.Cells[2].Value.ToString();
+            string jenisKelamin = data.Cells[3].Value.ToString();
+            string[] namaKelas = (data.Cells[4].Value.ToString()).Split(' ');
+            string tahun = data.Cells[5].Value.ToString();
 
+
+
+            txtNIS_FormSiswa.Text = nis.ToString();
+            txtNama_FormSiswa.Text = nama;
+            txtPersensi_FormSiswa.Text = persensi.ToString();
+            txtTahun_FormSiswa.Text = tahun;
+            lakiRadio.Checked = jenisKelamin == "L";
+            perempuanRadio.Checked = jenisKelamin != "L";
+            XRadio.Checked = namaKelas[0] == "X";
+            XIRadio.Checked = namaKelas[0] == "XI";
+            XIIRadio.Checked = namaKelas[0] == "XII";
+            foreach (var item in jurusanCombo.Items)
+                if (item is JurusanModel j)
+                    if (j.NamaJurusan == namaKelas[1])
+                        jurusanCombo.SelectedItem = j;
+            rombelCombo.DataSource = kelasDal.GetDataRombel((int)jurusanCombo.SelectedValue, namaKelas[0])
+                .Select(x => x.Rombel).ToList();
+            SaveCondition = false;
+            ControlInsertUpdate();
+            if (namaKelas.Length < 3) return;
+            foreach (var x in rombelCombo.Items)
+                if((string)x == namaKelas[2])
+                    rombelCombo.SelectedItem = x;
+        }
         public void GetData(int nis)
         {
             var getSiswa = siswaDal.GetData(nis);
@@ -333,6 +375,8 @@ namespace latihribbon
             XIRadio.CheckedChanged += radio_CheckedChange;
             XIIRadio.CheckedChanged += radio_CheckedChange;
             jurusanCombo.SelectedIndexChanged += radio_CheckedChange;
+
+            //this.Shown += Form1_Shown;
         }
 
         private void txtFilter_TextChanged(object sender,EventArgs e)
@@ -372,8 +416,9 @@ namespace latihribbon
         }
         private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
-            string nis = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
-            GetData(Convert.ToInt32(nis));
+            /*string nis = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+            GetData(Convert.ToInt32(nis));*/
+             GetDataGrid(e);
         }
 
         private void btnNext_Click(object sender, EventArgs e)
