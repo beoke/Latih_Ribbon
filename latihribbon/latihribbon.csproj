@@ -468,7 +468,6 @@
     <EmbeddedResource Include="ScreenSiswa\SuratMasuk.resx">
       <DependentUpon>SuratMasuk.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="latihribbon_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

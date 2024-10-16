@@ -32,7 +32,7 @@ namespace latihribbon
         private bool SaveCondition = true;
         //private FormLoading formLoading;
         private ToolTip toolTip;
-        
+
         public FormSIswa()
         {
             InitializeComponent();
@@ -75,6 +75,15 @@ namespace latihribbon
             txtNIS_FormSiswa.MaxLength = 9;
             txtNama_FormSiswa.MaxLength = 80;
             txtPersensi_FormSiswa.MaxLength = 3;
+
+            comboPerPage.Items.Add(10);
+            comboPerPage.Items.Add(20);
+            comboPerPage.Items.Add(50);
+            comboPerPage.Items.Add(100);
+            comboPerPage.Items.Add(200);
+            comboPerPage.SelectedIndex = 0;
+            comboPerPage.ItemHeight = 18;
+
 
             // Jurusan Combo
             var jurusan = jurusanDal.ListData();
@@ -308,14 +317,11 @@ namespace latihribbon
         #region FILTER
         int Page = 1;
         int totalPage;
-        private string FilterSQL(string nis, string nama, string persensi, string kelas, string tahun)
+        private string FilterSQL(string search, string tahun)
         {
             string sqlc = string.Empty;
             List<string> fltr = new List<string>();
-            if (nis != "") fltr.Add("s.Nis LIKE @Nis+'%'");
-            if (nama != "") fltr.Add("s.Nama LIKE '%'+@Nama+'%'");
-            if (persensi != "") fltr.Add("s.Persensi LIKE @Persensi+'%'");
-            if (kelas != "") fltr.Add("k.NamaKelas LIKE '%'+@Kelas+'%'");
+            if (search != "") fltr.Add("s.Nis LIKE @Nis+'%'");
             if (tahun != "Semua") fltr.Add("s.Tahun LIKE @Tahun+'%'");
 
             if (fltr.Count > 0)
@@ -324,21 +330,15 @@ namespace latihribbon
         }
         public void LoadData()
         {
-            string nis = txtNIS.Text;
-            string nama = txtNama.Text;
-            string persensi = txtPersensi.Text;
-            string kelas = txtKelas.Text;
+            string search = txtFilter.Text;
             string tahun = comboTahunFilter.SelectedItem?.ToString() ?? string.Empty;
-            var sqlc = FilterSQL(nis, nama,persensi, kelas, tahun);
+            var sqlc = FilterSQL(search, tahun);
             var dp = new DynamicParameters();
-            if (nis != "") dp.Add("@Nis", nis);
-            if (nama != "") dp.Add("@Nama", nama);
-            if (persensi != "") dp.Add("@Persensi", persensi);
-            if (kelas != "") dp.Add("@Kelas", kelas);
+            if (search != "") dp.Add("@Search", search);
             if (tahun != "Semua") dp.Add("@Tahun", tahun);
 
             string text = "Halaman ";
-            int RowPerPage = 15;
+            int RowPerPage = (int)comboPerPage.SelectedItem;
             int inRowPage = (Page - 1) * RowPerPage;
             var jumlahRow = siswaDal.CekRows(sqlc, dp);
             totalPage = (int)Math.Ceiling((double)jumlahRow / RowPerPage);
@@ -364,10 +364,7 @@ namespace latihribbon
         #region EVENT
         private void RegisterEvent()
         {
-            txtNIS.TextChanged += txtFilter_TextChanged;
-            txtNama.TextChanged += txtFilter_TextChanged;
-            txtPersensi.TextChanged += txtFilter_TextChanged;
-            txtKelas.TextChanged += txtFilter_TextChanged;
+            txtFilter.TextChanged += txtFilter_TextChanged;
             comboTahunFilter.SelectedIndexChanged += txtFilter_TextChanged;
 
             txtNIS_FormSiswa.KeyPress += input_KeyPress;
@@ -380,10 +377,32 @@ namespace latihribbon
             XIRadio.CheckedChanged += radio_CheckedChange;
             XIIRadio.CheckedChanged += radio_CheckedChange;
             jurusanCombo.SelectedIndexChanged += radio_CheckedChange;
-
+            comboPerPage.SelectedIndexChanged += comboPerPage_Change;
+            txtFilter.Enter += TxtFilter_Enter;
+            txtFilter.Leave += TxtFilter_Leave;
+            lblFilter.Click += LblFilter_Click;
             //this.Shown += Form1_Shown;
         }
 
+        private void LblFilter_Click(object sender, EventArgs e)
+        {
+            txtFilter.Focus();
+        }
+
+        private void TxtFilter_Leave(object sender, EventArgs e)
+        {
+            lblFilter.Visible = true;
+        }
+
+        private void TxtFilter_Enter(object sender, EventArgs e)
+        {
+            lblFilter.Visible = false;
+        }
+
+        private void comboPerPage_Change(object sender,EventArgs e)
+        {
+            LoadData();
+        }
         private void txtFilter_TextChanged(object sender,EventArgs e)
         {
             Page = 1;
@@ -445,10 +464,7 @@ namespace latihribbon
         }
         private void BtnResetFilter_Click(object sender, EventArgs e)
         {
-            txtNIS.Clear();
-            txtNama.Clear();
-            txtKelas.Clear();
-
+            txtFilter.Clear();
             if (comboTahunFilter.Items.Count == 0) return;
             comboTahunFilter.SelectedIndex = 0;
             
