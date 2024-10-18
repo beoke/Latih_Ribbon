@@ -381,7 +381,23 @@ namespace latihribbon
             txtFilter.Enter += TxtFilter_Enter;
             txtFilter.Leave += TxtFilter_Leave;
             lblFilter.Click += LblFilter_Click;
-            //this.Shown += Form1_Shown;
+            this.Shown += Form1_Shown;
+            dataGridView1.CellMouseClick += DataGridView1_CellMouseClick;
+            EditMenuStrip.Click += EditMenuStrip_Click;
+        }
+
+        private void EditMenuStrip_Click(object sender, EventArgs e)
+        {
+            EditSiswa edit = new EditSiswa();
+            edit.ShowDialog();
+        }
+
+        private void DataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if(e.Button == MouseButtons.Right && e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                contextMenuStrip1.Show(Cursor.Position);
+            }
         }
 
         private void LblFilter_Click(object sender, EventArgs e)
@@ -440,9 +456,9 @@ namespace latihribbon
         }
         private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
-            //string nis = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+           // string nis = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
             //GetData(Convert.ToInt32(nis));
-             GetDataGrid(e);
+            // GetDataGrid(e);
         }
 
         private void btnNext_Click(object sender, EventArgs e)
@@ -702,36 +718,36 @@ namespace latihribbon
             using (var Conn = new SqlConnection(conn.connstr()))
             {
                 const string sqlKenaikanKelas = @"
-    -- Langkah 1: Duplicating kelas XII with ' (Lulus)' for graduates
-    INSERT INTO Kelas (Namakelas, Rombel, idJurusan, Tingkat)
-    SELECT CONCAT(K.Namakelas, ' (Lulus)'), K.Rombel, K.idJurusan, K.Tingkat
-    FROM Kelas K
-    WHERE K.Tingkat = 'XII'
-    AND K.Namakelas NOT LIKE '%(Lulus)%'
-    AND NOT EXISTS (
-        SELECT 1
-        FROM Kelas K2
-        WHERE K2.Namakelas = CONCAT(K.Namakelas, ' (Lulus)')
-        AND K2.Rombel = K.Rombel
-        AND K2.idJurusan = K.idJurusan
-    );
+                                -- Langkah 1: Duplicating kelas XII with ' (Lulus)' for graduates
+                                INSERT INTO Kelas (Namakelas, Rombel, idJurusan, Tingkat)
+                                SELECT CONCAT(K.Namakelas, ' (Lulus)'), K.Rombel, K.idJurusan, K.Tingkat
+                                FROM Kelas K
+                                WHERE K.Tingkat = 'XII'
+                                AND K.Namakelas NOT LIKE '%(Lulus)%'
+                                AND NOT EXISTS (
+                                    SELECT 1
+                                    FROM Kelas K2
+                                    WHERE K2.Namakelas = CONCAT(K.Namakelas, ' (Lulus)')
+                                    AND K2.Rombel = K.Rombel
+                                    AND K2.idJurusan = K.idJurusan
+                                );
 
-    -- Langkah 2: Updating siswa to the next class
-    UPDATE S
-    SET S.idKelas = K2.Id
-    FROM Siswa S
-    JOIN Kelas K1 ON S.idKelas = K1.Id
-    JOIN Kelas K2 ON K1.idJurusan = K2.idJurusan 
-                  AND K1.Rombel = K2.Rombel 
-                  AND (
-                      (K1.Tingkat = 'X' AND K2.Tingkat = 'XI') OR 
-                      (K1.Tingkat = 'XI' AND K2.Tingkat = 'XII')
-                  )
-    WHERE K1.Tingkat IN ('X', 'XI');
+                                -- Langkah 2: Updating siswa to the next class
+                                UPDATE S
+                                SET S.idKelas = K2.Id
+                                FROM Siswa S
+                                JOIN Kelas K1 ON S.idKelas = K1.Id
+                                JOIN Kelas K2 ON K1.idJurusan = K2.idJurusan 
+                                              AND K1.Rombel = K2.Rombel 
+                                              AND (
+                                                  (K1.Tingkat = 'X' AND K2.Tingkat = 'XI') OR 
+                                                  (K1.Tingkat = 'XI' AND K2.Tingkat = 'XII')
+                                              )
+                                WHERE K1.Tingkat IN ('X', 'XI');
 
-    -- Langkah 3: Adding ' (Lulus)' to existing kelas XII
-    -- Pastikan bahwa ini sudah dilakukan pada langkah 1
-";
+                                -- Langkah 3: Adding ' (Lulus)' to existing kelas XII
+                                -- Pastikan bahwa ini sudah dilakukan pada langkah 1
+                            ";
 
 
 
@@ -742,5 +758,6 @@ namespace latihribbon
             }
         }
 
+      
     }
 }

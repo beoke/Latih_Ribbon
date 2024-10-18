@@ -63,6 +63,7 @@
   <PropertyGroup>
     <SignManifests>true</SignManifests>
   </PropertyGroup>
+  <PropertyGroup />
   <ItemGroup>
     <Reference Include="Bunifu.Licensing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=f89b4760ba7dcb6b, processorArchitecture=MSIL">
       <HintPath>..\packages\Bunifu.Licensing.6.0.4\lib\net472\Bunifu.Licensing.dll</HintPath>
@@ -218,6 +219,18 @@
     <Compile Include="Dal\MasukDal.cs" />
     <Compile Include="Dal\DbDal.cs" />
     <Compile Include="Dal\RiwayatLogin_UserDal.cs" />
+    <Compile Include="EditSiswa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditSiswa.Designer.cs">
+      <DependentUpon>EditSiswa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PopUpTemplate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PopUpTemplate.Designer.cs">
+      <DependentUpon>PopUpTemplate.cs</DependentUpon>
+    </Compile>
     <Compile Include="ScreenAdmin\FormNaikKelas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -383,6 +396,12 @@
     <Compile Include="Model\UserModel.cs" />
     <Compile Include="Dal\SetPrintDal.cs" />
     <Compile Include="ScreenSurvey\SurveyModel.cs" />
+    <EmbeddedResource Include="EditSiswa.resx">
+      <DependentUpon>EditSiswa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PopUpTemplate.resx">
+      <DependentUpon>PopUpTemplate.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ScreenAdmin\FormNaikKelas.resx">
       <DependentUpon>FormNaikKelas.cs</DependentUpon>
     </EmbeddedResource>
@@ -556,6 +575,8 @@
     <None Include="Resources\Group 13 1.png" />
     <None Include="Resources\Group 14 1.png" />
     <Content Include="logo_converted.ico" />
+    <None Include="Resources\pencil.png" />
+    <None Include="Resources\bin.png" />
     <Content Include="SQL Script\CekData.sql" />
   </ItemGroup>
   <ItemGroup>

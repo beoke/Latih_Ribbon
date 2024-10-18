@@ -30,7 +30,6 @@ namespace latihribbon
            
             this.MinimumSize = new Size(1500, 800);
 
-
         }
         private void ShowFormInPanel(Form form) 
         {
@@ -191,6 +190,11 @@ namespace latihribbon
                 if (_mesbox.MesKonfirmasi("Apakah Anda Ingin Menutup Aplikasi ?")) mainForm.Close();
                 e.Cancel = true;
             }
+        }
+
+        private void dataGridView1_MouseClick(object sender, MouseEventArgs e)
+        {
+           
         }
     }
 }
