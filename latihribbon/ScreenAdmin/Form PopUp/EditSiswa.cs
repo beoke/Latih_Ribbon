@@ -28,7 +28,7 @@ namespace latihribbon
 
         private void BtnSave_FormSiswa_Click(object sender, EventArgs e)
         {
-            var p = new PopUpTemplate();
+            var p = new PopUpTemplate("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
             p.ShowDialog(this);
         }
     }
