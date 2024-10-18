@@ -49,7 +49,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>logo_converted.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>287E03F5C7472F775B54D21DCA4E861276C957B3</ManifestCertificateThumbprint>
@@ -576,7 +577,6 @@
     <None Include="Resources\Group 14 1.png" />
     <Content Include="Icon\Add User.ico" />
     <Content Include="Icon\pencil_icon.ico" />
-    <Content Include="logo_converted.ico" />
     <None Include="Resources\pencil.png" />
     <None Include="Resources\bin.png" />
     <Content Include="SQL Script\CekData.sql" />
