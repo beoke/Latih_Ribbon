@@ -33,6 +33,9 @@ namespace latihribbon
         //private FormLoading formLoading;
         private ToolTip toolTip;
 
+        public bool isUpdate { get; set; } = true;
+        public int Nis { get; set; } = 0;
+
         public FormSIswa()
         {
             InitializeComponent();

@@ -12,11 +12,13 @@ namespace latihribbon
 {
     public partial class EditSiswa : Form
     {
+
         public EditSiswa()
         {
             InitializeComponent();
             this.MinimizeBox = false;
             this.MaximizeBox = false;
+            RegisterEvent();
         }
 
         private void RegisterEvent()
