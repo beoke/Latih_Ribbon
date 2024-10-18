@@ -53,10 +53,11 @@
     </ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>287E03F5C7472F775B54D21DCA4E861276C957B3</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>47D364A8BC6BE15C16F7D0B24F7B32A7C3F5D5E0</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>latihribbon_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>
+    </ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>

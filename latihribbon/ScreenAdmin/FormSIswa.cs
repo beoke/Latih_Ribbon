@@ -289,19 +289,7 @@ namespace latihribbon
             if (jurusanCombo.Items.Count == 0) return;  
             jurusanCombo.SelectedIndex = 0;
         }
-        private void Delete()
-        {
-            string nis = txtNIS_FormSiswa.Text;
-            if (SaveCondition)
-            {
-                mesBox.MesInfo("Pilih Data Terlebih Dahulu!");
-                return;
-            }
-            if (MessageBox.Show($"Anda yakin ingin menghapus data dengan NIS\" {nis} \" ? \n Jika Dihapus, maka data yang terhubung akan ikut Terhapus", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes) return;
-            siswaDal.Delete(Convert.ToInt32(nis));
-            LoadData();
-            Clear();
-        }
+    
 
         public void CekNis(int nis)
         {
@@ -435,10 +423,7 @@ namespace latihribbon
                 e.Handled = true;
             }
         }
-        private void btnNew_Click(object sender, EventArgs e)
-        {
-            Clear();
-        }
+       
         private void btnSave_FormSiswa_Click(object sender, EventArgs e)
         {
             SaveData();
@@ -454,7 +439,6 @@ namespace latihribbon
         }
         private void btnDelete_FormSiswa_Click(object sender, EventArgs e)
         {
-            Delete();
             LoadData();
         }
         private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
