@@ -126,7 +126,7 @@
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Location = new System.Drawing.Point(4, 94);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1270, 698);
+            this.panel1.Size = new System.Drawing.Size(1270, 401);
             this.panel1.TabIndex = 14;
             // 
             // panel3
@@ -140,9 +140,9 @@
             this.panel3.Controls.Add(this.btnNext);
             this.panel3.Controls.Add(this.btnPrevious);
             this.panel3.Controls.Add(this.dataGridView1);
-            this.panel3.Location = new System.Drawing.Point(10, 15);
+            this.panel3.Location = new System.Drawing.Point(10, 17);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(697, 663);
+            this.panel3.Size = new System.Drawing.Size(697, 370);
             this.panel3.TabIndex = 2;
             // 
             // ButtonNaikKelas
@@ -151,7 +151,7 @@
             this.ButtonNaikKelas.BackColor = System.Drawing.Color.Gray;
             this.ButtonNaikKelas.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonNaikKelas.ForeColor = System.Drawing.Color.White;
-            this.ButtonNaikKelas.Location = new System.Drawing.Point(565, 600);
+            this.ButtonNaikKelas.Location = new System.Drawing.Point(565, 307);
             this.ButtonNaikKelas.Name = "ButtonNaikKelas";
             this.ButtonNaikKelas.Size = new System.Drawing.Size(111, 42);
             this.ButtonNaikKelas.TabIndex = 3;
@@ -165,7 +165,7 @@
             this.lblHalaman.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblHalaman.AutoSize = true;
             this.lblHalaman.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHalaman.Location = new System.Drawing.Point(272, 606);
+            this.lblHalaman.Location = new System.Drawing.Point(272, 313);
             this.lblHalaman.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblHalaman.Name = "lblHalaman";
             this.lblHalaman.Size = new System.Drawing.Size(134, 25);
@@ -175,7 +175,7 @@
             // btnNext
             // 
             this.btnNext.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnNext.Location = new System.Drawing.Point(429, 602);
+            this.btnNext.Location = new System.Drawing.Point(429, 309);
             this.btnNext.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(112, 35);
@@ -187,7 +187,7 @@
             // btnPrevious
             // 
             this.btnPrevious.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnPrevious.Location = new System.Drawing.Point(132, 602);
+            this.btnPrevious.Location = new System.Drawing.Point(132, 309);
             this.btnPrevious.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(112, 35);
@@ -207,7 +207,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(682, 569);
+            this.dataGridView1.Size = new System.Drawing.Size(682, 276);
             this.dataGridView1.TabIndex = 13;
             this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowEnter);
             // 
@@ -217,9 +217,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel4.BackColor = System.Drawing.Color.DarkGray;
             this.panel4.Controls.Add(this.panel2);
-            this.panel4.Location = new System.Drawing.Point(729, 15);
+            this.panel4.Location = new System.Drawing.Point(729, 17);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(528, 663);
+            this.panel4.Size = new System.Drawing.Size(528, 370);
             this.panel4.TabIndex = 3;
             // 
             // panel2
@@ -231,7 +231,7 @@
             this.panel2.Controls.Add(this.panel5);
             this.panel2.Location = new System.Drawing.Point(8, 9);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(512, 644);
+            this.panel2.Size = new System.Drawing.Size(512, 351);
             this.panel2.TabIndex = 4;
             // 
             // btnSave_FormSiswa
@@ -240,7 +240,7 @@
             this.btnSave_FormSiswa.BackColor = System.Drawing.Color.LimeGreen;
             this.btnSave_FormSiswa.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave_FormSiswa.ForeColor = System.Drawing.Color.White;
-            this.btnSave_FormSiswa.Location = new System.Drawing.Point(344, 551);
+            this.btnSave_FormSiswa.Location = new System.Drawing.Point(364, 260);
             this.btnSave_FormSiswa.Name = "btnSave_FormSiswa";
             this.btnSave_FormSiswa.Size = new System.Drawing.Size(111, 42);
             this.btnSave_FormSiswa.TabIndex = 1;
@@ -277,7 +277,7 @@
             this.panel5.Controls.Add(this.label7);
             this.panel5.Location = new System.Drawing.Point(6, 9);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(497, 623);
+            this.panel5.Size = new System.Drawing.Size(497, 330);
             this.panel5.TabIndex = 5;
             // 
             // rombelCombo
@@ -623,7 +623,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1278, 796);
+            this.ClientSize = new System.Drawing.Size(1278, 499);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.lblFilter);
             this.Controls.Add(this.btnResetFilter);

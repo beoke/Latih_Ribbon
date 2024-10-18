@@ -61,17 +61,19 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(9, 7);
+            this.dataGridView1.Location = new System.Drawing.Point(14, 11);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(870, 392);
+            this.dataGridView1.Size = new System.Drawing.Size(1223, 235);
             this.dataGridView1.TabIndex = 0;
             // 
             // btnResetFilter
             // 
-            this.btnResetFilter.Location = new System.Drawing.Point(1202, 15);
+            this.btnResetFilter.Location = new System.Drawing.Point(1803, 23);
+            this.btnResetFilter.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnResetFilter.Name = "btnResetFilter";
-            this.btnResetFilter.Size = new System.Drawing.Size(75, 23);
+            this.btnResetFilter.Size = new System.Drawing.Size(112, 35);
             this.btnResetFilter.TabIndex = 39;
             this.btnResetFilter.Text = "Reset";
             this.btnResetFilter.UseVisualStyleBackColor = true;
@@ -80,108 +82,99 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(1018, 17);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(1527, 26);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(87, 19);
+            this.label2.Size = new System.Drawing.Size(134, 30);
             this.label2.TabIndex = 38;
             this.label2.Text = "Keterangan :";
             // 
             // KeteranganCombo
             // 
             this.KeteranganCombo.FormattingEnabled = true;
-            this.KeteranganCombo.Location = new System.Drawing.Point(1110, 17);
+            this.KeteranganCombo.Location = new System.Drawing.Point(1665, 26);
+            this.KeteranganCombo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.KeteranganCombo.Name = "KeteranganCombo";
-            this.KeteranganCombo.Size = new System.Drawing.Size(80, 21);
+            this.KeteranganCombo.Size = new System.Drawing.Size(118, 28);
             this.KeteranganCombo.TabIndex = 37;
             // 
             // tgldua
             // 
             this.tgldua.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tgldua.Location = new System.Drawing.Point(875, 17);
-            this.tgldua.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tgldua.Location = new System.Drawing.Point(1312, 26);
             this.tgldua.Name = "tgldua";
-            this.tgldua.Size = new System.Drawing.Size(132, 21);
+            this.tgldua.Size = new System.Drawing.Size(196, 28);
             this.tgldua.TabIndex = 36;
             // 
             // tglsatu
             // 
             this.tglsatu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tglsatu.Location = new System.Drawing.Point(722, 18);
-            this.tglsatu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tglsatu.Location = new System.Drawing.Point(1083, 28);
             this.tglsatu.Name = "tglsatu";
-            this.tglsatu.Size = new System.Drawing.Size(132, 21);
+            this.tglsatu.Size = new System.Drawing.Size(196, 28);
             this.tglsatu.TabIndex = 35;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(653, 19);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(980, 29);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 19);
+            this.label4.Size = new System.Drawing.Size(99, 30);
             this.label4.TabIndex = 34;
             this.label4.Text = "Tanggal :";
             // 
             // txtNIS
             // 
             this.txtNIS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNIS.Location = new System.Drawing.Point(60, 18);
-            this.txtNIS.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNIS.Location = new System.Drawing.Point(90, 28);
             this.txtNIS.Name = "txtNIS";
-            this.txtNIS.Size = new System.Drawing.Size(78, 21);
+            this.txtNIS.Size = new System.Drawing.Size(115, 28);
             this.txtNIS.TabIndex = 33;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(16, 18);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Location = new System.Drawing.Point(24, 28);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(39, 19);
+            this.label5.Size = new System.Drawing.Size(57, 30);
             this.label5.TabIndex = 32;
             this.label5.Text = "NIS :";
             // 
             // txtKelas
             // 
             this.txtKelas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtKelas.Location = new System.Drawing.Point(529, 18);
-            this.txtKelas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtKelas.Location = new System.Drawing.Point(794, 28);
             this.txtKelas.Name = "txtKelas";
             this.txtKelas.ReadOnly = true;
-            this.txtKelas.Size = new System.Drawing.Size(67, 21);
+            this.txtKelas.Size = new System.Drawing.Size(98, 28);
             this.txtKelas.TabIndex = 31;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(475, 20);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(712, 31);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 19);
+            this.label3.Size = new System.Drawing.Size(73, 30);
             this.label3.TabIndex = 30;
             this.label3.Text = "Kelas :";
             // 
             // txtNama
             // 
             this.txtNama.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNama.Location = new System.Drawing.Point(204, 18);
-            this.txtNama.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNama.Location = new System.Drawing.Point(306, 28);
             this.txtNama.Name = "txtNama";
-            this.txtNama.Size = new System.Drawing.Size(129, 21);
+            this.txtNama.Size = new System.Drawing.Size(192, 28);
             this.txtNama.TabIndex = 29;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(147, 18);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(220, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 19);
+            this.label1.Size = new System.Drawing.Size(81, 30);
             this.label1.TabIndex = 28;
             this.label1.Text = "Nama :";
             // 
@@ -196,10 +189,9 @@
             this.panel1.Controls.Add(this.btnPrevious);
             this.panel1.Controls.Add(this.btnPrintRekap);
             this.panel1.Controls.Add(this.dataGridView1);
-            this.panel1.Location = new System.Drawing.Point(2, 54);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Location = new System.Drawing.Point(3, 83);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(890, 474);
+            this.panel1.Size = new System.Drawing.Size(1253, 361);
             this.panel1.TabIndex = 40;
             // 
             // lblHalaman
@@ -207,18 +199,20 @@
             this.lblHalaman.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblHalaman.AutoSize = true;
             this.lblHalaman.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHalaman.Location = new System.Drawing.Point(373, 430);
+            this.lblHalaman.Location = new System.Drawing.Point(519, 294);
+            this.lblHalaman.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblHalaman.Name = "lblHalaman";
-            this.lblHalaman.Size = new System.Drawing.Size(90, 16);
+            this.lblHalaman.Size = new System.Drawing.Size(134, 25);
             this.lblHalaman.TabIndex = 22;
             this.lblHalaman.Text = "Halaman 1/10";
             // 
             // btnNext
             // 
             this.btnNext.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnNext.Location = new System.Drawing.Point(477, 427);
+            this.btnNext.Location = new System.Drawing.Point(675, 289);
+            this.btnNext.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(75, 23);
+            this.btnNext.Size = new System.Drawing.Size(112, 35);
             this.btnNext.TabIndex = 21;
             this.btnNext.Text = ">";
             this.btnNext.UseVisualStyleBackColor = true;
@@ -227,9 +221,10 @@
             // btnPrevious
             // 
             this.btnPrevious.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnPrevious.Location = new System.Drawing.Point(279, 427);
+            this.btnPrevious.Location = new System.Drawing.Point(377, 289);
+            this.btnPrevious.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnPrevious.Name = "btnPrevious";
-            this.btnPrevious.Size = new System.Drawing.Size(75, 23);
+            this.btnPrevious.Size = new System.Drawing.Size(112, 35);
             this.btnPrevious.TabIndex = 20;
             this.btnPrevious.Text = "<";
             this.btnPrevious.UseVisualStyleBackColor = true;
@@ -241,30 +236,27 @@
             this.btnPrintRekap.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPrintRekap.BackgroundImage")));
             this.btnPrintRekap.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnPrintRekap.FlatAppearance.BorderSize = 2;
-            this.btnPrintRekap.Location = new System.Drawing.Point(816, 420);
-            this.btnPrintRekap.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPrintRekap.Location = new System.Drawing.Point(1142, 278);
             this.btnPrintRekap.Name = "btnPrintRekap";
-            this.btnPrintRekap.Size = new System.Drawing.Size(46, 37);
+            this.btnPrintRekap.Size = new System.Drawing.Size(69, 57);
             this.btnPrintRekap.TabIndex = 19;
             this.btnPrintRekap.UseVisualStyleBackColor = true;
             // 
             // txtPersensi
             // 
             this.txtPersensi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPersensi.Location = new System.Drawing.Point(414, 18);
-            this.txtPersensi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPersensi.Location = new System.Drawing.Point(621, 28);
             this.txtPersensi.Name = "txtPersensi";
-            this.txtPersensi.Size = new System.Drawing.Size(52, 21);
+            this.txtPersensi.Size = new System.Drawing.Size(76, 28);
             this.txtPersensi.TabIndex = 43;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.label7.Location = new System.Drawing.Point(343, 19);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Location = new System.Drawing.Point(514, 29);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(67, 19);
+            this.label7.Size = new System.Drawing.Size(100, 30);
             this.label7.TabIndex = 44;
             this.label7.Text = "Persensi :";
             // 
@@ -272,18 +264,18 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.label6.Location = new System.Drawing.Point(857, 12);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Location = new System.Drawing.Point(1286, 18);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(15, 19);
+            this.label6.Size = new System.Drawing.Size(22, 30);
             this.label6.TabIndex = 41;
             this.label6.Text = "_";
             // 
             // btnKelas
             // 
-            this.btnKelas.Location = new System.Drawing.Point(601, 17);
+            this.btnKelas.Location = new System.Drawing.Point(902, 26);
+            this.btnKelas.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnKelas.Name = "btnKelas";
-            this.btnKelas.Size = new System.Drawing.Size(40, 23);
+            this.btnKelas.Size = new System.Drawing.Size(60, 35);
             this.btnKelas.TabIndex = 42;
             this.btnKelas.Text = "...";
             this.btnKelas.UseVisualStyleBackColor = true;
@@ -291,10 +283,10 @@
             // 
             // FormRekapPersensi
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(895, 531);
+            this.ClientSize = new System.Drawing.Size(1260, 449);
             this.Controls.Add(this.txtPersensi);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btnKelas);
@@ -312,6 +304,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtNama);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FormRekapPersensi";
             this.Text = "FormRekapPersensi";
             this.Load += new System.EventHandler(this.FormRekapPersensi_Load);
