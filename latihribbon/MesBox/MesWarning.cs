@@ -10,24 +10,21 @@ using System.Windows.Forms;
 
 namespace latihribbon
 {
-    public partial class EditSiswa : Form
+    public partial class MesWarning : Form
     {
-
-        public EditSiswa()
+        public MesWarning()
         {
             InitializeComponent();
-            this.MinimizeBox = false;
-            this.MaximizeBox = false;
-            RegisterEvent();
         }
 
-        private void RegisterEvent()
+        private void btnYes_Click(object sender, EventArgs e)
         {
-            btnSave_FormSiswa.Click += BtnSave_FormSiswa_Click;
+            this.DialogResult = DialogResult.Yes;
         }
 
-        private void BtnSave_FormSiswa_Click(object sender, EventArgs e)
+        private void btnNo_Click(object sender, EventArgs e)
         {
+            this.Close();
         }
     }
 }
