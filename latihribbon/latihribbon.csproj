@@ -227,6 +227,12 @@
     <Compile Include="MesBox\MesWarning.Designer.cs">
       <DependentUpon>MesWarning.cs</DependentUpon>
     </Compile>
+    <Compile Include="MesBox\MesKonfirmasi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MesBox\MesKonfirmasi.Designer.cs">
+      <DependentUpon>MesKonfirmasi.cs</DependentUpon>
+    </Compile>
     <Compile Include="ScreenAdmin\Form PopUp\EditSiswa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -398,6 +404,9 @@
     <Compile Include="Model\UserModel.cs" />
     <Compile Include="Dal\SetPrintDal.cs" />
     <Compile Include="ScreenSurvey\SurveyModel.cs" />
+    <EmbeddedResource Include="MesBox\MesKonfirmasi.resx">
+      <DependentUpon>MesKonfirmasi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MesBox\MesWarning.resx">
       <DependentUpon>MesWarning.cs</DependentUpon>
     </EmbeddedResource>
@@ -581,6 +590,9 @@
     <None Include="Resources\pencil.png" />
     <None Include="Resources\bin.png" />
     <None Include="Resources\warning.png" />
+    <None Include="Resources\QuestionBlue.png" />
+    <None Include="Resources\Mask group.png" />
+    <None Include="Resources\questionblue %281%29.png" />
     <Content Include="SQL Script\CekData.sql" />
   </ItemGroup>
   <ItemGroup>

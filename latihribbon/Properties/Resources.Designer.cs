@@ -313,6 +313,16 @@ namespace latihribbon.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Mask_group {
+            get {
+                object obj = ResourceManager.GetObject("Mask group", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap output {
             get {
                 object obj = ResourceManager.GetObject("output", resourceCulture);
@@ -376,6 +386,26 @@ namespace latihribbon.Properties {
         internal static System.Drawing.Bitmap question__2_ {
             get {
                 object obj = ResourceManager.GetObject("question (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap QuestionBlue {
+            get {
+                object obj = ResourceManager.GetObject("QuestionBlue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap questionblue__1_ {
+            get {
+                object obj = ResourceManager.GetObject("questionblue (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
