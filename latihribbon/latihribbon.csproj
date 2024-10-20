@@ -599,6 +599,7 @@
     <None Include="Resources\QuestionBlue.png" />
     <None Include="Resources\Mask group.png" />
     <None Include="Resources\questionblue %281%29.png" />
+    <None Include="Resources\questionblue %284%29.png" />
     <Content Include="SQL Script\CekData.sql" />
   </ItemGroup>
   <ItemGroup>

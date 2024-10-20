@@ -20,8 +20,9 @@ namespace latihribbon
             this.MaximizeBox = false;
             this.ShowIcon = false;
             lblMessage.Text = message;
-            int width = lblMessage.Width + 102;
+            int width = lblMessage.Width + 114;
             this.Width = width;
+            if (this.Width < 246) this.Width = 246;
             if (row == 1)
                 lblMessage.Location = new Point(lblMessage.Location.X, 41);
             else

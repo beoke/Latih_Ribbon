@@ -15,8 +15,11 @@ namespace latihribbon
         public MesQuestionYN(string message,int row = 1)
         {
             InitializeComponent();
+            this.MinimizeBox = false;
+            this.MaximizeBox = false;
+            this.ShowIcon = false;
             lblMessage.Text = message;
-            int width = lblMessage.Width + 102;
+            int width = lblMessage.Width + 114;
             this.Width = width;
             if (this.Width < 246) this.Width = 246;
             if (row == 1)

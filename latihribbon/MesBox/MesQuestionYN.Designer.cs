@@ -75,7 +75,7 @@
             // 
             this.lblMessage.AutoSize = true;
             this.lblMessage.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMessage.Location = new System.Drawing.Point(68, 41);
+            this.lblMessage.Location = new System.Drawing.Point(80, 41);
             this.lblMessage.Name = "lblMessage";
             this.lblMessage.Size = new System.Drawing.Size(74, 17);
             this.lblMessage.TabIndex = 3;
@@ -83,9 +83,9 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = global::latihribbon.Properties.Resources.questionblue__1_;
+            this.pictureBox1.BackgroundImage = global::latihribbon.Properties.Resources.questionblue__4_;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 24);
+            this.pictureBox1.Location = new System.Drawing.Point(24, 24);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(50, 50);
             this.pictureBox1.TabIndex = 4;
@@ -101,7 +101,8 @@
             this.Controls.Add(this.lblMessage);
             this.Controls.Add(this.panel1);
             this.Name = "MesQuestionYN";
-            this.Text = "MesKonfirmasi";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Konfirmasi";
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
