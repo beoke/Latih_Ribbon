@@ -1,6 +1,6 @@
 ﻿namespace latihribbon
 {
-    partial class MesKonfirmasi
+    partial class MesQuestionYN
     {
         /// <summary>
         /// Required designer variable.
@@ -45,14 +45,14 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 108);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(442, 54);
+            this.panel1.Size = new System.Drawing.Size(230, 54);
             this.panel1.TabIndex = 2;
             // 
             // btnNo
             // 
             this.btnNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnNo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNo.Location = new System.Drawing.Point(237, 15);
+            this.btnNo.Location = new System.Drawing.Point(25, 15);
             this.btnNo.Name = "btnNo";
             this.btnNo.Size = new System.Drawing.Size(87, 27);
             this.btnNo.TabIndex = 4;
@@ -63,12 +63,13 @@
             // 
             this.btnYes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnYes.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnYes.Location = new System.Drawing.Point(332, 15);
+            this.btnYes.Location = new System.Drawing.Point(120, 15);
             this.btnYes.Name = "btnYes";
             this.btnYes.Size = new System.Drawing.Size(87, 27);
             this.btnYes.TabIndex = 3;
             this.btnYes.Text = "Yes";
             this.btnYes.UseVisualStyleBackColor = true;
+            this.btnYes.Click += new System.EventHandler(this.btnYes_Click);
             // 
             // lblMessage
             // 
@@ -76,9 +77,9 @@
             this.lblMessage.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMessage.Location = new System.Drawing.Point(68, 41);
             this.lblMessage.Name = "lblMessage";
-            this.lblMessage.Size = new System.Drawing.Size(240, 17);
+            this.lblMessage.Size = new System.Drawing.Size(74, 17);
             this.lblMessage.TabIndex = 3;
-            this.lblMessage.Text = "Anda yakin ingin menghapus data RPL ?\r\n";
+            this.lblMessage.Text = "Input Data?\r\n";
             // 
             // pictureBox1
             // 
@@ -90,16 +91,16 @@
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
-            // MesKonfirmasi
+            // MesQuestionYN
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(442, 162);
+            this.ClientSize = new System.Drawing.Size(230, 162);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblMessage);
             this.Controls.Add(this.panel1);
-            this.Name = "MesKonfirmasi";
+            this.Name = "MesQuestionYN";
             this.Text = "MesKonfirmasi";
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

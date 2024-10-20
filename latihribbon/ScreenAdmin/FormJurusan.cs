@@ -86,7 +86,7 @@ namespace latihribbon.ScreenAdmin
             var jurusanId = Convert.ToInt32(GridListJurusan.CurrentRow.Cells[0].Value);
             var jurusanName = GridListJurusan.CurrentRow.Cells[1].Value;
 
-            if (new MesKonfirmasi($"Anda yakin ingin menghapus data \"{jurusanName}\" ? \n Jika Dihapus, maka data yang terhubung akan ikut Terhapus",2).ShowDialog() == DialogResult.Yes)
+            if (new MesQuestionYN($"Anda yakin ingin menghapus data \"{jurusanName}\" ? \n Jika Dihapus, maka data yang terhubung akan ikut Terhapus",2).ShowDialog() == DialogResult.Yes)
                 _jurusanDal.Delete(jurusanId);
 
             LoadData();

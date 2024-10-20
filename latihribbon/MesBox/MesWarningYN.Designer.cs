@@ -1,6 +1,6 @@
 ﻿namespace latihribbon
 {
-    partial class MesWarning
+    partial class MesWarningYN
     {
         /// <summary>
         /// Required designer variable.

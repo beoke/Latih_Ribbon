@@ -10,26 +10,24 @@ using System.Windows.Forms;
 
 namespace latihribbon
 {
-    public partial class MesWarning : Form
+    public partial class MesQuestionYN : Form
     {
-        public MesWarning(string message)
+        public MesQuestionYN(string message,int row = 1)
         {
             InitializeComponent();
             lblMessage.Text = message;
-            this.MinimizeBox = false;
-            this.MaximizeBox = false;
-            this.ShowIcon = false;
+            int width = lblMessage.Width + 102;
+            this.Width = width;
+            if (this.Width < 246) this.Width = 246;
+            if (row == 1)
+                lblMessage.Location = new Point(lblMessage.Location.X, 41);
+            else
+                lblMessage.Location = new Point(lblMessage.Location.X , 32);
         }
-
 
         private void btnYes_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Yes;
-            this.Close();
-        }
-
-        private void btnNo_Click(object sender, EventArgs e)
-        {
             this.Close();
         }
     }

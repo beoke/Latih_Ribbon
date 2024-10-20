@@ -28,7 +28,7 @@ namespace latihribbon
 
         private void BtnSave_FormSiswa_Click(object sender, EventArgs e)
         {
-            new MesKonfirmasi("Sya amaka aia aua aua aa aua aua a aa aua aua wuw wuw wuw wuwwwww uww",1).ShowDialog();
+            new MesQuestionYN("Sya amaka aia aua aua aa aua aua a aa aua aua wuw wuw wuw wuwwwww uww",1).ShowDialog();
         }
     }
 }

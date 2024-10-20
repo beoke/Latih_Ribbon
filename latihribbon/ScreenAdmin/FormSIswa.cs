@@ -258,7 +258,7 @@ namespace latihribbon
 
             if (SaveCondition)
             {
-                if (!mesBox.MesKonfirmasi("Input Data?")) return;
+                if (new MesQuestionYN("Input Data?",1).ShowDialog() != DialogResult.Yes) return;
                 siswaDal.Insert(siswa);
                 LoadData();
             }

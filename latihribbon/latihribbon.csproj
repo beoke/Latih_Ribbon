@@ -221,17 +221,23 @@
     <Compile Include="Dal\MasukDal.cs" />
     <Compile Include="Dal\DbDal.cs" />
     <Compile Include="Dal\RiwayatLogin_UserDal.cs" />
-    <Compile Include="MesBox\MesWarning.cs">
+    <Compile Include="MesBox\MesWarningYN.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MesBox\MesWarning.Designer.cs">
-      <DependentUpon>MesWarning.cs</DependentUpon>
+    <Compile Include="MesBox\MesWarningYN.Designer.cs">
+      <DependentUpon>MesWarningYN.cs</DependentUpon>
     </Compile>
-    <Compile Include="MesBox\MesKonfirmasi.cs">
+    <Compile Include="MesBox\MesQuestionYN.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MesBox\MesKonfirmasi.Designer.cs">
-      <DependentUpon>MesKonfirmasi.cs</DependentUpon>
+    <Compile Include="MesBox\MesQuestionYN.Designer.cs">
+      <DependentUpon>MesQuestionYN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MesQuestionOK.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MesQuestionOK.Designer.cs">
+      <DependentUpon>MesQuestionOK.cs</DependentUpon>
     </Compile>
     <Compile Include="ScreenAdmin\Form PopUp\EditSiswa.cs">
       <SubType>Form</SubType>
@@ -404,11 +410,11 @@
     <Compile Include="Model\UserModel.cs" />
     <Compile Include="Dal\SetPrintDal.cs" />
     <Compile Include="ScreenSurvey\SurveyModel.cs" />
-    <EmbeddedResource Include="MesBox\MesKonfirmasi.resx">
-      <DependentUpon>MesKonfirmasi.cs</DependentUpon>
+    <EmbeddedResource Include="MesBox\MesQuestionYN.resx">
+      <DependentUpon>MesQuestionYN.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MesBox\MesWarning.resx">
-      <DependentUpon>MesWarning.cs</DependentUpon>
+    <EmbeddedResource Include="MesBox\MesWarningYN.resx">
+      <DependentUpon>MesWarningYN.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ScreenAdmin\Form PopUp\EditSiswa.resx">
       <DependentUpon>EditSiswa.cs</DependentUpon>
