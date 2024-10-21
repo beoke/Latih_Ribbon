@@ -307,25 +307,17 @@ namespace latihribbon
         #region FILTER
         int Page = 1;
         int totalPage;                 
-        private string FilterSQL(string search, string tahun)
-        {
-            string sqlc = string.Empty;
-            List<string> fltr = new List<string>();
-            if (search != "") fltr.Add("s.Nis LIKE @Nis+'%'");
-            if (tahun != "Semua") fltr.Add("s.Tahun LIKE @Tahun+'%'");
-
-            if (fltr.Count > 0)
-                sqlc += " WHERE " + string.Join(" AND ", fltr);
-            return sqlc;
-        }
         public void LoadData()
         {
             string search = txtFilter.Text;
             string tahun = comboTahunFilter.SelectedItem?.ToString() ?? string.Empty;
-            var sqlc = FilterSQL(search, tahun);
+            string sqlc = string.Empty;
             var dp = new DynamicParameters();
-            if (search != "") dp.Add("@Search", search);
-            if (tahun != "Semua") dp.Add("@Tahun", tahun);
+            List<string> fltr = new List<string>();
+            if (search != "") { fltr.Add("s.Nis LIKE @Search+'%' OR s.Nama LIKE '%'+@Search+'%' OR k.NamaKelas LIKE '%'+@Search+'%'"); dp.Add("@Search", search); }
+            if (tahun != "Semua") { fltr.Add("s.Tahun LIKE @Tahun+'%'"); dp.Add("@Tahun", tahun); }
+            if (fltr.Count > 0)
+                sqlc += " WHERE " + string.Join(" AND ", fltr);
 
             string text = "Halaman ";
             int RowPerPage = (int)comboPerPage.SelectedItem;
@@ -356,6 +348,7 @@ namespace latihribbon
         {
             txtFilter.TextChanged += txtFilter_TextChanged;
             comboTahunFilter.SelectedIndexChanged += txtFilter_TextChanged;
+            comboPerPage.SelectedIndexChanged += txtFilter_TextChanged;
 
             txtNIS_FormSiswa.KeyPress += input_KeyPress;
             txtPersensi_FormSiswa.KeyPress += input_KeyPress;
@@ -367,7 +360,6 @@ namespace latihribbon
             XIRadio.CheckedChanged += radio_CheckedChange;
             XIIRadio.CheckedChanged += radio_CheckedChange;
             jurusanCombo.SelectedIndexChanged += radio_CheckedChange;
-            comboPerPage.SelectedIndexChanged += comboPerPage_Change;
             txtFilter.Enter += TxtFilter_Enter;
             txtFilter.Leave += TxtFilter_Leave;
             lblFilter.Click += LblFilter_Click;
@@ -427,11 +419,6 @@ namespace latihribbon
         private void TxtFilter_Enter(object sender, EventArgs e)
         {
             lblFilter.Visible = false;
-        }
-
-        private void comboPerPage_Change(object sender,EventArgs e)
-        {
-            LoadData();
         }
         private void txtFilter_TextChanged(object sender,EventArgs e)
         {
