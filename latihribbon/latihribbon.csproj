@@ -245,6 +245,12 @@
     <Compile Include="MesBox\MesWarningOK.Designer.cs">
       <DependentUpon>MesWarningOK.cs</DependentUpon>
     </Compile>
+    <Compile Include="MesBox\MesError.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MesBox\MesError.Designer.cs">
+      <DependentUpon>MesError.cs</DependentUpon>
+    </Compile>
     <Compile Include="ScreenAdmin\Form PopUp\EditSiswa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -427,6 +433,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MesBox\MesInformasi.resx">
       <DependentUpon>MesInformasi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MesBox\MesError.resx">
+      <DependentUpon>MesError.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ScreenAdmin\Form PopUp\EditSiswa.resx">
       <DependentUpon>EditSiswa.cs</DependentUpon>
@@ -613,6 +622,7 @@
     <None Include="Resources\questionblue %281%29.png" />
     <None Include="Resources\questionblue %284%29.png" />
     <None Include="Resources\Info.png" />
+    <None Include="Resources\cross.png" />
     <Content Include="SQL Script\CekData.sql" />
   </ItemGroup>
   <ItemGroup>
