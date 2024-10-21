@@ -233,11 +233,17 @@
     <Compile Include="MesBox\MesQuestionYN.Designer.cs">
       <DependentUpon>MesQuestionYN.cs</DependentUpon>
     </Compile>
-    <Compile Include="MesQuestionOK.cs">
+    <Compile Include="MesBox\MesInformasi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MesQuestionOK.Designer.cs">
-      <DependentUpon>MesQuestionOK.cs</DependentUpon>
+    <Compile Include="MesBox\MesInformasi.Designer.cs">
+      <DependentUpon>MesInformasi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MesBox\MesWarningOK.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MesBox\MesWarningOK.Designer.cs">
+      <DependentUpon>MesWarningOK.cs</DependentUpon>
     </Compile>
     <Compile Include="ScreenAdmin\Form PopUp\EditSiswa.cs">
       <SubType>Form</SubType>
@@ -415,6 +421,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MesBox\MesWarningYN.resx">
       <DependentUpon>MesWarningYN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MesBox\MesWarningOK.resx">
+      <DependentUpon>MesWarningOK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MesBox\MesInformasi.resx">
+      <DependentUpon>MesInformasi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ScreenAdmin\Form PopUp\EditSiswa.resx">
       <DependentUpon>EditSiswa.cs</DependentUpon>
@@ -600,6 +612,7 @@
     <None Include="Resources\Mask group.png" />
     <None Include="Resources\questionblue %281%29.png" />
     <None Include="Resources\questionblue %284%29.png" />
+    <None Include="Resources\Info.png" />
     <Content Include="SQL Script\CekData.sql" />
   </ItemGroup>
   <ItemGroup>

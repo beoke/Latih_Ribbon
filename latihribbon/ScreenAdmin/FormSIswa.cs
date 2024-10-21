@@ -264,7 +264,7 @@ namespace latihribbon
             }
             else
             {
-                if (!mesBox.MesKonfirmasi("Update Data?")) return;
+                if (new MesQuestionYN("Update Data?", 1).ShowDialog() != DialogResult.Yes) return;
                 siswaDal.Update(siswa);
                 LoadData();
             }
