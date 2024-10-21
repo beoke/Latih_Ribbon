@@ -1,11 +1,15 @@
 ﻿DROP TABLE Rating;
 
 
-
+select * from siswa;
 
 SELECT CAST (ROUND (AVG(Bintang), 1) AS FLOAT)
 FROM Rating
 WHERE Bintang BETWEEN 1 AND 5;
+
+SELECT s.Nis,s.Nama,s.JenisKelamin,s.Persensi,s.IdKelas,k.NamaKelas,s.Tahun FROM siswa s 
+                                INNER JOIN Kelas k ON s.IdKelas = k.Id
+                                WHERE s.Nis=16653
 
 
 

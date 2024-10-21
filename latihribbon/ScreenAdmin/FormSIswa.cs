@@ -33,8 +33,7 @@ namespace latihribbon
         //private FormLoading formLoading;
         private ToolTip toolTip;
 
-        public bool isUpdate { get; set; } = true;
-        public int Nis { get; set; } = 0;
+
 
         public FormSIswa()
         {
@@ -379,14 +378,23 @@ namespace latihribbon
 
         private void EditMenuStrip_Click(object sender, EventArgs e)
         {
-            EditSiswa edit = new EditSiswa();
+            int Nis = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+            EditSiswa edit = new EditSiswa(Nis);
+
+
             edit.ShowDialog();
         }
+
 
         private void DataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if(e.Button == MouseButtons.Right && e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
+                dataGridView1.ClearSelection();
+
+                dataGridView1.CurrentCell = dataGridView1[e.ColumnIndex, e.RowIndex];
+
+
                 contextMenuStrip1.Show(Cursor.Position);
             }
         }

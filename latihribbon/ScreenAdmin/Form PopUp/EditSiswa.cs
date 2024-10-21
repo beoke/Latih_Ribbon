@@ -1,4 +1,5 @@
-﻿using System;
+﻿using latihribbon.Dal;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,13 +13,32 @@ namespace latihribbon
 {
     public partial class EditSiswa : Form
     {
+        private readonly SiswaDal _siswaDal;
 
-        public EditSiswa()
+        public EditSiswa(int Nis)
         {
+            _siswaDal = new SiswaDal();
             InitializeComponent();
             this.MinimizeBox = false;
             this.MaximizeBox = false;
             RegisterEvent();
+
+            GetDataSiswa(Nis);
+        }
+
+        private void GetDataSiswa(int nis)
+        {
+            var get = _siswaDal.GetData(nis);
+            if (get == null) return;
+
+            txtNIS_FormSiswa.Text = get.Nis.ToString();
+            txtNama_FormSiswa.Text = get.Nama;
+            txtPersensi_FormSiswa.Text = get.Persensi.ToString();
+
+            if (get.JenisKelamin == "L") lakiRadio.Checked = true;
+            if (get.JenisKelamin == "P") perempuanRadio.Checked = true;
+
+
         }
 
         private void RegisterEvent()
