@@ -232,7 +232,7 @@ namespace latihribbon
 
             if (nis == "" || persensi == "" || nama == "" || jenisKelamin == "" || tingkat == "" || tahun == "")
             {
-                mesBox.MesInfo("Seluruh Data Wajib Diisi!");
+                new MesWarningOK("Seluruh Data Wajib Diisi!").ShowDialog();
                 return;
             }
 
@@ -594,9 +594,19 @@ namespace latihribbon
                     }
 
                     LoadData();
-                    mesBox.MesInfo("Data siswa berhasil ditambahkan atau diperbarui.");
-                    string daftarKelas = daftarKelasError.Count < 1 ? "Tidak Ada" : string.Join(",", daftarKelasError);
-                    mesBox.MesInfo($"Daftar Kelas Error: {daftarKelas}");
+                    new MesInformasi("Data siswa berhasil ditambahkan atau diperbarui").ShowDialog();
+                    int row = daftarKelasError.Count <= 4 ? 1 : daftarKelasError.Count <= 10 ? 2 : 3;
+                    string dftrKelas = string.Empty;
+                    MessageBox.Show(row.ToString());
+                    if (daftarKelasError.Count < 1)
+                        dftrKelas = "Tidak Ada";
+                    else if (row == 1)
+                        dftrKelas += string.Join(", ", daftarKelasError);
+                    else
+                        for (int i = 0; i <= daftarKelasError.Count - 1; i++)
+                            dftrKelas += i == 3 || i == 9 ? $"{daftarKelasError[i]}, \n" : $"{daftarKelasError[i]}, ";
+
+                    new MesError($"Daftar Kelas Error: {dftrKelas.TrimEnd(',',' ')}",row).ShowDialog();
                 }
             }
         }
@@ -680,11 +690,9 @@ namespace latihribbon
                         FileInfo fi = new FileInfo(filePath);
                         package.SaveAs(fi);
 
-                        MessageBox.Show("File Excel berhasil disimpan!", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        new MesInformasi("File Excel berhasil disimpan!").ShowDialog();
                     }
                 }
-
-
             }
         }
 
