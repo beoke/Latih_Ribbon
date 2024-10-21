@@ -26,9 +26,9 @@ namespace latihribbon
             InitializeComponent();
             _mesbox = new MesBox();
             this.mainForm = mainForm;
-            this.WindowState = FormWindowState.Maximized;
+            //this.WindowState = FormWindowState.Maximized;
            
-            this.MinimumSize = new Size(1500, 800);
+            //this.MinimumSize = new Size(1500, 800);
 
         }
         private void ShowFormInPanel(Form form) 
