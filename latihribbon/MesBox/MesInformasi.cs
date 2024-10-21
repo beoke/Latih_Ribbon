@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace latihribbon
 {
-    public partial class MesWarningYN : Form
+    public partial class MesInformasi : Form
     {
-        public MesWarningYN(string message,int row = 1)
+        public MesInformasi(string message,int row = 1)
         {
             InitializeComponent();
             this.MinimizeBox = false;
@@ -31,12 +31,7 @@ namespace latihribbon
 
         private void btnYes_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.Yes;
-            this.Close();
-        }
-
-        private void btnNo_Click(object sender, EventArgs e)
-        {
+            this.DialogResult = DialogResult.OK;
             this.Close();
         }
     }
