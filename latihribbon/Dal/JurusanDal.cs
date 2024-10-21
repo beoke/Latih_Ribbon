@@ -57,6 +57,7 @@ namespace latihribbon.Dal
             }
         }
 
+
         private void UpdateKelas()
         {
             using (var koneksi = new SqlConnection(conn.connstr()))

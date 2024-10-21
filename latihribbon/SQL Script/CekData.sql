@@ -1,7 +1,8 @@
 ﻿DROP TABLE Rating;
 
 
-select * from siswa;
+select * from siswa where Nis = 11111
+update siswa set IdKelas =  4 where Nis = 17978
 
 SELECT CAST (ROUND (AVG(Bintang), 1) AS FLOAT)
 FROM Rating

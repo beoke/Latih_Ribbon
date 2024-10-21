@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -32,6 +33,12 @@ namespace latihribbon
         {
             this.DialogResult = DialogResult.Yes;
             this.Close();
+        }
+
+        private void btnNo_Click(object sender, EventArgs e)
+        {
+            this.DialogResult= DialogResult.No;
+            this.Close ();
         }
     }
 }

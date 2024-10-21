@@ -86,7 +86,7 @@ namespace latihribbon
             comboPerPage.SelectedIndex = 0;
             comboPerPage.ItemHeight = 18;
 
-
+                
             // Jurusan Combo
             var jurusan = jurusanDal.ListData();
             if (!jurusan.Any()) return;
@@ -306,7 +306,7 @@ namespace latihribbon
 
         #region FILTER
         int Page = 1;
-        int totalPage;
+        int totalPage;                 
         private string FilterSQL(string search, string tahun)
         {
             string sqlc = string.Empty;
@@ -374,6 +374,19 @@ namespace latihribbon
             this.Shown += Form1_Shown;
             dataGridView1.CellMouseClick += DataGridView1_CellMouseClick;
             EditMenuStrip.Click += EditMenuStrip_Click;
+            DeleteMenuStrip.Click += DeleteMenuStrip_Click;
+        }
+
+        private void DeleteMenuStrip_Click(object sender, EventArgs e)
+        {
+            if (new MesWarningYN("Hapus Data ?").ShowDialog() != DialogResult.Yes) return;
+
+            var id = dataGridView1.CurrentRow.Cells[0].Value;
+
+            siswaDal.Delete(Convert.ToInt32(id));
+            LoadData();
+
+
         }
 
         private void EditMenuStrip_Click(object sender, EventArgs e)
@@ -382,7 +395,9 @@ namespace latihribbon
             EditSiswa edit = new EditSiswa(Nis);
 
 
-            edit.ShowDialog();
+            if (edit.ShowDialog() == DialogResult.OK)
+                LoadData();
+            
         }
 
 
@@ -435,6 +450,7 @@ namespace latihribbon
         private void btnSave_FormSiswa_Click(object sender, EventArgs e)
         {
             SaveData();
+            Clear();
         }
 
         private void txtNIS_FormSiswa_TextChanged(object sender, EventArgs e)
