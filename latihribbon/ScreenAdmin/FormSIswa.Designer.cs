@@ -36,9 +36,11 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.ButtonNaikKelas = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
             this.lblHalaman = new System.Windows.Forms.Label();
             this.btnNext = new System.Windows.Forms.Button();
             this.btnPrevious = new System.Windows.Forms.Button();
+            this.comboPerPage = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -66,8 +68,6 @@
             this.txtNama_FormSiswa = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.comboPerPage = new System.Windows.Forms.ComboBox();
             this.comboTahunFilter = new System.Windows.Forms.ComboBox();
             this.btnResetFilter = new System.Windows.Forms.Button();
             this.lblFilter = new System.Windows.Forms.Label();
@@ -90,7 +90,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(480, 21);
+            this.label4.Location = new System.Drawing.Point(337, 23);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(54, 19);
@@ -101,8 +101,8 @@
             // 
             this.txtFilter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFilter.Location = new System.Drawing.Point(221, 20);
-            this.txtFilter.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtFilter.Location = new System.Drawing.Point(78, 22);
+            this.txtFilter.Margin = new System.Windows.Forms.Padding(2);
             this.txtFilter.Name = "txtFilter";
             this.txtFilter.Size = new System.Drawing.Size(249, 21);
             this.txtFilter.TabIndex = 12;
@@ -111,7 +111,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(161, 20);
+            this.label5.Location = new System.Drawing.Point(18, 22);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(58, 19);
@@ -128,7 +128,7 @@
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Location = new System.Drawing.Point(3, 61);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(947, 450);
             this.panel1.TabIndex = 14;
@@ -147,7 +147,7 @@
             this.panel3.Controls.Add(this.comboPerPage);
             this.panel3.Controls.Add(this.dataGridView1);
             this.panel3.Location = new System.Drawing.Point(7, 11);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(565, 429);
             this.panel3.TabIndex = 2;
@@ -159,7 +159,7 @@
             this.ButtonNaikKelas.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonNaikKelas.ForeColor = System.Drawing.Color.White;
             this.ButtonNaikKelas.Location = new System.Drawing.Point(477, 388);
-            this.ButtonNaikKelas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ButtonNaikKelas.Margin = new System.Windows.Forms.Padding(2);
             this.ButtonNaikKelas.Name = "ButtonNaikKelas";
             this.ButtonNaikKelas.Size = new System.Drawing.Size(74, 27);
             this.ButtonNaikKelas.TabIndex = 3;
@@ -167,6 +167,18 @@
             this.ButtonNaikKelas.UseVisualStyleBackColor = false;
             this.ButtonNaikKelas.Visible = false;
             this.ButtonNaikKelas.Click += new System.EventHandler(this.ButtonNaikKelas_Click);
+            // 
+            // label14
+            // 
+            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(77, 391);
+            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(45, 19);
+            this.label14.TabIndex = 49;
+            this.label14.Text = "/Page";
             // 
             // lblHalaman
             // 
@@ -201,6 +213,18 @@
             this.btnPrevious.UseVisualStyleBackColor = true;
             this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
             // 
+            // comboPerPage
+            // 
+            this.comboPerPage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.comboPerPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboPerPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboPerPage.FormattingEnabled = true;
+            this.comboPerPage.ItemHeight = 13;
+            this.comboPerPage.Location = new System.Drawing.Point(13, 391);
+            this.comboPerPage.Name = "comboPerPage";
+            this.comboPerPage.Size = new System.Drawing.Size(61, 21);
+            this.comboPerPage.TabIndex = 48;
+            // 
             // dataGridView1
             // 
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -209,7 +233,7 @@
             this.dataGridView1.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridView1.ColumnHeadersHeight = 20;
             this.dataGridView1.Location = new System.Drawing.Point(4, 5);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
@@ -224,7 +248,7 @@
             this.panel4.BackColor = System.Drawing.Color.DarkGray;
             this.panel4.Controls.Add(this.panel2);
             this.panel4.Location = new System.Drawing.Point(586, 11);
-            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(352, 429);
             this.panel4.TabIndex = 3;
@@ -237,7 +261,7 @@
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.panel5);
             this.panel2.Location = new System.Drawing.Point(5, 6);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(342, 418);
             this.panel2.TabIndex = 4;
@@ -270,7 +294,7 @@
             this.panel5.Controls.Add(this.label6);
             this.panel5.Controls.Add(this.label7);
             this.panel5.Location = new System.Drawing.Point(4, 6);
-            this.panel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel5.Margin = new System.Windows.Forms.Padding(2);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(332, 403);
             this.panel5.TabIndex = 5;
@@ -282,7 +306,7 @@
             this.btnSave_FormSiswa.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave_FormSiswa.ForeColor = System.Drawing.Color.White;
             this.btnSave_FormSiswa.Location = new System.Drawing.Point(243, 358);
-            this.btnSave_FormSiswa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSave_FormSiswa.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave_FormSiswa.Name = "btnSave_FormSiswa";
             this.btnSave_FormSiswa.Size = new System.Drawing.Size(74, 27);
             this.btnSave_FormSiswa.TabIndex = 1;
@@ -349,7 +373,7 @@
             this.txtNIS_FormSiswa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNIS_FormSiswa.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtNIS_FormSiswa.Location = new System.Drawing.Point(18, 67);
-            this.txtNIS_FormSiswa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNIS_FormSiswa.Margin = new System.Windows.Forms.Padding(2);
             this.txtNIS_FormSiswa.Name = "txtNIS_FormSiswa";
             this.txtNIS_FormSiswa.Size = new System.Drawing.Size(141, 23);
             this.txtNIS_FormSiswa.TabIndex = 60;
@@ -381,7 +405,7 @@
             this.perempuanRadio.AutoSize = true;
             this.perempuanRadio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.perempuanRadio.Location = new System.Drawing.Point(142, 1);
-            this.perempuanRadio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.perempuanRadio.Margin = new System.Windows.Forms.Padding(2);
             this.perempuanRadio.Name = "perempuanRadio";
             this.perempuanRadio.Size = new System.Drawing.Size(99, 21);
             this.perempuanRadio.TabIndex = 33;
@@ -394,7 +418,7 @@
             this.lakiRadio.AutoSize = true;
             this.lakiRadio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lakiRadio.Location = new System.Drawing.Point(35, 1);
-            this.lakiRadio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lakiRadio.Margin = new System.Windows.Forms.Padding(2);
             this.lakiRadio.Name = "lakiRadio";
             this.lakiRadio.Size = new System.Drawing.Size(91, 21);
             this.lakiRadio.TabIndex = 32;
@@ -407,7 +431,7 @@
             this.txtPersensi_FormSiswa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPersensi_FormSiswa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPersensi_FormSiswa.Location = new System.Drawing.Point(177, 67);
-            this.txtPersensi_FormSiswa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPersensi_FormSiswa.Margin = new System.Windows.Forms.Padding(2);
             this.txtPersensi_FormSiswa.Name = "txtPersensi_FormSiswa";
             this.txtPersensi_FormSiswa.Size = new System.Drawing.Size(141, 23);
             this.txtPersensi_FormSiswa.TabIndex = 30;
@@ -428,7 +452,7 @@
             this.XIIRadio.AutoSize = true;
             this.XIIRadio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.XIIRadio.Location = new System.Drawing.Point(189, 216);
-            this.XIIRadio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.XIIRadio.Margin = new System.Windows.Forms.Padding(2);
             this.XIIRadio.Name = "XIIRadio";
             this.XIIRadio.Size = new System.Drawing.Size(41, 21);
             this.XIIRadio.TabIndex = 2;
@@ -441,7 +465,7 @@
             this.XIRadio.AutoSize = true;
             this.XIRadio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.XIRadio.Location = new System.Drawing.Point(121, 216);
-            this.XIRadio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.XIRadio.Margin = new System.Windows.Forms.Padding(2);
             this.XIRadio.Name = "XIRadio";
             this.XIRadio.Size = new System.Drawing.Size(38, 21);
             this.XIRadio.TabIndex = 1;
@@ -454,7 +478,7 @@
             this.XRadio.AutoSize = true;
             this.XRadio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.XRadio.Location = new System.Drawing.Point(53, 216);
-            this.XRadio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.XRadio.Margin = new System.Windows.Forms.Padding(2);
             this.XRadio.Name = "XRadio";
             this.XRadio.Size = new System.Drawing.Size(35, 21);
             this.XRadio.TabIndex = 0;
@@ -467,7 +491,7 @@
             this.jurusanCombo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.jurusanCombo.FormattingEnabled = true;
             this.jurusanCombo.Location = new System.Drawing.Point(17, 274);
-            this.jurusanCombo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.jurusanCombo.Margin = new System.Windows.Forms.Padding(2);
             this.jurusanCombo.Name = "jurusanCombo";
             this.jurusanCombo.Size = new System.Drawing.Size(141, 25);
             this.jurusanCombo.TabIndex = 28;
@@ -510,7 +534,7 @@
             this.txtNama_FormSiswa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNama_FormSiswa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNama_FormSiswa.Location = new System.Drawing.Point(17, 118);
-            this.txtNama_FormSiswa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNama_FormSiswa.Margin = new System.Windows.Forms.Padding(2);
             this.txtNama_FormSiswa.Name = "txtNama_FormSiswa";
             this.txtNama_FormSiswa.Size = new System.Drawing.Size(300, 23);
             this.txtNama_FormSiswa.TabIndex = 18;
@@ -537,41 +561,17 @@
             this.label7.TabIndex = 19;
             this.label7.Text = "Jenis Kelamin";
             // 
-            // label14
-            // 
-            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(77, 391);
-            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(45, 19);
-            this.label14.TabIndex = 49;
-            this.label14.Text = "/Page";
-            // 
-            // comboPerPage
-            // 
-            this.comboPerPage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.comboPerPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboPerPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboPerPage.FormattingEnabled = true;
-            this.comboPerPage.ItemHeight = 13;
-            this.comboPerPage.Location = new System.Drawing.Point(13, 391);
-            this.comboPerPage.Name = "comboPerPage";
-            this.comboPerPage.Size = new System.Drawing.Size(61, 21);
-            this.comboPerPage.TabIndex = 48;
-            // 
             // comboTahunFilter
             // 
             this.comboTahunFilter.FormattingEnabled = true;
-            this.comboTahunFilter.Location = new System.Drawing.Point(539, 20);
+            this.comboTahunFilter.Location = new System.Drawing.Point(396, 22);
             this.comboTahunFilter.Name = "comboTahunFilter";
             this.comboTahunFilter.Size = new System.Drawing.Size(81, 21);
             this.comboTahunFilter.TabIndex = 15;
             // 
             // btnResetFilter
             // 
-            this.btnResetFilter.Location = new System.Drawing.Point(635, 18);
+            this.btnResetFilter.Location = new System.Drawing.Point(492, 20);
             this.btnResetFilter.Name = "btnResetFilter";
             this.btnResetFilter.Size = new System.Drawing.Size(75, 23);
             this.btnResetFilter.TabIndex = 47;
@@ -583,7 +583,7 @@
             this.lblFilter.AutoSize = true;
             this.lblFilter.BackColor = System.Drawing.Color.White;
             this.lblFilter.ForeColor = System.Drawing.Color.Gray;
-            this.lblFilter.Location = new System.Drawing.Point(225, 24);
+            this.lblFilter.Location = new System.Drawing.Point(82, 26);
             this.lblFilter.Name = "lblFilter";
             this.lblFilter.Size = new System.Drawing.Size(177, 13);
             this.lblFilter.TabIndex = 48;
@@ -621,7 +621,7 @@
             this.ButtonDownloadFormat.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonDownloadFormat.BackgroundImage")));
             this.ButtonDownloadFormat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ButtonDownloadFormat.Location = new System.Drawing.Point(828, 14);
-            this.ButtonDownloadFormat.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ButtonDownloadFormat.Margin = new System.Windows.Forms.Padding(2);
             this.ButtonDownloadFormat.Name = "ButtonDownloadFormat";
             this.ButtonDownloadFormat.Size = new System.Drawing.Size(41, 37);
             this.ButtonDownloadFormat.TabIndex = 16;
@@ -634,7 +634,7 @@
             this.ButtonInputSIswa.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonInputSIswa.BackgroundImage")));
             this.ButtonInputSIswa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ButtonInputSIswa.Location = new System.Drawing.Point(897, 13);
-            this.ButtonInputSIswa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ButtonInputSIswa.Margin = new System.Windows.Forms.Padding(2);
             this.ButtonInputSIswa.Name = "ButtonInputSIswa";
             this.ButtonInputSIswa.Size = new System.Drawing.Size(41, 37);
             this.ButtonInputSIswa.TabIndex = 9;
@@ -656,7 +656,7 @@
             this.Controls.Add(this.ButtonInputSIswa);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormSIswa";
             this.Text = "FormSIswa";
             this.panel1.ResumeLayout(false);
