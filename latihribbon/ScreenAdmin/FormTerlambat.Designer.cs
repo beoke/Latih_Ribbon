@@ -53,9 +53,9 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.lblNisTidakDitemukan = new System.Windows.Forms.Label();
             this.jamMasukDT = new System.Windows.Forms.DateTimePicker();
-            this.label13 = new System.Windows.Forms.Label();
+            this.lblJamMasuk = new System.Windows.Forms.Label();
             this.lblInfo = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.lblAlasan = new System.Windows.Forms.Label();
             this.tglDT = new System.Windows.Forms.DateTimePicker();
             this.txtAlasan1 = new System.Windows.Forms.TextBox();
             this.txtNIS1 = new System.Windows.Forms.TextBox();
@@ -344,9 +344,9 @@
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel5.Controls.Add(this.lblNisTidakDitemukan);
             this.panel5.Controls.Add(this.jamMasukDT);
-            this.panel5.Controls.Add(this.label13);
+            this.panel5.Controls.Add(this.lblJamMasuk);
             this.panel5.Controls.Add(this.lblInfo);
-            this.panel5.Controls.Add(this.label11);
+            this.panel5.Controls.Add(this.lblAlasan);
             this.panel5.Controls.Add(this.tglDT);
             this.panel5.Controls.Add(this.txtAlasan1);
             this.panel5.Controls.Add(this.txtNIS1);
@@ -386,16 +386,16 @@
             this.jamMasukDT.Size = new System.Drawing.Size(300, 22);
             this.jamMasukDT.TabIndex = 46;
             // 
-            // label13
+            // lblJamMasuk
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(17, 240);
-            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(86, 18);
-            this.label13.TabIndex = 45;
-            this.label13.Text = "Jam Masuk";
+            this.lblJamMasuk.AutoSize = true;
+            this.lblJamMasuk.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblJamMasuk.Location = new System.Drawing.Point(17, 240);
+            this.lblJamMasuk.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblJamMasuk.Name = "lblJamMasuk";
+            this.lblJamMasuk.Size = new System.Drawing.Size(86, 18);
+            this.lblJamMasuk.TabIndex = 45;
+            this.lblJamMasuk.Text = "Jam Masuk";
             // 
             // lblInfo
             // 
@@ -407,16 +407,16 @@
             this.lblInfo.TabIndex = 44;
             this.lblInfo.Text = "INSERT";
             // 
-            // label11
+            // lblAlasan
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(17, 290);
-            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(52, 18);
-            this.label11.TabIndex = 41;
-            this.label11.Text = "Alasan";
+            this.lblAlasan.AutoSize = true;
+            this.lblAlasan.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAlasan.Location = new System.Drawing.Point(17, 290);
+            this.lblAlasan.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblAlasan.Name = "lblAlasan";
+            this.lblAlasan.Size = new System.Drawing.Size(52, 18);
+            this.lblAlasan.TabIndex = 41;
+            this.lblAlasan.Text = "Alasan";
             // 
             // tglDT
             // 
@@ -585,9 +585,9 @@
         private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.Label lblNisTidakDitemukan;
         private System.Windows.Forms.DateTimePicker jamMasukDT;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label lblJamMasuk;
         private System.Windows.Forms.Label lblInfo;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lblAlasan;
         private System.Windows.Forms.DateTimePicker tglDT;
         private System.Windows.Forms.TextBox txtAlasan1;
         private System.Windows.Forms.TextBox txtNIS1;

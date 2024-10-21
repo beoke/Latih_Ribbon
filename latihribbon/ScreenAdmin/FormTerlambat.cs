@@ -253,9 +253,26 @@ namespace latihribbon
         private void FormTerlambat_Resize(object sender, EventArgs e)
         {
             if (panel4.Height < 458)
-                label9.Text = "BERHASIL";
+            {
+                tglDT.Width = 140;
+                jamMasukDT.Width = 140;
+
+                lblJamMasuk.Location = new Point(177, 192);
+                jamMasukDT.Location = new Point(175, 213);
+                lblAlasan.Location = new Point(17, 241);
+                txtAlasan1.Location = new Point(15, 262);
+            }
             else
-                label9.Text = "NIS";
+            {
+                tglDT.Width = 300;
+                jamMasukDT.Width = 300;
+
+                lblJamMasuk.Location = new Point(17, 240);
+                jamMasukDT.Location = new Point(15, 261);
+                lblAlasan.Location = new Point(17, 290);
+                txtAlasan1.Location = new Point(15, 311);
+            }
+                
         }
 
         private void filter_TextChanged(object sender, EventArgs e)

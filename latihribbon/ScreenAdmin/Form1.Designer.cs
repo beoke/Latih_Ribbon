@@ -70,7 +70,7 @@
             // 
             this.ribbon1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.ribbon1.Location = new System.Drawing.Point(0, 0);
-            this.ribbon1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ribbon1.Margin = new System.Windows.Forms.Padding(2);
             this.ribbon1.Minimized = false;
             this.ribbon1.Name = "ribbon1";
             // 
@@ -279,7 +279,7 @@
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 162);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(882, 453);
             this.panel1.TabIndex = 1;
@@ -293,6 +293,7 @@
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(882, 453);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseClick);
             // 
             // ButtonLogOut
@@ -307,7 +308,7 @@
             this.ButtonLogOut.Image = global::latihribbon.Properties.Resources.LogOutIcon;
             this.ButtonLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.ButtonLogOut.Location = new System.Drawing.Point(750, 89);
-            this.ButtonLogOut.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ButtonLogOut.Margin = new System.Windows.Forms.Padding(2);
             this.ButtonLogOut.Name = "ButtonLogOut";
             this.ButtonLogOut.Size = new System.Drawing.Size(104, 36);
             this.ButtonLogOut.TabIndex = 1;
@@ -344,13 +345,10 @@
             this.Controls.Add(this.ButtonLogOut);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ribbon1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "ATM RESI";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
