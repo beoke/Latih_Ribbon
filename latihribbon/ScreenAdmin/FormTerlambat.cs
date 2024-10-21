@@ -35,7 +35,6 @@ namespace latihribbon
             RegisterEvent();
             LoadData();
             InitComponen();
-            
         }
         public void buf()
         {
@@ -248,6 +247,15 @@ namespace latihribbon
             txtKelas.TextChanged += filter_TextChanged;
             tglsatu.ValueChanged += filter_tglChanged;
             tgldua.ValueChanged += filter_tglChanged;
+            this.Resize += FormTerlambat_Resize;
+        }
+
+        private void FormTerlambat_Resize(object sender, EventArgs e)
+        {
+            if (panel4.Height < 458)
+                label9.Text = "BERHASIL";
+            else
+                label9.Text = "NIS";
         }
 
         private void filter_TextChanged(object sender, EventArgs e)
@@ -316,6 +324,26 @@ namespace latihribbon
             tgldua.Value = DateTime.Now;
             tglchange = false;
             LoadData();
+
+            var screen = Screen.PrimaryScreen.Bounds;
+            int width = screen.Width;
+            int height = screen.Height;
+
+            // Mendapatkan skala DPI (DPI X dan DPI Y)
+            using (Graphics g = Graphics.FromHwnd(IntPtr.Zero))
+            {
+                float dpiX = g.DpiX; // DPI horizontal
+                float dpiY = g.DpiY; // DPI vertikal
+
+                // Biasanya DPI default adalah 96, untuk skala 100%
+                float scaleX = dpiX / 96.0f;
+                float scaleY = dpiY / 96.0f;
+
+                // Tampilkan informasi
+                MessageBox.Show($"Resolusi Layar: {width}x{height}\n" +
+                                $"DPI X: {dpiX}\nDPI Y: {dpiY}\n" +
+                                $"Skala X: {scaleX * 100}%\nSkala Y: {scaleY * 100}%");
+            }
         }
         #endregion
 
