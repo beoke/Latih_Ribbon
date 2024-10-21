@@ -363,7 +363,7 @@ namespace latihribbon
             txtFilter.Enter += TxtFilter_Enter;
             txtFilter.Leave += TxtFilter_Leave;
             lblFilter.Click += LblFilter_Click;
-            this.Shown += Form1_Shown;
+            this.Shown += Form1_Shown; // focus awal load form
             dataGridView1.CellMouseClick += DataGridView1_CellMouseClick;
             EditMenuStrip.Click += EditMenuStrip_Click;
             DeleteMenuStrip.Click += DeleteMenuStrip_Click;

@@ -93,9 +93,9 @@ namespace latihribbon.Dal
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
             {
-                string sql = @"SELECT COUNT(*) FROM Masuk m 
-                                INNER JOIN siswa s ON m.Nis=s.Nis";
-                if (sqlc != string.Empty) sql += sqlc;
+                string sql = $@"SELECT COUNT(*) FROM Masuk m 
+                                INNER JOIN siswa s ON m.Nis=s.Nis
+                                INNER JOIN kelas kls ON s.idKelas=kls.Id {sqlc}";
                 return koneksi.QuerySingle<int>(sql,dp);
             }
         }

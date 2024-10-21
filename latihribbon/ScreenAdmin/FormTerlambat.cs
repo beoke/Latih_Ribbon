@@ -32,6 +32,7 @@ namespace latihribbon
             siswaDal = new SiswaDal();
             kelasDal = new KelasDal();
             mesBox = new MesBox();
+            InitCombo();
             RegisterEvent();
             LoadData();
             InitComponen();
@@ -74,48 +75,44 @@ namespace latihribbon
             dataGridView1.Columns[6].Width = 300;
         }
 
-    
-
-
-        bool tglchange = false;
-        private string FilterSQL(string nis, string nama, string kelas)
+        private void InitCombo()
         {
-            string sqlc = string.Empty;
-            List<string> fltr = new List<string>();
-            if (nis != "") fltr.Add("m.NIS LIKE @NIS+'%'");
-            if (nama != "") fltr.Add("s.Nama LIKE '%'+@Nama+'%'");
-            if (kelas != "") fltr.Add("s.Kelas LIKE '%'+@Kelas+'%'");
-            if (tglchange) fltr.Add("m.Tanggal BETWEEN @tgl1 AND @tgl2");
-            if (fltr.Count > 0)
-                sqlc += " WHERE " + string.Join(" AND ", fltr);
-            return sqlc;
+            comboPerPage.Items.Add(10);
+            comboPerPage.Items.Add(20);
+            comboPerPage.Items.Add(50);
+            comboPerPage.Items.Add(100);
+            comboPerPage.Items.Add(200);
+            comboPerPage.SelectedIndex = 0;
         }
 
+        bool tglchange = false;
         int Page = 1;
         int totalPage;
         public void LoadData()
         {
-            string nis, nama, kelas;
-            DateTime tgl1, tgl2;
+            string search = txtFilter.Text;
+            DateTime tgl1 = tglsatu.Value.Date;
+            DateTime tgl2 = tgldua.Value.Date;
 
-            nis = txtNIS.Text;
-            nama = txtNama.Text;
-            kelas = txtKelas.Text;
-            tgl1 = tglsatu.Value.Date;
-            tgl2 = tgldua.Value.Date;
-
-            var sqlc = FilterSQL(nis, nama, kelas);
+            string sqlc = string.Empty;
+            List<string> fltr = new List<string>();
             var dp = new DynamicParameters();
-            if(nis != "")dp.Add("@NIS", nis);
-            if (nama != "") dp.Add("@Nama", nama);
-            if (kelas != "") dp.Add("@Kelas", kelas);
+
+            if (search != "") 
+            {
+                dp.Add("@Search", search);
+                if (search != "") fltr.Add("m.NIS LIKE @Search+'%' OR s.Nama LIKE '%'+@Search+'%' OR kls.NamaKelas LIKE '%'+@Search+'%'");
+            }
             if (tglchange)
             {
                 dp.Add("@tgl1", tgl1);
                 dp.Add("@tgl2", tgl2);
+                fltr.Add("m.Tanggal BETWEEN @tgl1 AND @tgl2");
             }
+            if (fltr.Count > 0)
+                sqlc += " WHERE " + string.Join(" AND ",fltr);
             string text = "Halaman ";
-            int RowPerPage = 15;
+            int RowPerPage = (int)comboPerPage.SelectedItem;
             int inRowPage = (Page - 1) * RowPerPage;
             var jumlahRow = masukDal.CekRows(sqlc, dp);
             totalPage = (int)Math.Ceiling((double)jumlahRow / RowPerPage);
@@ -242,14 +239,29 @@ namespace latihribbon
         #region EVENT
         private void RegisterEvent()
         {
-            txtNIS.TextChanged += filter_TextChanged;
-            txtNama.TextChanged += filter_TextChanged;
-            txtKelas.TextChanged += filter_TextChanged;
+            txtFilter.TextChanged += filter_TextChanged;
             tglsatu.ValueChanged += filter_tglChanged;
             tgldua.ValueChanged += filter_tglChanged;
+            comboPerPage.SelectedIndexChanged += filter_TextChanged;
+            txtFilter.Enter += TxtFilter_Enter;
+            txtFilter.Leave += TxtFilter_Leave;
+            lblFilter.Click += LblFilter_Click;
             this.Resize += FormTerlambat_Resize;
         }
+        private void LblFilter_Click(object sender, EventArgs e)
+        {
+            txtFilter.Focus();
+        }
 
+        private void TxtFilter_Leave(object sender, EventArgs e)
+        {
+            lblFilter.Visible = true;
+        }
+
+        private void TxtFilter_Enter(object sender, EventArgs e)
+        {
+            lblFilter.Visible = false;
+        }
         private void FormTerlambat_Resize(object sender, EventArgs e)
         {
             if (panel4.Height < 458)
@@ -334,33 +346,11 @@ namespace latihribbon
 
         private void btnResetFilter_Click(object sender, EventArgs e)
         {
-            txtNIS.Clear();
-            txtNama.Clear();
-            txtKelas.Clear();
+            txtFilter.Clear();
             tglsatu.Value = DateTime.Now;
             tgldua.Value = DateTime.Now;
             tglchange = false;
             LoadData();
-
-            var screen = Screen.PrimaryScreen.Bounds;
-            int width = screen.Width;
-            int height = screen.Height;
-
-            // Mendapatkan skala DPI (DPI X dan DPI Y)
-            using (Graphics g = Graphics.FromHwnd(IntPtr.Zero))
-            {
-                float dpiX = g.DpiX; // DPI horizontal
-                float dpiY = g.DpiY; // DPI vertikal
-
-                // Biasanya DPI default adalah 96, untuk skala 100%
-                float scaleX = dpiX / 96.0f;
-                float scaleY = dpiY / 96.0f;
-
-                // Tampilkan informasi
-                MessageBox.Show($"Resolusi Layar: {width}x{height}\n" +
-                                $"DPI X: {dpiX}\nDPI Y: {dpiY}\n" +
-                                $"Skala X: {scaleX * 100}%\nSkala Y: {scaleY * 100}%");
-            }
         }
         #endregion
 

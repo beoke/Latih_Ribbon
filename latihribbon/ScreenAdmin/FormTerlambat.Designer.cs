@@ -30,15 +30,9 @@
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tglsatu = new System.Windows.Forms.DateTimePicker();
-            this.txtKelas = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtNama = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.tgldua = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtNIS = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblHalaman = new System.Windows.Forms.Label();
@@ -66,6 +60,11 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.btnResetFilter = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
+            this.comboPerPage = new System.Windows.Forms.ComboBox();
+            this.lblFilter = new System.Windows.Forms.Label();
+            this.txtFilter = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -94,67 +93,27 @@
             // tglsatu
             // 
             this.tglsatu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tglsatu.Location = new System.Drawing.Point(472, 26);
+            this.tglsatu.Location = new System.Drawing.Point(412, 26);
             this.tglsatu.Margin = new System.Windows.Forms.Padding(2);
             this.tglsatu.Name = "tglsatu";
             this.tglsatu.Size = new System.Drawing.Size(138, 21);
             this.tglsatu.TabIndex = 19;
             // 
-            // txtKelas
-            // 
-            this.txtKelas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtKelas.Location = new System.Drawing.Point(840, 26);
-            this.txtKelas.Margin = new System.Windows.Forms.Padding(2);
-            this.txtKelas.Name = "txtKelas";
-            this.txtKelas.Size = new System.Drawing.Size(76, 21);
-            this.txtKelas.TabIndex = 15;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(785, 28);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 19);
-            this.label3.TabIndex = 14;
-            this.label3.Text = "Kelas :";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(403, 28);
+            this.label2.Location = new System.Drawing.Point(343, 28);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 19);
             this.label2.TabIndex = 13;
             this.label2.Text = "Tanggal :";
             // 
-            // txtNama
-            // 
-            this.txtNama.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNama.Location = new System.Drawing.Point(226, 26);
-            this.txtNama.Margin = new System.Windows.Forms.Padding(2);
-            this.txtNama.Name = "txtNama";
-            this.txtNama.Size = new System.Drawing.Size(163, 21);
-            this.txtNama.TabIndex = 12;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(169, 27);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 19);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Nama :";
-            // 
             // tgldua
             // 
             this.tgldua.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tgldua.Location = new System.Drawing.Point(631, 27);
+            this.tgldua.Location = new System.Drawing.Point(571, 27);
             this.tgldua.Margin = new System.Windows.Forms.Padding(2);
             this.tgldua.Name = "tgldua";
             this.tgldua.Size = new System.Drawing.Size(138, 21);
@@ -164,32 +123,12 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(614, 23);
+            this.label5.Location = new System.Drawing.Point(554, 23);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(15, 15);
             this.label5.TabIndex = 21;
             this.label5.Text = "_";
-            // 
-            // txtNIS
-            // 
-            this.txtNIS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNIS.Location = new System.Drawing.Point(67, 26);
-            this.txtNIS.Margin = new System.Windows.Forms.Padding(2);
-            this.txtNIS.Name = "txtNIS";
-            this.txtNIS.Size = new System.Drawing.Size(86, 21);
-            this.txtNIS.TabIndex = 23;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.label6.Location = new System.Drawing.Point(24, 27);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(39, 19);
-            this.label6.TabIndex = 22;
-            this.label6.Text = "NIS :";
             // 
             // panel1
             // 
@@ -212,6 +151,8 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.BackColor = System.Drawing.Color.DarkGray;
+            this.panel3.Controls.Add(this.label14);
+            this.panel3.Controls.Add(this.comboPerPage);
             this.panel3.Controls.Add(this.dataGridView1);
             this.panel3.Controls.Add(this.lblHalaman);
             this.panel3.Controls.Add(this.btnNext);
@@ -518,7 +459,7 @@
             // 
             // btnResetFilter
             // 
-            this.btnResetFilter.Location = new System.Drawing.Point(926, 25);
+            this.btnResetFilter.Location = new System.Drawing.Point(723, 26);
             this.btnResetFilter.Name = "btnResetFilter";
             this.btnResetFilter.Size = new System.Drawing.Size(75, 23);
             this.btnResetFilter.TabIndex = 30;
@@ -526,24 +467,77 @@
             this.btnResetFilter.UseVisualStyleBackColor = true;
             this.btnResetFilter.Click += new System.EventHandler(this.btnResetFilter_Click);
             // 
+            // label14
+            // 
+            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(79, 426);
+            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(45, 19);
+            this.label14.TabIndex = 51;
+            this.label14.Text = "/Page";
+            // 
+            // comboPerPage
+            // 
+            this.comboPerPage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.comboPerPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboPerPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboPerPage.FormattingEnabled = true;
+            this.comboPerPage.ItemHeight = 13;
+            this.comboPerPage.Location = new System.Drawing.Point(15, 426);
+            this.comboPerPage.Name = "comboPerPage";
+            this.comboPerPage.Size = new System.Drawing.Size(61, 21);
+            this.comboPerPage.TabIndex = 50;
+            // 
+            // lblFilter
+            // 
+            this.lblFilter.AutoSize = true;
+            this.lblFilter.BackColor = System.Drawing.Color.White;
+            this.lblFilter.ForeColor = System.Drawing.Color.Gray;
+            this.lblFilter.Location = new System.Drawing.Point(83, 30);
+            this.lblFilter.Name = "lblFilter";
+            this.lblFilter.Size = new System.Drawing.Size(177, 13);
+            this.lblFilter.TabIndex = 51;
+            this.lblFilter.Text = "Masukkan Kata Kunci Pencarian ⌕ ";
+            // 
+            // txtFilter
+            // 
+            this.txtFilter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFilter.Location = new System.Drawing.Point(79, 26);
+            this.txtFilter.Margin = new System.Windows.Forms.Padding(2);
+            this.txtFilter.Name = "txtFilter";
+            this.txtFilter.Size = new System.Drawing.Size(249, 21);
+            this.txtFilter.TabIndex = 50;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(19, 26);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(58, 19);
+            this.label1.TabIndex = 49;
+            this.label1.Text = "Search :";
+            // 
             // FormTerlambat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1118, 557);
+            this.Controls.Add(this.lblFilter);
+            this.Controls.Add(this.txtFilter);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnResetFilter);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.txtNIS);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.tgldua);
             this.Controls.Add(this.tglsatu);
-            this.Controls.Add(this.txtKelas);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtNama);
-            this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormTerlambat";
             this.Text = " ";
@@ -565,15 +559,9 @@
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DateTimePicker tglsatu;
-        private System.Windows.Forms.TextBox txtKelas;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtNama;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker tgldua;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtNIS;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
@@ -601,5 +589,10 @@
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Button btnPrevious;
         private System.Windows.Forms.Button btnResetFilter;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.ComboBox comboPerPage;
+        private System.Windows.Forms.Label lblFilter;
+        private System.Windows.Forms.TextBox txtFilter;
+        private System.Windows.Forms.Label label1;
     }
 }
