@@ -91,8 +91,6 @@ namespace latihribbon
 
         private void Update()
         {
-            
-
             var jenisKelamin= string.Empty;
             if (lakiRadio.Checked == true) jenisKelamin = "L";
             if (perempuanRadio.Checked == true) jenisKelamin = "P";

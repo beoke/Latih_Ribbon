@@ -69,7 +69,7 @@
             this.btnSave_FormSiswa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSave_FormSiswa.Name = "btnSave_FormSiswa";
             this.btnSave_FormSiswa.Size = new System.Drawing.Size(99, 33);
-            this.btnSave_FormSiswa.TabIndex = 1;
+            this.btnSave_FormSiswa.TabIndex = 11;
             this.btnSave_FormSiswa.Text = "Save";
             this.btnSave_FormSiswa.UseVisualStyleBackColor = false;
             // 
@@ -93,7 +93,7 @@
             this.txtNIS_FormSiswa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNIS_FormSiswa.Name = "txtNIS_FormSiswa";
             this.txtNIS_FormSiswa.Size = new System.Drawing.Size(401, 27);
-            this.txtNIS_FormSiswa.TabIndex = 60;
+            this.txtNIS_FormSiswa.TabIndex = 0;
             // 
             // label2
             // 
@@ -113,7 +113,7 @@
             this.txtPersensi_FormSiswa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPersensi_FormSiswa.Name = "txtPersensi_FormSiswa";
             this.txtPersensi_FormSiswa.Size = new System.Drawing.Size(399, 27);
-            this.txtPersensi_FormSiswa.TabIndex = 30;
+            this.txtPersensi_FormSiswa.TabIndex = 1;
             // 
             // label11
             // 
@@ -174,7 +174,7 @@
             this.rombelCombo.Margin = new System.Windows.Forms.Padding(1);
             this.rombelCombo.Name = "rombelCombo";
             this.rombelCombo.Size = new System.Drawing.Size(399, 28);
-            this.rombelCombo.TabIndex = 65;
+            this.rombelCombo.TabIndex = 10;
             // 
             // txtTahun_FormSiswa
             // 
@@ -184,7 +184,7 @@
             this.txtTahun_FormSiswa.Margin = new System.Windows.Forms.Padding(1);
             this.txtTahun_FormSiswa.Name = "txtTahun_FormSiswa";
             this.txtTahun_FormSiswa.Size = new System.Drawing.Size(399, 27);
-            this.txtTahun_FormSiswa.TabIndex = 64;
+            this.txtTahun_FormSiswa.TabIndex = 8;
             // 
             // label12
             // 
@@ -202,9 +202,9 @@
             this.groupBox1.Controls.Add(this.perempuanRadio);
             this.groupBox1.Controls.Add(this.lakiRadio);
             this.groupBox1.Location = new System.Drawing.Point(29, 267);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(337, 33);
             this.groupBox1.TabIndex = 31;
             this.groupBox1.TabStop = false;
@@ -217,7 +217,7 @@
             this.perempuanRadio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.perempuanRadio.Name = "perempuanRadio";
             this.perempuanRadio.Size = new System.Drawing.Size(115, 24);
-            this.perempuanRadio.TabIndex = 33;
+            this.perempuanRadio.TabIndex = 4;
             this.perempuanRadio.TabStop = true;
             this.perempuanRadio.Text = "Perempuan";
             this.perempuanRadio.UseVisualStyleBackColor = true;
@@ -230,7 +230,7 @@
             this.lakiRadio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lakiRadio.Name = "lakiRadio";
             this.lakiRadio.Size = new System.Drawing.Size(108, 24);
-            this.lakiRadio.TabIndex = 32;
+            this.lakiRadio.TabIndex = 3;
             this.lakiRadio.TabStop = true;
             this.lakiRadio.Text = "Laki - Laki";
             this.lakiRadio.UseVisualStyleBackColor = true;
@@ -243,7 +243,7 @@
             this.XIIRadio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.XIIRadio.Name = "XIIRadio";
             this.XIIRadio.Size = new System.Drawing.Size(49, 24);
-            this.XIIRadio.TabIndex = 2;
+            this.XIIRadio.TabIndex = 7;
             this.XIIRadio.TabStop = true;
             this.XIIRadio.Text = "XII";
             this.XIIRadio.UseVisualStyleBackColor = true;
@@ -256,7 +256,7 @@
             this.XIRadio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.XIRadio.Name = "XIRadio";
             this.XIRadio.Size = new System.Drawing.Size(45, 24);
-            this.XIRadio.TabIndex = 1;
+            this.XIRadio.TabIndex = 6;
             this.XIRadio.TabStop = true;
             this.XIRadio.Text = "XI";
             this.XIRadio.UseVisualStyleBackColor = true;
@@ -269,7 +269,7 @@
             this.XRadio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.XRadio.Name = "XRadio";
             this.XRadio.Size = new System.Drawing.Size(41, 24);
-            this.XRadio.TabIndex = 0;
+            this.XRadio.TabIndex = 5;
             this.XRadio.TabStop = true;
             this.XRadio.Text = "X";
             this.XRadio.UseVisualStyleBackColor = true;
@@ -282,7 +282,7 @@
             this.jurusanCombo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.jurusanCombo.Name = "jurusanCombo";
             this.jurusanCombo.Size = new System.Drawing.Size(399, 28);
-            this.jurusanCombo.TabIndex = 28;
+            this.jurusanCombo.TabIndex = 9;
             // 
             // label10
             // 
@@ -322,7 +322,7 @@
             this.txtNama_FormSiswa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNama_FormSiswa.Name = "txtNama_FormSiswa";
             this.txtNama_FormSiswa.Size = new System.Drawing.Size(399, 27);
-            this.txtNama_FormSiswa.TabIndex = 18;
+            this.txtNama_FormSiswa.TabIndex = 2;
             // 
             // label6
             // 
@@ -361,7 +361,7 @@
             this.ClientSize = new System.Drawing.Size(524, 681);
             this.Controls.Add(this.panel4);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "EditSiswa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.panel2.ResumeLayout(false);

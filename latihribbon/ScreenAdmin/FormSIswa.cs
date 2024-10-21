@@ -260,12 +260,7 @@ namespace latihribbon
                 if (new MesQuestionYN("Input Data?",1).ShowDialog() != DialogResult.Yes) return;
                 siswaDal.Insert(siswa);
                 LoadData();
-            }
-            else
-            {
-                if (new MesQuestionYN("Update Data?", 1).ShowDialog() != DialogResult.Yes) return;
-                siswaDal.Update(siswa);
-                LoadData();
+                Clear();
             }
         }
 
@@ -406,10 +401,7 @@ namespace latihribbon
             if(e.Button == MouseButtons.Right && e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
                 dataGridView1.ClearSelection();
-
                 dataGridView1.CurrentCell = dataGridView1[e.ColumnIndex, e.RowIndex];
-
-
                 contextMenuStrip1.Show(Cursor.Position);
             }
         }
@@ -450,7 +442,6 @@ namespace latihribbon
         private void btnSave_FormSiswa_Click(object sender, EventArgs e)
         {
             SaveData();
-            Clear();
         }
 
         private void txtNIS_FormSiswa_TextChanged(object sender, EventArgs e)

@@ -100,9 +100,7 @@ namespace latihribbon
             string nis, nama, kelas;
             DateTime tgl1, tgl2;
 
-            nis = txtNIS.Text;
-            nama = txtNama.Text;
-            kelas = txtKelas.Text;
+          
             tgl1 = tglsatu.Value.Date;
             tgl2 = tgldua.Value.Date;
 

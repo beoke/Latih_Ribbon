@@ -40,7 +40,16 @@
             this.btnNext = new System.Windows.Forms.Button();
             this.btnPrevious = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.label14 = new System.Windows.Forms.Label();
+            this.comboPerPage = new System.Windows.Forms.ComboBox();
+            this.comboTahunFilter = new System.Windows.Forms.ComboBox();
+            this.btnResetFilter = new System.Windows.Forms.Button();
+            this.lblFilter = new System.Windows.Forms.Label();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.EditMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.DeleteMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.ButtonDownloadFormat = new System.Windows.Forms.Button();
+            this.ButtonInputSIswa = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btnSave_FormSiswa = new System.Windows.Forms.Button();
@@ -66,24 +75,13 @@
             this.txtNama_FormSiswa = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.comboPerPage = new System.Windows.Forms.ComboBox();
-            this.comboTahunFilter = new System.Windows.Forms.ComboBox();
-            this.btnResetFilter = new System.Windows.Forms.Button();
-            this.lblFilter = new System.Windows.Forms.Label();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.EditMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
-            this.DeleteMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
-            this.ButtonDownloadFormat = new System.Windows.Forms.Button();
-            this.ButtonInputSIswa = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panel4.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label4
@@ -104,7 +102,7 @@
             this.txtFilter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtFilter.Name = "txtFilter";
             this.txtFilter.Size = new System.Drawing.Size(331, 24);
-            this.txtFilter.TabIndex = 12;
+            this.txtFilter.TabIndex = 2;
             // 
             // label5
             // 
@@ -123,13 +121,13 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.panel3);
-            this.panel1.Controls.Add(this.panel4);
             this.panel1.Location = new System.Drawing.Point(4, 75);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1129, 553);
-            this.panel1.TabIndex = 14;
+            this.panel1.TabIndex = 0;
             // 
             // panel3
             // 
@@ -146,7 +144,7 @@
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(620, 528);
-            this.panel3.TabIndex = 2;
+            this.panel3.TabIndex = 0;
             // 
             // ButtonNaikKelas
             // 
@@ -180,10 +178,10 @@
             // 
             this.btnNext.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnNext.Location = new System.Drawing.Point(381, 480);
-            this.btnNext.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNext.Margin = new System.Windows.Forms.Padding(4);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(100, 28);
-            this.btnNext.TabIndex = 27;
+            this.btnNext.TabIndex = 2;
             this.btnNext.Text = ">";
             this.btnNext.UseVisualStyleBackColor = true;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
@@ -192,10 +190,10 @@
             // 
             this.btnPrevious.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnPrevious.Location = new System.Drawing.Point(117, 480);
-            this.btnPrevious.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPrevious.Margin = new System.Windows.Forms.Padding(4);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(100, 28);
-            this.btnPrevious.TabIndex = 26;
+            this.btnPrevious.TabIndex = 1;
             this.btnPrevious.Text = "<";
             this.btnPrevious.UseVisualStyleBackColor = true;
             this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
@@ -213,33 +211,125 @@
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(607, 452);
-            this.dataGridView1.TabIndex = 13;
+            this.dataGridView1.TabIndex = 0;
             this.dataGridView1.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_RowEnter);
             // 
-            // panel4
+            // label14
             // 
-            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel4.BackColor = System.Drawing.Color.DarkGray;
-            this.panel4.Controls.Add(this.panel2);
-            this.panel4.Location = new System.Drawing.Point(648, 14);
-            this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(469, 528);
-            this.panel4.TabIndex = 3;
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(103, 26);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(55, 23);
+            this.label14.TabIndex = 49;
+            this.label14.Text = "/Page";
+            // 
+            // comboPerPage
+            // 
+            this.comboPerPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboPerPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboPerPage.FormattingEnabled = true;
+            this.comboPerPage.ItemHeight = 17;
+            this.comboPerPage.Location = new System.Drawing.Point(17, 26);
+            this.comboPerPage.Margin = new System.Windows.Forms.Padding(4);
+            this.comboPerPage.Name = "comboPerPage";
+            this.comboPerPage.Size = new System.Drawing.Size(80, 25);
+            this.comboPerPage.TabIndex = 1;
+            // 
+            // comboTahunFilter
+            // 
+            this.comboTahunFilter.FormattingEnabled = true;
+            this.comboTahunFilter.Location = new System.Drawing.Point(719, 25);
+            this.comboTahunFilter.Margin = new System.Windows.Forms.Padding(4);
+            this.comboTahunFilter.Name = "comboTahunFilter";
+            this.comboTahunFilter.Size = new System.Drawing.Size(107, 24);
+            this.comboTahunFilter.TabIndex = 3;
+            // 
+            // btnResetFilter
+            // 
+            this.btnResetFilter.Location = new System.Drawing.Point(847, 22);
+            this.btnResetFilter.Margin = new System.Windows.Forms.Padding(4);
+            this.btnResetFilter.Name = "btnResetFilter";
+            this.btnResetFilter.Size = new System.Drawing.Size(100, 28);
+            this.btnResetFilter.TabIndex = 4;
+            this.btnResetFilter.Text = "Reset";
+            this.btnResetFilter.UseVisualStyleBackColor = true;
+            // 
+            // lblFilter
+            // 
+            this.lblFilter.AutoSize = true;
+            this.lblFilter.BackColor = System.Drawing.Color.White;
+            this.lblFilter.ForeColor = System.Drawing.Color.Gray;
+            this.lblFilter.Location = new System.Drawing.Point(300, 30);
+            this.lblFilter.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFilter.Name = "lblFilter";
+            this.lblFilter.Size = new System.Drawing.Size(0, 16);
+            this.lblFilter.TabIndex = 2;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.EditMenuStrip,
+            this.DeleteMenuStrip});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(145, 64);
+            // 
+            // EditMenuStrip
+            // 
+            this.EditMenuStrip.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EditMenuStrip.Image = global::latihribbon.Properties.Resources.pencil;
+            this.EditMenuStrip.Name = "EditMenuStrip";
+            this.EditMenuStrip.Size = new System.Drawing.Size(144, 30);
+            this.EditMenuStrip.Text = "Edit";
+            // 
+            // DeleteMenuStrip
+            // 
+            this.DeleteMenuStrip.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeleteMenuStrip.Image = global::latihribbon.Properties.Resources.bin;
+            this.DeleteMenuStrip.Name = "DeleteMenuStrip";
+            this.DeleteMenuStrip.Size = new System.Drawing.Size(144, 30);
+            this.DeleteMenuStrip.Text = "Delete";
+            // 
+            // ButtonDownloadFormat
+            // 
+            this.ButtonDownloadFormat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ButtonDownloadFormat.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonDownloadFormat.BackgroundImage")));
+            this.ButtonDownloadFormat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ButtonDownloadFormat.Location = new System.Drawing.Point(971, 17);
+            this.ButtonDownloadFormat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonDownloadFormat.Name = "ButtonDownloadFormat";
+            this.ButtonDownloadFormat.Size = new System.Drawing.Size(55, 46);
+            this.ButtonDownloadFormat.TabIndex = 5;
+            this.ButtonDownloadFormat.UseVisualStyleBackColor = true;
+            this.ButtonDownloadFormat.Click += new System.EventHandler(this.ButtonDownloadFormat_Click_1);
+            // 
+            // ButtonInputSIswa
+            // 
+            this.ButtonInputSIswa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ButtonInputSIswa.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonInputSIswa.BackgroundImage")));
+            this.ButtonInputSIswa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ButtonInputSIswa.Location = new System.Drawing.Point(1063, 16);
+            this.ButtonInputSIswa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonInputSIswa.Name = "ButtonInputSIswa";
+            this.ButtonInputSIswa.Size = new System.Drawing.Size(55, 46);
+            this.ButtonInputSIswa.TabIndex = 6;
+            this.ButtonInputSIswa.UseVisualStyleBackColor = true;
+            this.ButtonInputSIswa.Click += new System.EventHandler(this.ButtonInputSIswa_Click);
             // 
             // panel2
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.BackColor = System.Drawing.Color.LightGray;
+            this.panel2.BackColor = System.Drawing.Color.Silver;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.panel5);
-            this.panel2.Location = new System.Drawing.Point(7, 7);
+            this.panel2.Location = new System.Drawing.Point(638, 14);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(455, 514);
-            this.panel2.TabIndex = 4;
+            this.panel2.Size = new System.Drawing.Size(478, 528);
+            this.panel2.TabIndex = 1;
             // 
             // panel5
             // 
@@ -268,10 +358,10 @@
             this.panel5.Controls.Add(this.txtNama_FormSiswa);
             this.panel5.Controls.Add(this.label6);
             this.panel5.Controls.Add(this.label7);
-            this.panel5.Location = new System.Drawing.Point(5, 7);
+            this.panel5.Location = new System.Drawing.Point(8, 7);
             this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(442, 496);
+            this.panel5.Size = new System.Drawing.Size(460, 510);
             this.panel5.TabIndex = 5;
             // 
             // btnSave_FormSiswa
@@ -280,14 +370,13 @@
             this.btnSave_FormSiswa.BackColor = System.Drawing.Color.LimeGreen;
             this.btnSave_FormSiswa.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave_FormSiswa.ForeColor = System.Drawing.Color.White;
-            this.btnSave_FormSiswa.Location = new System.Drawing.Point(324, 440);
+            this.btnSave_FormSiswa.Location = new System.Drawing.Point(342, 454);
             this.btnSave_FormSiswa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSave_FormSiswa.Name = "btnSave_FormSiswa";
             this.btnSave_FormSiswa.Size = new System.Drawing.Size(99, 33);
-            this.btnSave_FormSiswa.TabIndex = 1;
+            this.btnSave_FormSiswa.TabIndex = 11;
             this.btnSave_FormSiswa.Text = "Save";
             this.btnSave_FormSiswa.UseVisualStyleBackColor = false;
-            this.btnSave_FormSiswa.Click += new System.EventHandler(this.btnSave_FormSiswa_Click);
             // 
             // rombelCombo
             // 
@@ -297,7 +386,7 @@
             this.rombelCombo.Margin = new System.Windows.Forms.Padding(1);
             this.rombelCombo.Name = "rombelCombo";
             this.rombelCombo.Size = new System.Drawing.Size(187, 28);
-            this.rombelCombo.TabIndex = 65;
+            this.rombelCombo.TabIndex = 9;
             // 
             // txtTahun_FormSiswa
             // 
@@ -307,7 +396,7 @@
             this.txtTahun_FormSiswa.Margin = new System.Windows.Forms.Padding(1);
             this.txtTahun_FormSiswa.Name = "txtTahun_FormSiswa";
             this.txtTahun_FormSiswa.Size = new System.Drawing.Size(399, 27);
-            this.txtTahun_FormSiswa.TabIndex = 64;
+            this.txtTahun_FormSiswa.TabIndex = 10;
             // 
             // label12
             // 
@@ -353,14 +442,13 @@
             this.txtNIS_FormSiswa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNIS_FormSiswa.Name = "txtNIS_FormSiswa";
             this.txtNIS_FormSiswa.Size = new System.Drawing.Size(187, 27);
-            this.txtNIS_FormSiswa.TabIndex = 60;
-            this.txtNIS_FormSiswa.TextChanged += new System.EventHandler(this.txtNIS_FormSiswa_TextChanged);
+            this.txtNIS_FormSiswa.TabIndex = 0;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(27, 59);
+            this.label2.Location = new System.Drawing.Point(22, 60);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 24);
             this.label2.TabIndex = 59;
@@ -371,9 +459,9 @@
             this.groupBox1.Controls.Add(this.perempuanRadio);
             this.groupBox1.Controls.Add(this.lakiRadio);
             this.groupBox1.Location = new System.Drawing.Point(23, 207);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(337, 33);
             this.groupBox1.TabIndex = 31;
             this.groupBox1.TabStop = false;
@@ -386,7 +474,7 @@
             this.perempuanRadio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.perempuanRadio.Name = "perempuanRadio";
             this.perempuanRadio.Size = new System.Drawing.Size(115, 24);
-            this.perempuanRadio.TabIndex = 33;
+            this.perempuanRadio.TabIndex = 4;
             this.perempuanRadio.TabStop = true;
             this.perempuanRadio.Text = "Perempuan";
             this.perempuanRadio.UseVisualStyleBackColor = true;
@@ -399,7 +487,7 @@
             this.lakiRadio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lakiRadio.Name = "lakiRadio";
             this.lakiRadio.Size = new System.Drawing.Size(108, 24);
-            this.lakiRadio.TabIndex = 32;
+            this.lakiRadio.TabIndex = 3;
             this.lakiRadio.TabStop = true;
             this.lakiRadio.Text = "Laki - Laki";
             this.lakiRadio.UseVisualStyleBackColor = true;
@@ -412,7 +500,7 @@
             this.txtPersensi_FormSiswa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPersensi_FormSiswa.Name = "txtPersensi_FormSiswa";
             this.txtPersensi_FormSiswa.Size = new System.Drawing.Size(187, 27);
-            this.txtPersensi_FormSiswa.TabIndex = 30;
+            this.txtPersensi_FormSiswa.TabIndex = 1;
             // 
             // label11
             // 
@@ -432,7 +520,7 @@
             this.XIIRadio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.XIIRadio.Name = "XIIRadio";
             this.XIIRadio.Size = new System.Drawing.Size(49, 24);
-            this.XIIRadio.TabIndex = 2;
+            this.XIIRadio.TabIndex = 7;
             this.XIIRadio.TabStop = true;
             this.XIIRadio.Text = "XII";
             this.XIIRadio.UseVisualStyleBackColor = true;
@@ -445,7 +533,7 @@
             this.XIRadio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.XIRadio.Name = "XIRadio";
             this.XIRadio.Size = new System.Drawing.Size(45, 24);
-            this.XIRadio.TabIndex = 1;
+            this.XIRadio.TabIndex = 6;
             this.XIRadio.TabStop = true;
             this.XIRadio.Text = "XI";
             this.XIRadio.UseVisualStyleBackColor = true;
@@ -458,7 +546,7 @@
             this.XRadio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.XRadio.Name = "XRadio";
             this.XRadio.Size = new System.Drawing.Size(41, 24);
-            this.XRadio.TabIndex = 0;
+            this.XRadio.TabIndex = 5;
             this.XRadio.TabStop = true;
             this.XRadio.Text = "X";
             this.XRadio.UseVisualStyleBackColor = true;
@@ -471,7 +559,7 @@
             this.jurusanCombo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.jurusanCombo.Name = "jurusanCombo";
             this.jurusanCombo.Size = new System.Drawing.Size(187, 28);
-            this.jurusanCombo.TabIndex = 28;
+            this.jurusanCombo.TabIndex = 8;
             // 
             // label10
             // 
@@ -511,13 +599,13 @@
             this.txtNama_FormSiswa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNama_FormSiswa.Name = "txtNama_FormSiswa";
             this.txtNama_FormSiswa.Size = new System.Drawing.Size(399, 27);
-            this.txtNama_FormSiswa.TabIndex = 18;
+            this.txtNama_FormSiswa.TabIndex = 2;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(19, 122);
+            this.label6.Location = new System.Drawing.Point(22, 123);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(53, 20);
             this.label6.TabIndex = 16;
@@ -532,111 +620,6 @@
             this.label7.Size = new System.Drawing.Size(114, 20);
             this.label7.TabIndex = 19;
             this.label7.Text = "Jenis Kelamin";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(103, 26);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(55, 23);
-            this.label14.TabIndex = 49;
-            this.label14.Text = "/Page";
-            // 
-            // comboPerPage
-            // 
-            this.comboPerPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboPerPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboPerPage.FormattingEnabled = true;
-            this.comboPerPage.ItemHeight = 17;
-            this.comboPerPage.Location = new System.Drawing.Point(17, 26);
-            this.comboPerPage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.comboPerPage.Name = "comboPerPage";
-            this.comboPerPage.Size = new System.Drawing.Size(80, 25);
-            this.comboPerPage.TabIndex = 48;
-            // 
-            // comboTahunFilter
-            // 
-            this.comboTahunFilter.FormattingEnabled = true;
-            this.comboTahunFilter.Location = new System.Drawing.Point(719, 25);
-            this.comboTahunFilter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.comboTahunFilter.Name = "comboTahunFilter";
-            this.comboTahunFilter.Size = new System.Drawing.Size(107, 24);
-            this.comboTahunFilter.TabIndex = 15;
-            // 
-            // btnResetFilter
-            // 
-            this.btnResetFilter.Location = new System.Drawing.Point(847, 22);
-            this.btnResetFilter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnResetFilter.Name = "btnResetFilter";
-            this.btnResetFilter.Size = new System.Drawing.Size(100, 28);
-            this.btnResetFilter.TabIndex = 47;
-            this.btnResetFilter.Text = "Reset";
-            this.btnResetFilter.UseVisualStyleBackColor = true;
-            // 
-            // lblFilter
-            // 
-            this.lblFilter.AutoSize = true;
-            this.lblFilter.BackColor = System.Drawing.Color.White;
-            this.lblFilter.ForeColor = System.Drawing.Color.Gray;
-            this.lblFilter.Location = new System.Drawing.Point(300, 30);
-            this.lblFilter.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblFilter.Name = "lblFilter";
-            this.lblFilter.Size = new System.Drawing.Size(211, 16);
-            this.lblFilter.TabIndex = 48;
-            this.lblFilter.Text = "Masukkan Kata Kunci Pencarian ⌕ ";
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.EditMenuStrip,
-            this.DeleteMenuStrip});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(145, 64);
-            // 
-            // EditMenuStrip
-            // 
-            this.EditMenuStrip.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EditMenuStrip.Image = global::latihribbon.Properties.Resources.pencil;
-            this.EditMenuStrip.Name = "EditMenuStrip";
-            this.EditMenuStrip.Size = new System.Drawing.Size(144, 30);
-            this.EditMenuStrip.Text = "Edit";
-            // 
-            // DeleteMenuStrip
-            // 
-            this.DeleteMenuStrip.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeleteMenuStrip.Image = global::latihribbon.Properties.Resources.bin;
-            this.DeleteMenuStrip.Name = "DeleteMenuStrip";
-            this.DeleteMenuStrip.Size = new System.Drawing.Size(144, 30);
-            this.DeleteMenuStrip.Text = "Delete";
-            // 
-            // ButtonDownloadFormat
-            // 
-            this.ButtonDownloadFormat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ButtonDownloadFormat.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonDownloadFormat.BackgroundImage")));
-            this.ButtonDownloadFormat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ButtonDownloadFormat.Location = new System.Drawing.Point(971, 17);
-            this.ButtonDownloadFormat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ButtonDownloadFormat.Name = "ButtonDownloadFormat";
-            this.ButtonDownloadFormat.Size = new System.Drawing.Size(55, 46);
-            this.ButtonDownloadFormat.TabIndex = 16;
-            this.ButtonDownloadFormat.UseVisualStyleBackColor = true;
-            this.ButtonDownloadFormat.Click += new System.EventHandler(this.ButtonDownloadFormat_Click_1);
-            // 
-            // ButtonInputSIswa
-            // 
-            this.ButtonInputSIswa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ButtonInputSIswa.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonInputSIswa.BackgroundImage")));
-            this.ButtonInputSIswa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ButtonInputSIswa.Location = new System.Drawing.Point(1063, 16);
-            this.ButtonInputSIswa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ButtonInputSIswa.Name = "ButtonInputSIswa";
-            this.ButtonInputSIswa.Size = new System.Drawing.Size(55, 46);
-            this.ButtonInputSIswa.TabIndex = 9;
-            this.ButtonInputSIswa.UseVisualStyleBackColor = true;
-            this.ButtonInputSIswa.Click += new System.EventHandler(this.ButtonInputSIswa_Click);
             // 
             // FormSIswa
             // 
@@ -662,13 +645,12 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.panel4.ResumeLayout(false);
+            this.contextMenuStrip1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -682,38 +664,12 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtNama_FormSiswa;
-        private System.Windows.Forms.Button btnSave_FormSiswa;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.RadioButton XIIRadio;
-        private System.Windows.Forms.RadioButton XRadio;
-        private System.Windows.Forms.TextBox txtPersensi_FormSiswa;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label lblNisSudahAda;
-        private System.Windows.Forms.Label lblInfo;
-        private System.Windows.Forms.TextBox txtNIS_FormSiswa;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboTahunFilter;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label lblHalaman;
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Button btnPrevious;
         private System.Windows.Forms.Button ButtonDownloadFormat;
         private System.Windows.Forms.Button btnResetFilter;
-        private System.Windows.Forms.ComboBox rombelCombo;
-        private System.Windows.Forms.TextBox txtTahun_FormSiswa;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton perempuanRadio;
-        private System.Windows.Forms.RadioButton lakiRadio;
-        private System.Windows.Forms.RadioButton XIRadio;
-        private System.Windows.Forms.ComboBox jurusanCombo;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button ButtonNaikKelas;
         private System.Windows.Forms.ComboBox comboPerPage;
         private System.Windows.Forms.Label label14;
@@ -721,5 +677,30 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem EditMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem DeleteMenuStrip;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Button btnSave_FormSiswa;
+        private System.Windows.Forms.ComboBox rombelCombo;
+        private System.Windows.Forms.TextBox txtTahun_FormSiswa;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label lblNisSudahAda;
+        private System.Windows.Forms.Label lblInfo;
+        private System.Windows.Forms.TextBox txtNIS_FormSiswa;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton perempuanRadio;
+        private System.Windows.Forms.RadioButton lakiRadio;
+        private System.Windows.Forms.TextBox txtPersensi_FormSiswa;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.RadioButton XIIRadio;
+        private System.Windows.Forms.RadioButton XIRadio;
+        private System.Windows.Forms.RadioButton XRadio;
+        private System.Windows.Forms.ComboBox jurusanCombo;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtNama_FormSiswa;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
     }
 }
