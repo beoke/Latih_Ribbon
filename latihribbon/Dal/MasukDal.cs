@@ -26,15 +26,6 @@ namespace latihribbon.Dal
             }
         }
 
-        public IEnumerable<MasukModel> GetTerlambatFilter(string sql, object mbuh)
-        {
-            using (var koneksi = new SqlConnection(Conn.conn.connstr()))
-            {
-                var users = koneksi.Query<MasukModel>(sql, mbuh);
-                return users;
-            }
-        }
-
         public MasukModel GetData(int id)
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
@@ -47,7 +38,6 @@ namespace latihribbon.Dal
                 return koneksi.QueryFirstOrDefault<MasukModel>(sql, new {id=id});
             }
         }
-
         public void Insert(MasukModel masuk)
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
