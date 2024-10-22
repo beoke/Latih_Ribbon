@@ -221,22 +221,22 @@
     <Compile Include="Dal\MasukDal.cs" />
     <Compile Include="Dal\DbDal.cs" />
     <Compile Include="Dal\RiwayatLogin_UserDal.cs" />
-    <Compile Include="EditAbsensi.cs">
+    <Compile Include="ScreenAdmin\Form PopUp\EditAbsensi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditAbsensi.Designer.cs">
+    <Compile Include="ScreenAdmin\Form PopUp\EditAbsensi.Designer.cs">
       <DependentUpon>EditAbsensi.cs</DependentUpon>
     </Compile>
-    <Compile Include="EditKeluar.cs">
+    <Compile Include="ScreenAdmin\Form PopUp\EditKeluar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditKeluar.Designer.cs">
+    <Compile Include="ScreenAdmin\Form PopUp\EditKeluar.Designer.cs">
       <DependentUpon>EditKeluar.cs</DependentUpon>
     </Compile>
-    <Compile Include="EditTerlambat.cs">
+    <Compile Include="ScreenAdmin\Form PopUp\EditTerlambat.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditTerlambat.Designer.cs">
+    <Compile Include="ScreenAdmin\Form PopUp\EditTerlambat.Designer.cs">
       <DependentUpon>EditTerlambat.cs</DependentUpon>
     </Compile>
     <Compile Include="MesBox\MesWarningYN.cs">
@@ -440,13 +440,13 @@
     <Compile Include="Model\UserModel.cs" />
     <Compile Include="Dal\SetPrintDal.cs" />
     <Compile Include="ScreenSurvey\SurveyModel.cs" />
-    <EmbeddedResource Include="EditAbsensi.resx">
+    <EmbeddedResource Include="ScreenAdmin\Form PopUp\EditAbsensi.resx">
       <DependentUpon>EditAbsensi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditKeluar.resx">
+    <EmbeddedResource Include="ScreenAdmin\Form PopUp\EditKeluar.resx">
       <DependentUpon>EditKeluar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditTerlambat.resx">
+    <EmbeddedResource Include="ScreenAdmin\Form PopUp\EditTerlambat.resx">
       <DependentUpon>EditTerlambat.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MesBox\MesQuestionYN.resx">

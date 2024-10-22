@@ -82,48 +82,39 @@ namespace latihribbon
 
 
         bool tglchange = false;
-        private string FilterSQL(string nis, string nama,string persensi, string kelas, string keterangan)
-        {
-            string sqlc = string.Empty;
-            List<string> fltr = new List<string>();
-            if (nis != "") fltr.Add("p.NIS LIKE @NIS+'%'");
-            if (nama != "") fltr.Add("s.Nama LIKE '%'+@Nama+'%'");
-            if (persensi != "") fltr.Add("s.Persensi LIKE @Persensi+'%'");
-            if (kelas != "") fltr.Add("kls.NamaKelas LIKE '%'+@NamaKelas+'%'");
-            if (keterangan != "Semua") fltr.Add("p.Keterangan LIKE @Keterangan+'%'");
-            if (tglchange) fltr.Add("p.Tanggal BETWEEN @tgl1 AND @tgl2");
-
-            if (fltr.Count > 0)
-                sqlc += " WHERE " + string.Join(" AND ", fltr);
-            return sqlc;
-        }
-
         int Page = 1;
         int totalPage;
         public void LoadData()
         {
-            string nis = txtNIS.Text;
-            string nama = txtNama.Text;
-            string persensi = txtPersensi.Text;
-            string kelas = txtKelas.Text;
+            string search = txtSearch.Text;
             string keterangan = KeteranganCombo.SelectedItem.ToString() ?? string.Empty;
             DateTime tgl1 = tglsatu.Value.Date;
             DateTime tgl2 = tgldua.Value.Date;
 
-            var sqlc = FilterSQL(nis, nama,persensi, kelas, keterangan);
-
+            //Filter
+            var sqlc = string.Empty;
             var dp = new DynamicParameters();
-            if (nis != "") dp.Add("@NIS", nis);
-            if (nama != "") dp.Add("@Nama", nama);
-            if (persensi != "") dp.Add("@Persensi", persensi);
-            if (keterangan != "Semua") dp.Add("@Keterangan", keterangan);
-            if (kelas != "") dp.Add("@NamaKelas", kelas);
+            List<string> fltr = new List<string>();
+
+            if (search != "")
+            {
+                dp.Add("@Search", search);
+                fltr.Add("p.NIS LIKE @Search='%' OR s.Nama LIKE '%'+@Search+'%' OR s.Persensi LIKE @Search+'%' OR kls.Kelas LIKE @Search+'%'");
+            }
+            if(KeteranganCombo.SelectedIndex != 0)
+            {
+                dp.Add("@Keterangan");
+                fltr.Add("p.Keterangan LIKE @Keterangan+'%'");
+            }
             if (tglchange)
             {
                 dp.Add("@tgl1", tgl1);
                 dp.Add("@tgl2", tgl2);
             }
+            if (fltr.Count > 0)
+                sqlc += " WHERE " + string.Join(" AND ", fltr);
 
+            //Halaman
             string text = "Halaman ";
             int RowPerPage = 15;
             int inRowPage = (Page - 1) * RowPerPage;
@@ -287,10 +278,7 @@ namespace latihribbon
             txtPersensi1.TextChanged += perkas_TextChanged;
             txtKelas1.TextChanged += perkas_TextChanged;
 
-            txtNIS.TextChanged += filter_TextChanged;
-            txtNama.TextChanged += filter_TextChanged;
-            txtPersensi.TextChanged += filter_TextChanged;
-            txtKelas.TextChanged += filter_TextChanged;
+            txtSearch.TextChanged += filter_TextChanged;
             KeteranganCombo.SelectedIndexChanged += filter_TextChanged;
 
             tglsatu.ValueChanged += filter_tglChanged;
@@ -302,6 +290,8 @@ namespace latihribbon
 
             txtNIS1.KeyPress += Input_KeyPress;
             txtPersensi1.KeyPress += Input_KeyPress;
+
+
         }
 
         private void Input_KeyPress(object sender, KeyPressEventArgs e)
@@ -381,9 +371,7 @@ namespace latihribbon
         }
         private void btnResetFilter_Click(object sender, EventArgs e)
         {
-            txtNIS.Clear();
-            txtNama.Clear();
-            txtKelas.Clear();
+            txtSearch.Clear();
             KeteranganCombo.SelectedIndex = 0;
             tglsatu.Value = DateTime.Now;
             tgldua.Value = DateTime.Now;
@@ -416,13 +404,6 @@ namespace latihribbon
             globalId = 0;
             ControlInsertUpdate();
         }
-
-        private void btnDelete_FormSiswa_Click(object sender, EventArgs e)
-        {
-            Delete();
-        }
-
-
         private void btnNext_Click(object sender, EventArgs e)
         {
             if (Page < totalPage)

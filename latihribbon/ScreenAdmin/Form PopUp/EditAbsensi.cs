@@ -83,6 +83,7 @@ namespace latihribbon
                 new MesWarningOK($"{txtNama.Text} Sudah Absensi Pada " + tglDT.Value.ToString("dd/MM/yyyy")).ShowDialog();
                 return;
             }
+            if (new MesQuestionYN("Update Data?").ShowDialog() != DialogResult.Yes) return;
             absensiDal.Update(absensi);
             this.DialogResult = DialogResult.Yes;
             this.Close();

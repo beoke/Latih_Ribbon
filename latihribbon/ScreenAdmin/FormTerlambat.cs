@@ -284,7 +284,8 @@ namespace latihribbon
 
         private void TxtFilter_Leave(object sender, EventArgs e)
         {
-            lblFilter.Visible = true;
+            if(txtFilter.Text.Length == 0)
+                lblFilter.Visible = true;
         }
 
         private void TxtFilter_Enter(object sender, EventArgs e)
