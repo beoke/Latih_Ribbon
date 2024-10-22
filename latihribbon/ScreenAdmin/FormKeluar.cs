@@ -261,14 +261,14 @@ namespace latihribbon
             tgldua.ValueChanged += filter_tglChanged;
             btnDelete_FormSiswa.Click += BtnDelete_FormSiswa_Click;
             comboPerPage.SelectedIndexChanged += ComboPerPage_SelectedIndexChanged;
-            dataGridView1.CellMouseClick += DataGridView1_CellMouseClick; ;
+            //dataGridView1.CellMouseClick += DataGridView1_CellMouseClick; ;
         }
 
-        private void DataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+       /* private void DataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (e.Button )
             
-        }
+        }*/
 
 
         private void ComboPerPage_SelectedIndexChanged(object sender, EventArgs e)
