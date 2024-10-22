@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using DocumentFormat.OpenXml.Wordprocessing;
 using latihribbon.Dal;
 using latihribbon.Helper;
 using latihribbon.Model;
@@ -259,16 +260,42 @@ namespace latihribbon
 
             tglsatu.ValueChanged += filter_tglChanged;
             tgldua.ValueChanged += filter_tglChanged;
-            btnDelete_FormSiswa.Click += BtnDelete_FormSiswa_Click;
             comboPerPage.SelectedIndexChanged += ComboPerPage_SelectedIndexChanged;
-            //dataGridView1.CellMouseClick += DataGridView1_CellMouseClick; ;
+            dataGridView1.CellMouseClick += DataGridView1_CellMouseClick;
+            editToolStripMenuItem.Click += EditToolStripMenuItem_Click;
+            deleteToolStripMenuItem.Click += DeleteToolStripMenuItem_Click;
+            
         }
 
-       /* private void DataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void DeleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (e.Button )
-            
-        }*/
+            if (globalId == 0)
+            {
+                new MesWarningOK("Pilih data dahulu ").ShowDialog();
+                return;
+            }
+            if (!(new MesWarningYN("Hapus Data ?").ShowDialog() == DialogResult.OK)) return;
+            keluarDal.Delete(globalId);
+            LoadData();
+        }
+
+        private void EditToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void DataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right && e.RowIndex >= 0 && e.ColumnIndex >=0 )
+            {
+                dataGridView1.ClearSelection();
+                dataGridView1.CurrentCell = dataGridView1[e.RowIndex, e.ColumnIndex];
+
+                contextMenuStrip1.Show(Cursor.Position);
+            }
+
+
+        }
 
 
         private void ComboPerPage_SelectedIndexChanged(object sender, EventArgs e)
@@ -277,17 +304,7 @@ namespace latihribbon
 
         }
 
-        private void BtnDelete_FormSiswa_Click(object sender, EventArgs e)
-        {
-            if(globalId == 0)
-            {
-                mesBox.MesInfo("Pilih Data Terlebih Dahulu !");
-                return;
-            }
-            if (!mesBox.MesKonfirmasi("Hapus Data?")) return;
-            keluarDal.Delete(globalId);
-            LoadData();
-        }
+      
 
         private void filter_TextChanged(object sender, EventArgs e)
         {
