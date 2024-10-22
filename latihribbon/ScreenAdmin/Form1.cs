@@ -187,7 +187,7 @@ namespace latihribbon
         {
             if (Closing)
             {
-                if (_mesbox.MesKonfirmasi("Apakah Anda Ingin Menutup Aplikasi ?")) mainForm.Close();
+                if (new MesQuestionYN("Apakah Anda Ingin Menutup Aplikasi ?").ShowDialog() == DialogResult.Yes) mainForm.Close();
                 e.Cancel = true;
             }
         }
