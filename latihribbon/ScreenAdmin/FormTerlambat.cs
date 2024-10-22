@@ -257,7 +257,7 @@ namespace latihribbon
             if (new MesWarningYN("Hapus Data ?").ShowDialog() != DialogResult.Yes) return;
             var id = dataGridView1.CurrentRow.Cells[0].Value;
 
-            siswaDal.Delete(Convert.ToInt32(id));
+            masukDal.Delete(Convert.ToInt32(id));
             LoadData();
         }
         private void EditMenuStrip_Click(object sender, EventArgs e)
