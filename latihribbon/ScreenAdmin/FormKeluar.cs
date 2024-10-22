@@ -80,13 +80,11 @@ namespace latihribbon
         }
 
         bool tglchange = false;
-        private string FilterSQL(string nis, string nama, string kelas)
+        private string FilterSQL(string search)
         {
             string sqlc = string.Empty;
             List<string> fltr = new List<string>();
-            if (nis != "") fltr.Add("k.NIS LIKE @NIS+'%'");
-            if (nama != "") fltr.Add("s.Nama LIKE '%'+@Nama+'%'");
-            if (kelas != "") fltr.Add("kls.NamaKelas LIKE '%'+@NamaKelas+'%'");
+            if (search != "") fltr.Add("k.NIS LIKE '%'+ @search+'%'  OR s.Nama LIKE '%' +@search+'%'  OR kls.NamaKelas LIKE'%' +@search+'%'");
             if (tglchange) fltr.Add("k.Tanggal BETWEEN @tgl1 AND @tgl2");
             if (fltr.Count > 0)
                 sqlc += " WHERE " + string.Join(" AND ", fltr);
@@ -97,18 +95,16 @@ namespace latihribbon
         int totalPage;
         public void LoadData()
         {
-            string nis, nama, kelas;
+            
             DateTime tgl1, tgl2;
 
-          
+            string search = TextSearch.Text;
             tgl1 = tglsatu.Value.Date;
             tgl2 = tgldua.Value.Date;
 
-            var sqlc = FilterSQL(nis, nama, kelas);
+            var sqlc = FilterSQL(search);
             var dp = new DynamicParameters();
-            if(nis != "")dp.Add("@NIS", nis);
-            if (nama != "") dp.Add("@Nama", nama);
-            if (kelas != "") dp.Add("@NamaKelas", kelas);
+            if(search != "")dp.Add("@search", search);
             if (tglchange) 
             {
                 dp.Add("@tgl1", tgl1);
@@ -249,9 +245,7 @@ namespace latihribbon
         #region EVENT
        private void RegisterEvent()
         {
-            txtNIS.TextChanged += filter_TextChanged;
-            txtNama.TextChanged += filter_TextChanged;
-            txtKelas.TextChanged += filter_TextChanged;
+            TextSearch.TextChanged += filter_TextChanged;
 
             tglsatu.ValueChanged += filter_tglChanged;
             tgldua.ValueChanged += filter_tglChanged;
@@ -325,9 +319,7 @@ namespace latihribbon
 
         private void btnResetFilter_Click(object sender, EventArgs e)
         {
-            txtNIS.Clear();
-            txtNama.Clear();
-            txtKelas.Clear();
+            TextSearch.Clear();
             tglsatu.Value = DateTime.Now;
             tgldua.Value = DateTime.Now;
             tglchange = false;

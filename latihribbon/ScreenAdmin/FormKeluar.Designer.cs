@@ -63,7 +63,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.btnResetFilter = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TextSearch = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -501,16 +501,16 @@
             this.btnResetFilter.UseVisualStyleBackColor = true;
             this.btnResetFilter.Click += new System.EventHandler(this.btnResetFilter_Click);
             // 
-            // textBox1
+            // TextSearch
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.textBox1.Location = new System.Drawing.Point(93, 31);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(350, 24);
-            this.textBox1.TabIndex = 32;
+            this.TextSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TextSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextSearch.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.TextSearch.Location = new System.Drawing.Point(93, 31);
+            this.TextSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TextSearch.Name = "TextSearch";
+            this.TextSearch.Size = new System.Drawing.Size(350, 24);
+            this.TextSearch.TabIndex = 32;
             // 
             // FormKeluar
             // 
@@ -518,7 +518,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1449, 765);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.TextSearch);
             this.Controls.Add(this.btnResetFilter);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label6);
@@ -580,6 +580,6 @@
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Button btnPrevious;
         private System.Windows.Forms.Button btnResetFilter;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TextSearch;
     }
 }
