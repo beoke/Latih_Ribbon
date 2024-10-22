@@ -9,8 +9,10 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Text;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
@@ -33,9 +35,15 @@ namespace latihribbon
             siswaDal = new SiswaDal();
             keluarDal = new KeluarDal();
             kelasDal = new KelasDal();
+            
+        
+
             RegisterEvent();
+            InitCombo();
             LoadData();
             InitComponent();
+
+
         }
         public void buf()
         {
@@ -47,8 +55,22 @@ namespace latihribbon
             dataGridView1,
             new object[] { true });
         }
+
+        private void InitCombo()
+        {
+            //ComboBox
+            comboPerPage.Items.Add(10);
+            comboPerPage.Items.Add(20);
+            comboPerPage.Items.Add(50);
+            comboPerPage.Items.Add(100);
+            comboPerPage.Items.Add(200);
+            comboPerPage.SelectedIndex = 0;
+        }
+
+      
         public void InitComponent()
         {
+          
 
             // DataGrid
             dataGridView1.EnableHeadersVisualStyles = false;
@@ -82,14 +104,7 @@ namespace latihribbon
             txtTujuan1.MaxLength = 60;
 
 
-            //ComboBox
-
-            comboPerPage.Items.Add(10);
-            comboPerPage.Items.Add(20);
-            comboPerPage.Items.Add(50);
-            comboPerPage.Items.Add(100);
-            comboPerPage.Items.Add(200);
-            comboPerPage.SelectedIndex = 0;
+           
         }
 
         bool tglchange = false;
@@ -125,6 +140,7 @@ namespace latihribbon
             }
 
             string text = "Halaman ";
+
             int RowPerPage = (int)comboPerPage.SelectedItem;
             int inRowPage = (Page - 1) * RowPerPage;
             var jumlahRow = keluarDal.CekRows(sqlc, dp);
@@ -148,20 +164,7 @@ namespace latihribbon
                 }).ToList();
         }
 
-        private void GetData()
-        {
-            var Id = dataGridView1.CurrentRow.Cells["Id"].Value?.ToString() ?? string.Empty;
-            globalId = Id==string.Empty ? 0 : int.Parse(Id);
-            var data = keluarDal.GetData(Convert.ToInt32(Id));
-            if (data == null) return;
-            txtNIS1.Text = data.Nis.ToString();
-            txtNama1.Text = data.Nama;
-            txtKelas1.Text = data.NamaKelas;
-            tglDT.Value = data.Tanggal;
-            jamKeluarDT.Value = DateTime.Today.Add(data.JamKeluar);
-            jamMasukDT.Value = DateTime.Today.Add(data.JamMasuk);
-            txtTujuan1.Text = data.Tujuan;
-        }
+        
 
         private void ClearInput()
         {
@@ -172,6 +175,7 @@ namespace latihribbon
             jamKeluarDT.Value = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day, 0, 0, 0);
             jamMasukDT.Value = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day, 0, 0, 0);
             txtTujuan1.Clear();
+
         }
 
         private void SaveData()
@@ -188,13 +192,13 @@ namespace latihribbon
 
             if (nis == "" || nama == "" || tujuan == "" || jamMasuk == TimeSpan.Zero || jamKeluar == TimeSpan.Zero) 
             {
-                mesBox.MesInfo("Seluruh Data Wajib Diisi!");
+                new MesWarningOK("Seluruh Data Wajib Diisi !").ShowDialog();
                 return;
             }
 
             if (jamMasuk == jamKeluar)
             {
-                mesBox.MesInfo("Jam Keluar & Jam Masuk Tidak Valid!");
+                new MesWarningOK("Jam Keluar & Jam Masuk Tidak Valid!").ShowDialog();
                 return;
             }
 
@@ -210,34 +214,16 @@ namespace latihribbon
 
             if(keluar.Id == 0)
             {
-                if (!mesBox.MesKonfirmasi("Input Data?")) return;
+                if (new MesQuestionYN("Input Data ?").ShowDialog() != DialogResult.Yes) return;
                 keluarDal.Insert(keluar);
                 LoadData();
                 globalId = 0;
                 ClearInput();
-                ControlInsertUpdate();
             }
-            else
-            {
-                if (!mesBox.MesKonfirmasi("Update Data?")) return;
-                keluarDal.Update(keluar);
-                LoadData();
-            }
+           
         }
 
-        private void ControlInsertUpdate()
-        {
-            if(globalId == 0)
-            {
-                lblInfo.Text = "INSERT";
-                txtNIS1.ReadOnly = false;
-            }
-            else
-            {
-                lblInfo.Text = "UPDATE";
-                txtNIS1.ReadOnly = true;
-            }
-        }
+      
         private void CekNis()
         {
             var siswa = siswaDal.GetData(Convert.ToInt32(txtNIS1.Text));
@@ -276,33 +262,36 @@ namespace latihribbon
                 new MesWarningOK("Pilih data dahulu ").ShowDialog();
                 return;
             }
-            if (!(new MesWarningYN("Hapus Data ?").ShowDialog() == DialogResult.OK)) return;
+            if (new MesWarningYN("Hapus Data ?").ShowDialog() != DialogResult.Yes) return;
             keluarDal.Delete(globalId);
             LoadData();
         }
 
         private void EditToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            EditKeluar keluar = new EditKeluar(globalId);
-            keluar.ShowDialog();
+            if (new EditKeluar(globalId).ShowDialog() != DialogResult.OK) return;
+            LoadData();
         }
 
         private void DataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Right && e.RowIndex >= 0 && e.ColumnIndex >=0 )
+
+           
+
+            if (e.Button == MouseButtons.Right && e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
                 dataGridView1.ClearSelection();
-                dataGridView1.CurrentCell = dataGridView1[e.RowIndex, e.ColumnIndex];
-
+                dataGridView1.CurrentCell = dataGridView1[e.ColumnIndex, e.RowIndex];
+                var Id = dataGridView1.CurrentRow.Cells["Id"].Value?.ToString() ?? string.Empty;
+                globalId = Id == string.Empty ? 0 : int.Parse(Id);
                 contextMenuStrip1.Show(Cursor.Position);
             }
-
-
         }
 
 
         private void ComboPerPage_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Page = 1;
             LoadData();
 
         }
@@ -325,7 +314,6 @@ namespace latihribbon
         {
             ClearInput();
             globalId = 0;
-            ControlInsertUpdate();
         }
 
         private void btnSave_FormSiswa_Click(object sender, EventArgs e)
@@ -355,11 +343,7 @@ namespace latihribbon
             }
         }
 
-        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
-        {
-            GetData();
-            ControlInsertUpdate();
-        }
+      
 
         private void btnResetFilter_Click(object sender, EventArgs e)
         {

@@ -78,12 +78,12 @@ namespace latihribbon
         {
             if(tgl1DT.Value == tgl2DT.Value)
             {
-                mesBox.MesInfo("Atur Rentang Tanggal Terlebih Dahulu!");
+                new MesWarningOK("Atur Rentang Tanggal Terlebih Dahulu!").ShowDialog();
                 return;
             }
             if (ListBoxKelas.CheckedItems.Count < 1)
             {
-                mesBox.MesInfo("Pilih data kelas terlebih dahulu!");
+                new MesWarningOK("Pilih data kelas terlebih dahulu!").ShowDialog();
                 return;
             }
             List<string> data = new List<string>();
@@ -121,7 +121,7 @@ namespace latihribbon
                     }
                     if(KelasCek.Count != 0)
                     {
-                        mesBox.MesInfo("Tidak Ada Data Untuk Kelas : " +  string.Join(", ",KelasCek));
+                        new MesInformasi("Tidak Ada Data Untuk Kelas : " + string.Join(", ", KelasCek));
                         return;
                     }
                     foreach (var angkatan in groupedData.Keys)

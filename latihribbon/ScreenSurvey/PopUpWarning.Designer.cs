@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PopUpWarning));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -39,42 +38,46 @@
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 152);
+            this.panel1.Location = new System.Drawing.Point(0, 187);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(463, 56);
+            this.panel1.Size = new System.Drawing.Size(617, 69);
             this.panel1.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(88, 69);
+            this.label1.Location = new System.Drawing.Point(117, 85);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(356, 22);
+            this.label1.Size = new System.Drawing.Size(467, 27);
             this.label1.TabIndex = 1;
             this.label1.Text = "Mohon berikan penilaian terlebih dahulu !!";
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(12, 44);
+            this.pictureBox1.BackgroundImage = global::latihribbon.Properties.Resources.warning;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(13, 41);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(70, 75);
+            this.pictureBox1.Size = new System.Drawing.Size(105, 108);
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
             // PopUpWarning
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(463, 208);
+            this.ClientSize = new System.Drawing.Size(617, 256);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "PopUpWarning";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "PopUpWarning";
+            this.Text = "Warning";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -15,7 +15,9 @@ namespace latihribbon
         public PopUpWarning()
         {
             InitializeComponent();
-             
+            this.MinimizeBox = false;
+            this.MaximizeBox = false;
+            this.ShowIcon = false;
             this.Load += LoadForm;
             this.Text = "";
         }

@@ -15,7 +15,9 @@ namespace latihribbon
         public PopUp()
         {
             InitializeComponent();
-
+            this.MinimizeBox = false;
+            this.MaximizeBox = false;
+            this.ShowIcon = false;
             PictureGif.Image = Properties.Resources.verify;
             PictureGif.SizeMode = PictureBoxSizeMode.StretchImage;
         }

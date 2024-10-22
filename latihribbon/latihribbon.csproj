@@ -281,6 +281,12 @@
     <Compile Include="ScreenAdmin\FormPopUpNaikKelas.Designer.cs">
       <DependentUpon>FormPopUpNaikKelas.cs</DependentUpon>
     </Compile>
+    <Compile Include="ScreenSiswa\FormTutorJam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScreenSiswa\FormTutorJam.Designer.cs">
+      <DependentUpon>FormTutorJam.cs</DependentUpon>
+    </Compile>
     <Compile Include="ScreenSurvey\PopUp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -292,12 +298,6 @@
     </Compile>
     <Compile Include="ScreenSurvey\PopUpWarning.Designer.cs">
       <DependentUpon>PopUpWarning.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ScreenSiswa\FormTutorJam.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ScreenSiswa\FormTutorJam.Designer.cs">
-      <DependentUpon>FormTutorJam.cs</DependentUpon>
     </Compile>
     <Compile Include="ScreenSurvey\SurveyForm.cs">
       <SubType>Form</SubType>
@@ -464,14 +464,14 @@
     <EmbeddedResource Include="ScreenAdmin\FormPopUpNaikKelas.resx">
       <DependentUpon>FormPopUpNaikKelas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ScreenSiswa\FormTutorJam.resx">
+      <DependentUpon>FormTutorJam.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ScreenSurvey\PopUp.resx">
       <DependentUpon>PopUp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ScreenSurvey\PopUpWarning.resx">
       <DependentUpon>PopUpWarning.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ScreenSiswa\FormTutorJam.resx">
-      <DependentUpon>FormTutorJam.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ScreenSurvey\SurveyForm.resx">
       <DependentUpon>SurveyForm.cs</DependentUpon>

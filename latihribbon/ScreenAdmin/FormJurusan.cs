@@ -107,13 +107,13 @@ namespace latihribbon.ScreenAdmin
             var namaJurusan = txtNamaJurusan.Text.Trim();
             if(namaJurusan == string.Empty)
             {
-                mesBox.MesInfo("Nama Jurusan Wajib Diisi!");
+                new MesWarningOK("Nama Jurusan Wajib Diisi!").ShowDialog();
                 return;
             }
 
             if (txtIdJurusan.Text == string.Empty)
             {
-                if (!mesBox.MesKonfirmasi("Input Data?")) return;
+                if (new MesQuestionYN("Input Data?").ShowDialog() != DialogResult.Yes) return;
                 _jurusanDal.Insert(namaJurusan);
                 LoadData();
                 Cleardata();

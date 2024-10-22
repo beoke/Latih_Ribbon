@@ -89,7 +89,7 @@ namespace latihribbon.ScreenAdmin
 
         public void SaveData()
         {
-            if (jurusanCombo.Items.Count == 0) { mesBox.MesInfo("Data Jurusan Kosong!"); return; }
+            if (jurusanCombo.Items.Count == 0) { new MesWarningOK("Data Jurusan Kosong!").ShowDialog(); return; }
             var kelas = new KelasModel
             {
                 Id = txtIdKelas.Text == string.Empty ? 0 : Convert.ToInt32(txtIdKelas.Text),
@@ -101,13 +101,13 @@ namespace latihribbon.ScreenAdmin
 
             if(kelas.NamaKelas == "" || kelas.Tingkat == "")
             {
-                mesBox.MesInfo("Seluruh Data Wajib Diisi Kecuali ID !");
+                new MesWarningOK("Seluruh Data Wajib Diisi Kecuali ID !").ShowDialog();
                 return;
             }
 
             if(kelas.Id == 0)
             {
-                if (!mesBox.MesKonfirmasi("Input Data?")) return;
+                if (new MesQuestionYN("Input Data?").ShowDialog() != DialogResult.Yes) return;
                 kelasDal.Insert(kelas);
                 LoadData();
                 ClearData();
@@ -115,7 +115,7 @@ namespace latihribbon.ScreenAdmin
             }
             else
             {
-                if (!mesBox.MesKonfirmasi($"Update Data? \n Data Dengan Kelas {NamaKelasGlobal} dan semua yang berhubungan akan berubah menjadi {kelas.NamaKelas}")) return;
+                if (new MesWarningYN($"Update Data? \n Data Dengan Kelas {NamaKelasGlobal} dan semua yang berhubungan akan berubah menjadi {kelas.NamaKelas}").ShowDialog() != DialogResult.Yes) return;
                 kelasDal.Update(kelas);
                 LoadData();
             }
@@ -142,7 +142,7 @@ namespace latihribbon.ScreenAdmin
         {
             if(txtIdKelas.Text == string.Empty)
             { 
-                mesBox.MesInfo("Pilih Data Terlebih Dahulu!");
+                new MesInformasi("Pilih Data Terlebih Dahulu!").ShowDialog();
                 return;
             }
             if (MessageBox.Show($"Anda yakin ingin menghapus data \" {NamaKelasGlobal} \" ? \n Jika Dihapus, maka data yang terhubung akan ikut Terhapus", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes) return;

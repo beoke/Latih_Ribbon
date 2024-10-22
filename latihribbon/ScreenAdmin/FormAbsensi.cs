@@ -191,7 +191,7 @@ namespace latihribbon
 
             if (nis == "" || nama == "" || keterangan == "")
             {
-                mesBox.MesInfo("Seluruh Data Wajib Diisi!");
+                new MesWarningOK("Seluruh Data Wajib Diisi!").ShowDialog();
                 return;
             }
             var masuk = new AbsensiModel
@@ -207,10 +207,10 @@ namespace latihribbon
             {
                 if (dataCek != null)
                 {
-                    mesBox.MesInfo($"{nama} Sudah Absensi Pada " + tgl.ToString("dd/MM/yyyy"));
+                    new MesInformasi($"{nama} Sudah Absensi Pada " + tgl.ToString("dd/MM/yyyy")).ShowDialog();
                     return;
                 }
-                if (!mesBox.MesKonfirmasi("Input Data?")) return;
+                if (new MesQuestionYN("Input Data ? ").ShowDialog() != DialogResult.Yes) return;
                 absensiDal.Insert(masuk);
                 LoadData();
 
@@ -223,10 +223,10 @@ namespace latihribbon
                 var dataCek2 = absensiDal.GetByPerKas(" WHERE p.ID = @ID", new { ID=globalId });
                 if (dataCek2.Tanggal != tgl && dataCek != null) 
                 {
-                    mesBox.MesInfo($"{nama} Sudah Absensi Pada "+ tgl.ToString("dd/MM/yyyy"));
+                    new MesInformasi($"{nama} Sudah Absensi Pada " + tgl.ToString("dd/MM/yyyy"));
                     return;
                 }
-                if (!mesBox.MesKonfirmasi("Update Data?")) return;
+                if (new MesQuestionYN("Update Data ?").ShowDialog() != DialogResult.Yes) return;
                 absensiDal.Update(masuk);
                 LoadData();
             }
@@ -236,10 +236,10 @@ namespace latihribbon
         {
             if(globalId == 0)
             {
-                mesBox.MesInfo("Pilih Data Terlebih Dahulu!");
+                new MesWarningOK("Pilih Data Terlebih Dahulu!").ShowDialog();
                 return;
             }
-            if (mesBox.MesKonfirmasi("Hapus Data?"))
+            if (new MesWarningYN("Hapus Data?").ShowDialog() == DialogResult.Yes)
             {
                 absensiDal.Delete(globalId);
                 LoadData();

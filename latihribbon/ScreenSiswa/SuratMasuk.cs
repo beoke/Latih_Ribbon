@@ -97,11 +97,11 @@ namespace latihribbon
         {
             if (!Validasi())
             {
-                mesbox.MesInfo("Alasan Terlambat Wajib Diisi!");
+                new MesWarningOK("Alasan Terlambat Wajib Diisi!").ShowDialog();
                 return;
             }
 
-            if (!mesbox.MesKonfirmasi("Apakah data sudah benar ?")) return;
+            if (new MesQuestionYN("Apakah data sudah benar ?").ShowDialog() != DialogResult.Yes) return;
             if (Print()) Insert();
 
             System.Threading.Thread.Sleep(1000);
@@ -119,7 +119,7 @@ namespace latihribbon
 
                 if (!PrinterIsAvailable())
                 {
-                    MessageBox.Show("Printer tidak tersedia atau offline.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    new MesError("Printer tidak tersedia atau offline.").ShowDialog();
                     return false;
                 }
                 /*printPreviewDialogMasuk.Document = printDocumentMasuk;
@@ -130,7 +130,7 @@ namespace latihribbon
             catch (Exception ex)
             {
                 // Jika terjadi error saat proses print
-                MessageBox.Show($"Gagal Mencetak Surat: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                new MesError($"Gagal Mencetak Surat: {ex.Message}").ShowDialog();
                 return false;
             }
         }
@@ -271,7 +271,7 @@ namespace latihribbon
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Terjadi kesalahan saat mencetak: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                new MesError($"Terjadi kesalahan saat mencetak: {ex.Message}").ShowDialog();
             }
         }
 

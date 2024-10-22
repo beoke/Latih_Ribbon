@@ -177,7 +177,7 @@ namespace latihribbon
 
             if (nis == "" || nama == "" || alasan == "")
             {
-                mesBox.MesInfo("Seluruh Data Wajib Diisi!");
+                new MesWarningOK("Seluruh Data Wajib Diisi!").ShowDialog();
                 return;
             }
 
@@ -192,7 +192,7 @@ namespace latihribbon
 
             if (masuk.Id == 0)
             {
-                if (!mesBox.MesKonfirmasi("Input Data?")) return;
+                if (new MesQuestionYN("Input Data?").ShowDialog() != DialogResult.Yes) return;
                 masukDal.Insert(masuk);
                 LoadData();
                 globalId = 0;
@@ -201,7 +201,7 @@ namespace latihribbon
             }
             else
             {
-                if (!mesBox.MesKonfirmasi("Update Data?")) return;
+                if (new MesQuestionYN("Update Data?").ShowDialog() != DialogResult.Yes) return;
                 masukDal.Update(masuk);
                 LoadData();
             }
@@ -211,10 +211,10 @@ namespace latihribbon
         {
             if(globalId == 0)
             {
-                mesBox.MesInfo("Pilih Data Terlebih Dahulu!");
+                new MesWarningOK("Pilih Data Terlebih Dahulu!").ShowDialog();
                 return;
             }
-            if (!mesBox.MesKonfirmasi("Hapus Data?")) return;
+            if (new MesQuestionYN("Hapus Data?").ShowDialog() != DialogResult.Yes   ) return;
             masukDal.Delete(globalId);
             LoadData();
         }

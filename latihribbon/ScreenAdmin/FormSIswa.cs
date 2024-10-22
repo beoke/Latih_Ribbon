@@ -242,7 +242,7 @@ namespace latihribbon
 
             if (lblNisSudahAda.Visible == true)
             {
-                mesBox.MesInfo("Nis Sudah Ada!!");
+                new MesWarningOK("Nis sudah ada !").ShowDialog();
                 return;
             };
             bool cekRombel = rombel != string.Empty ? true : false;
@@ -696,7 +696,7 @@ namespace latihribbon
                 {
                     UpdateNaikKelas();
                     LoadData();
-                    mesBox.MesInfo("Proses kenaikan kelas berhasil ");
+                    new MesInformasi("Proses kenaikan kelas berhasil ").ShowDialog();
                 }
             }
         }

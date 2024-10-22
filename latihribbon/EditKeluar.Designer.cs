@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditKeluar));
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -48,7 +49,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.LabelNisAda = new System.Windows.Forms.Label();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -115,7 +115,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel5.BackColor = System.Drawing.Color.Gainsboro;
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel5.Controls.Add(this.LabelNisAda);
             this.panel5.Controls.Add(this.jamMasukDT);
             this.panel5.Controls.Add(this.label13);
             this.panel5.Controls.Add(this.lblInfo);
@@ -207,7 +206,9 @@
             // tglDT
             // 
             this.tglDT.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tglDT.CustomFormat = "dd MMMM yyyy";
             this.tglDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tglDT.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.tglDT.Location = new System.Drawing.Point(24, 249);
             this.tglDT.Margin = new System.Windows.Forms.Padding(4);
             this.tglDT.Name = "tglDT";
@@ -233,6 +234,7 @@
             this.txtNIS1.Location = new System.Drawing.Point(24, 66);
             this.txtNIS1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNIS1.Name = "txtNIS1";
+            this.txtNIS1.ReadOnly = true;
             this.txtNIS1.Size = new System.Drawing.Size(420, 27);
             this.txtNIS1.TabIndex = 17;
             // 
@@ -298,27 +300,15 @@
             this.label10.TabIndex = 19;
             this.label10.Text = "Kelas";
             // 
-            // LabelNisAda
-            // 
-            this.LabelNisAda.AutoSize = true;
-            this.LabelNisAda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelNisAda.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.LabelNisAda.Location = new System.Drawing.Point(333, 43);
-            this.LabelNisAda.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.LabelNisAda.Name = "LabelNisAda";
-            this.LabelNisAda.Size = new System.Drawing.Size(111, 18);
-            this.LabelNisAda.TabIndex = 31;
-            this.LabelNisAda.Text = "*Nis Sudah Ada";
-            this.LabelNisAda.Visible = false;
-            // 
             // EditKeluar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(524, 700);
             this.Controls.Add(this.panel4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EditKeluar";
-            this.Text = "EditKeluar";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.panel4.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
@@ -350,6 +340,5 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label LabelNisAda;
     }
 }

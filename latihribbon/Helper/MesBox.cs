@@ -9,10 +9,10 @@ namespace latihribbon.Helper
 {
     public class MesBox
     {
-        public void MesInfo(string text)
+       /* public void MesInfo(string text)
         {
             MessageBox.Show($"{text}","Warning",MessageBoxButtons.OK,MessageBoxIcon.Warning);
-        }
+        }*/
 
         public bool MesKonfirmasi(string text)
         {

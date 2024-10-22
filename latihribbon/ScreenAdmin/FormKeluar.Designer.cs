@@ -37,6 +37,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label14 = new System.Windows.Forms.Label();
+            this.comboPerPage = new System.Windows.Forms.ComboBox();
             this.lblHalaman = new System.Windows.Forms.Label();
             this.btnNext = new System.Windows.Forms.Button();
             this.btnPrevious = new System.Windows.Forms.Button();
@@ -44,8 +46,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.btnSave_FormSiswa = new System.Windows.Forms.Button();
-            this.btnDelete_FormSiswa = new System.Windows.Forms.Button();
-            this.btnNew = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.lblNisTidakDitemukan = new System.Windows.Forms.Label();
             this.jamMasukDT = new System.Windows.Forms.DateTimePicker();
@@ -65,8 +65,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.btnResetFilter = new System.Windows.Forms.Button();
             this.TextSearch = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.comboPerPage = new System.Windows.Forms.ComboBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -94,7 +92,6 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(917, 576);
             this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
             // tglsatu
             // 
@@ -177,6 +174,30 @@
             this.panel3.Size = new System.Drawing.Size(937, 654);
             this.panel3.TabIndex = 2;
             // 
+            // label14
+            // 
+            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(104, 603);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(55, 23);
+            this.label14.TabIndex = 53;
+            this.label14.Text = "/Page";
+            // 
+            // comboPerPage
+            // 
+            this.comboPerPage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.comboPerPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboPerPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboPerPage.FormattingEnabled = true;
+            this.comboPerPage.ItemHeight = 17;
+            this.comboPerPage.Location = new System.Drawing.Point(19, 603);
+            this.comboPerPage.Margin = new System.Windows.Forms.Padding(4);
+            this.comboPerPage.Name = "comboPerPage";
+            this.comboPerPage.Size = new System.Drawing.Size(80, 25);
+            this.comboPerPage.TabIndex = 52;
+            // 
             // lblHalaman
             // 
             this.lblHalaman.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
@@ -245,8 +266,6 @@
             this.panel6.BackColor = System.Drawing.Color.Gainsboro;
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel6.Controls.Add(this.btnSave_FormSiswa);
-            this.panel6.Controls.Add(this.btnDelete_FormSiswa);
-            this.panel6.Controls.Add(this.btnNew);
             this.panel6.Location = new System.Drawing.Point(5, 537);
             this.panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel6.Name = "panel6";
@@ -266,34 +285,6 @@
             this.btnSave_FormSiswa.Text = "Save";
             this.btnSave_FormSiswa.UseVisualStyleBackColor = false;
             this.btnSave_FormSiswa.Click += new System.EventHandler(this.btnSave_FormSiswa_Click);
-            // 
-            // btnDelete_FormSiswa
-            // 
-            this.btnDelete_FormSiswa.BackColor = System.Drawing.Color.Red;
-            this.btnDelete_FormSiswa.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete_FormSiswa.ForeColor = System.Drawing.Color.White;
-            this.btnDelete_FormSiswa.Location = new System.Drawing.Point(163, 27);
-            this.btnDelete_FormSiswa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnDelete_FormSiswa.Name = "btnDelete_FormSiswa";
-            this.btnDelete_FormSiswa.Size = new System.Drawing.Size(120, 39);
-            this.btnDelete_FormSiswa.TabIndex = 0;
-            this.btnDelete_FormSiswa.Text = "Delete";
-            this.btnDelete_FormSiswa.UseVisualStyleBackColor = false;
-            // 
-            // btnNew
-            // 
-            this.btnNew.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnNew.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnNew.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNew.ForeColor = System.Drawing.Color.DimGray;
-            this.btnNew.Location = new System.Drawing.Point(24, 27);
-            this.btnNew.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(120, 39);
-            this.btnNew.TabIndex = 23;
-            this.btnNew.Text = "New";
-            this.btnNew.UseVisualStyleBackColor = false;
-            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // panel5
             // 
@@ -406,7 +397,9 @@
             // tglDT
             // 
             this.tglDT.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tglDT.CustomFormat = "dd MMMM yyyy";
             this.tglDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tglDT.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.tglDT.Location = new System.Drawing.Point(24, 249);
             this.tglDT.Margin = new System.Windows.Forms.Padding(4);
             this.tglDT.Name = "tglDT";
@@ -521,30 +514,6 @@
             this.TextSearch.Size = new System.Drawing.Size(350, 24);
             this.TextSearch.TabIndex = 32;
             // 
-            // label14
-            // 
-            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(104, 603);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(55, 23);
-            this.label14.TabIndex = 53;
-            this.label14.Text = "/Page";
-            // 
-            // comboPerPage
-            // 
-            this.comboPerPage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.comboPerPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboPerPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboPerPage.FormattingEnabled = true;
-            this.comboPerPage.ItemHeight = 17;
-            this.comboPerPage.Location = new System.Drawing.Point(19, 603);
-            this.comboPerPage.Margin = new System.Windows.Forms.Padding(4);
-            this.comboPerPage.Name = "comboPerPage";
-            this.comboPerPage.Size = new System.Drawing.Size(80, 25);
-            this.comboPerPage.TabIndex = 52;
-            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -616,7 +585,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button btnSave_FormSiswa;
-        private System.Windows.Forms.Button btnDelete_FormSiswa;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.TextBox txtTujuan1;
         private System.Windows.Forms.TextBox txtNIS1;
@@ -626,7 +594,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.DateTimePicker tglDT;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;

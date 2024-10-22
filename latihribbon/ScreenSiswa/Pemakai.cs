@@ -60,7 +60,7 @@ namespace latihribbon
            
             if (!int.TryParse(tx_NIS.Text, out nis))
             {
-                mesBox.MesInfo("Harap masukkan angka yang valid untuk NIS!");
+                new MesWarningOK("Harap masukkan angka yang valid untuk NIS!").ShowDialog();
                 tx_NIS.Text = "";
                 return;
             }
@@ -69,7 +69,7 @@ namespace latihribbon
             var siswa = siswaDal.GetData(nis);
             if (siswa == null)
             {
-                MessageBox.Show("NIS tidak ditemukan.", "Data Not Found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                new MesWarningOK("NIS tidak ditemukan.").ShowDialog();
                 tx_NIS.Text = "";
             }
             else

@@ -64,9 +64,9 @@
             this.ClientSize = new System.Drawing.Size(441, 193);
             this.Controls.Add(this.PictureGif);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "PopUp";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Pesan";
             this.Load += new System.EventHandler(this.PuasPupUp_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PictureGif)).EndInit();
             this.ResumeLayout(false);
