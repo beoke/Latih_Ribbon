@@ -30,7 +30,6 @@ namespace latihribbon
         private readonly KelasDal kelasDal;
         private readonly MesBox mesBox;
         private bool SaveCondition = true;
-        //private FormLoading formLoading;
         private ToolTip toolTip;
 
 
@@ -62,6 +61,11 @@ namespace latihribbon
             new object[] { true });
         }
         private void Form1_Shown(object sender, EventArgs e)
+        {
+            SelectRow();
+        }
+
+        private void SelectRow()
         {
             if (dataGridView1.Rows.Count > 0)
             {
@@ -334,6 +338,7 @@ namespace latihribbon
                     Kelas = x.NamaKelas == null ? "Sudah Lulus" : x.NamaKelas,
                     Tahun = x.Tahun
                 }).ToList();
+            SelectRow();
         }
 
         #endregion
@@ -358,7 +363,7 @@ namespace latihribbon
             txtFilter.Enter += TxtFilter_Enter;
             txtFilter.Leave += TxtFilter_Leave;
             lblFilter.Click += LblFilter_Click;
-            this.Shown += Form1_Shown;
+            this.Shown += Form1_Shown; // focus awal load form
             dataGridView1.CellMouseClick += DataGridView1_CellMouseClick;
             EditMenuStrip.Click += EditMenuStrip_Click;
             DeleteMenuStrip.Click += DeleteMenuStrip_Click;
@@ -372,21 +377,14 @@ namespace latihribbon
 
             siswaDal.Delete(Convert.ToInt32(id));
             LoadData();
-
-
         }
 
         private void EditMenuStrip_Click(object sender, EventArgs e)
         {
             int Nis = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
-            EditSiswa edit = new EditSiswa(Nis);
-
-
-            if (edit.ShowDialog() == DialogResult.OK)
+            if (new EditSiswa(Nis).ShowDialog() == DialogResult.OK)
                 LoadData();
-            
         }
-
 
         private void DataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -418,31 +416,12 @@ namespace latihribbon
             LoadData();
         }
 
-        private void input_KeyPress(object sender,KeyPressEventArgs e)
-        {
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
-            {
-                e.Handled = true;
-            }
-        }
        
         private void btnSave_FormSiswa_Click(object sender, EventArgs e)
         {
             SaveData();
         }
 
-        private void txtNIS_FormSiswa_TextChanged(object sender, EventArgs e)
-        {
-            string nis = txtNIS_FormSiswa.Text;
-            if (nis.Length >= 5)
-                CekNis(Convert.ToInt32(nis));
-            else
-                lblNisSudahAda.Visible = false;
-        }
-        private void btnDelete_FormSiswa_Click(object sender, EventArgs e)
-        {
-            LoadData();
-        }
         private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
            // string nis = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
@@ -475,6 +454,21 @@ namespace latihribbon
             
             LoadData();
         }
+        private void input_KeyPress(object sender,KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+            }
+        }
+        private void txtNIS_FormSiswa_TextChanged(object sender, EventArgs e)
+        {
+            string nis = txtNIS_FormSiswa.Text;
+            if (nis.Length >= 5)
+                CekNis(Convert.ToInt32(nis));
+            else
+                lblNisSudahAda.Visible = false;
+        }
 
         private void radio_CheckedChange(object sender, EventArgs e)
         {
@@ -490,6 +484,8 @@ namespace latihribbon
         }
 
         #endregion
+
+        #region IMPORT DATA
         private void ButtonInputSIswa_Click(object sender, EventArgs e)
         {
             FormKetentuanImport ketentuan = new FormKetentuanImport();
@@ -689,7 +685,7 @@ namespace latihribbon
                 }
             }
         }
-
+        #endregion
         private void ButtonNaikKelas_Click(object sender, EventArgs e)
         {
             FormPopUpNaikKelas pop = new FormPopUpNaikKelas();
