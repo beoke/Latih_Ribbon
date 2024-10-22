@@ -77,6 +77,16 @@ namespace latihribbon
             //TextBox
             txtNIS1.MaxLength = 9;
             txtTujuan1.MaxLength = 60;
+
+
+            //ComboBox
+
+            comboPerPage.Items.Add(10);
+            comboPerPage.Items.Add(20);
+            comboPerPage.Items.Add(50);
+            comboPerPage.Items.Add(100);
+            comboPerPage.Items.Add(200);
+            comboPerPage.SelectedIndex = 0;
         }
 
         bool tglchange = false;
@@ -112,7 +122,7 @@ namespace latihribbon
             }
 
             string text = "Halaman ";
-            int RowPerPage = 15;
+            int RowPerPage = (int)comboPerPage.SelectedItem;
             int inRowPage = (Page - 1) * RowPerPage;
             var jumlahRow = keluarDal.CekRows(sqlc, dp);
             totalPage = (int)Math.Ceiling((double)jumlahRow / RowPerPage);
@@ -250,8 +260,22 @@ namespace latihribbon
             tglsatu.ValueChanged += filter_tglChanged;
             tgldua.ValueChanged += filter_tglChanged;
             btnDelete_FormSiswa.Click += BtnDelete_FormSiswa_Click;
+            comboPerPage.SelectedIndexChanged += ComboPerPage_SelectedIndexChanged;
+            dataGridView1.CellMouseClick += DataGridView1_CellMouseClick; ;
         }
 
+        private void DataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button )
+            
+        }
+
+
+        private void ComboPerPage_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadData();
+
+        }
 
         private void BtnDelete_FormSiswa_Click(object sender, EventArgs e)
         {

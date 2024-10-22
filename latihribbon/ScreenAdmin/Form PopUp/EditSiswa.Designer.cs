@@ -44,9 +44,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.perempuanRadio = new System.Windows.Forms.RadioButton();
             this.lakiRadio = new System.Windows.Forms.RadioButton();
-            this.XIIRadio = new System.Windows.Forms.RadioButton();
-            this.XIRadio = new System.Windows.Forms.RadioButton();
-            this.XRadio = new System.Windows.Forms.RadioButton();
             this.jurusanCombo = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -55,6 +52,9 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.XIRadio = new System.Windows.Forms.RadioButton();
+            this.XRadio = new System.Windows.Forms.RadioButton();
+            this.XIIRadio = new System.Windows.Forms.RadioButton();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -141,6 +141,9 @@
             // 
             this.panel5.BackColor = System.Drawing.Color.Gainsboro;
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel5.Controls.Add(this.XIIRadio);
+            this.panel5.Controls.Add(this.XRadio);
+            this.panel5.Controls.Add(this.XIRadio);
             this.panel5.Controls.Add(this.lblNisSudahAda);
             this.panel5.Controls.Add(this.btnSave_FormSiswa);
             this.panel5.Controls.Add(this.rombelCombo);
@@ -152,9 +155,6 @@
             this.panel5.Controls.Add(this.groupBox1);
             this.panel5.Controls.Add(this.txtPersensi_FormSiswa);
             this.panel5.Controls.Add(this.label11);
-            this.panel5.Controls.Add(this.XIIRadio);
-            this.panel5.Controls.Add(this.XIRadio);
-            this.panel5.Controls.Add(this.XRadio);
             this.panel5.Controls.Add(this.jurusanCombo);
             this.panel5.Controls.Add(this.label10);
             this.panel5.Controls.Add(this.label9);
@@ -216,7 +216,7 @@
             // 
             this.groupBox1.Controls.Add(this.perempuanRadio);
             this.groupBox1.Controls.Add(this.lakiRadio);
-            this.groupBox1.Location = new System.Drawing.Point(39, 329);
+            this.groupBox1.Location = new System.Drawing.Point(11, 270);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
@@ -249,45 +249,6 @@
             this.lakiRadio.TabStop = true;
             this.lakiRadio.Text = "Laki - Laki";
             this.lakiRadio.UseVisualStyleBackColor = true;
-            // 
-            // XIIRadio
-            // 
-            this.XIIRadio.AutoSize = true;
-            this.XIIRadio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.XIIRadio.Location = new System.Drawing.Point(257, 326);
-            this.XIIRadio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.XIIRadio.Name = "XIIRadio";
-            this.XIIRadio.Size = new System.Drawing.Size(49, 24);
-            this.XIIRadio.TabIndex = 2;
-            this.XIIRadio.TabStop = true;
-            this.XIIRadio.Text = "XII";
-            this.XIIRadio.UseVisualStyleBackColor = true;
-            // 
-            // XIRadio
-            // 
-            this.XIRadio.AutoSize = true;
-            this.XIRadio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.XIRadio.Location = new System.Drawing.Point(167, 326);
-            this.XIRadio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.XIRadio.Name = "XIRadio";
-            this.XIRadio.Size = new System.Drawing.Size(45, 24);
-            this.XIRadio.TabIndex = 1;
-            this.XIRadio.TabStop = true;
-            this.XIRadio.Text = "XI";
-            this.XIRadio.UseVisualStyleBackColor = true;
-            // 
-            // XRadio
-            // 
-            this.XRadio.AutoSize = true;
-            this.XRadio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.XRadio.Location = new System.Drawing.Point(76, 326);
-            this.XRadio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.XRadio.Name = "XRadio";
-            this.XRadio.Size = new System.Drawing.Size(41, 24);
-            this.XRadio.TabIndex = 0;
-            this.XRadio.TabStop = true;
-            this.XRadio.Text = "X";
-            this.XRadio.UseVisualStyleBackColor = true;
             // 
             // jurusanCombo
             // 
@@ -369,6 +330,45 @@
             this.panel4.Size = new System.Drawing.Size(495, 654);
             this.panel4.TabIndex = 4;
             // 
+            // XIRadio
+            // 
+            this.XIRadio.AutoSize = true;
+            this.XIRadio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.XIRadio.Location = new System.Drawing.Point(179, 331);
+            this.XIRadio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.XIRadio.Name = "XIRadio";
+            this.XIRadio.Size = new System.Drawing.Size(45, 24);
+            this.XIRadio.TabIndex = 67;
+            this.XIRadio.TabStop = true;
+            this.XIRadio.Text = "XI";
+            this.XIRadio.UseVisualStyleBackColor = true;
+            // 
+            // XRadio
+            // 
+            this.XRadio.AutoSize = true;
+            this.XRadio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.XRadio.Location = new System.Drawing.Point(66, 331);
+            this.XRadio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.XRadio.Name = "XRadio";
+            this.XRadio.Size = new System.Drawing.Size(41, 24);
+            this.XRadio.TabIndex = 68;
+            this.XRadio.TabStop = true;
+            this.XRadio.Text = "X";
+            this.XRadio.UseVisualStyleBackColor = true;
+            // 
+            // XIIRadio
+            // 
+            this.XIIRadio.AutoSize = true;
+            this.XIIRadio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.XIIRadio.Location = new System.Drawing.Point(307, 331);
+            this.XIIRadio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.XIIRadio.Name = "XIIRadio";
+            this.XIIRadio.Size = new System.Drawing.Size(49, 24);
+            this.XIIRadio.TabIndex = 69;
+            this.XIIRadio.TabStop = true;
+            this.XIIRadio.Text = "XII";
+            this.XIIRadio.UseVisualStyleBackColor = true;
+            // 
             // EditSiswa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -405,9 +405,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton perempuanRadio;
         private System.Windows.Forms.RadioButton lakiRadio;
-        private System.Windows.Forms.RadioButton XIIRadio;
-        private System.Windows.Forms.RadioButton XIRadio;
-        private System.Windows.Forms.RadioButton XRadio;
         private System.Windows.Forms.ComboBox jurusanCombo;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
@@ -417,5 +414,8 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label lblNisSudahAda;
+        private System.Windows.Forms.RadioButton XIIRadio;
+        private System.Windows.Forms.RadioButton XRadio;
+        private System.Windows.Forms.RadioButton XIRadio;
     }
 }

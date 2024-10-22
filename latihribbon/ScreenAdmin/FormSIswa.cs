@@ -422,12 +422,7 @@ namespace latihribbon
             SaveData();
         }
 
-        private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
-        {
-           // string nis = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
-            //GetData(Convert.ToInt32(nis));
-            // GetDataGrid(e);
-        }
+       
 
         private void btnNext_Click(object sender, EventArgs e)
         {

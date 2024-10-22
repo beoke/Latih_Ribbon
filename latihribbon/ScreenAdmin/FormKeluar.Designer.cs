@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tglsatu = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
@@ -64,6 +65,11 @@
             this.label10 = new System.Windows.Forms.Label();
             this.btnResetFilter = new System.Windows.Forms.Button();
             this.TextSearch = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.comboPerPage = new System.Windows.Forms.ComboBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -71,6 +77,7 @@
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -158,6 +165,8 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.BackColor = System.Drawing.Color.DarkGray;
+            this.panel3.Controls.Add(this.label14);
+            this.panel3.Controls.Add(this.comboPerPage);
             this.panel3.Controls.Add(this.lblHalaman);
             this.panel3.Controls.Add(this.btnNext);
             this.panel3.Controls.Add(this.btnPrevious);
@@ -184,7 +193,7 @@
             // 
             this.btnNext.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnNext.Location = new System.Drawing.Point(544, 601);
-            this.btnNext.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNext.Margin = new System.Windows.Forms.Padding(4);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(100, 28);
             this.btnNext.TabIndex = 24;
@@ -196,7 +205,7 @@
             // 
             this.btnPrevious.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnPrevious.Location = new System.Drawing.Point(280, 601);
-            this.btnPrevious.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPrevious.Margin = new System.Windows.Forms.Padding(4);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(100, 28);
             this.btnPrevious.TabIndex = 23;
@@ -334,7 +343,7 @@
             this.jamMasukDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.jamMasukDT.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.jamMasukDT.Location = new System.Drawing.Point(24, 373);
-            this.jamMasukDT.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.jamMasukDT.Margin = new System.Windows.Forms.Padding(4);
             this.jamMasukDT.Name = "jamMasukDT";
             this.jamMasukDT.ShowUpDown = true;
             this.jamMasukDT.Size = new System.Drawing.Size(399, 26);
@@ -368,7 +377,7 @@
             this.jamKeluarDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.jamKeluarDT.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.jamKeluarDT.Location = new System.Drawing.Point(24, 310);
-            this.jamKeluarDT.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.jamKeluarDT.Margin = new System.Windows.Forms.Padding(4);
             this.jamKeluarDT.Name = "jamKeluarDT";
             this.jamKeluarDT.ShowUpDown = true;
             this.jamKeluarDT.Size = new System.Drawing.Size(399, 26);
@@ -399,7 +408,7 @@
             this.tglDT.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tglDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tglDT.Location = new System.Drawing.Point(24, 249);
-            this.tglDT.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tglDT.Margin = new System.Windows.Forms.Padding(4);
             this.tglDT.Name = "tglDT";
             this.tglDT.Size = new System.Drawing.Size(399, 26);
             this.tglDT.TabIndex = 24;
@@ -493,7 +502,7 @@
             // btnResetFilter
             // 
             this.btnResetFilter.Location = new System.Drawing.Point(946, 29);
-            this.btnResetFilter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnResetFilter.Margin = new System.Windows.Forms.Padding(4);
             this.btnResetFilter.Name = "btnResetFilter";
             this.btnResetFilter.Size = new System.Drawing.Size(100, 28);
             this.btnResetFilter.TabIndex = 30;
@@ -511,6 +520,55 @@
             this.TextSearch.Name = "TextSearch";
             this.TextSearch.Size = new System.Drawing.Size(350, 24);
             this.TextSearch.TabIndex = 32;
+            // 
+            // label14
+            // 
+            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(104, 603);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(55, 23);
+            this.label14.TabIndex = 53;
+            this.label14.Text = "/Page";
+            // 
+            // comboPerPage
+            // 
+            this.comboPerPage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.comboPerPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboPerPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboPerPage.FormattingEnabled = true;
+            this.comboPerPage.ItemHeight = 17;
+            this.comboPerPage.Location = new System.Drawing.Point(19, 603);
+            this.comboPerPage.Margin = new System.Windows.Forms.Padding(4);
+            this.comboPerPage.Name = "comboPerPage";
+            this.comboPerPage.Size = new System.Drawing.Size(80, 25);
+            this.comboPerPage.TabIndex = 52;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editToolStripMenuItem,
+            this.deleteToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(141, 64);
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editToolStripMenuItem.Image = global::latihribbon.Properties.Resources.pencil;
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(140, 30);
+            this.editToolStripMenuItem.Text = "Edit";
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteToolStripMenuItem.Image = global::latihribbon.Properties.Resources.bin;
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(140, 30);
+            this.deleteToolStripMenuItem.Text = "Delete";
             // 
             // FormKeluar
             // 
@@ -538,6 +596,7 @@
             this.panel6.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -581,5 +640,10 @@
         private System.Windows.Forms.Button btnPrevious;
         private System.Windows.Forms.Button btnResetFilter;
         private System.Windows.Forms.TextBox TextSearch;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.ComboBox comboPerPage;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
     }
 }
