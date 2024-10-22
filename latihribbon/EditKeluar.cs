@@ -1,4 +1,5 @@
-﻿using System;
+﻿using latihribbon.Dal;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,14 @@ namespace latihribbon
 {
     public partial class EditKeluar : Form
     {
-        public EditKeluar()
+        private readonly KeluarDal _keluarDal;
+        public EditKeluar(int keluarId)
         {
+            _keluarDal = new KeluarDal();
             InitializeComponent();
+
+            LabelNisAda.Visible = false;
         }
+
     }
 }

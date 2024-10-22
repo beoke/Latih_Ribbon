@@ -33,7 +33,6 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.btnSave_FormSiswa = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.lblNisTidakDitemukan = new System.Windows.Forms.Label();
             this.jamMasukDT = new System.Windows.Forms.DateTimePicker();
             this.label13 = new System.Windows.Forms.Label();
             this.lblInfo = new System.Windows.Forms.Label();
@@ -49,6 +48,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.LabelNisAda = new System.Windows.Forms.Label();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -115,7 +115,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel5.BackColor = System.Drawing.Color.Gainsboro;
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel5.Controls.Add(this.lblNisTidakDitemukan);
+            this.panel5.Controls.Add(this.LabelNisAda);
             this.panel5.Controls.Add(this.jamMasukDT);
             this.panel5.Controls.Add(this.label13);
             this.panel5.Controls.Add(this.lblInfo);
@@ -136,19 +136,6 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(473, 546);
             this.panel5.TabIndex = 5;
-            // 
-            // lblNisTidakDitemukan
-            // 
-            this.lblNisTidakDitemukan.AutoSize = true;
-            this.lblNisTidakDitemukan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNisTidakDitemukan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.lblNisTidakDitemukan.Location = new System.Drawing.Point(293, 47);
-            this.lblNisTidakDitemukan.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblNisTidakDitemukan.Name = "lblNisTidakDitemukan";
-            this.lblNisTidakDitemukan.Size = new System.Drawing.Size(151, 18);
-            this.lblNisTidakDitemukan.TabIndex = 31;
-            this.lblNisTidakDitemukan.Text = "Nis Tidak Ditemukan!!";
-            this.lblNisTidakDitemukan.Visible = false;
             // 
             // jamMasukDT
             // 
@@ -180,9 +167,9 @@
             this.lblInfo.Location = new System.Drawing.Point(193, 11);
             this.lblInfo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Size = new System.Drawing.Size(90, 25);
+            this.lblInfo.Size = new System.Drawing.Size(99, 25);
             this.lblInfo.TabIndex = 28;
-            this.lblInfo.Text = "INSERT";
+            this.lblInfo.Text = "UPDATE";
             // 
             // jamKeluarDT
             // 
@@ -311,6 +298,19 @@
             this.label10.TabIndex = 19;
             this.label10.Text = "Kelas";
             // 
+            // LabelNisAda
+            // 
+            this.LabelNisAda.AutoSize = true;
+            this.LabelNisAda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelNisAda.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.LabelNisAda.Location = new System.Drawing.Point(333, 43);
+            this.LabelNisAda.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LabelNisAda.Name = "LabelNisAda";
+            this.LabelNisAda.Size = new System.Drawing.Size(111, 18);
+            this.LabelNisAda.TabIndex = 31;
+            this.LabelNisAda.Text = "*Nis Sudah Ada";
+            this.LabelNisAda.Visible = false;
+            // 
             // EditKeluar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -335,7 +335,6 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button btnSave_FormSiswa;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label lblNisTidakDitemukan;
         private System.Windows.Forms.DateTimePicker jamMasukDT;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label lblInfo;
@@ -351,5 +350,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label LabelNisAda;
     }
 }

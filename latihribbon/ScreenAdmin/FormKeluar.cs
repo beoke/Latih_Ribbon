@@ -14,6 +14,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Color = System.Drawing.Color;
+using Font = System.Drawing.Font;
 
 namespace latihribbon
 {
@@ -281,7 +283,8 @@ namespace latihribbon
 
         private void EditToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            EditKeluar keluar = new EditKeluar(globalId);
+            keluar.ShowDialog();
         }
 
         private void DataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
