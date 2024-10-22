@@ -221,6 +221,12 @@
     <Compile Include="Dal\MasukDal.cs" />
     <Compile Include="Dal\DbDal.cs" />
     <Compile Include="Dal\RiwayatLogin_UserDal.cs" />
+    <Compile Include="EditAbsensi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditAbsensi.Designer.cs">
+      <DependentUpon>EditAbsensi.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditKeluar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -434,6 +440,9 @@
     <Compile Include="Model\UserModel.cs" />
     <Compile Include="Dal\SetPrintDal.cs" />
     <Compile Include="ScreenSurvey\SurveyModel.cs" />
+    <EmbeddedResource Include="EditAbsensi.resx">
+      <DependentUpon>EditAbsensi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EditKeluar.resx">
       <DependentUpon>EditKeluar.cs</DependentUpon>
     </EmbeddedResource>

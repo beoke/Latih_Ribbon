@@ -37,8 +37,7 @@ namespace latihribbon
 
         private void btnNo_Click(object sender, EventArgs e)
         {
-            this.DialogResult= DialogResult.No;
-            this.Close ();
+            this.Close();
         }
     }
 }

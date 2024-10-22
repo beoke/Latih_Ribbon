@@ -255,18 +255,17 @@ namespace latihribbon
         private void DeleteMenuStrip_Click(object sender, EventArgs e)
         {
             if (new MesWarningYN("Hapus Data ?").ShowDialog() != DialogResult.Yes) return;
-
             var id = dataGridView1.CurrentRow.Cells[0].Value;
 
-            siswaDal.Delete(Convert.ToInt32(id));
+            masukDal.Delete(Convert.ToInt32(id));
             LoadData();
         }
         private void EditMenuStrip_Click(object sender, EventArgs e)
         {
-            int Nis = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
-            EditSiswa edit = new EditSiswa(Nis);
+            int Id = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+            EditTerlambat edit = new EditTerlambat(Id);
 
-            if (edit.ShowDialog() == DialogResult.OK)
+            if (edit.ShowDialog() == DialogResult.Yes)
                 LoadData();
         }
         private void DataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
