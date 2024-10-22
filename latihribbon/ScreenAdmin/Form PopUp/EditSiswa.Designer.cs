@@ -63,6 +63,7 @@
             // 
             // btnSave_FormSiswa
             // 
+            this.btnSave_FormSiswa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSave_FormSiswa.BackColor = System.Drawing.Color.LimeGreen;
             this.btnSave_FormSiswa.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave_FormSiswa.ForeColor = System.Drawing.Color.White;
@@ -86,6 +87,8 @@
             // 
             // txtNIS_FormSiswa
             // 
+            this.txtNIS_FormSiswa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNIS_FormSiswa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNIS_FormSiswa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNIS_FormSiswa.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -108,6 +111,8 @@
             // 
             // txtPersensi_FormSiswa
             // 
+            this.txtPersensi_FormSiswa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPersensi_FormSiswa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPersensi_FormSiswa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPersensi_FormSiswa.Location = new System.Drawing.Point(22, 117);
@@ -129,6 +134,9 @@
             // 
             // panel2
             // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.LightGray;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.panel5);
@@ -140,6 +148,9 @@
             // 
             // panel5
             // 
+            this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel5.BackColor = System.Drawing.Color.Gainsboro;
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel5.Controls.Add(this.XIIRadio);
@@ -210,6 +221,7 @@
             // 
             // lblNisSudahAda
             // 
+            this.lblNisSudahAda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNisSudahAda.AutoSize = true;
             this.lblNisSudahAda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNisSudahAda.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
@@ -222,6 +234,8 @@
             // 
             // rombelCombo
             // 
+            this.rombelCombo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.rombelCombo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rombelCombo.FormattingEnabled = true;
             this.rombelCombo.Location = new System.Drawing.Point(23, 418);
@@ -232,6 +246,8 @@
             // 
             // txtTahun_FormSiswa
             // 
+            this.txtTahun_FormSiswa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTahun_FormSiswa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTahun_FormSiswa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTahun_FormSiswa.Location = new System.Drawing.Point(22, 314);
@@ -291,6 +307,8 @@
             // 
             // jurusanCombo
             // 
+            this.jurusanCombo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.jurusanCombo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.jurusanCombo.FormattingEnabled = true;
             this.jurusanCombo.Location = new System.Drawing.Point(23, 365);
@@ -334,6 +352,8 @@
             // 
             // txtNama_FormSiswa
             // 
+            this.txtNama_FormSiswa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNama_FormSiswa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNama_FormSiswa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNama_FormSiswa.Location = new System.Drawing.Point(22, 167);
@@ -366,6 +386,9 @@
             // 
             // panel4
             // 
+            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel4.BackColor = System.Drawing.Color.DarkGray;
             this.panel4.Controls.Add(this.panel2);
             this.panel4.Location = new System.Drawing.Point(11, 11);
