@@ -20,6 +20,7 @@ namespace latihribbon
         private readonly SiswaDal _siswaDal;
         private readonly JurusanDal _jurusanDal;
         private readonly KelasDal _kelasDal;
+        private int Nis = 0;
 
         public EditSiswa(int Nis)
         {
@@ -30,6 +31,7 @@ namespace latihribbon
             InitializeComponent();
             this.MinimizeBox = false;
             this.MaximizeBox = false;
+            this.Nis = Nis;
             RegisterEvent();
 
             var jurusan = _jurusanDal.ListData();
@@ -37,14 +39,62 @@ namespace latihribbon
             jurusanCombo.DisplayMember = "NamaJurusan";
             jurusanCombo.ValueMember = "Id";
             
-
-
             GetDataSiswa(Nis);
         }
+        private void RegisterEvent()
+        {
+            btnSave_FormSiswa.Click += BtnSave_FormSiswa_Click;
+            txtNIS_FormSiswa.TextChanged += TxtNIS_FormSiswa_TextChanged;
 
+            XRadio.CheckedChanged += radio_CheckedChange;
+            XIRadio.CheckedChanged += radio_CheckedChange;
+            XIIRadio.CheckedChanged += radio_CheckedChange;
+            jurusanCombo.SelectedIndexChanged += radio_CheckedChange;
+
+            txtNIS_FormSiswa.KeyPress += input_KeyPress;
+            txtPersensi_FormSiswa.KeyPress += input_KeyPress;
+            txtTahun_FormSiswa.KeyPress += input_KeyPress;
+        }
+
+        private void TxtNIS_FormSiswa_TextChanged(object sender, EventArgs e)
+        {
+            string nis = txtNIS_FormSiswa.Text;
+            if (nis.Length >= 5)
+                CekNis(Convert.ToInt32(nis));
+            else
+                lblNisSudahAda.Visible = false;
+        }
+
+        private void input_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void radio_CheckedChange(object sender, EventArgs e)
+        {
+            string tingkat = XRadio.Checked ? "X" : XIRadio.Checked ? "XI" : XIIRadio.Checked ? "XII" : string.Empty;
+            string jurusan = ((JurusanModel)jurusanCombo.SelectedItem)?.Id.ToString() ?? string.Empty;
+            if (tingkat == string.Empty || jurusan == "")
+            {
+                rombelCombo.DataSource = null;
+                return;
+            }
+            var cari = _kelasDal.GetDataRombel(Convert.ToInt32(jurusan), tingkat);
+            rombelCombo.DataSource = cari.Select(item => item.Rombel).ToList();
+        }
+        public void CekNis(int nis)
+        {
+            var cekNis = _siswaDal.GetData(nis);
+            if (cekNis != null && nis != this.Nis)
+                lblNisSudahAda.Visible = true;
+            else
+                lblNisSudahAda.Visible = false;
+        }
         private void GetDataSiswa(int nis)
         {
-
             var get = _siswaDal.GetData(nis);
             if (get == null) return;
 
@@ -74,26 +124,15 @@ namespace latihribbon
             rombelCombo.ValueMember = "Id";
         }
                 
-        private void RegisterEvent()
-        {
-            btnSave_FormSiswa.Click += BtnSave_FormSiswa_Click;
-        }
 
         private void BtnSave_FormSiswa_Click(object sender, EventArgs e)
         {
-            if (new MesQuestionYN("Update data ?",1).ShowDialog() == DialogResult.Yes)
-            {
-                Update();
-                this.Close();
-                this.DialogResult = DialogResult.OK;
-            }    
+            Update();  
         }
 
         private void Update()
         {
-            
-
-            var jenisKelamin= string.Empty;
+            string jenisKelamin = string.Empty;
             if (lakiRadio.Checked == true) jenisKelamin = "L";
             if (perempuanRadio.Checked == true) jenisKelamin = "P";
 
@@ -108,16 +147,27 @@ namespace latihribbon
 
             var siswa = new SiswaModel
             {
-                Nis = Convert.ToInt32(txtNIS_FormSiswa.Text),
-                Persensi = Convert.ToInt32(txtPersensi_FormSiswa.Text),
+                Nis = txtNIS_FormSiswa.Text==""?0:Convert.ToInt32(txtNIS_FormSiswa.Text),
+                Persensi =txtPersensi_FormSiswa.Text == "" ? 0 : Convert.ToInt32(txtPersensi_FormSiswa.Text),
                 Nama = txtNama_FormSiswa.Text,
                 JenisKelamin = jenisKelamin,
                 IdKelas = IdKelas,
                 Tahun = txtTahun_FormSiswa.Text
-                
             };
-
+            if(siswa.Nis == 0 || siswa.Persensi == 0 || siswa.Nama == "" || siswa.Tahun == "")
+            {
+                new MesWarningOK("Seluruh Data Wajib Diisi!").ShowDialog();
+                return;
+            }
+            if(lblNisSudahAda.Visible == true)
+            {
+                new MesWarningOK("Nis Sudah Ada!").ShowDialog();
+                return;
+            }
+            if (new MesQuestionYN($"Update Data ?").ShowDialog() != DialogResult.Yes) return;
             _siswaDal.Update(siswa);
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
     }
 }

@@ -247,6 +247,36 @@ namespace latihribbon
             txtFilter.Leave += TxtFilter_Leave;
             lblFilter.Click += LblFilter_Click;
             this.Resize += FormTerlambat_Resize;
+
+            dataGridView1.CellMouseClick += DataGridView1_CellMouseClick;
+            EditMenuStrip.Click += EditMenuStrip_Click;
+            DeleteMenuStrip.Click += DeleteMenuStrip_Click;
+        }
+        private void DeleteMenuStrip_Click(object sender, EventArgs e)
+        {
+            if (new MesWarningYN("Hapus Data ?").ShowDialog() != DialogResult.Yes) return;
+
+            var id = dataGridView1.CurrentRow.Cells[0].Value;
+
+            siswaDal.Delete(Convert.ToInt32(id));
+            LoadData();
+        }
+        private void EditMenuStrip_Click(object sender, EventArgs e)
+        {
+            int Nis = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+            EditSiswa edit = new EditSiswa(Nis);
+
+            if (edit.ShowDialog() == DialogResult.OK)
+                LoadData();
+        }
+        private void DataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right && e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                dataGridView1.ClearSelection();
+                dataGridView1.CurrentCell = dataGridView1[e.ColumnIndex, e.RowIndex];
+                contextMenuStrip1.Show(Cursor.Position);
+            }
         }
         private void LblFilter_Click(object sender, EventArgs e)
         {
