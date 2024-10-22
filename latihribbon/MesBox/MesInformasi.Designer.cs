@@ -53,7 +53,7 @@
             this.btnYes.Location = new System.Drawing.Point(120, 15);
             this.btnYes.Name = "btnYes";
             this.btnYes.Size = new System.Drawing.Size(87, 27);
-            this.btnYes.TabIndex = 3;
+            this.btnYes.TabIndex = 0;
             this.btnYes.Text = "OK";
             this.btnYes.UseVisualStyleBackColor = true;
             this.btnYes.Click += new System.EventHandler(this.btnYes_Click);
