@@ -32,8 +32,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.btnSave_FormSiswa = new System.Windows.Forms.Button();
-            this.btnDelete_FormSiswa = new System.Windows.Forms.Button();
-            this.btnNew = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.lblNisTidakDitemukan = new System.Windows.Forms.Label();
             this.jamMasukDT = new System.Windows.Forms.DateTimePicker();
@@ -63,10 +61,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel4.BackColor = System.Drawing.Color.DarkGray;
             this.panel4.Controls.Add(this.panel2);
-            this.panel4.Location = new System.Drawing.Point(28, 12);
+            this.panel4.Location = new System.Drawing.Point(12, 12);
             this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(469, 675);
+            this.panel4.Size = new System.Drawing.Size(500, 675);
             this.panel4.TabIndex = 4;
             // 
             // panel2
@@ -81,7 +79,7 @@
             this.panel2.Location = new System.Drawing.Point(7, 7);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(455, 660);
+            this.panel2.Size = new System.Drawing.Size(486, 660);
             this.panel2.TabIndex = 4;
             // 
             // panel6
@@ -91,12 +89,10 @@
             this.panel6.BackColor = System.Drawing.Color.Gainsboro;
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel6.Controls.Add(this.btnSave_FormSiswa);
-            this.panel6.Controls.Add(this.btnDelete_FormSiswa);
-            this.panel6.Controls.Add(this.btnNew);
             this.panel6.Location = new System.Drawing.Point(5, 558);
             this.panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(442, 89);
+            this.panel6.Size = new System.Drawing.Size(473, 89);
             this.panel6.TabIndex = 6;
             // 
             // btnSave_FormSiswa
@@ -104,40 +100,13 @@
             this.btnSave_FormSiswa.BackColor = System.Drawing.Color.LimeGreen;
             this.btnSave_FormSiswa.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave_FormSiswa.ForeColor = System.Drawing.Color.White;
-            this.btnSave_FormSiswa.Location = new System.Drawing.Point(301, 27);
+            this.btnSave_FormSiswa.Location = new System.Drawing.Point(324, 24);
             this.btnSave_FormSiswa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSave_FormSiswa.Name = "btnSave_FormSiswa";
             this.btnSave_FormSiswa.Size = new System.Drawing.Size(120, 39);
             this.btnSave_FormSiswa.TabIndex = 1;
             this.btnSave_FormSiswa.Text = "Save";
             this.btnSave_FormSiswa.UseVisualStyleBackColor = false;
-            // 
-            // btnDelete_FormSiswa
-            // 
-            this.btnDelete_FormSiswa.BackColor = System.Drawing.Color.Red;
-            this.btnDelete_FormSiswa.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete_FormSiswa.ForeColor = System.Drawing.Color.White;
-            this.btnDelete_FormSiswa.Location = new System.Drawing.Point(163, 27);
-            this.btnDelete_FormSiswa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnDelete_FormSiswa.Name = "btnDelete_FormSiswa";
-            this.btnDelete_FormSiswa.Size = new System.Drawing.Size(120, 39);
-            this.btnDelete_FormSiswa.TabIndex = 0;
-            this.btnDelete_FormSiswa.Text = "Delete";
-            this.btnDelete_FormSiswa.UseVisualStyleBackColor = false;
-            // 
-            // btnNew
-            // 
-            this.btnNew.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnNew.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnNew.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNew.ForeColor = System.Drawing.Color.DimGray;
-            this.btnNew.Location = new System.Drawing.Point(24, 27);
-            this.btnNew.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(120, 39);
-            this.btnNew.TabIndex = 23;
-            this.btnNew.Text = "New";
-            this.btnNew.UseVisualStyleBackColor = false;
             // 
             // panel5
             // 
@@ -165,7 +134,7 @@
             this.panel5.Location = new System.Drawing.Point(5, 7);
             this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(442, 546);
+            this.panel5.Size = new System.Drawing.Size(473, 546);
             this.panel5.TabIndex = 5;
             // 
             // lblNisTidakDitemukan
@@ -173,7 +142,7 @@
             this.lblNisTidakDitemukan.AutoSize = true;
             this.lblNisTidakDitemukan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNisTidakDitemukan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.lblNisTidakDitemukan.Location = new System.Drawing.Point(255, 46);
+            this.lblNisTidakDitemukan.Location = new System.Drawing.Point(293, 47);
             this.lblNisTidakDitemukan.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNisTidakDitemukan.Name = "lblNisTidakDitemukan";
             this.lblNisTidakDitemukan.Size = new System.Drawing.Size(151, 18);
@@ -191,7 +160,7 @@
             this.jamMasukDT.Margin = new System.Windows.Forms.Padding(4);
             this.jamMasukDT.Name = "jamMasukDT";
             this.jamMasukDT.ShowUpDown = true;
-            this.jamMasukDT.Size = new System.Drawing.Size(399, 26);
+            this.jamMasukDT.Size = new System.Drawing.Size(420, 26);
             this.jamMasukDT.TabIndex = 30;
             // 
             // label13
@@ -208,7 +177,7 @@
             // 
             this.lblInfo.AutoSize = true;
             this.lblInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInfo.Location = new System.Drawing.Point(173, 14);
+            this.lblInfo.Location = new System.Drawing.Point(193, 11);
             this.lblInfo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblInfo.Name = "lblInfo";
             this.lblInfo.Size = new System.Drawing.Size(90, 25);
@@ -225,7 +194,7 @@
             this.jamKeluarDT.Margin = new System.Windows.Forms.Padding(4);
             this.jamKeluarDT.Name = "jamKeluarDT";
             this.jamKeluarDT.ShowUpDown = true;
-            this.jamKeluarDT.Size = new System.Drawing.Size(399, 26);
+            this.jamKeluarDT.Size = new System.Drawing.Size(420, 26);
             this.jamKeluarDT.TabIndex = 27;
             // 
             // label12
@@ -255,7 +224,7 @@
             this.tglDT.Location = new System.Drawing.Point(24, 249);
             this.tglDT.Margin = new System.Windows.Forms.Padding(4);
             this.tglDT.Name = "tglDT";
-            this.tglDT.Size = new System.Drawing.Size(399, 26);
+            this.tglDT.Size = new System.Drawing.Size(420, 26);
             this.tglDT.TabIndex = 24;
             // 
             // txtTujuan1
@@ -266,7 +235,7 @@
             this.txtTujuan1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTujuan1.Multiline = true;
             this.txtTujuan1.Name = "txtTujuan1";
-            this.txtTujuan1.Size = new System.Drawing.Size(399, 98);
+            this.txtTujuan1.Size = new System.Drawing.Size(420, 98);
             this.txtTujuan1.TabIndex = 22;
             // 
             // txtNIS1
@@ -277,7 +246,7 @@
             this.txtNIS1.Location = new System.Drawing.Point(24, 66);
             this.txtNIS1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNIS1.Name = "txtNIS1";
-            this.txtNIS1.Size = new System.Drawing.Size(399, 27);
+            this.txtNIS1.Size = new System.Drawing.Size(420, 27);
             this.txtNIS1.TabIndex = 17;
             // 
             // label8
@@ -298,7 +267,7 @@
             this.txtNama1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNama1.Name = "txtNama1";
             this.txtNama1.ReadOnly = true;
-            this.txtNama1.Size = new System.Drawing.Size(399, 27);
+            this.txtNama1.Size = new System.Drawing.Size(420, 27);
             this.txtNama1.TabIndex = 18;
             // 
             // txtKelas1
@@ -309,7 +278,7 @@
             this.txtKelas1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtKelas1.Name = "txtKelas1";
             this.txtKelas1.ReadOnly = true;
-            this.txtKelas1.Size = new System.Drawing.Size(399, 27);
+            this.txtKelas1.Size = new System.Drawing.Size(420, 27);
             this.txtKelas1.TabIndex = 20;
             // 
             // label7
@@ -365,8 +334,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button btnSave_FormSiswa;
-        private System.Windows.Forms.Button btnDelete_FormSiswa;
-        private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label lblNisTidakDitemukan;
         private System.Windows.Forms.DateTimePicker jamMasukDT;
