@@ -21,6 +21,9 @@ namespace latihribbon
         {
             InitializeComponent();
             masukDal = new MasukDal();
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             globalId = Id;
             GetData(Id);
             RegisterEvent();

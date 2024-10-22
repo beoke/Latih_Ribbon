@@ -29,8 +29,9 @@ namespace latihribbon
             _kelasDal = new KelasDal();
 
             InitializeComponent();
-            this.MinimizeBox = false;
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.Nis = Nis;
             RegisterEvent();
 

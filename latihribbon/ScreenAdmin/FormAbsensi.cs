@@ -202,28 +202,28 @@ namespace latihribbon
                 Keterangan = keterangan
             };
 
-            var dataCek = absensiDal.GetByPerKas(" WHERE p.NIS=@NIS AND p.Tanggal = @Tanggal", new { NIS = masuk.Nis, Tanggal = masuk.Tanggal });
+            var dataCek = absensiDal.GetByCondition(" WHERE p.NIS=@NIS AND p.Tanggal = @Tanggal", new { NIS = masuk.Nis, Tanggal = masuk.Tanggal });
             if (masuk.Id == 0)
             {
                 if (dataCek != null)
                 {
-                    new MesInformasi($"{nama} Sudah Absensi Pada " + tgl.ToString("dd/MM/yyyy")).ShowDialog();
+                    new MesWarningOK($"{nama} Sudah Absensi Pada " + tgl.ToString("dd/MM/yyyy")).ShowDialog();
                     return;
                 }
                 if (new MesQuestionYN("Input Data ? ").ShowDialog() != DialogResult.Yes) return;
                 absensiDal.Insert(masuk);
                 LoadData();
-
+                  
                 ClearInput();
                 globalId = 0;
                 ControlInsertUpdate();
             }
             else
             {
-                var dataCek2 = absensiDal.GetByPerKas(" WHERE p.ID = @ID", new { ID=globalId });
+                var dataCek2 = absensiDal.GetByCondition(" WHERE p.ID = @ID", new { ID=globalId });
                 if (dataCek2.Tanggal != tgl && dataCek != null) 
                 {
-                    new MesInformasi($"{nama} Sudah Absensi Pada " + tgl.ToString("dd/MM/yyyy"));
+                    new MesWarningOK($"{nama} Sudah Absensi Pada " + tgl.ToString("dd/MM/yyyy"));
                     return;
                 }
                 if (new MesQuestionYN("Update Data ?").ShowDialog() != DialogResult.Yes) return;
@@ -280,8 +280,6 @@ namespace latihribbon
                 txtNIS1.ReadOnly = true;
             }
         }
-
-
         #region EVENT
 
         private void RegisterEvent()
@@ -301,7 +299,19 @@ namespace latihribbon
             dataGridView1.CellMouseClick += DataGridView1_CellMouseClick;
             EditMenuStrip.Click += EditMenuStrip_Click;
             DeleteMenuStrip.Click += DeleteMenuStrip_Click;
+
+            txtNIS1.KeyPress += Input_KeyPress;
+            txtPersensi1.KeyPress += Input_KeyPress;
         }
+
+        private void Input_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+            }
+        }
+
         private void DeleteMenuStrip_Click(object sender, EventArgs e)
         {
             if (new MesWarningYN("Hapus Data ?").ShowDialog() != DialogResult.Yes) return;

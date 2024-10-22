@@ -99,14 +99,13 @@ namespace latihribbon.Dal
             }
          }
 
-        public AbsensiModel GetByPerKas(string condition,object dp)
+        public AbsensiModel GetByCondition(string condition,object dp)
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
             {
-                string sql = $@"SELECT p.ID,p.NIS,s.Nama,s.Persensi,k.NamaKelas,p.Tanggal,p.Keterangan
+                string sql = $@"SELECT p.ID,p.NIS,s.Nama,s.Persensi,p.Tanggal,p.Keterangan
                                      FROM siswa s 
-                                     INNER JOIN Persensi p ON s.Nis = p.NIS
-                                     INNER JOIN Kelas k ON s.IdKelas = k.Id {condition}";
+                                     INNER JOIN Persensi p ON s.Nis = p.NIS {condition}";
                 return koneksi.QueryFirstOrDefault<AbsensiModel>(sql, dp);
             }
         }

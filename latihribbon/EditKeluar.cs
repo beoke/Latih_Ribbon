@@ -22,7 +22,9 @@ namespace latihribbon
         {
             _keluarDal = new KeluarDal();
             InitializeComponent();
-
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             GetData(keluarId);
 
             btnSave_FormSiswa.Click += BtnSave_FormSiswa_Click;

@@ -338,7 +338,7 @@ namespace latihribbon
                     Kelas = x.NamaKelas == null ? "Sudah Lulus" : x.NamaKelas,
                     Tahun = x.Tahun
                 }).ToList();
-            SelectRow();
+            
         }
 
         #endregion
