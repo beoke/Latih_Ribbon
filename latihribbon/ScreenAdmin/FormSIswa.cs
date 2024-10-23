@@ -29,7 +29,6 @@ namespace latihribbon
         private readonly JurusanDal jurusanDal;
         private readonly KelasDal kelasDal;
         private readonly MesBox mesBox;
-        private bool SaveCondition = true;
         private ToolTip toolTip;
 
 
@@ -62,7 +61,7 @@ namespace latihribbon
         }
         private void Form1_Shown(object sender, EventArgs e)
         {
-            SelectRow();
+           SelectRow();
         }
 
         private void SelectRow()
@@ -136,87 +135,6 @@ namespace latihribbon
             dataGridView1.Columns[5].Width = 100;
         }
 
-        public void ControlInsertUpdate()
-        {
-            if (SaveCondition)
-            {
-                lblInfo.Text = "INSERT";
-                txtNIS_FormSiswa.ReadOnly = false;
-            }
-            else
-            {
-                lblInfo.Text = "UPDATE";
-                txtNIS_FormSiswa.ReadOnly = true;
-                lblNisSudahAda.Visible = false;
-            }
-        }
-        public void GetDataGrid(DataGridViewCellEventArgs e)
-        {
-            var data = dataGridView1.Rows[e.RowIndex];
-            int nis = Convert.ToInt32(data.Cells[0].Value);
-            int persensi = Convert.ToInt32(data.Cells[1].Value);
-            string nama = data.Cells[2].Value.ToString();
-            string jenisKelamin = data.Cells[3].Value.ToString();
-            string[] namaKelas = (data.Cells[4].Value.ToString()).Split(' ');
-            string tahun = data.Cells[5].Value.ToString();
-
-            txtNIS_FormSiswa.Text = nis.ToString();
-            txtNama_FormSiswa.Text = nama;
-            txtPersensi_FormSiswa.Text = persensi.ToString();
-            txtTahun_FormSiswa.Text = tahun;
-            lakiRadio.Checked = jenisKelamin == "L";
-            perempuanRadio.Checked = jenisKelamin != "L";
-            XRadio.Checked = namaKelas[0] == "X";
-            XIRadio.Checked = namaKelas[0] == "XI";
-            XIIRadio.Checked = namaKelas[0] == "XII";
-            foreach (var item in jurusanCombo.Items)
-                if (item is JurusanModel j)
-                    if (j.NamaJurusan == namaKelas[1])
-                        jurusanCombo.SelectedItem = j;
-            rombelCombo.DataSource = kelasDal.GetDataRombel((int)jurusanCombo.SelectedValue, namaKelas[0])
-                .Select(x => x.Rombel).ToList();
-            SaveCondition = false;
-            ControlInsertUpdate();
-            if (namaKelas.Length < 3) return;
-            foreach (var x in rombelCombo.Items)
-                if((string)x == namaKelas[2])
-                    rombelCombo.SelectedItem = x;
-        }
-        public void GetData(int nis)
-        {
-            var getSiswa = siswaDal.GetData(nis);
-            if (getSiswa is null) return;
-            var dataKelas = kelasDal.GetData(getSiswa.IdKelas);
-            if (dataKelas is null) return;
-
-            txtNIS_FormSiswa.Text = getSiswa.Nis.ToString();
-            txtPersensi_FormSiswa.Text = getSiswa.Persensi.ToString();
-            txtNama_FormSiswa.Text = getSiswa.Nama;
-
-            txtTahun_FormSiswa.Text = getSiswa.Tahun;
-            if (getSiswa.JenisKelamin == "L")
-                lakiRadio.Checked = true;
-            else
-                perempuanRadio.Checked = true;
-            if (dataKelas.Rombel == "X")
-                XRadio.Checked = true;
-            else if (dataKelas.Rombel == "XI")
-                XIRadio.Checked = true;
-            else
-                XIIRadio.Checked = true;
-            foreach (var item in jurusanCombo.Items)
-                if (item is JurusanModel j)
-                    if (j.NamaJurusan == dataKelas.NamaJurusan)
-                        jurusanCombo.SelectedItem = j;
-            rombelCombo.DataSource = kelasDal.GetDataRombel(dataKelas.IdJurusan,dataKelas.Tingkat)
-                                        .Select(item => item.Rombel).ToList();
-            foreach (var item in rombelCombo.Items)
-                if ((string)item == dataKelas.Rombel)
-                    rombelCombo.SelectedItem = item;
-            SaveCondition = false;
-            ControlInsertUpdate();
-        }
-
         public void SaveData()
         {
             string nis, persensi, nama, jenisKelamin = string.Empty, tingkat = string.Empty, rombel, tahun;
@@ -247,7 +165,6 @@ namespace latihribbon
             };
             bool cekRombel = rombel != string.Empty ? true : false;
             int idKelas = kelasDal.GetDataRombel(idJurusan, tingkat).FirstOrDefault(x => cekRombel ? x.Rombel == rombel : true)?.Id ?? 0;
-            if (idKelas == 0) return;
             var siswa = new SiswaModel
             {
                 Nis = int.Parse(nis),
@@ -257,21 +174,14 @@ namespace latihribbon
                 IdKelas = idKelas,
                 Tahun = tahun,
             };
-
-
-            if (SaveCondition)
-            {
-                if (new MesQuestionYN("Input Data?",1).ShowDialog() != DialogResult.Yes) return;
-                siswaDal.Insert(siswa);
-                LoadData();
-                Clear();
-            }
+            if (new MesQuestionYN("Input Data?", 1).ShowDialog() != DialogResult.Yes) return;
+            siswaDal.Insert(siswa);
+            LoadData();
+            Clear();
         }
 
         private void Clear()
         {
-            SaveCondition = true;
-            ControlInsertUpdate();
             txtNIS_FormSiswa.Clear();
             txtNama_FormSiswa.Clear();
             txtPersensi_FormSiswa.Clear();
@@ -287,7 +197,6 @@ namespace latihribbon
             if (jurusanCombo.Items.Count == 0) return;  
             jurusanCombo.SelectedIndex = 0;
         }
-    
 
         public void CekNis(int nis)
         {
@@ -338,7 +247,6 @@ namespace latihribbon
                     Kelas = x.NamaKelas == null ? "Sudah Lulus" : x.NamaKelas,
                     Tahun = x.Tahun
                 }).ToList();
-            
         }
 
         #endregion
@@ -354,8 +262,10 @@ namespace latihribbon
             txtPersensi_FormSiswa.KeyPress += input_KeyPress;
             txtTahun_FormSiswa.KeyPress += input_KeyPress;
 
+            btnSave_FormSiswa.Click += BtnSave_FormSiswa_Click;
             btnResetFilter.Click += BtnResetFilter_Click;
-
+            btnNext.Click += btnNext_Click;
+            btnPrevious.Click += btnPrevious_Click;
             XRadio.CheckedChanged += radio_CheckedChange;
             XIRadio.CheckedChanged += radio_CheckedChange;
             XIIRadio.CheckedChanged += radio_CheckedChange;
@@ -369,9 +279,14 @@ namespace latihribbon
             DeleteMenuStrip.Click += DeleteMenuStrip_Click;
         }
 
+        private void BtnSave_FormSiswa_Click(object sender, EventArgs e)
+        {
+            SaveData();
+        }
+
         private void DeleteMenuStrip_Click(object sender, EventArgs e)
         {
-            if (new MesWarningYN("Hapus Data ?").ShowDialog() != DialogResult.Yes) return;
+            if (new MesWarningYN("Hapus Data?\nJika Dihapus Maka Data Yang Terhubung Akan Ikut Terhapus!",2).ShowDialog() != DialogResult.Yes) return;
 
             var id = dataGridView1.CurrentRow.Cells[0].Value;
 
@@ -415,15 +330,7 @@ namespace latihribbon
         {
             Page = 1;
             LoadData();
-        }
-
-       
-        private void btnSave_FormSiswa_Click(object sender, EventArgs e)
-        {
-            SaveData();
-        }
-
-       
+        }       
 
         private void btnNext_Click(object sender, EventArgs e)
         {
@@ -737,16 +644,8 @@ namespace latihribbon
                                 -- Langkah 3: Adding ' (Lulus)' to existing kelas XII
                                 -- Pastikan bahwa ini sudah dilakukan pada langkah 1
                             ";
-
-
-
-
-
                 Conn.Execute(sqlKenaikanKelas);
-             
             }
         }
-
-      
     }
 }

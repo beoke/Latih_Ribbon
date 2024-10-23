@@ -165,7 +165,7 @@ namespace latihribbon
                 new MesWarningOK("Nis Sudah Ada!").ShowDialog();
                 return;
             }
-            if (new MesQuestionYN($"Update Data ?").ShowDialog() != DialogResult.Yes) return;
+            if (new MesWarningYN($"Update Data?\nJika di Update, Maka Data Yang Terhubung Akan Ikut Terupdate!",2).ShowDialog() != DialogResult.Yes) return;
             _siswaDal.Update(siswa);
             this.DialogResult = DialogResult.OK;
             this.Close();

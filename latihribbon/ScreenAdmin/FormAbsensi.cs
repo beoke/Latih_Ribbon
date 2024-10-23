@@ -24,7 +24,6 @@ namespace latihribbon
         private readonly HistoryDal historyDal;
         private readonly KelasDal kelasDal;
         private MesBox mesBox = new MesBox();
-        private int globalId = 0;
         private bool InternalTextChange = true;
         public FormAbsensi()
         {
@@ -87,7 +86,7 @@ namespace latihribbon
         public void LoadData()
         {
             string search = txtSearch.Text;
-            string keterangan = KeteranganCombo.SelectedItem.ToString() ?? string.Empty;
+            string keterangan = KeteranganCombo?.SelectedItem.ToString() ?? string.Empty;
             DateTime tgl1 = tglsatu.Value.Date;
             DateTime tgl2 = tgldua.Value.Date;
 
@@ -99,17 +98,18 @@ namespace latihribbon
             if (search != "")
             {
                 dp.Add("@Search", search);
-                fltr.Add("p.NIS LIKE @Search='%' OR s.Nama LIKE '%'+@Search+'%' OR s.Persensi LIKE @Search+'%' OR kls.Kelas LIKE @Search+'%'");
+                fltr.Add("p.NIS LIKE @Search+'%' OR s.Nama LIKE '%'+@Search+'%' OR s.Persensi LIKE @Search+'%' OR k.NamaKelas LIKE @Search+'%'");
             }
-            if(KeteranganCombo.SelectedIndex != 0)
+            if(keterangan != "Semua")
             {
-                dp.Add("@Keterangan");
+                dp.Add("@Keterangan",keterangan);
                 fltr.Add("p.Keterangan LIKE @Keterangan+'%'");
             }
             if (tglchange)
             {
                 dp.Add("@tgl1", tgl1);
                 dp.Add("@tgl2", tgl2);
+                fltr.Add("p.Tanggal BETWEEN @tgl1 AND @tgl2");
             }
             if (fltr.Count > 0)
                 sqlc += " WHERE " + string.Join(" AND ", fltr);
@@ -126,21 +126,6 @@ namespace latihribbon
             dp.Add("@Offset", inRowPage);
             dp.Add("@Fetch", RowPerPage);
             dataGridView1.DataSource = absensiDal.ListData(sqlc, dp);
-        }
-
-        private void GetData()
-        {
-            var Id = dataGridView1.CurrentRow.Cells["Id"].Value?.ToString() ?? string.Empty;
-            globalId = Id == string.Empty ? 0 : int.Parse(Id);
-            var data = absensiDal.GetData(Convert.ToInt32(Id));
-            if (data == null) return;
-            txtNIS1.Text = data.Nis.ToString();
-            txtNama1.Text = data.Nama;
-            txtKelas1.Text = data.NamaKelas;
-            tglDT.Value = data.Tanggal;
-            if(data.Keterangan == "I") Izinradio.Checked = true;
-            if(data.Keterangan == "S") sakitRadio.Checked = true;
-            if(data.Keterangan == "A") alphaRadio.Checked = true;
         }
 
         private void ClearInput()
@@ -176,6 +161,7 @@ namespace latihribbon
             persensi = txtPersensi1.Text;
             kelas = txtKelas1.Text;
             tgl = tglDT.Value;
+
             if (Izinradio.Checked) keterangan = "I";
             if (sakitRadio.Checked) keterangan = "S";
             if (alphaRadio.Checked) keterangan = "A";
@@ -187,56 +173,21 @@ namespace latihribbon
             }
             var masuk = new AbsensiModel
             {
-                Id = globalId,
                 Nis = Convert.ToInt32(nis),
                 Tanggal = tgl,
                 Keterangan = keterangan
             };
 
             var dataCek = absensiDal.GetByCondition(" WHERE p.NIS=@NIS AND p.Tanggal = @Tanggal", new { NIS = masuk.Nis, Tanggal = masuk.Tanggal });
-            if (masuk.Id == 0)
+            if (dataCek != null)
             {
-                if (dataCek != null)
-                {
-                    new MesWarningOK($"{nama} Sudah Absensi Pada " + tgl.ToString("dd/MM/yyyy")).ShowDialog();
-                    return;
-                }
-                if (new MesQuestionYN("Input Data ? ").ShowDialog() != DialogResult.Yes) return;
-                absensiDal.Insert(masuk);
-                LoadData();
-                  
-                ClearInput();
-                globalId = 0;
-                ControlInsertUpdate();
-            }
-            else
-            {
-                var dataCek2 = absensiDal.GetByCondition(" WHERE p.ID = @ID", new { ID=globalId });
-                if (dataCek2.Tanggal != tgl && dataCek != null) 
-                {
-                    new MesWarningOK($"{nama} Sudah Absensi Pada " + tgl.ToString("dd/MM/yyyy"));
-                    return;
-                }
-                if (new MesQuestionYN("Update Data ?").ShowDialog() != DialogResult.Yes) return;
-                absensiDal.Update(masuk);
-                LoadData();
-            }
-        }
-
-        private void Delete()
-        {
-            if(globalId == 0)
-            {
-                new MesWarningOK("Pilih Data Terlebih Dahulu!").ShowDialog();
+                new MesWarningOK($"{nama} Sudah Absensi Pada " + tgl.ToString("dd/MM/yyyy")).ShowDialog();
                 return;
             }
-            if (new MesWarningYN("Hapus Data?").ShowDialog() == DialogResult.Yes)
-            {
-                absensiDal.Delete(globalId);
-                LoadData();
-                ClearInput();
-                globalId = 0;
-            }
+            if (new MesQuestionYN("Input Data ? ").ShowDialog() != DialogResult.Yes) return;
+            absensiDal.Insert(masuk);
+            LoadData();
+            ClearInput();
         }
 
         private void CekNis()
@@ -255,20 +206,6 @@ namespace latihribbon
                 txtNama1.Text = siswa.Nama;
                 txtKelas1.Text = siswa.NamaKelas;
                 txtPersensi1.Text = siswa.Persensi.ToString() ?? string.Empty;
-            }
-        }
-
-        private void ControlInsertUpdate()
-        {
-            if(globalId == 0)
-            {
-                lblInfo.Text = "INSERT";
-                txtNIS1.ReadOnly = false;
-            }
-            else
-            {
-                lblInfo.Text = "UPDATE";
-                txtNIS1.ReadOnly = true;
             }
         }
         #region EVENT
@@ -291,7 +228,25 @@ namespace latihribbon
             txtNIS1.KeyPress += Input_KeyPress;
             txtPersensi1.KeyPress += Input_KeyPress;
 
+            txtSearch.Enter += TxtSearch_Enter;
+            txtSearch.Leave += TxtSearch_Leave;
+            lblFilter.Click += LblFilter_Click;
+        }
 
+        private void LblFilter_Click(object sender, EventArgs e)
+        {
+            txtSearch.Focus();
+        }
+
+        private void TxtSearch_Leave(object sender, EventArgs e)
+        {
+            if (txtSearch.Text.Length == 0)
+                lblFilter.Visible = true;
+        }
+
+        private void TxtSearch_Enter(object sender, EventArgs e)
+        {
+            lblFilter.Visible = false;
         }
 
         private void Input_KeyPress(object sender, KeyPressEventArgs e)
@@ -312,8 +267,8 @@ namespace latihribbon
         }
         private void EditMenuStrip_Click(object sender, EventArgs e)
         {
-            int Id = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
-            EditAbsensi edit = new EditAbsensi(Id);
+            int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+            EditAbsensi edit = new EditAbsensi(id);
 
             if (edit.ShowDialog() == DialogResult.Yes)
                 LoadData();
@@ -391,18 +346,6 @@ namespace latihribbon
         private void btnSave_FormSiswa_Click(object sender, EventArgs e)
         {
             SaveData();
-        }
-        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
-        {
-            GetData();
-            ControlInsertUpdate();
-        }
-
-        private void btnNew_Click(object sender, EventArgs e)
-        {
-            ClearInput();
-            globalId = 0;
-            ControlInsertUpdate();
         }
         private void btnNext_Click(object sender, EventArgs e)
         {

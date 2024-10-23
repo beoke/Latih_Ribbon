@@ -47,8 +47,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.btnSave_FormSiswa = new System.Windows.Forms.Button();
-            this.btnDelete_FormSiswa = new System.Windows.Forms.Button();
-            this.btnNew = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btnKelas = new System.Windows.Forms.Button();
             this.txtPersensi1 = new System.Windows.Forms.TextBox();
@@ -94,7 +92,6 @@
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(666, 457);
             this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
             // txtSearch
             // 
@@ -271,8 +268,6 @@
             this.panel6.BackColor = System.Drawing.Color.Gainsboro;
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel6.Controls.Add(this.btnSave_FormSiswa);
-            this.panel6.Controls.Add(this.btnDelete_FormSiswa);
-            this.panel6.Controls.Add(this.btnNew);
             this.panel6.Location = new System.Drawing.Point(4, 418);
             this.panel6.Margin = new System.Windows.Forms.Padding(2);
             this.panel6.Name = "panel6";
@@ -292,34 +287,6 @@
             this.btnSave_FormSiswa.Text = "Save";
             this.btnSave_FormSiswa.UseVisualStyleBackColor = false;
             this.btnSave_FormSiswa.Click += new System.EventHandler(this.btnSave_FormSiswa_Click);
-            // 
-            // btnDelete_FormSiswa
-            // 
-            this.btnDelete_FormSiswa.BackColor = System.Drawing.Color.Red;
-            this.btnDelete_FormSiswa.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete_FormSiswa.ForeColor = System.Drawing.Color.White;
-            this.btnDelete_FormSiswa.Location = new System.Drawing.Point(122, 18);
-            this.btnDelete_FormSiswa.Margin = new System.Windows.Forms.Padding(2);
-            this.btnDelete_FormSiswa.Name = "btnDelete_FormSiswa";
-            this.btnDelete_FormSiswa.Size = new System.Drawing.Size(90, 32);
-            this.btnDelete_FormSiswa.TabIndex = 0;
-            this.btnDelete_FormSiswa.Text = "Delete";
-            this.btnDelete_FormSiswa.UseVisualStyleBackColor = false;
-            // 
-            // btnNew
-            // 
-            this.btnNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNew.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnNew.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNew.ForeColor = System.Drawing.Color.DimGray;
-            this.btnNew.Location = new System.Drawing.Point(15, 18);
-            this.btnNew.Margin = new System.Windows.Forms.Padding(2);
-            this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(90, 32);
-            this.btnNew.TabIndex = 62;
-            this.btnNew.Text = "New";
-            this.btnNew.UseVisualStyleBackColor = false;
-            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // panel5
             // 
@@ -637,7 +604,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button btnSave_FormSiswa;
-        private System.Windows.Forms.Button btnDelete_FormSiswa;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.RadioButton alphaRadio;
@@ -654,7 +620,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lblHalaman;
         private System.Windows.Forms.Button btnNext;

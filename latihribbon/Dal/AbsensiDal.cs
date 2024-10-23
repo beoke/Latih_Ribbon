@@ -46,10 +46,10 @@ namespace latihribbon.Dal
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
             {
-                string sql = $@"SELECT p.ID,p.NIS,s.Nama,s.Persensi,kls.NamaKelas,p.Tanggal,p.Keterangan
+                string sql = $@"SELECT p.ID,p.NIS,s.Nama,s.Persensi,k.NamaKelas,p.Tanggal,p.Keterangan
                                      FROM Persensi p 
                                      INNER JOIN siswa s ON p.NIS=s.NIS
-                                     INNER JOIN Kelas kls ON s.IdKelas = kls.Id 
+                                     INNER JOIN Kelas k ON s.IdKelas = k.Id 
                                      {sqlc} 
                                      ORDER BY Tanggal DESC OFFSET @Offset ROWS FETCH NEXT @Fetch ROWS ONLY";
                 return koneksi.Query<AbsensiModel>(sql, dp);
@@ -60,10 +60,10 @@ namespace latihribbon.Dal
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
             {
-                const string sql = @"SELECT p.ID,p.NIS,s.Nama,s.Persensi,kls.NamaKelas,p.Tanggal,p.Keterangan
+                const string sql = @"SELECT p.ID,p.NIS,s.Nama,s.Persensi,k.NamaKelas,p.Tanggal,p.Keterangan
                                      FROM Persensi p 
                                      INNER JOIN siswa s ON p.NIS=s.NIS
-                                     INNER JOIN Kelas kls ON s.IdKelas = kls.Id
+                                     INNER JOIN Kelas k ON s.IdKelas = k.Id
                                      WHERE p.ID = @ID";
                 return koneksi.QueryFirstOrDefault<AbsensiModel>(sql, new {ID=ID});
             }
@@ -90,11 +90,10 @@ namespace latihribbon.Dal
          {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
             {
-                string sql = @"SELECT COUNT(*)
+                string sql = $@"SELECT COUNT(*)
                                     FROM Persensi p
                                     INNER JOIN Siswa s ON p.NIS = s.NIS
-                                    INNER JOIN Kelas kls ON s.IdKelas = kls.Id";
-                if (sqlcRow != string.Empty) sql += sqlcRow;
+                                    INNER JOIN Kelas k ON s.IdKelas = k.Id {sqlcRow}";
                 return koneksi.QuerySingle<int>(sql,dp);
             }
          }
