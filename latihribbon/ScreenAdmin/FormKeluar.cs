@@ -96,15 +96,9 @@ namespace latihribbon
             dataGridView1.Columns[6].Width = 110;
             dataGridView1.Columns[7].Width = 300;
 
-
-
-
             //TextBox
             txtNIS1.MaxLength = 9;
             txtTujuan1.MaxLength = 60;
-
-
-           
         }
 
         bool tglchange = false;
@@ -123,7 +117,6 @@ namespace latihribbon
         int totalPage;
         public void LoadData()
         {
-            
             DateTime tgl1, tgl2;
 
             string search = TextSearch.Text;
@@ -164,8 +157,6 @@ namespace latihribbon
                 }).ToList();
         }
 
-        
-
         private void ClearInput()
         {
             txtNIS1.Clear();
@@ -175,7 +166,6 @@ namespace latihribbon
             jamKeluarDT.Value = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day, 0, 0, 0);
             jamMasukDT.Value = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day, 0, 0, 0);
             txtTujuan1.Clear();
-
         }
 
         private void SaveData()
@@ -214,7 +204,7 @@ namespace latihribbon
 
             if(keluar.Id == 0)
             {
-                if (new MesQuestionYN("Input Data ?").ShowDialog() != DialogResult.Yes) return;
+                if (new MesQuestionYN("Input Data?").ShowDialog() != DialogResult.Yes) return;
                 keluarDal.Insert(keluar);
                 LoadData();
                 globalId = 0;
@@ -222,7 +212,6 @@ namespace latihribbon
             }
            
         }
-
       
         private void CekNis()
         {
@@ -252,7 +241,26 @@ namespace latihribbon
             dataGridView1.CellMouseClick += DataGridView1_CellMouseClick;
             editToolStripMenuItem.Click += EditToolStripMenuItem_Click;
             deleteToolStripMenuItem.Click += DeleteToolStripMenuItem_Click;
-            
+
+            TextSearch.Enter += TextSearch_Enter;
+            TextSearch.Leave += TextSearch_Leave;
+            lblFilter.Click += LblFilter_Click;
+        }
+
+        private void LblFilter_Click(object sender, EventArgs e)
+        {
+            TextSearch.Focus();
+        }
+
+        private void TextSearch_Leave(object sender, EventArgs e)
+        {
+            if (TextSearch.Text.Length == 0)
+                lblFilter.Visible = true;
+        }
+
+        private void TextSearch_Enter(object sender, EventArgs e)
+        {
+            lblFilter.Visible = false;
         }
 
         private void DeleteToolStripMenuItem_Click(object sender, EventArgs e)
