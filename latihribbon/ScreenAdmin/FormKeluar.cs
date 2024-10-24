@@ -35,15 +35,10 @@ namespace latihribbon
             siswaDal = new SiswaDal();
             keluarDal = new KeluarDal();
             kelasDal = new KelasDal();
-            
-        
-
             RegisterEvent();
             InitCombo();
             LoadData();
             InitComponent();
-
-
         }
         public void buf()
         {
@@ -67,11 +62,8 @@ namespace latihribbon
             comboPerPage.SelectedIndex = 0;
         }
 
-      
         public void InitComponent()
         {
-          
-
             // DataGrid
             dataGridView1.EnableHeadersVisualStyles = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
@@ -210,7 +202,6 @@ namespace latihribbon
                 globalId = 0;
                 ClearInput();
             }
-           
         }
       
         private void CekNis()
@@ -283,9 +274,6 @@ namespace latihribbon
 
         private void DataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-
-           
-
             if (e.Button == MouseButtons.Right && e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
                 dataGridView1.ClearSelection();
@@ -301,10 +289,7 @@ namespace latihribbon
         {
             Page = 1;
             LoadData();
-
         }
-
-      
 
         private void filter_TextChanged(object sender, EventArgs e)
         {
