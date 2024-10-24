@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel3 = new System.Windows.Forms.Panel();
             this.GridListJurusan = new System.Windows.Forms.DataGridView();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -35,14 +36,15 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.LabelJurusan = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.btnDeleteJurusan = new System.Windows.Forms.Button();
             this.btnSaveJurusan = new System.Windows.Forms.Button();
-            this.btnNewJurusan = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.txtNamaJurusan = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtIdJurusan = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.EditMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.DeleteMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridListJurusan)).BeginInit();
             this.panel4.SuspendLayout();
@@ -50,6 +52,7 @@
             this.panel1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel3
@@ -131,27 +134,12 @@
             this.panel6.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.panel6.BackColor = System.Drawing.Color.Gainsboro;
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel6.Controls.Add(this.btnDeleteJurusan);
             this.panel6.Controls.Add(this.btnSaveJurusan);
-            this.panel6.Controls.Add(this.btnNewJurusan);
             this.panel6.Location = new System.Drawing.Point(4, 366);
             this.panel6.Margin = new System.Windows.Forms.Padding(2);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(332, 73);
             this.panel6.TabIndex = 6;
-            // 
-            // btnDeleteJurusan
-            // 
-            this.btnDeleteJurusan.BackColor = System.Drawing.Color.Red;
-            this.btnDeleteJurusan.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteJurusan.ForeColor = System.Drawing.Color.White;
-            this.btnDeleteJurusan.Location = new System.Drawing.Point(119, 21);
-            this.btnDeleteJurusan.Margin = new System.Windows.Forms.Padding(2);
-            this.btnDeleteJurusan.Name = "btnDeleteJurusan";
-            this.btnDeleteJurusan.Size = new System.Drawing.Size(90, 32);
-            this.btnDeleteJurusan.TabIndex = 0;
-            this.btnDeleteJurusan.Text = "Delete";
-            this.btnDeleteJurusan.UseVisualStyleBackColor = false;
             // 
             // btnSaveJurusan
             // 
@@ -165,20 +153,6 @@
             this.btnSaveJurusan.TabIndex = 1;
             this.btnSaveJurusan.Text = "Save";
             this.btnSaveJurusan.UseVisualStyleBackColor = false;
-            // 
-            // btnNewJurusan
-            // 
-            this.btnNewJurusan.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnNewJurusan.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnNewJurusan.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNewJurusan.ForeColor = System.Drawing.Color.DimGray;
-            this.btnNewJurusan.Location = new System.Drawing.Point(15, 21);
-            this.btnNewJurusan.Margin = new System.Windows.Forms.Padding(2);
-            this.btnNewJurusan.Name = "btnNewJurusan";
-            this.btnNewJurusan.Size = new System.Drawing.Size(90, 32);
-            this.btnNewJurusan.TabIndex = 62;
-            this.btnNewJurusan.Text = "New";
-            this.btnNewJurusan.UseVisualStyleBackColor = false;
             // 
             // panel5
             // 
@@ -240,6 +214,32 @@
             this.label9.TabIndex = 48;
             this.label9.Text = "Id Jurusan";
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.EditMenuStrip,
+            this.DeleteMenuStrip});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(127, 56);
+            // 
+            // EditMenuStrip
+            // 
+            this.EditMenuStrip.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EditMenuStrip.Image = global::latihribbon.Properties.Resources.pencil;
+            this.EditMenuStrip.Name = "EditMenuStrip";
+            this.EditMenuStrip.Size = new System.Drawing.Size(126, 26);
+            this.EditMenuStrip.Text = "Edit";
+            // 
+            // DeleteMenuStrip
+            // 
+            this.DeleteMenuStrip.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeleteMenuStrip.Image = global::latihribbon.Properties.Resources.bin;
+            this.DeleteMenuStrip.Name = "DeleteMenuStrip";
+            this.DeleteMenuStrip.Size = new System.Drawing.Size(126, 26);
+            this.DeleteMenuStrip.Text = "Delete";
+            // 
             // FormJurusan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -259,6 +259,7 @@
             this.panel6.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -271,14 +272,15 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button btnSaveJurusan;
-        private System.Windows.Forms.Button btnDeleteJurusan;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Button btnNewJurusan;
         private System.Windows.Forms.Label LabelJurusan;
         private System.Windows.Forms.TextBox txtIdJurusan;
         private System.Windows.Forms.TextBox txtNamaJurusan;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem EditMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem DeleteMenuStrip;
     }
 }

@@ -64,11 +64,42 @@ namespace latihribbon.ScreenAdmin
 
         private void InitEvent()
         {
-            btnNewJurusan.Click += BtnNewJurusan_Click;
             btnSaveJurusan.Click += BtnSaveJurusan_Click;
-            btnDeleteJurusan.Click += BtnDeleteJurusan_Click;
             GridListJurusan.SelectionChanged += GridListJurusan_SelectionChange;
+            GridListJurusan.CellMouseClick += DataGridView1_CellMouseClick;
+            EditMenuStrip.Click += EditMenuStrip_Click;
+            DeleteMenuStrip.Click += DeleteMenuStrip_Click;
         }
+
+        private void DeleteMenuStrip_Click(object sender, EventArgs e)
+        {
+            var jurusanName = GridListJurusan.CurrentRow.Cells[1].Value;
+            if (new MesWarningYN($"Anda yakin ingin menghapus data \"{jurusanName}\" ? \n Jika Dihapus, maka data yang terhubung akan ikut Terhapus", 2).ShowDialog() != DialogResult.Yes) return;
+
+            var id = GridListJurusan.CurrentRow.Cells[0].Value;
+
+            _jurusanDal.Delete(Convert.ToInt32(id));
+            LoadData();
+        }
+
+        private void EditMenuStrip_Click(object sender, EventArgs e)
+        {
+            int jurusanId = Convert.ToInt32(GridListJurusan.CurrentRow.Cells[0].Value);
+            string namaJurusan = GridListJurusan.CurrentRow.Cells[1].Value?.ToString() ?? string.Empty;
+            if (new EditJurusan(jurusanId,namaJurusan).ShowDialog() == DialogResult.Yes)
+                LoadData();
+        }
+
+        private void DataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right && e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                GridListJurusan.ClearSelection();
+                GridListJurusan.CurrentCell = GridListJurusan[e.ColumnIndex, e.RowIndex];
+                contextMenuStrip1.Show(Cursor.Position);
+            }
+        }
+
         string jurusanNameGlobal;
         private void GridListJurusan_SelectionChange(object sender, EventArgs e)
         {
