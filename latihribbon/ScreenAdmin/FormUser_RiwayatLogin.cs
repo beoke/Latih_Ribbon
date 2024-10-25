@@ -1,6 +1,7 @@
 ﻿  using Dapper;
 using latihribbon.Conn;
 using latihribbon.Dal;
+using OfficeOpenXml.Sparkline;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,6 +9,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -57,8 +59,9 @@ namespace latihribbon
                 .Select (x => new 
                 {
                     x.Id, 
-                    Username = x.Username,
-                    Password = x.Password,
+                    Username = x.username,
+                    Password = x.password,
+
                 }).ToList();
 
             if (GridListUser.Rows.Count > 0)
@@ -73,10 +76,10 @@ namespace latihribbon
                 GridListUser.RowTemplate.Height = 30;
                 GridListUser.ColumnHeadersHeight = 35;
 
+                GridListUser.Columns["Id"].Visible = false;
                 GridListUser.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                GridListUser.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+                GridListUser.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 GridListUser.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                GridListUser.Columns[2].Width = 50;
             }
         }
 
@@ -95,6 +98,7 @@ namespace latihribbon
                 GridListRiwayatLogin.RowTemplate.Height = 30;
                 GridListRiwayatLogin.ColumnHeadersHeight = 35;
 
+                
                 GridListRiwayatLogin.Columns[0].Width = 80;
                 GridListRiwayatLogin.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 GridListRiwayatLogin.Columns[2].Width = 200;
@@ -160,7 +164,22 @@ namespace latihribbon
             ButtonSaveUser.Click += ButtonSaveUser_Click;
             GridListUser.CellMouseClick += GridListUser_CellMouseClick;
             DeleteMenuStrip.Click += DeleteMenuStrip_Click;
+            EditMenuStrip.Click += EditMenuStrip_Click;
         }
+
+        private void EditMenuStrip_Click(object sender, EventArgs e)
+        {
+            int userId = Convert.ToInt32(GridListUser.CurrentRow.Cells["Id"].Value);
+
+            EditUser user = new EditUser(userId);
+
+            if (user.ShowDialog() == DialogResult.Yes)
+            {
+                LoadData();
+                LoadUser();
+            }
+        }
+               
 
         private void DeleteMenuStrip_Click(object sender, EventArgs e)
         {
@@ -178,18 +197,19 @@ namespace latihribbon
             {
                 GridListUser.ClearSelection();
                 GridListUser.CurrentCell = GridListUser[e.ColumnIndex, e.RowIndex];
-                contextMenuStrip1.Show(Cursor.Position);
+                contextMenuStrip2.Show(Cursor.Position);
             }
         }
 
         private void ButtonSaveUser_Click(object sender, EventArgs e)
         {
-            var username = TextUserName.Text;
+            var username = TextNameUser.Text;
             if (MessageBox.Show($"Tambahkan \"{username}\" sebagai admin ?", "pertanyaan", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
                 return;
 
             int idUser = TextIdUser.Text == string.Empty ? 0 : Convert.ToInt32(TextIdUser.Text);
             SaveUser(idUser);
+
         }   
 
         private void PickerRentan_ValueChanged(object sender, EventArgs e)
@@ -213,8 +233,8 @@ namespace latihribbon
             var user = new UserModel
             {
                 Id = idUser,
-                Username = TextNameUser.Text,
-                Password = TextPassword.Text,
+                username = TextNameUser.Text,
+                password = EncriptPassword(TextPassword.Text),
                 Role = "admin",
             };
 
@@ -230,7 +250,7 @@ namespace latihribbon
             else
             {
                 _riwayatLoginDal.Update(user);
-                _riwayatLoginDal.UpdateUserRiwayat(user.Username,Userlama);
+                _riwayatLoginDal.UpdateUserRiwayat(user.username,Userlama);
                 LoadData();
                 LoadUser();
                 LoadRiwayatLogin();
@@ -272,6 +292,23 @@ namespace latihribbon
             }
         }
 
+
+
+        
+        public static string EncriptPassword (string password)
+        {
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] bytes = sha256.ComputeHash(UTF8Encoding.UTF8.GetBytes(password));
+                StringBuilder builder = new StringBuilder();
+                foreach (byte b in bytes)
+                {
+                    builder.Append(b.ToString("x2"));
+                }
+                
+                return builder.ToString();
+            }
+        }
       
     }
 }

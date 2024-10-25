@@ -74,8 +74,8 @@ namespace latihribbon
                     (@username, @password, @role)";
 
                 var Dp = new DynamicParameters();
-                Dp.Add("@username", userModel.Username, DbType.String);
-                Dp.Add("@password", userModel.Password, DbType.String);
+                Dp.Add("@username", userModel.username, DbType.String);
+                Dp.Add("@password", userModel.password, DbType.String);
                 Dp.Add("@role", userModel.Role, DbType.String);
 
                 Conn.Execute(sql, Dp);
@@ -96,8 +96,8 @@ namespace latihribbon
 
                 var Dp = new DynamicParameters();
                 Dp.Add("@id", user.Id, DbType.Int32);
-                Dp.Add("@username", user.Username, DbType.String);
-                Dp.Add("@password", user.Password, DbType.String);
+                Dp.Add("@username", user.username, DbType.String);
+                Dp.Add("@password", user.password, DbType.String);
                 Dp.Add("@role", user.Role, DbType.String);
 
                 Conn.Execute(sql, Dp);
@@ -121,7 +121,7 @@ namespace latihribbon
         {
             using (var Conn = new SqlConnection(conn.connstr()))
             {
-                const string sql = @"SELECT id, username, role FROM Users ORDER BY id ASC";
+                const string sql = @"SELECT id, username, password FROM Users ORDER BY id ASC";
 
                 return Conn.Query<UserModel>(sql);
             }

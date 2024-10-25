@@ -1,4 +1,5 @@
-﻿using DocumentFormat.OpenXml.Vml;
+﻿using DocumentFormat.OpenXml.Bibliography;
+using DocumentFormat.OpenXml.Vml;
 using latihribbon.Helper;
 using System;
 using System.Collections.Generic;
@@ -93,16 +94,23 @@ namespace latihribbon
           
         }
 
+        public static string VerifyPassword(string inputPassword)
+        {
+            string hassedPassword = FormUser_RiwayatLogin.EncriptPassword(inputPassword);
+            return hassedPassword;
+        }
+
         public void ENTER()
         {
             string username = tx_Username.Text;
             string password = tx_Password.Text;
 
-            DbDal dbDal = new DbDal();
+            var pass = VerifyPassword(password);
 
+            DbDal dbDal = new DbDal();
             IEnumerable<UserModel> Users = dbDal.GetUsers();
 
-            UserModel user = Users.FirstOrDefault(u => u.Username == username && u.Password == password);
+            UserModel user = Users.FirstOrDefault(u => u.username == username && u.password == password);
 
             if (user != null)
             {

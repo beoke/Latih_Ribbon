@@ -90,3 +90,9 @@ ORDER BY
     SELECT Rombel,Id FROM Kelas WHERE idJurusan= 1 AND Tingkat='X'
 
     DELETE FROM RiwayatLogin;
+
+
+
+
+
+    select * from Users;

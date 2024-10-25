@@ -42,6 +42,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.ButtonSaveUser = new System.Windows.Forms.Button();
             this.LabelAddUser = new System.Windows.Forms.Label();
             this.TextPassword = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -49,7 +50,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.TextIdUser = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.ButtonSaveUser = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblHalaman = new System.Windows.Forms.Label();
             this.btnNext = new System.Windows.Forms.Button();
@@ -57,12 +57,9 @@
             this.panel9 = new System.Windows.Forms.Panel();
             this.LabelJurusan = new System.Windows.Forms.Label();
             this.GridListRiwayatLogin = new System.Windows.Forms.DataGridView();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.DeleteMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
-            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.EditMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.DeleteMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridListUser)).BeginInit();
             this.panel4.SuspendLayout();
@@ -71,7 +68,6 @@
             this.panel3.SuspendLayout();
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridListRiwayatLogin)).BeginInit();
-            this.contextMenuStrip1.SuspendLayout();
             this.contextMenuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -250,6 +246,20 @@
             this.panel5.Size = new System.Drawing.Size(455, 588);
             this.panel5.TabIndex = 4;
             // 
+            // ButtonSaveUser
+            // 
+            this.ButtonSaveUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.ButtonSaveUser.BackColor = System.Drawing.Color.LimeGreen;
+            this.ButtonSaveUser.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonSaveUser.ForeColor = System.Drawing.Color.White;
+            this.ButtonSaveUser.Location = new System.Drawing.Point(292, 509);
+            this.ButtonSaveUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonSaveUser.Name = "ButtonSaveUser";
+            this.ButtonSaveUser.Size = new System.Drawing.Size(120, 39);
+            this.ButtonSaveUser.TabIndex = 1;
+            this.ButtonSaveUser.Text = "Save";
+            this.ButtonSaveUser.UseVisualStyleBackColor = false;
+            // 
             // LabelAddUser
             // 
             this.LabelAddUser.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -331,20 +341,6 @@
             this.label9.Size = new System.Drawing.Size(69, 24);
             this.label9.TabIndex = 66;
             this.label9.Text = "Id User";
-            // 
-            // ButtonSaveUser
-            // 
-            this.ButtonSaveUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ButtonSaveUser.BackColor = System.Drawing.Color.LimeGreen;
-            this.ButtonSaveUser.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonSaveUser.ForeColor = System.Drawing.Color.White;
-            this.ButtonSaveUser.Location = new System.Drawing.Point(292, 509);
-            this.ButtonSaveUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.ButtonSaveUser.Name = "ButtonSaveUser";
-            this.ButtonSaveUser.Size = new System.Drawing.Size(120, 39);
-            this.ButtonSaveUser.TabIndex = 1;
-            this.ButtonSaveUser.Text = "Save";
-            this.ButtonSaveUser.UseVisualStyleBackColor = false;
             // 
             // panel3
             // 
@@ -439,37 +435,13 @@
             this.GridListRiwayatLogin.Size = new System.Drawing.Size(230, 439);
             this.GridListRiwayatLogin.TabIndex = 0;
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.DeleteMenuStrip,
-            this.editToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(145, 64);
-            // 
-            // DeleteMenuStrip
-            // 
-            this.DeleteMenuStrip.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeleteMenuStrip.Image = global::latihribbon.Properties.Resources.bin;
-            this.DeleteMenuStrip.Name = "DeleteMenuStrip";
-            this.DeleteMenuStrip.Size = new System.Drawing.Size(144, 30);
-            this.DeleteMenuStrip.Text = "Delete";
-            // 
-            // editToolStripMenuItem
-            // 
-            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(144, 30);
-            this.editToolStripMenuItem.Text = "Edit";
-            // 
             // contextMenuStrip2
             // 
             this.contextMenuStrip2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.contextMenuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.EditMenuStrip,
-            this.toolStripMenuItem1});
+            this.DeleteMenuStrip});
             this.contextMenuStrip2.Name = "contextMenuStrip1";
             this.contextMenuStrip2.Size = new System.Drawing.Size(145, 64);
             // 
@@ -478,16 +450,16 @@
             this.EditMenuStrip.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EditMenuStrip.Image = global::latihribbon.Properties.Resources.pencil;
             this.EditMenuStrip.Name = "EditMenuStrip";
-            this.EditMenuStrip.Size = new System.Drawing.Size(144, 30);
+            this.EditMenuStrip.Size = new System.Drawing.Size(214, 30);
             this.EditMenuStrip.Text = "Edit";
             // 
-            // toolStripMenuItem1
+            // DeleteMenuStrip
             // 
-            this.toolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripMenuItem1.Image = global::latihribbon.Properties.Resources.bin;
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(144, 30);
-            this.toolStripMenuItem1.Text = "Delete";
+            this.DeleteMenuStrip.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeleteMenuStrip.Image = global::latihribbon.Properties.Resources.bin;
+            this.DeleteMenuStrip.Name = "DeleteMenuStrip";
+            this.DeleteMenuStrip.Size = new System.Drawing.Size(144, 30);
+            this.DeleteMenuStrip.Text = "Delete";
             // 
             // FormUser_RiwayatLogin
             // 
@@ -513,7 +485,6 @@
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridListRiwayatLogin)).EndInit();
-            this.contextMenuStrip1.ResumeLayout(false);
             this.contextMenuStrip2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -549,11 +520,8 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox TextIdUser;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem DeleteMenuStrip;
-        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
         private System.Windows.Forms.ToolStripMenuItem EditMenuStrip;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem DeleteMenuStrip;
     }
 }

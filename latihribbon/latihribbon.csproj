@@ -245,6 +245,12 @@
     <Compile Include="ScreenAdmin\Form PopUp\EditKeluar.Designer.cs">
       <DependentUpon>EditKeluar.cs</DependentUpon>
     </Compile>
+    <Compile Include="ScreenAdmin\Form PopUp\EditUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScreenAdmin\Form PopUp\EditUser.Designer.cs">
+      <DependentUpon>EditUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="ScreenAdmin\Form PopUp\EditTerlambat.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -463,6 +469,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ScreenAdmin\Form PopUp\EditKeluar.resx">
       <DependentUpon>EditKeluar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ScreenAdmin\Form PopUp\EditUser.resx">
+      <DependentUpon>EditUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ScreenAdmin\Form PopUp\EditTerlambat.resx">
       <DependentUpon>EditTerlambat.cs</DependentUpon>

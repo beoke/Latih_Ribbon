@@ -70,7 +70,7 @@ namespace latihribbon
             }
 
             this.TopMost = false;
-            PopUp popUp = new PopUp();
+            PopUp popUp = new PopUp(); 
             popUp.ShowDialog();
             this.TopMost = true;
 
