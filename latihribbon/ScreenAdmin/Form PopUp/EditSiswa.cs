@@ -141,7 +141,7 @@ namespace latihribbon
             if (XIRadio.Checked == true) Tingkat = "XI";
             if (XIIRadio.Checked == true) Tingkat = "XII";
 
-            string NamaKelas = $"{Tingkat} {jurusanCombo.Text} {rombelCombo.Text}";
+            string NamaKelas = $"{Tingkat} {jurusanCombo.Text} {rombelCombo.Text}".Trim();
 
             int IdKelas = Convert.ToInt32(_kelasDal.GetIdKelas(NamaKelas));
 

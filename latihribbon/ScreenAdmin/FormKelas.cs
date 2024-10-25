@@ -59,7 +59,7 @@ namespace latihribbon.ScreenAdmin
 
             var id = GridListKelas.CurrentRow.Cells[0].Value;
 
-            jurusanDal.Delete(Convert.ToInt32(id));
+            kelasDal.Delete(Convert.ToInt32(id));
             LoadData();
         }
 

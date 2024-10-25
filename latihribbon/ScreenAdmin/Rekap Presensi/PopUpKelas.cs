@@ -23,7 +23,7 @@ namespace latihribbon
         private readonly HistoryDal historyDal;
         string NamaKelas = string.Empty;
         string Nama = string.Empty;
-        public PopUpKelas(string nama)
+        public PopUpKelas(string nama, string history)
         {
             _jurusanDal = new JurusanDal();
             siswaDal = new SiswaDal();
@@ -31,7 +31,8 @@ namespace latihribbon
             historyDal = new HistoryDal();
             InitializeComponent();
             InitEvent();
-            Nama = nama;
+            this.Nama = nama;
+            this.NamaKelas = history;
             InitComponent();
             InitIsian();
         }
@@ -45,9 +46,8 @@ namespace latihribbon
 
         private void InitIsian()
         {
-            string namaKelas = historyDal.GetData(this.Nama)?.History.ToString() ?? string.Empty;
-            if (namaKelas == string.Empty) return;
-            this.NamaKelas = namaKelas;
+            int kelasId = kelasDal.GetIdKelas(this.NamaKelas);
+            if (kelasId == 0) return;
 
             if (string.IsNullOrEmpty(NamaKelas)) return;
             string[] kelas = NamaKelas.Trim().Split(' ');
