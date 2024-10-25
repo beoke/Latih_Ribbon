@@ -110,7 +110,7 @@ namespace latihribbon
             DbDal dbDal = new DbDal();
             IEnumerable<UserModel> Users = dbDal.GetUsers();
 
-            UserModel user = Users.FirstOrDefault(u => u.username == username && u.password == password);
+            UserModel user = Users.FirstOrDefault(u => u.username == username && u.password == pass);
 
             if (user != null)
             {
