@@ -13,6 +13,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 
 namespace latihribbon
@@ -263,6 +264,7 @@ namespace latihribbon
 
         private void DeleteMenuStrip_Click(object sender, EventArgs e)
         {
+            SystemSounds.Beep.Play();
             if (new MesWarningYN("Hapus Data ?").ShowDialog() != DialogResult.Yes) return;
             var id = dataGridView1.CurrentRow.Cells[0].Value;
 
