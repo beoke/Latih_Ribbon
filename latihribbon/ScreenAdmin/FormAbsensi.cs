@@ -13,6 +13,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 
 namespace latihribbon
@@ -231,6 +232,10 @@ namespace latihribbon
             txtSearch.Enter += TxtSearch_Enter;
             txtSearch.Leave += TxtSearch_Leave;
             lblFilter.Click += LblFilter_Click;
+            btnKelas.Click += btnKelas_Click;
+            btnSave_FormSiswa.Click += btnSave_FormSiswa_Click;
+            txtNIS1.KeyPress += txtNIS1_KeyPress;
+            txtNIS1.TextChanged += txtNIS1_TextChanged;
         }
 
         private void LblFilter_Click(object sender, EventArgs e)
@@ -259,6 +264,7 @@ namespace latihribbon
 
         private void DeleteMenuStrip_Click(object sender, EventArgs e)
         {
+            SystemSounds.Beep.Play();
             if (new MesWarningYN("Hapus Data ?").ShowDialog() != DialogResult.Yes) return;
             var id = dataGridView1.CurrentRow.Cells[0].Value;
 

@@ -45,14 +45,14 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 95);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(464, 49);
+            this.panel1.Size = new System.Drawing.Size(454, 49);
             this.panel1.TabIndex = 1;
             // 
             // btnNo
             // 
             this.btnNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnNo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNo.Location = new System.Drawing.Point(358, 10);
+            this.btnNo.Location = new System.Drawing.Point(348, 10);
             this.btnNo.Name = "btnNo";
             this.btnNo.Size = new System.Drawing.Size(87, 27);
             this.btnNo.TabIndex = 1;
@@ -64,7 +64,7 @@
             // 
             this.btnYes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnYes.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnYes.Location = new System.Drawing.Point(265, 10);
+            this.btnYes.Location = new System.Drawing.Point(255, 10);
             this.btnYes.Name = "btnYes";
             this.btnYes.Size = new System.Drawing.Size(87, 27);
             this.btnYes.TabIndex = 0;
@@ -98,7 +98,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(464, 144);
+            this.ClientSize = new System.Drawing.Size(454, 144);
             this.Controls.Add(this.lblMessage);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox1);

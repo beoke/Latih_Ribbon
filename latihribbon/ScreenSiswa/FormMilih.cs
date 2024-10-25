@@ -35,6 +35,16 @@ namespace latihribbon
             this.TopMost = true;  
             this.ControlBox = true;    
             this.mainForm = mainForm;
+            this.Resize += FormMilih_Resize;
+        }
+
+        private void FormMilih_Resize(object sender, EventArgs e)
+        {
+            int parentWidth = this.Width;
+            int btnWidth = (parentWidth - (btn_masuk.Width * 2)) / 3;
+            panel3.Location = new Point((parentWidth-panel3.Width)/2,panel3.Location.Y);
+            btn_masuk.Location = new Point(btnWidth,btn_masuk.Location.Y);
+            btn_Keluar.Location = new Point(parentWidth-(btnWidth+btn_Keluar.Width),btn_Keluar.Location.Y);
         }
 
         private void btn_masuk_Click(object sender, EventArgs e)

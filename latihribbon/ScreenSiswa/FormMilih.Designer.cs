@@ -36,26 +36,28 @@ namespace latihribbon
             this.txtKelas = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.btn_masuk = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_Keluar = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.btn_kembali = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtNIS
             // 
-            this.txtNIS.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtNIS.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtNIS.AutoSize = true;
             this.txtNIS.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtNIS.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNIS.Location = new System.Drawing.Point(400, 141);
+            this.txtNIS.Location = new System.Drawing.Point(110, 12);
             this.txtNIS.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.txtNIS.Name = "txtNIS";
             this.txtNIS.Size = new System.Drawing.Size(32, 36);
@@ -64,11 +66,11 @@ namespace latihribbon
             // 
             // txtNama
             // 
-            this.txtNama.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtNama.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtNama.AutoSize = true;
             this.txtNama.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtNama.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNama.Location = new System.Drawing.Point(391, 180);
+            this.txtNama.Location = new System.Drawing.Point(110, 61);
             this.txtNama.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.txtNama.Name = "txtNama";
             this.txtNama.Size = new System.Drawing.Size(32, 36);
@@ -77,11 +79,11 @@ namespace latihribbon
             // 
             // txtKelas
             // 
-            this.txtKelas.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtKelas.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtKelas.AutoSize = true;
             this.txtKelas.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtKelas.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtKelas.Location = new System.Drawing.Point(391, 231);
+            this.txtKelas.Location = new System.Drawing.Point(110, 112);
             this.txtKelas.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.txtKelas.Name = "txtKelas";
             this.txtKelas.Size = new System.Drawing.Size(32, 36);
@@ -104,72 +106,72 @@ namespace latihribbon
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.AutoSize = true;
             this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.txtNama);
-            this.panel1.Controls.Add(this.txtKelas);
+            this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.btn_masuk);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.btn_Keluar);
             this.panel1.Location = new System.Drawing.Point(9, 10);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1199, 700);
+            this.panel1.Size = new System.Drawing.Size(1202, 700);
             this.panel1.TabIndex = 56;
             // 
-            // panel2
+            // panel3
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.BackColor = System.Drawing.Color.LightGray;
-            this.panel2.Controls.Add(this.btn_kembali);
-            this.panel2.Location = new System.Drawing.Point(9, 722);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1199, 98);
-            this.panel2.TabIndex = 57;
+            this.panel3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel3.AutoSize = true;
+            this.panel3.Controls.Add(this.txtNIS);
+            this.panel3.Controls.Add(this.label4);
+            this.panel3.Controls.Add(this.label3);
+            this.panel3.Controls.Add(this.txtKelas);
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Controls.Add(this.txtNama);
+            this.panel3.Location = new System.Drawing.Point(481, 111);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(219, 152);
+            this.panel3.TabIndex = 61;
             // 
-            // label1
+            // label4
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(283, 131);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 36);
-            this.label1.TabIndex = 58;
-            this.label1.Text = "NIS";
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(2, 112);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(85, 36);
+            this.label4.TabIndex = 60;
+            this.label4.Text = "Kelas";
             // 
             // label3
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.WhiteSmoke;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(283, 180);
+            this.label3.Location = new System.Drawing.Point(2, 61);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(89, 36);
             this.label3.TabIndex = 59;
             this.label3.Text = "Nama";
             // 
-            // label4
+            // label1
             // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label4.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(283, 231);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(85, 36);
-            this.label4.TabIndex = 60;
-            this.label4.Text = "Kelas";
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(2, 12);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(67, 36);
+            this.label1.TabIndex = 58;
+            this.label1.Text = "NIS";
             // 
             // btn_masuk
             // 
@@ -179,7 +181,7 @@ namespace latihribbon
             this.btn_masuk.ForeColor = System.Drawing.Color.White;
             this.btn_masuk.Image = global::latihribbon.Properties.Resources.Group_13_1;
             this.btn_masuk.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_masuk.Location = new System.Drawing.Point(129, 332);
+            this.btn_masuk.Location = new System.Drawing.Point(142, 332);
             this.btn_masuk.Margin = new System.Windows.Forms.Padding(2);
             this.btn_masuk.Name = "btn_masuk";
             this.btn_masuk.Size = new System.Drawing.Size(450, 293);
@@ -208,7 +210,7 @@ namespace latihribbon
             this.btn_Keluar.ForeColor = System.Drawing.Color.White;
             this.btn_Keluar.Image = global::latihribbon.Properties.Resources.Group_14_1;
             this.btn_Keluar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_Keluar.Location = new System.Drawing.Point(626, 332);
+            this.btn_Keluar.Location = new System.Drawing.Point(607, 332);
             this.btn_Keluar.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Keluar.Name = "btn_Keluar";
             this.btn_Keluar.Size = new System.Drawing.Size(450, 293);
@@ -217,6 +219,18 @@ namespace latihribbon
             this.btn_Keluar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_Keluar.UseVisualStyleBackColor = false;
             this.btn_Keluar.Click += new System.EventHandler(this.btn_Keluar_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.BackColor = System.Drawing.Color.LightGray;
+            this.panel2.Controls.Add(this.btn_kembali);
+            this.panel2.Location = new System.Drawing.Point(9, 722);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1199, 98);
+            this.panel2.TabIndex = 57;
             // 
             // btn_kembali
             // 
@@ -241,18 +255,19 @@ namespace latihribbon
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1217, 830);
-            this.Controls.Add(this.txtNIS);
+            this.ClientSize = new System.Drawing.Size(1217, 701);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormMilih";
             this.Text = "FormMilih";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -273,5 +288,6 @@ namespace latihribbon
         private Label label4;
         private Label label3;
         private Label label1;
+        private Panel panel3;
     }
 }
