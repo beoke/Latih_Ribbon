@@ -46,9 +46,6 @@ namespace latihribbon
 
         private void InitIsian()
         {
-            int kelasId = kelasDal.GetIdKelas(this.NamaKelas);
-            if (kelasId == 0) return;
-
             if (string.IsNullOrEmpty(NamaKelas)) return;
             string[] kelas = NamaKelas.Trim().Split(' ');
             if (kelas.Length < 2) return;
@@ -73,9 +70,9 @@ namespace latihribbon
         private void SetRombel()
         {
             string rombel = comboRombel.SelectedItem?.ToString() ?? string.Empty;
-            string tingkat = Radio_X.Checked ? "X":Radio_XI.Checked ? "XI" : "XII";
+            string tingkat = Radio_X.Checked ? "X":Radio_XI.Checked ? "XI" : Radio_XII.Checked ? "XII" : string.Empty;
             string idJurusan = ((JurusanModel)ComboJurusanPopUp.SelectedItem)?.Id.ToString() ?? string.Empty;
-            if (idJurusan != string.Empty || rombel != string.Empty) 
+            if (tingkat != string.Empty|| idJurusan != string.Empty || rombel != string.Empty) 
             {
                 var listRombel = kelasDal.GetDataRombel(Convert.ToInt32(idJurusan), tingkat);
                 List<string> list = new List<string>();
@@ -88,10 +85,11 @@ namespace latihribbon
 
         private void SetHasil()
         {
-            string tingkat = Radio_X.Checked ? "X" : Radio_XI.Checked ? "XI" : "XII";
+            string tingkat = Radio_XII.Checked ? "XII" : Radio_XI.Checked ? "XI" : Radio_X.Checked ?"X":string.Empty;
             string jurusan = ((JurusanModel)ComboJurusanPopUp.SelectedItem)?.NamaJurusan ?? string.Empty;
             if (jurusan == string.Empty) return;
             string rombel = comboRombel.Items.Count <= 0 ? "" : " "+comboRombel.SelectedItem;
+            if (tingkat == string.Empty || jurusan == string.Empty) return;
             string NamaKelas = $"{tingkat} {jurusan}{rombel}";
             txtHasil.Text = NamaKelas.Trim();
         }
