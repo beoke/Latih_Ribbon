@@ -63,19 +63,11 @@ namespace latihribbon
         private void CheckBoxAll_CheckedChanged(object sender, EventArgs e)
         {
             if (CheckBoxAll.Checked)
-            {
                 for (int i = 0; i < ListBoxKelas.Items.Count; i++)
-                {
                     ListBoxKelas.SetItemChecked(i, true);
-                }
-            }
             else
-            {
                 for (int i = 0; i < ListBoxKelas.Items.Count; i++)
-                {
                     ListBoxKelas.SetItemChecked(i, false);
-                }
-            }
         }
         private void ButtonAturPrint_Click(object sender, EventArgs e)
         {

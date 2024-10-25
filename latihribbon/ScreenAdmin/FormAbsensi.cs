@@ -367,7 +367,8 @@ namespace latihribbon
 
         private void btnKelas_Click(object sender, EventArgs e)
         {
-            PopUpKelas kelas = new PopUpKelas("Absensi");
+            string namaKelas = txtKelas1.Text.Trim().ToUpper();
+            PopUpKelas kelas = new PopUpKelas("Absensi",namaKelas);
             kelas.ShowDialog();
             if (kelas.DialogResult == DialogResult.OK)
                 txtKelas1.Text = historyDal.GetData("Absensi")?.History.ToString() ?? string.Empty;

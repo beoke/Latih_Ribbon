@@ -225,7 +225,7 @@ namespace latihribbon.ScreenAdmin
 
         private void btnKelas_Click(object sender, EventArgs e)
         {
-            PopUpKelas kelas = new PopUpKelas("RekapPersensi");
+            PopUpKelas kelas = new PopUpKelas("RekapPersensi",txtKelas.Text);
             kelas.ShowDialog();
             if (kelas.DialogResult == DialogResult.OK) 
             {

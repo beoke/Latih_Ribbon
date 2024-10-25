@@ -55,7 +55,14 @@ namespace latihribbon
             btnSave.Click += BtnSave_Click;
             txtNIS.KeyPress += Input_KeyPress;
             txtPersensi.KeyPress += Input_KeyPress;
+            btnKelas.Click += BtnKelas_Click;
         }
+
+        private void BtnKelas_Click(object sender, EventArgs e)
+        {
+           // new PopUpKelas().ShowDialog();
+        }
+
         private void Input_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
