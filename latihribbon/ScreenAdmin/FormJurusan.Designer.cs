@@ -125,9 +125,9 @@
             this.LabelJurusan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelJurusan.Location = new System.Drawing.Point(125, 27);
             this.LabelJurusan.Name = "LabelJurusan";
-            this.LabelJurusan.Size = new System.Drawing.Size(80, 20);
+            this.LabelJurusan.Size = new System.Drawing.Size(74, 20);
             this.LabelJurusan.TabIndex = 56;
-            this.LabelJurusan.Text = "UPDATE";
+            this.LabelJurusan.Text = "INSERT";
             // 
             // panel6
             // 

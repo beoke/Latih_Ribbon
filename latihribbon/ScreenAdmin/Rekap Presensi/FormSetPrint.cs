@@ -32,6 +32,9 @@ namespace latihribbon
             rekapPersensiDal = new RekapPersensiDal();
             mesBox = new MesBox();
             InitializeComponent();
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             ControlEvent();
             InitialListBox();
         }
@@ -121,7 +124,7 @@ namespace latihribbon
                     }
                     if(KelasCek.Count != 0)
                     {
-                        new MesInformasi("Tidak Ada Data Untuk Kelas : " + string.Join(", ", KelasCek));
+                        new MesError("Tidak Ada Data Untuk Kelas : " + string.Join(", ", KelasCek)).ShowDialog();
                         return;
                     }
                     foreach (var angkatan in groupedData.Keys)
@@ -174,7 +177,7 @@ namespace latihribbon
                             {
                                 if (currentRow > ExcelPackage.MaxRows) // Cek apakah currentRow melebihi batas
                                 {
-                                    MessageBox.Show("Jumlah data melebihi batas maksimum sheet Excel.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    new MesError("Jumlah data melebihi batas maksimum sheet Excel.").ShowDialog();
                                     return;
                                 }
 
@@ -202,37 +205,18 @@ namespace latihribbon
                     {
                         FileInfo fileInfo = new FileInfo(saveFileDialog.FileName);
                         package.SaveAs(fileInfo);
-                        MessageBox.Show("Data berhasil dieksport ke Excel", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        new MesInformasi("Data berhasil dieksport ke Excel").ShowDialog();
+                        this.DialogResult = DialogResult.OK;
+                        this.Close();
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Terjadi kesalahan saat eksport data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                new MesError($"Terjadi kesalahan saat eksport data: {ex.Message}").ShowDialog();
+                this.DialogResult= DialogResult.OK;
+                this.Close();
             }
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }

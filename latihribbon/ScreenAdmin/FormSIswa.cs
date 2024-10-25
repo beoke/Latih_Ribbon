@@ -297,7 +297,7 @@ namespace latihribbon
         private void EditMenuStrip_Click(object sender, EventArgs e)
         {
             int Nis = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
-            if (new EditSiswa(Nis).ShowDialog() == DialogResult.OK)
+            if (new EditSiswa(Nis).ShowDialog() == DialogResult.Yes)
                 LoadData();
         }
 

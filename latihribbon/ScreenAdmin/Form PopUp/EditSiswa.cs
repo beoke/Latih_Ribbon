@@ -125,7 +125,6 @@ namespace latihribbon
             rombelCombo.ValueMember = "Id";
         }
                 
-
         private void BtnSave_FormSiswa_Click(object sender, EventArgs e)
         {
             Update();  
@@ -167,7 +166,7 @@ namespace latihribbon
             }
             if (new MesWarningYN($"Update Data?\nJika di Update, Maka Data Yang Terhubung Akan Ikut Terupdate!",2).ShowDialog() != DialogResult.Yes) return;
             _siswaDal.Update(siswa);
-            this.DialogResult = DialogResult.OK;
+            this.DialogResult = DialogResult.Yes;
             this.Close();
         }
     }

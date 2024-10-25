@@ -65,7 +65,6 @@ namespace latihribbon.ScreenAdmin
         private void InitEvent()
         {
             btnSaveJurusan.Click += BtnSaveJurusan_Click;
-            GridListJurusan.SelectionChanged += GridListJurusan_SelectionChange;
             GridListJurusan.CellMouseClick += DataGridView1_CellMouseClick;
             EditMenuStrip.Click += EditMenuStrip_Click;
             DeleteMenuStrip.Click += DeleteMenuStrip_Click;
@@ -99,38 +98,9 @@ namespace latihribbon.ScreenAdmin
                 contextMenuStrip1.Show(Cursor.Position);
             }
         }
-
-        string jurusanNameGlobal;
-        private void GridListJurusan_SelectionChange(object sender, EventArgs e)
-        {
-            LabelJurusan.Text = "UPDATE";
-
-            var jurusanId = GridListJurusan.CurrentRow.Cells[0].Value.ToString();
-            NamaJurusanGlobal = GridListJurusan.CurrentRow.Cells[1].Value.ToString();
-
-            txtIdJurusan.Text = jurusanId;
-            txtNamaJurusan.Text = NamaJurusanGlobal;
-        }
-
-        private void BtnDeleteJurusan_Click(object sender, EventArgs e)
-        {
-            var jurusanId = Convert.ToInt32(GridListJurusan.CurrentRow.Cells[0].Value);
-            var jurusanName = GridListJurusan.CurrentRow.Cells[1].Value;
-
-            if (new MesQuestionYN($"Anda yakin ingin menghapus data \"{jurusanName}\" ? \n Jika Dihapus, maka data yang terhubung akan ikut Terhapus",2).ShowDialog() == DialogResult.Yes)
-                _jurusanDal.Delete(jurusanId);
-
-            LoadData();
-        }
-
         private void BtnSaveJurusan_Click(object sender, EventArgs e)
         {
             SaveData();
-        }
-
-        private void BtnNewJurusan_Click(object sender, EventArgs e)
-        {
-            Cleardata();
         }
 
         private void SaveData()
@@ -149,32 +119,12 @@ namespace latihribbon.ScreenAdmin
                 LoadData();
                 Cleardata();
             }
-            else
-            {
-                if (MessageBox.Show($"Update Data? \n Kelas dengan Jurusan {NamaJurusanGlobal} dan semua yang berhubungan, akan berubah menjadi {namaJurusan} ", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    var jurusan = new JurusanModel()
-                    {
-                        Id = Convert.ToInt32(txtIdJurusan.Text),
-                        NamaJurusan = txtNamaJurusan.Text
-                    };
-                    _jurusanDal.Update(jurusan);
-                    var dataKelas = kelasDal.listKelas("WHERE k.idJurusan=@idJurusan", new { idJurusan = jurusan.Id});
-                    foreach (var x in dataKelas)
-                    {
-                        string namaKelas = $"{x.Tingkat} {x.NamaJurusan} {x.Rombel}".Trim();
-                        kelasDal.UpdateNamaKelas(x.Id,namaKelas);
-                    }
-                    LoadData();
-                }
-            }
         }
 
         private void Cleardata()
         {
             txtIdJurusan.Text = string.Empty;
             txtNamaJurusan.Text= string.Empty;
-            LabelJurusan.Text = "INSERT";
         }
 
         private void txtIdJurusan_KeyPress(object sender, KeyPressEventArgs e)

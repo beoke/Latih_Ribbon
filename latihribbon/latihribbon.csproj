@@ -221,10 +221,16 @@
     <Compile Include="Dal\MasukDal.cs" />
     <Compile Include="Dal\DbDal.cs" />
     <Compile Include="Dal\RiwayatLogin_UserDal.cs" />
-    <Compile Include="EditJurusan.cs">
+    <Compile Include="ScreenAdmin\Form PopUp\EditKelas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditJurusan.Designer.cs">
+    <Compile Include="ScreenAdmin\Form PopUp\EditKelas.Designer.cs">
+      <DependentUpon>EditKelas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ScreenAdmin\Form PopUp\EditJurusan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScreenAdmin\Form PopUp\EditJurusan.Designer.cs">
       <DependentUpon>EditJurusan.cs</DependentUpon>
     </Compile>
     <Compile Include="ScreenAdmin\Form PopUp\EditAbsensi.cs">
@@ -446,7 +452,10 @@
     <Compile Include="Model\UserModel.cs" />
     <Compile Include="Dal\SetPrintDal.cs" />
     <Compile Include="ScreenSurvey\SurveyModel.cs" />
-    <EmbeddedResource Include="EditJurusan.resx">
+    <EmbeddedResource Include="ScreenAdmin\Form PopUp\EditKelas.resx">
+      <DependentUpon>EditKelas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ScreenAdmin\Form PopUp\EditJurusan.resx">
       <DependentUpon>EditJurusan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ScreenAdmin\Form PopUp\EditAbsensi.resx">

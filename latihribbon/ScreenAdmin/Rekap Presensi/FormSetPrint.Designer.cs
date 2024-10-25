@@ -42,7 +42,7 @@
             this.ListBoxKelas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.ListBoxKelas.FormattingEnabled = true;
             this.ListBoxKelas.Location = new System.Drawing.Point(8, 147);
-            this.ListBoxKelas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ListBoxKelas.Margin = new System.Windows.Forms.Padding(2);
             this.ListBoxKelas.Name = "ListBoxKelas";
             this.ListBoxKelas.Size = new System.Drawing.Size(247, 169);
             this.ListBoxKelas.TabIndex = 0;
@@ -65,7 +65,7 @@
             this.ButtonAturPrint.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonAturPrint.ForeColor = System.Drawing.Color.White;
             this.ButtonAturPrint.Location = new System.Drawing.Point(87, 324);
-            this.ButtonAturPrint.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ButtonAturPrint.Margin = new System.Windows.Forms.Padding(2);
             this.ButtonAturPrint.Name = "ButtonAturPrint";
             this.ButtonAturPrint.Size = new System.Drawing.Size(90, 32);
             this.ButtonAturPrint.TabIndex = 2;
@@ -77,7 +77,7 @@
             this.CheckBoxAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.CheckBoxAll.AutoSize = true;
             this.CheckBoxAll.Location = new System.Drawing.Point(10, 127);
-            this.CheckBoxAll.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CheckBoxAll.Margin = new System.Windows.Forms.Padding(2);
             this.CheckBoxAll.Name = "CheckBoxAll";
             this.CheckBoxAll.Size = new System.Drawing.Size(81, 17);
             this.CheckBoxAll.TabIndex = 3;
@@ -122,8 +122,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ListBoxKelas);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormSetPrint";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.ResumeLayout(false);
             this.PerformLayout();
 
