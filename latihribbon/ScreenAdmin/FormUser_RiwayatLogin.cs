@@ -53,7 +53,14 @@ namespace latihribbon
         private void LoadUser()
         {
 
-            GridListUser.DataSource = _riwayatLoginDal.ListUser();
+            GridListUser.DataSource = _riwayatLoginDal.ListUser()
+                .Select (x => new 
+                {
+                    x.Id, 
+                    Username = x.Username,
+                    Password = x.Password,
+                }).ToList();
+
             if (GridListUser.Rows.Count > 0)
             {
                 GridListUser.ReadOnly = true;
@@ -66,7 +73,6 @@ namespace latihribbon
                 GridListUser.RowTemplate.Height = 30;
                 GridListUser.ColumnHeadersHeight = 35;
 
-                GridListUser.Columns["Password"].Visible = false;
                 GridListUser.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 GridListUser.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
                 GridListUser.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
@@ -171,13 +177,17 @@ namespace latihribbon
             if (e.Button == MouseButtons.Right && e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
                 GridListUser.ClearSelection();
-                GridListUser.CurrentCell = GridListUser[e.RowIndex, e.ColumnIndex];
+                GridListUser.CurrentCell = GridListUser[e.ColumnIndex, e.RowIndex];
                 contextMenuStrip1.Show(Cursor.Position);
             }
         }
 
         private void ButtonSaveUser_Click(object sender, EventArgs e)
         {
+            var username = TextUserName.Text;
+            if (MessageBox.Show($"Tambahkan \"{username}\" sebagai admin ?", "pertanyaan", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+                return;
+
             int idUser = TextIdUser.Text == string.Empty ? 0 : Convert.ToInt32(TextIdUser.Text);
             SaveUser(idUser);
         }   
@@ -262,9 +272,6 @@ namespace latihribbon
             }
         }
 
-        private void ButtonNewUser_Click_1(object sender, EventArgs e)
-        {
-
-        }
+      
     }
 }
