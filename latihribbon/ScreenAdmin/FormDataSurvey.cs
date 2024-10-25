@@ -42,8 +42,8 @@ namespace latihribbon
         #region EVENT
         private void ControlEvent()
         {
-            GridListSurvey.RowEnter += GridListSurvey_RowEnter;
-            ButtonDeleteUser.Click += ButtonDeleteUser_Click;
+            GridListSurvey.CellMouseClick += GridListSurvey_CellMouseClick;
+            DeleteMenuStrip.Click += DeleteMenuStrip_Click;
 
             ComboFilter.SelectedValueChanged += ComboFilter_SelectedValueChanged;
             PickerRentan_1.ValueChanged += PickerRentan_ValueChanged;
@@ -54,6 +54,26 @@ namespace latihribbon
             ButtonPrevious.Click += ButtonPrevious_Click;
             ButtonNext.Click += ButtonNext_Click;
 
+        }
+
+        private void GridListSurvey_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right && e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                GridListSurvey.ClearSelection();
+                GridListSurvey.CurrentCell = GridListSurvey[e.RowIndex, e.ColumnIndex];
+                contextMenuStrip1.Show(Cursor.Position);
+            }
+        }
+
+        private void DeleteMenuStrip_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Hapus data ?", "Konfirmasi", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK) return;
+               
+            var id = GridListSurvey.CurrentRow.Cells[0].Value;
+            Delete(Convert.ToInt16(id));
+            LoadData();
+           
         }
 
         private void ButtonNext_Click(object sender, EventArgs e)
@@ -171,20 +191,7 @@ namespace latihribbon
             LoadData();
         }
 
-        private void ButtonDeleteUser_Click(object sender, EventArgs e)
-        {
-            var id = GridListSurvey.CurrentRow.Cells[0].Value;
-
-            if (id != null)
-            {
-                if (MessageBox.Show("Hapus data ?", "Konfirmasi", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
-                {
-                    Delete(Convert.ToInt16(id));
-                    LoadData();
-                }
-            }
-
-        }
+      
         #endregion
 
         public void buf()
@@ -198,35 +205,6 @@ namespace latihribbon
             new object[] { true });
         }
 
-
-
-        private void GridListSurvey_RowEnter(object sender, DataGridViewCellEventArgs e)
-        {
-            var surveyId = GridListSurvey.Rows[e.RowIndex].Cells[0].Value;
-            GetDataFromGrid(Convert.ToInt32(surveyId));
-        }
-
-        private void GetDataFromGrid(int surveyId)
-        {
-            var data = GetData(surveyId);
-            if (data == null)
-            {
-                TextSurveyId.Clear();
-                TexthasilSurvey.Clear();
-                TextTanggal.Clear();
-                TextWaktu.Clear();
-                TextTotalPuas.Clear();
-                TextTotalTidakPuas.Clear();
-                return;
-            }
-
-            var hasil = data.HasilSurvey == 1 ? "Puas" : "Tidak Puas";
-
-            TextSurveyId.Text = data.SurveyId.ToString();
-            TexthasilSurvey.Text = hasil;
-            TextTanggal.Text = data.Tanggal.ToString("dd/MM/yyyy");
-            TextWaktu.Text = data.Waktu.ToString(@"hh\:mm");
-        }
         #region DAL
         private IEnumerable<SurveyModel> ListData(string Filter, string Pagination, object dp)
         {
@@ -276,5 +254,10 @@ namespace latihribbon
         }
 
         #endregion
+
+        private void TextTotalPuas_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
