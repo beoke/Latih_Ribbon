@@ -169,5 +169,7 @@ namespace latihribbon.ScreenAdmin
                 
             jurusanCombo.SelectedIndex = 0;
         }
+
+     
     }
 }
