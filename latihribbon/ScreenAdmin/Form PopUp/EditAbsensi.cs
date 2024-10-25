@@ -1,4 +1,5 @@
 ﻿using DocumentFormat.OpenXml.Wordprocessing;
+using latihribbon.Dal;
 using latihribbon.Model;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,7 @@ namespace latihribbon
     {
         private readonly Dal.AbsensiDal absensiDal;
         private readonly Dal.SiswaDal siswaDal;
+        private readonly HistoryDal historyDal;
         private int globalId = 0;
         private DateTime globalTgl;
         private bool InternalChanged = true;
@@ -24,6 +26,7 @@ namespace latihribbon
             InitializeComponent();
             absensiDal = new Dal.AbsensiDal();
             siswaDal = new Dal.SiswaDal();
+            historyDal = new HistoryDal();
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -60,7 +63,8 @@ namespace latihribbon
 
         private void BtnKelas_Click(object sender, EventArgs e)
         {
-           // new PopUpKelas().ShowDialog();
+            if (new PopUpKelas("Absensi", txtKelas.Text).ShowDialog() != DialogResult.OK) return;
+            txtKelas.Text = historyDal.GetData("Absensi")?.History.ToString()??string.Empty;
         }
 
         private void Input_KeyPress(object sender, KeyPressEventArgs e)
