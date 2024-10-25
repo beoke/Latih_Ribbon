@@ -45,6 +45,7 @@ namespace latihribbon
             this.btn_Keluar = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btn_kembali = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -104,6 +105,7 @@ namespace latihribbon
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.AutoSize = true;
             this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.btn_masuk);
@@ -112,7 +114,7 @@ namespace latihribbon
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1603, 862);
+            this.panel1.Size = new System.Drawing.Size(1603, 840);
             this.panel1.TabIndex = 56;
             // 
             // panel3
@@ -125,7 +127,7 @@ namespace latihribbon
             this.panel3.Controls.Add(this.txtKelas);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.txtNama);
-            this.panel3.Location = new System.Drawing.Point(641, 137);
+            this.panel3.Location = new System.Drawing.Point(641, 126);
             this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(292, 201);
@@ -175,7 +177,7 @@ namespace latihribbon
             this.btn_masuk.ForeColor = System.Drawing.Color.White;
             this.btn_masuk.Image = global::latihribbon.Properties.Resources.Group_13_1;
             this.btn_masuk.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_masuk.Location = new System.Drawing.Point(189, 409);
+            this.btn_masuk.Location = new System.Drawing.Point(189, 398);
             this.btn_masuk.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_masuk.Name = "btn_masuk";
             this.btn_masuk.Size = new System.Drawing.Size(600, 361);
@@ -204,7 +206,7 @@ namespace latihribbon
             this.btn_Keluar.ForeColor = System.Drawing.Color.White;
             this.btn_Keluar.Image = global::latihribbon.Properties.Resources.Group_14_1;
             this.btn_Keluar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_Keluar.Location = new System.Drawing.Point(809, 409);
+            this.btn_Keluar.Location = new System.Drawing.Point(809, 398);
             this.btn_Keluar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Keluar.Name = "btn_Keluar";
             this.btn_Keluar.Size = new System.Drawing.Size(600, 361);
@@ -243,6 +245,23 @@ namespace latihribbon
             this.btn_kembali.TabIndex = 53;
             this.btn_kembali.UseVisualStyleBackColor = false;
             this.btn_kembali.Click += new System.EventHandler(this.btn_kembali_Click);
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.BackgroundImage = global::latihribbon.Properties.Resources.arrow_square_left;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(9, 760);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(70, 70);
+            this.button1.TabIndex = 62;
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // FormMilih
             // 
@@ -283,5 +302,6 @@ namespace latihribbon
         private Label label3;
         private Label label1;
         private Panel panel3;
+        private Button button1;
     }
 }
