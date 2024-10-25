@@ -151,48 +151,36 @@ namespace latihribbon
             PickerRentan_1.ValueChanged += PickerRentan_ValueChanged;
             PickerRentan_2.ValueChanged += PickerRentan_ValueChanged;
 
-            ButtonNewUser.Click += ButtonNewUser_Click;
-            ButtonDeleteUser.Click += ButtonDeleteUser_Click;
             ButtonSaveUser.Click += ButtonSaveUser_Click;
-            GridListUser.SelectionChanged += GridListUser_SelectionChanged;
-
+            GridListUser.CellMouseClick += GridListUser_CellMouseClick;
+            DeleteMenuStrip.Click += DeleteMenuStrip_Click;
         }
 
-        private void GridListUser_SelectionChanged(object sender, EventArgs e)
+        private void DeleteMenuStrip_Click(object sender, EventArgs e)
         {
-            int idUser = Convert.ToInt32(GridListUser.CurrentRow.Cells[0].Value);
-            GetUser(idUser);
-            LabelAddUser.Text = "Update User";
-
-
-        }
-
-        private void ButtonSaveUser_Click(object sender, EventArgs e)
-        {
-            int idUser = TextIdUser.Text == string.Empty ? 0 : Convert.ToInt32(TextIdUser.Text);
-            SaveUser(idUser);
-        }
-
-        private void ButtonDeleteUser_Click(object sender, EventArgs e)
-        {
-            
             var idUser = Convert.ToInt32(GridListUser.CurrentRow.Cells[0].Value);
-
-            if (idUser == 0)
-                return;
-
-            if (MessageBox.Show("Hapus Data User ?","Perhatian", MessageBoxButtons.YesNo, MessageBoxIcon.Question)== DialogResult.Yes)
+            if (MessageBox.Show("Hapus Data User ?", "Perhatian", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 _riwayatLoginDal.DeleteUser(idUser);
                 LoadUser();
             }
         }
 
-        private void ButtonNewUser_Click(object sender, EventArgs e)
+        private void GridListUser_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            ClearUser();
-            LabelAddUser.Text = "Add User";
+            if (e.Button == MouseButtons.Right && e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                GridListUser.ClearSelection();
+                GridListUser.CurrentCell = GridListUser[e.RowIndex, e.ColumnIndex];
+                contextMenuStrip1.Show(Cursor.Position);
+            }
         }
+
+        private void ButtonSaveUser_Click(object sender, EventArgs e)
+        {
+            int idUser = TextIdUser.Text == string.Empty ? 0 : Convert.ToInt32(TextIdUser.Text);
+            SaveUser(idUser);
+        }   
 
         private void PickerRentan_ValueChanged(object sender, EventArgs e)
         {
@@ -208,20 +196,7 @@ namespace latihribbon
                 LoadData();
         }
         string Userlama = string.Empty;
-        private void GetUser(int idUser)
-        {
-
-            var user = _riwayatLoginDal.GetUser(idUser);
-
-            if (user != null)
-            {
-                TextIdUser.Text = idUser.ToString();
-                TextNameUser.Text = user.Username;
-                TextPassword.Text = user.Password;
-                Userlama = user.Username;
-            }
-            return;
-        }
+      
 
         private int SaveUser(int idUser)
         {
