@@ -61,7 +61,7 @@ namespace latihribbon
             if (e.Button == MouseButtons.Right && e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
                 GridListSurvey.ClearSelection();
-                GridListSurvey.CurrentCell = GridListSurvey[e.RowIndex, e.ColumnIndex];
+                GridListSurvey.CurrentCell = GridListSurvey[e.ColumnIndex, e.RowIndex];
                 contextMenuStrip1.Show(Cursor.Position);
             }
         }

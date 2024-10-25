@@ -59,6 +59,10 @@
             this.GridListRiwayatLogin = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.DeleteMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.EditMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridListUser)).BeginInit();
             this.panel4.SuspendLayout();
@@ -68,6 +72,7 @@
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridListRiwayatLogin)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
+            this.contextMenuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label5
@@ -439,9 +444,10 @@
             this.contextMenuStrip1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.DeleteMenuStrip});
+            this.DeleteMenuStrip,
+            this.editToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(145, 34);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(145, 64);
             // 
             // DeleteMenuStrip
             // 
@@ -450,6 +456,38 @@
             this.DeleteMenuStrip.Name = "DeleteMenuStrip";
             this.DeleteMenuStrip.Size = new System.Drawing.Size(144, 30);
             this.DeleteMenuStrip.Text = "Delete";
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(144, 30);
+            this.editToolStripMenuItem.Text = "Edit";
+            // 
+            // contextMenuStrip2
+            // 
+            this.contextMenuStrip2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contextMenuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.EditMenuStrip,
+            this.toolStripMenuItem1});
+            this.contextMenuStrip2.Name = "contextMenuStrip1";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(145, 64);
+            // 
+            // EditMenuStrip
+            // 
+            this.EditMenuStrip.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EditMenuStrip.Image = global::latihribbon.Properties.Resources.pencil;
+            this.EditMenuStrip.Name = "EditMenuStrip";
+            this.EditMenuStrip.Size = new System.Drawing.Size(144, 30);
+            this.EditMenuStrip.Text = "Edit";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripMenuItem1.Image = global::latihribbon.Properties.Resources.bin;
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(144, 30);
+            this.toolStripMenuItem1.Text = "Delete";
             // 
             // FormUser_RiwayatLogin
             // 
@@ -476,6 +514,7 @@
             this.panel9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridListRiwayatLogin)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
+            this.contextMenuStrip2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -512,5 +551,9 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem DeleteMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
+        private System.Windows.Forms.ToolStripMenuItem EditMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
     }
 }
