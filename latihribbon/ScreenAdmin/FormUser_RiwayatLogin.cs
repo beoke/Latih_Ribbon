@@ -164,7 +164,7 @@ namespace latihribbon
             ButtonSaveUser.Click += ButtonSaveUser_Click;
             GridListUser.CellMouseClick += GridListUser_CellMouseClick;
             DeleteMenuStrip.Click += DeleteMenuStrip_Click;
-            EditMenuStrip.Click += EditMenuStrip_Click;
+            //EditMenuStrip.Click += EditMenuStrip_Click;
         }
 
         private void EditMenuStrip_Click(object sender, EventArgs e)
