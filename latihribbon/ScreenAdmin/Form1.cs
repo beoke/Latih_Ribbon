@@ -165,7 +165,6 @@ namespace latihribbon
         }
 
         bool Closing = true;
-
         private void ButtonLogOut_Click(object sender, EventArgs e)
         {
             if(MessageBox.Show("Anda yakin ingin Logout ? ", "Logout", MessageBoxButtons.YesNo , MessageBoxIcon.Question) == DialogResult.Yes)

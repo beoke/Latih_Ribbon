@@ -22,6 +22,11 @@ namespace latihribbon
         private bool PuasOn = false;
         private bool TidakPuasOn = false;
 
+        private readonly Image puasPolos = Properties.Resources.Puas_Polos;
+        private readonly Image tidakPuasPolos = Properties.Resources.TidakPuas_Polos;
+        private readonly Image puasWarna = Properties.Resources.Puas_Warna;
+        private readonly Image tidakPuasWarna = Properties.Resources.TidakPuas_Warna;
+
         public SurveyForm(Form mainForm,Form indexForm)
         {
             InitializeComponent();
@@ -32,29 +37,61 @@ namespace latihribbon
             this.KeyPreview = true;
             this.TopMost = true;
             this.ControlBox = true;
+
+            btnTidakPuas.FlatStyle = FlatStyle.Flat;
+            btnTidakPuas.FlatAppearance.BorderSize = 0;
+            btnTidakPuas.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnTidakPuas.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            btnTidakPuas.BackColor = Color.Transparent;
+
+            btnPuas.FlatStyle = FlatStyle.Flat;
+            btnPuas.FlatAppearance.BorderSize = 0;
+            btnPuas.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btnPuas.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            btnPuas.BackColor = Color.Transparent;
+
             InitialPicture();
             ControlEvent();
         }
 
         private void InitialPicture()
         {
-            PictureBoxTidakPuas.BackgroundImage = Properties.Resources.TidakPuas_Polos;
-            PictureBoxTidakPuas.BackgroundImageLayout = ImageLayout.Stretch;
+            btnTidakPuas.BackgroundImage = tidakPuasPolos;
+            btnTidakPuas.BackgroundImageLayout = ImageLayout.Stretch;
 
-            PictureBoxPuas.BackgroundImage = Properties.Resources.Puas_Polos;
-            PictureBoxPuas.BackgroundImageLayout = ImageLayout.Stretch;
+            btnPuas.BackgroundImage = puasPolos;
+            btnPuas.BackgroundImageLayout = ImageLayout.Stretch;
         }
 
         private void ControlEvent()
         {
-            PictureBoxPuas.Click += PictureBoxPuas_Click;
-            PictureBoxTidakPuas.Click += PictureBoxTidakPuas_Click;
+            btnPuas.Click += btnPuas_Click;
+            btnTidakPuas.Click += btnTidakPuas_Click;
 
             ButtonKirim.Click += ButtonSave_Click;
             btn_kembali.Click += btn_kembali_Click;
         }
 
-        private async void btn_kembali_Click(object sender, EventArgs e)
+
+        private void btnTidakPuas_Click(object sender, EventArgs e)
+        {
+            btnPuas.BackgroundImage = puasPolos;
+            btnTidakPuas.BackgroundImage = tidakPuasWarna;
+            TidakPuasOn = true;
+            PuasOn = false;
+            _data = 0;
+        }
+
+        private void btnPuas_Click(object sender, EventArgs e)
+        {
+            btnTidakPuas.BackgroundImage = tidakPuasPolos;
+            btnPuas.BackgroundImage = puasWarna;
+            PuasOn = true;
+            TidakPuasOn = false;
+            _data = 1;
+        }
+
+        private void btn_kembali_Click(object sender, EventArgs e)
         {
             indexForm.Opacity = 1;
             this.Close();
@@ -81,55 +118,6 @@ namespace latihribbon
 
             indexForm.Opacity = 1;
             this.Close();
-        }
-
-        private void PictureBoxTidakPuas_Click(object sender, EventArgs e)
-        {
-            if (TidakPuasOn)
-            {
-                PictureBoxTidakPuas.BackgroundImage = Properties.Resources.TidakPuas_Polos;
-                PictureBoxTidakPuas.BackgroundImageLayout = ImageLayout.Stretch;
-
-                TidakPuasOn = false;
-            }
-            else
-            {
-                clear();
-
-                PictureBoxTidakPuas.BackgroundImage = Properties.Resources.TidakPuas_Warna;
-                PictureBoxTidakPuas.BackgroundImageLayout = ImageLayout.Stretch;
-
-                TidakPuasOn = true;
-            }
-
-            _data = 0;
-        }
-
-        private void PictureBoxPuas_Click(object sender, EventArgs e)
-        {
-            if (PuasOn)
-            {
-                PictureBoxPuas.BackgroundImage = Properties.Resources.Puas_Polos;
-                PictureBoxPuas.BackgroundImageLayout = ImageLayout.Stretch;
-
-                PuasOn = false;
-            }
-            else
-            {
-                clear();
-                PictureBoxPuas.BackgroundImage = Properties.Resources.Puas_Warna;
-                PictureBoxPuas.BackgroundImageLayout = ImageLayout.Stretch;
-
-                PuasOn = true;
-            }
-
-            _data = 1;
-        }
-
-        private void clear()
-        {
-            PictureBoxPuas.BackgroundImage = Properties.Resources.Puas_Polos;
-            PictureBoxTidakPuas.BackgroundImage = Properties.Resources.TidakPuas_Polos;
         }
 
         private void SaveData(SurveyModel puas)
