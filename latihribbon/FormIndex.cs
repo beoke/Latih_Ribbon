@@ -25,10 +25,7 @@ namespace latihribbon
             this.TopMost = true;
             this.ControlBox = true;
             this.KeyPreview = true;
-
-
             this.KeyDown += FormIndex_KeyDown;
-
         }
 
         private void FormIndex_KeyDown(object sender, KeyEventArgs e)
@@ -90,29 +87,23 @@ namespace latihribbon
 
         private void ButtonAdmin_Click(object sender, EventArgs e)
         {
-            login log = new login(mainForm);
+            login log = new login(mainForm,this);
             log.Show();
-            //this.Opacity = 0;
-            this.Hide();
+            this.Opacity = 0;
         }
 
         private void ButtonSurvey_Click(object sender, EventArgs e)
         {
-            SurveyForm survey = new SurveyForm(this);
+            SurveyForm survey = new SurveyForm(mainForm);
             survey.Show();
             this.Opacity = 0;
-
         }
 
         private void ButtonSimResi_Click(object sender, EventArgs e)
         {
-            Pemakai pakai = new Pemakai(this);
+            Pemakai pakai = new Pemakai(mainForm);
             pakai.Show();
-
             this.Opacity = 0;
         }
-
-
-       
     }
 }

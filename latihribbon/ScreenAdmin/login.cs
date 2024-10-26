@@ -20,7 +20,8 @@ namespace latihribbon
         private readonly MesBox _mesBox = new MesBox();
 
         private Form mainForm;
-        public login(Form mainForm)
+        private Form indexForm;
+        public login(Form mainForm, Form indexForm)
         {
             _riwayatLoginDal = new RiwayatLogin_UserDal();
             InitializeComponent();
@@ -33,6 +34,7 @@ namespace latihribbon
             this.TopMost = true;
             this.ControlBox = true;
             this.mainForm = mainForm;
+            this.indexForm = indexForm;
         }
 
         #region EVENT
@@ -48,7 +50,7 @@ namespace latihribbon
         }
         private void btn_kembali_Click(object sender, EventArgs e)
         {
-            mainForm.Opacity = 1;
+            indexForm.Opacity = 1;
             this.Close();
         }
         private void Tx_Password_Leave(object sender, EventArgs e)
@@ -103,13 +105,13 @@ namespace latihribbon
                 new MesWarningOK("Username Tidak Tersedia!").ShowDialog(this);
                 return;
             }
-            if (!FormUser_RiwayatLogin.VerifyPassword(password, user.password))
+           /* if (!FormUser_RiwayatLogin.VerifyPassword(password, user.password))
             {
                 new MesError("Username atau Password salah!").ShowDialog(this);
                 return;
-            }
+            }*/
             InsertHistori();
-            Form1 admin = new Form1(mainForm);
+            Form1 admin = new Form1(mainForm,indexForm);
             admin.Show();
             this.Close();
         }

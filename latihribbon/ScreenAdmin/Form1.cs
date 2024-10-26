@@ -17,23 +17,22 @@ namespace latihribbon
 {
     public partial class Form1 : RibbonForm
     {
-
         private Form mainForm;
+        private Form indexForm;
         private readonly MesBox _mesbox;
 
-        public Form1(Form mainForm)
+        public Form1(Form mainForm,Form indexForm)
         {
             InitializeComponent();
             _mesbox = new MesBox();
             this.mainForm = mainForm;
+            this.indexForm = indexForm;
             this.WindowState = FormWindowState.Maximized;
            
             this.MinimumSize = new Size(1500, 800);
-
         }
         private void ShowFormInPanel(Form form) 
         {
-           
             form.TopLevel = false; 
             form.FormBorderStyle = FormBorderStyle.None; 
             form.Dock = DockStyle.Fill; 
@@ -79,7 +78,6 @@ namespace latihribbon
             ribbon_Siswa.CheckOnClick = true;
             ribbon_Siswa.Checked = true;
         }
-
 
         private void ribbonAbsensi_Click(object sender, EventArgs e)
         {
@@ -141,8 +139,6 @@ namespace latihribbon
             ribbonButtonSurvey.Checked = true;
         }
 
-
-
         private void ClearCheckRibbon()
         {
             ribbonJurusan.CheckOnClick = false;
@@ -170,18 +166,15 @@ namespace latihribbon
 
         bool Closing = true;
 
-
         private void ButtonLogOut_Click(object sender, EventArgs e)
         {
             if(MessageBox.Show("Anda yakin ingin Logout ? ", "Logout", MessageBoxButtons.YesNo , MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 Closing = false;
-                mainForm.Opacity = 1;
+                indexForm.Opacity = 1;
                 this.Close();
             }
         }
-
-
         
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -190,16 +183,6 @@ namespace latihribbon
                 if (new MesQuestionYN("Apakah Anda Ingin Menutup Aplikasi ?").ShowDialog() == DialogResult.Yes) mainForm.Close();
                 e.Cancel = true;
             }
-        }
-
-        private void dataGridView1_MouseClick(object sender, MouseEventArgs e)
-        {
-           
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }
