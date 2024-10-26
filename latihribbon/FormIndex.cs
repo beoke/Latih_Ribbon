@@ -91,7 +91,8 @@ namespace latihribbon
         {
             login log = new login(this);
             log.Show();
-            this.Opacity = 0;
+            //this.Opacity = 0;
+            this.Hide();
         }
 
         private void ButtonSurvey_Click(object sender, EventArgs e)

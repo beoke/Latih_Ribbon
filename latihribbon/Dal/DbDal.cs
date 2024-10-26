@@ -14,12 +14,12 @@ namespace latihribbon
         private const string _connString = "Server=(local);Database=RekapSiswa;Trusted_Connection=True;TrustServerCertificate=True";
 
         // Function untuk mendapatkan user dari database
-        public IEnumerable<UserModel> GetUsers()
+        public UserModel GetUsers(string username)
         {
                 using (var connection = new SqlConnection(_connString))
                 {
                     connection.Open();
-                    var users = connection.Query<UserModel>("SELECT * FROM Users");
+                    var users = connection.QueryFirstOrDefault<UserModel>("SELECT * FROM Users WHERE username=@username", new {username=username});
                     return users;
                 }
         }

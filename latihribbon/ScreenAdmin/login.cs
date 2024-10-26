@@ -85,19 +85,9 @@ namespace latihribbon
 
         #endregion
 
-
-
         private void btn_Login_Click(object sender, EventArgs e)
         {
             ENTER();
-
-          
-        }
-
-        public static string VerifyPassword(string inputPassword)
-        {
-            string hassedPassword = FormUser_RiwayatLogin.EncriptPassword(inputPassword);
-            return hassedPassword;
         }
 
         public void ENTER()
@@ -105,31 +95,23 @@ namespace latihribbon
             string username = tx_Username.Text;
             string password = tx_Password.Text;
 
-            var pass = VerifyPassword(password);
-
             DbDal dbDal = new DbDal();
-            IEnumerable<UserModel> Users = dbDal.GetUsers();
+            UserModel user = dbDal.GetUsers(username);
 
-            UserModel user = Users.FirstOrDefault(u => u.username == username && u.password == pass);
-
-            if (user != null)
+            if(user == null)
             {
-                InsertHistori();
-                if (user.Role == "admin")
-                {
-                    Form1 adminDashboard = new Form1(mainForm);
-                    adminDashboard.Show();
-                }
-              
-                tx_Username.Clear();
-                tx_Password.Clear();
-
-                this.Hide();
+                new MesWarningOK("Username Tidak Tersedia!").ShowDialog(this);
+                return;
             }
-            else
+            if (!FormUser_RiwayatLogin.VerifyPassword(password, user.password))
             {
-                MessageBox.Show("Invalid username or password", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                new MesError("Username atau Password salah!").ShowDialog(this);
+                return;
             }
+            InsertHistori();
+            Form1 admin = new Form1(mainForm);
+            admin.Show();
+            this.Close();
         }
 
         private void InsertHistori()
@@ -158,7 +140,5 @@ namespace latihribbon
         {
             if (e.KeyCode == Keys.Enter) ENTER();
         }
-
-       
     }
 }

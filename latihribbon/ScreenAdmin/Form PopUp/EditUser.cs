@@ -31,10 +31,10 @@ namespace latihribbon
 
         private void ButtonSaveUser_Click(object sender, EventArgs e)
         {
-            if (new MesQuestionYN("Update Data ?").ShowDialog() != DialogResult.Yes) return;
+            /*if (new MesQuestionYN("Update Data ?").ShowDialog() != DialogResult.Yes) return;
 
             var username = TextNameUser.Text;
-            var password = FormUser_RiwayatLogin.EncriptPassword(TextPassword.Text);
+            var password = FormUser_RiwayatLogin.VerifyPassword(TextPassword.Text,TextPassword.Text);
             if (username == null || password == null) return;
 
             var data = new UserModel
@@ -46,7 +46,7 @@ namespace latihribbon
 
             _userDal.Update(data);
             this.Close();
-            this.DialogResult = DialogResult.Yes;
+            this.DialogResult = DialogResult.Yes;*/
         }
 
         private void GetData(int userId)

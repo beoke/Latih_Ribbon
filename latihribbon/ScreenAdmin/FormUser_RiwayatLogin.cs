@@ -13,6 +13,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Konscious.Security.Cryptography;
 
 namespace latihribbon
 {
@@ -234,7 +235,7 @@ namespace latihribbon
             {
                 Id = idUser,
                 username = TextNameUser.Text,
-                password = EncriptPassword(TextPassword.Text),
+                password = HashPassword(TextPassword.Text),
                 Role = "admin",
             };
 
@@ -292,23 +293,44 @@ namespace latihribbon
             }
         }
 
-
-
-        
-        public static string EncriptPassword (string password)
+        //Hash
+        public static string HashPassword(string password)
         {
-            using (SHA256 sha256 = SHA256.Create())
+            byte[] salt = new byte[16];
+            new Random().NextBytes(salt);
+
+            var argon2 = new Argon2id(Encoding.UTF8.GetBytes(password))
             {
-                byte[] bytes = sha256.ComputeHash(UTF8Encoding.UTF8.GetBytes(password));
-                StringBuilder builder = new StringBuilder();
-                foreach (byte b in bytes)
-                {
-                    builder.Append(b.ToString("x2"));
-                }
-                
-                return builder.ToString();
-            }
+                Salt = salt,
+                DegreeOfParallelism = 8,
+                MemorySize = 65536,
+                Iterations = 4
+            };
+
+            byte[] hashBytes = argon2.GetBytes(32);
+            return Convert.ToBase64String(salt) + ":" + Convert.ToBase64String(hashBytes);
         }
-      
+
+        // Verifikasi kata sandi
+        public static bool VerifyPassword(string password, string hashedPassword)
+        {
+            var parts = hashedPassword.Split(':');
+            if (parts.Length != 2) return false;
+
+            byte[] salt = Convert.FromBase64String(parts[0]);
+            byte[] hashToCompare = Convert.FromBase64String(parts[1]);
+
+            var argon2 = new Argon2id(Encoding.UTF8.GetBytes(password))
+            {
+                Salt = salt,
+                DegreeOfParallelism = 8,
+                MemorySize = 65536,
+                Iterations = 4
+            };
+
+            byte[] hashBytes = argon2.GetBytes(32);
+
+            return hashBytes.Length == hashToCompare.Length && hashBytes.SequenceEqual(hashToCompare);
+        }      
     }
 }
