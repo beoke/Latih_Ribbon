@@ -14,11 +14,12 @@ namespace latihribbon
     public partial class FormIndex : Form
     {
         private bool TopMost = true;
-        public FormIndex()
+        private Form mainForm;
+        public FormIndex(Form ff)
         {
             InitializeComponent();
             ControlEvent();
-
+            this.mainForm = ff;
             this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
             this.TopMost = true;
@@ -89,7 +90,7 @@ namespace latihribbon
 
         private void ButtonAdmin_Click(object sender, EventArgs e)
         {
-            login log = new login(this);
+            login log = new login(mainForm);
             log.Show();
             //this.Opacity = 0;
             this.Hide();
