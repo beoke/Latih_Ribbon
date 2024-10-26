@@ -94,7 +94,7 @@ namespace latihribbon
 
         private void ButtonSurvey_Click(object sender, EventArgs e)
         {
-            SurveyForm survey = new SurveyForm(mainForm,this);
+            SurveyForm survey = new SurveyForm(mainForm, this);
             survey.Show();
             this.Opacity = 0;
         }

@@ -69,6 +69,5 @@ namespace latihribbon
             p.Show();
             this.Close();
         }
- 
     }
 }

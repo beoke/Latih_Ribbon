@@ -61,7 +61,7 @@ namespace latihribbon
            
             if (!int.TryParse(tx_NIS.Text, out nis))
             {
-                new MesWarningOK("Harap masukkan angka yang valid untuk NIS!").ShowDialog();
+                new MesWarningOK("Harap masukkan angka yang valid untuk NIS!").ShowDialog(this);
                 tx_NIS.Text = "";
                 return;
             }
