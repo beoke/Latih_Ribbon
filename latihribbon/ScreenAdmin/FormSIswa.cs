@@ -306,7 +306,7 @@ namespace latihribbon
             if(e.Button == MouseButtons.Right && e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
                 dataGridView1.ClearSelection();
-                dataGridView1.CurrentCell = dataGridView1[e.ColumnIndex, e.RowIndex];
+                dataGridView1. CurrentCell = dataGridView1[e.ColumnIndex, e.RowIndex];
                 contextMenuStrip1.Show(Cursor.Position);
             }
         }

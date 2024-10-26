@@ -32,6 +32,7 @@ namespace latihribbon
             this.delayTimer.Interval = 1000;
             this.delayTimer.Tick += DelayTimer_Tick;
             this.Load += FirstForm_Load;
+
         }
 
         private void FirstForm_Load(object sender, EventArgs e)
