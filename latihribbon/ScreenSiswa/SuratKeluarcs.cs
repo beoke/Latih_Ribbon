@@ -31,15 +31,18 @@ namespace latihribbon
         private string kelas;
 
         private Form mainForm;
+        private Form indexForm;
 
-        public SuratKeluarcs(Form mainForm,string NIS, string nama,string kelas)
+        public SuratKeluarcs(Form mainForm,Form indexForm,string NIS, string nama,string kelas)
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
-            //this.TopMost = true;
+            this.TopMost = true;
             this.ControlBox = true;
             this.mainForm = mainForm;
+            this.indexForm = indexForm;
+            
             db = new DbDal();
             keluarDal = new KeluarDal();
             this.NIS = NIS;
@@ -79,14 +82,14 @@ namespace latihribbon
         {
             if (!Validasi())
             {
-                new MesWarningOK("Pastikan \"Jam Kembali\" dan \"Keperluan\" valid !").ShowDialog();
+                new MesWarningOK("Pastikan \"Jam Kembali\" dan \"Keperluan\" valid !").ShowDialog(this);
                 return;
             }
-            if (new MesQuestionYN("Apakah data sudah benar ?").ShowDialog() != DialogResult.Yes) return;
+            if (new MesQuestionYN("Apakah data sudah benar ?").ShowDialog(this) != DialogResult.Yes) return;
             if (Print()) Insert();
             
             System.Threading.Thread.Sleep(1000);
-            mainForm.Opacity = 1;
+            indexForm.Opacity = 1;
             this.Close();
         }
 
@@ -128,7 +131,7 @@ namespace latihribbon
 
                 if (!PrinterIsAvailable())
                 {
-                   new MesError("Printer tidak tersedia atau offline.").ShowDialog();
+                   new MesError("Printer tidak tersedia atau offline.").ShowDialog(this);
                     return false;
                 }
                /* printPreviewDialogKeluar.Document = printDocumentKeluar;
@@ -139,7 +142,7 @@ namespace latihribbon
             }
             catch (Exception ex)
             {
-                new MesError($"Gagal Mencetak Surat: {ex.Message}").ShowDialog();
+                new MesError($"Gagal Mencetak Surat: {ex.Message}").ShowDialog(this);
                 return false;
             }
         }
@@ -287,7 +290,7 @@ namespace latihribbon
             }
             catch (Exception ex)
             {
-                new MesError($"Terjadi kesalahan saat mencetak: {ex.Message}").ShowDialog();
+                new MesError($"Terjadi kesalahan saat mencetak: {ex.Message}").ShowDialog(this);
             }
         }
 
@@ -330,14 +333,14 @@ namespace latihribbon
 
         private void btn_Kembali_Click(object sender, EventArgs e)
         {
-            FormMilih fm = new FormMilih(mainForm, NIS, nama, kelas);
+            FormMilih fm = new FormMilih(mainForm,indexForm, NIS, nama, kelas);
             fm.Show();
             this.Close();
         }
         private void button1_Click(object sender, EventArgs e)
         {
             ScreenSiswa.FormTutorJam f = new ScreenSiswa.FormTutorJam();
-            f.ShowDialog();
+            f.ShowDialog(this);
         }
     }
 }

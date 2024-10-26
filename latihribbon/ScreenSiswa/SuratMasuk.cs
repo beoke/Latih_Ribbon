@@ -29,14 +29,16 @@ namespace latihribbon
         private DateTime jam;
 
         private Form mainForm;
-        public SuratMasuk(Form mainForm ,string NIS, string nama, string kelas)
+        private Form indexForm;
+        public SuratMasuk(Form mainForm, Form indexForm, string NIS, string nama, string kelas)
         {
             InitializeComponent(); 
             this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
-            //this.TopMost = true;
+            this.TopMost = true;
             this.ControlBox = true;
             this.mainForm = mainForm;
+            this.indexForm = indexForm;
             this.NIS = NIS;
             this.nama = nama;
             this.kelas = kelas;
@@ -62,7 +64,7 @@ namespace latihribbon
 
         private void btn_Kembali_Click(object sender, EventArgs e)
         {
-            FormMilih fm = new FormMilih(mainForm,NIS,nama,kelas);
+            FormMilih fm = new FormMilih(mainForm,indexForm,NIS,nama,kelas);
             fm.Show();
             this.Close();
         }
@@ -97,15 +99,15 @@ namespace latihribbon
         {
             if (!Validasi())
             {
-                new MesWarningOK("Alasan Terlambat Wajib Diisi!").ShowDialog();
+                new MesWarningOK("Alasan Terlambat Wajib Diisi!").ShowDialog(this);
                 return;
             }
 
-            if (new MesQuestionYN("Apakah data sudah benar ?").ShowDialog() != DialogResult.Yes) return;
+            if (new MesQuestionYN("Apakah data sudah benar ?").ShowDialog(this) != DialogResult.Yes) return;
             if (Print()) Insert();
 
             System.Threading.Thread.Sleep(1000);
-            mainForm.Opacity = 1;
+            indexForm.Opacity = 1;
             this.Close();
         }
 
@@ -119,7 +121,7 @@ namespace latihribbon
 
                 if (!PrinterIsAvailable())
                 {
-                    new MesError("Printer tidak tersedia atau offline.").ShowDialog();
+                    new MesError("Printer tidak tersedia atau offline.").ShowDialog(this);
                     return false;
                 }
                 /*printPreviewDialogMasuk.Document = printDocumentMasuk;
@@ -130,7 +132,7 @@ namespace latihribbon
             catch (Exception ex)
             {
                 // Jika terjadi error saat proses print
-                new MesError($"Gagal Mencetak Surat: {ex.Message}").ShowDialog();
+                new MesError($"Gagal Mencetak Surat: {ex.Message}").ShowDialog(this);
                 return false;
             }
         }
@@ -271,7 +273,7 @@ namespace latihribbon
             }
             catch (Exception ex)
             {
-                new MesError($"Terjadi kesalahan saat mencetak: {ex.Message}").ShowDialog();
+                new MesError($"Terjadi kesalahan saat mencetak: {ex.Message}").ShowDialog(this);
             }
         }
 

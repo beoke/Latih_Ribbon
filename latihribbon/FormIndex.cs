@@ -94,14 +94,14 @@ namespace latihribbon
 
         private void ButtonSurvey_Click(object sender, EventArgs e)
         {
-            SurveyForm survey = new SurveyForm(mainForm);
+            SurveyForm survey = new SurveyForm(mainForm,this);
             survey.Show();
             this.Opacity = 0;
         }
 
         private void ButtonSimResi_Click(object sender, EventArgs e)
         {
-            Pemakai pakai = new Pemakai(mainForm);
+            Pemakai pakai = new Pemakai(mainForm,this);
             pakai.Show();
             this.Opacity = 0;
         }

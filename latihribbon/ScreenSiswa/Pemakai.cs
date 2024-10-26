@@ -20,7 +20,8 @@ namespace latihribbon
         private readonly MesBox mesBox;
 
         private Form mainForm;
-        public Pemakai(Form mainForm)
+        private Form indexForm;
+        public Pemakai(Form mainForm, Form indexForm)
         {
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
@@ -28,18 +29,18 @@ namespace latihribbon
             this.TopMost = true;
             this.ControlBox = true;
             this.mainForm = mainForm;
+            this.indexForm = indexForm;
             _dbDal = new DbDal();
             siswaDal = new SiswaDal();
             kelasDal = new KelasDal();
             mesBox = new MesBox();
         }
 
- 
-        
         private void btn_enter_Click(object sender, EventArgs e)
         {
             ENTER();
         }
+
         public void ResetForm()
         {
             tx_NIS.Clear();
@@ -69,28 +70,20 @@ namespace latihribbon
             var siswa = siswaDal.GetData(nis);
             if (siswa == null)
             {
-                new MesWarningOK("NIS tidak ditemukan.").ShowDialog();
+                new MesWarningOK("NIS tidak ditemukan.").ShowDialog(this);
                 tx_NIS.Text = "";
             }
             else
             {
-                /*DialogResult result = MessageBox.Show($"NIS: {siswa.Nis} Dengan Nama: {siswa.Nama}", "Data ditemukan", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-
-                if (result == DialogResult.No)
-                {
-                    ResetForm();
-                    return;
-                }*/
                 string NIS, nama, kelas;
                 NIS = siswa.Nis.ToString();
                 nama = siswa.Nama;
                 kelas = kelasDal.GetData(siswa.IdKelas)?.NamaKelas ?? string.Empty;
-                FormMilih formMilih = new FormMilih(mainForm,NIS,nama,kelas);
+                FormMilih formMilih = new FormMilih(mainForm,indexForm,NIS,nama,kelas);
                 formMilih.Show();
                 this.Close();
             } 
         }
-
 
         private void tx_NIS_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -102,7 +95,7 @@ namespace latihribbon
 
         private void btn_kembali_Click(object sender, EventArgs e)
         {
-            mainForm.Opacity = 1;
+            indexForm.Opacity = 1;
             this.Close();
         }
     }

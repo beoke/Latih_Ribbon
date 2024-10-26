@@ -17,16 +17,18 @@ namespace latihribbon
     {
         private int _data;
         private Form mainForm;
+        private Form indexForm;
 
         private bool PuasOn = false;
         private bool TidakPuasOn = false;
 
-        public SurveyForm(Form mainForm)
+        public SurveyForm(Form mainForm,Form indexForm)
         {
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
             this.FormBorderStyle = FormBorderStyle.None;
             this.mainForm = mainForm;
+            this.indexForm = indexForm;
             this.KeyPreview = true;
             this.TopMost = true;
             this.ControlBox = true;
@@ -54,7 +56,7 @@ namespace latihribbon
 
         private async void btn_kembali_Click(object sender, EventArgs e)
         {
-            mainForm.Opacity = 1;
+            indexForm.Opacity = 1;
             this.Close();
         }
 
@@ -62,17 +64,12 @@ namespace latihribbon
         {
             if (PuasOn == false && TidakPuasOn == false)
             {
-                this.TopMost = false;
                 PopUpWarning p = new PopUpWarning();
-                p.ShowDialog();
-                this.TopMost = true;
+                p.ShowDialog(this);
                 return;
             }
-
-            this.TopMost = false;
             PopUp popUp = new PopUp(); 
-            popUp.ShowDialog();
-            this.TopMost = true;
+            popUp.ShowDialog(this);
 
             var puas = new SurveyModel
             {
@@ -82,7 +79,7 @@ namespace latihribbon
             };
             SaveData(puas);
 
-            mainForm.Opacity = 1;
+            indexForm.Opacity = 1;
             this.Close();
         }
 

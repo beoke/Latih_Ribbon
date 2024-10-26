@@ -29,7 +29,7 @@ namespace latihribbon
 
             this.opacityTimer.Interval = 20;
             this.opacityTimer.Tick += OpacityTimer_Tick;
-            this.delayTimer.Interval = 1000;
+            this.delayTimer.Interval = 2000;
             this.delayTimer.Tick += DelayTimer_Tick;
             this.Load += FirstForm_Load;
 

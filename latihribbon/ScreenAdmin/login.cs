@@ -105,11 +105,11 @@ namespace latihribbon
                 new MesWarningOK("Username Tidak Tersedia!").ShowDialog(this);
                 return;
             }
-           /* if (!FormUser_RiwayatLogin.VerifyPassword(password, user.password))
+            if (!FormUser_RiwayatLogin.VerifyPassword(password, user.password))
             {
                 new MesError("Username atau Password salah!").ShowDialog(this);
                 return;
-            }*/
+            }
             InsertHistori();
             Form1 admin = new Form1(mainForm,indexForm);
             admin.Show();
