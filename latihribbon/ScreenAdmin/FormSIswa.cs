@@ -276,6 +276,48 @@ namespace latihribbon
             dataGridView1.CellMouseClick += DataGridView1_CellMouseClick;
             EditMenuStrip.Click += EditMenuStrip_Click;
             DeleteMenuStrip.Click += DeleteMenuStrip_Click;
+
+            NaikKelasContext.Click += NaikKelasContext_Click;
+            HapusSiswaLulus.Click += HapusSiswaLulus_Click;
+            
+        }
+        private void ButtonNaikKelas_Click(object sender, EventArgs e)
+        {
+            contextMenuStrip2.Show(Cursor.Position);
+        }
+        private void HapusSiswaLulus_Click(object sender, EventArgs e)
+        {
+            if (new MesWarningYN("Hapus Data Siswa Yang Telah Lulus?").ShowDialog(this) != DialogResult.Yes) return;
+            kelasDal.DeleteSiswaLulus();
+            LoadData();
+        }
+
+        private void NaikKelasContext_Click(object sender, EventArgs e)
+        {
+            if (new MesWarningYN("Naik Kelas Untuk Seluruh Siswa?\nTindakan ini Tidak Dapat Diurungkan!!", 2).ShowDialog(this) != DialogResult.Yes) return;
+
+            var allKelas = kelasDal.listKelas(string.Empty, new { });
+            if (!allKelas.Any()) return;
+            kelasDal.DuplikatKelas("X");
+            foreach (var x in allKelas)
+            {
+                string tingkat = x.Tingkat == "X" ? "XI"
+                    : x.Tingkat == "XI" ? "XII"
+                    : x.Tingkat == "XII" ? "LULUS"
+                    : string.Empty;
+                var kelas = new KelasModel()
+                {
+                    Id = x.Id,
+                    NamaKelas = $"{tingkat} {x.NamaJurusan} {x.Rombel}".Trim(),
+                    Tingkat = tingkat,
+                    IdJurusan = x.IdJurusan,
+                    Rombel = x.Rombel,
+                    status = x.Tingkat.Trim() == "XII" ? 0 : 1
+                };
+                kelasDal.Update(kelas);
+            }
+            new MesInformasi("Seluruh Siswa Berhasil Naik Kelas!").ShowDialog(this);
+            LoadData();
         }
 
         private void BtnSave_FormSiswa_Click(object sender, EventArgs e)

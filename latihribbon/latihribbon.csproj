@@ -233,6 +233,12 @@
     <Compile Include="FirstForm.Designer.cs">
       <DependentUpon>FirstForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="NaikKelas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NaikKelas.Designer.cs">
+      <DependentUpon>NaikKelas.cs</DependentUpon>
+    </Compile>
     <Compile Include="ScreenAdmin\Form PopUp\EditKelas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -473,6 +479,9 @@
     <EmbeddedResource Include="FirstForm.resx">
       <DependentUpon>FirstForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NaikKelas.resx">
+      <DependentUpon>NaikKelas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ScreenAdmin\Form PopUp\EditKelas.resx">
       <DependentUpon>EditKelas.cs</DependentUpon>
     </EmbeddedResource>
@@ -692,6 +701,7 @@
     <None Include="Resources\questionblue %284%29.png" />
     <None Include="Resources\Info.png" />
     <None Include="Resources\cross.png" />
+    <None Include="Resources\growth.png" />
     <Content Include="SQL Script\CekData.sql" />
   </ItemGroup>
   <ItemGroup>
