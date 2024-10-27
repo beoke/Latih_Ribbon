@@ -43,7 +43,6 @@ namespace latihribbon
             _riwayatLoginDal.DeleteOtomatis(tanggal);
         }
 
-
         public void buf()
         {
             typeof(DataGridView).InvokeMember("DoubleBuffered",
@@ -57,7 +56,6 @@ namespace latihribbon
 
         private void LoadUser()
         {
-
             GridListUser.DataSource = _riwayatLoginDal.ListUser()
                 .Select (x => new 
                 {
@@ -209,7 +207,10 @@ namespace latihribbon
         private void TextUserName_TextChanged(object sender, EventArgs e)
         {
             if (TextUserName.Text == string.Empty)
+            {
                 LoadRiwayatLogin();
+                LoadData();
+            }
             else
                 LoadData();
         }

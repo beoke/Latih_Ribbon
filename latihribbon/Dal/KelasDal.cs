@@ -21,10 +21,12 @@ namespace latihribbon.Dal
                 string sql = $@"SELECT k.Id,k.NamaKelas,k.Rombel,k.IdJurusan,k.Tingkat,j.NamaJurusan FROM Kelas k
                                 INNER JOIN Jurusan j ON k.IdJurusan=j.Id  {sqlc}
                                 ORDER BY CASE 
-                                        WHEN k.Tingkat = 'X' THEN 1
-                                        WHEN k.Tingkat = 'XI' THEN 2
-                                        WHEN k.Tingkat = 'XII' THEN 3
-                                        ELSE 4
+                                        WHEN k.Tingkat = '' THEN 1
+                                        WHEN k.Tingkat = 'X' THEN 2
+                                        WHEN k.Tingkat = 'XI' THEN 3
+                                        WHEN k.Tingkat = 'XII' THEN 4
+                                        WHEN k.Tingkat = 'LULUS' THEN 5
+                                        ELSE 6
                                     END, idJurusan, Rombel";
                 return koneksi.Query<KelasModel>(sql,dp);
             }

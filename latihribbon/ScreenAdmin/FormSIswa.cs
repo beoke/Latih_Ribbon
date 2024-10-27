@@ -613,12 +613,13 @@ namespace latihribbon
             new MesInformasi("Seluruh Siswa Berhasil Naik Kelas!").ShowDialog(this);
         }
 
-        private void UpdateNaikKelas()
+/*        private void UpdateNaikKelas()
         {
             using (var Conn = new SqlConnection(conn.connstr()))
             {
                 const string sqlKenaikanKelas = @"
                                 -- Langkah 1: Duplicating kelas XII with ' (Lulus)' for graduates
+
                                 INSERT INTO Kelas (Namakelas, Rombel, idJurusan, Tingkat)
                                 SELECT CONCAT(K.Namakelas, ' (Lulus)'), K.Rombel, K.idJurusan, K.Tingkat
                                 FROM Kelas K
@@ -651,5 +652,6 @@ namespace latihribbon
                 Conn.Execute(sqlKenaikanKelas);
             }
         }
+*/    
     }
 }

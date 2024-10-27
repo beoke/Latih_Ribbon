@@ -1,4 +1,9 @@
-﻿DROP TABLE Rating;
+﻿select * from Kelas;
+
+
+
+
+DROP TABLE Rating;
 
 
 select * from siswa where Nis = 11111
