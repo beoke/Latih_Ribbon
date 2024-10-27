@@ -8,6 +8,7 @@ using System.Linq;
 using System.Security.Cryptography.Xml;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace latihribbon.Dal
 {
@@ -108,5 +109,15 @@ namespace latihribbon.Dal
             }
         }
 
+        public void DuplikatKelas(string Tingkat)
+        {
+            using (var koneksi = new SqlConnection(Conn.conn.connstr()))
+            {
+                const string sql = @"INSERT INTO Kelas(NamaKelas,Rombel,IdJurusan,Tingkat)
+                                    SELECT NamaKelas, Rombel, IdJurusan, Tingkat FROM Kelas
+                                    WHERE Tingkat = @Tingkat";
+                koneksi.Execute(sql, new { Tingkat = Tingkat});
+            }
+        }
     }
 }

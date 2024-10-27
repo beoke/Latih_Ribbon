@@ -527,7 +527,6 @@
             this.ButtonNaikKelas.TabIndex = 3;
             this.ButtonNaikKelas.Text = "Naik Kelas";
             this.ButtonNaikKelas.UseVisualStyleBackColor = false;
-            this.ButtonNaikKelas.Visible = false;
             this.ButtonNaikKelas.Click += new System.EventHandler(this.ButtonNaikKelas_Click);
             // 
             // dataGridView1
@@ -607,7 +606,7 @@
             this.ButtonDownloadFormat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ButtonDownloadFormat.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonDownloadFormat.BackgroundImage")));
             this.ButtonDownloadFormat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ButtonDownloadFormat.Location = new System.Drawing.Point(973, 17);
+            this.ButtonDownloadFormat.Location = new System.Drawing.Point(871, 8);
             this.ButtonDownloadFormat.Margin = new System.Windows.Forms.Padding(2);
             this.ButtonDownloadFormat.Name = "ButtonDownloadFormat";
             this.ButtonDownloadFormat.Size = new System.Drawing.Size(55, 46);
@@ -620,7 +619,7 @@
             this.ButtonInputSIswa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ButtonInputSIswa.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonInputSIswa.BackgroundImage")));
             this.ButtonInputSIswa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ButtonInputSIswa.Location = new System.Drawing.Point(1059, 16);
+            this.ButtonInputSIswa.Location = new System.Drawing.Point(812, 9);
             this.ButtonInputSIswa.Margin = new System.Windows.Forms.Padding(2);
             this.ButtonInputSIswa.Name = "ButtonInputSIswa";
             this.ButtonInputSIswa.Size = new System.Drawing.Size(55, 46);

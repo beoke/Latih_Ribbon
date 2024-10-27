@@ -14,6 +14,7 @@ namespace latihribbon.Model
         public string Rombel {  get; set; }
         public int IdJurusan {  get; set; }
         public string Tingkat {  get; set; }
+        public int status { get; set; }
         public string NamaJurusan { get; set; }
     }
 }

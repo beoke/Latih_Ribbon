@@ -588,22 +588,29 @@ namespace latihribbon
         #endregion
         private void ButtonNaikKelas_Click(object sender, EventArgs e)
         {
-            FormPopUpNaikKelas pop = new FormPopUpNaikKelas();
-            pop.ShowDialog(this);   
+            if (new MesWarningYN("Naik Kelas Untuk Seluruh Siswa?\nTindakan ini Tidak Dapat Diurungkan!!",2).ShowDialog(this) != DialogResult.Yes) return;
 
-
-            if (pop.DialogResult == DialogResult.OK)
+            var allKelas = kelasDal.listKelas(string.Empty, new {});
+            if (!allKelas.Any()) return;
+            kelasDal.DuplikatKelas("X");
+            foreach (var x in allKelas)
             {
-                FormNaikKelas naik = new FormNaikKelas();
-                naik.ShowDialog();
-
-                if (naik.DialogResult == DialogResult.OK)
+                string tingkat = x.Tingkat == "X" ? "XI"
+                    : x.Tingkat == "XI" ? "XII"
+                    : x.Tingkat == "XII" ? "LULUS"
+                    : string.Empty;
+                var kelas = new KelasModel()
                 {
-                    UpdateNaikKelas();
-                    LoadData();
-                    new MesInformasi("Proses kenaikan kelas berhasil ").ShowDialog(this);
-                }
+                    Id = x.Id,
+                    NamaKelas = $"{tingkat} {x.NamaJurusan} {x.Rombel}".Trim(),
+                    Tingkat = tingkat,
+                    IdJurusan = x.IdJurusan,
+                    Rombel = x.Rombel,
+                    status = x.Tingkat != "XII" ? 1 : 0
+                };
+                kelasDal.Update(kelas);
             }
+            new MesInformasi("Seluruh Siswa Berhasil Naik Kelas!").ShowDialog(this);
         }
 
         private void UpdateNaikKelas()
