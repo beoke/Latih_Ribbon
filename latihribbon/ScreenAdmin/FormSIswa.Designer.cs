@@ -71,11 +71,14 @@
             this.btnResetFilter = new System.Windows.Forms.Button();
             this.lblFilter = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.EditMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
-            this.DeleteMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
             this.ButtonDownloadFormat = new System.Windows.Forms.Button();
             this.ButtonInputSIswa = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.EditMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.DeleteMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.NaikKelasContext = new System.Windows.Forms.ToolStripMenuItem();
+            this.HapusSiswaLulus = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -83,6 +86,7 @@
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
+            this.contextMenuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label4
@@ -129,7 +133,7 @@
             this.panel1.Location = new System.Drawing.Point(3, 61);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1122, 548);
+            this.panel1.Size = new System.Drawing.Size(1172, 548);
             this.panel1.TabIndex = 14;
             // 
             // panel2
@@ -139,7 +143,7 @@
             this.panel2.BackColor = System.Drawing.Color.Silver;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.panel5);
-            this.panel2.Location = new System.Drawing.Point(585, 9);
+            this.panel2.Location = new System.Drawing.Point(635, 9);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(342, 431);
@@ -456,7 +460,7 @@
             this.panel3.Location = new System.Drawing.Point(7, 9);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(573, 430);
+            this.panel3.Size = new System.Drawing.Size(623, 430);
             this.panel3.TabIndex = 2;
             // 
             // label14
@@ -488,7 +492,7 @@
             this.lblHalaman.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblHalaman.AutoSize = true;
             this.lblHalaman.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHalaman.Location = new System.Drawing.Point(216, 395);
+            this.lblHalaman.Location = new System.Drawing.Point(241, 395);
             this.lblHalaman.Name = "lblHalaman";
             this.lblHalaman.Size = new System.Drawing.Size(90, 16);
             this.lblHalaman.TabIndex = 54;
@@ -497,7 +501,7 @@
             // btnNext
             // 
             this.btnNext.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnNext.Location = new System.Drawing.Point(321, 392);
+            this.btnNext.Location = new System.Drawing.Point(346, 392);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(75, 23);
             this.btnNext.TabIndex = 53;
@@ -507,7 +511,7 @@
             // btnPrevious
             // 
             this.btnPrevious.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnPrevious.Location = new System.Drawing.Point(123, 392);
+            this.btnPrevious.Location = new System.Drawing.Point(148, 392);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(75, 23);
             this.btnPrevious.TabIndex = 52;
@@ -520,10 +524,10 @@
             this.ButtonNaikKelas.BackColor = System.Drawing.Color.Gray;
             this.ButtonNaikKelas.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonNaikKelas.ForeColor = System.Drawing.Color.White;
-            this.ButtonNaikKelas.Location = new System.Drawing.Point(485, 390);
+            this.ButtonNaikKelas.Location = new System.Drawing.Point(504, 387);
             this.ButtonNaikKelas.Margin = new System.Windows.Forms.Padding(2);
             this.ButtonNaikKelas.Name = "ButtonNaikKelas";
-            this.ButtonNaikKelas.Size = new System.Drawing.Size(74, 27);
+            this.ButtonNaikKelas.Size = new System.Drawing.Size(101, 31);
             this.ButtonNaikKelas.TabIndex = 3;
             this.ButtonNaikKelas.Text = "Naik Kelas";
             this.ButtonNaikKelas.UseVisualStyleBackColor = false;
@@ -541,7 +545,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(563, 369);
+            this.dataGridView1.Size = new System.Drawing.Size(613, 369);
             this.dataGridView1.TabIndex = 13;
             // 
             // comboTahunFilter
@@ -585,6 +589,43 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(127, 56);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(411, 22);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(54, 19);
+            this.label1.TabIndex = 69;
+            this.label1.Text = "Tahun :";
+            // 
+            // ButtonDownloadFormat
+            // 
+            this.ButtonDownloadFormat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ButtonDownloadFormat.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonDownloadFormat.BackgroundImage")));
+            this.ButtonDownloadFormat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ButtonDownloadFormat.Location = new System.Drawing.Point(921, 8);
+            this.ButtonDownloadFormat.Margin = new System.Windows.Forms.Padding(2);
+            this.ButtonDownloadFormat.Name = "ButtonDownloadFormat";
+            this.ButtonDownloadFormat.Size = new System.Drawing.Size(55, 46);
+            this.ButtonDownloadFormat.TabIndex = 16;
+            this.ButtonDownloadFormat.UseVisualStyleBackColor = true;
+            this.ButtonDownloadFormat.Click += new System.EventHandler(this.ButtonDownloadFormat_Click_1);
+            // 
+            // ButtonInputSIswa
+            // 
+            this.ButtonInputSIswa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ButtonInputSIswa.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonInputSIswa.BackgroundImage")));
+            this.ButtonInputSIswa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ButtonInputSIswa.Location = new System.Drawing.Point(850, 9);
+            this.ButtonInputSIswa.Margin = new System.Windows.Forms.Padding(2);
+            this.ButtonInputSIswa.Name = "ButtonInputSIswa";
+            this.ButtonInputSIswa.Size = new System.Drawing.Size(55, 46);
+            this.ButtonInputSIswa.TabIndex = 9;
+            this.ButtonInputSIswa.UseVisualStyleBackColor = true;
+            this.ButtonInputSIswa.Click += new System.EventHandler(this.ButtonInputSIswa_Click);
+            // 
             // EditMenuStrip
             // 
             this.EditMenuStrip.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -601,49 +642,38 @@
             this.DeleteMenuStrip.Size = new System.Drawing.Size(126, 26);
             this.DeleteMenuStrip.Text = "Delete";
             // 
-            // ButtonDownloadFormat
+            // contextMenuStrip2
             // 
-            this.ButtonDownloadFormat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ButtonDownloadFormat.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonDownloadFormat.BackgroundImage")));
-            this.ButtonDownloadFormat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ButtonDownloadFormat.Location = new System.Drawing.Point(871, 8);
-            this.ButtonDownloadFormat.Margin = new System.Windows.Forms.Padding(2);
-            this.ButtonDownloadFormat.Name = "ButtonDownloadFormat";
-            this.ButtonDownloadFormat.Size = new System.Drawing.Size(55, 46);
-            this.ButtonDownloadFormat.TabIndex = 16;
-            this.ButtonDownloadFormat.UseVisualStyleBackColor = true;
-            this.ButtonDownloadFormat.Click += new System.EventHandler(this.ButtonDownloadFormat_Click_1);
+            this.contextMenuStrip2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contextMenuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.NaikKelasContext,
+            this.HapusSiswaLulus});
+            this.contextMenuStrip2.Name = "contextMenuStrip1";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(252, 56);
             // 
-            // ButtonInputSIswa
+            // NaikKelasContext
             // 
-            this.ButtonInputSIswa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ButtonInputSIswa.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonInputSIswa.BackgroundImage")));
-            this.ButtonInputSIswa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ButtonInputSIswa.Location = new System.Drawing.Point(812, 9);
-            this.ButtonInputSIswa.Margin = new System.Windows.Forms.Padding(2);
-            this.ButtonInputSIswa.Name = "ButtonInputSIswa";
-            this.ButtonInputSIswa.Size = new System.Drawing.Size(55, 46);
-            this.ButtonInputSIswa.TabIndex = 9;
-            this.ButtonInputSIswa.UseVisualStyleBackColor = true;
-            this.ButtonInputSIswa.Click += new System.EventHandler(this.ButtonInputSIswa_Click);
+            this.NaikKelasContext.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NaikKelasContext.Image = ((System.Drawing.Image)(resources.GetObject("NaikKelasContext.Image")));
+            this.NaikKelasContext.Name = "NaikKelasContext";
+            this.NaikKelasContext.Size = new System.Drawing.Size(251, 26);
+            this.NaikKelasContext.Text = "Naik Kelas Seluruh Siswa";
             // 
-            // label1
+            // HapusSiswaLulus
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(411, 22);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 19);
-            this.label1.TabIndex = 69;
-            this.label1.Text = "Tahun :";
+            this.HapusSiswaLulus.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HapusSiswaLulus.Image = global::latihribbon.Properties.Resources.bin;
+            this.HapusSiswaLulus.Name = "HapusSiswaLulus";
+            this.HapusSiswaLulus.Size = new System.Drawing.Size(251, 26);
+            this.HapusSiswaLulus.Text = "Hapus Data Siswa Lulus";
             // 
             // FormSIswa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(939, 510);
+            this.ClientSize = new System.Drawing.Size(989, 510);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblFilter);
             this.Controls.Add(this.btnResetFilter);
@@ -667,6 +697,7 @@
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
+            this.contextMenuStrip2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -719,5 +750,8 @@
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Button btnPrevious;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
+        private System.Windows.Forms.ToolStripMenuItem NaikKelasContext;
+        private System.Windows.Forms.ToolStripMenuItem HapusSiswaLulus;
     }
 }

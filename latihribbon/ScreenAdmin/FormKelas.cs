@@ -28,6 +28,7 @@ namespace latihribbon.ScreenAdmin
             InitComponent();
             LoadData();
             RegisterEvent();
+            HapusDataLulus();
         }
         private void RegisterEvent()
         {
@@ -94,14 +95,16 @@ namespace latihribbon.ScreenAdmin
         {
             GridListKelas.DataSource = 
                 kelasDal.listKelas("", new { })
-                .Select(x => new {
+                .Select((x,index) => new {
                     IdKelas = x.Id,
+                    No = index+1,
                     NamaKelas = x.NamaKelas
                 }).ToList();
 
             GridListKelas.Columns[0].Width = 100;
             GridListKelas.Columns[1].Width = 300;
             GridListKelas.Columns["NamaKelas"].HeaderText = "Nama Kelas";
+            GridListKelas.Columns["IdKelas"].Visible = false;
 
             GridListKelas.EnableHeadersVisualStyles = false;
             GridListKelas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
@@ -141,7 +144,8 @@ namespace latihribbon.ScreenAdmin
                 NamaKelas = txtNamaKelas.Text.Trim(),
                 Rombel = txtRombel.Text,
                 IdJurusan = int.Parse(jurusanCombo.SelectedValue.ToString()),
-                Tingkat = XRadio.Checked ? "X" : XIRadio.Checked ? "XI" : XIIRadio.Checked ? "XII" : string.Empty
+                Tingkat = XRadio.Checked ? "X" : XIRadio.Checked ? "XI" : XIIRadio.Checked ? "XII" : string.Empty,
+                status = 1
             };
 
             if(kelas.NamaKelas == "" || kelas.Tingkat == "")
@@ -170,6 +174,9 @@ namespace latihribbon.ScreenAdmin
             jurusanCombo.SelectedIndex = 0;
         }
 
-     
+        private void HapusDataLulus()
+        {
+            kelasDal.DeleteDataLulus();
+        }
     }
 }

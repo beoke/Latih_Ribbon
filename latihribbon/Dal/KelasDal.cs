@@ -34,13 +34,14 @@ namespace latihribbon.Dal
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
             {
-                const string sql = @"INSERT INTO Kelas(NamaKelas,Rombel,IdJurusan,Tingkat)
-                                    VALUES(@NamaKelas,@Rombel,@IdJurusan,@Tingkat)";
+                const string sql = @"INSERT INTO Kelas(NamaKelas,Rombel,IdJurusan,Tingkat, status)
+                                    VALUES(@NamaKelas,@Rombel,@IdJurusan,@Tingkat,@status)";
                 var dp = new DynamicParameters();
                 dp.Add("@NamaKelas",kelas.NamaKelas, System.Data.DbType.String);
                 dp.Add("@Rombel",kelas.Rombel, System.Data.DbType.String);
                 dp.Add("@idJurusan",kelas.IdJurusan, System.Data.DbType.Int32);
                 dp.Add("@Tingkat",kelas.Tingkat, System.Data.DbType.String);
+                dp.Add("@status", kelas.status, System.Data.DbType.Int16);
 
                 koneksi.Execute(sql, dp);
             }
@@ -50,13 +51,14 @@ namespace latihribbon.Dal
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
             {
-                const string sql = @"UPDATE Kelas SET NamaKelas=@NamaKelas,Rombel=@Rombel,idJurusan = @idJurusan,Tingkat = @Tingkat WHERE Id=@Id";
+                const string sql = @"UPDATE Kelas SET NamaKelas=@NamaKelas,Rombel=@Rombel,idJurusan = @idJurusan,Tingkat = @Tingkat, status=@status WHERE Id=@Id";
                 var dp = new DynamicParameters();
                 dp.Add("@Id",kelas.Id,System.Data.DbType.Int32);
                 dp.Add("@NamaKelas",kelas.NamaKelas,System.Data.DbType.String);
                 dp.Add("@Rombel",kelas.Rombel,System.Data.DbType.String);
                 dp.Add("@idJurusan",kelas.IdJurusan,System.Data.DbType.Int32);
                 dp.Add("@Tingkat", kelas.Tingkat, System.Data.DbType.String);
+                dp.Add("@status", kelas.status, System.Data.DbType.Int16);
 
                 koneksi.Execute(sql,dp);
             }
@@ -113,10 +115,30 @@ namespace latihribbon.Dal
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
             {
-                const string sql = @"INSERT INTO Kelas(NamaKelas,Rombel,IdJurusan,Tingkat)
-                                    SELECT NamaKelas, Rombel, IdJurusan, Tingkat FROM Kelas
+                const string sql = @"INSERT INTO Kelas(NamaKelas,Rombel,IdJurusan,Tingkat, status)
+                                    SELECT NamaKelas, Rombel, IdJurusan, Tingkat, status FROM Kelas
                                     WHERE Tingkat = @Tingkat";
                 koneksi.Execute(sql, new { Tingkat = Tingkat});
+            }
+        }
+
+        public void DeleteDataLulus()
+        {
+            using (var koneksi = new SqlConnection(Conn.conn.connstr()))
+            {
+                const string sql = @"DELETE FROM kelas
+                                    WHERE status = 0 
+                                    AND Id NOT IN (SELECT DISTINCT IdKelas FROM siswa)";
+                koneksi.Execute(sql);
+            }
+        }
+
+        public void DeleteSiswaLulus()
+        {
+            using (var koneksi = new SqlConnection(Conn.conn.connstr()))
+            {
+                const string sql = @"DELETE FROM Kelas WHERE status = 0";
+                koneksi.Execute(sql);
             }
         }
     }
