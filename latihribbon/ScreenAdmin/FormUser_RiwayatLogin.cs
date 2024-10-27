@@ -21,12 +21,14 @@ namespace latihribbon
     {
 
         private readonly RiwayatLogin_UserDal _riwayatLoginDal;
+        private ToolTip toolTip;
 
         public FormUser_RiwayatLogin()
         {
             InitializeComponent();
             buf();
             _riwayatLoginDal = new RiwayatLogin_UserDal();
+            toolTip = new ToolTip();
             LoadRiwayatLogin();
             InitialEvent();
             DeleteOtomatis();
@@ -82,6 +84,8 @@ namespace latihribbon
                 GridListUser.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 GridListUser.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }
+
+            toolTip.SetToolTip(btnResetFilter, "Reset Filter");
         }
 
         private void LoadRiwayatLogin()
@@ -165,27 +169,12 @@ namespace latihribbon
             ButtonSaveUser.Click += ButtonSaveUser_Click;
             GridListUser.CellMouseClick += GridListUser_CellMouseClick;
             DeleteMenuStrip.Click += DeleteMenuStrip_Click;
-            //EditMenuStrip.Click += EditMenuStrip_Click;
-        }
-
-        private void EditMenuStrip_Click(object sender, EventArgs e)
-        {
-            int userId = Convert.ToInt32(GridListUser.CurrentRow.Cells["Id"].Value);
-
-            EditUser user = new EditUser(userId);
-
-            if (user.ShowDialog() == DialogResult.Yes)
-            {
-                LoadData();
-                LoadUser();
-            }
-        }
-               
+        }               
 
         private void DeleteMenuStrip_Click(object sender, EventArgs e)
         {
             var idUser = Convert.ToInt32(GridListUser.CurrentRow.Cells[0].Value);
-            if (MessageBox.Show("Hapus Data User ?", "Perhatian", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if ( new MesQuestionYN("Hapus Data User").ShowDialog(this) == DialogResult.Yes)
             {
                 _riwayatLoginDal.DeleteUser(idUser);
                 LoadUser();
@@ -204,9 +193,7 @@ namespace latihribbon
 
         private void ButtonSaveUser_Click(object sender, EventArgs e)
         {
-            var username = TextNameUser.Text;
-            if (MessageBox.Show($"Tambahkan \"{username}\" sebagai admin ?", "pertanyaan", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
-                return;
+            if (new MesQuestionYN("Input Data?").ShowDialog(this) != DialogResult.Yes) return;
 
             int idUser = TextIdUser.Text == string.Empty ? 0 : Convert.ToInt32(TextIdUser.Text);
             SaveUser(idUser);

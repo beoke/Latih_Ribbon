@@ -41,11 +41,11 @@ namespace latihribbon
 
         private void ControlEvent()
         {
-            tx_Username.TextChanged += Tx_Username_Leave;
-            tx_Password.TextChanged += Tx_Password_Leave;
+            tx_Username.TextChanged += Tx_Username_LeaveChange;
+            tx_Password.TextChanged += Tx_Password_LeaveChange;
 
-            tx_Username.Leave += Tx_Username_Leave;
-            tx_Password.Leave += Tx_Password_Leave;
+            tx_Username.Leave += Tx_Username_LeaveChange;
+            tx_Password.Leave += Tx_Password_LeaveChange;
             btn_kembali.Click += btn_kembali_Click;
 
             LabelUsername.Click += LabelUsername_Click;
@@ -67,7 +67,7 @@ namespace latihribbon
             indexForm.Opacity = 1;
             this.Close();
         }
-        private void Tx_Password_Leave(object sender, EventArgs e)
+        private void Tx_Password_LeaveChange(object sender, EventArgs e)
         {
             if (tx_Password.Text.Length > 0)
                 LabelPassword.Visible = false;
@@ -75,7 +75,7 @@ namespace latihribbon
                 LabelPassword.Visible = true;
         }
 
-        private void Tx_Username_Leave(object sender, EventArgs e)
+        private void Tx_Username_LeaveChange(object sender, EventArgs e)
         {
             if (tx_Username.Text.Length > 0)
                 LabelUsername.Visible = false; 

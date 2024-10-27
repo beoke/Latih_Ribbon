@@ -23,7 +23,7 @@ namespace latihribbon
         private readonly KelasDal kelasDal;
         
         private readonly MesBox mesBox;
-        int globalId = 0;
+        private ToolTip toolTip;
         public FormTerlambat()
         {
             InitializeComponent();
@@ -32,6 +32,7 @@ namespace latihribbon
             siswaDal = new SiswaDal();
             kelasDal = new KelasDal();
             mesBox = new MesBox();
+            toolTip = new ToolTip();
             InitCombo();
             RegisterEvent();
             LoadData();
@@ -73,6 +74,8 @@ namespace latihribbon
             dataGridView1.Columns[4].Width = 110;
             dataGridView1.Columns[5].Width = 110;
             dataGridView1.Columns[6].Width = 300;
+
+            toolTip.SetToolTip(btnResetFilter, "Reset Filter");
         }
 
         private void InitCombo()
@@ -134,22 +137,6 @@ namespace latihribbon
                 }).ToList();
         }
 
-
-        private void GetData()
-        {
-            var Id = dataGridView1.CurrentRow.Cells["Id"].Value?.ToString() ?? string.Empty;
-            globalId = Id == string.Empty ? 0 : int.Parse(Id);
-            var data = masukDal.GetData(Convert.ToInt32(Id));
-            if (data == null) return;
-            txtNIS1.Text = data.NIS.ToString();
-            txtNama1.Text = data.Nama;
-            txtKelas1.Text = data.NamaKelas;
-            tglDT.Value = data.Tanggal;
-            jamMasukDT.Value = DateTime.Today.Add(data.JamMasuk);
-            txtAlasan1.Text = data.Alasan;
-            ControlInsertUpdate();
-        }
-
         private void ClearInput()
         {
             txtNIS1.ReadOnly = false;
@@ -159,13 +146,6 @@ namespace latihribbon
             tglDT.Value = DateTime.Now;
             jamMasukDT.Value = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day, 0, 0, 0);
             txtAlasan1.Clear();
-        }
-        private void ControlInsertUpdate()
-        {
-            if (globalId == 0)
-                lblInfo.Text = "INSERT";
-            else
-                lblInfo.Text = "UPDATE";
         }
         private void SaveData()
         {
@@ -177,46 +157,21 @@ namespace latihribbon
 
             if (nis == "" || nama == "" || alasan == "")
             {
-                new MesWarningOK("Seluruh Data Wajib Diisi!").ShowDialog();
+                new MesWarningOK("Seluruh Data Wajib Diisi!").ShowDialog(this);
                 return;
             }
 
             var masuk = new MasukModel
             {
-                Id = globalId,
                 NIS = Convert.ToInt32(nis),
                 Tanggal = tgl,
                 JamMasuk = jamMasuk,
                 Alasan = alasan
             };
-
-            if (masuk.Id == 0)
-            {
-                if (new MesQuestionYN("Input Data?").ShowDialog() != DialogResult.Yes) return;
-                masukDal.Insert(masuk);
-                LoadData();
-                globalId = 0;
-                ClearInput();
-                ControlInsertUpdate();
-            }
-            else
-            {
-                if (new MesQuestionYN("Update Data?").ShowDialog() != DialogResult.Yes) return;
-                masukDal.Update(masuk);
-                LoadData();
-            }
-        }
-
-        private void Delete()
-        {
-            if(globalId == 0)
-            {
-                new MesWarningOK("Pilih Data Terlebih Dahulu!").ShowDialog();
-                return;
-            }
-            if (new MesQuestionYN("Hapus Data?").ShowDialog() != DialogResult.Yes   ) return;
-            masukDal.Delete(globalId);
+            if (new MesQuestionYN("Input Data?").ShowDialog(this) != DialogResult.Yes) return;
+            masukDal.Insert(masuk);
             LoadData();
+            ClearInput();
         }
 
         private void CekNis()
@@ -239,6 +194,9 @@ namespace latihribbon
         #region EVENT
         private void RegisterEvent()
         {
+            btnSave_FormSiswa.Click += btnSave_FormSiswa_Click;
+            txtNIS1.TextChanged += txtNIS1_TextChanged;
+            txtNIS1.KeyPress += txtNIS1_KeyPress;
             txtFilter.TextChanged += filter_TextChanged;
             tglsatu.ValueChanged += filter_tglChanged;
             tgldua.ValueChanged += filter_tglChanged;
@@ -254,7 +212,7 @@ namespace latihribbon
         }
         private void DeleteMenuStrip_Click(object sender, EventArgs e)
         {
-            if (new MesWarningYN("Hapus Data ?").ShowDialog() != DialogResult.Yes) return;
+            if (new MesWarningYN("Hapus Data ?").ShowDialog(this) != DialogResult.Yes) return;
             var id = dataGridView1.CurrentRow.Cells[0].Value;
 
             masukDal.Delete(Convert.ToInt32(id));
@@ -329,12 +287,6 @@ namespace latihribbon
             LoadData();
         }
 
-        private void btnNew_Click(object sender, EventArgs e)
-        {
-            ClearInput();
-            globalId = 0;
-            ControlInsertUpdate();
-        }
         private void btnSave_FormSiswa_Click(object sender, EventArgs e)
         {
             SaveData();
@@ -360,18 +312,6 @@ namespace latihribbon
             {
                 e.Handled = true;
             }
-        }
-
-        private void btnDelete_FormSiswa_Click(object sender, EventArgs e)
-        {
-            Delete();
-        }
-
-        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
-        {
-            GetData();
-            ControlInsertUpdate();
-            txtNIS1.ReadOnly = true;
         }
 
         private void btnResetFilter_Click(object sender, EventArgs e)

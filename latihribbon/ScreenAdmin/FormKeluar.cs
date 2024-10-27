@@ -15,7 +15,6 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Color = System.Drawing.Color;
 using Font = System.Drawing.Font;
 
@@ -27,6 +26,7 @@ namespace latihribbon
         private readonly KeluarDal keluarDal;
         private readonly KelasDal kelasDal;
         private readonly MesBox mesBox = new MesBox();
+        private ToolTip toolTip;
         int globalId = 0;
         public FormKeluar()
         {
@@ -35,6 +35,7 @@ namespace latihribbon
             siswaDal = new SiswaDal();
             keluarDal = new KeluarDal();
             kelasDal = new KelasDal();
+            toolTip = new ToolTip();
             RegisterEvent();
             InitCombo();
             LoadData();
@@ -91,6 +92,8 @@ namespace latihribbon
             //TextBox
             txtNIS1.MaxLength = 9;
             txtTujuan1.MaxLength = 60;
+
+            toolTip.SetToolTip(btnResetFilter, "Reset Filter");
         }
 
         bool tglchange = false;
@@ -174,34 +177,28 @@ namespace latihribbon
 
             if (nis == "" || nama == "" || tujuan == "" || jamMasuk == TimeSpan.Zero || jamKeluar == TimeSpan.Zero) 
             {
-                new MesWarningOK("Seluruh Data Wajib Diisi !").ShowDialog();
+                new MesWarningOK("Seluruh Data Wajib Diisi !").ShowDialog(this);
                 return;
             }
 
             if (jamMasuk == jamKeluar)
             {
-                new MesWarningOK("Jam Keluar & Jam Masuk Tidak Valid!").ShowDialog();
+                new MesWarningOK("Jam Keluar & Jam Masuk Tidak Valid!").ShowDialog(this);
                 return;
             }
 
             var keluar = new KeluarModel
             {
-                Id = globalId,
                 Nis = Convert.ToInt32(nis),
                 Tanggal= tgl,
                 JamKeluar = jamKeluar,
                 JamMasuk = jamMasuk,
                 Tujuan = tujuan
             };
-
-            if(keluar.Id == 0)
-            {
-                if (new MesQuestionYN("Input Data?").ShowDialog() != DialogResult.Yes) return;
-                keluarDal.Insert(keluar);
-                LoadData();
-                globalId = 0;
-                ClearInput();
-            }
+            if (new MesQuestionYN("Input Data?").ShowDialog(this) != DialogResult.Yes) return;
+            keluarDal.Insert(keluar);
+            LoadData();
+            ClearInput();
         }
       
         private void CekNis()
@@ -224,11 +221,14 @@ namespace latihribbon
         #region EVENT
        private void RegisterEvent()
         {
-            TextSearch.TextChanged += filter_TextChanged;
+            btnSave_FormSiswa.Click += btnSave_FormSiswa_Click;
+            TextSearch.TextChanged += filter_Changed;
+            txtNIS1.TextChanged += txtNIS1_TextChanged;
+            txtNIS1.KeyPress += txtNIS1_KeyPress;
 
             tglsatu.ValueChanged += filter_tglChanged;
             tgldua.ValueChanged += filter_tglChanged;
-            comboPerPage.SelectedIndexChanged += ComboPerPage_SelectedIndexChanged;
+            comboPerPage.SelectedIndexChanged += filter_Changed;
             dataGridView1.CellMouseClick += DataGridView1_CellMouseClick;
             editToolStripMenuItem.Click += EditToolStripMenuItem_Click;
             deleteToolStripMenuItem.Click += DeleteToolStripMenuItem_Click;
@@ -258,10 +258,10 @@ namespace latihribbon
         {
             if (globalId == 0)
             {
-                new MesWarningOK("Pilih data dahulu ").ShowDialog();
+                new MesWarningOK("Pilih data dahulu ").ShowDialog(this);
                 return;
             }
-            if (new MesWarningYN("Hapus Data ?").ShowDialog() != DialogResult.Yes) return;
+            if (new MesQuestionYN("Hapus Data ?").ShowDialog(this) != DialogResult.Yes) return;
             keluarDal.Delete(globalId);
             LoadData();
         }
@@ -284,14 +284,7 @@ namespace latihribbon
             }
         }
 
-
-        private void ComboPerPage_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Page = 1;
-            LoadData();
-        }
-
-        private void filter_TextChanged(object sender, EventArgs e)
+        private void filter_Changed(object sender, EventArgs e)
         {
             Page = 1;
             LoadData();
@@ -302,11 +295,6 @@ namespace latihribbon
             Page = 1;
             tglchange = true;
             LoadData();
-        }
-        private void btnNew_Click(object sender, EventArgs e)
-        {
-            ClearInput();
-            globalId = 0;
         }
 
         private void btnSave_FormSiswa_Click(object sender, EventArgs e)
@@ -335,8 +323,6 @@ namespace latihribbon
                 e.Handled = true;
             }
         }
-
-      
 
         private void btnResetFilter_Click(object sender, EventArgs e)
         {

@@ -37,7 +37,7 @@ namespace latihribbon
 
         private void BtnSave_FormSiswa_Click(object sender, EventArgs e)
         {
-            if (new MesWarningYN("Update Data ?").ShowDialog() != DialogResult.Yes) return;
+            if (new MesQuestionYN("Update Data ?").ShowDialog(this) != DialogResult.Yes) return;
             this.DialogResult = DialogResult.OK;
             Update();
             this.Close();
@@ -70,7 +70,5 @@ namespace latihribbon
             jamMasukDT.Value = DateTime.Today.Add(data.JamMasuk);
             txtTujuan1.Text = data.Tujuan;
         }
-
-        
     }
 }

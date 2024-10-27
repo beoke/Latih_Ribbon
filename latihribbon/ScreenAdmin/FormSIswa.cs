@@ -31,8 +31,6 @@ namespace latihribbon
         private readonly MesBox mesBox;
         private ToolTip toolTip;
 
-
-
         public FormSIswa()
         {
             InitializeComponent();
@@ -112,6 +110,7 @@ namespace latihribbon
 
             toolTip.SetToolTip(ButtonDownloadFormat, "Template Import Data");
             toolTip.SetToolTip(ButtonInputSIswa, "Import Data");
+            toolTip.SetToolTip(btnResetFilter, "Reset Filter");
         }
         public void InitComponent()
         {
@@ -154,13 +153,13 @@ namespace latihribbon
 
             if (nis == "" || persensi == "" || nama == "" || jenisKelamin == "" || tingkat == "" || tahun == "")
             {
-                new MesWarningOK("Seluruh Data Wajib Diisi!").ShowDialog();
+                new MesWarningOK("Seluruh Data Wajib Diisi!").ShowDialog(this);
                 return;
             }
 
             if (lblNisSudahAda.Visible == true)
             {
-                new MesWarningOK("Nis sudah ada !").ShowDialog();
+                new MesWarningOK("Nis sudah ada !").ShowDialog(this);
                 return;
             };
             bool cekRombel = rombel != string.Empty ? true : false;
@@ -174,7 +173,7 @@ namespace latihribbon
                 IdKelas = idKelas,
                 Tahun = tahun,
             };
-            if (new MesQuestionYN("Input Data?", 1).ShowDialog() != DialogResult.Yes) return;
+            if (new MesQuestionYN("Input Data?", 1).ShowDialog(this) != DialogResult.Yes) return;
             siswaDal.Insert(siswa);
             LoadData();
             Clear();
@@ -286,7 +285,7 @@ namespace latihribbon
 
         private void DeleteMenuStrip_Click(object sender, EventArgs e)
         {
-            if (new MesWarningYN("Hapus Data?\nJika Dihapus Maka Data Yang Terhubung Akan Ikut Terhapus!",2).ShowDialog() != DialogResult.Yes) return;
+            if (new MesWarningYN("Hapus Data?\nJika Dihapus Maka Data Yang Terhubung Akan Ikut Terhapus!",2).ShowDialog(this) != DialogResult.Yes) return;
 
             var id = dataGridView1.CurrentRow.Cells[0].Value;
 
@@ -487,7 +486,7 @@ namespace latihribbon
                     }
 
                     LoadData();
-                    new MesInformasi("Data siswa berhasil ditambahkan atau diperbarui").ShowDialog();
+                    new MesInformasi("Data siswa berhasil ditambahkan atau diperbarui").ShowDialog(this);
                     int row = daftarKelasError.Count <= 4 ? 1 : daftarKelasError.Count <= 10 ? 2 : 3;
                     string dftrKelas = string.Empty;
                     MessageBox.Show(row.ToString());
@@ -499,7 +498,7 @@ namespace latihribbon
                         for (int i = 0; i <= daftarKelasError.Count - 1; i++)
                             dftrKelas += i == 3 || i == 9 ? $"{daftarKelasError[i]}, \n" : $"{daftarKelasError[i]}, ";
 
-                    new MesError($"Daftar Kelas Error: {dftrKelas.TrimEnd(',',' ')}",row).ShowDialog();
+                    new MesError($"Daftar Kelas Error: {dftrKelas.TrimEnd(',',' ')}",row).ShowDialog(this);
                 }
             }
         }
@@ -583,7 +582,7 @@ namespace latihribbon
                         FileInfo fi = new FileInfo(filePath);
                         package.SaveAs(fi);
 
-                        new MesInformasi("File Excel berhasil disimpan!").ShowDialog();
+                        new MesInformasi("File Excel berhasil disimpan!").ShowDialog(this);
                     }
                 }
             }
@@ -592,7 +591,7 @@ namespace latihribbon
         private void ButtonNaikKelas_Click(object sender, EventArgs e)
         {
             FormPopUpNaikKelas pop = new FormPopUpNaikKelas();
-            pop.ShowDialog();   
+            pop.ShowDialog(this);   
 
 
             if (pop.DialogResult == DialogResult.OK)
@@ -604,7 +603,7 @@ namespace latihribbon
                 {
                     UpdateNaikKelas();
                     LoadData();
-                    new MesInformasi("Proses kenaikan kelas berhasil ").ShowDialog();
+                    new MesInformasi("Proses kenaikan kelas berhasil ").ShowDialog(this);
                 }
             }
         }

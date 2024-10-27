@@ -18,7 +18,6 @@ namespace latihribbon
         public FormIndex(Form ff)
         {
             InitializeComponent();
-            ControlEvent();
             this.mainForm = ff;
             this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
@@ -26,6 +25,7 @@ namespace latihribbon
             this.ControlBox = true;
             this.KeyPreview = true;
             this.KeyDown += FormIndex_KeyDown;
+            ControlEvent();
         }
 
         private void FormIndex_KeyDown(object sender, KeyEventArgs e)
@@ -38,6 +38,7 @@ namespace latihribbon
 
         private void ControlEvent()
         {
+            this.Resize += FormIndex_Shown;
             ButtonSimResi.Click += ButtonSimResi_Click;
             ButtonSurvey.Click += ButtonSurvey_Click;
             ButtonAdmin.Click += ButtonAdmin_Click;
@@ -58,6 +59,16 @@ namespace latihribbon
             ButtonAdmin.Leave += ButtonAdmin_Leave;
 
         }
+
+        private void FormIndex_Shown(object sender, EventArgs e)
+        {
+            int widthForm = this.Width;
+            int leftMargin = (widthForm - (ButtonSimResi.Width*2)) / 3;
+            ButtonSimResi.Location = new Point(leftMargin, ButtonSimResi.Location.Y);
+            ButtonSurvey.Location = new Point(widthForm - (leftMargin + ButtonSurvey.Width), ButtonSurvey.Location.Y);
+            ButtonAdmin.Location = new Point(widthForm / 2 - ButtonAdmin.Width / 2, ButtonAdmin.Location.Y);
+        }
+
         private void ButtonSimResi_MouseEnter(object sender, EventArgs e)
         {
             ButtonSimResi.BackColor = Color.FromArgb(146, 166, 192);

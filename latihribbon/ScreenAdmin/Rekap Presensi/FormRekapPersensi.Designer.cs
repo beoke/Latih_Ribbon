@@ -36,21 +36,20 @@
             this.tgldua = new System.Windows.Forms.DateTimePicker();
             this.tglsatu = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtNIS = new System.Windows.Forms.TextBox();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtKelas = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtNama = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblHalaman = new System.Windows.Forms.Label();
             this.btnNext = new System.Windows.Forms.Button();
             this.btnPrevious = new System.Windows.Forms.Button();
             this.btnPrintRekap = new System.Windows.Forms.Button();
-            this.txtPersensi = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.btnKelas = new System.Windows.Forms.Button();
+            this.lblFilter = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.comboPerPage = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -60,16 +59,17 @@
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(9, 7);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(793, 153);
+            this.dataGridView1.Size = new System.Drawing.Size(1274, 153);
             this.dataGridView1.TabIndex = 0;
             // 
             // btnResetFilter
             // 
-            this.btnResetFilter.Location = new System.Drawing.Point(1202, 15);
+            this.btnResetFilter.Location = new System.Drawing.Point(1124, 15);
             this.btnResetFilter.Name = "btnResetFilter";
             this.btnResetFilter.Size = new System.Drawing.Size(75, 23);
             this.btnResetFilter.TabIndex = 39;
@@ -80,7 +80,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(1018, 17);
+            this.label2.Location = new System.Drawing.Point(940, 17);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(87, 19);
@@ -90,7 +90,7 @@
             // KeteranganCombo
             // 
             this.KeteranganCombo.FormattingEnabled = true;
-            this.KeteranganCombo.Location = new System.Drawing.Point(1110, 17);
+            this.KeteranganCombo.Location = new System.Drawing.Point(1032, 17);
             this.KeteranganCombo.Name = "KeteranganCombo";
             this.KeteranganCombo.Size = new System.Drawing.Size(80, 21);
             this.KeteranganCombo.TabIndex = 37;
@@ -98,8 +98,8 @@
             // tgldua
             // 
             this.tgldua.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tgldua.Location = new System.Drawing.Point(875, 17);
-            this.tgldua.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tgldua.Location = new System.Drawing.Point(797, 17);
+            this.tgldua.Margin = new System.Windows.Forms.Padding(2);
             this.tgldua.Name = "tgldua";
             this.tgldua.Size = new System.Drawing.Size(132, 21);
             this.tgldua.TabIndex = 36;
@@ -107,8 +107,8 @@
             // tglsatu
             // 
             this.tglsatu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tglsatu.Location = new System.Drawing.Point(722, 18);
-            this.tglsatu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tglsatu.Location = new System.Drawing.Point(644, 18);
+            this.tglsatu.Margin = new System.Windows.Forms.Padding(2);
             this.tglsatu.Name = "tglsatu";
             this.tglsatu.Size = new System.Drawing.Size(132, 21);
             this.tglsatu.TabIndex = 35;
@@ -117,21 +117,21 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(653, 19);
+            this.label4.Location = new System.Drawing.Point(575, 19);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(65, 19);
             this.label4.TabIndex = 34;
             this.label4.Text = "Tanggal :";
             // 
-            // txtNIS
+            // txtSearch
             // 
-            this.txtNIS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNIS.Location = new System.Drawing.Point(60, 18);
-            this.txtNIS.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtNIS.Name = "txtNIS";
-            this.txtNIS.Size = new System.Drawing.Size(78, 21);
-            this.txtNIS.TabIndex = 33;
+            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.Location = new System.Drawing.Point(78, 18);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(308, 21);
+            this.txtSearch.TabIndex = 33;
             // 
             // label5
             // 
@@ -140,15 +140,15 @@
             this.label5.Location = new System.Drawing.Point(16, 18);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(39, 19);
+            this.label5.Size = new System.Drawing.Size(58, 19);
             this.label5.TabIndex = 32;
-            this.label5.Text = "NIS :";
+            this.label5.Text = "Search :";
             // 
             // txtKelas
             // 
             this.txtKelas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtKelas.Location = new System.Drawing.Point(529, 18);
-            this.txtKelas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtKelas.Location = new System.Drawing.Point(451, 18);
+            this.txtKelas.Margin = new System.Windows.Forms.Padding(2);
             this.txtKelas.Name = "txtKelas";
             this.txtKelas.ReadOnly = true;
             this.txtKelas.Size = new System.Drawing.Size(67, 21);
@@ -158,48 +158,30 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(475, 20);
+            this.label3.Location = new System.Drawing.Point(397, 20);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(49, 19);
             this.label3.TabIndex = 30;
             this.label3.Text = "Kelas :";
             // 
-            // txtNama
-            // 
-            this.txtNama.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNama.Location = new System.Drawing.Point(204, 18);
-            this.txtNama.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtNama.Name = "txtNama";
-            this.txtNama.Size = new System.Drawing.Size(129, 21);
-            this.txtNama.TabIndex = 29;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(147, 18);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 19);
-            this.label1.TabIndex = 28;
-            this.label1.Text = "Nama :";
-            // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.BackColor = System.Drawing.Color.Silver;
+            this.panel1.Controls.Add(this.label14);
+            this.panel1.Controls.Add(this.comboPerPage);
             this.panel1.Controls.Add(this.lblHalaman);
             this.panel1.Controls.Add(this.btnNext);
             this.panel1.Controls.Add(this.btnPrevious);
             this.panel1.Controls.Add(this.btnPrintRekap);
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Location = new System.Drawing.Point(2, 54);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(813, 235);
+            this.panel1.Size = new System.Drawing.Size(1294, 235);
             this.panel1.TabIndex = 40;
             // 
             // lblHalaman
@@ -207,7 +189,7 @@
             this.lblHalaman.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblHalaman.AutoSize = true;
             this.lblHalaman.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHalaman.Location = new System.Drawing.Point(335, 191);
+            this.lblHalaman.Location = new System.Drawing.Point(576, 191);
             this.lblHalaman.Name = "lblHalaman";
             this.lblHalaman.Size = new System.Drawing.Size(90, 16);
             this.lblHalaman.TabIndex = 22;
@@ -216,7 +198,7 @@
             // btnNext
             // 
             this.btnNext.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnNext.Location = new System.Drawing.Point(439, 188);
+            this.btnNext.Location = new System.Drawing.Point(680, 188);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(75, 23);
             this.btnNext.TabIndex = 21;
@@ -227,7 +209,7 @@
             // btnPrevious
             // 
             this.btnPrevious.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnPrevious.Location = new System.Drawing.Point(240, 188);
+            this.btnPrevious.Location = new System.Drawing.Point(481, 188);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(75, 23);
             this.btnPrevious.TabIndex = 20;
@@ -241,38 +223,18 @@
             this.btnPrintRekap.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPrintRekap.BackgroundImage")));
             this.btnPrintRekap.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnPrintRekap.FlatAppearance.BorderSize = 2;
-            this.btnPrintRekap.Location = new System.Drawing.Point(739, 181);
-            this.btnPrintRekap.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPrintRekap.Location = new System.Drawing.Point(1220, 181);
+            this.btnPrintRekap.Margin = new System.Windows.Forms.Padding(2);
             this.btnPrintRekap.Name = "btnPrintRekap";
             this.btnPrintRekap.Size = new System.Drawing.Size(46, 37);
             this.btnPrintRekap.TabIndex = 19;
             this.btnPrintRekap.UseVisualStyleBackColor = true;
             // 
-            // txtPersensi
-            // 
-            this.txtPersensi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPersensi.Location = new System.Drawing.Point(414, 18);
-            this.txtPersensi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtPersensi.Name = "txtPersensi";
-            this.txtPersensi.Size = new System.Drawing.Size(52, 21);
-            this.txtPersensi.TabIndex = 43;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.label7.Location = new System.Drawing.Point(343, 19);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(67, 19);
-            this.label7.TabIndex = 44;
-            this.label7.Text = "Persensi :";
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.label6.Location = new System.Drawing.Point(857, 12);
+            this.label6.Location = new System.Drawing.Point(779, 12);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(15, 19);
@@ -281,7 +243,7 @@
             // 
             // btnKelas
             // 
-            this.btnKelas.Location = new System.Drawing.Point(601, 17);
+            this.btnKelas.Location = new System.Drawing.Point(523, 17);
             this.btnKelas.Name = "btnKelas";
             this.btnKelas.Size = new System.Drawing.Size(40, 23);
             this.btnKelas.TabIndex = 42;
@@ -289,14 +251,49 @@
             this.btnKelas.UseVisualStyleBackColor = true;
             this.btnKelas.Click += new System.EventHandler(this.btnKelas_Click);
             // 
+            // lblFilter
+            // 
+            this.lblFilter.AutoSize = true;
+            this.lblFilter.BackColor = System.Drawing.Color.White;
+            this.lblFilter.ForeColor = System.Drawing.Color.Gray;
+            this.lblFilter.Location = new System.Drawing.Point(82, 22);
+            this.lblFilter.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFilter.Name = "lblFilter";
+            this.lblFilter.Size = new System.Drawing.Size(177, 13);
+            this.lblFilter.TabIndex = 49;
+            this.lblFilter.Text = "Masukkan Kata Kunci Pencarian ⌕ ";
+            // 
+            // label14
+            // 
+            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(86, 189);
+            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(45, 19);
+            this.label14.TabIndex = 58;
+            this.label14.Text = "/Page";
+            // 
+            // comboPerPage
+            // 
+            this.comboPerPage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.comboPerPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboPerPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboPerPage.FormattingEnabled = true;
+            this.comboPerPage.ItemHeight = 13;
+            this.comboPerPage.Location = new System.Drawing.Point(22, 189);
+            this.comboPerPage.Name = "comboPerPage";
+            this.comboPerPage.Size = new System.Drawing.Size(61, 21);
+            this.comboPerPage.TabIndex = 57;
+            // 
             // FormRekapPersensi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(818, 292);
-            this.Controls.Add(this.txtPersensi);
-            this.Controls.Add(this.label7);
+            this.ClientSize = new System.Drawing.Size(1299, 292);
+            this.Controls.Add(this.lblFilter);
             this.Controls.Add(this.btnKelas);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.panel1);
@@ -306,15 +303,12 @@
             this.Controls.Add(this.tgldua);
             this.Controls.Add(this.tglsatu);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtNIS);
+            this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtKelas);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtNama);
-            this.Controls.Add(this.label1);
             this.Name = "FormRekapPersensi";
             this.Text = "FormRekapPersensi";
-            this.Load += new System.EventHandler(this.FormRekapPersensi_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -332,12 +326,10 @@
         private System.Windows.Forms.DateTimePicker tgldua;
         private System.Windows.Forms.DateTimePicker tglsatu;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtNIS;
+        private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtKelas;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtNama;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnPrintRekap;
         private System.Windows.Forms.Label label6;
@@ -345,7 +337,8 @@
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Button btnPrevious;
         private System.Windows.Forms.Button btnKelas;
-        private System.Windows.Forms.TextBox txtPersensi;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblFilter;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.ComboBox comboPerPage;
     }
 }

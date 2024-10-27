@@ -34,9 +34,10 @@ namespace latihribbon
             siswaDal = new SiswaDal();
             kelasDal = new KelasDal();
             historyDal = new HistoryDal();
-            RegisterEvent();
             InitComponent();
+            RegisterEvent();
             LoadData();
+            InitGrid();
         }
 
         public void buf()
@@ -57,6 +58,16 @@ namespace latihribbon
             List<string> ketCombo = new List<string>() { "Semua","A","I","S"};
             KeteranganCombo.DataSource = ketCombo;
 
+            comboPerPage.Items.Add(10);
+            comboPerPage.Items.Add(20);
+            comboPerPage.Items.Add(50);
+            comboPerPage.Items.Add(100);
+            comboPerPage.Items.Add(200);
+            comboPerPage.SelectedIndex = 0;
+        }
+
+        private void InitGrid()
+        {
             // DataGrid
             dataGridView1.EnableHeadersVisualStyles = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
@@ -117,7 +128,7 @@ namespace latihribbon
 
             //Halaman
             string text = "Halaman ";
-            int RowPerPage = 15;
+            int RowPerPage = Convert.ToInt16(comboPerPage.SelectedItem);
             int inRowPage = (Page - 1) * RowPerPage;
             var jumlahRow = absensiDal.CekRows(sqlc, dp);
             totalPage = (int)Math.Ceiling((double)jumlahRow / RowPerPage);
@@ -185,7 +196,7 @@ namespace latihribbon
                 new MesWarningOK($"{nama} Sudah Absensi Pada " + tgl.ToString("dd/MM/yyyy")).ShowDialog();
                 return;
             }
-            if (new MesQuestionYN("Input Data ? ").ShowDialog() != DialogResult.Yes) return;
+            if (new MesQuestionYN("Input Data?").ShowDialog() != DialogResult.Yes) return;
             absensiDal.Insert(masuk);
             LoadData();
             ClearInput();
@@ -236,6 +247,8 @@ namespace latihribbon
             btnSave_FormSiswa.Click += btnSave_FormSiswa_Click;
             txtNIS1.KeyPress += txtNIS1_KeyPress;
             txtNIS1.TextChanged += txtNIS1_TextChanged;
+
+            comboPerPage.SelectedIndexChanged += filter_TextChanged;
         }
 
         private void LblFilter_Click(object sender, EventArgs e)
