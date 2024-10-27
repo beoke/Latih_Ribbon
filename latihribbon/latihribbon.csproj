@@ -701,6 +701,7 @@
     <None Include="Resources\questionblue %284%29.png" />
     <None Include="Resources\Info.png" />
     <None Include="Resources\cross.png" />
+    <None Include="Resources\growth.png" />
     <Content Include="SQL Script\CekData.sql" />
   </ItemGroup>
   <ItemGroup>

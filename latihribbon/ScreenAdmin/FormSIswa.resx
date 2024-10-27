@@ -162,18 +162,6 @@
   <metadata name="contextMenuStrip2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>172, 17</value>
   </metadata>
-  <data name="NaikKelasContext.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAALAAAACwARRqq2kAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwa
-        AAABM0lEQVRIS+XUK0sFQRiH8TUIYjBYRATxWsRms2iwWUwG9TMIBxSLilEwWCxWu+CH0OgX8NI02SwG
-        r8+jDAx7xrODjCD4hx/szuzOe5jzzlZ/PT1Yx1ZkGcUyhke8R15QPCO4RShSNNO4wwPOULTAItyie1ho
-        D0UKdGMfr7jEEMwsjr4uf54ZuKi/9Bi9KJJRuKBd4pYsoUimcIJnPOEQfYhjFy1EvO+YYbRwDvfZP/IA
-        g6hnHhYPLSrv59CWAVzgDT7oXns6+/FddhEvHjjeFgucYhOe0pyE1qxzPDuT2ED43ng9AVOkwA3qC1zD
-        ZBfo1AmpBWSyCjR1QjweM1kFmjohNSeTVaDpodSczD8psIbUQ6swqTa9gml69zNdcMBvfLACx42Hagdh
-        bhvjME3v/maq6gPbC8up2Gpv5QAAAABJRU5ErkJggg==
-</value>
-  </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>125</value>
   </metadata>

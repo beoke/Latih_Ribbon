@@ -71,11 +71,11 @@
             this.btnResetFilter = new System.Windows.Forms.Button();
             this.lblFilter = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.EditMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.DeleteMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.ButtonDownloadFormat = new System.Windows.Forms.Button();
             this.ButtonInputSIswa = new System.Windows.Forms.Button();
-            this.EditMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
-            this.DeleteMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.NaikKelasContext = new System.Windows.Forms.ToolStripMenuItem();
             this.HapusSiswaLulus = new System.Windows.Forms.ToolStripMenuItem();
@@ -589,6 +589,22 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(127, 56);
             // 
+            // EditMenuStrip
+            // 
+            this.EditMenuStrip.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EditMenuStrip.Image = global::latihribbon.Properties.Resources.pencil;
+            this.EditMenuStrip.Name = "EditMenuStrip";
+            this.EditMenuStrip.Size = new System.Drawing.Size(126, 26);
+            this.EditMenuStrip.Text = "Edit";
+            // 
+            // DeleteMenuStrip
+            // 
+            this.DeleteMenuStrip.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeleteMenuStrip.Image = global::latihribbon.Properties.Resources.bin;
+            this.DeleteMenuStrip.Name = "DeleteMenuStrip";
+            this.DeleteMenuStrip.Size = new System.Drawing.Size(126, 26);
+            this.DeleteMenuStrip.Text = "Delete";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -626,22 +642,6 @@
             this.ButtonInputSIswa.UseVisualStyleBackColor = true;
             this.ButtonInputSIswa.Click += new System.EventHandler(this.ButtonInputSIswa_Click);
             // 
-            // EditMenuStrip
-            // 
-            this.EditMenuStrip.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EditMenuStrip.Image = global::latihribbon.Properties.Resources.pencil;
-            this.EditMenuStrip.Name = "EditMenuStrip";
-            this.EditMenuStrip.Size = new System.Drawing.Size(126, 26);
-            this.EditMenuStrip.Text = "Edit";
-            // 
-            // DeleteMenuStrip
-            // 
-            this.DeleteMenuStrip.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeleteMenuStrip.Image = global::latihribbon.Properties.Resources.bin;
-            this.DeleteMenuStrip.Name = "DeleteMenuStrip";
-            this.DeleteMenuStrip.Size = new System.Drawing.Size(126, 26);
-            this.DeleteMenuStrip.Text = "Delete";
-            // 
             // contextMenuStrip2
             // 
             this.contextMenuStrip2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -650,12 +650,12 @@
             this.NaikKelasContext,
             this.HapusSiswaLulus});
             this.contextMenuStrip2.Name = "contextMenuStrip1";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(252, 56);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(252, 78);
             // 
             // NaikKelasContext
             // 
             this.NaikKelasContext.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NaikKelasContext.Image = ((System.Drawing.Image)(resources.GetObject("NaikKelasContext.Image")));
+            this.NaikKelasContext.Image = global::latihribbon.Properties.Resources.growth;
             this.NaikKelasContext.Name = "NaikKelasContext";
             this.NaikKelasContext.Size = new System.Drawing.Size(251, 26);
             this.NaikKelasContext.Text = "Naik Kelas Seluruh Siswa";
