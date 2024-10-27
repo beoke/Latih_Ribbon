@@ -294,6 +294,12 @@ namespace latihribbon
 
         private void NaikKelasContext_Click(object sender, EventArgs e)
         {
+            if (kelasDal.cekLulus())
+            {
+                new MesWarningOK("Data siswa lulus masih ada\n Anda harus menghapusnya jika ingin menaikkan kelas untuk seluruh siswa").ShowDialog(this);
+                return;
+            }
+
             if (new MesWarningYN("Naik Kelas Untuk Seluruh Siswa?\nTindakan ini Tidak Dapat Diurungkan!!", 2).ShowDialog(this) != DialogResult.Yes) return;
 
             var allKelas = kelasDal.listKelas(string.Empty, new { });
@@ -628,7 +634,7 @@ namespace latihribbon
             }
         }
         #endregion
-        private void ButtonNaikKelas_Click(object sender, EventArgs e)
+        /*private void ButtonNaikKelas_Click(object sender, EventArgs e)
         {
             if (new MesWarningYN("Naik Kelas Untuk Seluruh Siswa?\nTindakan ini Tidak Dapat Diurungkan!!",2).ShowDialog(this) != DialogResult.Yes) return;
 
@@ -653,7 +659,7 @@ namespace latihribbon
                 kelasDal.Update(kelas);
             }
             new MesInformasi("Seluruh Siswa Berhasil Naik Kelas!").ShowDialog(this);
-        }
+        }*/
 
 /*        private void UpdateNaikKelas()
         {

@@ -143,5 +143,16 @@ namespace latihribbon.Dal
                 koneksi.Execute(sql);
             }
         }
+
+        public bool cekLulus()
+        {
+            using (var koneksi = new SqlConnection(Conn.conn.connstr()))
+            {
+                const string sql = @"SELECT COUNT(1) FROM Kelas WHERE status = 0";
+                int count = koneksi.ExecuteScalar<int>(sql);
+
+                return count > 0;
+            }
+        }
     }
 }
