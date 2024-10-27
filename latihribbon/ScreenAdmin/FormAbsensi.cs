@@ -239,9 +239,9 @@ namespace latihribbon
 
             txtNIS1.KeyPress += Input_KeyPress;
             txtPersensi1.KeyPress += Input_KeyPress;
-
-            txtSearch.Enter += TxtSearch_Enter;
-            txtSearch.Leave += TxtSearch_Leave;
+            
+            txtSearch.TextChanged += TxtSearch_ChangeLeave;
+            txtSearch.Leave += TxtSearch_ChangeLeave;
             lblFilter.Click += LblFilter_Click;
             btnKelas.Click += btnKelas_Click;
             btnSave_FormSiswa.Click += btnSave_FormSiswa_Click;
@@ -256,15 +256,12 @@ namespace latihribbon
             txtSearch.Focus();
         }
 
-        private void TxtSearch_Leave(object sender, EventArgs e)
+        private void TxtSearch_ChangeLeave(object sender, EventArgs e)
         {
-            if (txtSearch.Text.Length == 0)
+            if (txtSearch.Text.Length > 0)
+                lblFilter.Visible = false;
+            else
                 lblFilter.Visible = true;
-        }
-
-        private void TxtSearch_Enter(object sender, EventArgs e)
-        {
-            lblFilter.Visible = false;
         }
 
         private void Input_KeyPress(object sender, KeyPressEventArgs e)

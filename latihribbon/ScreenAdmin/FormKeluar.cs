@@ -233,26 +233,26 @@ namespace latihribbon
             editToolStripMenuItem.Click += EditToolStripMenuItem_Click;
             deleteToolStripMenuItem.Click += DeleteToolStripMenuItem_Click;
 
-            TextSearch.Enter += TextSearch_Enter;
-            TextSearch.Leave += TextSearch_Leave;
+            TextSearch.TextChanged += TextSearch_ChangeLeave;
+            TextSearch.Leave += TextSearch_ChangeLeave;
             lblFilter.Click += LblFilter_Click;
         }
+
+
 
         private void LblFilter_Click(object sender, EventArgs e)
         {
             TextSearch.Focus();
         }
 
-        private void TextSearch_Leave(object sender, EventArgs e)
+        private void TextSearch_ChangeLeave(object sender, EventArgs e)
         {
-            if (TextSearch.Text.Length == 0)
+            if (TextSearch.Text.Length > 0)
+                lblFilter.Visible = false;
+            else
                 lblFilter.Visible = true;
         }
 
-        private void TextSearch_Enter(object sender, EventArgs e)
-        {
-            lblFilter.Visible = false;
-        }
 
         private void DeleteToolStripMenuItem_Click(object sender, EventArgs e)
         {

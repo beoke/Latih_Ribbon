@@ -269,8 +269,8 @@ namespace latihribbon
             XIRadio.CheckedChanged += radio_CheckedChange;
             XIIRadio.CheckedChanged += radio_CheckedChange;
             jurusanCombo.SelectedIndexChanged += radio_CheckedChange;
-            txtFilter.Enter += TxtFilter_Enter;
-            txtFilter.Leave += TxtFilter_Leave;
+            txtFilter.TextChanged += TxtFilter_ChangeLeave;
+            txtFilter.Leave += TxtFilter_ChangeLeave;
             lblFilter.Click += LblFilter_Click;
             this.Shown += Form1_Shown; // focus awal load form
             dataGridView1.CellMouseClick += DataGridView1_CellMouseClick;
@@ -315,16 +315,14 @@ namespace latihribbon
             txtFilter.Focus();
         }
 
-        private void TxtFilter_Leave(object sender, EventArgs e)
+        private void TxtFilter_ChangeLeave(object sender, EventArgs e)
         {
-            if(txtFilter.Text.Length == 0)
+            if (txtFilter.Text.Length > 0)
+                lblFilter.Visible = false;
+            else
                 lblFilter.Visible = true;
         }
 
-        private void TxtFilter_Enter(object sender, EventArgs e)
-        {
-            lblFilter.Visible = false;
-        }
         private void txtFilter_TextChanged(object sender,EventArgs e)
         {
             Page = 1;

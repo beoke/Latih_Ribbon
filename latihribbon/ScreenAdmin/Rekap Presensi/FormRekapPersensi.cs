@@ -167,8 +167,8 @@ namespace latihribbon.ScreenAdmin
             tglsatu.ValueChanged += tgl_ValueChanged;
             tgldua.ValueChanged += tgl_ValueChanged;
 
-            txtSearch.TextChanged += BtnResetFilter_ChangeLeave;
-            txtSearch.Leave += BtnResetFilter_ChangeLeave;
+            txtSearch.TextChanged += Filter_ChangeLeave;
+            txtSearch.Leave += Filter_ChangeLeave;
             lblFilter.Click += LblFilter_Click;
 
             btnResetFilter.Click += btnReset_Click;
@@ -182,7 +182,7 @@ namespace latihribbon.ScreenAdmin
             txtSearch.Focus();
         }
 
-        private void BtnResetFilter_ChangeLeave(object sender, EventArgs e)
+        private void Filter_ChangeLeave(object sender, EventArgs e)
         {
             if (txtSearch.Text.Length > 0)
                 lblFilter.Visible = false;

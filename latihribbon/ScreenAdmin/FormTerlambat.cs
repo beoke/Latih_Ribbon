@@ -201,8 +201,8 @@ namespace latihribbon
             tglsatu.ValueChanged += filter_tglChanged;
             tgldua.ValueChanged += filter_tglChanged;
             comboPerPage.SelectedIndexChanged += filter_TextChanged;
-            txtFilter.Enter += TxtFilter_Enter;
-            txtFilter.Leave += TxtFilter_Leave;
+            txtFilter.Leave += TxtFilter_ChangeLeave;
+            txtFilter.TextChanged += TxtFilter_ChangeLeave;
             lblFilter.Click += LblFilter_Click;
             this.Resize += FormTerlambat_Resize;
 
@@ -240,9 +240,11 @@ namespace latihribbon
             txtFilter.Focus();
         }
 
-        private void TxtFilter_Leave(object sender, EventArgs e)
+        private void TxtFilter_ChangeLeave(object sender, EventArgs e)
         {
-            if(txtFilter.Text.Length == 0)
+            if(txtFilter.Text.Length > 0)
+                lblFilter.Visible = false;
+            else
                 lblFilter.Visible = true;
         }
 
