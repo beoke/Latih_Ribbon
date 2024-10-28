@@ -326,5 +326,9 @@ namespace latihribbon
         }
         #endregion
 
+        private void FormTerlambat_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

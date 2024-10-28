@@ -130,10 +130,10 @@
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.panel3);
-            this.panel1.Location = new System.Drawing.Point(3, 61);
+            this.panel1.Location = new System.Drawing.Point(0, 62);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1172, 548);
+            this.panel1.Size = new System.Drawing.Size(989, 456);
             this.panel1.TabIndex = 14;
             // 
             // panel2
@@ -143,10 +143,10 @@
             this.panel2.BackColor = System.Drawing.Color.Silver;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.panel5);
-            this.panel2.Location = new System.Drawing.Point(635, 9);
+            this.panel2.Location = new System.Drawing.Point(636, 9);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(342, 431);
+            this.panel2.Size = new System.Drawing.Size(342, 436);
             this.panel2.TabIndex = 4;
             // 
             // panel5
@@ -179,7 +179,7 @@
             this.panel5.Location = new System.Drawing.Point(4, 4);
             this.panel5.Margin = new System.Windows.Forms.Padding(2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(332, 421);
+            this.panel5.Size = new System.Drawing.Size(332, 426);
             this.panel5.TabIndex = 5;
             // 
             // btnSave_FormSiswa
@@ -188,7 +188,7 @@
             this.btnSave_FormSiswa.BackColor = System.Drawing.Color.LimeGreen;
             this.btnSave_FormSiswa.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave_FormSiswa.ForeColor = System.Drawing.Color.White;
-            this.btnSave_FormSiswa.Location = new System.Drawing.Point(217, 370);
+            this.btnSave_FormSiswa.Location = new System.Drawing.Point(217, 375);
             this.btnSave_FormSiswa.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave_FormSiswa.Name = "btnSave_FormSiswa";
             this.btnSave_FormSiswa.Size = new System.Drawing.Size(90, 32);
@@ -457,10 +457,10 @@
             this.panel3.Controls.Add(this.btnPrevious);
             this.panel3.Controls.Add(this.ButtonNaikKelas);
             this.panel3.Controls.Add(this.dataGridView1);
-            this.panel3.Location = new System.Drawing.Point(7, 9);
+            this.panel3.Location = new System.Drawing.Point(8, 9);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(623, 430);
+            this.panel3.Size = new System.Drawing.Size(623, 436);
             this.panel3.TabIndex = 2;
             // 
             // label14
@@ -468,7 +468,7 @@
             this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(74, 393);
+            this.label14.Location = new System.Drawing.Point(74, 399);
             this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(45, 19);
@@ -482,7 +482,7 @@
             this.comboPerPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboPerPage.FormattingEnabled = true;
             this.comboPerPage.ItemHeight = 13;
-            this.comboPerPage.Location = new System.Drawing.Point(10, 393);
+            this.comboPerPage.Location = new System.Drawing.Point(10, 399);
             this.comboPerPage.Name = "comboPerPage";
             this.comboPerPage.Size = new System.Drawing.Size(61, 21);
             this.comboPerPage.TabIndex = 55;
@@ -492,7 +492,7 @@
             this.lblHalaman.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblHalaman.AutoSize = true;
             this.lblHalaman.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHalaman.Location = new System.Drawing.Point(241, 395);
+            this.lblHalaman.Location = new System.Drawing.Point(241, 401);
             this.lblHalaman.Name = "lblHalaman";
             this.lblHalaman.Size = new System.Drawing.Size(90, 16);
             this.lblHalaman.TabIndex = 54;
@@ -501,7 +501,7 @@
             // btnNext
             // 
             this.btnNext.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnNext.Location = new System.Drawing.Point(346, 392);
+            this.btnNext.Location = new System.Drawing.Point(346, 398);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(75, 23);
             this.btnNext.TabIndex = 53;
@@ -511,7 +511,7 @@
             // btnPrevious
             // 
             this.btnPrevious.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnPrevious.Location = new System.Drawing.Point(148, 392);
+            this.btnPrevious.Location = new System.Drawing.Point(148, 398);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(75, 23);
             this.btnPrevious.TabIndex = 52;
@@ -524,14 +524,13 @@
             this.ButtonNaikKelas.BackColor = System.Drawing.Color.Gray;
             this.ButtonNaikKelas.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonNaikKelas.ForeColor = System.Drawing.Color.White;
-            this.ButtonNaikKelas.Location = new System.Drawing.Point(504, 387);
+            this.ButtonNaikKelas.Location = new System.Drawing.Point(504, 393);
             this.ButtonNaikKelas.Margin = new System.Windows.Forms.Padding(2);
             this.ButtonNaikKelas.Name = "ButtonNaikKelas";
             this.ButtonNaikKelas.Size = new System.Drawing.Size(101, 31);
             this.ButtonNaikKelas.TabIndex = 3;
             this.ButtonNaikKelas.Text = "Naik Kelas";
             this.ButtonNaikKelas.UseVisualStyleBackColor = false;
-            this.ButtonNaikKelas.Click += new System.EventHandler(this.ButtonNaikKelas_Click);
             // 
             // dataGridView1
             // 
@@ -540,12 +539,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridView1.ColumnHeadersHeight = 20;
-            this.dataGridView1.Location = new System.Drawing.Point(4, 5);
+            this.dataGridView1.Location = new System.Drawing.Point(5, 5);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(613, 369);
+            this.dataGridView1.Size = new System.Drawing.Size(613, 375);
             this.dataGridView1.TabIndex = 13;
             // 
             // comboTahunFilter
@@ -650,7 +649,7 @@
             this.NaikKelasContext,
             this.HapusSiswaLulus});
             this.contextMenuStrip2.Name = "contextMenuStrip1";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(252, 78);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(252, 56);
             // 
             // NaikKelasContext
             // 
@@ -673,7 +672,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(989, 510);
+            this.ClientSize = new System.Drawing.Size(989, 518);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblFilter);
             this.Controls.Add(this.btnResetFilter);

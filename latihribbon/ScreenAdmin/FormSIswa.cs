@@ -277,6 +277,7 @@ namespace latihribbon
             EditMenuStrip.Click += EditMenuStrip_Click;
             DeleteMenuStrip.Click += DeleteMenuStrip_Click;
 
+            ButtonNaikKelas.Click += ButtonNaikKelas_Click;
             NaikKelasContext.Click += NaikKelasContext_Click;
             HapusSiswaLulus.Click += HapusSiswaLulus_Click;
             
@@ -300,7 +301,7 @@ namespace latihribbon
                 return;
             }
 
-            if (new MesWarningYN("Naik Kelas Untuk Seluruh Siswa?\nTindakan ini Tidak Dapat Diurungkan!!", 2).ShowDialog(this) != DialogResult.Yes) return;
+            if (new MesWarningYN("Naik kelas untuk seluruh siswa?\nTindakan ini tidak dapat iurungkan!!", 2).ShowDialog(this) != DialogResult.Yes) return;
 
             var allKelas = kelasDal.listKelas(string.Empty, new { });
             if (!allKelas.Any()) return;
@@ -634,72 +635,5 @@ namespace latihribbon
             }
         }
         #endregion
-        /*private void ButtonNaikKelas_Click(object sender, EventArgs e)
-        {
-            if (new MesWarningYN("Naik Kelas Untuk Seluruh Siswa?\nTindakan ini Tidak Dapat Diurungkan!!",2).ShowDialog(this) != DialogResult.Yes) return;
-
-            var allKelas = kelasDal.listKelas(string.Empty, new {});
-            if (!allKelas.Any()) return;
-            kelasDal.DuplikatKelas("X");
-            foreach (var x in allKelas)
-            {
-                string tingkat = x.Tingkat == "X" ? "XI"
-                    : x.Tingkat == "XI" ? "XII"
-                    : x.Tingkat == "XII" ? "LULUS"
-                    : string.Empty;
-                var kelas = new KelasModel()
-                {
-                    Id = x.Id,
-                    NamaKelas = $"{tingkat} {x.NamaJurusan} {x.Rombel}".Trim(),
-                    Tingkat = tingkat,
-                    IdJurusan = x.IdJurusan,
-                    Rombel = x.Rombel,
-                    status = x.Tingkat != "XII" ? 1 : 0
-                };
-                kelasDal.Update(kelas);
-            }
-            new MesInformasi("Seluruh Siswa Berhasil Naik Kelas!").ShowDialog(this);
-        }*/
-
-/*        private void UpdateNaikKelas()
-        {
-            using (var Conn = new SqlConnection(conn.connstr()))
-            {
-                const string sqlKenaikanKelas = @"
-                                -- Langkah 1: Duplicating kelas XII with ' (Lulus)' for graduates
-
-                                INSERT INTO Kelas (Namakelas, Rombel, idJurusan, Tingkat)
-                                SELECT CONCAT(K.Namakelas, ' (Lulus)'), K.Rombel, K.idJurusan, K.Tingkat
-                                FROM Kelas K
-                                WHERE K.Tingkat = 'XII'
-                                AND K.Namakelas NOT LIKE '%(Lulus)%'
-                                AND NOT EXISTS (
-                                    SELECT 1
-                                    FROM Kelas K2
-                                    WHERE K2.Namakelas = CONCAT(K.Namakelas, ' (Lulus)')
-                                    AND K2.Rombel = K.Rombel
-                                    AND K2.idJurusan = K.idJurusan
-                                );
-
-                                -- Langkah 2: Updating siswa to the next class
-                                UPDATE S
-                                SET S.idKelas = K2.Id
-                                FROM Siswa S
-                                JOIN Kelas K1 ON S.idKelas = K1.Id
-                                JOIN Kelas K2 ON K1.idJurusan = K2.idJurusan 
-                                              AND K1.Rombel = K2.Rombel 
-                                              AND (
-                                                  (K1.Tingkat = 'X' AND K2.Tingkat = 'XI') OR 
-                                                  (K1.Tingkat = 'XI' AND K2.Tingkat = 'XII')
-                                              )
-                                WHERE K1.Tingkat IN ('X', 'XI');
-
-                                -- Langkah 3: Adding ' (Lulus)' to existing kelas XII
-                                -- Pastikan bahwa ini sudah dilakukan pada langkah 1
-                            ";
-                Conn.Execute(sqlKenaikanKelas);
-            }
-        }
-*/    
     }
 }
