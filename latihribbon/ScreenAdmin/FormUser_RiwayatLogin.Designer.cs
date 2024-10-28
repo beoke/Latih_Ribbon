@@ -59,6 +59,7 @@
             this.GridListRiwayatLogin = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.DeleteMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridListUser)).BeginInit();
             this.panel4.SuspendLayout();
@@ -90,7 +91,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.PickerRentan_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PickerRentan_2.Location = new System.Drawing.Point(525, 23);
-            this.PickerRentan_2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PickerRentan_2.Margin = new System.Windows.Forms.Padding(2);
             this.PickerRentan_2.Name = "PickerRentan_2";
             this.PickerRentan_2.Size = new System.Drawing.Size(138, 21);
             this.PickerRentan_2.TabIndex = 30;
@@ -101,7 +102,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.PickerRentan_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PickerRentan_1.Location = new System.Drawing.Point(361, 23);
-            this.PickerRentan_1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PickerRentan_1.Margin = new System.Windows.Forms.Padding(2);
             this.PickerRentan_1.Name = "PickerRentan_1";
             this.PickerRentan_1.Size = new System.Drawing.Size(138, 21);
             this.PickerRentan_1.TabIndex = 29;
@@ -127,7 +128,7 @@
             this.TextUserName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TextUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TextUserName.Location = new System.Drawing.Point(112, 23);
-            this.TextUserName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TextUserName.Margin = new System.Windows.Forms.Padding(2);
             this.TextUserName.Name = "TextUserName";
             this.TextUserName.Size = new System.Drawing.Size(106, 21);
             this.TextUserName.TabIndex = 25;
@@ -151,6 +152,7 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.Controls.Add(this.panel6);
             this.panel1.Controls.Add(this.btnResetFilter);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.TextUserName);
@@ -159,9 +161,9 @@
             this.panel1.Controls.Add(this.PickerRentan_2);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1030, 68);
+            this.panel1.Size = new System.Drawing.Size(1033, 63);
             this.panel1.TabIndex = 32;
             // 
             // btnResetFilter
@@ -181,10 +183,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.GridListUser.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.GridListUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GridListUser.Location = new System.Drawing.Point(10, 76);
+            this.GridListUser.Location = new System.Drawing.Point(7, 76);
             this.GridListUser.Name = "GridListUser";
             this.GridListUser.RowHeadersWidth = 51;
-            this.GridListUser.Size = new System.Drawing.Size(458, 405);
+            this.GridListUser.Size = new System.Drawing.Size(458, 408);
             this.GridListUser.TabIndex = 0;
             // 
             // panel4
@@ -195,8 +197,8 @@
             this.panel4.Controls.Add(this.panel2);
             this.panel4.Controls.Add(this.GridListUser);
             this.panel4.Controls.Add(this.panel5);
-            this.panel4.Location = new System.Drawing.Point(199, 78);
-            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel4.Location = new System.Drawing.Point(201, 74);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(822, 491);
             this.panel4.TabIndex = 35;
@@ -208,8 +210,8 @@
             this.panel2.BackColor = System.Drawing.Color.Gainsboro;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.label6);
-            this.panel2.Location = new System.Drawing.Point(10, 7);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Location = new System.Drawing.Point(7, 7);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(458, 61);
             this.panel2.TabIndex = 8;
@@ -239,10 +241,10 @@
             this.panel5.Controls.Add(this.label7);
             this.panel5.Controls.Add(this.TextIdUser);
             this.panel5.Controls.Add(this.label9);
-            this.panel5.Location = new System.Drawing.Point(475, 6);
-            this.panel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel5.Location = new System.Drawing.Point(473, 7);
+            this.panel5.Margin = new System.Windows.Forms.Padding(2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(342, 478);
+            this.panel5.Size = new System.Drawing.Size(342, 477);
             this.panel5.TabIndex = 4;
             // 
             // ButtonSaveUser
@@ -251,8 +253,8 @@
             this.ButtonSaveUser.BackColor = System.Drawing.Color.LimeGreen;
             this.ButtonSaveUser.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonSaveUser.ForeColor = System.Drawing.Color.White;
-            this.ButtonSaveUser.Location = new System.Drawing.Point(219, 414);
-            this.ButtonSaveUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ButtonSaveUser.Location = new System.Drawing.Point(219, 413);
+            this.ButtonSaveUser.Margin = new System.Windows.Forms.Padding(2);
             this.ButtonSaveUser.Name = "ButtonSaveUser";
             this.ButtonSaveUser.Size = new System.Drawing.Size(90, 32);
             this.ButtonSaveUser.TabIndex = 1;
@@ -278,7 +280,7 @@
             this.TextPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TextPassword.ForeColor = System.Drawing.SystemColors.ControlText;
             this.TextPassword.Location = new System.Drawing.Point(34, 216);
-            this.TextPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TextPassword.Margin = new System.Windows.Forms.Padding(2);
             this.TextPassword.Name = "TextPassword";
             this.TextPassword.PasswordChar = '*';
             this.TextPassword.Size = new System.Drawing.Size(276, 23);
@@ -302,7 +304,7 @@
             this.TextNameUser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TextNameUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TextNameUser.Location = new System.Drawing.Point(34, 154);
-            this.TextNameUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TextNameUser.Margin = new System.Windows.Forms.Padding(2);
             this.TextNameUser.Name = "TextNameUser";
             this.TextNameUser.Size = new System.Drawing.Size(276, 23);
             this.TextNameUser.TabIndex = 69;
@@ -326,7 +328,7 @@
             this.TextIdUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TextIdUser.ForeColor = System.Drawing.SystemColors.ControlText;
             this.TextIdUser.Location = new System.Drawing.Point(34, 93);
-            this.TextIdUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TextIdUser.Margin = new System.Windows.Forms.Padding(2);
             this.TextIdUser.Name = "TextIdUser";
             this.TextIdUser.ReadOnly = true;
             this.TextIdUser.Size = new System.Drawing.Size(276, 23);
@@ -354,8 +356,8 @@
             this.panel3.Controls.Add(this.btnPrevious);
             this.panel3.Controls.Add(this.panel9);
             this.panel3.Controls.Add(this.GridListRiwayatLogin);
-            this.panel3.Location = new System.Drawing.Point(9, 78);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Location = new System.Drawing.Point(11, 74);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(184, 491);
             this.panel3.TabIndex = 36;
@@ -401,7 +403,7 @@
             this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel9.Controls.Add(this.LabelJurusan);
             this.panel9.Location = new System.Drawing.Point(6, 7);
-            this.panel9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel9.Margin = new System.Windows.Forms.Padding(2);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(173, 61);
             this.panel9.TabIndex = 8;
@@ -425,7 +427,7 @@
             this.GridListRiwayatLogin.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.GridListRiwayatLogin.ColumnHeadersHeight = 29;
             this.GridListRiwayatLogin.Location = new System.Drawing.Point(6, 76);
-            this.GridListRiwayatLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.GridListRiwayatLogin.Margin = new System.Windows.Forms.Padding(2);
             this.GridListRiwayatLogin.Name = "GridListRiwayatLogin";
             this.GridListRiwayatLogin.RowHeadersWidth = 51;
             this.GridListRiwayatLogin.RowTemplate.Height = 24;
@@ -449,15 +451,22 @@
             this.DeleteMenuStrip.Size = new System.Drawing.Size(126, 26);
             this.DeleteMenuStrip.Text = "Delete";
             // 
+            // panel6
+            // 
+            this.panel6.Location = new System.Drawing.Point(813, 1);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(51, 60);
+            this.panel6.TabIndex = 74;
+            // 
             // FormUser_RiwayatLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1030, 578);
+            this.ClientSize = new System.Drawing.Size(1033, 576);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormUser_RiwayatLogin";
             this.Text = "FormRiwayatLogin";
             this.panel1.ResumeLayout(false);
@@ -510,5 +519,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
         private System.Windows.Forms.ToolStripMenuItem DeleteMenuStrip;
+        private System.Windows.Forms.Panel panel6;
     }
 }

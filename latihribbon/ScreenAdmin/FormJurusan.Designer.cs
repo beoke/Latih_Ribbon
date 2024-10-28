@@ -54,12 +54,12 @@
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel3.BackColor = System.Drawing.Color.DarkGray;
+            this.panel3.BackColor = System.Drawing.Color.Silver;
             this.panel3.Controls.Add(this.GridListJurusan);
-            this.panel3.Location = new System.Drawing.Point(9, 20);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Location = new System.Drawing.Point(12, 12);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(460, 462);
+            this.panel3.Size = new System.Drawing.Size(518, 462);
             this.panel3.TabIndex = 4;
             // 
             // GridListJurusan
@@ -67,30 +67,29 @@
             this.GridListJurusan.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.GridListJurusan.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.GridListJurusan.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.GridListJurusan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GridListJurusan.Location = new System.Drawing.Point(7, 7);
+            this.GridListJurusan.Location = new System.Drawing.Point(5, 5);
             this.GridListJurusan.Name = "GridListJurusan";
             this.GridListJurusan.RowHeadersWidth = 51;
-            this.GridListJurusan.Size = new System.Drawing.Size(447, 448);
+            this.GridListJurusan.Size = new System.Drawing.Size(508, 452);
             this.GridListJurusan.TabIndex = 0;
             // 
             // panel4
             // 
             this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel4.BackColor = System.Drawing.Color.DarkGray;
+            this.panel4.BackColor = System.Drawing.Color.Silver;
             this.panel4.Controls.Add(this.panel2);
-            this.panel4.Location = new System.Drawing.Point(474, 20);
-            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel4.Location = new System.Drawing.Point(539, 12);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(341, 462);
             this.panel4.TabIndex = 5;
             // 
             // panel2
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.LightGray;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -100,10 +99,10 @@
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.txtIdJurusan);
             this.panel2.Controls.Add(this.label9);
-            this.panel2.Location = new System.Drawing.Point(5, 6);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Location = new System.Drawing.Point(5, 5);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(331, 450);
+            this.panel2.Size = new System.Drawing.Size(331, 452);
             this.panel2.TabIndex = 4;
             // 
             // LabelJurusan
@@ -122,8 +121,8 @@
             this.btnSaveJurusan.BackColor = System.Drawing.Color.LimeGreen;
             this.btnSaveJurusan.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSaveJurusan.ForeColor = System.Drawing.Color.White;
-            this.btnSaveJurusan.Location = new System.Drawing.Point(218, 392);
-            this.btnSaveJurusan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSaveJurusan.Location = new System.Drawing.Point(218, 396);
+            this.btnSaveJurusan.Margin = new System.Windows.Forms.Padding(2);
             this.btnSaveJurusan.Name = "btnSaveJurusan";
             this.btnSaveJurusan.Size = new System.Drawing.Size(90, 32);
             this.btnSaveJurusan.TabIndex = 57;
@@ -135,7 +134,7 @@
             this.txtNamaJurusan.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNamaJurusan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNamaJurusan.Location = new System.Drawing.Point(22, 141);
-            this.txtNamaJurusan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNamaJurusan.Margin = new System.Windows.Forms.Padding(2);
             this.txtNamaJurusan.Name = "txtNamaJurusan";
             this.txtNamaJurusan.Size = new System.Drawing.Size(286, 23);
             this.txtNamaJurusan.TabIndex = 61;
@@ -157,7 +156,7 @@
             this.txtIdJurusan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIdJurusan.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtIdJurusan.Location = new System.Drawing.Point(22, 76);
-            this.txtIdJurusan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtIdJurusan.Margin = new System.Windows.Forms.Padding(2);
             this.txtIdJurusan.Name = "txtIdJurusan";
             this.txtIdJurusan.ReadOnly = true;
             this.txtIdJurusan.Size = new System.Drawing.Size(286, 23);
@@ -204,10 +203,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(824, 490);
+            this.ClientSize = new System.Drawing.Size(891, 484);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel4);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormJurusan";
             this.Text = "FormJurusan";
             this.panel3.ResumeLayout(false);
