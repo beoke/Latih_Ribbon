@@ -256,23 +256,27 @@ namespace latihribbon
         {
             if (panel4.Height < 458)
             {
+                txtAlasan1.Multiline = false;
                 tglDT.Width = 140;
                 jamMasukDT.Width = 140;
 
-                lblJamMasuk.Location = new Point(177, 192);
-                jamMasukDT.Location = new Point(175, 213);
-                lblAlasan.Location = new Point(17, 241);
-                txtAlasan1.Location = new Point(15, 262);
+                lblJamMasuk.Location = new Point(175, 194);
+                jamMasukDT.Location = new Point(171, 215);
+                lblAlasan.Location = new Point(23, 242);
+                txtAlasan1.Location = new Point(21, 264);
+                
             }
             else
             {
-                tglDT.Width = 300;
-                jamMasukDT.Width = 300;
+                txtAlasan1.Multiline = true;
+                tglDT.Width = 290;
+                jamMasukDT.Width = 290;
+                txtAlasan1.Height = 60;
 
-                lblJamMasuk.Location = new Point(17, 240);
-                jamMasukDT.Location = new Point(15, 261);
-                lblAlasan.Location = new Point(17, 290);
-                txtAlasan1.Location = new Point(15, 311);
+                lblJamMasuk.Location = new Point(23, 242);
+                jamMasukDT.Location = new Point(21, 263);
+                lblAlasan.Location = new Point(23, 290);
+                txtAlasan1.Location = new Point(21, 312);
             }
                 
         }

@@ -323,7 +323,7 @@
             // 
             this.lblAlasan.AutoSize = true;
             this.lblAlasan.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAlasan.Location = new System.Drawing.Point(23, 292);
+            this.lblAlasan.Location = new System.Drawing.Point(23, 290);
             this.lblAlasan.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblAlasan.Name = "lblAlasan";
             this.lblAlasan.Size = new System.Drawing.Size(52, 18);
@@ -347,10 +347,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtAlasan1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtAlasan1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAlasan1.Location = new System.Drawing.Point(21, 314);
+            this.txtAlasan1.Location = new System.Drawing.Point(21, 312);
             this.txtAlasan1.Margin = new System.Windows.Forms.Padding(2);
+            this.txtAlasan1.Multiline = true;
             this.txtAlasan1.Name = "txtAlasan1";
-            this.txtAlasan1.Size = new System.Drawing.Size(290, 23);
+            this.txtAlasan1.Size = new System.Drawing.Size(290, 60);
             this.txtAlasan1.TabIndex = 58;
             // 
             // txtNIS1

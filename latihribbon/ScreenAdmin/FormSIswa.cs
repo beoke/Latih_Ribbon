@@ -40,7 +40,6 @@ namespace latihribbon
             jurusanDal = new JurusanDal();
             kelasDal = new KelasDal();
             mesBox = new MesBox();
-            toolTip = new ToolTip();
             InitCombo();
             LoadData();
             InitComponent();
@@ -253,6 +252,7 @@ namespace latihribbon
         #region EVENT
         private void RegisterEvent()
         {
+            this.Resize += FormSIswa_Resize;
             txtFilter.TextChanged += txtFilter_TextChanged;
             comboTahunFilter.SelectedIndexChanged += txtFilter_TextChanged;
             comboPerPage.SelectedIndexChanged += txtFilter_TextChanged;
@@ -282,6 +282,24 @@ namespace latihribbon
             HapusSiswaLulus.Click += HapusSiswaLulus_Click;
             
         }
+
+        private void FormSIswa_Resize(object sender, EventArgs e)
+        {
+            if (0 < 1)
+            {
+                lblNisSudahAda.Location = new Point(63, 50);
+                label11.Location = new Point(171, 49);
+                txtPersensi_FormSiswa.Location = new Point(175, 67);
+                txtPersensi_FormSiswa.Width = 144;
+                label6.Location = new Point(13, 96);
+
+            }
+            else
+            {
+
+            }
+        }
+
         private void ButtonNaikKelas_Click(object sender, EventArgs e)
         {
             contextMenuStrip2.Show(Cursor.Position);

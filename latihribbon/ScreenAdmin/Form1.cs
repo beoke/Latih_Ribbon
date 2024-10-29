@@ -29,7 +29,7 @@ namespace latihribbon
             this.indexForm = indexForm;
             this.WindowState = FormWindowState.Maximized;
            
-            this.MinimumSize = new Size(1500, 800);
+            this.MinimumSize = new Size(1200, 700);
         }
         private void ShowFormInPanel(Form form) 
         {
