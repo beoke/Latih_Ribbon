@@ -148,7 +148,7 @@
             this.txtAlasan.Margin = new System.Windows.Forms.Padding(2);
             this.txtAlasan.Multiline = true;
             this.txtAlasan.Name = "txtAlasan";
-            this.txtAlasan.Size = new System.Drawing.Size(302, 62);
+            this.txtAlasan.Size = new System.Drawing.Size(302, 70);
             this.txtAlasan.TabIndex = 68;
             // 
             // label5
