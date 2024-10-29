@@ -13,7 +13,6 @@ namespace latihribbon
 {
     public partial class FormIndex : Form
     {
-        private bool TopMost = true;
         private Form mainForm;
         public FormIndex(Form ff)
         {
