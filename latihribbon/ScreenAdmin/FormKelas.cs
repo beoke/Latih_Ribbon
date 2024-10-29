@@ -178,5 +178,10 @@ namespace latihribbon.ScreenAdmin
         {
             kelasDal.DeleteDataLulus();
         }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

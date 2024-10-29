@@ -351,5 +351,10 @@ namespace latihribbon
             }
         }
         #endregion
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

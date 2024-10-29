@@ -279,7 +279,7 @@
             this.btnSave_FormSiswa.BackColor = System.Drawing.Color.LimeGreen;
             this.btnSave_FormSiswa.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave_FormSiswa.ForeColor = System.Drawing.Color.White;
-            this.btnSave_FormSiswa.Location = new System.Drawing.Point(224, 465);
+            this.btnSave_FormSiswa.Location = new System.Drawing.Point(219, 467);
             this.btnSave_FormSiswa.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave_FormSiswa.Name = "btnSave_FormSiswa";
             this.btnSave_FormSiswa.Size = new System.Drawing.Size(90, 32);
@@ -292,7 +292,7 @@
             this.lblNisTidakDitemukan.AutoSize = true;
             this.lblNisTidakDitemukan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNisTidakDitemukan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.lblNisTidakDitemukan.Location = new System.Drawing.Point(188, 49);
+            this.lblNisTidakDitemukan.Location = new System.Drawing.Point(179, 49);
             this.lblNisTidakDitemukan.Name = "lblNisTidakDitemukan";
             this.lblNisTidakDitemukan.Size = new System.Drawing.Size(127, 15);
             this.lblNisTidakDitemukan.TabIndex = 65;
@@ -305,22 +305,23 @@
             this.jamMasukDT.CustomFormat = " HH:mm";
             this.jamMasukDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.jamMasukDT.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.jamMasukDT.Location = new System.Drawing.Point(15, 314);
+            this.jamMasukDT.Location = new System.Drawing.Point(19, 314);
             this.jamMasukDT.Name = "jamMasukDT";
             this.jamMasukDT.ShowUpDown = true;
-            this.jamMasukDT.Size = new System.Drawing.Size(300, 22);
+            this.jamMasukDT.Size = new System.Drawing.Size(290, 22);
             this.jamMasukDT.TabIndex = 64;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(17, 293);
+            this.label13.Location = new System.Drawing.Point(22, 294);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(86, 18);
             this.label13.TabIndex = 63;
             this.label13.Text = "Jam Masuk";
+            this.label13.Click += new System.EventHandler(this.label13_Click);
             // 
             // lblInfo
             // 
@@ -338,17 +339,17 @@
             this.jamKeluarDT.CustomFormat = " HH:mm";
             this.jamKeluarDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.jamKeluarDT.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.jamKeluarDT.Location = new System.Drawing.Point(15, 263);
+            this.jamKeluarDT.Location = new System.Drawing.Point(19, 263);
             this.jamKeluarDT.Name = "jamKeluarDT";
             this.jamKeluarDT.ShowUpDown = true;
-            this.jamKeluarDT.Size = new System.Drawing.Size(300, 22);
+            this.jamKeluarDT.Size = new System.Drawing.Size(290, 22);
             this.jamKeluarDT.TabIndex = 61;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(17, 242);
+            this.label12.Location = new System.Drawing.Point(22, 243);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(83, 18);
@@ -359,7 +360,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(17, 344);
+            this.label11.Location = new System.Drawing.Point(22, 344);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(52, 18);
@@ -371,21 +372,20 @@
             this.tglDT.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tglDT.CustomFormat = "dd MMMM yyyy";
             this.tglDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tglDT.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.tglDT.Location = new System.Drawing.Point(15, 214);
+            this.tglDT.Location = new System.Drawing.Point(19, 214);
             this.tglDT.Name = "tglDT";
-            this.tglDT.Size = new System.Drawing.Size(300, 22);
+            this.tglDT.Size = new System.Drawing.Size(290, 22);
             this.tglDT.TabIndex = 58;
             // 
             // txtTujuan1
             // 
             this.txtTujuan1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTujuan1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTujuan1.Location = new System.Drawing.Point(15, 364);
+            this.txtTujuan1.Location = new System.Drawing.Point(19, 364);
             this.txtTujuan1.Margin = new System.Windows.Forms.Padding(2);
             this.txtTujuan1.Multiline = true;
             this.txtTujuan1.Name = "txtTujuan1";
-            this.txtTujuan1.Size = new System.Drawing.Size(300, 80);
+            this.txtTujuan1.Size = new System.Drawing.Size(290, 70);
             this.txtTujuan1.TabIndex = 57;
             // 
             // txtNIS1
@@ -393,17 +393,17 @@
             this.txtNIS1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNIS1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNIS1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtNIS1.Location = new System.Drawing.Point(15, 65);
+            this.txtNIS1.Location = new System.Drawing.Point(19, 65);
             this.txtNIS1.Margin = new System.Windows.Forms.Padding(2);
             this.txtNIS1.Name = "txtNIS1";
-            this.txtNIS1.Size = new System.Drawing.Size(300, 23);
+            this.txtNIS1.Size = new System.Drawing.Size(290, 23);
             this.txtNIS1.TabIndex = 52;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(17, 193);
+            this.label8.Location = new System.Drawing.Point(22, 194);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(60, 18);
@@ -414,29 +414,29 @@
             // 
             this.txtNama1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNama1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNama1.Location = new System.Drawing.Point(15, 115);
+            this.txtNama1.Location = new System.Drawing.Point(19, 115);
             this.txtNama1.Margin = new System.Windows.Forms.Padding(2);
             this.txtNama1.Name = "txtNama1";
             this.txtNama1.ReadOnly = true;
-            this.txtNama1.Size = new System.Drawing.Size(300, 23);
+            this.txtNama1.Size = new System.Drawing.Size(290, 23);
             this.txtNama1.TabIndex = 53;
             // 
             // txtKelas1
             // 
             this.txtKelas1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtKelas1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtKelas1.Location = new System.Drawing.Point(15, 163);
+            this.txtKelas1.Location = new System.Drawing.Point(19, 163);
             this.txtKelas1.Margin = new System.Windows.Forms.Padding(2);
             this.txtKelas1.Name = "txtKelas1";
             this.txtKelas1.ReadOnly = true;
-            this.txtKelas1.Size = new System.Drawing.Size(300, 23);
+            this.txtKelas1.Size = new System.Drawing.Size(290, 23);
             this.txtKelas1.TabIndex = 55;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(17, 95);
+            this.label7.Location = new System.Drawing.Point(22, 95);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(48, 18);
@@ -447,7 +447,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(17, 46);
+            this.label9.Location = new System.Drawing.Point(22, 45);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(32, 18);
@@ -458,7 +458,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(17, 145);
+            this.label10.Location = new System.Drawing.Point(22, 143);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(45, 18);

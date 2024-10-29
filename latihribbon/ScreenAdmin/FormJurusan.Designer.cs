@@ -134,17 +134,17 @@
             // 
             this.txtNamaJurusan.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNamaJurusan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNamaJurusan.Location = new System.Drawing.Point(22, 141);
+            this.txtNamaJurusan.Location = new System.Drawing.Point(20, 141);
             this.txtNamaJurusan.Margin = new System.Windows.Forms.Padding(2);
             this.txtNamaJurusan.Name = "txtNamaJurusan";
-            this.txtNamaJurusan.Size = new System.Drawing.Size(286, 23);
+            this.txtNamaJurusan.Size = new System.Drawing.Size(290, 23);
             this.txtNamaJurusan.TabIndex = 61;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(22, 120);
+            this.label7.Location = new System.Drawing.Point(23, 121);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(105, 18);
@@ -156,18 +156,18 @@
             this.txtIdJurusan.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtIdJurusan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIdJurusan.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtIdJurusan.Location = new System.Drawing.Point(22, 76);
+            this.txtIdJurusan.Location = new System.Drawing.Point(20, 76);
             this.txtIdJurusan.Margin = new System.Windows.Forms.Padding(2);
             this.txtIdJurusan.Name = "txtIdJurusan";
             this.txtIdJurusan.ReadOnly = true;
-            this.txtIdJurusan.Size = new System.Drawing.Size(286, 23);
+            this.txtIdJurusan.Size = new System.Drawing.Size(290, 23);
             this.txtIdJurusan.TabIndex = 60;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(22, 54);
+            this.label9.Location = new System.Drawing.Point(23, 56);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(76, 18);
