@@ -48,6 +48,8 @@
             this.GridListSurvey = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.DeleteMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.label14 = new System.Windows.Forms.Label();
+            this.comboPerPage = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -61,7 +63,7 @@
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(904, 615);
             this.panel1.TabIndex = 37;
@@ -77,7 +79,7 @@
             this.panel2.Controls.Add(this.label2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(904, 62);
             this.panel2.TabIndex = 40;
@@ -87,7 +89,7 @@
             this.ComboFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ComboFilter.FormattingEnabled = true;
             this.ComboFilter.Location = new System.Drawing.Point(25, 20);
-            this.ComboFilter.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ComboFilter.Margin = new System.Windows.Forms.Padding(2);
             this.ComboFilter.Name = "ComboFilter";
             this.ComboFilter.Size = new System.Drawing.Size(92, 23);
             this.ComboFilter.TabIndex = 39;
@@ -122,7 +124,7 @@
             this.PickerRentan_1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PickerRentan_1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.PickerRentan_1.Location = new System.Drawing.Point(206, 20);
-            this.PickerRentan_1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PickerRentan_1.Margin = new System.Windows.Forms.Padding(2);
             this.PickerRentan_1.Name = "PickerRentan_1";
             this.PickerRentan_1.Size = new System.Drawing.Size(138, 23);
             this.PickerRentan_1.TabIndex = 29;
@@ -134,7 +136,7 @@
             this.PickerRentan_2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PickerRentan_2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.PickerRentan_2.Location = new System.Drawing.Point(366, 20);
-            this.PickerRentan_2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PickerRentan_2.Margin = new System.Windows.Forms.Padding(2);
             this.PickerRentan_2.Name = "PickerRentan_2";
             this.PickerRentan_2.Size = new System.Drawing.Size(138, 23);
             this.PickerRentan_2.TabIndex = 30;
@@ -159,6 +161,8 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.BackColor = System.Drawing.Color.Silver;
+            this.panel3.Controls.Add(this.label14);
+            this.panel3.Controls.Add(this.comboPerPage);
             this.panel3.Controls.Add(this.TextTotalTidakPuas);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.TextTotalPuas);
@@ -168,7 +172,7 @@
             this.panel3.Controls.Add(this.LabelHalaman);
             this.panel3.Controls.Add(this.GridListSurvey);
             this.panel3.Location = new System.Drawing.Point(12, 73);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(880, 530);
             this.panel3.TabIndex = 39;
@@ -180,7 +184,7 @@
             this.TextTotalTidakPuas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TextTotalTidakPuas.ForeColor = System.Drawing.SystemColors.ControlText;
             this.TextTotalTidakPuas.Location = new System.Drawing.Point(787, 498);
-            this.TextTotalTidakPuas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TextTotalTidakPuas.Margin = new System.Windows.Forms.Padding(2);
             this.TextTotalTidakPuas.Name = "TextTotalTidakPuas";
             this.TextTotalTidakPuas.ReadOnly = true;
             this.TextTotalTidakPuas.Size = new System.Drawing.Size(69, 23);
@@ -206,7 +210,7 @@
             this.TextTotalPuas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TextTotalPuas.ForeColor = System.Drawing.SystemColors.ControlText;
             this.TextTotalPuas.Location = new System.Drawing.Point(787, 459);
-            this.TextTotalPuas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TextTotalPuas.Margin = new System.Windows.Forms.Padding(2);
             this.TextTotalPuas.Name = "TextTotalPuas";
             this.TextTotalPuas.ReadOnly = true;
             this.TextTotalPuas.Size = new System.Drawing.Size(69, 23);
@@ -287,13 +291,37 @@
             this.DeleteMenuStrip.Size = new System.Drawing.Size(126, 26);
             this.DeleteMenuStrip.Text = "Delete";
             // 
+            // label14
+            // 
+            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(85, 478);
+            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(45, 19);
+            this.label14.TabIndex = 91;
+            this.label14.Text = "/Page";
+            // 
+            // comboPerPage
+            // 
+            this.comboPerPage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.comboPerPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboPerPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboPerPage.FormattingEnabled = true;
+            this.comboPerPage.ItemHeight = 13;
+            this.comboPerPage.Location = new System.Drawing.Point(21, 478);
+            this.comboPerPage.Name = "comboPerPage";
+            this.comboPerPage.Size = new System.Drawing.Size(61, 21);
+            this.comboPerPage.TabIndex = 90;
+            // 
             // FormDataSurvey
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(904, 615);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormDataSurvey";
             this.Text = "FormDataSurvey";
             this.panel1.ResumeLayout(false);
@@ -327,5 +355,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem DeleteMenuStrip;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.ComboBox comboPerPage;
     }
 }

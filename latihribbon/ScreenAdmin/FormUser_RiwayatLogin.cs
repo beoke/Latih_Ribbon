@@ -29,6 +29,7 @@ namespace latihribbon
             buf();
             _riwayatLoginDal = new RiwayatLogin_UserDal();
             toolTip = new ToolTip();
+            InitCombo();
             LoadRiwayatLogin();
             InitialEvent();
             DeleteOtomatis();
@@ -52,6 +53,12 @@ namespace latihribbon
             null,
             GridListRiwayatLogin,
             new object[] { true });
+        }
+
+        private void InitCombo()
+        {
+            List<int> list = new List<int>() {10,20,50,100,200 };
+            comboPerPage.DataSource = list;
         }
 
         private void LoadUser()
@@ -145,7 +152,7 @@ namespace latihribbon
             string sqlc = FilterData(userLogin);
 
             string text = "Halaman ";
-            int RowPerPage = 15;
+            int RowPerPage = (int)comboPerPage.SelectedValue;
             int inRowPage = (Page - 1) * RowPerPage;
             var jumlahRow = _riwayatLoginDal.CekRows(sqlc, dp);
             totalPage = (int)Math.Ceiling((double)jumlahRow / RowPerPage);
@@ -160,6 +167,7 @@ namespace latihribbon
 
         private void InitialEvent()
         {
+            comboPerPage.SelectedIndexChanged += ComboPerPage_SelectedIndexChanged;
             TextUserName.TextChanged += TextUserName_TextChanged;
             PickerRentan_1.ValueChanged += PickerRentan_ValueChanged;
             PickerRentan_2.ValueChanged += PickerRentan_ValueChanged;
@@ -167,7 +175,12 @@ namespace latihribbon
             ButtonSaveUser.Click += ButtonSaveUser_Click;
             GridListUser.CellMouseClick += GridListUser_CellMouseClick;
             DeleteMenuStrip.Click += DeleteMenuStrip_Click;
-        }               
+        }
+
+        private void ComboPerPage_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadData();
+        }
 
         private void DeleteMenuStrip_Click(object sender, EventArgs e)
         {

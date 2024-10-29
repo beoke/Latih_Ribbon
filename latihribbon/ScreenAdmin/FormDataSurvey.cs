@@ -27,21 +27,15 @@ namespace latihribbon
             this.KeyPreview = true;
 
             ControlEvent();
-
-            //init Combo
-            ComboFilter.Items.Add("Semua");
-            ComboFilter.Items.Add("Hari ini");
-            ComboFilter.SelectedIndex = 0;
+            InitCombo();
             LoadData();
             InitGrid();
-
-
-
         }
 
         #region EVENT
         private void ControlEvent()
         {
+            comboPerPage.SelectedIndexChanged += ComboPerPage_SelectedIndexChanged;
             GridListSurvey.CellMouseClick += GridListSurvey_CellMouseClick;
             DeleteMenuStrip.Click += DeleteMenuStrip_Click;
 
@@ -53,7 +47,22 @@ namespace latihribbon
 
             ButtonPrevious.Click += ButtonPrevious_Click;
             ButtonNext.Click += ButtonNext_Click;
+        }
 
+        private void InitCombo()
+        {
+            List<int> list = new List<int>() { 10, 20, 50, 100, 200 };
+            comboPerPage.DataSource = list;
+
+            //init Combo
+            ComboFilter.Items.Add("Semua");
+            ComboFilter.Items.Add("Hari ini");
+            ComboFilter.SelectedIndex = 0;
+        }
+
+        private void ComboPerPage_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadData();
         }
 
         private void GridListSurvey_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -142,7 +151,7 @@ namespace latihribbon
 
 
           
-            int rowPerPage = 15;
+            int rowPerPage = (int)comboPerPage.SelectedValue;
 
             int rowInPage = (pageNow - 1) * rowPerPage;
             int totalData = rowCount(sqlc, dp);

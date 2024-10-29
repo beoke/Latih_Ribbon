@@ -311,18 +311,6 @@
     <Compile Include="ScreenAdmin\Form PopUp\EditSiswa.Designer.cs">
       <DependentUpon>EditSiswa.cs</DependentUpon>
     </Compile>
-    <Compile Include="ScreenAdmin\FormNaikKelas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ScreenAdmin\FormNaikKelas.Designer.cs">
-      <DependentUpon>FormNaikKelas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ScreenAdmin\FormPopUpNaikKelas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ScreenAdmin\FormPopUpNaikKelas.Designer.cs">
-      <DependentUpon>FormPopUpNaikKelas.cs</DependentUpon>
-    </Compile>
     <Compile Include="ScreenSiswa\FormTutorJam.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -517,12 +505,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ScreenAdmin\Form PopUp\EditSiswa.resx">
       <DependentUpon>EditSiswa.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ScreenAdmin\FormNaikKelas.resx">
-      <DependentUpon>FormNaikKelas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ScreenAdmin\FormPopUpNaikKelas.resx">
-      <DependentUpon>FormPopUpNaikKelas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ScreenSiswa\FormTutorJam.resx">
       <DependentUpon>FormTutorJam.cs</DependentUpon>
