@@ -70,8 +70,17 @@ namespace latihribbon
 
             ButtonKirim.Click += ButtonSave_Click;
             btn_kembali.Click += btn_kembali_Click;
+
+            this.KeyDown += SurveyForm_KeyDown;
         }
 
+        private void SurveyForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.LWin && e.KeyCode == Keys.RWin)
+            {
+                e.SuppressKeyPress = true;
+            }
+        }
 
         private void btnTidakPuas_Click(object sender, EventArgs e)
         {

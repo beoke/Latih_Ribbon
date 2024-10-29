@@ -33,9 +33,12 @@ namespace latihribbon
         private Form mainForm;
         private Form indexForm;
 
+        private ToolTip toolTip;
+
         public SuratKeluarcs(Form mainForm,Form indexForm,string NIS, string nama,string kelas)
         {
             InitializeComponent();
+            toolTip = new ToolTip();
             this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
             this.TopMost = true;
@@ -54,8 +57,13 @@ namespace latihribbon
             Thread.CurrentThread.CurrentUICulture = culture;
 
             isian();
-            bahasa(); 
+            bahasa();
+
+
+            toolTip.SetToolTip(ButtonCaraPengisianJam, "Petunjuk pengisian jam keluar"); 
         }
+
+        
 
         public void isian()
         {

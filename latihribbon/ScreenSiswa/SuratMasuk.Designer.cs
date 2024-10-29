@@ -356,10 +356,10 @@
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel5.Controls.Add(this.btn_Kembali);
             this.panel5.Controls.Add(this.btn_PrintMasuk);
-            this.panel5.Location = new System.Drawing.Point(28, 794);
+            this.panel5.Location = new System.Drawing.Point(28, 785);
             this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1531, 104);
+            this.panel5.Size = new System.Drawing.Size(1531, 125);
             this.panel5.TabIndex = 1;
             // 
             // btn_Kembali
@@ -372,10 +372,10 @@
             this.btn_Kembali.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Kembali.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Kembali.ForeColor = System.Drawing.Color.White;
-            this.btn_Kembali.Location = new System.Drawing.Point(16, 12);
+            this.btn_Kembali.Location = new System.Drawing.Point(23, 29);
             this.btn_Kembali.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Kembali.Name = "btn_Kembali";
-            this.btn_Kembali.Size = new System.Drawing.Size(83, 76);
+            this.btn_Kembali.Size = new System.Drawing.Size(70, 70);
             this.btn_Kembali.TabIndex = 1;
             this.btn_Kembali.UseVisualStyleBackColor = false;
             this.btn_Kembali.Click += new System.EventHandler(this.btn_Kembali_Click);
@@ -387,7 +387,7 @@
             this.btn_PrintMasuk.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_PrintMasuk.Image = ((System.Drawing.Image)(resources.GetObject("btn_PrintMasuk.Image")));
             this.btn_PrintMasuk.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_PrintMasuk.Location = new System.Drawing.Point(1349, 21);
+            this.btn_PrintMasuk.Location = new System.Drawing.Point(1349, 42);
             this.btn_PrintMasuk.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_PrintMasuk.Name = "btn_PrintMasuk";
             this.btn_PrintMasuk.Size = new System.Drawing.Size(160, 60);

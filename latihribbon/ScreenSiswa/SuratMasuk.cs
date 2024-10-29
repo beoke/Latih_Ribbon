@@ -49,8 +49,11 @@ namespace latihribbon
 
             jam = DateTime.Now;
             isian();
+
         }
-      
+
+       
+
         public void isian()
         {
             txtNIS.Text = NIS;
