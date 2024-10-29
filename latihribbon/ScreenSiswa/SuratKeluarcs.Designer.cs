@@ -33,7 +33,7 @@
             this.printDocumentKeluar = new System.Drawing.Printing.PrintDocument();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.ButtonCaraPengisianJam = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -102,7 +102,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panel3.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.button1);
+            this.panel3.Controls.Add(this.ButtonCaraPengisianJam);
             this.panel3.Controls.Add(this.label14);
             this.panel3.Controls.Add(this.label13);
             this.panel3.Controls.Add(this.label12);
@@ -127,18 +127,18 @@
             this.panel3.Size = new System.Drawing.Size(1118, 699);
             this.panel3.TabIndex = 0;
             // 
-            // button1
+            // ButtonCaraPengisianJam
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.button1.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button1.Location = new System.Drawing.Point(994, 560);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(57, 45);
-            this.button1.TabIndex = 82;
-            this.button1.Text = "?";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.ButtonCaraPengisianJam.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.ButtonCaraPengisianJam.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonCaraPengisianJam.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.ButtonCaraPengisianJam.Location = new System.Drawing.Point(994, 560);
+            this.ButtonCaraPengisianJam.Name = "ButtonCaraPengisianJam";
+            this.ButtonCaraPengisianJam.Size = new System.Drawing.Size(57, 45);
+            this.ButtonCaraPengisianJam.TabIndex = 82;
+            this.ButtonCaraPengisianJam.Text = "?";
+            this.ButtonCaraPengisianJam.UseVisualStyleBackColor = false;
+            this.ButtonCaraPengisianJam.Click += new System.EventHandler(this.button1_Click);
             // 
             // label14
             // 
@@ -451,10 +451,10 @@
             this.btn_Kembali.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Kembali.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Kembali.ForeColor = System.Drawing.Color.White;
-            this.btn_Kembali.Location = new System.Drawing.Point(28, 25);
+            this.btn_Kembali.Location = new System.Drawing.Point(21, 29);
             this.btn_Kembali.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Kembali.Name = "btn_Kembali";
-            this.btn_Kembali.Size = new System.Drawing.Size(83, 76);
+            this.btn_Kembali.Size = new System.Drawing.Size(70, 70);
             this.btn_Kembali.TabIndex = 1;
             this.btn_Kembali.UseVisualStyleBackColor = false;
             this.btn_Kembali.Click += new System.EventHandler(this.btn_Kembali_Click);
@@ -530,6 +530,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btn_Kembali;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button ButtonCaraPengisianJam;
     }
 }

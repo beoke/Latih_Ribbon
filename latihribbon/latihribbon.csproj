@@ -233,12 +233,6 @@
     <Compile Include="FirstForm.Designer.cs">
       <DependentUpon>FirstForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="NaikKelas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="NaikKelas.Designer.cs">
-      <DependentUpon>NaikKelas.cs</DependentUpon>
-    </Compile>
     <Compile Include="ScreenAdmin\Form PopUp\EditKelas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -466,9 +460,6 @@
     <Compile Include="ScreenSurvey\SurveyModel.cs" />
     <EmbeddedResource Include="FirstForm.resx">
       <DependentUpon>FirstForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NaikKelas.resx">
-      <DependentUpon>NaikKelas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ScreenAdmin\Form PopUp\EditKelas.resx">
       <DependentUpon>EditKelas.cs</DependentUpon>

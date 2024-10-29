@@ -13,7 +13,6 @@ namespace latihribbon
 {
     public partial class FormIndex : Form
     {
-        private bool TopMost = true;
         private Form mainForm;
         public FormIndex(Form ff)
         {
@@ -30,6 +29,11 @@ namespace latihribbon
 
         private void FormIndex_KeyDown(object sender, KeyEventArgs e)
         {
+            if (e.KeyCode == Keys.LWin && e.KeyCode == Keys.RWin)
+            {
+                e.SuppressKeyPress = true;
+            }
+
             if (e.Control && e.Alt && e.KeyCode == Keys.K)
             {
                 Application.Exit();

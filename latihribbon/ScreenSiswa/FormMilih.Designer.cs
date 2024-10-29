@@ -36,6 +36,7 @@ namespace latihribbon
             this.txtKelas = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_kembali = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -44,7 +45,6 @@ namespace latihribbon
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_Keluar = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btn_kembali = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -114,6 +114,24 @@ namespace latihribbon
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1603, 840);
             this.panel1.TabIndex = 56;
+            // 
+            // btn_kembali
+            // 
+            this.btn_kembali.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_kembali.BackColor = System.Drawing.Color.Transparent;
+            this.btn_kembali.BackgroundImage = global::latihribbon.Properties.Resources.arrow_square_left;
+            this.btn_kembali.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_kembali.FlatAppearance.BorderSize = 0;
+            this.btn_kembali.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_kembali.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_kembali.ForeColor = System.Drawing.Color.White;
+            this.btn_kembali.Location = new System.Drawing.Point(9, 758);
+            this.btn_kembali.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_kembali.Name = "btn_kembali";
+            this.btn_kembali.Size = new System.Drawing.Size(70, 70);
+            this.btn_kembali.TabIndex = 63;
+            this.btn_kembali.UseVisualStyleBackColor = false;
+            this.btn_kembali.Click += new System.EventHandler(this.btn_kembali_Click);
             // 
             // panel3
             // 
@@ -224,24 +242,6 @@ namespace latihribbon
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1599, 121);
             this.panel2.TabIndex = 57;
-            // 
-            // btn_kembali
-            // 
-            this.btn_kembali.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_kembali.BackColor = System.Drawing.Color.Transparent;
-            this.btn_kembali.BackgroundImage = global::latihribbon.Properties.Resources.arrow_square_left;
-            this.btn_kembali.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_kembali.FlatAppearance.BorderSize = 0;
-            this.btn_kembali.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_kembali.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_kembali.ForeColor = System.Drawing.Color.White;
-            this.btn_kembali.Location = new System.Drawing.Point(9, 758);
-            this.btn_kembali.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_kembali.Name = "btn_kembali";
-            this.btn_kembali.Size = new System.Drawing.Size(69, 70);
-            this.btn_kembali.TabIndex = 63;
-            this.btn_kembali.UseVisualStyleBackColor = false;
-            this.btn_kembali.Click += new System.EventHandler(this.btn_kembali_Click);
             // 
             // FormMilih
             // 
