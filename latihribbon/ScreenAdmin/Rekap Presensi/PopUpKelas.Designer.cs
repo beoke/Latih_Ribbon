@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PopUpKelas));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.Button_Atur = new System.Windows.Forms.Button();
@@ -51,10 +52,9 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(80, 21);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(107, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(86, 21);
+            this.label1.Size = new System.Drawing.Size(109, 28);
             this.label1.TabIndex = 0;
             this.label1.Text = "Atur kelas ";
             // 
@@ -63,10 +63,9 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(20, 72);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(27, 89);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 15);
+            this.label2.Size = new System.Drawing.Size(60, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Tingkat";
             // 
@@ -76,10 +75,10 @@
             this.Button_Atur.BackColor = System.Drawing.Color.LightGray;
             this.Button_Atur.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Button_Atur.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Button_Atur.Location = new System.Drawing.Point(83, 290);
-            this.Button_Atur.Margin = new System.Windows.Forms.Padding(2);
+            this.Button_Atur.Location = new System.Drawing.Point(111, 357);
+            this.Button_Atur.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Button_Atur.Name = "Button_Atur";
-            this.Button_Atur.Size = new System.Drawing.Size(74, 28);
+            this.Button_Atur.Size = new System.Drawing.Size(99, 34);
             this.Button_Atur.TabIndex = 7;
             this.Button_Atur.Text = "Atur";
             this.Button_Atur.UseVisualStyleBackColor = false;
@@ -91,10 +90,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.Silver;
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Location = new System.Drawing.Point(9, 10);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(262, 359);
+            this.panel1.Size = new System.Drawing.Size(349, 442);
             this.panel1.TabIndex = 15;
             // 
             // panel2
@@ -116,10 +115,10 @@
             this.panel2.Controls.Add(this.Radio_X);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(9, 10);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2);
+            this.panel2.Location = new System.Drawing.Point(12, 12);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(243, 340);
+            this.panel2.Size = new System.Drawing.Size(323, 418);
             this.panel2.TabIndex = 16;
             // 
             // label5
@@ -127,29 +126,29 @@
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(20, 230);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Location = new System.Drawing.Point(27, 283);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(33, 15);
+            this.label5.Size = new System.Drawing.Size(42, 20);
             this.label5.TabIndex = 15;
             this.label5.Text = "Hasil";
             // 
             // txtHasil
             // 
-            this.txtHasil.Location = new System.Drawing.Point(23, 248);
+            this.txtHasil.Location = new System.Drawing.Point(31, 305);
+            this.txtHasil.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtHasil.Name = "txtHasil";
             this.txtHasil.ReadOnly = true;
-            this.txtHasil.Size = new System.Drawing.Size(194, 20);
+            this.txtHasil.Size = new System.Drawing.Size(257, 22);
             this.txtHasil.TabIndex = 14;
             // 
             // comboRombel
             // 
             this.comboRombel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboRombel.FormattingEnabled = true;
-            this.comboRombel.Location = new System.Drawing.Point(23, 199);
-            this.comboRombel.Margin = new System.Windows.Forms.Padding(2);
+            this.comboRombel.Location = new System.Drawing.Point(31, 245);
+            this.comboRombel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboRombel.Name = "comboRombel";
-            this.comboRombel.Size = new System.Drawing.Size(194, 21);
+            this.comboRombel.Size = new System.Drawing.Size(257, 24);
             this.comboRombel.TabIndex = 13;
             this.comboRombel.SelectedIndexChanged += new System.EventHandler(this.comboRombel_SelectedIndexChanged);
             // 
@@ -157,10 +156,10 @@
             // 
             this.ComboJurusanPopUp.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.ComboJurusanPopUp.FormattingEnabled = true;
-            this.ComboJurusanPopUp.Location = new System.Drawing.Point(23, 148);
-            this.ComboJurusanPopUp.Margin = new System.Windows.Forms.Padding(2);
+            this.ComboJurusanPopUp.Location = new System.Drawing.Point(31, 182);
+            this.ComboJurusanPopUp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ComboJurusanPopUp.Name = "ComboJurusanPopUp";
-            this.ComboJurusanPopUp.Size = new System.Drawing.Size(194, 21);
+            this.ComboJurusanPopUp.Size = new System.Drawing.Size(257, 24);
             this.ComboJurusanPopUp.TabIndex = 12;
             this.ComboJurusanPopUp.SelectedIndexChanged += new System.EventHandler(this.ComboJurusanPopUp_SelectedIndexChanged);
             // 
@@ -169,10 +168,9 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(20, 182);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(27, 224);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(48, 15);
+            this.label4.Size = new System.Drawing.Size(61, 20);
             this.label4.TabIndex = 11;
             this.label4.Text = "Rombel";
             // 
@@ -181,10 +179,9 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(20, 130);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(27, 160);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(48, 15);
+            this.label3.Size = new System.Drawing.Size(62, 20);
             this.label3.TabIndex = 10;
             this.label3.Text = "Jurusan";
             // 
@@ -192,10 +189,10 @@
             // 
             this.Radio_XII.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Radio_XII.AutoSize = true;
-            this.Radio_XII.Location = new System.Drawing.Point(179, 91);
-            this.Radio_XII.Margin = new System.Windows.Forms.Padding(2);
+            this.Radio_XII.Location = new System.Drawing.Point(239, 112);
+            this.Radio_XII.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Radio_XII.Name = "Radio_XII";
-            this.Radio_XII.Size = new System.Drawing.Size(38, 17);
+            this.Radio_XII.Size = new System.Drawing.Size(42, 20);
             this.Radio_XII.TabIndex = 9;
             this.Radio_XII.TabStop = true;
             this.Radio_XII.Text = "XII";
@@ -206,10 +203,10 @@
             // 
             this.Radio_XI.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Radio_XI.AutoSize = true;
-            this.Radio_XI.Location = new System.Drawing.Point(99, 91);
-            this.Radio_XI.Margin = new System.Windows.Forms.Padding(2);
+            this.Radio_XI.Location = new System.Drawing.Point(132, 112);
+            this.Radio_XI.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Radio_XI.Name = "Radio_XI";
-            this.Radio_XI.Size = new System.Drawing.Size(35, 17);
+            this.Radio_XI.Size = new System.Drawing.Size(39, 20);
             this.Radio_XI.TabIndex = 8;
             this.Radio_XI.TabStop = true;
             this.Radio_XI.Text = "XI";
@@ -220,10 +217,10 @@
             // 
             this.Radio_X.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Radio_X.AutoSize = true;
-            this.Radio_X.Location = new System.Drawing.Point(23, 91);
-            this.Radio_X.Margin = new System.Windows.Forms.Padding(2);
+            this.Radio_X.Location = new System.Drawing.Point(31, 112);
+            this.Radio_X.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Radio_X.Name = "Radio_X";
-            this.Radio_X.Size = new System.Drawing.Size(32, 17);
+            this.Radio_X.Size = new System.Drawing.Size(36, 20);
             this.Radio_X.TabIndex = 7;
             this.Radio_X.TabStop = true;
             this.Radio_X.Text = "X";
@@ -232,15 +229,15 @@
             // 
             // PopUpKelas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(280, 379);
+            this.ClientSize = new System.Drawing.Size(373, 466);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "PopUpKelas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Atur Kelas";
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
