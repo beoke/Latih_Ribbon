@@ -176,6 +176,7 @@ namespace latihribbon
             ComboFilter.SelectedIndex = 0;
             PickerRentan_1.Value = DateTime.Today;
             PickerRentan_2.Value = DateTime.Today;
+            TanggalCanged = false;
             LoadData();
         }
 

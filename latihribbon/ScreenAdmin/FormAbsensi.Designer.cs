@@ -182,7 +182,7 @@
             this.panel1.Location = new System.Drawing.Point(2, 62);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1194, 525);
+            this.panel1.Size = new System.Drawing.Size(1194, 532);
             this.panel1.TabIndex = 28;
             // 
             // panel3
@@ -200,7 +200,7 @@
             this.panel3.Location = new System.Drawing.Point(9, 9);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(823, 504);
+            this.panel3.Size = new System.Drawing.Size(823, 511);
             this.panel3.TabIndex = 2;
             // 
             // label14
@@ -208,7 +208,7 @@
             this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(83, 469);
+            this.label14.Location = new System.Drawing.Point(83, 472);
             this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(45, 19);
@@ -222,7 +222,7 @@
             this.comboPerPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboPerPage.FormattingEnabled = true;
             this.comboPerPage.ItemHeight = 13;
-            this.comboPerPage.Location = new System.Drawing.Point(19, 469);
+            this.comboPerPage.Location = new System.Drawing.Point(19, 472);
             this.comboPerPage.Name = "comboPerPage";
             this.comboPerPage.Size = new System.Drawing.Size(61, 21);
             this.comboPerPage.TabIndex = 57;
@@ -232,7 +232,7 @@
             this.lblHalaman.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblHalaman.AutoSize = true;
             this.lblHalaman.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHalaman.Location = new System.Drawing.Point(369, 471);
+            this.lblHalaman.Location = new System.Drawing.Point(369, 474);
             this.lblHalaman.Name = "lblHalaman";
             this.lblHalaman.Size = new System.Drawing.Size(90, 16);
             this.lblHalaman.TabIndex = 25;
@@ -241,7 +241,7 @@
             // btnNext
             // 
             this.btnNext.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnNext.Location = new System.Drawing.Point(475, 468);
+            this.btnNext.Location = new System.Drawing.Point(475, 471);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(75, 23);
             this.btnNext.TabIndex = 24;
@@ -252,7 +252,7 @@
             // btnPrevious
             // 
             this.btnPrevious.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnPrevious.Location = new System.Drawing.Point(277, 468);
+            this.btnPrevious.Location = new System.Drawing.Point(277, 471);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(75, 23);
             this.btnPrevious.TabIndex = 23;
@@ -265,11 +265,12 @@
             this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel4.BackColor = System.Drawing.Color.Silver;
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.panel2);
             this.panel4.Location = new System.Drawing.Point(840, 9);
             this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(342, 504);
+            this.panel4.Size = new System.Drawing.Size(342, 511);
             this.panel4.TabIndex = 3;
             // 
             // panel2
@@ -296,10 +297,10 @@
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.label10);
-            this.panel2.Location = new System.Drawing.Point(5, 5);
+            this.panel2.Location = new System.Drawing.Point(4, 4);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(332, 494);
+            this.panel2.Size = new System.Drawing.Size(332, 501);
             this.panel2.TabIndex = 4;
             // 
             // btnKelas
@@ -317,7 +318,7 @@
             this.btnSave_FormSiswa.BackColor = System.Drawing.Color.LimeGreen;
             this.btnSave_FormSiswa.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave_FormSiswa.ForeColor = System.Drawing.Color.White;
-            this.btnSave_FormSiswa.Location = new System.Drawing.Point(227, 437);
+            this.btnSave_FormSiswa.Location = new System.Drawing.Point(225, 438);
             this.btnSave_FormSiswa.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave_FormSiswa.Name = "btnSave_FormSiswa";
             this.btnSave_FormSiswa.Size = new System.Drawing.Size(88, 32);
@@ -554,7 +555,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1196, 587);
+            this.ClientSize = new System.Drawing.Size(1196, 594);
             this.Controls.Add(this.lblFilter);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.panel1);

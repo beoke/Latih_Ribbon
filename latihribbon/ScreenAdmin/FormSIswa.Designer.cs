@@ -133,7 +133,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 62);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(989, 456);
+            this.panel1.Size = new System.Drawing.Size(991, 457);
             this.panel1.TabIndex = 14;
             // 
             // panel2
@@ -143,10 +143,10 @@
             this.panel2.BackColor = System.Drawing.Color.Silver;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.panel5);
-            this.panel2.Location = new System.Drawing.Point(636, 9);
+            this.panel2.Location = new System.Drawing.Point(638, 9);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(342, 436);
+            this.panel2.Size = new System.Drawing.Size(342, 437);
             this.panel2.TabIndex = 4;
             // 
             // panel5
@@ -179,7 +179,7 @@
             this.panel5.Location = new System.Drawing.Point(4, 4);
             this.panel5.Margin = new System.Windows.Forms.Padding(2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(332, 426);
+            this.panel5.Size = new System.Drawing.Size(332, 427);
             this.panel5.TabIndex = 5;
             // 
             // btnSave_FormSiswa
@@ -188,7 +188,7 @@
             this.btnSave_FormSiswa.BackColor = System.Drawing.Color.LimeGreen;
             this.btnSave_FormSiswa.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave_FormSiswa.ForeColor = System.Drawing.Color.White;
-            this.btnSave_FormSiswa.Location = new System.Drawing.Point(217, 375);
+            this.btnSave_FormSiswa.Location = new System.Drawing.Point(217, 376);
             this.btnSave_FormSiswa.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave_FormSiswa.Name = "btnSave_FormSiswa";
             this.btnSave_FormSiswa.Size = new System.Drawing.Size(90, 32);
@@ -460,7 +460,7 @@
             this.panel3.Location = new System.Drawing.Point(8, 9);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(623, 436);
+            this.panel3.Size = new System.Drawing.Size(623, 437);
             this.panel3.TabIndex = 2;
             // 
             // label14
@@ -468,7 +468,7 @@
             this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(74, 399);
+            this.label14.Location = new System.Drawing.Point(74, 398);
             this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(45, 19);
@@ -482,7 +482,7 @@
             this.comboPerPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboPerPage.FormattingEnabled = true;
             this.comboPerPage.ItemHeight = 13;
-            this.comboPerPage.Location = new System.Drawing.Point(10, 399);
+            this.comboPerPage.Location = new System.Drawing.Point(10, 398);
             this.comboPerPage.Name = "comboPerPage";
             this.comboPerPage.Size = new System.Drawing.Size(61, 21);
             this.comboPerPage.TabIndex = 55;
@@ -492,7 +492,7 @@
             this.lblHalaman.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblHalaman.AutoSize = true;
             this.lblHalaman.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHalaman.Location = new System.Drawing.Point(241, 401);
+            this.lblHalaman.Location = new System.Drawing.Point(241, 400);
             this.lblHalaman.Name = "lblHalaman";
             this.lblHalaman.Size = new System.Drawing.Size(90, 16);
             this.lblHalaman.TabIndex = 54;
@@ -501,7 +501,7 @@
             // btnNext
             // 
             this.btnNext.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnNext.Location = new System.Drawing.Point(346, 398);
+            this.btnNext.Location = new System.Drawing.Point(346, 397);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(75, 23);
             this.btnNext.TabIndex = 53;
@@ -511,7 +511,7 @@
             // btnPrevious
             // 
             this.btnPrevious.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnPrevious.Location = new System.Drawing.Point(148, 398);
+            this.btnPrevious.Location = new System.Drawing.Point(148, 397);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(75, 23);
             this.btnPrevious.TabIndex = 52;
@@ -524,7 +524,7 @@
             this.ButtonNaikKelas.BackColor = System.Drawing.Color.Gray;
             this.ButtonNaikKelas.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonNaikKelas.ForeColor = System.Drawing.Color.White;
-            this.ButtonNaikKelas.Location = new System.Drawing.Point(504, 393);
+            this.ButtonNaikKelas.Location = new System.Drawing.Point(504, 392);
             this.ButtonNaikKelas.Margin = new System.Windows.Forms.Padding(2);
             this.ButtonNaikKelas.Name = "ButtonNaikKelas";
             this.ButtonNaikKelas.Size = new System.Drawing.Size(101, 31);
@@ -620,7 +620,7 @@
             this.ButtonDownloadFormat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ButtonDownloadFormat.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonDownloadFormat.BackgroundImage")));
             this.ButtonDownloadFormat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ButtonDownloadFormat.Location = new System.Drawing.Point(921, 8);
+            this.ButtonDownloadFormat.Location = new System.Drawing.Point(923, 8);
             this.ButtonDownloadFormat.Margin = new System.Windows.Forms.Padding(2);
             this.ButtonDownloadFormat.Name = "ButtonDownloadFormat";
             this.ButtonDownloadFormat.Size = new System.Drawing.Size(55, 46);
@@ -633,7 +633,7 @@
             this.ButtonInputSIswa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ButtonInputSIswa.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonInputSIswa.BackgroundImage")));
             this.ButtonInputSIswa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ButtonInputSIswa.Location = new System.Drawing.Point(850, 9);
+            this.ButtonInputSIswa.Location = new System.Drawing.Point(852, 9);
             this.ButtonInputSIswa.Margin = new System.Windows.Forms.Padding(2);
             this.ButtonInputSIswa.Name = "ButtonInputSIswa";
             this.ButtonInputSIswa.Size = new System.Drawing.Size(55, 46);
@@ -672,7 +672,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(989, 518);
+            this.ClientSize = new System.Drawing.Size(991, 519);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblFilter);
             this.Controls.Add(this.btnResetFilter);
@@ -685,7 +685,7 @@
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormSIswa";
-            this.Text = "FormSIswa";
+            this.Text = "Form Siswa";
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel5.ResumeLayout(false);

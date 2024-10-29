@@ -31,8 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditKeluar));
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnSave_FormSiswa = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.btnSave_FormSiswa = new System.Windows.Forms.Button();
             this.jamMasukDT = new System.Windows.Forms.DateTimePicker();
             this.label13 = new System.Windows.Forms.Label();
             this.lblInfo = new System.Windows.Forms.Label();
@@ -60,7 +60,7 @@
             this.panel4.BackColor = System.Drawing.Color.DarkGray;
             this.panel4.Controls.Add(this.panel2);
             this.panel4.Location = new System.Drawing.Point(9, 10);
-            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(375, 529);
             this.panel4.TabIndex = 4;
@@ -73,24 +73,11 @@
             this.panel2.BackColor = System.Drawing.Color.LightGray;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.panel5);
-            this.panel2.Location = new System.Drawing.Point(5, 6);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Location = new System.Drawing.Point(6, 6);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(365, 518);
+            this.panel2.Size = new System.Drawing.Size(363, 517);
             this.panel2.TabIndex = 4;
-            // 
-            // btnSave_FormSiswa
-            // 
-            this.btnSave_FormSiswa.BackColor = System.Drawing.Color.LimeGreen;
-            this.btnSave_FormSiswa.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave_FormSiswa.ForeColor = System.Drawing.Color.White;
-            this.btnSave_FormSiswa.Location = new System.Drawing.Point(244, 454);
-            this.btnSave_FormSiswa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnSave_FormSiswa.Name = "btnSave_FormSiswa";
-            this.btnSave_FormSiswa.Size = new System.Drawing.Size(90, 32);
-            this.btnSave_FormSiswa.TabIndex = 1;
-            this.btnSave_FormSiswa.Text = "Save";
-            this.btnSave_FormSiswa.UseVisualStyleBackColor = false;
             // 
             // panel5
             // 
@@ -115,11 +102,24 @@
             this.panel5.Controls.Add(this.label7);
             this.panel5.Controls.Add(this.label9);
             this.panel5.Controls.Add(this.label10);
-            this.panel5.Location = new System.Drawing.Point(4, 6);
-            this.panel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel5.Location = new System.Drawing.Point(4, 4);
+            this.panel5.Margin = new System.Windows.Forms.Padding(2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(355, 505);
+            this.panel5.Size = new System.Drawing.Size(353, 507);
             this.panel5.TabIndex = 5;
+            // 
+            // btnSave_FormSiswa
+            // 
+            this.btnSave_FormSiswa.BackColor = System.Drawing.Color.LimeGreen;
+            this.btnSave_FormSiswa.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave_FormSiswa.ForeColor = System.Drawing.Color.White;
+            this.btnSave_FormSiswa.Location = new System.Drawing.Point(244, 457);
+            this.btnSave_FormSiswa.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSave_FormSiswa.Name = "btnSave_FormSiswa";
+            this.btnSave_FormSiswa.Size = new System.Drawing.Size(90, 32);
+            this.btnSave_FormSiswa.TabIndex = 1;
+            this.btnSave_FormSiswa.Text = "Save";
+            this.btnSave_FormSiswa.UseVisualStyleBackColor = false;
             // 
             // jamMasukDT
             // 
@@ -204,7 +204,7 @@
             this.txtTujuan1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTujuan1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTujuan1.Location = new System.Drawing.Point(18, 353);
-            this.txtTujuan1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtTujuan1.Margin = new System.Windows.Forms.Padding(2);
             this.txtTujuan1.Multiline = true;
             this.txtTujuan1.Name = "txtTujuan1";
             this.txtTujuan1.Size = new System.Drawing.Size(316, 80);
@@ -216,7 +216,7 @@
             this.txtNIS1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNIS1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtNIS1.Location = new System.Drawing.Point(18, 54);
-            this.txtNIS1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNIS1.Margin = new System.Windows.Forms.Padding(2);
             this.txtNIS1.Name = "txtNIS1";
             this.txtNIS1.ReadOnly = true;
             this.txtNIS1.Size = new System.Drawing.Size(316, 23);
@@ -238,7 +238,7 @@
             this.txtNama1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNama1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNama1.Location = new System.Drawing.Point(18, 103);
-            this.txtNama1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNama1.Margin = new System.Windows.Forms.Padding(2);
             this.txtNama1.Name = "txtNama1";
             this.txtNama1.ReadOnly = true;
             this.txtNama1.Size = new System.Drawing.Size(316, 23);
@@ -249,7 +249,7 @@
             this.txtKelas1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtKelas1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtKelas1.Location = new System.Drawing.Point(18, 152);
-            this.txtKelas1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtKelas1.Margin = new System.Windows.Forms.Padding(2);
             this.txtKelas1.Name = "txtKelas1";
             this.txtKelas1.ReadOnly = true;
             this.txtKelas1.Size = new System.Drawing.Size(316, 23);
@@ -292,10 +292,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(393, 550);
+            this.ClientSize = new System.Drawing.Size(393, 549);
             this.Controls.Add(this.panel4);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "EditKeluar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.panel4.ResumeLayout(false);

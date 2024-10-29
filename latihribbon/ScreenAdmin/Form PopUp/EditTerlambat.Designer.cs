@@ -58,10 +58,10 @@
             this.panel1.BackColor = System.Drawing.Color.LightGray;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.panel3);
-            this.panel1.Location = new System.Drawing.Point(5, 6);
+            this.panel1.Location = new System.Drawing.Point(6, 6);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(361, 450);
+            this.panel1.Size = new System.Drawing.Size(359, 450);
             this.panel1.TabIndex = 4;
             // 
             // panel3
@@ -85,10 +85,10 @@
             this.panel3.Controls.Add(this.label11);
             this.panel3.Controls.Add(this.txtKelas);
             this.panel3.Controls.Add(this.label6);
-            this.panel3.Location = new System.Drawing.Point(4, 6);
+            this.panel3.Location = new System.Drawing.Point(4, 4);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(351, 438);
+            this.panel3.Size = new System.Drawing.Size(349, 440);
             this.panel3.TabIndex = 5;
             // 
             // jamMasuk
@@ -102,7 +102,7 @@
             this.jamMasuk.Location = new System.Drawing.Point(22, 265);
             this.jamMasuk.Name = "jamMasuk";
             this.jamMasuk.ShowUpDown = true;
-            this.jamMasuk.Size = new System.Drawing.Size(304, 22);
+            this.jamMasuk.Size = new System.Drawing.Size(302, 22);
             this.jamMasuk.TabIndex = 72;
             // 
             // label3
@@ -135,7 +135,7 @@
             this.tglDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tglDT.Location = new System.Drawing.Point(22, 217);
             this.tglDT.Name = "tglDT";
-            this.tglDT.Size = new System.Drawing.Size(304, 22);
+            this.tglDT.Size = new System.Drawing.Size(302, 22);
             this.tglDT.TabIndex = 69;
             // 
             // txtAlasan
@@ -148,7 +148,7 @@
             this.txtAlasan.Margin = new System.Windows.Forms.Padding(2);
             this.txtAlasan.Multiline = true;
             this.txtAlasan.Name = "txtAlasan";
-            this.txtAlasan.Size = new System.Drawing.Size(304, 62);
+            this.txtAlasan.Size = new System.Drawing.Size(302, 62);
             this.txtAlasan.TabIndex = 68;
             // 
             // label5
@@ -168,7 +168,7 @@
             this.btnSave.BackColor = System.Drawing.Color.LimeGreen;
             this.btnSave.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(227, 392);
+            this.btnSave.Location = new System.Drawing.Point(225, 394);
             this.btnSave.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(95, 30);
@@ -197,7 +197,7 @@
             this.txtNIS.Margin = new System.Windows.Forms.Padding(2);
             this.txtNIS.Name = "txtNIS";
             this.txtNIS.ReadOnly = true;
-            this.txtNIS.Size = new System.Drawing.Size(304, 23);
+            this.txtNIS.Size = new System.Drawing.Size(302, 23);
             this.txtNIS.TabIndex = 60;
             // 
             // label2
@@ -221,7 +221,7 @@
             this.txtNama.Margin = new System.Windows.Forms.Padding(2);
             this.txtNama.Name = "txtNama";
             this.txtNama.ReadOnly = true;
-            this.txtNama.Size = new System.Drawing.Size(304, 23);
+            this.txtNama.Size = new System.Drawing.Size(302, 23);
             this.txtNama.TabIndex = 30;
             // 
             // label11
@@ -245,7 +245,7 @@
             this.txtKelas.Margin = new System.Windows.Forms.Padding(2);
             this.txtKelas.Name = "txtKelas";
             this.txtKelas.ReadOnly = true;
-            this.txtKelas.Size = new System.Drawing.Size(304, 23);
+            this.txtKelas.Size = new System.Drawing.Size(302, 23);
             this.txtKelas.TabIndex = 18;
             // 
             // label6

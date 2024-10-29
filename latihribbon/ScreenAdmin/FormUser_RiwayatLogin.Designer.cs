@@ -59,7 +59,6 @@
             this.GridListRiwayatLogin = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.DeleteMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel6 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridListUser)).BeginInit();
             this.panel4.SuspendLayout();
@@ -152,7 +151,6 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel1.Controls.Add(this.panel6);
             this.panel1.Controls.Add(this.btnResetFilter);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.TextUserName);
@@ -451,13 +449,6 @@
             this.DeleteMenuStrip.Size = new System.Drawing.Size(126, 26);
             this.DeleteMenuStrip.Text = "Delete";
             // 
-            // panel6
-            // 
-            this.panel6.Location = new System.Drawing.Point(813, 1);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(51, 60);
-            this.panel6.TabIndex = 74;
-            // 
             // FormUser_RiwayatLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -519,6 +510,5 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
         private System.Windows.Forms.ToolStripMenuItem DeleteMenuStrip;
-        private System.Windows.Forms.Panel panel6;
     }
 }

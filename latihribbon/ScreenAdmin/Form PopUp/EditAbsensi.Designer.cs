@@ -31,6 +31,7 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.lblNisTidakDitemukan = new System.Windows.Forms.Label();
             this.btnKelas = new System.Windows.Forms.Button();
             this.alphaRadio = new System.Windows.Forms.RadioButton();
             this.sakitRadio = new System.Windows.Forms.RadioButton();
@@ -48,7 +49,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.txtPersensi = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.lblNisTidakDitemukan = new System.Windows.Forms.Label();
             this.panel7.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -75,10 +75,10 @@
             this.panel1.BackColor = System.Drawing.Color.LightGray;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.panel3);
-            this.panel1.Location = new System.Drawing.Point(5, 6);
+            this.panel1.Location = new System.Drawing.Point(6, 6);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(361, 419);
+            this.panel1.Size = new System.Drawing.Size(359, 419);
             this.panel1.TabIndex = 4;
             // 
             // panel3
@@ -106,11 +106,23 @@
             this.panel3.Controls.Add(this.label11);
             this.panel3.Controls.Add(this.txtPersensi);
             this.panel3.Controls.Add(this.label6);
-            this.panel3.Location = new System.Drawing.Point(4, 5);
+            this.panel3.Location = new System.Drawing.Point(4, 4);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(351, 407);
+            this.panel3.Size = new System.Drawing.Size(349, 409);
             this.panel3.TabIndex = 5;
+            // 
+            // lblNisTidakDitemukan
+            // 
+            this.lblNisTidakDitemukan.AutoSize = true;
+            this.lblNisTidakDitemukan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNisTidakDitemukan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.lblNisTidakDitemukan.Location = new System.Drawing.Point(196, 49);
+            this.lblNisTidakDitemukan.Name = "lblNisTidakDitemukan";
+            this.lblNisTidakDitemukan.Size = new System.Drawing.Size(127, 15);
+            this.lblNisTidakDitemukan.TabIndex = 82;
+            this.lblNisTidakDitemukan.Text = "Nis Tidak Ditemukan!!";
+            this.lblNisTidakDitemukan.Visible = false;
             // 
             // btnKelas
             // 
@@ -198,7 +210,7 @@
             this.txtKelas.Location = new System.Drawing.Point(22, 216);
             this.txtKelas.Margin = new System.Windows.Forms.Padding(2);
             this.txtKelas.Name = "txtKelas";
-            this.txtKelas.Size = new System.Drawing.Size(256, 23);
+            this.txtKelas.Size = new System.Drawing.Size(254, 23);
             this.txtKelas.TabIndex = 74;
             // 
             // label7
@@ -218,7 +230,7 @@
             this.btnSave.BackColor = System.Drawing.Color.LimeGreen;
             this.btnSave.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(227, 361);
+            this.btnSave.Location = new System.Drawing.Point(225, 363);
             this.btnSave.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(95, 30);
@@ -246,7 +258,7 @@
             this.txtNIS.Location = new System.Drawing.Point(22, 67);
             this.txtNIS.Margin = new System.Windows.Forms.Padding(2);
             this.txtNIS.Name = "txtNIS";
-            this.txtNIS.Size = new System.Drawing.Size(304, 23);
+            this.txtNIS.Size = new System.Drawing.Size(302, 23);
             this.txtNIS.TabIndex = 60;
             // 
             // label2
@@ -270,7 +282,7 @@
             this.txtNama.Margin = new System.Windows.Forms.Padding(2);
             this.txtNama.Name = "txtNama";
             this.txtNama.ReadOnly = true;
-            this.txtNama.Size = new System.Drawing.Size(304, 23);
+            this.txtNama.Size = new System.Drawing.Size(302, 23);
             this.txtNama.TabIndex = 30;
             // 
             // label11
@@ -293,7 +305,7 @@
             this.txtPersensi.Location = new System.Drawing.Point(22, 167);
             this.txtPersensi.Margin = new System.Windows.Forms.Padding(2);
             this.txtPersensi.Name = "txtPersensi";
-            this.txtPersensi.Size = new System.Drawing.Size(304, 23);
+            this.txtPersensi.Size = new System.Drawing.Size(302, 23);
             this.txtPersensi.TabIndex = 18;
             // 
             // label6
@@ -306,18 +318,6 @@
             this.label6.Size = new System.Drawing.Size(66, 18);
             this.label6.TabIndex = 16;
             this.label6.Text = "Persensi";
-            // 
-            // lblNisTidakDitemukan
-            // 
-            this.lblNisTidakDitemukan.AutoSize = true;
-            this.lblNisTidakDitemukan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNisTidakDitemukan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.lblNisTidakDitemukan.Location = new System.Drawing.Point(196, 49);
-            this.lblNisTidakDitemukan.Name = "lblNisTidakDitemukan";
-            this.lblNisTidakDitemukan.Size = new System.Drawing.Size(127, 15);
-            this.lblNisTidakDitemukan.TabIndex = 82;
-            this.lblNisTidakDitemukan.Text = "Nis Tidak Ditemukan!!";
-            this.lblNisTidakDitemukan.Visible = false;
             // 
             // EditAbsensi
             // 

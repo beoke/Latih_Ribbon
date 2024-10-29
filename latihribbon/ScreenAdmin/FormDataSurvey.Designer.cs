@@ -38,14 +38,14 @@
             this.PickerRentan_2 = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.ButtonNext = new System.Windows.Forms.Button();
-            this.ButtonPrevious = new System.Windows.Forms.Button();
-            this.LabelHalaman = new System.Windows.Forms.Label();
-            this.GridListSurvey = new System.Windows.Forms.DataGridView();
             this.TextTotalTidakPuas = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.TextTotalPuas = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.ButtonNext = new System.Windows.Forms.Button();
+            this.ButtonPrevious = new System.Windows.Forms.Button();
+            this.LabelHalaman = new System.Windows.Forms.Label();
+            this.GridListSurvey = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.DeleteMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
@@ -61,9 +61,9 @@
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1196, 751);
+            this.panel1.Size = new System.Drawing.Size(904, 615);
             this.panel1.TabIndex = 37;
             // 
             // panel2
@@ -77,27 +77,26 @@
             this.panel2.Controls.Add(this.label2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1196, 84);
+            this.panel2.Size = new System.Drawing.Size(904, 62);
             this.panel2.TabIndex = 40;
             // 
             // ComboFilter
             // 
             this.ComboFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ComboFilter.FormattingEnabled = true;
-            this.ComboFilter.Location = new System.Drawing.Point(33, 30);
-            this.ComboFilter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ComboFilter.Location = new System.Drawing.Point(25, 20);
+            this.ComboFilter.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ComboFilter.Name = "ComboFilter";
-            this.ComboFilter.Size = new System.Drawing.Size(121, 26);
+            this.ComboFilter.Size = new System.Drawing.Size(92, 23);
             this.ComboFilter.TabIndex = 39;
             // 
             // ButtonResetFilter
             // 
-            this.ButtonResetFilter.Location = new System.Drawing.Point(688, 31);
-            this.ButtonResetFilter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ButtonResetFilter.Location = new System.Drawing.Point(516, 21);
             this.ButtonResetFilter.Name = "ButtonResetFilter";
-            this.ButtonResetFilter.Size = new System.Drawing.Size(100, 28);
+            this.ButtonResetFilter.Size = new System.Drawing.Size(75, 23);
             this.ButtonResetFilter.TabIndex = 32;
             this.ButtonResetFilter.Text = "Reset";
             this.ButtonResetFilter.UseVisualStyleBackColor = true;
@@ -109,9 +108,10 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(464, 26);
+            this.label5.Location = new System.Drawing.Point(348, 17);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(17, 23);
+            this.label5.Size = new System.Drawing.Size(15, 19);
             this.label5.TabIndex = 31;
             this.label5.Text = "_";
             // 
@@ -121,10 +121,10 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.PickerRentan_1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PickerRentan_1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.PickerRentan_1.Location = new System.Drawing.Point(275, 30);
-            this.PickerRentan_1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.PickerRentan_1.Location = new System.Drawing.Point(206, 20);
+            this.PickerRentan_1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.PickerRentan_1.Name = "PickerRentan_1";
-            this.PickerRentan_1.Size = new System.Drawing.Size(183, 27);
+            this.PickerRentan_1.Size = new System.Drawing.Size(138, 23);
             this.PickerRentan_1.TabIndex = 29;
             // 
             // PickerRentan_2
@@ -133,10 +133,10 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.PickerRentan_2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PickerRentan_2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.PickerRentan_2.Location = new System.Drawing.Point(488, 30);
-            this.PickerRentan_2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.PickerRentan_2.Location = new System.Drawing.Point(366, 20);
+            this.PickerRentan_2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.PickerRentan_2.Name = "PickerRentan_2";
-            this.PickerRentan_2.Size = new System.Drawing.Size(183, 27);
+            this.PickerRentan_2.Size = new System.Drawing.Size(138, 23);
             this.PickerRentan_2.TabIndex = 30;
             // 
             // label2
@@ -146,9 +146,10 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(181, 31);
+            this.label2.Location = new System.Drawing.Point(136, 21);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 23);
+            this.label2.Size = new System.Drawing.Size(65, 19);
             this.label2.TabIndex = 26;
             this.label2.Text = "Tanggal :";
             // 
@@ -166,19 +167,71 @@
             this.panel3.Controls.Add(this.ButtonPrevious);
             this.panel3.Controls.Add(this.LabelHalaman);
             this.panel3.Controls.Add(this.GridListSurvey);
-            this.panel3.Location = new System.Drawing.Point(11, 89);
-            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel3.Location = new System.Drawing.Point(12, 73);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1173, 652);
+            this.panel3.Size = new System.Drawing.Size(880, 530);
             this.panel3.TabIndex = 39;
+            // 
+            // TextTotalTidakPuas
+            // 
+            this.TextTotalTidakPuas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.TextTotalTidakPuas.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TextTotalTidakPuas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextTotalTidakPuas.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.TextTotalTidakPuas.Location = new System.Drawing.Point(787, 498);
+            this.TextTotalTidakPuas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TextTotalTidakPuas.Name = "TextTotalTidakPuas";
+            this.TextTotalTidakPuas.ReadOnly = true;
+            this.TextTotalTidakPuas.Size = new System.Drawing.Size(69, 23);
+            this.TextTotalTidakPuas.TabIndex = 89;
+            // 
+            // label6
+            // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(693, 501);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(94, 18);
+            this.label6.TabIndex = 88;
+            this.label6.Text = "Tidak Puas : ";
+            // 
+            // TextTotalPuas
+            // 
+            this.TextTotalPuas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.TextTotalPuas.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TextTotalPuas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextTotalPuas.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.TextTotalPuas.Location = new System.Drawing.Point(787, 459);
+            this.TextTotalPuas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TextTotalPuas.Name = "TextTotalPuas";
+            this.TextTotalPuas.ReadOnly = true;
+            this.TextTotalPuas.Size = new System.Drawing.Size(69, 23);
+            this.TextTotalPuas.TabIndex = 87;
+            this.TextTotalPuas.TextChanged += new System.EventHandler(this.TextTotalPuas_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(694, 461);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(90, 18);
+            this.label1.TabIndex = 86;
+            this.label1.Text = "Puas           :";
             // 
             // ButtonNext
             // 
             this.ButtonNext.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.ButtonNext.Location = new System.Drawing.Point(643, 587);
-            this.ButtonNext.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ButtonNext.Location = new System.Drawing.Point(482, 477);
             this.ButtonNext.Name = "ButtonNext";
-            this.ButtonNext.Size = new System.Drawing.Size(100, 28);
+            this.ButtonNext.Size = new System.Drawing.Size(75, 23);
             this.ButtonNext.TabIndex = 40;
             this.ButtonNext.Text = ">";
             this.ButtonNext.UseVisualStyleBackColor = true;
@@ -186,10 +239,9 @@
             // ButtonPrevious
             // 
             this.ButtonPrevious.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.ButtonPrevious.Location = new System.Drawing.Point(379, 587);
-            this.ButtonPrevious.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ButtonPrevious.Location = new System.Drawing.Point(284, 477);
             this.ButtonPrevious.Name = "ButtonPrevious";
-            this.ButtonPrevious.Size = new System.Drawing.Size(100, 28);
+            this.ButtonPrevious.Size = new System.Drawing.Size(75, 23);
             this.ButtonPrevious.TabIndex = 39;
             this.ButtonPrevious.Text = "<";
             this.ButtonPrevious.UseVisualStyleBackColor = true;
@@ -199,10 +251,9 @@
             this.LabelHalaman.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.LabelHalaman.AutoSize = true;
             this.LabelHalaman.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelHalaman.Location = new System.Drawing.Point(505, 594);
-            this.LabelHalaman.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LabelHalaman.Location = new System.Drawing.Point(379, 483);
             this.LabelHalaman.Name = "LabelHalaman";
-            this.LabelHalaman.Size = new System.Drawing.Size(113, 20);
+            this.LabelHalaman.Size = new System.Drawing.Size(90, 16);
             this.LabelHalaman.TabIndex = 38;
             this.LabelHalaman.Text = "Halaman 1/10";
             // 
@@ -213,63 +264,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.GridListSurvey.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.GridListSurvey.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GridListSurvey.Location = new System.Drawing.Point(9, 7);
-            this.GridListSurvey.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.GridListSurvey.Location = new System.Drawing.Point(7, 7);
             this.GridListSurvey.Name = "GridListSurvey";
             this.GridListSurvey.RowHeadersWidth = 51;
-            this.GridListSurvey.Size = new System.Drawing.Size(1156, 545);
+            this.GridListSurvey.Size = new System.Drawing.Size(866, 443);
             this.GridListSurvey.TabIndex = 37;
-            // 
-            // TextTotalTidakPuas
-            // 
-            this.TextTotalTidakPuas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.TextTotalTidakPuas.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TextTotalTidakPuas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextTotalTidakPuas.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.TextTotalTidakPuas.Location = new System.Drawing.Point(1074, 617);
-            this.TextTotalTidakPuas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.TextTotalTidakPuas.Name = "TextTotalTidakPuas";
-            this.TextTotalTidakPuas.ReadOnly = true;
-            this.TextTotalTidakPuas.Size = new System.Drawing.Size(91, 27);
-            this.TextTotalTidakPuas.TabIndex = 89;
-            // 
-            // label6
-            // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(950, 620);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(118, 24);
-            this.label6.TabIndex = 88;
-            this.label6.Text = "Tidak Puas : ";
-            // 
-            // TextTotalPuas
-            // 
-            this.TextTotalPuas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.TextTotalPuas.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TextTotalPuas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextTotalPuas.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.TextTotalPuas.Location = new System.Drawing.Point(1074, 568);
-            this.TextTotalPuas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.TextTotalPuas.Name = "TextTotalPuas";
-            this.TextTotalPuas.ReadOnly = true;
-            this.TextTotalPuas.Size = new System.Drawing.Size(91, 27);
-            this.TextTotalPuas.TabIndex = 87;
-            this.TextTotalPuas.TextChanged += new System.EventHandler(this.TextTotalPuas_TextChanged);
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(951, 571);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(112, 24);
-            this.label1.TabIndex = 86;
-            this.label1.Text = "Puas           :";
             // 
             // contextMenuStrip1
             // 
@@ -278,23 +277,23 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.DeleteMenuStrip});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(145, 34);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(127, 30);
             // 
             // DeleteMenuStrip
             // 
             this.DeleteMenuStrip.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DeleteMenuStrip.Image = global::latihribbon.Properties.Resources.bin;
             this.DeleteMenuStrip.Name = "DeleteMenuStrip";
-            this.DeleteMenuStrip.Size = new System.Drawing.Size(144, 30);
+            this.DeleteMenuStrip.Size = new System.Drawing.Size(126, 26);
             this.DeleteMenuStrip.Text = "Delete";
             // 
             // FormDataSurvey
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1196, 751);
+            this.ClientSize = new System.Drawing.Size(904, 615);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormDataSurvey";
             this.Text = "FormDataSurvey";
             this.panel1.ResumeLayout(false);
