@@ -1,5 +1,4 @@
 ﻿using Dapper;
-using DocumentFormat.OpenXml.Wordprocessing;
 using latihribbon.Dal;
 using latihribbon.Helper;
 using latihribbon.Model;
@@ -28,10 +27,13 @@ namespace latihribbon
         private readonly MesBox mesBox = new MesBox();
         private ToolTip toolTip;
         int globalId = 0;
+        private Dictionary<Control,Point> oriLocation = new Dictionary<Control,Point>();
+        private Dictionary<Control,Size> oriSize = new Dictionary<Control,Size>();
         public FormKeluar()
         {
             InitializeComponent();
             buf();
+            this.Load += FormKeluar_Load;
             siswaDal = new SiswaDal();
             keluarDal = new KeluarDal();
             kelasDal = new KelasDal();
@@ -41,6 +43,18 @@ namespace latihribbon
             LoadData();
             InitComponent();
         }
+
+        private void FormKeluar_Load(object sender, EventArgs e)
+        {
+            oriLocation[label13] = label13.Location;
+            oriLocation[jamMasukDT] = jamMasukDT.Location;
+            oriLocation[label11] = label11.Location;
+            oriLocation[txtTujuan1] = txtTujuan1.Location;
+
+            oriSize[jamKeluarDT] = jamKeluarDT.Size;
+            oriSize[jamMasukDT] = jamMasukDT.Size;
+        }
+
         public void buf()
         {
             typeof(DataGridView).InvokeMember("DoubleBuffered",
@@ -221,6 +235,7 @@ namespace latihribbon
         #region EVENT
        private void RegisterEvent()
         {
+            this.Resize += FormKeluar_Resize;
             btnSave_FormSiswa.Click += btnSave_FormSiswa_Click;
             TextSearch.TextChanged += filter_Changed;
             txtNIS1.TextChanged += txtNIS1_TextChanged;
@@ -238,7 +253,27 @@ namespace latihribbon
             lblFilter.Click += LblFilter_Click;
         }
 
-
+        private void FormKeluar_Resize(object sender, EventArgs e)
+        {
+            if(panel2.Height < 505)
+            {
+                txtTujuan1.Multiline = false;
+                jamKeluarDT.Width = 140;
+                jamMasukDT.Width = 140;
+                label13.Location = new Point(172, 243);
+                label11.Location = new Point(22, 291);
+                jamMasukDT.Location = new Point(169, 263);
+                txtTujuan1.Location = new Point(19, 311);
+            }
+            else
+            {
+                txtTujuan1.Multiline = true;
+                foreach (var control in oriLocation.Keys)
+                    control.Location = oriLocation[control];
+                foreach(var control in oriSize.Keys)
+                    control.Size = oriSize[control];
+            }
+        }   
 
         private void LblFilter_Click(object sender, EventArgs e)
         {
