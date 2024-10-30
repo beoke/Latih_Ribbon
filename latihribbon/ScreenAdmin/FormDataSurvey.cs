@@ -47,6 +47,13 @@ namespace latihribbon
 
             ButtonPrevious.Click += ButtonPrevious_Click;
             ButtonNext.Click += ButtonNext_Click;
+
+            this.Load += FormDataSurvey_Load;
+        }
+
+        private void FormDataSurvey_Load(object sender, EventArgs e)
+        {
+            ComboFilter.Focus();
         }
 
         private void InitCombo()

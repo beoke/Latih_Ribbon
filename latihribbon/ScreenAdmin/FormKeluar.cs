@@ -46,6 +46,8 @@ namespace latihribbon
 
         private void FormKeluar_Load(object sender, EventArgs e)
         {
+
+            TextSearch.Focus();
             oriLocation[label13] = label13.Location;
             oriLocation[jamMasukDT] = jamMasukDT.Location;
             oriLocation[label11] = label11.Location;
@@ -387,9 +389,6 @@ namespace latihribbon
         }
         #endregion
 
-        private void label13_Click(object sender, EventArgs e)
-        {
-
-        }
+  
     }
 }

@@ -36,6 +36,13 @@ namespace latihribbon
             LoadData();
             LoadUser();
             LoadRiwayatLogin();
+
+            this.Load += FormUser_RiwayatLogin_Load;
+        }
+
+        private void FormUser_RiwayatLogin_Load(object sender, EventArgs e)
+        {
+            TextSearchRiwayat.Focus();
         }
 
         private void DeleteOtomatis()
@@ -138,7 +145,7 @@ namespace latihribbon
         int totalPage;
         private void LoadData()
         {
-            string userLogin = TextUserName.Text;
+            string userLogin = TextSearchRiwayat.Text;
             DateTime tgl_1 = PickerRentan_1.Value;
             DateTime tgl_2 = PickerRentan_2.Value;
 
@@ -168,7 +175,7 @@ namespace latihribbon
         private void InitialEvent()
         {
             comboPerPage.SelectedIndexChanged += ComboPerPage_SelectedIndexChanged;
-            TextUserName.TextChanged += TextUserName_TextChanged;
+            TextSearchRiwayat.TextChanged += TextUserName_TextChanged;
             PickerRentan_1.ValueChanged += PickerRentan_ValueChanged;
             PickerRentan_2.ValueChanged += PickerRentan_ValueChanged;
 
@@ -219,7 +226,7 @@ namespace latihribbon
 
         private void TextUserName_TextChanged(object sender, EventArgs e)
         {
-            if (TextUserName.Text == string.Empty)
+            if (TextSearchRiwayat.Text == string.Empty)
             {
                 LoadRiwayatLogin();
                 LoadData();
@@ -269,7 +276,7 @@ namespace latihribbon
 
         private void btnResetFilter_Click(object sender, EventArgs e)
         {
-            TextUserName.Clear();
+            TextSearchRiwayat.Clear();
             PickerRentan_1.Value = DateTime.Now;
             PickerRentan_2.Value = DateTime.Now;
             SqlGlobal = false;

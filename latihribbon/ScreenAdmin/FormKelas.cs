@@ -29,7 +29,15 @@ namespace latihribbon.ScreenAdmin
             LoadData();
             RegisterEvent();
             HapusDataLulus();
+
+            this.Load += FormKelas_Load;
         }
+
+        private void FormKelas_Load(object sender, EventArgs e)
+        {
+            GridListKelas.Focus();
+        }
+
         private void RegisterEvent()
         {
             GridListKelas.CellMouseClick += DataGridView1_CellMouseClick;

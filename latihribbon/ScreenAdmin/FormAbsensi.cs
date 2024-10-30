@@ -38,6 +38,12 @@ namespace latihribbon
             RegisterEvent();
             LoadData();
             InitGrid();
+            this.Load += FormAbsensi_Load;
+        }
+
+        private void FormAbsensi_Load(object sender, EventArgs e)
+        {
+            txtSearch.Focus();
         }
 
         public void buf()

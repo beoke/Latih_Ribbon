@@ -38,6 +38,9 @@ namespace latihribbon
             LoadData();
             InitComponen();
         }
+
+       
+
         public void buf()
         {
             typeof(DataGridView).InvokeMember("DoubleBuffered",
@@ -332,7 +335,7 @@ namespace latihribbon
 
         private void FormTerlambat_Load(object sender, EventArgs e)
         {
-
+            txtFilter.Focus();
         }
     }
 }

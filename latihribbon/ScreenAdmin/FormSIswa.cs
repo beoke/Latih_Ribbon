@@ -51,6 +51,8 @@ namespace latihribbon
 
         private void FormSIswa_Load(object sender, EventArgs e)
         {
+            txtFilter.Focus();
+
             originalLocations[txtNIS_FormSiswa] = txtNIS_FormSiswa.Location;
             originalLocations[lblNisSudahAda] = lblNisSudahAda.Location;
             originalLocations[label11] = label11.Location;
@@ -86,20 +88,7 @@ namespace latihribbon
             dataGridView1,
             new object[] { true });
         }
-        private void Form1_Shown(object sender, EventArgs e)
-        {
-           SelectRow();
-        }
-
-        private void SelectRow()
-        {
-            if (dataGridView1.Rows.Count > 0)
-            {
-                dataGridView1.CurrentCell = dataGridView1.Rows[0].Cells[0];
-                dataGridView1.Rows[0].Selected = true;
-                dataGridView1.Focus();
-            }
-        }
+        
 
         public void InitCombo()
         {
@@ -302,7 +291,6 @@ namespace latihribbon
             txtFilter.TextChanged += TxtFilter_ChangeLeave;
             txtFilter.Leave += TxtFilter_ChangeLeave;
             lblFilter.Click += LblFilter_Click;
-            this.Shown += Form1_Shown; // focus awal load form
             dataGridView1.CellMouseClick += DataGridView1_CellMouseClick;
             EditMenuStrip.Click += EditMenuStrip_Click;
             DeleteMenuStrip.Click += DeleteMenuStrip_Click;

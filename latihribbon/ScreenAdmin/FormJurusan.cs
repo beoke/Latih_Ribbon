@@ -28,6 +28,12 @@ namespace latihribbon.ScreenAdmin
             mesBox = new MesBox();
             LoadData();
             InitEvent();
+            this.Load += FormJurusan_Load;
+        }
+
+        private void FormJurusan_Load(object sender, EventArgs e)
+        {
+            GridListJurusan.Focus ();
         }
 
         public void buf()

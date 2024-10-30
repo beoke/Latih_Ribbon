@@ -33,7 +33,7 @@
             this.PickerRentan_2 = new System.Windows.Forms.DateTimePicker();
             this.PickerRentan_1 = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
-            this.TextUserName = new System.Windows.Forms.TextBox();
+            this.TextSearchRiwayat = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnResetFilter = new System.Windows.Forms.Button();
@@ -51,6 +51,8 @@
             this.TextIdUser = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label14 = new System.Windows.Forms.Label();
+            this.comboPerPage = new System.Windows.Forms.ComboBox();
             this.lblHalaman = new System.Windows.Forms.Label();
             this.btnNext = new System.Windows.Forms.Button();
             this.btnPrevious = new System.Windows.Forms.Button();
@@ -59,8 +61,6 @@
             this.GridListRiwayatLogin = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.DeleteMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
-            this.label14 = new System.Windows.Forms.Label();
-            this.comboPerPage = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridListUser)).BeginInit();
             this.panel4.SuspendLayout();
@@ -79,10 +79,9 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(504, 20);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Location = new System.Drawing.Point(672, 25);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(15, 19);
+            this.label5.Size = new System.Drawing.Size(17, 23);
             this.label5.TabIndex = 31;
             this.label5.Text = "_";
             // 
@@ -91,22 +90,24 @@
             this.PickerRentan_2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.PickerRentan_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PickerRentan_2.Location = new System.Drawing.Point(525, 23);
-            this.PickerRentan_2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PickerRentan_2.Location = new System.Drawing.Point(700, 28);
+            this.PickerRentan_2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PickerRentan_2.Name = "PickerRentan_2";
-            this.PickerRentan_2.Size = new System.Drawing.Size(138, 21);
+            this.PickerRentan_2.Size = new System.Drawing.Size(183, 24);
             this.PickerRentan_2.TabIndex = 30;
+            this.PickerRentan_2.TabStop = false;
             // 
             // PickerRentan_1
             // 
             this.PickerRentan_1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.PickerRentan_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PickerRentan_1.Location = new System.Drawing.Point(361, 23);
-            this.PickerRentan_1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PickerRentan_1.Location = new System.Drawing.Point(481, 28);
+            this.PickerRentan_1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PickerRentan_1.Name = "PickerRentan_1";
-            this.PickerRentan_1.Size = new System.Drawing.Size(138, 21);
+            this.PickerRentan_1.Size = new System.Drawing.Size(183, 24);
             this.PickerRentan_1.TabIndex = 29;
+            this.PickerRentan_1.TabStop = false;
             // 
             // label2
             // 
@@ -115,24 +116,23 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(240, 24);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(320, 30);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(113, 19);
+            this.label2.Size = new System.Drawing.Size(138, 23);
             this.label2.TabIndex = 26;
             this.label2.Text = "Rentan Tanggal :";
             // 
-            // TextUserName
+            // TextSearchRiwayat
             // 
-            this.TextUserName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.TextSearchRiwayat.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.TextUserName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TextUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextUserName.Location = new System.Drawing.Point(112, 23);
-            this.TextUserName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.TextUserName.Name = "TextUserName";
-            this.TextUserName.Size = new System.Drawing.Size(106, 21);
-            this.TextUserName.TabIndex = 25;
+            this.TextSearchRiwayat.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TextSearchRiwayat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextSearchRiwayat.Location = new System.Drawing.Point(149, 28);
+            this.TextSearchRiwayat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TextSearchRiwayat.Name = "TextSearchRiwayat";
+            this.TextSearchRiwayat.Size = new System.Drawing.Size(141, 24);
+            this.TextSearchRiwayat.TabIndex = 0;
             // 
             // label1
             // 
@@ -141,10 +141,9 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(26, 24);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(35, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 19);
+            this.label1.Size = new System.Drawing.Size(96, 23);
             this.label1.TabIndex = 24;
             this.label1.Text = "Username :";
             // 
@@ -155,23 +154,25 @@
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel1.Controls.Add(this.btnResetFilter);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.TextUserName);
+            this.panel1.Controls.Add(this.TextSearchRiwayat);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.PickerRentan_1);
             this.panel1.Controls.Add(this.PickerRentan_2);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1050, 63);
-            this.panel1.TabIndex = 32;
+            this.panel1.Size = new System.Drawing.Size(1400, 78);
+            this.panel1.TabIndex = 0;
             // 
             // btnResetFilter
             // 
-            this.btnResetFilter.Location = new System.Drawing.Point(678, 22);
+            this.btnResetFilter.Location = new System.Drawing.Point(904, 27);
+            this.btnResetFilter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnResetFilter.Name = "btnResetFilter";
-            this.btnResetFilter.Size = new System.Drawing.Size(75, 23);
+            this.btnResetFilter.Size = new System.Drawing.Size(100, 28);
             this.btnResetFilter.TabIndex = 32;
+            this.btnResetFilter.TabStop = false;
             this.btnResetFilter.Text = "Reset";
             this.btnResetFilter.UseVisualStyleBackColor = true;
             this.btnResetFilter.Click += new System.EventHandler(this.btnResetFilter_Click);
@@ -183,10 +184,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.GridListUser.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.GridListUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GridListUser.Location = new System.Drawing.Point(7, 76);
+            this.GridListUser.Location = new System.Drawing.Point(9, 94);
+            this.GridListUser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.GridListUser.Name = "GridListUser";
             this.GridListUser.RowHeadersWidth = 51;
-            this.GridListUser.Size = new System.Drawing.Size(458, 408);
+            this.GridListUser.Size = new System.Drawing.Size(611, 502);
             this.GridListUser.TabIndex = 0;
             // 
             // panel4
@@ -197,11 +199,11 @@
             this.panel4.Controls.Add(this.panel2);
             this.panel4.Controls.Add(this.GridListUser);
             this.panel4.Controls.Add(this.panel5);
-            this.panel4.Location = new System.Drawing.Point(218, 74);
-            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel4.Location = new System.Drawing.Point(291, 91);
+            this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(822, 491);
-            this.panel4.TabIndex = 35;
+            this.panel4.Size = new System.Drawing.Size(1096, 604);
+            this.panel4.TabIndex = 2;
             // 
             // panel2
             // 
@@ -210,10 +212,10 @@
             this.panel2.BackColor = System.Drawing.Color.Gainsboro;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.label6);
-            this.panel2.Location = new System.Drawing.Point(7, 7);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Location = new System.Drawing.Point(9, 9);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(458, 61);
+            this.panel2.Size = new System.Drawing.Size(610, 75);
             this.panel2.TabIndex = 8;
             // 
             // label6
@@ -221,9 +223,10 @@
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(183, 19);
+            this.label6.Location = new System.Drawing.Point(244, 23);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(91, 20);
+            this.label6.Size = new System.Drawing.Size(108, 25);
             this.label6.TabIndex = 58;
             this.label6.Text = "Data User";
             // 
@@ -241,11 +244,11 @@
             this.panel5.Controls.Add(this.label7);
             this.panel5.Controls.Add(this.TextIdUser);
             this.panel5.Controls.Add(this.label9);
-            this.panel5.Location = new System.Drawing.Point(473, 7);
-            this.panel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel5.Location = new System.Drawing.Point(631, 9);
+            this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(342, 477);
-            this.panel5.TabIndex = 4;
+            this.panel5.Size = new System.Drawing.Size(455, 587);
+            this.panel5.TabIndex = 1;
             // 
             // ButtonSaveUser
             // 
@@ -253,11 +256,11 @@
             this.ButtonSaveUser.BackColor = System.Drawing.Color.LimeGreen;
             this.ButtonSaveUser.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonSaveUser.ForeColor = System.Drawing.Color.White;
-            this.ButtonSaveUser.Location = new System.Drawing.Point(219, 413);
-            this.ButtonSaveUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ButtonSaveUser.Location = new System.Drawing.Point(292, 508);
+            this.ButtonSaveUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonSaveUser.Name = "ButtonSaveUser";
-            this.ButtonSaveUser.Size = new System.Drawing.Size(90, 32);
-            this.ButtonSaveUser.TabIndex = 1;
+            this.ButtonSaveUser.Size = new System.Drawing.Size(120, 39);
+            this.ButtonSaveUser.TabIndex = 2;
             this.ButtonSaveUser.Text = "Save";
             this.ButtonSaveUser.UseVisualStyleBackColor = false;
             // 
@@ -266,9 +269,10 @@
             this.LabelAddUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.LabelAddUser.AutoSize = true;
             this.LabelAddUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelAddUser.Location = new System.Drawing.Point(134, 24);
+            this.LabelAddUser.Location = new System.Drawing.Point(179, 30);
+            this.LabelAddUser.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LabelAddUser.Name = "LabelAddUser";
-            this.LabelAddUser.Size = new System.Drawing.Size(84, 20);
+            this.LabelAddUser.Size = new System.Drawing.Size(102, 25);
             this.LabelAddUser.TabIndex = 70;
             this.LabelAddUser.Text = "Add User";
             // 
@@ -279,21 +283,20 @@
             this.TextPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TextPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TextPassword.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.TextPassword.Location = new System.Drawing.Point(34, 216);
-            this.TextPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TextPassword.Location = new System.Drawing.Point(45, 266);
+            this.TextPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextPassword.Name = "TextPassword";
             this.TextPassword.PasswordChar = '*';
-            this.TextPassword.Size = new System.Drawing.Size(276, 23);
-            this.TextPassword.TabIndex = 73;
+            this.TextPassword.Size = new System.Drawing.Size(367, 27);
+            this.TextPassword.TabIndex = 1;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(34, 195);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(45, 240);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(75, 18);
+            this.label4.Size = new System.Drawing.Size(92, 24);
             this.label4.TabIndex = 72;
             this.label4.Text = "Password";
             // 
@@ -303,20 +306,19 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TextNameUser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TextNameUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextNameUser.Location = new System.Drawing.Point(34, 154);
-            this.TextNameUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TextNameUser.Location = new System.Drawing.Point(45, 190);
+            this.TextNameUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextNameUser.Name = "TextNameUser";
-            this.TextNameUser.Size = new System.Drawing.Size(276, 23);
-            this.TextNameUser.TabIndex = 69;
+            this.TextNameUser.Size = new System.Drawing.Size(367, 27);
+            this.TextNameUser.TabIndex = 0;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(34, 133);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Location = new System.Drawing.Point(45, 164);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(77, 18);
+            this.label7.Size = new System.Drawing.Size(97, 24);
             this.label7.TabIndex = 67;
             this.label7.Text = "Username";
             // 
@@ -327,21 +329,20 @@
             this.TextIdUser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TextIdUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TextIdUser.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.TextIdUser.Location = new System.Drawing.Point(34, 93);
-            this.TextIdUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TextIdUser.Location = new System.Drawing.Point(45, 114);
+            this.TextIdUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextIdUser.Name = "TextIdUser";
             this.TextIdUser.ReadOnly = true;
-            this.TextIdUser.Size = new System.Drawing.Size(276, 23);
+            this.TextIdUser.Size = new System.Drawing.Size(367, 27);
             this.TextIdUser.TabIndex = 68;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(34, 72);
-            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label9.Location = new System.Drawing.Point(45, 89);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(55, 18);
+            this.label9.Size = new System.Drawing.Size(69, 24);
             this.label9.TabIndex = 66;
             this.label9.Text = "Id User";
             // 
@@ -358,30 +359,58 @@
             this.panel3.Controls.Add(this.btnPrevious);
             this.panel3.Controls.Add(this.panel9);
             this.panel3.Controls.Add(this.GridListRiwayatLogin);
-            this.panel3.Location = new System.Drawing.Point(11, 74);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Location = new System.Drawing.Point(15, 91);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(201, 491);
-            this.panel3.TabIndex = 36;
+            this.panel3.Size = new System.Drawing.Size(268, 604);
+            this.panel3.TabIndex = 1;
+            // 
+            // label14
+            // 
+            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(104, 554);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(55, 23);
+            this.label14.TabIndex = 58;
+            this.label14.Text = "/Page";
+            // 
+            // comboPerPage
+            // 
+            this.comboPerPage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.comboPerPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboPerPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboPerPage.FormattingEnabled = true;
+            this.comboPerPage.ItemHeight = 17;
+            this.comboPerPage.Location = new System.Drawing.Point(19, 554);
+            this.comboPerPage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboPerPage.Name = "comboPerPage";
+            this.comboPerPage.Size = new System.Drawing.Size(80, 25);
+            this.comboPerPage.TabIndex = 57;
+            this.comboPerPage.TabStop = false;
             // 
             // lblHalaman
             // 
             this.lblHalaman.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblHalaman.AutoSize = true;
             this.lblHalaman.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHalaman.Location = new System.Drawing.Point(56, 453);
+            this.lblHalaman.Location = new System.Drawing.Point(75, 558);
+            this.lblHalaman.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblHalaman.Name = "lblHalaman";
-            this.lblHalaman.Size = new System.Drawing.Size(90, 16);
+            this.lblHalaman.Size = new System.Drawing.Size(113, 20);
             this.lblHalaman.TabIndex = 33;
             this.lblHalaman.Text = "Halaman 1/10";
             // 
             // btnNext
             // 
             this.btnNext.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnNext.Location = new System.Drawing.Point(161, 449);
+            this.btnNext.Location = new System.Drawing.Point(215, 553);
+            this.btnNext.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(75, 23);
+            this.btnNext.Size = new System.Drawing.Size(100, 28);
             this.btnNext.TabIndex = 32;
+            this.btnNext.TabStop = false;
             this.btnNext.Text = ">";
             this.btnNext.UseVisualStyleBackColor = true;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
@@ -389,10 +418,12 @@
             // btnPrevious
             // 
             this.btnPrevious.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnPrevious.Location = new System.Drawing.Point(-37, 449);
+            this.btnPrevious.Location = new System.Drawing.Point(-49, 553);
+            this.btnPrevious.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnPrevious.Name = "btnPrevious";
-            this.btnPrevious.Size = new System.Drawing.Size(75, 23);
+            this.btnPrevious.Size = new System.Drawing.Size(100, 28);
             this.btnPrevious.TabIndex = 31;
+            this.btnPrevious.TabStop = false;
             this.btnPrevious.Text = "<";
             this.btnPrevious.UseVisualStyleBackColor = true;
             this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
@@ -404,10 +435,10 @@
             this.panel9.BackColor = System.Drawing.Color.Gainsboro;
             this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel9.Controls.Add(this.LabelJurusan);
-            this.panel9.Location = new System.Drawing.Point(6, 7);
-            this.panel9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel9.Location = new System.Drawing.Point(8, 9);
+            this.panel9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(190, 61);
+            this.panel9.Size = new System.Drawing.Size(253, 75);
             this.panel9.TabIndex = 8;
             // 
             // LabelJurusan
@@ -415,9 +446,10 @@
             this.LabelJurusan.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LabelJurusan.AutoSize = true;
             this.LabelJurusan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelJurusan.Location = new System.Drawing.Point(30, 20);
+            this.LabelJurusan.Location = new System.Drawing.Point(40, 25);
+            this.LabelJurusan.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LabelJurusan.Name = "LabelJurusan";
-            this.LabelJurusan.Size = new System.Drawing.Size(121, 20);
+            this.LabelJurusan.Size = new System.Drawing.Size(146, 25);
             this.LabelJurusan.TabIndex = 58;
             this.LabelJurusan.Text = "Riwayat Login";
             // 
@@ -428,12 +460,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.GridListRiwayatLogin.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.GridListRiwayatLogin.ColumnHeadersHeight = 29;
-            this.GridListRiwayatLogin.Location = new System.Drawing.Point(6, 76);
-            this.GridListRiwayatLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.GridListRiwayatLogin.Location = new System.Drawing.Point(8, 94);
+            this.GridListRiwayatLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.GridListRiwayatLogin.Name = "GridListRiwayatLogin";
             this.GridListRiwayatLogin.RowHeadersWidth = 51;
             this.GridListRiwayatLogin.RowTemplate.Height = 24;
-            this.GridListRiwayatLogin.Size = new System.Drawing.Size(189, 357);
+            this.GridListRiwayatLogin.Size = new System.Drawing.Size(252, 439);
             this.GridListRiwayatLogin.TabIndex = 0;
             // 
             // contextMenuStrip2
@@ -443,49 +475,25 @@
             this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.DeleteMenuStrip});
             this.contextMenuStrip2.Name = "contextMenuStrip1";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(127, 30);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(145, 34);
             // 
             // DeleteMenuStrip
             // 
             this.DeleteMenuStrip.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DeleteMenuStrip.Image = global::latihribbon.Properties.Resources.bin;
             this.DeleteMenuStrip.Name = "DeleteMenuStrip";
-            this.DeleteMenuStrip.Size = new System.Drawing.Size(126, 26);
+            this.DeleteMenuStrip.Size = new System.Drawing.Size(144, 30);
             this.DeleteMenuStrip.Text = "Delete";
-            // 
-            // label14
-            // 
-            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(78, 450);
-            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(45, 19);
-            this.label14.TabIndex = 58;
-            this.label14.Text = "/Page";
-            // 
-            // comboPerPage
-            // 
-            this.comboPerPage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.comboPerPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboPerPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboPerPage.FormattingEnabled = true;
-            this.comboPerPage.ItemHeight = 13;
-            this.comboPerPage.Location = new System.Drawing.Point(14, 450);
-            this.comboPerPage.Name = "comboPerPage";
-            this.comboPerPage.Size = new System.Drawing.Size(61, 21);
-            this.comboPerPage.TabIndex = 57;
             // 
             // FormUser_RiwayatLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1050, 576);
+            this.ClientSize = new System.Drawing.Size(1400, 709);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormUser_RiwayatLogin";
             this.Text = "FormRiwayatLogin";
             this.panel1.ResumeLayout(false);
@@ -512,7 +520,7 @@
         private System.Windows.Forms.DateTimePicker PickerRentan_2;
         private System.Windows.Forms.DateTimePicker PickerRentan_1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox TextUserName;
+        private System.Windows.Forms.TextBox TextSearchRiwayat;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView GridListUser;
