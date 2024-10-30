@@ -101,3 +101,28 @@ ORDER BY
 
 
     select * from Users;
+
+    select *from masuk
+
+ INSERT INTO Masuk (NIS, Tanggal, JamMasuk, Alasan) VALUES 
+(16666, '2024-10-30', '17:00:29', '14:00:29', 'ddededed e dede'),
+(17777, '2024-10-02', '10:00:00', '14:00:00', 'makan nasi tikus'),
+(16653, '2024-10-30', '03:00:00', '05:00:00', 'Makan Kuyang'),
+(17778, '2024-10-30', '02:00:00', '05:00:00', 'eek'),
+(16690, '2024-10-30', '03:00:00', '07:00:00', 'hugguiya'),
+
+(16701, '2024-10-05', '12:30:00', '14:30:00', 'ddededed e dede'),
+(16702, '2024-10-06', '15:45:00', '17:00:00', 'makan nasi tikus'),
+(16703, '2024-10-07', '09:00:00', '11:00:00', 'Makan Kuyang'),
+(16704, '2024-10-08', '13:00:00', '15:30:00', 'eek'),
+(16705, '2024-10-09', '14:00:00', '16:30:00', 'hugguiya'),
+(16799, '2024-10-28', '08:00:00', '10:00:00', 'makan nasi tikus');
+
+INSERT INTO Masuk (NIS, Tanggal, JamMasuk, Alasan) VALUES 
+(17777, '2024-10-30', '13:46:55', 'Makan Nasi Padang bersama di kampung magetan dengan ownernya'),
+(16670, '2024-10-30', '13:57:59', 'Makan Di Gereja Patalan'),
+(16666, '2024-10-30', '13:58:46', 'dcddcdcddc'),
+(16653, '2024-10-30', '04:00:00', 'scsscs cs c sc s cs c s'),
+(17777, '2024-10-30', '00:00:00', 'd d d d d'),
+(16670, '2024-10-30', '00:03:00', 'cscscsc'),
+(16778, '2024-10-30', '00:00:00', 'dcdcdccdcdc');

@@ -49,10 +49,7 @@ namespace latihribbon
 
             jam = DateTime.Now;
             isian();
-
         }
-
-       
 
         public void isian()
         {
@@ -94,7 +91,7 @@ namespace latihribbon
                 NIS = int.Parse(nis),
                 Tanggal = tanggal,
                 JamMasuk = jamMasuk,
-                Alasan = alasan
+                Alasan = alasan,
             };
             masukDal.Insert(masuk);
         }
@@ -128,7 +125,7 @@ namespace latihribbon
                     return false;
                 }*/
                 printPreviewDialogMasuk.Document = printDocumentMasuk;
-                printPreviewDialogMasuk.ShowDialog();
+                printPreviewDialogMasuk.ShowDialog(this);
                // printDocumentMasuk.Print();
                 return true;
             }
