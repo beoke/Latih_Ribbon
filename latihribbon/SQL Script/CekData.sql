@@ -3,7 +3,7 @@
 
 
 
-DROP TABLE Rating;
+delete from siswa;
 
 
 select * from siswa where Nis = 11111

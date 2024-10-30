@@ -135,12 +135,12 @@ namespace latihribbon.Dal
             }
         }
 
-        public void DeleteSiswaLulus()
+        public int DeleteSiswaLulus()
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
             {
                 const string sql = @"DELETE FROM Kelas WHERE status = 0";
-                koneksi.Execute(sql);
+                return koneksi.Execute(sql);
             }
         }
 

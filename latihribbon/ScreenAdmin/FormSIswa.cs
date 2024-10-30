@@ -97,14 +97,10 @@ namespace latihribbon
             txtNama_FormSiswa.MaxLength = 80;
             txtPersensi_FormSiswa.MaxLength = 3;
 
-            comboPerPage.Items.Add(10);
-            comboPerPage.Items.Add(20);
-            comboPerPage.Items.Add(50);
-            comboPerPage.Items.Add(100);
-            comboPerPage.Items.Add(200);
-            comboPerPage.SelectedIndex = 0;
-            comboPerPage.ItemHeight = 18;
-
+            
+            List<int> list = new List<int>() {10,20,50,100,200 };
+            comboPerPage.DataSource = list;
+            comboPerPage.DropDownStyle = ComboBoxStyle.DropDownList;
                 
             // Jurusan Combo
             var jurusan = jurusanDal.ListData();
@@ -112,9 +108,11 @@ namespace latihribbon
             jurusanCombo.DataSource = jurusan;
             jurusanCombo.DisplayMember = "NamaJurusan";
             jurusanCombo.ValueMember = "Id";
+            jurusanCombo.DropDownStyle = ComboBoxStyle.DropDownList;
+
 
             // Combo Filter
-       
+
             var data = db.ListTahun();
             List<string> listTahun = new List<string>();
             listTahun.Add("Semua");
@@ -123,6 +121,7 @@ namespace latihribbon
                 listTahun.Add(item.Tahun);
             }
             comboTahunFilter.DataSource = listTahun;
+            comboTahunFilter.DropDownStyle = ComboBoxStyle.DropDownList;
 
             toolTip = new ToolTip();
 
@@ -245,7 +244,9 @@ namespace latihribbon
                 sqlc += " WHERE " + string.Join(" AND ", fltr);
 
             string text = "Halaman ";
-            int RowPerPage = (int)comboPerPage.SelectedItem;
+            string row = comboPerPage.SelectedItem?.ToString()?? string.Empty;
+            int RowPerPage = row == string.Empty ? 10 : Convert.ToInt32(row);
+            if (RowPerPage == 10) comboPerPage.SelectedIndex = 0;
             int inRowPage = (Page - 1) * RowPerPage;
             var jumlahRow = siswaDal.CekRows(sqlc, dp);
             totalPage = (int)Math.Ceiling((double)jumlahRow / RowPerPage);
@@ -349,8 +350,15 @@ namespace latihribbon
         private void HapusSiswaLulus_Click(object sender, EventArgs e)
         {
             if (new MesWarningYN("Hapus Data Siswa Yang Telah Lulus?").ShowDialog(this) != DialogResult.Yes) return;
-            kelasDal.DeleteSiswaLulus();
+               
+            if (kelasDal.DeleteSiswaLulus() < 1 ) 
+            {
+                new MesWarningOK("Data Lulus Tidak Tersedia").ShowDialog(this);
+                return;
+            }
+
             LoadData();
+            new MesInformasi("Data Berhasil Dihapus").ShowDialog(this);
         }
 
         private void NaikKelasContext_Click(object sender, EventArgs e)
@@ -361,7 +369,7 @@ namespace latihribbon
                 return;
             }
 
-            if (new MesWarningYN("Naik kelas untuk seluruh siswa?\nTindakan ini tidak dapat iurungkan!!", 2).ShowDialog(this) != DialogResult.Yes) return;
+            if (new MesWarningYN("Naik kelas untuk seluruh siswa?\nTindakan ini tidak dapat urungkan!!", 2).ShowDialog(this) != DialogResult.Yes) return;
 
             var allKelas = kelasDal.listKelas(string.Empty, new { });
             if (!allKelas.Any()) return;
