@@ -130,6 +130,7 @@
             this.TextSearchRiwayat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TextSearchRiwayat.Location = new System.Drawing.Point(149, 28);
             this.TextSearchRiwayat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TextSearchRiwayat.MaxLength = 30;
             this.TextSearchRiwayat.Name = "TextSearchRiwayat";
             this.TextSearchRiwayat.Size = new System.Drawing.Size(141, 24);
             this.TextSearchRiwayat.TabIndex = 0;
@@ -285,6 +286,7 @@
             this.TextPassword.ForeColor = System.Drawing.SystemColors.ControlText;
             this.TextPassword.Location = new System.Drawing.Point(45, 266);
             this.TextPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TextPassword.MaxLength = 50;
             this.TextPassword.Name = "TextPassword";
             this.TextPassword.PasswordChar = '*';
             this.TextPassword.Size = new System.Drawing.Size(367, 27);
@@ -308,6 +310,7 @@
             this.TextNameUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TextNameUser.Location = new System.Drawing.Point(45, 190);
             this.TextNameUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TextNameUser.MaxLength = 30;
             this.TextNameUser.Name = "TextNameUser";
             this.TextNameUser.Size = new System.Drawing.Size(367, 27);
             this.TextNameUser.TabIndex = 0;
@@ -496,7 +499,7 @@
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormUser_RiwayatLogin";
-            this.Text = "FormRiwayatLogin";
+            this.Text = " ";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridListUser)).EndInit();

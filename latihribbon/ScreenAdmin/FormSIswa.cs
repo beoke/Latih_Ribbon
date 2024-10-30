@@ -92,6 +92,7 @@ namespace latihribbon
 
         public void InitCombo()
         {
+            rombelCombo.DropDownStyle = ComboBoxStyle.DropDownList;
             //textBox MaxLength
             txtNIS_FormSiswa.MaxLength = 9;
             txtNama_FormSiswa.MaxLength = 80;

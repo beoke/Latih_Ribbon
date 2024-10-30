@@ -132,6 +132,7 @@ namespace latihribbon.ScreenAdmin
             jurusanCombo.DataSource = listJurusan;
             jurusanCombo.DisplayMember = "NamaJurusan";
             jurusanCombo.ValueMember = "Id";
+            jurusanCombo.DropDownStyle = ComboBoxStyle.DropDownList;
             XRadio.Checked = true;
         }
 
