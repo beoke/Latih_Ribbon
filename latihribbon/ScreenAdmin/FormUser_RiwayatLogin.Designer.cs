@@ -335,6 +335,7 @@
             this.TextIdUser.ReadOnly = true;
             this.TextIdUser.Size = new System.Drawing.Size(367, 27);
             this.TextIdUser.TabIndex = 68;
+            this.TextIdUser.TabStop = false;
             // 
             // label9
             // 

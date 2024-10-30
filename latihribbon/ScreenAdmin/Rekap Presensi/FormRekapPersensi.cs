@@ -35,6 +35,13 @@ namespace latihribbon.ScreenAdmin
             LoadHistory();
             Event();
             InitGrid();
+
+            this.Load += FormRekapPersensi_Load;
+        }
+
+        private void FormRekapPersensi_Load(object sender, EventArgs e)
+        {
+            txtSearch.Focus();
         }
 
         public void buf()

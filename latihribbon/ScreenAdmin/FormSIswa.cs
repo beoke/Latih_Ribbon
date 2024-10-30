@@ -519,13 +519,13 @@ namespace latihribbon
                         {
                             for (int baris = 2; baris <= RowCount; baris++)
                             {
-                                var nis = long.TryParse(sheet.Cells[baris, 2].Value?.ToString(), out long parsedNis) ? parsedNis : (long?)null;
-                                var nama = sheet.Cells[baris, 3].Value?.ToString();
-                                var kelas = sheet.Cells[baris, 4].Value?.ToString();
+                                var nis = long.TryParse(sheet.Cells[baris, 2].Value?.ToString().Trim(), out long parsedNis) ? parsedNis : (long?)null;
+                                var nama = sheet.Cells[baris, 3].Value?.ToString().Trim();
+                                var kelas = sheet.Cells[baris, 4].Value?.ToString().Trim();
                                         
-                                var tahun = int.TryParse(sheet.Cells[baris, 6].Value?.ToString(), out int parsedTahun) ? parsedTahun : (int?)null;
-                                var presensi = int.TryParse(sheet.Cells[baris, 1].Value?.ToString(), out int parsedPresensi) ? parsedPresensi : (int?)null;
-                                var jenisKelamin = sheet.Cells[baris, 5].Value?.ToString();
+                                var tahun = int.TryParse(sheet.Cells[baris, 6].Value?.ToString().Trim(), out int parsedTahun) ? parsedTahun : (int?)null;
+                                var presensi = int.TryParse(sheet.Cells[baris, 1].Value?.ToString().Trim(), out int parsedPresensi) ? parsedPresensi : (int?)null;
+                                var jenisKelamin = sheet.Cells[baris, 5].Value?.ToString().Trim();
 
                                 bool isBarisKosong =
                                     nis == null &&
@@ -549,7 +549,6 @@ namespace latihribbon
                                 int idKelas = kelasDal.GetIdKelas(namaKelas);
 
                                 string gender = jenisKelamin.Trim();
-                                /*MessageBox.Show(idKelas.ToString()); return;*/
                                 if (idKelas != 0)
                                 {
                                     var cekDb = Conn.QueryFirstOrDefault<long?>("SELECT Nis FROM siswa WHERE Nis = @Nis", new { Nis = nis });
@@ -596,7 +595,7 @@ namespace latihribbon
                     new MesInformasi("Data siswa berhasil ditambahkan atau diperbarui").ShowDialog(this);
                     int row = daftarKelasError.Count <= 4 ? 1 : daftarKelasError.Count <= 10 ? 2 : 3;
                     string dftrKelas = string.Empty;
-                    MessageBox.Show(row.ToString());
+
                     if (daftarKelasError.Count < 1)
                         dftrKelas = "Tidak Ada";
                     else if (row == 1)
