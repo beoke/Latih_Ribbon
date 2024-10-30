@@ -30,11 +30,14 @@ namespace latihribbon
         private readonly KelasDal kelasDal;
         private readonly MesBox mesBox;
         private ToolTip toolTip;
+        private Dictionary<Control, Point> originalLocations = new Dictionary<Control, Point>();
+        private Dictionary<Control, Size> originalSizes = new Dictionary<Control, Size>();
 
         public FormSIswa()
         {
             InitializeComponent();
             buf();
+            this.Load += FormSIswa_Load;
             db = new DbDal();
             siswaDal = new SiswaDal();
             jurusanDal = new JurusanDal();
@@ -44,6 +47,33 @@ namespace latihribbon
             LoadData();
             InitComponent();
             RegisterEvent();
+        }
+
+        private void FormSIswa_Load(object sender, EventArgs e)
+        {
+            originalLocations[txtNIS_FormSiswa] = txtNIS_FormSiswa.Location;
+            originalLocations[lblNisSudahAda] = lblNisSudahAda.Location;
+            originalLocations[label11] = label11.Location;
+            originalLocations[txtPersensi_FormSiswa] = txtPersensi_FormSiswa.Location;
+            originalLocations[label6] = label6.Location;
+            originalLocations[txtNama_FormSiswa] = txtNama_FormSiswa.Location;
+            originalLocations[label7] = label7.Location;
+            originalLocations[groupBox1] = groupBox1.Location;
+            originalLocations[label8] = label8.Location;
+            originalLocations[XRadio] = XRadio.Location;
+            originalLocations[XIRadio] = XIRadio.Location;
+            originalLocations[XIIRadio] = XIIRadio.Location;
+            originalLocations[label10] = label10.Location;
+            originalLocations[label9] = label9.Location;
+            originalLocations[jurusanCombo] = jurusanCombo.Location;
+            originalLocations[rombelCombo] = rombelCombo.Location;
+            originalLocations[label12] = label12.Location;
+            originalLocations[txtTahun_FormSiswa] = txtTahun_FormSiswa.Location;
+
+            originalSizes[txtNIS_FormSiswa] = txtNIS_FormSiswa.Size;
+            originalSizes[txtPersensi_FormSiswa] = txtPersensi_FormSiswa.Size;
+            originalSizes[jurusanCombo] = jurusanCombo.Size;
+            originalSizes[rombelCombo] = rombelCombo.Size;
         }
 
         public void buf()
@@ -285,18 +315,42 @@ namespace latihribbon
 
         private void FormSIswa_Resize(object sender, EventArgs e)
         {
-            if (0 < 1)
+            if (panel5.Height < 510)
             {
-                lblNisSudahAda.Location = new Point(63, 50);
-                label11.Location = new Point(171, 49);
-                txtPersensi_FormSiswa.Location = new Point(175, 67);
-                txtPersensi_FormSiswa.Width = 144;
-                label6.Location = new Point(13, 96);
-
+                txtNIS_FormSiswa.Width = 140;
+                txtNIS_FormSiswa.Location = new Point(18,67);
+                lblNisSudahAda.Location = new Point(66, 50);
+                label11.Location = new Point(171,48);
+                txtPersensi_FormSiswa.Width = 140;
+                txtPersensi_FormSiswa.Location = new Point(168,67);
+                label6.Location = new Point(21,95);
+                txtNama_FormSiswa.Location = new Point(18,114);
+                label7.Location = new Point(22,144);
+                groupBox1.Location = new Point(18,162);
+                label8.Location = new Point(22,193);
+                XRadio.Location = new Point(54,212);
+                XIRadio.Location = new Point(122,212);
+                XIIRadio.Location = new Point(190,212);
+                label10.Location = new Point(22,247);
+                label9.Location = new Point(171, 247);
+                jurusanCombo.Width = 140;
+                rombelCombo.Width = 140;
+                jurusanCombo.Location = new Point(19,266);
+                rombelCombo.Location = new Point(168,266);
+                label12.Location = new Point(22,296);
+                txtTahun_FormSiswa.Location = new Point(19,315);
             }
             else
             {
+                foreach (var control in originalLocations.Keys)
+                {
+                    control.Location = originalLocations[control];
+                }
 
+                foreach (var control in originalSizes.Keys)
+                {
+                    control.Size = originalSizes[control];
+                }
             }
         }
 
