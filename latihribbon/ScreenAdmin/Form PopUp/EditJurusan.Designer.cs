@@ -146,6 +146,7 @@
             this.txtNamaJurusan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNamaJurusan.Location = new System.Drawing.Point(29, 155);
             this.txtNamaJurusan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtNamaJurusan.MaxLength = 10;
             this.txtNamaJurusan.Name = "txtNamaJurusan";
             this.txtNamaJurusan.Size = new System.Drawing.Size(402, 27);
             this.txtNamaJurusan.TabIndex = 30;
@@ -167,7 +168,7 @@
             this.ClientSize = new System.Drawing.Size(524, 337);
             this.Controls.Add(this.panel7);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "EditJurusan";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.panel7.ResumeLayout(false);

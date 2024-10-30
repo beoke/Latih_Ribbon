@@ -113,6 +113,7 @@
             this.txtRombel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRombel.Location = new System.Drawing.Point(29, 352);
             this.txtRombel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtRombel.MaxLength = 2;
             this.txtRombel.Name = "txtRombel";
             this.txtRombel.Size = new System.Drawing.Size(402, 27);
             this.txtRombel.TabIndex = 82;
@@ -277,7 +278,7 @@
             this.ClientSize = new System.Drawing.Size(524, 539);
             this.Controls.Add(this.panel7);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "EditKelas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "EditKelas";

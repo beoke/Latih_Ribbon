@@ -130,7 +130,7 @@
             // 
             this.btnKelas.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnKelas.Location = new System.Drawing.Point(381, 266);
-            this.btnKelas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnKelas.Margin = new System.Windows.Forms.Padding(4);
             this.btnKelas.Name = "btnKelas";
             this.btnKelas.Size = new System.Drawing.Size(53, 28);
             this.btnKelas.TabIndex = 81;
@@ -142,7 +142,7 @@
             this.alphaRadio.AutoSize = true;
             this.alphaRadio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.alphaRadio.Location = new System.Drawing.Point(220, 391);
-            this.alphaRadio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.alphaRadio.Margin = new System.Windows.Forms.Padding(4);
             this.alphaRadio.Name = "alphaRadio";
             this.alphaRadio.Size = new System.Drawing.Size(72, 24);
             this.alphaRadio.TabIndex = 80;
@@ -155,7 +155,7 @@
             this.sakitRadio.AutoSize = true;
             this.sakitRadio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sakitRadio.Location = new System.Drawing.Point(135, 391);
-            this.sakitRadio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.sakitRadio.Margin = new System.Windows.Forms.Padding(4);
             this.sakitRadio.Name = "sakitRadio";
             this.sakitRadio.Size = new System.Drawing.Size(67, 24);
             this.sakitRadio.TabIndex = 79;
@@ -168,7 +168,7 @@
             this.Izinradio.AutoSize = true;
             this.Izinradio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Izinradio.Location = new System.Drawing.Point(53, 391);
-            this.Izinradio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Izinradio.Margin = new System.Windows.Forms.Padding(4);
             this.Izinradio.Name = "Izinradio";
             this.Izinradio.Size = new System.Drawing.Size(56, 24);
             this.Izinradio.TabIndex = 78;
@@ -191,7 +191,7 @@
             this.tglDT.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tglDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tglDT.Location = new System.Drawing.Point(29, 327);
-            this.tglDT.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tglDT.Margin = new System.Windows.Forms.Padding(4);
             this.tglDT.Name = "tglDT";
             this.tglDT.Size = new System.Drawing.Size(404, 29);
             this.tglDT.TabIndex = 76;
@@ -214,6 +214,7 @@
             this.txtKelas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtKelas.Location = new System.Drawing.Point(29, 266);
             this.txtKelas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtKelas.MaxLength = 12;
             this.txtKelas.Name = "txtKelas";
             this.txtKelas.Size = new System.Drawing.Size(338, 27);
             this.txtKelas.TabIndex = 74;
@@ -309,6 +310,7 @@
             this.txtPersensi.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPersensi.Location = new System.Drawing.Point(29, 206);
             this.txtPersensi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtPersensi.MaxLength = 3;
             this.txtPersensi.Name = "txtPersensi";
             this.txtPersensi.Size = new System.Drawing.Size(402, 27);
             this.txtPersensi.TabIndex = 18;
@@ -330,7 +332,7 @@
             this.ClientSize = new System.Drawing.Size(524, 559);
             this.Controls.Add(this.panel7);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "EditAbsensi";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.panel7.ResumeLayout(false);

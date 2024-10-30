@@ -39,9 +39,11 @@ namespace latihribbon
             jurusanCombo.DataSource = jurusan;
             jurusanCombo.DisplayMember = "NamaJurusan";
             jurusanCombo.ValueMember = "Id";
-            
+            jurusanCombo.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            rombelCombo.DropDownStyle = ComboBoxStyle.DropDownList;
             GetDataSiswa(Nis);
-        }
+        }   
         private void RegisterEvent()
         {
             btnSave_FormSiswa.Click += BtnSave_FormSiswa_Click;

@@ -98,6 +98,7 @@
             this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearch.Location = new System.Drawing.Point(109, 26);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtSearch.MaxLength = 30;
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(410, 24);
             this.txtSearch.TabIndex = 0;
@@ -343,6 +344,7 @@
             this.txtPersensi1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPersensi1.Location = new System.Drawing.Point(20, 208);
             this.txtPersensi1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtPersensi1.MaxLength = 3;
             this.txtPersensi1.Name = "txtPersensi1";
             this.txtPersensi1.Size = new System.Drawing.Size(386, 27);
             this.txtPersensi1.TabIndex = 2;
@@ -447,6 +449,7 @@
             this.txtNIS1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtNIS1.Location = new System.Drawing.Point(20, 89);
             this.txtNIS1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtNIS1.MaxLength = 7;
             this.txtNIS1.Name = "txtNIS1";
             this.txtNIS1.Size = new System.Drawing.Size(386, 27);
             this.txtNIS1.TabIndex = 0;
@@ -467,6 +470,7 @@
             this.txtNama1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNama1.Location = new System.Drawing.Point(20, 149);
             this.txtNama1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtNama1.MaxLength = 100;
             this.txtNama1.Name = "txtNama1";
             this.txtNama1.ReadOnly = true;
             this.txtNama1.Size = new System.Drawing.Size(386, 27);
@@ -479,6 +483,7 @@
             this.txtKelas1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtKelas1.Location = new System.Drawing.Point(20, 268);
             this.txtKelas1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtKelas1.MaxLength = 10;
             this.txtKelas1.Name = "txtKelas1";
             this.txtKelas1.Size = new System.Drawing.Size(326, 27);
             this.txtKelas1.TabIndex = 3;

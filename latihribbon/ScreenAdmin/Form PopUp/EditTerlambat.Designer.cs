@@ -101,7 +101,7 @@
             this.jamMasuk.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.jamMasuk.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.jamMasuk.Location = new System.Drawing.Point(29, 326);
-            this.jamMasuk.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.jamMasuk.Margin = new System.Windows.Forms.Padding(4);
             this.jamMasuk.Name = "jamMasuk";
             this.jamMasuk.ShowUpDown = true;
             this.jamMasuk.Size = new System.Drawing.Size(401, 26);
@@ -134,7 +134,7 @@
             this.tglDT.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tglDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tglDT.Location = new System.Drawing.Point(29, 267);
-            this.tglDT.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tglDT.Margin = new System.Windows.Forms.Padding(4);
             this.tglDT.Name = "tglDT";
             this.tglDT.Size = new System.Drawing.Size(401, 26);
             this.tglDT.TabIndex = 69;
@@ -147,6 +147,7 @@
             this.txtAlasan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAlasan.Location = new System.Drawing.Point(29, 388);
             this.txtAlasan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtAlasan.MaxLength = 60;
             this.txtAlasan.Multiline = true;
             this.txtAlasan.Name = "txtAlasan";
             this.txtAlasan.Size = new System.Drawing.Size(402, 86);
@@ -277,7 +278,7 @@
             this.ClientSize = new System.Drawing.Size(524, 597);
             this.Controls.Add(this.panel7);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "EditTerlambat";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "EditTerlambat";
