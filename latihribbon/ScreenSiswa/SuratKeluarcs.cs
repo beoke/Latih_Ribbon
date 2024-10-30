@@ -143,7 +143,7 @@ namespace latihribbon
                      return false;
                  }*/
                 printPreviewDialogKeluar.Document = printDocumentKeluar;
-                printPreviewDialogKeluar.ShowDialog();
+                printPreviewDialogKeluar.ShowDialog(this);
 
                 //printDocumentKeluar.Print();
                 return true;
