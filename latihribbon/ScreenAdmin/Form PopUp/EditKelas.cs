@@ -53,6 +53,7 @@ namespace latihribbon
             jurusanCombo.DataSource = listJurusan;
             jurusanCombo.DisplayMember = "NamaJurusan";
             jurusanCombo.ValueMember = "Id";
+            jurusanCombo.DropDownStyle = ComboBoxStyle.DropDownList;
         }
         private void BtnSave_Click(object sender, EventArgs e)
         {

@@ -138,6 +138,7 @@
             this.txtNamaJurusan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNamaJurusan.Location = new System.Drawing.Point(27, 174);
             this.txtNamaJurusan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtNamaJurusan.MaxLength = 10;
             this.txtNamaJurusan.Name = "txtNamaJurusan";
             this.txtNamaJurusan.Size = new System.Drawing.Size(386, 27);
             this.txtNamaJurusan.TabIndex = 1;

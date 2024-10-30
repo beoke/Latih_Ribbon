@@ -167,7 +167,7 @@ namespace latihribbon
         bool Closing = true;
         private void ButtonLogOut_Click(object sender, EventArgs e)
         {
-            if (new MesQuestionYN("Apakah Anda Ingin Logout?").ShowDialog() == DialogResult.Yes) mainForm.Close();
+            if (new MesQuestionYN("Apakah Anda Ingin Logout?").ShowDialog(this) == DialogResult.Yes)
             {
                 Closing = false;
                 indexForm.Opacity = 1;

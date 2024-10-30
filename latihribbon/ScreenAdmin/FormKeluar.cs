@@ -77,6 +77,7 @@ namespace latihribbon
             comboPerPage.Items.Add(100);
             comboPerPage.Items.Add(200);
             comboPerPage.SelectedIndex = 0;
+            comboPerPage.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         public void InitComponent()

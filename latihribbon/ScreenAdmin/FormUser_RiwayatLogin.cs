@@ -66,6 +66,7 @@ namespace latihribbon
         {
             List<int> list = new List<int>() {10,20,50,100,200 };
             comboPerPage.DataSource = list;
+            comboPerPage.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void LoadUser()

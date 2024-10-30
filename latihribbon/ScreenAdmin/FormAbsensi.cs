@@ -63,6 +63,7 @@ namespace latihribbon
         {
             List<string> ketCombo = new List<string>() { "Semua","A","I","S"};
             KeteranganCombo.DataSource = ketCombo;
+            KeteranganCombo.DropDownStyle = ComboBoxStyle.DropDownList;
 
             comboPerPage.Items.Add(10);
             comboPerPage.Items.Add(20);
@@ -70,6 +71,7 @@ namespace latihribbon
             comboPerPage.Items.Add(100);
             comboPerPage.Items.Add(200);
             comboPerPage.SelectedIndex = 0;
+            comboPerPage.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void InitGrid()

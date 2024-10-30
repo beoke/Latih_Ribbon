@@ -230,6 +230,7 @@
             this.txtTahun_FormSiswa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTahun_FormSiswa.Location = new System.Drawing.Point(24, 513);
             this.txtTahun_FormSiswa.Margin = new System.Windows.Forms.Padding(1);
+            this.txtTahun_FormSiswa.MaxLength = 5;
             this.txtTahun_FormSiswa.Name = "txtTahun_FormSiswa";
             this.txtTahun_FormSiswa.Size = new System.Drawing.Size(386, 27);
             this.txtTahun_FormSiswa.TabIndex = 11;
@@ -276,6 +277,7 @@
             this.txtNIS_FormSiswa.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtNIS_FormSiswa.Location = new System.Drawing.Point(24, 82);
             this.txtNIS_FormSiswa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtNIS_FormSiswa.MaxLength = 7;
             this.txtNIS_FormSiswa.Name = "txtNIS_FormSiswa";
             this.txtNIS_FormSiswa.Size = new System.Drawing.Size(386, 27);
             this.txtNIS_FormSiswa.TabIndex = 1;
@@ -335,6 +337,7 @@
             this.txtPersensi_FormSiswa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPersensi_FormSiswa.Location = new System.Drawing.Point(24, 143);
             this.txtPersensi_FormSiswa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtPersensi_FormSiswa.MaxLength = 3;
             this.txtPersensi_FormSiswa.Name = "txtPersensi_FormSiswa";
             this.txtPersensi_FormSiswa.Size = new System.Drawing.Size(386, 27);
             this.txtPersensi_FormSiswa.TabIndex = 2;
@@ -424,6 +427,7 @@
             this.txtNama_FormSiswa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNama_FormSiswa.Location = new System.Drawing.Point(24, 203);
             this.txtNama_FormSiswa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtNama_FormSiswa.MaxLength = 100;
             this.txtNama_FormSiswa.Name = "txtNama_FormSiswa";
             this.txtNama_FormSiswa.Size = new System.Drawing.Size(386, 27);
             this.txtNama_FormSiswa.TabIndex = 3;

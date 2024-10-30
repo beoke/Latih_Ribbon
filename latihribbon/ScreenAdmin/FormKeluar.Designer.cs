@@ -390,6 +390,7 @@
             this.txtTujuan1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTujuan1.Location = new System.Drawing.Point(25, 448);
             this.txtTujuan1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtTujuan1.MaxLength = 60;
             this.txtTujuan1.Multiline = true;
             this.txtTujuan1.Name = "txtTujuan1";
             this.txtTujuan1.Size = new System.Drawing.Size(386, 86);
@@ -402,6 +403,7 @@
             this.txtNIS1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtNIS1.Location = new System.Drawing.Point(25, 80);
             this.txtNIS1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtNIS1.MaxLength = 7;
             this.txtNIS1.Name = "txtNIS1";
             this.txtNIS1.Size = new System.Drawing.Size(386, 27);
             this.txtNIS1.TabIndex = 0;

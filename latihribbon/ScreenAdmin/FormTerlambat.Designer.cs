@@ -357,6 +357,7 @@
             this.txtAlasan1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAlasan1.Location = new System.Drawing.Point(28, 384);
             this.txtAlasan1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtAlasan1.MaxLength = 60;
             this.txtAlasan1.Multiline = true;
             this.txtAlasan1.Name = "txtAlasan1";
             this.txtAlasan1.Size = new System.Drawing.Size(386, 73);
@@ -371,6 +372,7 @@
             this.txtNIS1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtNIS1.Location = new System.Drawing.Point(28, 82);
             this.txtNIS1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtNIS1.MaxLength = 7;
             this.txtNIS1.Name = "txtNIS1";
             this.txtNIS1.Size = new System.Drawing.Size(386, 27);
             this.txtNIS1.TabIndex = 0;
@@ -473,6 +475,7 @@
             this.txtFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFilter.Location = new System.Drawing.Point(105, 28);
             this.txtFilter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtFilter.MaxLength = 30;
             this.txtFilter.Name = "txtFilter";
             this.txtFilter.Size = new System.Drawing.Size(331, 24);
             this.txtFilter.TabIndex = 0;
