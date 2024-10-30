@@ -121,7 +121,7 @@ namespace latihribbon
         {
             using (var Conn = new SqlConnection(conn.connstr()))
             {
-                const string sql = @"SELECT id, username, password FROM Users ORDER BY id ASC";
+                const string sql = @"SELECT id, username, password FROM Users WHERE Role = 'admin' ORDER BY id ASC";
 
                 return Conn.Query<UserModel>(sql);
             }

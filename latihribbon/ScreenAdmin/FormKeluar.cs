@@ -118,7 +118,7 @@ namespace latihribbon
         {
             string sqlc = string.Empty;
             List<string> fltr = new List<string>();
-            if (search != "") fltr.Add("k.NIS LIKE '%'+ @search+'%'  OR s.Nama LIKE '%' +@search+'%'  OR kls.NamaKelas LIKE'%' +@search+'%'");
+            if (search != "") fltr.Add("(k.NIS LIKE '%'+ @search+'%'  OR s.Nama LIKE '%' +@search+'%'  OR kls.NamaKelas LIKE'%' +@search+'%')");
             if (tglchange) fltr.Add("k.Tanggal BETWEEN @tgl1 AND @tgl2");
             if (fltr.Count > 0)
                 sqlc += " WHERE " + string.Join(" AND ", fltr);

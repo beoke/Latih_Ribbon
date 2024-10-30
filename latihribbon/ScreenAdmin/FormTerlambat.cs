@@ -89,6 +89,7 @@ namespace latihribbon
             comboPerPage.Items.Add(100);
             comboPerPage.Items.Add(200);
             comboPerPage.SelectedIndex = 0;
+            comboPerPage.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         bool tglchange = false;
@@ -107,7 +108,7 @@ namespace latihribbon
             if (search != "") 
             {
                 dp.Add("@Search", search);
-                if (search != "") fltr.Add("m.NIS LIKE @Search+'%' OR s.Nama LIKE '%'+@Search+'%' OR kls.NamaKelas LIKE '%'+@Search+'%'");
+                if (search != "") fltr.Add("(m.NIS LIKE @Search+'%' OR s.Nama LIKE '%'+@Search+'%' OR kls.NamaKelas LIKE '%'+@Search+'%')");
             }
             if (tglchange)
             {

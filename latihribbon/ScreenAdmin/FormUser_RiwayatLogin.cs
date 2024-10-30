@@ -187,6 +187,7 @@ namespace latihribbon
 
         private void ComboPerPage_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Page = 1;
             LoadData();
         }
 
@@ -238,7 +239,7 @@ namespace latihribbon
         string Userlama = string.Empty;
       
 
-        private int SaveUser(int idUser)
+        private void SaveUser(int idUser)
         {
             var user = new UserModel
             {
@@ -247,25 +248,12 @@ namespace latihribbon
                 password = HashPassword(TextPassword.Text),
                 Role = "admin",
             };
-
-            if (idUser == 0)
-            {
-                _riwayatLoginDal.Insert(user);
-                LabelAddUser.Text = "Add User";
-                ClearUser();
-                LoadData();
-                LoadUser();
-                LoadRiwayatLogin();
-            }
-            else
-            {
-                _riwayatLoginDal.Update(user);
-                _riwayatLoginDal.UpdateUserRiwayat(user.username,Userlama);
-                LoadData();
-                LoadUser();
-                LoadRiwayatLogin();
-            }
-            return idUser;
+            _riwayatLoginDal.Insert(user);
+            LabelAddUser.Text = "Add User";
+            ClearUser();
+            LoadData();
+            LoadUser();
+            LoadRiwayatLogin();
         }
 
         private void ClearUser()

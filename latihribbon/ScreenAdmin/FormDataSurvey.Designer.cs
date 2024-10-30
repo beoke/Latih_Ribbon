@@ -242,7 +242,6 @@
             this.TextTotalPuas.Size = new System.Drawing.Size(91, 27);
             this.TextTotalPuas.TabIndex = 87;
             this.TextTotalPuas.TabStop = false;
-            this.TextTotalPuas.TextChanged += new System.EventHandler(this.TextTotalPuas_TextChanged);
             // 
             // label1
             // 

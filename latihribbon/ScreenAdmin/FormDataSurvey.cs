@@ -39,7 +39,7 @@ namespace latihribbon
             GridListSurvey.CellMouseClick += GridListSurvey_CellMouseClick;
             DeleteMenuStrip.Click += DeleteMenuStrip_Click;
 
-            ComboFilter.SelectedValueChanged += ComboFilter_SelectedValueChanged;
+            ComboFilter.SelectedValueChanged += ComboPerPage_SelectedIndexChanged;
             PickerRentan_1.ValueChanged += PickerRentan_ValueChanged;
             PickerRentan_2.ValueChanged += PickerRentan_ValueChanged;
 
@@ -50,7 +50,61 @@ namespace latihribbon
 
             this.Load += FormDataSurvey_Load;
         }
+        bool TanggalCanged = false;
+        int pageNow = 1;
+        int totalPage;
+        private void LoadData()
+        {
+            DateTime FilterToday = DateTime.Today;
+            DateTime tgl1 = PickerRentan_1.Value;
+            DateTime tgl2 = PickerRentan_2.Value;
 
+            var dp = new DynamicParameters();
+            string sqlc = string.Empty;
+            List<string> list = new List<string>();
+
+            if (ComboFilter.SelectedIndex != 0)
+            {
+                list.Add("Tanggal = @FilterToday");
+                dp.Add("@FilterToday", FilterToday);
+            }
+            if (TanggalCanged)
+            {
+                list.Add("Tanggal BETWEEN @tgl1 AND @tgl2");
+                dp.Add("@tgl1", tgl1);
+                dp.Add("@tgl2", tgl2);
+            }
+            if (list.Count > 0)
+                sqlc += " WHERE " + string.Join(" AND ", list);
+
+
+            int rowPerPage = (int)comboPerPage.SelectedValue;
+
+            int rowInPage = (pageNow - 1) * rowPerPage;
+            int totalData = rowCount(sqlc, dp);
+            totalPage = (int)Math.Ceiling((double)totalData / rowPerPage);
+
+            dp.Add("@Offset", rowInPage);
+            dp.Add("@Fetch", rowPerPage);
+
+            string text = "Halaman";
+            text += $"{pageNow.ToString()}/{totalPage.ToString()}";
+            LabelHalaman.Text = text;
+
+
+
+            GridListSurvey.DataSource = ListData(sqlc, "OFFSET @Offset ROWS FETCH NEXT @Fetch ROWS ONLY", dp)
+                                        .Select(x => new
+                                        {
+                                            Id = x.SurveyId,
+                                            Jawaban_Survey = x.HasilSurvey == 1 ? "Puas" : "Tidak Puas",
+                                            Tanggal = x.Tanggal.ToString("dd/MM/yyyy"),
+                                            Waktu = x.Waktu.ToString(@"hh\:mm")
+                                        }).ToList();
+
+            TextTotalPuas.Text = ListData(sqlc, string.Empty, dp).Count(x => x.HasilSurvey == 1).ToString();
+            TextTotalTidakPuas.Text = ListData(sqlc, string.Empty, dp).Count(x => x.HasilSurvey == 0).ToString();
+        }
         private void FormDataSurvey_Load(object sender, EventArgs e)
         {
             ComboFilter.Focus();
@@ -71,6 +125,7 @@ namespace latihribbon
 
         private void ComboPerPage_SelectedIndexChanged(object sender, EventArgs e)
         {
+            pageNow = 1;
             LoadData();
         }
 
@@ -91,7 +146,6 @@ namespace latihribbon
             var id = GridListSurvey.CurrentRow.Cells[0].Value;
             Delete(Convert.ToInt16(id));
             LoadData();
-           
         }
 
         private void ButtonNext_Click(object sender, EventArgs e)
@@ -127,68 +181,6 @@ namespace latihribbon
             GridListSurvey.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
-        bool TanggalCanged = false;
-        int pageNow = 1;
-        int totalPage;
-        private void LoadData()
-        {
-            DateTime FilterToday = DateTime.Today;
-            DateTime tgl1 = PickerRentan_1.Value;
-            DateTime tgl2 = PickerRentan_2.Value;
-
-            var dp = new DynamicParameters();
-            string sqlc = string.Empty;
-            List<string> list = new List<string>();
-
-
-
-
-            if (ComboFilter.SelectedIndex != 0)
-            {
-                list.Add("Tanggal = @FilterToday");
-                dp.Add("@FilterToday", FilterToday);
-            }
-            if (TanggalCanged)
-            {
-                list.Add("Tanggal BETWEEN @tgl1 AND @tgl2");
-                dp.Add("@tgl1", tgl1);
-                dp.Add("@tgl2", tgl2);
-            }
-            if (list.Count > 0)
-                sqlc += " WHERE " + string.Join(" AND ", list);
-
-
-
-          
-            int rowPerPage = (int)comboPerPage.SelectedValue;
-
-            int rowInPage = (pageNow - 1) * rowPerPage;
-            int totalData = rowCount(sqlc, dp);
-            totalPage = (int)Math.Ceiling((double)totalData / rowPerPage);
-
-            dp.Add("@Offset", rowInPage);
-            dp.Add("@Fetch", rowPerPage);
-
-            string text = "Halaman";
-            text += $"{pageNow.ToString()}/{totalPage.ToString()}";
-            LabelHalaman.Text = text;
-
-
-
-            GridListSurvey.DataSource = ListData(sqlc, "OFFSET @Offset ROWS FETCH NEXT @Fetch ROWS ONLY", dp)
-                                        .Select(x => new
-                                        {
-                                            Id = x.SurveyId,
-                                            Jawaban_Survey = x.HasilSurvey == 1 ? "Puas" : "Tidak Puas",
-                                            Tanggal = x.Tanggal.ToString("dd/MM/yyyy"),
-                                            Waktu = x.Waktu.ToString(@"hh\:mm")
-                                        }).ToList();
-
-            TextTotalPuas.Text = ListData(sqlc, string.Empty, dp).Count(x => x.HasilSurvey == 1).ToString();
-            TextTotalTidakPuas.Text = ListData(sqlc, string.Empty, dp).Count(x => x.HasilSurvey == 0).ToString();
-        }
-
-
         private void ButtonResetFilter_Click(object sender, EventArgs e)
         {
             ComboFilter.SelectedIndex = 0;
@@ -200,16 +192,10 @@ namespace latihribbon
 
         private void PickerRentan_ValueChanged(object sender, EventArgs e)
         {
+            pageNow = 1;
             TanggalCanged = true;
             LoadData();
         }
-
-
-        private void ComboFilter_SelectedValueChanged(object sender, EventArgs e)
-        {
-            LoadData();
-        }
-
       
         #endregion
 
@@ -273,10 +259,5 @@ namespace latihribbon
         }
 
         #endregion
-
-        private void TextTotalPuas_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

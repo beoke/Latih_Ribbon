@@ -95,6 +95,12 @@ namespace latihribbon
             string username = tx_Username.Text;
             string password = tx_Password.Text;
 
+            if(username == "" || password == "")
+            {
+                new MesError("Username && Password tidak boleh kosong!").ShowDialog(this);
+                return;
+            }
+
             DbDal dbDal = new DbDal();
             UserModel user = dbDal.GetUsers(username);
 

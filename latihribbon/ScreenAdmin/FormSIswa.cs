@@ -239,15 +239,21 @@ namespace latihribbon
             string sqlc = string.Empty;
             var dp = new DynamicParameters();
             List<string> fltr = new List<string>();
-            if (search != "") { fltr.Add("s.Nis LIKE @Search+'%' OR s.Nama LIKE '%'+@Search+'%' OR k.NamaKelas LIKE '%'+@Search+'%'"); dp.Add("@Search", search); }
-            if (tahun != "Semua") { fltr.Add("s.Tahun LIKE @Tahun+'%'"); dp.Add("@Tahun", tahun); }
+            if (search != "") 
+            { 
+                fltr.Add("(s.Nis LIKE @Search+'%' OR s.Nama LIKE '%'+@Search+'%' OR k.NamaKelas LIKE '%'+@Search+'%')");
+                dp.Add("@Search", search); 
+            }
+            
+            if (tahun != "Semua") 
+            { 
+                fltr.Add("s.Tahun LIKE @Tahun+'%'");
+                dp.Add("@Tahun", tahun); 
+            }
             if (fltr.Count > 0)
                 sqlc += " WHERE " + string.Join(" AND ", fltr);
-
             string text = "Halaman ";
-            string row = comboPerPage.SelectedItem?.ToString()?? string.Empty;
-            int RowPerPage = row == string.Empty ? 10 : Convert.ToInt32(row);
-            if (RowPerPage == 10) comboPerPage.SelectedIndex = 0;
+            int RowPerPage = (int)comboPerPage.SelectedItem;
             int inRowPage = (Page - 1) * RowPerPage;
             var jumlahRow = siswaDal.CekRows(sqlc, dp);
             totalPage = (int)Math.Ceiling((double)jumlahRow / RowPerPage);
@@ -263,7 +269,7 @@ namespace latihribbon
                     Persensi = x.Persensi,
                     Nama = x.Nama,
                     JenisKelamin = x.JenisKelamin,
-                    Kelas = x.NamaKelas == null ? "Sudah Lulus" : x.NamaKelas,
+                    Kelas = x.NamaKelas,
                     Tahun = x.Tahun
                 }).ToList();
         }
