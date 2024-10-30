@@ -212,7 +212,29 @@ namespace latihribbon
             dataGridView1.CellMouseClick += DataGridView1_CellMouseClick;
             EditMenuStrip.Click += EditMenuStrip_Click;
             DeleteMenuStrip.Click += DeleteMenuStrip_Click;
+
+            btnNext.Click += btnNext_Click;
+            btnPrevious.Click += btnPrevious_Click;
         }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            if (Page < totalPage)
+            {
+                Page++;
+                LoadData();
+            }
+        }
+
+        private void btnPrevious_Click(object sender, EventArgs e)
+        {
+            if (Page > 1)
+            {
+                Page--;
+                LoadData();
+            }
+        }
+
         private void DeleteMenuStrip_Click(object sender, EventArgs e)
         {
             if (new MesWarningYN("Hapus Data ?").ShowDialog(this) != DialogResult.Yes) return;
@@ -251,10 +273,6 @@ namespace latihribbon
                 lblFilter.Visible = true;
         }
 
-        private void TxtFilter_Enter(object sender, EventArgs e)
-        {
-            lblFilter.Visible = false;
-        }
         private void FormTerlambat_Resize(object sender, EventArgs e)
         {
             if (panel4.Height < 458)

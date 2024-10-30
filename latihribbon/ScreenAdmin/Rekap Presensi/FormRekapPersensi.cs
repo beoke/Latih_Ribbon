@@ -63,9 +63,11 @@ namespace latihribbon.ScreenAdmin
             comboPerPage.Items.Add(100);
             comboPerPage.Items.Add(200);
             comboPerPage.SelectedIndex = 0;
+            comboPerPage.DropDownStyle = ComboBoxStyle.DropDownList;
 
             List<string> Keterangan = new List<string>() { "Semua", "A", "I", "S" };
             KeteranganCombo.DataSource = Keterangan;
+            KeteranganCombo.DropDownStyle = ComboBoxStyle.DropDownList;
         }
         public void InitGrid()
         {

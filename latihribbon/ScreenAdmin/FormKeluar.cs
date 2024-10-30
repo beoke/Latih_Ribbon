@@ -254,7 +254,14 @@ namespace latihribbon
             TextSearch.TextChanged += TextSearch_ChangeLeave;
             TextSearch.Leave += TextSearch_ChangeLeave;
             lblFilter.Click += LblFilter_Click;
+
+            btnNext.Click += btnNext_Click;
+            btnPrevious.Click += btnPrevious_Click;
         }
+
+
+     
+
 
         private void FormKeluar_Resize(object sender, EventArgs e)
         {

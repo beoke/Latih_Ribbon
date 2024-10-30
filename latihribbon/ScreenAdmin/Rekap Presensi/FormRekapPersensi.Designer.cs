@@ -65,7 +65,7 @@
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(1349, 311);
+            this.dataGridView1.Size = new System.Drawing.Size(1353, 311);
             this.dataGridView1.TabIndex = 1;
             // 
             // btnResetFilter
@@ -135,6 +135,7 @@
             this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearch.Location = new System.Drawing.Point(104, 27);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtSearch.MaxLength = 30;
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(409, 24);
             this.txtSearch.TabIndex = 0;
@@ -155,6 +156,7 @@
             this.txtKelas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtKelas.Location = new System.Drawing.Point(601, 27);
             this.txtKelas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtKelas.MaxLength = 12;
             this.txtKelas.Name = "txtKelas";
             this.txtKelas.ReadOnly = true;
             this.txtKelas.Size = new System.Drawing.Size(88, 24);
@@ -186,7 +188,7 @@
             this.panel1.Location = new System.Drawing.Point(1, 76);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1367, 393);
+            this.panel1.Size = new System.Drawing.Size(1371, 393);
             this.panel1.TabIndex = 3;
             // 
             // label14
@@ -219,7 +221,7 @@
             this.lblHalaman.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblHalaman.AutoSize = true;
             this.lblHalaman.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHalaman.Location = new System.Drawing.Point(588, 346);
+            this.lblHalaman.Location = new System.Drawing.Point(590, 346);
             this.lblHalaman.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblHalaman.Name = "lblHalaman";
             this.lblHalaman.Size = new System.Drawing.Size(113, 20);
@@ -229,7 +231,7 @@
             // btnNext
             // 
             this.btnNext.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnNext.Location = new System.Drawing.Point(727, 342);
+            this.btnNext.Location = new System.Drawing.Point(729, 342);
             this.btnNext.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(100, 28);
@@ -242,7 +244,7 @@
             // btnPrevious
             // 
             this.btnPrevious.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnPrevious.Location = new System.Drawing.Point(462, 342);
+            this.btnPrevious.Location = new System.Drawing.Point(464, 342);
             this.btnPrevious.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(100, 28);
@@ -258,7 +260,7 @@
             this.btnPrintRekap.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPrintRekap.BackgroundImage")));
             this.btnPrintRekap.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnPrintRekap.FlatAppearance.BorderSize = 2;
-            this.btnPrintRekap.Location = new System.Drawing.Point(1269, 334);
+            this.btnPrintRekap.Location = new System.Drawing.Point(1273, 334);
             this.btnPrintRekap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnPrintRekap.Name = "btnPrintRekap";
             this.btnPrintRekap.Size = new System.Drawing.Size(61, 46);
@@ -303,7 +305,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1370, 469);
+            this.ClientSize = new System.Drawing.Size(1374, 469);
             this.Controls.Add(this.lblFilter);
             this.Controls.Add(this.btnKelas);
             this.Controls.Add(this.label6);

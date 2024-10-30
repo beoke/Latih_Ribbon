@@ -221,7 +221,6 @@
             this.btnNext.TabStop = false;
             this.btnNext.Text = ">";
             this.btnNext.UseVisualStyleBackColor = true;
-            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // btnPrevious
             // 
@@ -234,7 +233,6 @@
             this.btnPrevious.TabStop = false;
             this.btnPrevious.Text = "<";
             this.btnPrevious.UseVisualStyleBackColor = true;
-            this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
             // 
             // panel4
             // 
