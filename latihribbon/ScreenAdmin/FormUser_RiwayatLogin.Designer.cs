@@ -256,7 +256,7 @@
             this.ButtonSaveUser.BackColor = System.Drawing.Color.LimeGreen;
             this.ButtonSaveUser.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonSaveUser.ForeColor = System.Drawing.Color.White;
-            this.ButtonSaveUser.Location = new System.Drawing.Point(292, 508);
+            this.ButtonSaveUser.Location = new System.Drawing.Point(295, 512);
             this.ButtonSaveUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonSaveUser.Name = "ButtonSaveUser";
             this.ButtonSaveUser.Size = new System.Drawing.Size(120, 39);

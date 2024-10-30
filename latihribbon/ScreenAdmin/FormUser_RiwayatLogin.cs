@@ -42,6 +42,7 @@ namespace latihribbon
 
         private void FormUser_RiwayatLogin_Load(object sender, EventArgs e)
         {
+            // fokusssssssss
             TextSearchRiwayat.Focus();
         }
 
