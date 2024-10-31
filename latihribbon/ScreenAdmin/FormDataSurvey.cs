@@ -120,7 +120,8 @@ namespace latihribbon
             ComboFilter.Items.Add("Semua");
             ComboFilter.Items.Add("Hari ini");
             ComboFilter.SelectedIndex = 0;
-            ComboFilter.DropDownStyle = ComboBoxStyle.DropDownList;
+            ComboFilter.KeyPress += (s, e) => e.Handled = true;
+            ComboFilter.MouseDown += (s, e) => ComboFilter.DroppedDown = true;
         }
 
         private void ComboPerPage_SelectedIndexChanged(object sender, EventArgs e)

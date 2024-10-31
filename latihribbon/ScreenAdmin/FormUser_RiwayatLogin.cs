@@ -183,6 +183,19 @@ namespace latihribbon
             ButtonSaveUser.Click += ButtonSaveUser_Click;
             GridListUser.CellMouseClick += GridListUser_CellMouseClick;
             DeleteMenuStrip.Click += DeleteMenuStrip_Click;
+            this.Resize += FormUser_RiwayatLogin_Resize;
+        }
+
+        private void FormUser_RiwayatLogin_Resize(object sender, EventArgs e)
+        {
+            if(GridListRiwayatLogin.Width < 610)
+            {
+                GridListRiwayatLogin.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            }
+            else
+            {
+                GridListRiwayatLogin.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            }
         }
 
         private void ComboPerPage_SelectedIndexChanged(object sender, EventArgs e)

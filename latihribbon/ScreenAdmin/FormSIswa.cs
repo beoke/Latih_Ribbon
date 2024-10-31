@@ -109,7 +109,8 @@ namespace latihribbon
             jurusanCombo.DataSource = jurusan;
             jurusanCombo.DisplayMember = "NamaJurusan";
             jurusanCombo.ValueMember = "Id";
-            jurusanCombo.DropDownStyle = ComboBoxStyle.DropDownList;
+            jurusanCombo.KeyPress += (s, e) => e.Handled = true;
+            jurusanCombo.MouseDown += (s, e) => jurusanCombo.DroppedDown = true;
 
 
             // Combo Filter
@@ -122,7 +123,8 @@ namespace latihribbon
                 listTahun.Add(item.Tahun);
             }
             comboTahunFilter.DataSource = listTahun;
-            comboTahunFilter.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboTahunFilter.KeyPress += (s, e) => e.Handled = true;
+            comboTahunFilter.MouseDown += (s, e) => comboTahunFilter.DroppedDown = true;
 
             toolTip = new ToolTip();
 
@@ -130,6 +132,12 @@ namespace latihribbon
             toolTip.SetToolTip(ButtonInputSIswa, "Import Data");
             toolTip.SetToolTip(btnResetFilter, "Reset Filter");
         }
+
+        private void ComboPerPage_MouseDown(object sender, MouseEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
         public void InitComponent()
         {
             // DataGrid
