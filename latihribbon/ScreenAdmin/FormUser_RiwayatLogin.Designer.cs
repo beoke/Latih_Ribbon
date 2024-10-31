@@ -441,7 +441,7 @@
             this.panel9.Location = new System.Drawing.Point(6, 7);
             this.panel9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(532, 61);
+            this.panel9.Size = new System.Drawing.Size(531, 61);
             this.panel9.TabIndex = 8;
             // 
             // LabelJurusan
@@ -449,7 +449,7 @@
             this.LabelJurusan.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LabelJurusan.AutoSize = true;
             this.LabelJurusan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelJurusan.Location = new System.Drawing.Point(201, 20);
+            this.LabelJurusan.Location = new System.Drawing.Point(200, 20);
             this.LabelJurusan.Name = "LabelJurusan";
             this.LabelJurusan.Size = new System.Drawing.Size(121, 20);
             this.LabelJurusan.TabIndex = 58;
