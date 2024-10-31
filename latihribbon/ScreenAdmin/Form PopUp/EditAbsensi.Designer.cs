@@ -335,6 +335,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "EditAbsensi";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = " ";
             this.panel7.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);

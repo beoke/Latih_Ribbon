@@ -43,7 +43,8 @@ namespace latihribbon
             jurusanCombo.KeyPress += (s, e) => e.Handled = true; // versi singkat event
             jurusanCombo.MouseDown += (s, e) => jurusanCombo.DroppedDown = true;
 
-            rombelCombo.DropDownStyle = ComboBoxStyle.DropDownList;
+            rombelCombo.KeyPress += (s, e) => e.Handled = true;
+            rombelCombo.MouseDown += (s, e) => rombelCombo.DroppedDown = true;
             GetDataSiswa(Nis);
         }   
         private void RegisterEvent()
