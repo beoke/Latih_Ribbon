@@ -22,6 +22,7 @@ namespace latihribbon
         private readonly KelasDal _kelasDal;
         private int Nis = 0;
 
+
         public EditSiswa(int Nis)
         {
             _siswaDal = new SiswaDal();
@@ -39,7 +40,8 @@ namespace latihribbon
             jurusanCombo.DataSource = jurusan;
             jurusanCombo.DisplayMember = "NamaJurusan";
             jurusanCombo.ValueMember = "Id";
-            jurusanCombo.DropDownStyle = ComboBoxStyle.DropDownList;
+            jurusanCombo.KeyPress += (s, e) => e.Handled = true; // versi singkat event
+            jurusanCombo.MouseDown += (s, e) => jurusanCombo.DroppedDown = true;
 
             rombelCombo.DropDownStyle = ComboBoxStyle.DropDownList;
             GetDataSiswa(Nis);

@@ -198,7 +198,6 @@ namespace latihribbon
         }
       
         #endregion
-
         public void buf()
         {
             typeof(DataGridView).InvokeMember("DoubleBuffered",
