@@ -125,7 +125,6 @@ namespace latihribbon
             }
         }
 
-
         bool SqlGlobal = false;
         private string FilterData(string userLogin)
         {
