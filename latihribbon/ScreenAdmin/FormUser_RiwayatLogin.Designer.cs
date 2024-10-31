@@ -50,12 +50,13 @@
             this.label7 = new System.Windows.Forms.Label();
             this.TextIdUser = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.panelPage = new System.Windows.Forms.Panel();
+            this.lblHalaman = new System.Windows.Forms.Label();
+            this.btnPrevious = new System.Windows.Forms.Button();
+            this.btnNext = new System.Windows.Forms.Button();
+            this.panelRiwayat = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
             this.comboPerPage = new System.Windows.Forms.ComboBox();
-            this.lblHalaman = new System.Windows.Forms.Label();
-            this.btnNext = new System.Windows.Forms.Button();
-            this.btnPrevious = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
             this.LabelJurusan = new System.Windows.Forms.Label();
             this.GridListRiwayatLogin = new System.Windows.Forms.DataGridView();
@@ -66,7 +67,8 @@
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.panelPage.SuspendLayout();
+            this.panelRiwayat.SuspendLayout();
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridListRiwayatLogin)).BeginInit();
             this.contextMenuStrip2.SuspendLayout();
@@ -92,7 +94,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.PickerRentan_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PickerRentan_2.Location = new System.Drawing.Point(525, 23);
-            this.PickerRentan_2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PickerRentan_2.Margin = new System.Windows.Forms.Padding(2);
             this.PickerRentan_2.Name = "PickerRentan_2";
             this.PickerRentan_2.Size = new System.Drawing.Size(138, 21);
             this.PickerRentan_2.TabIndex = 30;
@@ -104,7 +106,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.PickerRentan_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PickerRentan_1.Location = new System.Drawing.Point(361, 23);
-            this.PickerRentan_1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PickerRentan_1.Margin = new System.Windows.Forms.Padding(2);
             this.PickerRentan_1.Name = "PickerRentan_1";
             this.PickerRentan_1.Size = new System.Drawing.Size(138, 21);
             this.PickerRentan_1.TabIndex = 29;
@@ -131,7 +133,7 @@
             this.TextSearchRiwayat.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TextSearchRiwayat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TextSearchRiwayat.Location = new System.Drawing.Point(112, 23);
-            this.TextSearchRiwayat.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TextSearchRiwayat.Margin = new System.Windows.Forms.Padding(2);
             this.TextSearchRiwayat.MaxLength = 30;
             this.TextSearchRiwayat.Name = "TextSearchRiwayat";
             this.TextSearchRiwayat.Size = new System.Drawing.Size(106, 21);
@@ -164,9 +166,9 @@
             this.panel1.Controls.Add(this.PickerRentan_2);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1392, 63);
+            this.panel1.Size = new System.Drawing.Size(1066, 63);
             this.panel1.TabIndex = 0;
             // 
             // btnResetFilter
@@ -190,7 +192,7 @@
             this.GridListUser.Location = new System.Drawing.Point(7, 76);
             this.GridListUser.Name = "GridListUser";
             this.GridListUser.RowHeadersWidth = 51;
-            this.GridListUser.Size = new System.Drawing.Size(458, 408);
+            this.GridListUser.Size = new System.Drawing.Size(458, 357);
             this.GridListUser.TabIndex = 0;
             // 
             // panel4
@@ -201,8 +203,8 @@
             this.panel4.Controls.Add(this.panel2);
             this.panel4.Controls.Add(this.GridListUser);
             this.panel4.Controls.Add(this.panel5);
-            this.panel4.Location = new System.Drawing.Point(560, 74);
-            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel4.Location = new System.Drawing.Point(234, 74);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(822, 491);
             this.panel4.TabIndex = 2;
@@ -215,7 +217,7 @@
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.label6);
             this.panel2.Location = new System.Drawing.Point(7, 7);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(458, 61);
             this.panel2.TabIndex = 8;
@@ -246,7 +248,7 @@
             this.panel5.Controls.Add(this.TextIdUser);
             this.panel5.Controls.Add(this.label9);
             this.panel5.Location = new System.Drawing.Point(473, 7);
-            this.panel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel5.Margin = new System.Windows.Forms.Padding(2);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(342, 477);
             this.panel5.TabIndex = 1;
@@ -258,7 +260,7 @@
             this.ButtonSaveUser.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonSaveUser.ForeColor = System.Drawing.Color.White;
             this.ButtonSaveUser.Location = new System.Drawing.Point(221, 416);
-            this.ButtonSaveUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ButtonSaveUser.Margin = new System.Windows.Forms.Padding(2);
             this.ButtonSaveUser.Name = "ButtonSaveUser";
             this.ButtonSaveUser.Size = new System.Drawing.Size(90, 32);
             this.ButtonSaveUser.TabIndex = 2;
@@ -284,7 +286,7 @@
             this.TextPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TextPassword.ForeColor = System.Drawing.SystemColors.ControlText;
             this.TextPassword.Location = new System.Drawing.Point(34, 216);
-            this.TextPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TextPassword.Margin = new System.Windows.Forms.Padding(2);
             this.TextPassword.MaxLength = 50;
             this.TextPassword.Name = "TextPassword";
             this.TextPassword.PasswordChar = '*';
@@ -309,7 +311,7 @@
             this.TextNameUser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TextNameUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TextNameUser.Location = new System.Drawing.Point(34, 154);
-            this.TextNameUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TextNameUser.Margin = new System.Windows.Forms.Padding(2);
             this.TextNameUser.MaxLength = 30;
             this.TextNameUser.Name = "TextNameUser";
             this.TextNameUser.Size = new System.Drawing.Size(276, 23);
@@ -334,7 +336,7 @@
             this.TextIdUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TextIdUser.ForeColor = System.Drawing.SystemColors.ControlText;
             this.TextIdUser.Location = new System.Drawing.Point(34, 93);
-            this.TextIdUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TextIdUser.Margin = new System.Windows.Forms.Padding(2);
             this.TextIdUser.Name = "TextIdUser";
             this.TextIdUser.ReadOnly = true;
             this.TextIdUser.Size = new System.Drawing.Size(276, 23);
@@ -352,24 +354,68 @@
             this.label9.TabIndex = 66;
             this.label9.Text = "Id User";
             // 
-            // panel3
+            // panelPage
             // 
-            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.panelPage.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.panelPage.Controls.Add(this.lblHalaman);
+            this.panelPage.Controls.Add(this.btnPrevious);
+            this.panelPage.Controls.Add(this.btnNext);
+            this.panelPage.Location = new System.Drawing.Point(-29, 438);
+            this.panelPage.Name = "panelPage";
+            this.panelPage.Size = new System.Drawing.Size(274, 44);
+            this.panelPage.TabIndex = 9;
+            // 
+            // lblHalaman
+            // 
+            this.lblHalaman.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.lblHalaman.AutoSize = true;
+            this.lblHalaman.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHalaman.Location = new System.Drawing.Point(94, 15);
+            this.lblHalaman.Name = "lblHalaman";
+            this.lblHalaman.Size = new System.Drawing.Size(90, 16);
+            this.lblHalaman.TabIndex = 33;
+            this.lblHalaman.Text = "Halaman 1/10";
+            // 
+            // btnPrevious
+            // 
+            this.btnPrevious.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnPrevious.Location = new System.Drawing.Point(1, 11);
+            this.btnPrevious.Name = "btnPrevious";
+            this.btnPrevious.Size = new System.Drawing.Size(75, 23);
+            this.btnPrevious.TabIndex = 31;
+            this.btnPrevious.TabStop = false;
+            this.btnPrevious.Text = "<";
+            this.btnPrevious.UseVisualStyleBackColor = true;
+            this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
+            // 
+            // btnNext
+            // 
+            this.btnNext.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnNext.Location = new System.Drawing.Point(199, 11);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(75, 23);
+            this.btnNext.TabIndex = 32;
+            this.btnNext.TabStop = false;
+            this.btnNext.Text = ">";
+            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
+            // panelRiwayat
+            // 
+            this.panelRiwayat.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel3.BackColor = System.Drawing.Color.Silver;
-            this.panel3.Controls.Add(this.label14);
-            this.panel3.Controls.Add(this.comboPerPage);
-            this.panel3.Controls.Add(this.lblHalaman);
-            this.panel3.Controls.Add(this.btnNext);
-            this.panel3.Controls.Add(this.btnPrevious);
-            this.panel3.Controls.Add(this.panel9);
-            this.panel3.Controls.Add(this.GridListRiwayatLogin);
-            this.panel3.Location = new System.Drawing.Point(11, 74);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(543, 491);
-            this.panel3.TabIndex = 1;
+            this.panelRiwayat.BackColor = System.Drawing.Color.Silver;
+            this.panelRiwayat.Controls.Add(this.panelPage);
+            this.panelRiwayat.Controls.Add(this.label14);
+            this.panelRiwayat.Controls.Add(this.comboPerPage);
+            this.panelRiwayat.Controls.Add(this.panel9);
+            this.panelRiwayat.Controls.Add(this.GridListRiwayatLogin);
+            this.panelRiwayat.Location = new System.Drawing.Point(11, 74);
+            this.panelRiwayat.Margin = new System.Windows.Forms.Padding(2);
+            this.panelRiwayat.Name = "panelRiwayat";
+            this.panelRiwayat.Size = new System.Drawing.Size(217, 491);
+            this.panelRiwayat.TabIndex = 1;
             // 
             // label14
             // 
@@ -396,41 +442,6 @@
             this.comboPerPage.TabIndex = 57;
             this.comboPerPage.TabStop = false;
             // 
-            // lblHalaman
-            // 
-            this.lblHalaman.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.lblHalaman.AutoSize = true;
-            this.lblHalaman.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHalaman.Location = new System.Drawing.Point(227, 453);
-            this.lblHalaman.Name = "lblHalaman";
-            this.lblHalaman.Size = new System.Drawing.Size(90, 16);
-            this.lblHalaman.TabIndex = 33;
-            this.lblHalaman.Text = "Halaman 1/10";
-            // 
-            // btnNext
-            // 
-            this.btnNext.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnNext.Location = new System.Drawing.Point(332, 449);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(75, 23);
-            this.btnNext.TabIndex = 32;
-            this.btnNext.TabStop = false;
-            this.btnNext.Text = ">";
-            this.btnNext.UseVisualStyleBackColor = true;
-            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
-            // 
-            // btnPrevious
-            // 
-            this.btnPrevious.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnPrevious.Location = new System.Drawing.Point(134, 449);
-            this.btnPrevious.Name = "btnPrevious";
-            this.btnPrevious.Size = new System.Drawing.Size(75, 23);
-            this.btnPrevious.TabIndex = 31;
-            this.btnPrevious.TabStop = false;
-            this.btnPrevious.Text = "<";
-            this.btnPrevious.UseVisualStyleBackColor = true;
-            this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
-            // 
             // panel9
             // 
             this.panel9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -439,9 +450,9 @@
             this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel9.Controls.Add(this.LabelJurusan);
             this.panel9.Location = new System.Drawing.Point(6, 7);
-            this.panel9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel9.Margin = new System.Windows.Forms.Padding(2);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(531, 61);
+            this.panel9.Size = new System.Drawing.Size(205, 61);
             this.panel9.TabIndex = 8;
             // 
             // LabelJurusan
@@ -449,7 +460,7 @@
             this.LabelJurusan.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LabelJurusan.AutoSize = true;
             this.LabelJurusan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelJurusan.Location = new System.Drawing.Point(200, 20);
+            this.LabelJurusan.Location = new System.Drawing.Point(37, 20);
             this.LabelJurusan.Name = "LabelJurusan";
             this.LabelJurusan.Size = new System.Drawing.Size(121, 20);
             this.LabelJurusan.TabIndex = 58;
@@ -463,11 +474,11 @@
             this.GridListRiwayatLogin.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.GridListRiwayatLogin.ColumnHeadersHeight = 29;
             this.GridListRiwayatLogin.Location = new System.Drawing.Point(6, 76);
-            this.GridListRiwayatLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.GridListRiwayatLogin.Margin = new System.Windows.Forms.Padding(2);
             this.GridListRiwayatLogin.Name = "GridListRiwayatLogin";
             this.GridListRiwayatLogin.RowHeadersWidth = 51;
             this.GridListRiwayatLogin.RowTemplate.Height = 24;
-            this.GridListRiwayatLogin.Size = new System.Drawing.Size(531, 357);
+            this.GridListRiwayatLogin.Size = new System.Drawing.Size(205, 357);
             this.GridListRiwayatLogin.TabIndex = 0;
             // 
             // contextMenuStrip2
@@ -491,11 +502,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1392, 576);
-            this.Controls.Add(this.panel3);
+            this.ClientSize = new System.Drawing.Size(1066, 576);
+            this.Controls.Add(this.panelRiwayat);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormUser_RiwayatLogin";
             this.Text = " ";
             this.panel1.ResumeLayout(false);
@@ -506,8 +517,10 @@
             this.panel2.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.panelPage.ResumeLayout(false);
+            this.panelPage.PerformLayout();
+            this.panelRiwayat.ResumeLayout(false);
+            this.panelRiwayat.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridListRiwayatLogin)).EndInit();
@@ -529,7 +542,7 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button ButtonSaveUser;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panelRiwayat;
         private System.Windows.Forms.DataGridView GridListRiwayatLogin;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel9;
@@ -550,5 +563,6 @@
         private System.Windows.Forms.ToolStripMenuItem DeleteMenuStrip;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.ComboBox comboPerPage;
+        private System.Windows.Forms.Panel panelPage;
     }
 }

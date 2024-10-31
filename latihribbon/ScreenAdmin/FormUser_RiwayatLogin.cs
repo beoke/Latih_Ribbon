@@ -184,16 +184,30 @@ namespace latihribbon
             DeleteMenuStrip.Click += DeleteMenuStrip_Click;
             this.Resize += FormUser_RiwayatLogin_Resize;
         }
-
+        private int lastSizeMode = 0;
+        private int SetPagination = 0;
         private void FormUser_RiwayatLogin_Resize(object sender, EventArgs e)
         {
-            if(GridListRiwayatLogin.Width < 610)
+            if (GridListRiwayatLogin.Width < 610 && lastSizeMode != 1)
             {
                 GridListRiwayatLogin.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
             }
-            else
+            else if(GridListRiwayatLogin.Width >= 610 && lastSizeMode != 2)
             {
                 GridListRiwayatLogin.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            }
+
+            if (panelRiwayat.Width < 523 && SetPagination != 1)
+            {
+               panelPage.Location = new Point(126, panelPage.Location.Y);
+                panelPage.Anchor = AnchorStyles.Left | AnchorStyles.Bottom;
+                SetPagination = 1;
+            }
+            else if(panelRiwayat.Width >= 523 && SetPagination != 2)
+            {
+                panelPage.Location = new Point(panelRiwayat.Width / 2 - panelPage.Width / 2, panelPage.Location.Y);
+                panelPage.Anchor = AnchorStyles.Bottom;
+                SetPagination = 2;
             }
         }
 

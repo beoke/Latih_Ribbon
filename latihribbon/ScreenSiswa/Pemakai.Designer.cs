@@ -46,11 +46,11 @@
             this.tx_NIS.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.tx_NIS.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tx_NIS.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tx_NIS.Location = new System.Drawing.Point(26, 369);
+            this.tx_NIS.Location = new System.Drawing.Point(20, 300);
             this.tx_NIS.Margin = new System.Windows.Forms.Padding(2);
             this.tx_NIS.MaxLength = 8;
             this.tx_NIS.Name = "tx_NIS";
-            this.tx_NIS.Size = new System.Drawing.Size(405, 45);
+            this.tx_NIS.Size = new System.Drawing.Size(304, 37);
             this.tx_NIS.TabIndex = 0;
             this.tx_NIS.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tx_NIS_KeyDown);
             this.tx_NIS.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tx_NIS_KeyPress);
@@ -60,9 +60,10 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(35, 303);
+            this.label1.Location = new System.Drawing.Point(26, 246);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(380, 45);
+            this.label1.Size = new System.Drawing.Size(305, 37);
             this.label1.TabIndex = 1;
             this.label1.Text = "Scan atau Masukkan NIS";
             // 
@@ -75,10 +76,10 @@
             this.btn_enter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_enter.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_enter.ForeColor = System.Drawing.SystemColors.Control;
-            this.btn_enter.Location = new System.Drawing.Point(26, 465);
+            this.btn_enter.Location = new System.Drawing.Point(20, 378);
             this.btn_enter.Margin = new System.Windows.Forms.Padding(2);
             this.btn_enter.Name = "btn_enter";
-            this.btn_enter.Size = new System.Drawing.Size(405, 57);
+            this.btn_enter.Size = new System.Drawing.Size(304, 46);
             this.btn_enter.TabIndex = 1;
             this.btn_enter.Text = "ENTER";
             this.btn_enter.UseVisualStyleBackColor = false;
@@ -89,10 +90,10 @@
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(48, -1);
+            this.pictureBox1.Location = new System.Drawing.Point(45, 0);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(333, 234);
+            this.pictureBox1.Size = new System.Drawing.Size(250, 190);
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
@@ -107,10 +108,10 @@
             this.panel1.Controls.Add(this.btn_enter);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.tx_NIS);
-            this.panel1.Location = new System.Drawing.Point(424, 155);
+            this.panel1.Location = new System.Drawing.Point(318, 126);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(454, 564);
+            this.panel1.Size = new System.Drawing.Size(341, 459);
             this.panel1.TabIndex = 4;
             // 
             // label2
@@ -118,9 +119,10 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(155, 199);
+            this.label2.Location = new System.Drawing.Point(107, 162);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(159, 33);
+            this.label2.Size = new System.Drawing.Size(126, 25);
             this.label2.TabIndex = 4;
             this.label2.Text = "Rekap Siswa";
             // 
@@ -134,21 +136,21 @@
             this.btn_kembali.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_kembali.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_kembali.ForeColor = System.Drawing.Color.White;
-            this.btn_kembali.Location = new System.Drawing.Point(21, 666);
+            this.btn_kembali.Location = new System.Drawing.Point(16, 541);
             this.btn_kembali.Margin = new System.Windows.Forms.Padding(2);
             this.btn_kembali.Name = "btn_kembali";
-            this.btn_kembali.Size = new System.Drawing.Size(70, 70);
+            this.btn_kembali.Size = new System.Drawing.Size(52, 57);
             this.btn_kembali.TabIndex = 54;
             this.btn_kembali.UseVisualStyleBackColor = false;
             this.btn_kembali.Click += new System.EventHandler(this.btn_kembali_Click);
             // 
             // Pemakai
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1190, 752);
+            this.ClientSize = new System.Drawing.Size(892, 611);
             this.Controls.Add(this.btn_kembali);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(2);

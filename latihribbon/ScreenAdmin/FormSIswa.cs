@@ -32,6 +32,8 @@ namespace latihribbon
         private ToolTip toolTip;
         private Dictionary<Control, Point> originalLocations = new Dictionary<Control, Point>();
         private Dictionary<Control, Size> originalSizes = new Dictionary<Control, Size>();
+        private System.Threading.Timer debounceTimer;
+        private const int debounceDelay = 300;
 
         public FormSIswa()
         {
@@ -458,7 +460,12 @@ namespace latihribbon
         private void txtFilter_TextChanged(object sender,EventArgs e)
         {
             Page = 1;
-            LoadData();
+            debounceTimer?.Dispose();
+
+            debounceTimer = new System.Threading.Timer(x =>
+            {
+                this.Invoke(new Action(LoadData));
+            }, null, debounceDelay, Timeout.Infinite);
         }       
 
         private void btnNext_Click(object sender, EventArgs e)
