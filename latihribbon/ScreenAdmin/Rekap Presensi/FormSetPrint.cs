@@ -116,7 +116,7 @@ namespace latihribbon
                     }
                     if(KelasCek.Count != 0)
                     {
-                        new MesError("Tidak Ada Data Untuk Kelas : " + string.Join(", ", KelasCek)).ShowDialog();
+                        new MesError($"Tidak Ada Data Untuk Kelas :  { string.Join(", ", KelasCek)} \nJika data tersebut memang tidak diperlukan, \nBatalkan centang pada kelas tersebut").ShowDialog();
                         return;
                     }
                     foreach (var angkatan in groupedData.Keys)
