@@ -26,6 +26,7 @@ namespace latihribbon
         private readonly KelasDal kelasDal;
         private MesBox mesBox = new MesBox();
         private bool InternalTextChange = true;
+        private System.Threading.Timer timer;
         public FormAbsensi()
         {
             InitializeComponent();
@@ -57,8 +58,6 @@ namespace latihribbon
             new object[] { true });
         }
   
-       
-
         public void InitComponent()
         {
             List<string> ketCombo = new List<string>() { "Semua","A","I","S"};
@@ -310,7 +309,11 @@ namespace latihribbon
         private void filter_TextChanged(object sender,EventArgs e)
         {
             Page = 1;
-            LoadData();
+            timer?.Dispose();
+            timer = new System.Threading.Timer(x =>
+            {
+                this.Invoke(new Action(LoadData));
+            },null,300,Timeout.Infinite);
         }
         private void filter_tglChanged(object sender, EventArgs e)
         {

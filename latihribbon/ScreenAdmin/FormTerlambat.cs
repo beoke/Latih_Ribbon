@@ -24,6 +24,7 @@ namespace latihribbon
         
         private readonly MesBox mesBox;
         private ToolTip toolTip;
+        private System.Threading.Timer timer;
         public FormTerlambat()
         {
             InitializeComponent();
@@ -306,7 +307,11 @@ namespace latihribbon
         private void filter_TextChanged(object sender, EventArgs e)
         {
             Page = 1;
-            LoadData();
+            timer?.Dispose();
+            timer = new System.Threading.Timer(x =>
+            {
+                this.Invoke(new Action(LoadData));
+            },null,300,Timeout.Infinite);
         }
         private void filter_tglChanged(object sender, EventArgs e)
         {

@@ -29,6 +29,7 @@ namespace latihribbon
         int globalId = 0;
         private Dictionary<Control,Point> oriLocation = new Dictionary<Control,Point>();
         private Dictionary<Control,Size> oriSize = new Dictionary<Control,Size>();
+        private System.Threading.Timer timer;
         public FormKeluar()
         {
             InitializeComponent();
@@ -332,7 +333,11 @@ namespace latihribbon
         private void filter_Changed(object sender, EventArgs e)
         {
             Page = 1;
-            LoadData();
+            timer?.Dispose();
+            timer = new System.Threading.Timer(x =>
+            {
+                this.Invoke(new Action(LoadData));
+            },null,300,Timeout.Infinite);
         }
 
         private void filter_tglChanged(object sender, EventArgs e)

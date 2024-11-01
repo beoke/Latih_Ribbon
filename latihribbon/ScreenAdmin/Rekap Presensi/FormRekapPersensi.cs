@@ -13,6 +13,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LicenseContext = OfficeOpenXml.LicenseContext;
@@ -23,7 +24,7 @@ namespace latihribbon.ScreenAdmin
     {
         private readonly RekapPersensiDal rekapPersensiDal;
         private readonly HistoryDal historyDal;
-
+        private System.Threading.Timer timer;
 
         public FormRekapPersensi()
         {
@@ -183,7 +184,6 @@ namespace latihribbon.ScreenAdmin
             btnResetFilter.Click += btnReset_Click;
 
             comboPerPage.SelectedIndexChanged += txt_TextChanged;
-
         }
 
         private void LblFilter_Click(object sender, EventArgs e)
@@ -202,7 +202,11 @@ namespace latihribbon.ScreenAdmin
         private void txt_TextChanged(object sender, EventArgs e)
         {
             Page = 1;
-            LoadData();
+            timer?.Dispose();
+            timer = new System.Threading.Timer(x =>
+            {
+                this.Invoke(new Action(LoadData));
+            },null,300,Timeout.Infinite);
         }
 
         private void tgl_ValueChanged(object sender,EventArgs e)

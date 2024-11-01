@@ -137,15 +137,15 @@ namespace latihribbon
             {
                 printDocumentKeluar.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("Suit Detail", 400, 700);
 
-                if (!PrinterIsAvailable())
-                {
-                    new MesError("Printer tidak tersedia atau offline.").ShowDialog(this);
-                    return false;
-                }
-               /* printPreviewDialogKeluar.Document = printDocumentKeluar;
-                printPreviewDialogKeluar.ShowDialog(this);*/
+                /* if (!PrinterIsAvailable())
+                 {
+                     new MesError("Printer tidak tersedia atau offline.").ShowDialog(this);
+                     return false;
+                 }*/
+                printPreviewDialogKeluar.Document = printDocumentKeluar;
+                printPreviewDialogKeluar.ShowDialog(this);
 
-                printDocumentKeluar.Print();
+                // printDocumentKeluar.Print();
                 return true;
             }
             catch (Exception ex)
@@ -278,16 +278,16 @@ namespace latihribbon
                         }
                     }
                     e.Graphics.DrawString($": {baris1.Trim()}", Times8Regular, Brushes.Black, new Point(125, 140));
-                    e.Graphics.DrawString($"{baris2.Trim()}", Times8Regular, Brushes.Black, new Point(125, 160));
-                    e.Graphics.DrawString($"{baris3.Trim()}", Times8Regular, Brushes.Black, new Point(125, 180));
+                    e.Graphics.DrawString($"  {baris2.Trim()}", Times8Regular, Brushes.Black, new Point(125, 160));
+                    e.Graphics.DrawString($"  {baris3.Trim()}", Times8Regular, Brushes.Black, new Point(125, 180));
 
                     e.Graphics.DrawString($": {baris1.Trim()}", Times8Regular, Brushes.Black, new Point(125, 350));
-                    e.Graphics.DrawString($"{baris2.Trim()}", Times8Regular, Brushes.Black, new Point(125, 370));
-                    e.Graphics.DrawString($"{baris3.Trim()}", Times8Regular, Brushes.Black, new Point(125, 390));
+                    e.Graphics.DrawString($"  {baris2.Trim()}", Times8Regular, Brushes.Black, new Point(125, 370));
+                    e.Graphics.DrawString($"  {baris3.Trim()}", Times8Regular, Brushes.Black, new Point(125, 390));
 
                     e.Graphics.DrawString($": {baris1.Trim()}", Times8Regular, Brushes.Black, new Point(125, 540 + 15));
-                    e.Graphics.DrawString($"{baris2.Trim()}", Times8Regular, Brushes.Black, new Point(125, 560 + 15));
-                    e.Graphics.DrawString($"{baris3.Trim()}", Times8Regular, Brushes.Black, new Point(125, 580 + 15));
+                    e.Graphics.DrawString($"  {baris2.Trim()}", Times8Regular, Brushes.Black, new Point(125, 560 + 15));
+                    e.Graphics.DrawString($"  {baris3.Trim()}", Times8Regular, Brushes.Black, new Point(125, 580 + 15));
                 }
                 else
                 {

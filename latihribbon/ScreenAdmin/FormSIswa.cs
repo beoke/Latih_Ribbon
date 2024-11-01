@@ -94,7 +94,6 @@ namespace latihribbon
 
         public void InitCombo()
         {
-            rombelCombo.DropDownStyle = ComboBoxStyle.DropDownList;
             //textBox MaxLength
             txtNIS_FormSiswa.MaxLength = 9;
             txtNama_FormSiswa.MaxLength = 80;
@@ -113,6 +112,10 @@ namespace latihribbon
             jurusanCombo.ValueMember = "Id";
             jurusanCombo.KeyPress += (s, e) => e.Handled = true;
             jurusanCombo.MouseDown += (s, e) => jurusanCombo.DroppedDown = true;
+
+            rombelCombo.KeyPress += (s, e) => e.Handled = true;
+            rombelCombo.MouseDown += (s, e) => rombelCombo.DroppedDown = true;
+
 
 
             // Combo Filter
@@ -135,10 +138,6 @@ namespace latihribbon
             toolTip.SetToolTip(btnResetFilter, "Reset Filter");
         }
 
-        private void ComboPerPage_MouseDown(object sender, MouseEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
 
         public void InitComponent()
         {
@@ -456,7 +455,7 @@ namespace latihribbon
             else
                 lblFilter.Visible = true;
         }
-
+        
         private void txtFilter_TextChanged(object sender,EventArgs e)
         {
             Page = 1;
@@ -466,8 +465,7 @@ namespace latihribbon
             {
                 this.Invoke(new Action(LoadData));
             }, null, debounceDelay, Timeout.Infinite);
-        }       
-
+        }
         private void btnNext_Click(object sender, EventArgs e)
         {
             if(Page < totalPage)
