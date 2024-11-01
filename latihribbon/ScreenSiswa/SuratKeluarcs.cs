@@ -154,8 +154,14 @@ namespace latihribbon
             Font Times7Regular = new Font("Times New Roman", 7, FontStyle.Regular);
             try
             {
-
                 string nama = txtNama.Text;
+                
+                char[] cekAgama = nama.ToCharArray();
+                nama = "";
+                foreach (var x in cekAgama)
+                    if (x.ToString() != "*")
+                        nama += x.ToString();
+
                 if(nama.Length >= 25)
                 {
                     string[] arrNama = nama.Split(' ');
