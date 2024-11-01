@@ -22,22 +22,7 @@ namespace latihribbon
             this.WindowState = FormWindowState.Maximized;
             this.TopMost = true;
             this.ControlBox = true;
-            this.KeyPreview = true;
-            this.KeyDown += FormIndex_KeyDown;
             ControlEvent();
-        }
-
-        private void FormIndex_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.LWin && e.KeyCode == Keys.RWin)
-            {
-                e.SuppressKeyPress = true;
-            }
-
-            if (e.Control && e.Alt && e.KeyCode == Keys.K)
-            {
-                Application.Exit();
-            }
         }
 
         private void ControlEvent()
@@ -62,6 +47,13 @@ namespace latihribbon
             ButtonAdmin.MouseLeave += ButtonAdmin_Leave;
             ButtonAdmin.Leave += ButtonAdmin_Leave;
 
+            pictureBoxClose.Click += PictureBoxClose_Click;
+
+        }
+
+        private void PictureBoxClose_Click(object sender, EventArgs e)
+        {
+            new MesClose("Masukkan Code Untuk Keluar!").ShowDialog(this);
         }
 
         private void FormIndex_Shown(object sender, EventArgs e)

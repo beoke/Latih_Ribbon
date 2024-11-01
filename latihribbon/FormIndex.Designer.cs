@@ -34,9 +34,9 @@
             this.ButtonSimResi = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ButtonSurvey = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxClose = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -57,8 +57,8 @@
             this.ButtonAdmin.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonAdmin.ForeColor = System.Drawing.Color.White;
             this.ButtonAdmin.Image = global::latihribbon.Properties.Resources.software_engineer;
-            this.ButtonAdmin.Location = new System.Drawing.Point(535, 605);
-            this.ButtonAdmin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ButtonAdmin.Location = new System.Drawing.Point(535, 592);
+            this.ButtonAdmin.Margin = new System.Windows.Forms.Padding(2);
             this.ButtonAdmin.Name = "ButtonAdmin";
             this.ButtonAdmin.Size = new System.Drawing.Size(147, 70);
             this.ButtonAdmin.TabIndex = 60;
@@ -76,7 +76,7 @@
             this.ButtonSimResi.Image = global::latihribbon.Properties.Resources.ATM_TINGGI;
             this.ButtonSimResi.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.ButtonSimResi.Location = new System.Drawing.Point(10, 224);
-            this.ButtonSimResi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ButtonSimResi.Margin = new System.Windows.Forms.Padding(2);
             this.ButtonSimResi.Name = "ButtonSimResi";
             this.ButtonSimResi.Size = new System.Drawing.Size(418, 247);
             this.ButtonSimResi.TabIndex = 56;
@@ -89,7 +89,7 @@
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox1.Location = new System.Drawing.Point(10, 12);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(116, 102);
             this.pictureBox1.TabIndex = 58;
@@ -104,7 +104,7 @@
             this.ButtonSurvey.Image = global::latihribbon.Properties.Resources.SURVEY_TINGGI;
             this.ButtonSurvey.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.ButtonSurvey.Location = new System.Drawing.Point(790, 224);
-            this.ButtonSurvey.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ButtonSurvey.Margin = new System.Windows.Forms.Padding(2);
             this.ButtonSurvey.Name = "ButtonSurvey";
             this.ButtonSurvey.Size = new System.Drawing.Size(418, 247);
             this.ButtonSurvey.TabIndex = 57;
@@ -112,35 +112,35 @@
             this.ButtonSurvey.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.ButtonSurvey.UseVisualStyleBackColor = false;
             // 
-            // pictureBox2
+            // pictureBoxClose
             // 
-            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(14, 625);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(45, 45);
-            this.pictureBox2.TabIndex = 61;
-            this.pictureBox2.TabStop = false;
+            this.pictureBoxClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBoxClose.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBoxClose.BackgroundImage")));
+            this.pictureBoxClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBoxClose.Location = new System.Drawing.Point(25, 617);
+            this.pictureBoxClose.Name = "pictureBoxClose";
+            this.pictureBoxClose.Size = new System.Drawing.Size(45, 45);
+            this.pictureBoxClose.TabIndex = 61;
+            this.pictureBoxClose.TabStop = false;
             // 
             // FormIndex
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1217, 684);
-            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBoxClose);
             this.Controls.Add(this.ButtonAdmin);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.ButtonSimResi);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.ButtonSurvey);
             this.DoubleBuffered = true;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormIndex";
             this.Text = "FormIndex";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -153,6 +153,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button ButtonSurvey;
         private System.Windows.Forms.Button ButtonAdmin;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBoxClose;
     }
 }
