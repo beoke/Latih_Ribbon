@@ -146,20 +146,23 @@ namespace latihribbon
             try
             {
                 string nama = txtNama.Text;
-
-                if (nama.Length >=25)
+                nama = new string(nama.Where(x => x != '*').ToArray());
+                MessageBox.Show(nama);
+                if (nama.Length >= 25)
                 {
-                    string[] arrSiswa = nama.Split(' ');
+                    string[] arrSiswa = nama.Trim().Split(' ');
                     nama = "";
 
                     string cekNama = "";
                     foreach (var x in arrSiswa)
                     {
                         cekNama += $"{x} ";
-                        if (nama.Length > 20)
+                        if (cekNama.Length > 20) 
                         {
-                            char[] huruf = x.ToCharArray();
-                            nama += $"{huruf[0]}.";
+                            
+                                char[] huruf = x.ToCharArray();
+                                nama += $"{huruf[0]}.";
+                            
                         }
                         else
                         {
@@ -167,6 +170,7 @@ namespace latihribbon
                         }
                     }
                 }
+
                 var tanggal = DateTime.Now.ToString("dd MMM yyyy");
 
                 e.Graphics.DrawString("SURAT IZIN MENGIKUTI PELAJARAN", new Font("Times New Roman", 10), Brushes.Black, new Point(75, 15));
