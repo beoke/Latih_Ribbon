@@ -161,9 +161,31 @@ namespace latihribbon
             Font Times7Regular = new Font("Times New Roman", 7, FontStyle.Regular);
             try
             {
+
+                string nama = txtNama.Text;
+                if(nama.Length >= 25)
+                {
+                    string[] arrNama = nama.Split(' ');
+                    nama = "";
+                    string cekNama = "";
+                    foreach(var x in arrNama)
+                    {
+                        cekNama += $"{x} ";
+                        if (cekNama.Length >= 20)
+                        {
+                            char[] huruf = x.ToCharArray();
+                            nama += $"{huruf[0]}";
+                        }
+                        else
+                        {
+                            nama += $"{x} ";
+                        }
+                    }
+                }                
+
                 e.Graphics.DrawString("SURAT IZIN MENINGGALKAN PELAJARAN", new Font("Times New Roman", 8), Brushes.Black, new Point(90, 15));
                 e.Graphics.DrawString("Nama", Times8Regular, Brushes.Black, new Point(30, 40));
-                e.Graphics.DrawString($": {txtNama.Text}", Times8Regular, Brushes.Black, new Point(125, 40));
+                e.Graphics.DrawString($": {nama}", Times8Regular, Brushes.Black, new Point(125, 40));
                 e.Graphics.DrawString("Kelas", Times8Regular, Brushes.Black, new Point(30, 60));
                 e.Graphics.DrawString($": {txtKelas.Text}", Times8Regular, Brushes.Black, new Point(125, 60));
                 e.Graphics.DrawString("Tanggal", Times8Regular, Brushes.Black, new Point(30, 80));
@@ -188,7 +210,7 @@ namespace latihribbon
 
                 e.Graphics.DrawString("SURAT IZIN MENINGGALKAN PELAJARAN", Times8Regular, Brushes.Black, new Point(90, 225));
                 e.Graphics.DrawString("Nama", Times8Regular, Brushes.Black, new Point(30, 250));
-                e.Graphics.DrawString($": {txtNama.Text}", Times8Regular, Brushes.Black, new Point(125, 250));
+                e.Graphics.DrawString($": {nama}", Times8Regular, Brushes.Black, new Point(125, 250));
                 e.Graphics.DrawString("Kelas", Times8Regular, Brushes.Black, new Point(30, 270));
                 e.Graphics.DrawString($": {txtKelas.Text}", Times8Regular, Brushes.Black, new Point(125, 270));
                 e.Graphics.DrawString("Tanggal", Times8Regular, Brushes.Black, new Point(30, 290));
@@ -210,7 +232,7 @@ namespace latihribbon
 
                 e.Graphics.DrawString("SURAT IZIN MENINGGALKAN PELAJARAN", new Font("Times New Roman", 8), Brushes.Black, new Point(90, 415 + 15));
                 e.Graphics.DrawString("Nama", Times8Regular, Brushes.Black, new Point(30, 440 + 15));
-                e.Graphics.DrawString($": {txtNama.Text}", Times8Regular, Brushes.Black, new Point(125, 440 + 15));
+                e.Graphics.DrawString($": {nama}", Times8Regular, Brushes.Black, new Point(125, 440 + 15));
                 e.Graphics.DrawString("Kelas", Times8Regular, Brushes.Black, new Point(30, 460 + 15));
                 e.Graphics.DrawString($": {txtKelas.Text}", Times8Regular, Brushes.Black, new Point(125, 460 + 15));
                 e.Graphics.DrawString("Tanggal", Times8Regular, Brushes.Black, new Point(30, 480 + 15));
@@ -233,41 +255,41 @@ namespace latihribbon
 
                 if (GetTextWidth(alasan, Times8Regular, e.Graphics) > batasPiksel)
                 {
-                    string[] kataarr = alasan.Split(' ');
+                    string[] kataArr = alasan.Split(' ');
                     string baris1 = "";
                     string baris2 = "";
                     string baris3 = "";
 
                     int totalWidth = 0;
 
-                    for (int i = 0; i < kataarr.Length; i++)
+                    for (int i = 0; i < kataArr.Length; i++)
                     {
-                        int kataWidth = GetTextWidth(kataarr[i] + " ", Times8Regular, e.Graphics);
+                        int kataWidth = GetTextWidth(kataArr[i] + " ", Times8Regular, e.Graphics);
                         if (totalWidth + kataWidth <= batasPiksel)
                         {
-                            baris1 += kataarr[i] + " ";
+                            baris1 += kataArr[i] + " ";
                             totalWidth += kataWidth;
                         }
                         else
                         {
                             totalWidth = 0;
-                            for (int j = i; j < kataarr.Length; j++)
+                            for (int j = i; j < kataArr.Length; j++)
                             {
-                                kataWidth = GetTextWidth(kataarr[j] + " ", Times8Regular, e.Graphics);
+                                kataWidth = GetTextWidth(kataArr[j] + " ", Times8Regular, e.Graphics);
                                 if (totalWidth + kataWidth <= batasPiksel)
                                 {
-                                    baris2 += kataarr[j] + " ";
+                                    baris2 += kataArr[j] + " ";
                                     totalWidth += kataWidth;
                                 }
                                 else
                                 {
                                     totalWidth = 0;
-                                    for (int k = j; k < kataarr.Length; k++)
+                                    for (int k = j; k < kataArr.Length; k++)
                                     {
-                                        kataWidth = GetTextWidth(kataarr[k] + " ", Times8Regular, e.Graphics);
+                                        kataWidth = GetTextWidth(kataArr[k] + " ", Times8Regular, e.Graphics);
                                         if (totalWidth + kataWidth <= batasPiksel)
                                         {
-                                            baris3 += kataarr[k] + " ";
+                                            baris3 += kataArr[k] + " ";
                                             totalWidth += kataWidth;
                                         }
                                     }

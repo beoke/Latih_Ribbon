@@ -206,7 +206,7 @@ namespace latihribbon.ScreenAdmin
             timer = new System.Threading.Timer(x =>
             {
                 this.Invoke(new Action(LoadData));
-            },null,300,Timeout.Infinite);
+            }, null, 300, Timeout.Infinite);
         }
 
         private void tgl_ValueChanged(object sender,EventArgs e)
