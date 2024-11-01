@@ -52,25 +52,18 @@ namespace latihribbon
             this.nama = nama;
             this.kelas = kelas;
 
-            CultureInfo culture = new CultureInfo("id-ID");
-            Thread.CurrentThread.CurrentCulture = culture;
-            Thread.CurrentThread.CurrentUICulture = culture;
-
-            isian();
             bahasa();
-
+            isian();
 
             toolTip.SetToolTip(ButtonCaraPengisianJam, "Petunjuk pengisian jam keluar"); 
         }
-
-        
 
         public void isian()
         {
             txtNIS.Text = NIS;
             txtNama.Text = nama;
             txtKelas.Text = kelas;
-            tx_keluar.Text = globalCurrentTime.ToString("HH:mm", System.Globalization.CultureInfo.InvariantCulture);
+            tx_keluar.Text = globalCurrentTime.ToString(@"HH\:mm");
             txtTanggal.Text = globalCurrentTime.ToString("dddd, dd MMMM yyyy");
             jamKembali.Focus();
         }
@@ -79,7 +72,7 @@ namespace latihribbon
         private bool Validasi()
         {
             bool validasi = true;
-            if (string.IsNullOrWhiteSpace(txtAlasan.Text) || jamKembali.Value.ToString("HH:mm", System.Globalization.CultureInfo.InvariantCulture) == tx_keluar.Text)
+            if (string.IsNullOrWhiteSpace(txtAlasan.Text) || jamKembali.Value.ToString(@"HH\:mm") == tx_keluar.Text)
             {
                 validasi = false;
             }
@@ -145,7 +138,7 @@ namespace latihribbon
                 printPreviewDialogKeluar.Document = printDocumentKeluar;
                 printPreviewDialogKeluar.ShowDialog(this);
 
-                // printDocumentKeluar.Print();
+                //printDocumentKeluar.Print();
                 return true;
             }
             catch (Exception ex)
@@ -193,7 +186,7 @@ namespace latihribbon
                 e.Graphics.DrawString("Keluar pada jam", Times8Regular, Brushes.Black, new Point(30, 100));
                 e.Graphics.DrawString($": {tx_keluar.Text}", Times8Regular, Brushes.Black, new Point(125, 100));
                 e.Graphics.DrawString("Kembali pada jam", Times8Regular, Brushes.Black, new Point(30, 120));
-                e.Graphics.DrawString($": {jamKembali.Value.ToString("HH:mm")}", Times8Regular, Brushes.Black, new Point(125, 120));
+                e.Graphics.DrawString($": {jamKembali.Value.ToString(@"HH\:mm")}", Times8Regular, Brushes.Black, new Point(125, 120));
                 e.Graphics.DrawString($"Keperluan", Times8Regular, Brushes.Black, new Point(30, 140));
 
 
@@ -218,7 +211,7 @@ namespace latihribbon
                 e.Graphics.DrawString("Keluar pada jam", Times8Regular, Brushes.Black, new Point(30, 310));
                 e.Graphics.DrawString($": {tx_keluar.Text}", Times8Regular, Brushes.Black, new Point(125, 310));
                 e.Graphics.DrawString("Kembali pada jam", Times8Regular, Brushes.Black, new Point(30, 330));
-                e.Graphics.DrawString($": {jamKembali.Value.ToString("HH:mm")}", Times8Regular, Brushes.Black, new Point(125, 330));
+                e.Graphics.DrawString($": {jamKembali.Value.ToString(@"HH\:mm")}", Times8Regular, Brushes.Black, new Point(125, 330));
                 e.Graphics.DrawString($"Keperluan", Times8Regular, Brushes.Black, new Point(30, 350));
                 e.Graphics.DrawString("Mengetahui", Times8Regular, Brushes.Black, new Point(312, 320));
                 e.Graphics.DrawString("Guru BK", Times7Regular, Brushes.Black, new Point(320, 335));
@@ -240,7 +233,7 @@ namespace latihribbon
                 e.Graphics.DrawString("Keluar pada jam", Times8Regular, Brushes.Black, new Point(30, 500 + 15));
                 e.Graphics.DrawString($": {tx_keluar.Text}", Times8Regular, Brushes.Black, new Point(125, 500 + 15));
                 e.Graphics.DrawString("Kembali pada jam", Times8Regular, Brushes.Black, new Point(30, 520 + 15));
-                e.Graphics.DrawString($": {jamKembali.Value.ToString("HH:mm")}", Times8Regular, Brushes.Black, new Point(125, 520 + 15));
+                e.Graphics.DrawString($": {jamKembali.Value.ToString(@"hh\:mm")}", Times8Regular, Brushes.Black, new Point(125, 520 + 15));
                 e.Graphics.DrawString("Mengetahui", Times7Regular, Brushes.Black, new Point(315, 460 + 15 + 50));
                 e.Graphics.DrawString("Guru BK", Times7Regular, Brushes.Black, new Point(320, 475 + 15 + 50));
                 e.Graphics.DrawString("..................", Times8Regular, Brushes.Black, new Point(310, 520 + 15 + 50));
