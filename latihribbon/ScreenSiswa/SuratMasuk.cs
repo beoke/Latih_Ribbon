@@ -159,7 +159,7 @@ namespace latihribbon
                         if (nama.Length > 20)
                         {
                             char[] huruf = x.ToCharArray();
-                            nama += $"{huruf[0]}. ";
+                            nama += $"{huruf[0]}.";
                         }
                         else
                         {

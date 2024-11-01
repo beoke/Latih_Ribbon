@@ -164,10 +164,10 @@ namespace latihribbon
                     foreach(var x in arrNama)
                     {
                         cekNama += $"{x} ";
-                        if (cekNama.Length >= 20)
+                        if (cekNama.Length > 21)
                         {
                             char[] huruf = x.ToCharArray();
-                            nama += $"{huruf[0]}. ";
+                            nama += $"{huruf[0]}.";
                         }
                         else
                         {
