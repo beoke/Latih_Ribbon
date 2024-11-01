@@ -42,7 +42,7 @@ namespace latihribbon
             Update();
             this.Close();
         }
-
+   
         private void Update()
         {
             var data = new KeluarModel

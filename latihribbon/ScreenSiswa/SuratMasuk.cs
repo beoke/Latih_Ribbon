@@ -1,4 +1,5 @@
-﻿using latihribbon.Dal;
+﻿using DocumentFormat.OpenXml.ExtendedProperties;
+using latihribbon.Dal;
 using latihribbon.Helper;
 using latihribbon.Model;
 using System;
@@ -119,14 +120,14 @@ namespace latihribbon
             {
                 printDocumentMasuk.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("Suit Detail", 400, 700);
 
-                if (!PrinterIsAvailable())
+               /* if (!PrinterIsAvailable())
                 {
                     new MesError("Printer tidak tersedia atau offline.").ShowDialog(this);
                     return false;
-                }
-               /* printPreviewDialogMasuk.Document = printDocumentMasuk;
-                printPreviewDialogMasuk.ShowDialog(this);*/
-                printDocumentMasuk.Print();
+                }*/
+                printPreviewDialogMasuk.Document = printDocumentMasuk;
+                printPreviewDialogMasuk.ShowDialog(this);
+               // printDocumentMasuk.Print();
                 return true;
             }
             catch (Exception ex)
@@ -144,12 +145,34 @@ namespace latihribbon
 
             try
             {
+                string nama = txtNama.Text;
+
+                if (nama.Length >=25)
+                {
+                    string[] arrSiswa = nama.Split(' ');
+                    nama = "";
+
+                    string cekNama = "";
+                    foreach (var x in arrSiswa)
+                    {
+                        cekNama += $"{x} ";
+                        if (nama.Length > 20)
+                        {
+                            char[] huruf = x.ToCharArray();
+                            nama += $"{huruf[0]}. ";
+                        }
+                        else
+                        {
+                            nama += $"{x} ";
+                        }
+                    }
+                }
                 var tanggal = DateTime.Now.ToString("dd MMM yyyy");
 
                 e.Graphics.DrawString("SURAT IZIN MENGIKUTI PELAJARAN", new Font("Times New Roman", 10), Brushes.Black, new Point(75, 15));
 
                 e.Graphics.DrawString("Nama", Times8Regular, Brushes.Black, new Point(20, 60));
-                e.Graphics.DrawString($": {txtNama.Text}", Times8Regular, Brushes.Black, new Point(125, 60));
+                e.Graphics.DrawString($": {nama}", Times8Regular, Brushes.Black, new Point(125, 60));
                 e.Graphics.DrawString("Kelas", Times8Regular, Brushes.Black, new Point(20, 80));
                 e.Graphics.DrawString($": {txtKelas.Text}", Times8Regular, Brushes.Black, new Point(125, 80));
                 e.Graphics.DrawString("Tanggal", Times8Regular, Brushes.Black, new Point(20, 100));
@@ -170,7 +193,7 @@ namespace latihribbon
                 e.Graphics.DrawString("SURAT IZIN MENGIKUTI PELAJARAN", new Font("Times New Roman", 10), Brushes.Black, new Point(75, 211));
 
                 e.Graphics.DrawString("Nama", Times8Regular, Brushes.Black, new Point(20, 256));
-                e.Graphics.DrawString($": {txtNama.Text}", Times8Regular, Brushes.Black, new Point(125, 256));
+                e.Graphics.DrawString($": {nama}", Times8Regular, Brushes.Black, new Point(125, 256));
                 e.Graphics.DrawString("Kelas", Times8Regular, Brushes.Black, new Point(20, 276));
                 e.Graphics.DrawString($": {txtKelas.Text}", Times8Regular, Brushes.Black, new Point(125, 276));
                 e.Graphics.DrawString("Tanggal", Times8Regular, Brushes.Black, new Point(20, 296));
@@ -189,7 +212,7 @@ namespace latihribbon
                 e.Graphics.DrawString("SURAT IZIN MENGIKUTI PELAJARAN", new Font("Times New Roman", 10), Brushes.Black, new Point(75, 409));
 
                 e.Graphics.DrawString("Nama", Times8Regular, Brushes.Black, new Point(20, 454));
-                e.Graphics.DrawString($": {txtNama.Text}", Times8Regular, Brushes.Black, new Point(125, 454));
+                e.Graphics.DrawString($": {nama}", Times8Regular, Brushes.Black, new Point(125, 454));
                 e.Graphics.DrawString("Kelas", Times8Regular, Brushes.Black, new Point(20, 474));
                 e.Graphics.DrawString($": {txtKelas.Text}", Times8Regular, Brushes.Black, new Point(125, 474));
                 e.Graphics.DrawString("Tanggal", Times8Regular, Brushes.Black, new Point(20, 494));

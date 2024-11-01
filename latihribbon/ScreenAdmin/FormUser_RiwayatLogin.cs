@@ -226,7 +226,7 @@ namespace latihribbon
                 LoadUser();
             }
         }
-
+         
         private void GridListUser_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right && e.RowIndex >= 0 && e.ColumnIndex >= 0)
