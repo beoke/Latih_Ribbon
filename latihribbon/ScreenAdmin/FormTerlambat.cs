@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using latihribbon.Conn;
 using latihribbon.Dal;
 using latihribbon.Helper;
 using latihribbon.Model;
@@ -6,7 +7,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -25,6 +28,8 @@ namespace latihribbon
         private readonly MesBox mesBox;
         private ToolTip toolTip;
         private System.Threading.Timer timer;
+
+        private SqlDependency _dependency;
         public FormTerlambat()
         {
             InitializeComponent();
@@ -34,13 +39,47 @@ namespace latihribbon
             kelasDal = new KelasDal();
             mesBox = new MesBox();
             toolTip = new ToolTip();
+            SqlDependency.Start(conn.connstr());
             InitCombo();
             RegisterEvent();
             LoadData();
             InitComponen();
+            SetupSqlDependency();
         }
 
-       
+        private void SetupSqlDependency()
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(conn.connstr()))
+                {
+                    connection.Open();
+                    using (SqlCommand command = new SqlCommand("SELECT id FROM Masuk", connection))
+                    {
+                        _dependency = new SqlDependency(command);
+                        _dependency.OnChange += _dependency_OnDatabaseChange; ;
+                        command.ExecuteReader();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error setting up SqlDependency: " + ex.Message);
+            }
+        }
+
+        private void _dependency_OnDatabaseChange(object sender, SqlNotificationEventArgs e)
+        {
+            if (e.Type == SqlNotificationType.Change)
+            {
+                this.Invoke((MethodInvoker)delegate
+                {
+                    LoadData();
+                });
+            }
+            SetupSqlDependency();
+        }
+
 
         public void buf()
         {
@@ -361,5 +400,12 @@ namespace latihribbon
         {
             txtFilter.Focus();
         }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            SqlDependency.Stop(conn.connstr());
+            base.OnFormClosing(e); // Memanggil metode dasar
+        }
+
     }
 }
