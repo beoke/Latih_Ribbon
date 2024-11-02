@@ -152,22 +152,22 @@ namespace latihribbon
         {
             Font Times8Regular = new Font("Times New Roman", 8, FontStyle.Regular);
             Font Times7Regular = new Font("Times New Roman", 7, FontStyle.Regular);
+
             try
             {
                 string nama = txtNama.Text;
-                
                 char[] cekAgama = nama.ToCharArray();
                 nama = "";
                 foreach (var x in cekAgama)
                     if (x.ToString() != "*")
                         nama += x.ToString();
 
-                if(nama.Length >= 25)
+                if (nama.Length >= 25)
                 {
-                    string[] arrNama = nama.Split(' ');
+                    string[] arrNama = nama.Trim().Split(' ');
                     nama = "";
                     string cekNama = "";
-                    foreach(var x in arrNama)
+                    foreach (var x in arrNama)
                     {
                         cekNama += $"{x} ";
                         if (cekNama.Length > 21)
@@ -180,7 +180,7 @@ namespace latihribbon
                             nama += $"{x} ";
                         }
                     }
-                }                
+                }
 
                 e.Graphics.DrawString("SURAT IZIN MENINGGALKAN PELAJARAN", new Font("Times New Roman", 8), Brushes.Black, new Point(90, 15));
                 e.Graphics.DrawString("Nama", Times8Regular, Brushes.Black, new Point(30, 40));

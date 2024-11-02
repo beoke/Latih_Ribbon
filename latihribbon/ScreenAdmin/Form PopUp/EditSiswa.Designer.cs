@@ -68,7 +68,7 @@
             this.btnSave_FormSiswa.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave_FormSiswa.ForeColor = System.Drawing.Color.White;
             this.btnSave_FormSiswa.Location = new System.Drawing.Point(229, 460);
-            this.btnSave_FormSiswa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSave_FormSiswa.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave_FormSiswa.Name = "btnSave_FormSiswa";
             this.btnSave_FormSiswa.Size = new System.Drawing.Size(95, 30);
             this.btnSave_FormSiswa.TabIndex = 11;
@@ -80,7 +80,7 @@
             this.lblInfo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblInfo.AutoSize = true;
             this.lblInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInfo.Location = new System.Drawing.Point(136, 18);
+            this.lblInfo.Location = new System.Drawing.Point(135, 18);
             this.lblInfo.Name = "lblInfo";
             this.lblInfo.Size = new System.Drawing.Size(80, 20);
             this.lblInfo.TabIndex = 61;
@@ -94,7 +94,7 @@
             this.txtNIS_FormSiswa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNIS_FormSiswa.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtNIS_FormSiswa.Location = new System.Drawing.Point(22, 67);
-            this.txtNIS_FormSiswa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNIS_FormSiswa.Margin = new System.Windows.Forms.Padding(2);
             this.txtNIS_FormSiswa.MaxLength = 7;
             this.txtNIS_FormSiswa.Name = "txtNIS_FormSiswa";
             this.txtNIS_FormSiswa.Size = new System.Drawing.Size(302, 23);
@@ -118,7 +118,7 @@
             this.txtPersensi_FormSiswa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPersensi_FormSiswa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPersensi_FormSiswa.Location = new System.Drawing.Point(22, 117);
-            this.txtPersensi_FormSiswa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPersensi_FormSiswa.Margin = new System.Windows.Forms.Padding(2);
             this.txtPersensi_FormSiswa.MaxLength = 3;
             this.txtPersensi_FormSiswa.Name = "txtPersensi_FormSiswa";
             this.txtPersensi_FormSiswa.Size = new System.Drawing.Size(302, 23);
@@ -144,7 +144,7 @@
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.panel5);
             this.panel2.Location = new System.Drawing.Point(6, 6);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(359, 519);
             this.panel2.TabIndex = 4;
@@ -178,7 +178,7 @@
             this.panel5.Controls.Add(this.label6);
             this.panel5.Controls.Add(this.label7);
             this.panel5.Location = new System.Drawing.Point(4, 4);
-            this.panel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel5.Margin = new System.Windows.Forms.Padding(2);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(349, 509);
             this.panel5.TabIndex = 5;
@@ -188,7 +188,7 @@
             this.XIIRadio.AutoSize = true;
             this.XIIRadio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.XIIRadio.Location = new System.Drawing.Point(230, 269);
-            this.XIIRadio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.XIIRadio.Margin = new System.Windows.Forms.Padding(2);
             this.XIIRadio.Name = "XIIRadio";
             this.XIIRadio.Size = new System.Drawing.Size(41, 21);
             this.XIIRadio.TabIndex = 69;
@@ -201,7 +201,7 @@
             this.XRadio.AutoSize = true;
             this.XRadio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.XRadio.Location = new System.Drawing.Point(50, 269);
-            this.XRadio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.XRadio.Margin = new System.Windows.Forms.Padding(2);
             this.XRadio.Name = "XRadio";
             this.XRadio.Size = new System.Drawing.Size(35, 21);
             this.XRadio.TabIndex = 68;
@@ -214,7 +214,7 @@
             this.XIRadio.AutoSize = true;
             this.XIRadio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.XIRadio.Location = new System.Drawing.Point(134, 269);
-            this.XIRadio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.XIRadio.Margin = new System.Windows.Forms.Padding(2);
             this.XIRadio.Name = "XIRadio";
             this.XIRadio.Size = new System.Drawing.Size(38, 21);
             this.XIRadio.TabIndex = 67;
@@ -276,9 +276,9 @@
             this.groupBox1.Controls.Add(this.perempuanRadio);
             this.groupBox1.Controls.Add(this.lakiRadio);
             this.groupBox1.Location = new System.Drawing.Point(8, 219);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(337, 24);
             this.groupBox1.TabIndex = 31;
             this.groupBox1.TabStop = false;
@@ -288,7 +288,7 @@
             this.perempuanRadio.AutoSize = true;
             this.perempuanRadio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.perempuanRadio.Location = new System.Drawing.Point(142, 1);
-            this.perempuanRadio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.perempuanRadio.Margin = new System.Windows.Forms.Padding(2);
             this.perempuanRadio.Name = "perempuanRadio";
             this.perempuanRadio.Size = new System.Drawing.Size(99, 21);
             this.perempuanRadio.TabIndex = 33;
@@ -301,7 +301,7 @@
             this.lakiRadio.AutoSize = true;
             this.lakiRadio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lakiRadio.Location = new System.Drawing.Point(35, 1);
-            this.lakiRadio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lakiRadio.Margin = new System.Windows.Forms.Padding(2);
             this.lakiRadio.Name = "lakiRadio";
             this.lakiRadio.Size = new System.Drawing.Size(91, 21);
             this.lakiRadio.TabIndex = 32;
@@ -317,7 +317,7 @@
             this.jurusanCombo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.jurusanCombo.FormattingEnabled = true;
             this.jurusanCombo.Location = new System.Drawing.Point(23, 365);
-            this.jurusanCombo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.jurusanCombo.Margin = new System.Windows.Forms.Padding(2);
             this.jurusanCombo.Name = "jurusanCombo";
             this.jurusanCombo.Size = new System.Drawing.Size(300, 25);
             this.jurusanCombo.TabIndex = 28;
@@ -362,7 +362,7 @@
             this.txtNama_FormSiswa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNama_FormSiswa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNama_FormSiswa.Location = new System.Drawing.Point(22, 167);
-            this.txtNama_FormSiswa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNama_FormSiswa.Margin = new System.Windows.Forms.Padding(2);
             this.txtNama_FormSiswa.MaxLength = 100;
             this.txtNama_FormSiswa.Name = "txtNama_FormSiswa";
             this.txtNama_FormSiswa.Size = new System.Drawing.Size(302, 23);
@@ -398,7 +398,7 @@
             this.panel4.BackColor = System.Drawing.Color.DarkGray;
             this.panel4.Controls.Add(this.panel2);
             this.panel4.Location = new System.Drawing.Point(11, 11);
-            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(371, 531);
             this.panel4.TabIndex = 4;
@@ -410,7 +410,7 @@
             this.ClientSize = new System.Drawing.Size(393, 553);
             this.Controls.Add(this.panel4);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "EditSiswa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.panel2.ResumeLayout(false);

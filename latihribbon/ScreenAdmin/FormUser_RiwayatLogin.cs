@@ -14,6 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Konscious.Security.Cryptography;
+using System.Threading;
 
 namespace latihribbon
 {
@@ -22,6 +23,7 @@ namespace latihribbon
 
         private readonly RiwayatLogin_UserDal _riwayatLoginDal;
         private ToolTip toolTip;
+        private System.Threading.Timer timer;
 
         public FormUser_RiwayatLogin()
         {
@@ -30,12 +32,11 @@ namespace latihribbon
             _riwayatLoginDal = new RiwayatLogin_UserDal();
             toolTip = new ToolTip();
             InitCombo();
-            LoadRiwayatLogin();
             InitialEvent();
             DeleteOtomatis();
             LoadData();
             LoadUser();
-            LoadRiwayatLogin();
+            InitRiwayatLogin();
 
             this.Load += FormUser_RiwayatLogin_Load;
         }
@@ -101,7 +102,7 @@ namespace latihribbon
             toolTip.SetToolTip(btnResetFilter, "Reset Filter");
         }
 
-        private void LoadRiwayatLogin()
+        private void InitRiwayatLogin()
         {
 
             if (GridListRiwayatLogin.Rows.Count > 0)
@@ -248,19 +249,18 @@ namespace latihribbon
 
         private void PickerRentan_ValueChanged(object sender, EventArgs e)
         {
+            Page = 1;
             SqlGlobal = true;
             LoadData();
         }
 
         private void TextUserName_TextChanged(object sender, EventArgs e)
         {
-            if (TextSearchRiwayat.Text == string.Empty)
+            Page = 1;
+            timer = new System.Threading.Timer(x =>
             {
-                LoadRiwayatLogin();
-                LoadData();
-            }
-            else
-                LoadData();
+                this.Invoke(new Action(LoadData));
+            },null,400,Timeout.Infinite);
         }
         string Userlama = string.Empty;
       
@@ -275,11 +275,9 @@ namespace latihribbon
                 Role = "admin",
             };
             _riwayatLoginDal.Insert(user);
-            LabelAddUser.Text = "Add User";
             ClearUser();
             LoadData();
             LoadUser();
-            LoadRiwayatLogin();
         }
 
         private void ClearUser()
