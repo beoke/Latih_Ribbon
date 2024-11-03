@@ -1,5 +1,4 @@
 ﻿using latihribbon.Dal;
-using latihribbon.Helper;
 using latihribbon.Model;
 using System;
 using System.Collections.Generic;
@@ -17,7 +16,6 @@ namespace latihribbon.ScreenAdmin
     {
         private readonly JurusanDal _jurusanDal;
         private readonly KelasDal kelasDal;
-        private readonly MesBox mesBox;
         private string NamaJurusanGlobal;
         public FormJurusan()
         {
@@ -25,7 +23,6 @@ namespace latihribbon.ScreenAdmin
             buf();
             _jurusanDal = new JurusanDal();
             kelasDal = new KelasDal();
-            mesBox = new MesBox();
             LoadData();
             InitEvent();
             this.Load += FormJurusan_Load;

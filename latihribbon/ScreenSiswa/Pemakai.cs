@@ -1,5 +1,4 @@
 ﻿using latihribbon.Dal;
-using latihribbon.Helper;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,7 +16,6 @@ namespace latihribbon
         private DbDal _dbDal;
         private readonly SiswaDal siswaDal;
         private readonly KelasDal kelasDal;
-        private readonly MesBox mesBox;
 
         private Form mainForm;
         private Form indexForm;
@@ -33,7 +31,6 @@ namespace latihribbon
             _dbDal = new DbDal();
             siswaDal = new SiswaDal();
             kelasDal = new KelasDal();
-            mesBox = new MesBox();
         }
 
         private void btn_enter_Click(object sender, EventArgs e)

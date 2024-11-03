@@ -1,5 +1,4 @@
 ﻿using DocumentFormat.OpenXml.Drawing.ChartDrawing;
-using latihribbon.Helper;
 using latihribbon.ScreenAdmin;
 using System;
 using System.Collections.Generic;
@@ -19,12 +18,10 @@ namespace latihribbon
     {
         private Form mainForm;
         private Form indexForm;
-        private readonly MesBox _mesbox;
 
         public Form1(Form mainForm,Form indexForm)
         {
             InitializeComponent();
-            _mesbox = new MesBox();
             this.mainForm = mainForm;
             this.indexForm = indexForm;
             this.WindowState = FormWindowState.Maximized;

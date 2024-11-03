@@ -1,6 +1,5 @@
 ﻿using DocumentFormat.OpenXml.ExtendedProperties;
 using latihribbon.Dal;
-using latihribbon.Helper;
 using latihribbon.Model;
 using System;
 using System.Collections.Generic;
@@ -22,7 +21,6 @@ namespace latihribbon
 {
     public partial class SuratMasuk : Form
     {
-        private MesBox mesbox = new MesBox();
         private readonly MasukDal masukDal = new MasukDal();
         private string NIS;
         private string nama;

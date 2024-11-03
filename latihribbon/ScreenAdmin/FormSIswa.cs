@@ -1,7 +1,6 @@
 ﻿ using Dapper;
 using latihribbon.Conn;
 using latihribbon.Dal;
-using latihribbon.Helper;
 using latihribbon.Model;
 using latihribbon.ScreenAdmin;
 using OfficeOpenXml;
@@ -28,7 +27,6 @@ namespace latihribbon
         private readonly SiswaDal siswaDal;
         private readonly JurusanDal jurusanDal;
         private readonly KelasDal kelasDal;
-        private readonly MesBox mesBox;
         private ToolTip toolTip;
         private Dictionary<Control, Point> originalLocations = new Dictionary<Control, Point>();
         private Dictionary<Control, Size> originalSizes = new Dictionary<Control, Size>();
@@ -44,7 +42,6 @@ namespace latihribbon
             siswaDal = new SiswaDal();
             jurusanDal = new JurusanDal();
             kelasDal = new KelasDal();
-            mesBox = new MesBox();
             InitCombo();
             LoadData();
             InitComponent();

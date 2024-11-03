@@ -1,5 +1,4 @@
 ﻿using latihribbon.Dal;
-using latihribbon.Helper;
 using latihribbon.Model;
 using System;
 using System.Collections.Generic;

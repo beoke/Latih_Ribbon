@@ -1,6 +1,5 @@
 ﻿using DocumentFormat.OpenXml.Presentation;
 using latihribbon.Dal;
-using latihribbon.Helper;
 using latihribbon.Model;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
@@ -24,13 +23,11 @@ namespace latihribbon
     {
         private readonly RekapPersensiDal rekapPersensiDal;
         private readonly SetPrintDal _setPrintDal;
-        private readonly MesBox mesBox;
 
         public FormSetPrint()
         {
             _setPrintDal = new SetPrintDal();
             rekapPersensiDal = new RekapPersensiDal();
-            mesBox = new MesBox();
             InitializeComponent();
             this.MaximizeBox = false;
             this.MinimizeBox = false;

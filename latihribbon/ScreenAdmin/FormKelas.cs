@@ -1,6 +1,5 @@
 ﻿using DocumentFormat.OpenXml.Wordprocessing;
 using latihribbon.Dal;
-using latihribbon.Helper;
 using latihribbon.Model;
 using System;
 using System.Collections.Generic;
@@ -18,7 +17,6 @@ namespace latihribbon.ScreenAdmin
     {
         private readonly JurusanDal jurusanDal;
         private readonly KelasDal kelasDal;
-        private readonly MesBox mesBox = new MesBox();
         public FormKelas()
         {
             InitializeComponent();

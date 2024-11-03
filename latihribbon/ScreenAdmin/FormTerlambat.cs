@@ -1,7 +1,6 @@
 ﻿using Dapper;
 using latihribbon.Conn;
 using latihribbon.Dal;
-using latihribbon.Helper;
 using latihribbon.Model;
 using System;
 using System.Collections.Generic;
@@ -25,7 +24,6 @@ namespace latihribbon
         private readonly SiswaDal siswaDal;
         private readonly KelasDal kelasDal;
         
-        private readonly MesBox mesBox;
         private ToolTip toolTip;
         private System.Threading.Timer timer;
 
@@ -36,7 +34,6 @@ namespace latihribbon
             masukDal = new MasukDal();
             siswaDal = new SiswaDal();
             kelasDal = new KelasDal();
-            mesBox = new MesBox();
             toolTip = new ToolTip();
             InitCombo();
             RegisterEvent();

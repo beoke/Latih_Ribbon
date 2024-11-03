@@ -369,7 +369,6 @@
     <Compile Include="ScreenAdmin\FormKelas.Designer.cs">
       <DependentUpon>FormKelas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Helper\MesBox.cs" />
     <Compile Include="Model\JurusanModel.cs" />
     <Compile Include="ScreenAdmin\Rekap Presensi\PopUpKelas.cs">
       <SubType>Form</SubType>

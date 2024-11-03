@@ -1,6 +1,5 @@
 ﻿using DocumentFormat.OpenXml.Bibliography;
 using DocumentFormat.OpenXml.Vml;
-using latihribbon.Helper;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,7 +16,6 @@ namespace latihribbon
     public partial class login : Form
     {
         private readonly RiwayatLogin_UserDal _riwayatLoginDal;
-        private readonly MesBox _mesBox = new MesBox();
 
         private Form mainForm;
         private Form indexForm;

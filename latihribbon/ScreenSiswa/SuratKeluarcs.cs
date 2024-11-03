@@ -8,7 +8,6 @@ using System.Windows.Forms;
 using Dapper;
 using DocumentFormat.OpenXml.Drawing.ChartDrawing;
 using latihribbon.Dal;
-using latihribbon.Helper;
 using latihribbon.Model;
 using System.Management;
 using System.Globalization;
@@ -24,7 +23,6 @@ namespace latihribbon
         private readonly DbDal db;
         private readonly KeluarDal keluarDal;
         int print = 0;
-        private readonly MesBox mesBox = new MesBox();
         DateTime globalCurrentTime = DateTime.Now;
         private string NIS;
         private string nama;

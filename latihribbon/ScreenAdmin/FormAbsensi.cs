@@ -1,6 +1,5 @@
 ﻿using Dapper;
 using latihribbon.Dal;
-using latihribbon.Helper;
 using latihribbon.Model;
 using latihribbon.ScreenAdmin;
 using System;
@@ -24,7 +23,6 @@ namespace latihribbon
         private readonly SiswaDal siswaDal;
         private readonly HistoryDal historyDal;
         private readonly KelasDal kelasDal;
-        private MesBox mesBox = new MesBox();
         private bool InternalTextChange = true;
         private System.Threading.Timer timer;
         public FormAbsensi()

@@ -1,6 +1,5 @@
 ﻿using Dapper;
 using latihribbon.Dal;
-using latihribbon.Helper;
 using latihribbon.Model;
 using System;
 using System.Collections.Generic;
@@ -24,7 +23,6 @@ namespace latihribbon
         private readonly SiswaDal siswaDal;
         private readonly KeluarDal keluarDal;
         private readonly KelasDal kelasDal;
-        private readonly MesBox mesBox = new MesBox();
         private ToolTip toolTip;
         int globalId = 0;
         private Dictionary<Control,Point> oriLocation = new Dictionary<Control,Point>();
