@@ -96,12 +96,12 @@ namespace latihribbon.Dal
             }
         }
 
-        public IEnumerable<SiswaModel> ListKelas()
+        public int CekDataSiswa()
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
             {
-                const string sql = @"SELECT DISTINCT Kelas FROM siswa";
-                return koneksi.Query<SiswaModel>(sql);
+                const string sql = @"SELECT COUNT(*) FROM siswa";
+                return koneksi.QuerySingleOrDefault<int>(sql);
             }
         }
 

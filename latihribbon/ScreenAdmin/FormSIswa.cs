@@ -374,14 +374,20 @@ namespace latihribbon
             }
 
             LoadData();
+            InitCombo();
             new MesInformasi("Data Berhasil Dihapus").ShowDialog(this);
         }
 
         private void NaikKelasContext_Click(object sender, EventArgs e)
         {
+            if(siswaDal.CekDataSiswa() == 0)
+            {
+                new MesError("Data Siswa Kosong!").ShowDialog(this);
+                return;
+            }
             if (kelasDal.cekLulus())
             {
-                new MesWarningOK("Data siswa lulus masih ada\n Anda harus menghapusnya jika ingin menaikkan kelas untuk seluruh siswa").ShowDialog(this);
+                new MesError("Data siswa LULUS masih ada\nAnda harus menghapusnya jika ingin menaikkan kelas untuk seluruh siswa!",2).ShowDialog(this);
                 return;
             }
 
@@ -409,6 +415,7 @@ namespace latihribbon
             }
             new MesInformasi("Seluruh Siswa Berhasil Naik Kelas!").ShowDialog(this);
             LoadData();
+            InitCombo();
         }
 
         private void BtnSave_FormSiswa_Click(object sender, EventArgs e)
@@ -428,6 +435,14 @@ namespace latihribbon
 
         private void EditMenuStrip_Click(object sender, EventArgs e)
         {
+            string kelas = dataGridView1.CurrentRow.Cells[4].Value?.ToString() ?? string.Empty;
+            string[] kelasArr = kelas.Split(' ');
+            if (kelasArr[0] == "LULUS")
+            {
+                new MesError("Data siswa LULUS tidak dapat di edit!").ShowDialog(this);
+                return;
+            };
+
             int Nis = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
             if (new EditSiswa(Nis).ShowDialog() == DialogResult.Yes)
                 LoadData();

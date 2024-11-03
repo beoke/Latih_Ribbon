@@ -426,6 +426,7 @@
             this.txtAlasan.Size = new System.Drawing.Size(76, 476);
             this.txtAlasan.TabIndex = 0;
             this.txtAlasan.TextChanged += new System.EventHandler(this.txtAlasan_TextChanged);
+            this.txtAlasan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAlasan_KeyPress);
             // 
             // label9
             // 

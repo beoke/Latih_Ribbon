@@ -371,5 +371,13 @@ namespace latihribbon
             ScreenSiswa.FormTutorJam f = new ScreenSiswa.FormTutorJam();
             f.ShowDialog(this);
         }
+
+        private void txtAlasan_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

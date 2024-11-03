@@ -25,10 +25,10 @@ namespace latihribbon.ScreenAdmin
             buf();
             jurusanDal = new JurusanDal();
             kelasDal = new KelasDal();
+            HapusDataLulus();
             InitComponent();
             LoadData();
             RegisterEvent();
-            HapusDataLulus();
 
             this.Load += FormKelas_Load;
         }
@@ -102,7 +102,7 @@ namespace latihribbon.ScreenAdmin
         public void LoadData()
         {
             GridListKelas.DataSource = 
-                kelasDal.listKelas("", new { })
+                kelasDal.listKelas("", new {})
                 .Select((x,index) => new {
                     IdKelas = x.Id,
                     No = index+1,
@@ -186,11 +186,6 @@ namespace latihribbon.ScreenAdmin
         private void HapusDataLulus()
         {
             kelasDal.DeleteDataLulus();
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

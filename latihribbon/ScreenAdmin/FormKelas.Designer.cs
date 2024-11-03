@@ -307,7 +307,6 @@
             this.label6.Size = new System.Drawing.Size(100, 20);
             this.label6.TabIndex = 66;
             this.label6.Text = "Nama Kelas";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // contextMenuStrip1
             // 

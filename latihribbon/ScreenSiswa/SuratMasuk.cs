@@ -147,7 +147,7 @@ namespace latihribbon
             {
                 string nama = txtNama.Text;
                 nama = new string(nama.Where(x => x != '*').ToArray());
-                MessageBox.Show(nama);
+
                 if (nama.Length >= 25)
                 {
                     string[] arrSiswa = nama.Trim().Split(' ');
@@ -157,12 +157,10 @@ namespace latihribbon
                     foreach (var x in arrSiswa)
                     {
                         cekNama += $"{x} ";
-                        if (cekNama.Length > 20) 
+                        if (cekNama.Length > 21) 
                         {
-                            
-                                char[] huruf = x.ToCharArray();
-                                nama += $"{huruf[0]}.";
-                            
+                            char[] huruf = x.ToCharArray();
+                            nama += $"{huruf[0]}.";
                         }
                         else
                         {
@@ -338,6 +336,13 @@ namespace latihribbon
             lblLength.Text = $"{txtAlasan.Text.Length}/60";
         }
 
+        private void txtAlasan_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true;
+            }
+        }
     }
     
 }
