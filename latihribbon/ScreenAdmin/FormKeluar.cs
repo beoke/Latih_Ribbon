@@ -96,14 +96,17 @@ namespace latihribbon
             dataGridView1.Columns[5].HeaderText = "Jam Keluar";
             dataGridView1.Columns[6].HeaderText = "Jam Masuk";
 
+            dataGridView1.Columns["Id"].Visible = false;
+
             dataGridView1.Columns[0].Width = 60;
-            dataGridView1.Columns[1].Width = 80;
-            dataGridView1.Columns[2].Width = 350;
-            dataGridView1.Columns[3].Width = 130;
-            dataGridView1.Columns[4].Width = 110;
+            dataGridView1.Columns[1].Width = 60;
+            dataGridView1.Columns[2].Width = 80;
+            dataGridView1.Columns[3].Width = 350;
+            dataGridView1.Columns[4].Width = 130;
             dataGridView1.Columns[5].Width = 110;
             dataGridView1.Columns[6].Width = 110;
-            dataGridView1.Columns[7].Width = 300;
+            dataGridView1.Columns[7].Width = 110;
+            dataGridView1.Columns[8].Width = 300;
 
             //TextBox
             txtNIS1.MaxLength = 9;
@@ -144,7 +147,6 @@ namespace latihribbon
             }
 
             string text = "Halaman ";
-
             int RowPerPage = (int)comboPerPage.SelectedItem;
             int inRowPage = (Page - 1) * RowPerPage;
             var jumlahRow = keluarDal.CekRows(sqlc, dp);
@@ -155,9 +157,10 @@ namespace latihribbon
             dp.Add("@Offset", inRowPage);
             dp.Add("@Fetch", RowPerPage);
             dataGridView1.DataSource = keluarDal.ListData(sqlc, dp)
-                .Select(x => new 
+                .Select((x, index) => new 
                 { 
                     Id = x.Id,
+                    No = inRowPage + index + 1,
                     NIS = x.Nis,
                     Nama = x.Nama,
                     NamaKelas = x.NamaKelas,
@@ -255,12 +258,17 @@ namespace latihribbon
             lblFilter.Click += LblFilter_Click;
 
             btnNext.Click += btnNext_Click;
-            btnPrevious.Click += btnPrevious_Click;
+            btnPrevious.Click += BtnPrevious_Click;
         }
 
-
-     
-
+        private void BtnPrevious_Click(object sender, EventArgs e)
+        {
+            if (Page > 1)
+            {
+                Page--;
+                LoadData();
+            }
+        }
 
         private void FormKeluar_Resize(object sender, EventArgs e)
         {
@@ -390,16 +398,8 @@ namespace latihribbon
             }
         }
 
-        private void btnPrevious_Click(object sender, EventArgs e)
-        {
-            if (Page > totalPage)
-            {
-                Page--;
-                LoadData();
-            }
-        }
+
         #endregion
 
-  
     }
 }

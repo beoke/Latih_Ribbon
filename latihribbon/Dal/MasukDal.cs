@@ -22,11 +22,11 @@ namespace latihribbon.Dal
                                     INNER JOIN Kelas kls ON s.IdKelas = kls.Id 
                                     {sqlc} 
                                     ORDER BY m.Tanggal DESC, 
-                                    m.id DESC OFFSET @Offset ROWS FETCH NEXT @Fetch ROWS ONLY";
+                                    m.JamMasuk DESC OFFSET @Offset ROWS FETCH NEXT @Fetch ROWS ONLY";
                 return koneksi.Query<MasukModel>(sql,dp);
             }
         }
-
+        
         public MasukModel GetData(int id)
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
@@ -39,6 +39,7 @@ namespace latihribbon.Dal
                 return koneksi.QueryFirstOrDefault<MasukModel>(sql, new {id=id});
             }
         }
+
         public void Insert(MasukModel masuk)
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
