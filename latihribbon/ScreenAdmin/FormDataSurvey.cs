@@ -93,9 +93,9 @@ namespace latihribbon
 
 
             GridListSurvey.DataSource = ListData(sqlc, "OFFSET @Offset ROWS FETCH NEXT @Fetch ROWS ONLY", dp)
-                                        .Select(x => new
+                                        .Select((x, index) => new
                                         {
-                                            Id = x.SurveyId,
+                                            No = rowInPage + index + 1, 
                                             Jawaban_Survey = x.HasilSurvey == 1 ? "Puas" : "Tidak Puas",
                                             Tanggal = x.Tanggal.ToString("dd/MM/yyyy"),
                                             Waktu = x.Waktu.ToString(@"hh\:mm")

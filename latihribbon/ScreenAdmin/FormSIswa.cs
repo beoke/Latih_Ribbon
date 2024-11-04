@@ -150,12 +150,13 @@ namespace latihribbon
             dataGridView1.ColumnHeadersHeight = 35;
             dataGridView1.Columns[3].HeaderText = "Jenis Kelamin";
 
-            dataGridView1.Columns[0].Width = 80;
-            dataGridView1.Columns[1].Width = 100;
-            dataGridView1.Columns[2].Width = 350;
-            dataGridView1.Columns[3].Width = 120;
-            dataGridView1.Columns[4].Width = 150;
-            dataGridView1.Columns[5].Width = 100;
+            dataGridView1.Columns[0].Width = 50;
+            dataGridView1.Columns[1].Width = 80;
+            dataGridView1.Columns[2].Width = 100;
+            dataGridView1.Columns[3].Width = 350;
+            dataGridView1.Columns[4].Width = 120;
+            dataGridView1.Columns[5].Width = 150;
+            dataGridView1.Columns[6].Width = 100;
         }
 
         public void SaveData()
@@ -269,8 +270,9 @@ namespace latihribbon
             dp.Add("@Offset", inRowPage);
             dp.Add("@Fetch", RowPerPage);
             dataGridView1.DataSource = siswaDal.ListData(sqlc, dp)
-                .Select(x => new
+                .Select((x,index) => new
                 {
+                    No = inRowPage +index + 1, 
                     NIS = x.Nis,
                     Persensi = x.Persensi,
                     Nama = x.Nama,
