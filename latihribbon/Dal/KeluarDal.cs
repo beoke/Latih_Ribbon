@@ -21,7 +21,7 @@ namespace latihribbon.Dal
                             INNER JOIN siswa s ON k.Nis=s.Nis
                             INNER JOIN kelas kls ON s.IdKelas = kls.Id 
                             {sqlc} 
-                            ORDER BY k.Tanggal OFFSET @Offset ROWS FETCH NEXT @Fetch ROWS ONLY";
+                            ORDER BY k.Tanggal DESC, k.JamKeluar DESC OFFSET @Offset ROWS FETCH NEXT @Fetch ROWS ONLY";
                 return koneksi.Query<KeluarModel>(sql,dp);
             }
         }

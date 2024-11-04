@@ -51,7 +51,7 @@ namespace latihribbon.Dal
                                      INNER JOIN siswa s ON p.NIS=s.NIS
                                      INNER JOIN Kelas k ON s.IdKelas = k.Id 
                                      {sqlc} 
-                                     ORDER BY Tanggal DESC OFFSET @Offset ROWS FETCH NEXT @Fetch ROWS ONLY";
+                                     ORDER BY p.Tanggal DESC OFFSET @Offset ROWS FETCH NEXT @Fetch ROWS ONLY";
                 return koneksi.Query<AbsensiModel>(sql, dp);
             }
         }
