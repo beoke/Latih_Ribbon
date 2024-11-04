@@ -148,7 +148,7 @@ namespace latihribbon
             dataGridView1.RowTemplate.Height = 30;
             //dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dataGridView1.ColumnHeadersHeight = 35;
-            dataGridView1.Columns[3].HeaderText = "Jenis Kelamin";
+            dataGridView1.Columns[4].HeaderText = "Jenis Kelamin";
 
             dataGridView1.Columns[0].Width = 50;
             dataGridView1.Columns[1].Width = 80;
@@ -434,7 +434,7 @@ namespace latihribbon
 
         private void EditMenuStrip_Click(object sender, EventArgs e)
         {
-            string kelas = dataGridView1.CurrentRow.Cells[4].Value?.ToString() ?? string.Empty;
+            string kelas = dataGridView1.CurrentRow.Cells[5].Value?.ToString() ?? string.Empty;
             string[] kelasArr = kelas.Split(' ');
             if (kelasArr[0] == "LULUS")
             {
@@ -442,7 +442,7 @@ namespace latihribbon
                 return;
             };
 
-            int Nis = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+            int Nis = Convert.ToInt32(dataGridView1.CurrentRow.Cells[1].Value);
             if (new EditSiswa(Nis).ShowDialog() == DialogResult.Yes)
                 LoadData();
         }
