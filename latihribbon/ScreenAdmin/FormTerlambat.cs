@@ -73,13 +73,14 @@ namespace latihribbon
             dataGridView1.Columns["NamaKelas"].HeaderText = "Nama Kelas";
             dataGridView1.Columns["JamMasuk"].HeaderText = "Jam Masuk";
 
-            dataGridView1.Columns[0].Width = 60;
-            dataGridView1.Columns[1].Width = 80;
-            dataGridView1.Columns[2].Width = 350;
-            dataGridView1.Columns[3].Width = 130;
-            dataGridView1.Columns[4].Width = 110;
+            dataGridView1.Columns[0].Visible = false;
+            dataGridView1.Columns[1].Width = 50;
+            dataGridView1.Columns[2].Width = 80;
+            dataGridView1.Columns[3].Width = 350;
+            dataGridView1.Columns[4].Width = 130;
             dataGridView1.Columns[5].Width = 110;
-            dataGridView1.Columns[6].Width = 300;
+            dataGridView1.Columns[6].Width = 110;
+            dataGridView1.Columns[7].Width = 300;
 
             toolTip.SetToolTip(btnResetFilter, "Reset Filter");
         }
@@ -124,6 +125,7 @@ namespace latihribbon
             string text = "Halaman ";
             int RowPerPage = (int)comboPerPage.SelectedItem;
             int inRowPage = (Page - 1) * RowPerPage;
+
             var jumlahRow = masukDal.CekRows(sqlc, dp);
             totalPage = (int)Math.Ceiling((double)jumlahRow / RowPerPage);
 
@@ -132,9 +134,10 @@ namespace latihribbon
             dp.Add("@Offset", inRowPage);
             dp.Add("@Fetch", RowPerPage);
             dataGridView1.DataSource = masukDal.ListData(sqlc, dp)
-                .Select(x => new
+                .Select((x,index) => new
                 {
                     Id = x.Id,
+                    No = inRowPage + index + 1,
                     NIS = x.NIS,
                     Nama = x.Nama,
                     NamaKelas = x.NamaKelas,

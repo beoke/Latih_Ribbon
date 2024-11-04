@@ -114,7 +114,7 @@ namespace latihribbon
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.btn_Keluar);
             this.panel1.Location = new System.Drawing.Point(9, 10);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1202, 682);
             this.panel1.TabIndex = 56;
@@ -130,7 +130,7 @@ namespace latihribbon
             this.btn_kembali.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_kembali.ForeColor = System.Drawing.Color.White;
             this.btn_kembali.Location = new System.Drawing.Point(7, 616);
-            this.btn_kembali.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_kembali.Margin = new System.Windows.Forms.Padding(2);
             this.btn_kembali.Name = "btn_kembali";
             this.btn_kembali.Size = new System.Drawing.Size(52, 57);
             this.btn_kembali.TabIndex = 63;
@@ -200,7 +200,7 @@ namespace latihribbon
             this.btn_masuk.Image = global::latihribbon.Properties.Resources.Group_13_1;
             this.btn_masuk.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btn_masuk.Location = new System.Drawing.Point(142, 323);
-            this.btn_masuk.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_masuk.Margin = new System.Windows.Forms.Padding(2);
             this.btn_masuk.Name = "btn_masuk";
             this.btn_masuk.Size = new System.Drawing.Size(450, 293);
             this.btn_masuk.TabIndex = 0;
@@ -214,7 +214,7 @@ namespace latihribbon
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox1.Location = new System.Drawing.Point(7, 5);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(116, 102);
             this.pictureBox1.TabIndex = 54;
@@ -229,7 +229,7 @@ namespace latihribbon
             this.btn_Keluar.Image = global::latihribbon.Properties.Resources.Group_14_1;
             this.btn_Keluar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btn_Keluar.Location = new System.Drawing.Point(607, 323);
-            this.btn_Keluar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Keluar.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Keluar.Name = "btn_Keluar";
             this.btn_Keluar.Size = new System.Drawing.Size(450, 293);
             this.btn_Keluar.TabIndex = 1;
@@ -244,7 +244,7 @@ namespace latihribbon
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.LightGray;
             this.panel2.Location = new System.Drawing.Point(9, 722);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1199, 98);
             this.panel2.TabIndex = 57;
@@ -253,11 +253,11 @@ namespace latihribbon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1217, 701);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormMilih";
             this.Text = "FormMilih";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
