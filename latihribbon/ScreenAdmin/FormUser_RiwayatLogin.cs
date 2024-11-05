@@ -73,9 +73,10 @@ namespace latihribbon
         private void LoadUser()
         {
             GridListUser.DataSource = _riwayatLoginDal.ListUser()
-                .Select (x => new 
+                .Select ((x,index) => new 
                 {
-                    x.Id, 
+                    x.Id,
+                    No = index+1,
                     Username = x.username,
                     Password = x.password,
 
@@ -95,8 +96,9 @@ namespace latihribbon
 
                 GridListUser.Columns["Id"].Visible = false;
                 GridListUser.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                GridListUser.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                GridListUser.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                GridListUser.Columns[0].Visible = false;
+                GridListUser.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                GridListUser.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }
 
             toolTip.SetToolTip(btnResetFilter, "Reset Filter");
@@ -117,11 +119,12 @@ namespace latihribbon
                 GridListRiwayatLogin.RowTemplate.Height = 30;
                 GridListRiwayatLogin.ColumnHeadersHeight = 35;
 
-                
-                GridListRiwayatLogin.Columns[0].Width = 80;
-                GridListRiwayatLogin.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                GridListRiwayatLogin.Columns[2].Width = 200;
-                GridListRiwayatLogin.Columns[3].Width = 150;
+                GridListRiwayatLogin.Columns[0].Visible = false;
+                GridListRiwayatLogin.Columns[0].Width = 60;
+                GridListRiwayatLogin.Columns[1].Width = 80;
+                GridListRiwayatLogin.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                GridListRiwayatLogin.Columns[3].Width = 200;
+                GridListRiwayatLogin.Columns[4].Width = 150;
 
             }
         }
@@ -170,7 +173,15 @@ namespace latihribbon
 
             dp.Add("@Offset",inRowPage);
             dp.Add("@Fetch",RowPerPage);
-            GridListRiwayatLogin.DataSource = _riwayatLoginDal.GetSiswaFilter(sqlc, dp);
+            GridListRiwayatLogin.DataSource = _riwayatLoginDal.GetSiswaFilter(sqlc, dp)
+                .Select((x,index) => new
+                {
+                    x.IdLogin,
+                    No = inRowPage+index+1,
+                    x.UserLogin,
+                    x.Tanggal,
+                    Jam = x.Waktu.ToString(@"hh\:mm")
+                }).ToList();
         }
 
         private void InitialEvent()
@@ -191,11 +202,11 @@ namespace latihribbon
         {
             if (GridListRiwayatLogin.Width < 610 && lastSizeMode != 1)
             {
-                GridListRiwayatLogin.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+                GridListRiwayatLogin.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
             }
             else if(GridListRiwayatLogin.Width >= 610 && lastSizeMode != 2)
             {
-                GridListRiwayatLogin.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                GridListRiwayatLogin.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }
 
             if (panelRiwayat.Width < 523 && SetPagination != 1)
@@ -242,9 +253,7 @@ namespace latihribbon
         {
             if (new MesQuestionYN("Input Data?").ShowDialog(this) != DialogResult.Yes) return;
 
-            int idUser = TextIdUser.Text == string.Empty ? 0 : Convert.ToInt32(TextIdUser.Text);
-            SaveUser(idUser);
-
+            SaveUser();
         }   
 
         private void PickerRentan_ValueChanged(object sender, EventArgs e)
@@ -265,11 +274,10 @@ namespace latihribbon
         string Userlama = string.Empty;
       
 
-        private void SaveUser(int idUser)
+        private void SaveUser()
         {
             var user = new UserModel
             {
-                Id = idUser,
                 username = TextNameUser.Text,
                 password = HashPassword(TextPassword.Text),
                 Role = "admin",
@@ -282,7 +290,6 @@ namespace latihribbon
 
         private void ClearUser()
         {
-            TextIdUser.Clear();
             TextNameUser.Clear();
             TextPassword.Clear();
         }

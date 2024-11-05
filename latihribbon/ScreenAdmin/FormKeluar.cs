@@ -37,10 +37,10 @@ namespace latihribbon
             keluarDal = new KeluarDal();
             kelasDal = new KelasDal();
             toolTip = new ToolTip();
-            RegisterEvent();
             InitCombo();
             LoadData();
             InitComponent();
+            RegisterEvent();
         }
 
         private void FormKeluar_Load(object sender, EventArgs e)
@@ -93,8 +93,8 @@ namespace latihribbon
 
             dataGridView1.ColumnHeadersHeight = 35;
             dataGridView1.Columns[3].HeaderText = "Nama Kelas";
-            dataGridView1.Columns[5].HeaderText = "Jam Keluar";
-            dataGridView1.Columns[6].HeaderText = "Jam Masuk";
+            dataGridView1.Columns[6].HeaderText = "Jam Keluar";
+            dataGridView1.Columns[7].HeaderText = "Jam Masuk";
 
             dataGridView1.Columns["Id"].Visible = false;
 

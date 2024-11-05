@@ -48,8 +48,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.TextNameUser = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.TextIdUser = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.panelPage = new System.Windows.Forms.Panel();
             this.lblHalaman = new System.Windows.Forms.Label();
             this.btnPrevious = new System.Windows.Forms.Button();
@@ -245,8 +243,6 @@
             this.panel5.Controls.Add(this.label4);
             this.panel5.Controls.Add(this.TextNameUser);
             this.panel5.Controls.Add(this.label7);
-            this.panel5.Controls.Add(this.TextIdUser);
-            this.panel5.Controls.Add(this.label9);
             this.panel5.Location = new System.Drawing.Point(473, 7);
             this.panel5.Margin = new System.Windows.Forms.Padding(2);
             this.panel5.Name = "panel5";
@@ -285,7 +281,7 @@
             this.TextPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TextPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TextPassword.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.TextPassword.Location = new System.Drawing.Point(34, 216);
+            this.TextPassword.Location = new System.Drawing.Point(34, 136);
             this.TextPassword.Margin = new System.Windows.Forms.Padding(2);
             this.TextPassword.MaxLength = 50;
             this.TextPassword.Name = "TextPassword";
@@ -297,7 +293,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(34, 195);
+            this.label4.Location = new System.Drawing.Point(34, 115);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(75, 18);
@@ -310,7 +306,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TextNameUser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TextNameUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextNameUser.Location = new System.Drawing.Point(34, 154);
+            this.TextNameUser.Location = new System.Drawing.Point(34, 74);
             this.TextNameUser.Margin = new System.Windows.Forms.Padding(2);
             this.TextNameUser.MaxLength = 30;
             this.TextNameUser.Name = "TextNameUser";
@@ -321,38 +317,12 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(34, 133);
+            this.label7.Location = new System.Drawing.Point(34, 53);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(77, 18);
             this.label7.TabIndex = 67;
             this.label7.Text = "Username";
-            // 
-            // TextIdUser
-            // 
-            this.TextIdUser.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TextIdUser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TextIdUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextIdUser.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.TextIdUser.Location = new System.Drawing.Point(34, 93);
-            this.TextIdUser.Margin = new System.Windows.Forms.Padding(2);
-            this.TextIdUser.Name = "TextIdUser";
-            this.TextIdUser.ReadOnly = true;
-            this.TextIdUser.Size = new System.Drawing.Size(276, 23);
-            this.TextIdUser.TabIndex = 68;
-            this.TextIdUser.TabStop = false;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(34, 72);
-            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(55, 18);
-            this.label9.TabIndex = 66;
-            this.label9.Text = "Id User";
             // 
             // panelPage
             // 
@@ -557,8 +527,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox TextNameUser;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox TextIdUser;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
         private System.Windows.Forms.ToolStripMenuItem DeleteMenuStrip;
         private System.Windows.Forms.Label label14;

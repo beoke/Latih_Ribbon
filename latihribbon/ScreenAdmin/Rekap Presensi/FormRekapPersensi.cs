@@ -82,12 +82,13 @@ namespace latihribbon.ScreenAdmin
             dataGridView1.ColumnHeadersHeight = 35;
             dataGridView1.RowHeadersWidth = 51;
 
-            dataGridView1.Columns[0].Width = 80;
-            dataGridView1.Columns[1].Width = 100;
-            dataGridView1.Columns[2].Width = 350;
-            dataGridView1.Columns[3].Width = 120;
-            dataGridView1.Columns[4].Width = 150;
-            dataGridView1.Columns[5].Width = 100;
+            dataGridView1.Columns[0].Width = 60;
+            dataGridView1.Columns[1].Width = 80;
+            dataGridView1.Columns[2].Width = 100;
+            dataGridView1.Columns[3].Width = 350;
+            dataGridView1.Columns[4].Width = 120;
+            dataGridView1.Columns[5].Width = 150;
+            dataGridView1.Columns[6].Width = 100;
         }
 
         public void LoadHistory()
@@ -162,7 +163,17 @@ namespace latihribbon.ScreenAdmin
             dp.Add("Fetch",RowPerPage);
             text += $"{Page.ToString()}/{totalPage.ToString()}";
             lblHalaman.Text = text;
-            dataGridView1.DataSource = rekapPersensiDal.ListData2(sqlc,dp);
+            dataGridView1.DataSource = rekapPersensiDal.ListData2(sqlc,dp)
+                .Select((x, index) => new
+                {
+                    No = inRowPage + index + 1,
+                    x.Nis,
+                    x.Persensi,
+                    x.Nama,
+                    x.NamaKelas,
+                    x.Tanggal,
+                    x.Keterangan
+                }).ToList();
 
             sqlc2 = string.Empty;
         }
@@ -233,8 +244,6 @@ namespace latihribbon.ScreenAdmin
         }
         #endregion
 
-
-      
 
         private void btnNext_Click(object sender, EventArgs e)
         {

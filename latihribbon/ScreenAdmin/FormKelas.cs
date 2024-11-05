@@ -107,8 +107,8 @@ namespace latihribbon.ScreenAdmin
                     NamaKelas = x.NamaKelas
                 }).ToList();
 
-            GridListKelas.Columns[0].Width = 100;
-            GridListKelas.Columns[1].Width = 300;
+            GridListKelas.Columns[1].Width = 60;
+            GridListKelas.Columns[2].Width = 300;
             GridListKelas.Columns["NamaKelas"].HeaderText = "Nama Kelas";
             GridListKelas.Columns["IdKelas"].Visible = false;
 
@@ -147,7 +147,6 @@ namespace latihribbon.ScreenAdmin
             if (jurusanCombo.Items.Count == 0) { new MesWarningOK("Data Jurusan Kosong!").ShowDialog(); return; }
             var kelas = new KelasModel
             {
-                Id = txtIdKelas.Text == string.Empty ? 0 : Convert.ToInt32(txtIdKelas.Text),
                 NamaKelas = txtNamaKelas.Text.Trim(),
                 Rombel = txtRombel.Text,
                 IdJurusan = int.Parse(jurusanCombo.SelectedValue.ToString()),
@@ -168,7 +167,6 @@ namespace latihribbon.ScreenAdmin
 
         private void ClearData()
         {
-            txtIdKelas.Clear();
             txtNamaKelas.Clear();
             
             XRadio.Checked = false;

@@ -45,14 +45,16 @@ namespace latihribbon.ScreenAdmin
         }
         private void LoadData()
         {
-            GridListJurusan.DataSource = _jurusanDal.ListData().Select(x => new 
+            GridListJurusan.DataSource = _jurusanDal.ListData().Select((x,index) => new 
             {
                 IdJurusan = x.Id,
+                No = index+1,
                 NamaJurusan = x.NamaJurusan
             }).ToList();
 
-            GridListJurusan.Columns[0].Width = 100;
-            GridListJurusan.Columns[1].Width = 200;
+            GridListJurusan.Columns[0].Visible = false;
+            GridListJurusan.Columns[1].Width = 60;
+            GridListJurusan.Columns[2].Width = 200;
 
                 GridListJurusan.EnableHeadersVisualStyles = false;
                 GridListJurusan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
@@ -114,19 +116,14 @@ namespace latihribbon.ScreenAdmin
                 new MesWarningOK("Nama Jurusan Wajib Diisi!").ShowDialog();
                 return;
             }
-
-            if (txtIdJurusan.Text == string.Empty)
-            {
-                if (new MesQuestionYN("Input Data?").ShowDialog() != DialogResult.Yes) return;
-                _jurusanDal.Insert(namaJurusan);
-                LoadData();
-                Cleardata();
-            }
+            if (new MesQuestionYN("Input Data?").ShowDialog() != DialogResult.Yes) return;
+            _jurusanDal.Insert(namaJurusan);
+            LoadData();
+            Cleardata();
         }
 
         private void Cleardata()
         {
-            txtIdJurusan.Text = string.Empty;
             txtNamaJurusan.Text= string.Empty;
         }
 
