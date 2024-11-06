@@ -11,7 +11,7 @@ namespace latihribbon.Dal
 {
     public class SiswaDal
     {
-        public IEnumerable<SiswaModel> ListData(string sqlc,object dp)
+        public IEnumerable<SiswaModel> ListData(string sqlc,object dp,string p)
         {
                 using (var koneksi = new SqlConnection(Conn.conn.connstr()))
                 {
@@ -25,7 +25,7 @@ namespace latihribbon.Dal
                                         ELSE 4
                                     END,
                                     SUBSTRING( k.NamaKelas, CHARINDEX(' ', k.NamaKelas) + 1, LEN(k.NamaKelas)) ASC ,
-                                    s.IdKelas ASC
+                                    s.IdKelas ASC, s.Persensi {p}
                                     OFFSET @Offset ROWS FETCH NEXT @Fetch ROWS ONLY";
                     return koneksi.Query<SiswaModel>(sql, dp);
                 }

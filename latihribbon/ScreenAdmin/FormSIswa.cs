@@ -33,6 +33,8 @@ namespace latihribbon
         private System.Threading.Timer debounceTimer;
         private const int debounceDelay = 300;
 
+        private bool isTrue = true;
+
         public FormSIswa()
         {
             InitializeComponent();
@@ -259,6 +261,13 @@ namespace latihribbon
             }
             if (fltr.Count > 0)
                 sqlc += " WHERE " + string.Join(" AND ", fltr);
+
+            string p = "";
+            if (isTrue)
+                p = "ASC";
+            else
+                p = "DESC";
+
             string text = "Halaman ";
             int RowPerPage = (int)comboPerPage.SelectedItem;
             int inRowPage = (Page - 1) * RowPerPage;
@@ -269,7 +278,8 @@ namespace latihribbon
             lblHalaman.Text = text;
             dp.Add("@Offset", inRowPage);
             dp.Add("@Fetch", RowPerPage);
-            dataGridView1.DataSource = siswaDal.ListData(sqlc, dp)
+
+            dataGridView1.DataSource = siswaDal.ListData(sqlc, dp, p)
                 .Select((x,index) => new
                 {
                     No = inRowPage +index + 1, 
@@ -314,6 +324,21 @@ namespace latihribbon
             ButtonNaikKelas.Click += ButtonNaikKelas_Click;
             NaikKelasContext.Click += NaikKelasContext_Click;
             HapusSiswaLulus.Click += HapusSiswaLulus_Click;
+            dataGridView1.ColumnHeaderMouseClick += DataGridView1_ColumnHeaderMouseClick;
+
+            
+            
+        }
+
+        private void DataGridView1_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            
+            if (e.ColumnIndex != -1)
+            {
+                LoadData();
+                isTrue = !isTrue;
+
+            }
             
         }
 
@@ -495,6 +520,7 @@ namespace latihribbon
             {
                 Page--;
                 LoadData();
+
             }
         }
         private void BtnResetFilter_Click(object sender, EventArgs e)
