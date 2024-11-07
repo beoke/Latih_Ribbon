@@ -48,12 +48,14 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.btn_kembali = new System.Windows.Forms.Button();
+            this.mataPictureBox = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mataPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -74,7 +76,7 @@
             this.tx_Username.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tx_Username.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tx_Username.Location = new System.Drawing.Point(17, 163);
-            this.tx_Username.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tx_Username.Margin = new System.Windows.Forms.Padding(2);
             this.tx_Username.Name = "tx_Username";
             this.tx_Username.Size = new System.Drawing.Size(273, 32);
             this.tx_Username.TabIndex = 1;
@@ -86,7 +88,7 @@
             this.tx_Password.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tx_Password.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tx_Password.Location = new System.Drawing.Point(17, 263);
-            this.tx_Password.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tx_Password.Margin = new System.Windows.Forms.Padding(2);
             this.tx_Password.Name = "tx_Password";
             this.tx_Password.PasswordChar = '*';
             this.tx_Password.Size = new System.Drawing.Size(273, 32);
@@ -111,6 +113,7 @@
             this.panel1.BackColor = System.Drawing.Color.LightGray;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.mataPictureBox);
             this.panel1.Controls.Add(this.LabelPassword);
             this.panel1.Controls.Add(this.LabelUsername);
             this.panel1.Controls.Add(this.pictureBox1);
@@ -122,7 +125,7 @@
             this.panel1.Controls.Add(this.tx_Username);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(556, 161);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(304, 420);
             this.panel1.TabIndex = 6;
@@ -160,7 +163,7 @@
             this.pictureBox1.BackgroundImage = global::latihribbon.Properties.Resources.account;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Location = new System.Drawing.Point(117, 32);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(60, 60);
             this.pictureBox1.TabIndex = 8;
@@ -171,7 +174,7 @@
             this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox3.Location = new System.Drawing.Point(17, 228);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(27, 33);
             this.pictureBox3.TabIndex = 7;
@@ -182,7 +185,7 @@
             this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox2.Location = new System.Drawing.Point(17, 132);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(27, 29);
             this.pictureBox2.TabIndex = 6;
@@ -198,7 +201,7 @@
             this.btn_Login.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Login.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_Login.Location = new System.Drawing.Point(17, 340);
-            this.btn_Login.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Login.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Login.Name = "btn_Login";
             this.btn_Login.Size = new System.Drawing.Size(272, 40);
             this.btn_Login.TabIndex = 5;
@@ -219,7 +222,7 @@
             this.panel2.Controls.Add(this.pictureBox4);
             this.panel2.Controls.Add(this.panel7);
             this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(292, 700);
             this.panel2.TabIndex = 7;
@@ -230,7 +233,7 @@
             this.panel6.BackColor = System.Drawing.Color.Silver;
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel6.Location = new System.Drawing.Point(153, 431);
-            this.panel6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel6.Margin = new System.Windows.Forms.Padding(2);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(58, 268);
             this.panel6.TabIndex = 10;
@@ -241,7 +244,7 @@
             this.panel5.BackColor = System.Drawing.Color.DarkGray;
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel5.Location = new System.Drawing.Point(80, 358);
-            this.panel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel5.Margin = new System.Windows.Forms.Padding(2);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(58, 342);
             this.panel5.TabIndex = 10;
@@ -252,7 +255,7 @@
             this.panel4.BackColor = System.Drawing.Color.Gray;
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Location = new System.Drawing.Point(6, 282);
-            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(58, 415);
             this.panel4.TabIndex = 9;
@@ -273,7 +276,7 @@
             this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
             this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox4.Location = new System.Drawing.Point(-1, -1);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(134, 125);
             this.pictureBox4.TabIndex = 9;
@@ -285,7 +288,7 @@
             this.panel7.BackColor = System.Drawing.Color.LightGray;
             this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel7.Location = new System.Drawing.Point(226, 512);
-            this.panel7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel7.Margin = new System.Windows.Forms.Padding(2);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(58, 187);
             this.panel7.TabIndex = 10;
@@ -301,11 +304,22 @@
             this.btn_kembali.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_kembali.ForeColor = System.Drawing.Color.White;
             this.btn_kembali.Location = new System.Drawing.Point(306, 626);
-            this.btn_kembali.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_kembali.Margin = new System.Windows.Forms.Padding(2);
             this.btn_kembali.Name = "btn_kembali";
             this.btn_kembali.Size = new System.Drawing.Size(52, 57);
             this.btn_kembali.TabIndex = 55;
             this.btn_kembali.UseVisualStyleBackColor = false;
+            // 
+            // mataPictureBox
+            // 
+            this.mataPictureBox.BackColor = System.Drawing.Color.White;
+            this.mataPictureBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("mataPictureBox.BackgroundImage")));
+            this.mataPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.mataPictureBox.Location = new System.Drawing.Point(261, 267);
+            this.mataPictureBox.Name = "mataPictureBox";
+            this.mataPictureBox.Size = new System.Drawing.Size(24, 24);
+            this.mataPictureBox.TabIndex = 16;
+            this.mataPictureBox.TabStop = false;
             // 
             // login
             // 
@@ -317,7 +331,7 @@
             this.Controls.Add(this.btn_kembali);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "login";
@@ -330,6 +344,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mataPictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -355,5 +370,6 @@
         private System.Windows.Forms.Label LabelPassword;
         private System.Windows.Forms.Label LabelUsername;
         private System.Windows.Forms.Button btn_kembali;
+        private System.Windows.Forms.PictureBox mataPictureBox;
     }
 }

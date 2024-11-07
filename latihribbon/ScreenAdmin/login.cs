@@ -48,6 +48,16 @@ namespace latihribbon
 
             LabelUsername.Click += LabelUsername_Click;
             LabelPassword.Click += LabelPassword_Click;
+
+            mataPictureBox.Click += MataPictureBox_Click;
+        }
+
+        private void MataPictureBox_Click(object sender, EventArgs e)
+        {
+            if (tx_Password.PasswordChar == '\0')
+                tx_Password.PasswordChar = '*';
+            else
+                tx_Password.PasswordChar = '\0';
         }
 
         private void LabelPassword_Click(object sender, EventArgs e)
