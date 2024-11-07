@@ -93,6 +93,7 @@ namespace latihribbon
             GridListSurvey.DataSource = ListData(sqlc, "OFFSET @Offset ROWS FETCH NEXT @Fetch ROWS ONLY", dp)
                                         .Select((x, index) => new
                                         {
+                                            x.SurveyId,
                                             No = rowInPage + index + 1, 
                                             Jawaban_Survey = x.HasilSurvey == 1 ? "Puas" : "Tidak Puas",
                                             Tanggal = x.Tanggal.ToString("dd/MM/yyyy"),
@@ -139,9 +140,8 @@ namespace latihribbon
 
         private void DeleteMenuStrip_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Hapus data ?", "Konfirmasi", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) != DialogResult.OK) return;
-               
-            var id = GridListSurvey.CurrentRow.Cells[0].Value;
+            if (new MesQuestionYN("Hapus Data ?").ShowDialog(this) != DialogResult.Yes) return;
+            var id = GridListSurvey.CurrentRow.Cells["SurveyId"].Value;
             Delete(Convert.ToInt16(id));
             LoadData();
         }
@@ -175,6 +175,7 @@ namespace latihribbon
             GridListSurvey.ColumnHeadersDefaultCellStyle.BackColor = Color.LightBlue;
             GridListSurvey.RowTemplate.Height = 30;
             GridListSurvey.ColumnHeadersHeight = 35;
+            GridListSurvey.Columns["SurveyId"].Visible = false;
 
             GridListSurvey.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }

@@ -135,7 +135,7 @@ namespace latihribbon
             }
             if (!FormUser_RiwayatLogin.VerifyPassword(password, user.password))
             {
-                new MesError("Username atau Password salah!").ShowDialog(this);
+                new MesError("Username atau Password salah!").ShowDialog(this); 
                 return;
             }
             InsertHistori();
@@ -143,6 +143,7 @@ namespace latihribbon
             admin.Show();
             this.Close();
         }
+
 
         private void InsertHistori()
         {
