@@ -41,16 +41,16 @@
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.panel1.Controls.Add(this.btnYes);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 108);
+            this.panel1.Location = new System.Drawing.Point(0, 96);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(435, 54);
+            this.panel1.Size = new System.Drawing.Size(435, 49);
             this.panel1.TabIndex = 3;
             // 
             // btnYes
             // 
             this.btnYes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnYes.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnYes.Location = new System.Drawing.Point(325, 15);
+            this.btnYes.Location = new System.Drawing.Point(329, 11);
             this.btnYes.Name = "btnYes";
             this.btnYes.Size = new System.Drawing.Size(87, 27);
             this.btnYes.TabIndex = 0;
@@ -85,7 +85,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(435, 162);
+            this.ClientSize = new System.Drawing.Size(435, 145);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblMessage);
             this.Controls.Add(this.panel1);

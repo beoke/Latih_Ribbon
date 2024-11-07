@@ -63,7 +63,7 @@ namespace latihribbon
 
         private void BtnKelas_Click(object sender, EventArgs e)
         {
-            if (new PopUpKelas("Absensi", txtKelas.Text).ShowDialog() != DialogResult.OK) return;
+            if (new PopUpKelas("Absensi", txtKelas.Text).ShowDialog(this) != DialogResult.OK) return;
             txtKelas.Text = historyDal.GetData("Absensi")?.History.ToString()??string.Empty;
         }
 

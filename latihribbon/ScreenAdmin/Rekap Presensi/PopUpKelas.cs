@@ -101,8 +101,11 @@ namespace latihribbon
         private void InitEvent()
         {
             Button_Atur.Click += Button_Atur_Click;
+            Radio_X.CheckedChanged += Change;
+            Radio_XI.CheckedChanged += Change;
+            Radio_XII.CheckedChanged += Change;
+            ComboJurusanPopUp.SelectedIndexChanged += Change;
         }
-
 
         private void Button_Atur_Click(object sender, EventArgs e)
         {
@@ -111,25 +114,7 @@ namespace latihribbon
             this.Close();
         }
 
-        private void Radio_X_CheckedChanged(object sender, EventArgs e)
-        {
-            SetRombel();
-            SetHasil();
-        }
-
-        private void Radio_XI_CheckedChanged(object sender, EventArgs e)
-        {
-            SetRombel();
-            SetHasil();
-        }
-
-        private void Radio_XII_CheckedChanged(object sender, EventArgs e)
-        {
-            SetRombel();
-            SetHasil();
-        }
-
-        private void ComboJurusanPopUp_SelectedIndexChanged(object sender, EventArgs e)
+        private void Change(object sender, EventArgs e)
         {
             SetRombel();
             SetHasil();

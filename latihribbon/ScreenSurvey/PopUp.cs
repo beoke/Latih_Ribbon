@@ -40,10 +40,10 @@ namespace latihribbon
             this.opacityTimer.Start();
             await Task.Delay(2000);
 
-            for (double i = 1; i >= 0; i -= 0.1)
+            for (double i = 1; i >= 0; i -= 0.08)
             {
                 this.Opacity = i;
-                await Task.Delay(2);
+                await Task.Delay(1);
             }
             await Task.Delay(500);
             this.Close();

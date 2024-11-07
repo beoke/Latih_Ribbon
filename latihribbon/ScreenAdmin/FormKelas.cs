@@ -144,7 +144,7 @@ namespace latihribbon.ScreenAdmin
 
         public void SaveData()
         {
-            if (jurusanCombo.Items.Count == 0) { new MesWarningOK("Data Jurusan Kosong!").ShowDialog(); return; }
+            if (jurusanCombo.Items.Count == 0) { new MesError("Data Jurusan Kosong!").ShowDialog(); return; }
             var kelas = new KelasModel
             {
                 NamaKelas = txtNamaKelas.Text.Trim(),
@@ -156,7 +156,7 @@ namespace latihribbon.ScreenAdmin
 
             if(kelas.NamaKelas == "" || kelas.Tingkat == "")
             {
-                new MesWarningOK("Seluruh Data Wajib Diisi Kecuali ID !").ShowDialog();
+                new MesWarningOK("Seluruh Data Wajib Diisi!").ShowDialog();
                 return;
             }
             if (new MesQuestionYN("Input Data?").ShowDialog() != DialogResult.Yes) return;

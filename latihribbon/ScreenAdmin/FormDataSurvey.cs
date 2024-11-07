@@ -90,8 +90,6 @@ namespace latihribbon
             text += $"{pageNow.ToString()}/{totalPage.ToString()}";
             LabelHalaman.Text = text;
 
-
-
             GridListSurvey.DataSource = ListData(sqlc, "OFFSET @Offset ROWS FETCH NEXT @Fetch ROWS ONLY", dp)
                                         .Select((x, index) => new
                                         {

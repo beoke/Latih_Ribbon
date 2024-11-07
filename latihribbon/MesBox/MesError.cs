@@ -29,6 +29,13 @@ namespace latihribbon
                 lblMessage.Location = new Point(lblMessage.Location.X, 32);
             else
                 lblMessage.Location = new Point(lblMessage.Location.X, 22);
+
+            this.Load += MesError_Load;
+        }
+
+        private async void MesError_Load(object sender, EventArgs e)
+        {
+            System.Media.SystemSounds.Hand.Play();
         }
 
         private void btnYes_Click(object sender, EventArgs e)

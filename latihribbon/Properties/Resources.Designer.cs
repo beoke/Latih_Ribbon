@@ -283,6 +283,16 @@ namespace latihribbon.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap hidden__1_ {
+            get {
+                object obj = ResourceManager.GetObject("hidden (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Info {
             get {
                 object obj = ResourceManager.GetObject("Info", resourceCulture);
@@ -606,6 +616,16 @@ namespace latihribbon.Properties {
         internal static System.Drawing.Bitmap verify {
             get {
                 object obj = ResourceManager.GetObject("verify", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap view__1_ {
+            get {
+                object obj = ResourceManager.GetObject("view (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

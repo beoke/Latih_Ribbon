@@ -19,12 +19,14 @@ namespace latihribbon
 
         private Form mainForm;
         private Form indexForm;
+
+        private readonly Image viewPassword = Properties.Resources.view__1_;
+        private readonly Image hiddenPassword = Properties.Resources.hidden__1_;
         public login(Form mainForm, Form indexForm)
         {
             _riwayatLoginDal = new RiwayatLogin_UserDal();
             InitializeComponent();
 
-            ControlEvent();
 
             tx_Username.Focus();
             this.FormBorderStyle = FormBorderStyle.None;
@@ -33,6 +35,13 @@ namespace latihribbon
             this.ControlBox = true;
             this.mainForm = mainForm;
             this.indexForm = indexForm;
+
+            btnMata.FlatStyle = FlatStyle.Flat;
+            btnMata.FlatAppearance.BorderSize = 0;
+            btnMata.FlatAppearance.MouseDownBackColor = Color.White;
+            btnMata.FlatAppearance.MouseOverBackColor = Color.White;
+            btnMata.BackColor = Color.White;
+            ControlEvent();
         }
 
         #region EVENT
@@ -49,15 +58,22 @@ namespace latihribbon
             LabelUsername.Click += LabelUsername_Click;
             LabelPassword.Click += LabelPassword_Click;
 
-            mataPictureBox.Click += MataPictureBox_Click;
+            btnMata.Click += BtnMata_Click;
         }
 
-        private void MataPictureBox_Click(object sender, EventArgs e)
+        private void BtnMata_Click(object sender, EventArgs e)
         {
+
             if (tx_Password.PasswordChar == '\0')
+            {
+                btnMata.Image = hiddenPassword;
                 tx_Password.PasswordChar = '*';
+            }
             else
+            {
+                btnMata.Image = viewPassword;
                 tx_Password.PasswordChar = '\0';
+            }
         }
 
         private void LabelPassword_Click(object sender, EventArgs e)
@@ -105,7 +121,7 @@ namespace latihribbon
 
             if(username == "" || password == "")
             {
-                new MesError("Username && Password tidak boleh kosong!").ShowDialog(this);
+                new MesWarningOK("Username && Password tidak boleh kosong!").ShowDialog(this);
                 return;
             }
 
@@ -114,7 +130,7 @@ namespace latihribbon
 
             if(user == null)
             {
-                new MesWarningOK("Username Tidak Tersedia!").ShowDialog(this);
+                new MesError("Username Tidak Tersedia!").ShowDialog(this);
                 return;
             }
             if (!FormUser_RiwayatLogin.VerifyPassword(password, user.password))

@@ -165,7 +165,7 @@ namespace latihribbon
             }
             if(lblNisSudahAda.Visible == true)
             {
-                new MesWarningOK("Nis Sudah Ada!").ShowDialog();
+                new MesError("Nis Sudah Ada!").ShowDialog();
                 return;
             }
             if (new MesWarningYN($"Update Data?\nJika di Update, Maka Data Yang Terhubung Akan Ikut Terupdate!",2).ShowDialog() != DialogResult.Yes) return;

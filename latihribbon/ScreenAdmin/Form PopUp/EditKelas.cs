@@ -59,7 +59,7 @@ namespace latihribbon
         {
             if (jurusanCombo.Items.Count == 0)
             { 
-                new MesWarningOK("Data Jurusan Kosong!").ShowDialog();
+                new MesError("Data Jurusan Kosong!").ShowDialog();
                 return;
             }
             var kelas = new KelasModel

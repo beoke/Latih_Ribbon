@@ -27,6 +27,13 @@ namespace latihribbon
                 lblMessage.Location = new Point(lblMessage.Location.X, 41);
             else
                 lblMessage.Location = new Point(lblMessage.Location.X, 32);
+
+            this.Load += MesInformasi_Load;
+        }
+
+        private void MesInformasi_Load(object sender, EventArgs e)
+        {
+           System.Media.SystemSounds.Asterisk.Play();
         }
 
         private void btnYes_Click(object sender, EventArgs e)

@@ -161,7 +161,6 @@
             this.ComboJurusanPopUp.Name = "ComboJurusanPopUp";
             this.ComboJurusanPopUp.Size = new System.Drawing.Size(257, 24);
             this.ComboJurusanPopUp.TabIndex = 12;
-            this.ComboJurusanPopUp.SelectedIndexChanged += new System.EventHandler(this.ComboJurusanPopUp_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -197,7 +196,6 @@
             this.Radio_XII.TabStop = true;
             this.Radio_XII.Text = "XII";
             this.Radio_XII.UseVisualStyleBackColor = true;
-            this.Radio_XII.CheckedChanged += new System.EventHandler(this.Radio_XII_CheckedChanged);
             // 
             // Radio_XI
             // 
@@ -211,7 +209,6 @@
             this.Radio_XI.TabStop = true;
             this.Radio_XI.Text = "XI";
             this.Radio_XI.UseVisualStyleBackColor = true;
-            this.Radio_XI.CheckedChanged += new System.EventHandler(this.Radio_XI_CheckedChanged);
             // 
             // Radio_X
             // 
@@ -225,7 +222,6 @@
             this.Radio_X.TabStop = true;
             this.Radio_X.Text = "X";
             this.Radio_X.UseVisualStyleBackColor = true;
-            this.Radio_X.CheckedChanged += new System.EventHandler(this.Radio_X_CheckedChanged);
             // 
             // PopUpKelas
             // 

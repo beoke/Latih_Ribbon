@@ -31,6 +31,12 @@ namespace latihribbon
 
             this.KeyDown += MesClose_KeyDown;
             btnCancel.Click += BtnCancel_Click;
+            this.Load += MesClose_Load;
+        }
+
+        private void MesClose_Load(object sender, EventArgs e)
+        {
+            System.Media.SystemSounds.Asterisk.Play();
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)

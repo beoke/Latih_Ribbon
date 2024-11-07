@@ -62,10 +62,10 @@ namespace latihribbon
 
             if(masuk.Alasan == "")
             {
-                new MesWarningOK("Seluruh Data Wajib Diisi!").ShowDialog();
+                new MesWarningOK("Seluruh Data Wajib Diisi!").ShowDialog(this);
                 return;
             }
-            if (new MesQuestionYN("Update Data?").ShowDialog() != DialogResult.Yes) return;
+            if (new MesQuestionYN("Update Data?").ShowDialog(this) != DialogResult.Yes) return;
             masukDal.Update(masuk);
             this.DialogResult = DialogResult.Yes;
             this.Close();

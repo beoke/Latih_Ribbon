@@ -241,7 +241,7 @@ namespace latihribbon
 
         private void DeleteMenuStrip_Click(object sender, EventArgs e)
         {
-            if (new MesWarningYN("Hapus Data ?").ShowDialog(this) != DialogResult.Yes) return;
+            if (new MesWarningYN("Hapus Data?").ShowDialog(this) != DialogResult.Yes) return;
             var id = dataGridView1.CurrentRow.Cells[0].Value;
 
             masukDal.Delete(Convert.ToInt32(id));
@@ -252,7 +252,7 @@ namespace latihribbon
             int Id = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
             EditTerlambat edit = new EditTerlambat(Id);
 
-            if (edit.ShowDialog() == DialogResult.Yes)
+            if (edit.ShowDialog(this) == DialogResult.Yes)
                 LoadData();
         }
         private void DataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)

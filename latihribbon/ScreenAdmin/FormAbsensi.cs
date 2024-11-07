@@ -292,7 +292,7 @@ namespace latihribbon
         private void DeleteMenuStrip_Click(object sender, EventArgs e)
         {
             SystemSounds.Beep.Play();
-            if (new MesWarningYN("Hapus Data ?").ShowDialog() != DialogResult.Yes) return;
+            if (new MesWarningYN("Hapus Data?").ShowDialog() != DialogResult.Yes) return;
             var id = dataGridView1.CurrentRow.Cells[0].Value;
 
             absensiDal.Delete(Convert.ToInt32(id));
@@ -406,7 +406,7 @@ namespace latihribbon
         {
             string namaKelas = txtKelas1.Text.Trim().ToUpper();
             PopUpKelas kelas = new PopUpKelas("Absensi",namaKelas);
-            kelas.ShowDialog();
+            kelas.ShowDialog(this);
             if (kelas.DialogResult == DialogResult.OK)
                 txtKelas1.Text = historyDal.GetData("Absensi")?.History.ToString() ?? string.Empty;
         }

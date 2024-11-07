@@ -186,7 +186,7 @@ namespace latihribbon
 
             if (lblNisSudahAda.Visible == true)
             {
-                new MesWarningOK("Nis sudah ada !").ShowDialog(this);
+                new MesError("Nis sudah ada !").ShowDialog(this);
                 return;
             };
             bool cekRombel = rombel != string.Empty ? true : false;
@@ -262,11 +262,11 @@ namespace latihribbon
             if (fltr.Count > 0)
                 sqlc += " WHERE " + string.Join(" AND ", fltr);
 
-            string p = "";
+            /*string p = "";
             if (isTrue)
                 p = "ASC";
             else
-                p = "DESC";
+                p = "DESC";*/
 
             string text = "Halaman ";
             int RowPerPage = (int)comboPerPage.SelectedItem;
@@ -279,7 +279,7 @@ namespace latihribbon
             dp.Add("@Offset", inRowPage);
             dp.Add("@Fetch", RowPerPage);
 
-            dataGridView1.DataSource = siswaDal.ListData(sqlc, dp, p)
+            dataGridView1.DataSource = siswaDal.ListData(sqlc, dp)
                 .Select((x,index) => new
                 {
                     No = inRowPage +index + 1, 
@@ -325,21 +325,16 @@ namespace latihribbon
             NaikKelasContext.Click += NaikKelasContext_Click;
             HapusSiswaLulus.Click += HapusSiswaLulus_Click;
             dataGridView1.ColumnHeaderMouseClick += DataGridView1_ColumnHeaderMouseClick;
-
-            
-            
         }
 
         private void DataGridView1_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            
-            if (e.ColumnIndex != -1)
+          /*  if (e.ColumnIndex != -1)
             {
                 LoadData();
                 isTrue = !isTrue;
 
-            }
-            
+            }*/
         }
 
         private void FormSIswa_Resize(object sender, EventArgs e)
@@ -520,7 +515,6 @@ namespace latihribbon
             {
                 Page--;
                 LoadData();
-
             }
         }
         private void BtnResetFilter_Click(object sender, EventArgs e)
@@ -566,7 +560,7 @@ namespace latihribbon
         private void ButtonInputSIswa_Click(object sender, EventArgs e)
         {
             FormKetentuanImport ketentuan = new FormKetentuanImport();
-            if (ketentuan.ShowDialog() != DialogResult.OK) return;
+            if (ketentuan.ShowDialog(this) != DialogResult.OK) return;
 
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
 
