@@ -130,6 +130,8 @@ namespace latihribbon
             if(username == "" || password == "")
             {
                 new MesWarningOK("Username && Password tidak boleh kosong!").ShowDialog(this);
+                ClearForm();
+                tx_Username.Focus();
                 return;
             }
 
@@ -139,11 +141,15 @@ namespace latihribbon
             if(user == null)
             {
                 new MesError("Username Tidak Tersedia!").ShowDialog(this);
+                ClearForm();
+                tx_Username.Focus();
                 return;
             }
             if (!FormUser_RiwayatLogin.VerifyPassword(password, user.password))
             {
                 new MesError("Username atau Password salah!").ShowDialog(this); 
+                ClearForm();
+                tx_Username.Focus();
                 return;
             }
             InsertHistori();
@@ -178,6 +184,12 @@ namespace latihribbon
         private void tx_Password_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter) ENTER();
+        }
+
+        private void ClearForm ()
+        {
+            tx_Username.Clear();
+            tx_Password.Clear();
         }
     }
 }
