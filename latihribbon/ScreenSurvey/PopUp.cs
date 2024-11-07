@@ -40,7 +40,7 @@ namespace latihribbon
             this.opacityTimer.Start();
             await Task.Delay(2000);
 
-            for (double i = 1; i >= 0; i -= 0.08)
+            for (double i = 1; i >= 0; i -= 0.1)
             {
                 this.Opacity = i;
                 await Task.Delay(1);
@@ -54,7 +54,7 @@ namespace latihribbon
         {
             if (this.Opacity < 1)
             {
-                this.Opacity += 0.08;
+                this.Opacity += 0.19;
             }
             else
             {
@@ -68,7 +68,7 @@ namespace latihribbon
             this.delayTimer.Stop();
             FormIndex formIndex = new FormIndex(this);
             formIndex.Show();
-            this.Hide();
+            this.Close();
         }
     }
 }

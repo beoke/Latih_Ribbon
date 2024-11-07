@@ -41,6 +41,9 @@ namespace latihribbon
             btnMata.FlatAppearance.MouseDownBackColor = Color.White;
             btnMata.FlatAppearance.MouseOverBackColor = Color.White;
             btnMata.BackColor = Color.White;
+
+            btn_kembali.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btn_kembali.FlatAppearance.MouseOverBackColor = Color.Transparent;
             ControlEvent();
         }
 
@@ -59,6 +62,11 @@ namespace latihribbon
             LabelPassword.Click += LabelPassword_Click;
 
             btnMata.Click += BtnMata_Click;
+
+            btn_kembali.Enter += (s, e) => btn_kembali.BackgroundImage = Properties.Resources.left_arrow;
+            btn_kembali.Leave += (s, e) => btn_kembali.BackgroundImage = Properties.Resources.LeftArrowAbu;
+            btn_kembali.MouseEnter += (s, e) => btn_kembali.BackgroundImage = Properties.Resources.left_arrow;
+            btn_kembali.MouseLeave += (s, e) => btn_kembali.BackgroundImage = Properties.Resources.LeftArrowAbu;
         }
 
         private void BtnMata_Click(object sender, EventArgs e)

@@ -190,6 +190,11 @@ namespace latihribbon
             };
             bool cekRombel = rombel != string.Empty ? true : false;
             int idKelas = kelasDal.GetDataRombel(idJurusan, tingkat).FirstOrDefault(x => cekRombel ? x.Rombel == rombel : true)?.Id ?? 0;
+            if (idKelas == 0)
+            {
+                new MesError($"Kelas {tingkat} {((JurusanModel)jurusanCombo.SelectedItem).NamaJurusan} Tidak Ada Di Table Kelas!").ShowDialog(this);
+                return;
+            }
             var siswa = new SiswaModel
             {
                 Nis = int.Parse(nis),
@@ -445,7 +450,7 @@ namespace latihribbon
         {
             if (new MesWarningYN("Hapus Data?\nJika Dihapus Maka Data Yang Terhubung Akan Ikut Terhapus!",2).ShowDialog(this) != DialogResult.Yes) return;
 
-            var id = dataGridView1.CurrentRow.Cells[0].Value;
+            var id = dataGridView1.CurrentRow.Cells[1].Value;
 
             siswaDal.Delete(Convert.ToInt32(id));
             LoadData();

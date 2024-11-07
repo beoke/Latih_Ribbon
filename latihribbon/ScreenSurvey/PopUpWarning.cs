@@ -23,6 +23,7 @@ namespace latihribbon
         }
         private async void LoadForm(object sender, EventArgs e)
         {
+            System.Media.SystemSounds.Exclamation.Play();
             await Task.Delay(2000);
             for (double opacity = 1; opacity >= 0; opacity -= 0.2)
             {
