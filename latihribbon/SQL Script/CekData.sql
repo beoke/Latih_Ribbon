@@ -1,9 +1,11 @@
 ﻿select * from Kelas;
 
 
+SELECT DISTINCT Tahun
+                                 FROM siswa
+                                 ORDER BY Tahun ASC
 
-
-delete from siswa;
+delete from Jurusan
 
 
 select * from siswa where Nis = 11111

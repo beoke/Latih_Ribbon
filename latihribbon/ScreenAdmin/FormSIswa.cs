@@ -118,7 +118,6 @@ namespace latihribbon
 
 
             // Combo Filter
-
             var data = db.ListTahun();
             List<string> listTahun = new List<string>();
             listTahun.Add("Semua");
@@ -552,6 +551,7 @@ namespace latihribbon
             }
             var cari = kelasDal.GetDataRombel(Convert.ToInt32(jurusan),tingkat);
             rombelCombo.DataSource = cari.Select(item => item.Rombel).ToList();
+            
         }
 
         #endregion

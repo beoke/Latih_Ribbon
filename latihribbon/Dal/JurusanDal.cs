@@ -58,15 +58,6 @@ namespace latihribbon.Dal
         }
 
 
-        private void UpdateKelas()
-        {
-            using (var koneksi = new SqlConnection(conn.connstr()))
-            {
-                const string sql = @"UPDATE Kelas SET";
-            }
-        }
-
-
         public void Delete(int JurusanId)
         {
             using (var Conn = new SqlConnection(conn.connstr()))

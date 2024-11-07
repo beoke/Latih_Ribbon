@@ -26,14 +26,7 @@ namespace latihribbon.Dal
             }
         }
 
-        public IEnumerable<KeluarModel> GetKeluarFilter(string sql, object mbuh)
-        {
-            using (var koneksi = new SqlConnection(Conn.conn.connstr()))
-            {
-                var users = koneksi.Query<KeluarModel>(sql, mbuh);
-                return users;
-            }
-        }
+       
 
         public KeluarModel GetData(int Id)
         {

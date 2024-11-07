@@ -56,29 +56,7 @@ namespace latihribbon.Dal
         }
 
 
-        public void InsertDataToDatabase(DataTable dataTable)
-        {
-            using (var connection = new SqlConnection(Conn.conn.connstr()))
-            {
-                connection.Open();
-
-                foreach (DataRow row in dataTable.Rows)
-                {
-                    var parameters = new DynamicParameters();
-                    parameters.Add("@Kelas", row["Kelas"]);
-                    parameters.Add("@Persensi", row["Persensi"]);
-                    parameters.Add("@NIS", row["NIS"]);
-                    parameters.Add("@Nama", row["Nama"]);
-                    parameters.Add("@JenisKelamin", row["JenisKelamin"]);
-
-                    string query = @"
-                    INSERT INTO Siswa (Kelas, Persensi, NIS, Nama, JenisKelamin) 
-                    VALUES (@Kelas, @Persensi, @NIS, @Nama, @JenisKelamin)";
-
-                    connection.Execute(query, parameters);
-                }
-            }
-        }
+       
 
 
         public IEnumerable<RekapPersensiModel> GetStudentDataByClass(string kelas,DateTime tgl1, DateTime tgl2)

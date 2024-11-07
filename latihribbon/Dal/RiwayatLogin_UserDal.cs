@@ -13,15 +13,7 @@ namespace latihribbon
 {
     public class RiwayatLogin_UserDal
     {
-        public IEnumerable<RiwayatLoginModel> ListData()
-        {
-            using (var Conn = new SqlConnection(conn.connstr()))
-            {
-                const string sql = "SELECT * FROM RiwayatLogin";
-
-                return Conn.Query<RiwayatLoginModel>(sql);
-            };
-        }
+      
 
         public void Insert(RiwayatLoginModel riwayat)
         {
@@ -124,21 +116,6 @@ namespace latihribbon
                 const string sql = @"SELECT id, username, password FROM Users WHERE Role = 'admin' ORDER BY id ASC";
 
                 return Conn.Query<UserModel>(sql);
-            }
-        }
-
-
-        public UserModel GetUser(int idUser)
-        {
-            using (var Conn = new SqlConnection(conn.connstr()))
-            {
-                const string sql = @"SELECT * FROM Users WHERE id = @id";
-
-                var Dp = new DynamicParameters();
-                Dp.Add("@id", idUser, DbType.Int32);
-
-                var result = Conn.QuerySingleOrDefault<UserModel>(sql, Dp);
-                return result;
             }
         }
 

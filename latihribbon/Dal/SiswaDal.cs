@@ -31,14 +31,7 @@ namespace latihribbon.Dal
                 }
         }
 
-        public IEnumerable<SiswaModel> GetSiswaFilter(string sql, object mbuh)
-        {
-            using (var koneksi = new SqlConnection(Conn.conn.connstr()))
-            {
-                var users = koneksi.Query<SiswaModel>(sql, mbuh);
-                return users;
-            }
-        }
+       
 
         public SiswaModel GetData(int Nis)
         {
@@ -68,6 +61,10 @@ namespace latihribbon.Dal
                 koneksi.Execute(sql,dp);
             }
         }
+
+
+
+
 
         public void Update(SiswaModel siswa)
         {
