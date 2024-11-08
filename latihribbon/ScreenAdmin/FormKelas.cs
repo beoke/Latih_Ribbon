@@ -61,7 +61,7 @@ namespace latihribbon.ScreenAdmin
         }
         private void DeleteMenuStrip_Click(object sender, EventArgs e)
         {
-            string namaKelas = GridListKelas.CurrentRow.Cells[1].Value?.ToString() ?? string.Empty;
+            string namaKelas = GridListKelas.CurrentRow.Cells[2].Value?.ToString() ?? string.Empty;
             if (new MesWarningYN($"Anda yakin ingin menghapus data \" {namaKelas} \" ? \nJika Dihapus, maka data yang terhubung akan ikut Terhapus", 2).ShowDialog() != DialogResult.Yes) return;
 
             var id = GridListKelas.CurrentRow.Cells[0].Value;

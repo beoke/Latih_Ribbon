@@ -77,7 +77,7 @@ namespace latihribbon.ScreenAdmin
 
         private void DeleteMenuStrip_Click(object sender, EventArgs e)
         {
-            var jurusanName = GridListJurusan.CurrentRow.Cells[1].Value;
+            var jurusanName = GridListJurusan.CurrentRow.Cells["NamaJurusan"].Value;
             if (new MesWarningYN($"Anda yakin ingin menghapus data \"{jurusanName}\" ? \n Jika Dihapus, maka data yang terhubung akan ikut Terhapus", 2).ShowDialog() != DialogResult.Yes) return;
 
             var id = GridListJurusan.CurrentRow.Cells[0].Value;
@@ -89,7 +89,7 @@ namespace latihribbon.ScreenAdmin
         private void EditMenuStrip_Click(object sender, EventArgs e)
         {
             int jurusanId = Convert.ToInt32(GridListJurusan.CurrentRow.Cells[0].Value);
-            string namaJurusan = GridListJurusan.CurrentRow.Cells[1].Value?.ToString() ?? string.Empty;
+            string namaJurusan = GridListJurusan.CurrentRow.Cells["NamaJurusan"].Value?.ToString() ?? string.Empty;
             if (new EditJurusan(jurusanId,namaJurusan).ShowDialog() == DialogResult.Yes)
                 LoadData();
         }
@@ -103,6 +103,8 @@ namespace latihribbon.ScreenAdmin
                 contextMenuStrip1.Show(Cursor.Position);
             }
         }
+
+                    
         private void BtnSaveJurusan_Click(object sender, EventArgs e)
         {
             SaveData();
