@@ -13,7 +13,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>D:\SIM RESI\</PublishUrl>
+    <PublishUrl>D:\RESI APK\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -23,7 +23,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationRevision>3</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -49,7 +49,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>logo_converted.ico</ApplicationIcon>
+    <ApplicationIcon>Resi_Logo.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>47D364A8BC6BE15C16F7D0B24F7B32A7C3F5D5E0</ManifestCertificateThumbprint>
@@ -677,6 +677,10 @@
     <None Include="Resources\view %281%29.png" />
     <None Include="Resources\left-arrow.png" />
     <None Include="Resources\LeftArrowAbu.png" />
+    <None Include="Resources\Resi Logo Round 1.png" />
+    <None Include="Resources\Resi Logo Round putih-hitam.png" />
+    <None Include="Resources\Resi Logo bg-Hitam.png" />
+    <Content Include="Resi_Logo.ico" />
     <Content Include="SQL Script\CekData.sql" />
   </ItemGroup>
   <ItemGroup>

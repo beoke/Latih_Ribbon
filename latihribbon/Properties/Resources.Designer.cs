@@ -523,6 +523,36 @@ namespace latihribbon.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Resi_Logo_bg_Hitam {
+            get {
+                object obj = ResourceManager.GetObject("Resi Logo bg-Hitam", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Resi_Logo_Round_1 {
+            get {
+                object obj = ResourceManager.GetObject("Resi Logo Round 1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Resi_Logo_Round_putih_hitam {
+            get {
+                object obj = ResourceManager.GetObject("Resi Logo Round putih-hitam", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap sad {
             get {
                 object obj = ResourceManager.GetObject("sad", resourceCulture);
