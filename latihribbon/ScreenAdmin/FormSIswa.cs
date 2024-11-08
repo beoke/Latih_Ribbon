@@ -151,6 +151,7 @@ namespace latihribbon
             dataGridView1.ColumnHeadersHeight = 35;
             dataGridView1.Columns[4].HeaderText = "Jenis Kelamin";
 
+
             dataGridView1.Columns[0].Width = 60;
             dataGridView1.Columns[1].Width = 80;
             dataGridView1.Columns[2].Width = 100;

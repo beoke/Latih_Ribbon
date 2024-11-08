@@ -111,7 +111,7 @@ namespace latihribbon
             if (get.JenisKelamin == "P") perempuanRadio.Checked = true;
 
             string[] NamaKelas = get.NamaKelas.Split(' ');
-            if (NamaKelas[0] == "XI") XIRadio.Checked = true;
+            if (NamaKelas[0] == "X") XRadio.Checked = true;
             if (NamaKelas[0] == "XI") XIRadio.Checked = true;
             if (NamaKelas[0] == "XII") XIIRadio.Checked = true;
 
@@ -163,13 +163,13 @@ namespace latihribbon
                 new MesWarningOK("Seluruh Data Wajib Diisi!").ShowDialog();
                 return;
             }
-            if(lblNisSudahAda.Visible == true)
+            if(lblNisSudahAda.Visible == true) 
             {
                 new MesError("Nis Sudah Ada!").ShowDialog();
                 return;
             }
             if (new MesWarningYN($"Update Data?\nJika di Update, Maka Data Yang Terhubung Akan Ikut Terupdate!",2).ShowDialog() != DialogResult.Yes) return;
-            _siswaDal.Update(siswa);
+            _siswaDal.Update(siswa, Nis);
             this.DialogResult = DialogResult.Yes;
             this.Close();
         }

@@ -66,23 +66,38 @@ namespace latihribbon.Dal
 
 
 
-        public void Update(SiswaModel siswa)
+        public void Update(SiswaModel siswa, int oldNis)
         {
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
             {
-                const string sql = @"UPDATE siswa SET Nama=@Nama,JenisKelamin=@JenisKelamin,Persensi=@Persensi,IdKelas=@IdKelas,Tahun=@Tahun
-                                     WHERE Nis = @Nis";
-                var dp = new DynamicParameters();
-                dp.Add("@Nis", siswa.Nis, System.Data.DbType.Int32);
-                dp.Add("@Nama", siswa.Nama, System.Data.DbType.String);
-                dp.Add("@JenisKelamin", siswa.JenisKelamin, System.Data.DbType.String);
-                dp.Add("@Persensi", siswa.Persensi, System.Data.DbType.Int16);
-                dp.Add("@IdKelas", siswa.IdKelas, System.Data.DbType.Int32);
-                dp.Add("@Tahun", siswa.Tahun, System.Data.DbType.String);
+                koneksi.Open();
+                using (var transaction = koneksi.BeginTransaction())
+                {
+                    try
+                    {
+                        string sql = $@"UPDATE siswa SET Nama = @Nama, JenisKelamin = @JenisKelamin, Persensi = @Persensi, IdKelas = @IdKelas, Tahun = @Tahun, Nis = @Nis
+                               WHERE Nis = {oldNis}";
+                        var dp = new DynamicParameters();
+                        dp.Add("@Nis", siswa.Nis, System.Data.DbType.Int32);
+                        dp.Add("@Nama", siswa.Nama, System.Data.DbType.String);
+                        dp.Add("@JenisKelamin", siswa.JenisKelamin, System.Data.DbType.String);
+                        dp.Add("@Persensi", siswa.Persensi, System.Data.DbType.Int16);
+                        dp.Add("@IdKelas", siswa.IdKelas, System.Data.DbType.Int32);
+                        dp.Add("@Tahun", siswa.Tahun, System.Data.DbType.String);
 
-                koneksi.Execute(sql,dp);
+                        koneksi.Execute(sql, dp, transaction);
+                          
+                        transaction.Commit();
+                    }
+                    catch
+                    {
+                        transaction.Rollback();
+                        throw;
+                    }
+                }
             }
         }
+
 
         public void Delete(int siswaNis)
         {
