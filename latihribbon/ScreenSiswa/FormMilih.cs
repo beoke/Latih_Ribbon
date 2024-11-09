@@ -38,6 +38,13 @@ namespace latihribbon
             this.mainForm = mainForm;
             this.indexForm = indexForm;
             this.Resize += FormMilih_Resize;
+
+            btn_kembali.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            btn_kembali.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            btn_kembali.Enter += (s, e) => btn_kembali.BackgroundImage = Properties.Resources.LeftArrowAbu1;
+            btn_kembali.Leave += (s, e) => btn_kembali.BackgroundImage = Properties.Resources.LeftArrowHitam;
+            btn_kembali.MouseEnter += (s, e) => btn_kembali.BackgroundImage = Properties.Resources.LeftArrowAbu1;
+            btn_kembali.MouseLeave += (s, e) => btn_kembali.BackgroundImage = Properties.Resources.LeftArrowHitam;
         }
 
         private void FormMilih_Resize(object sender, EventArgs e)

@@ -53,7 +53,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.btn_Kembali = new System.Windows.Forms.Button();
+            this.btn_kembali = new System.Windows.Forms.Button();
             this.btn_PrintMasuk = new System.Windows.Forms.Button();
             this.printDocumentMasuk = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialogMasuk = new System.Windows.Forms.PrintPreviewDialog();
@@ -365,7 +365,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel5.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel5.Controls.Add(this.btn_Kembali);
+            this.panel5.Controls.Add(this.btn_kembali);
             this.panel5.Controls.Add(this.btn_PrintMasuk);
             this.panel5.Location = new System.Drawing.Point(21, 638);
             this.panel5.Margin = new System.Windows.Forms.Padding(2);
@@ -373,23 +373,23 @@
             this.panel5.Size = new System.Drawing.Size(1148, 102);
             this.panel5.TabIndex = 1;
             // 
-            // btn_Kembali
+            // btn_kembali
             // 
-            this.btn_Kembali.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_Kembali.BackColor = System.Drawing.Color.Transparent;
-            this.btn_Kembali.BackgroundImage = global::latihribbon.Properties.Resources.arrow_square_left;
-            this.btn_Kembali.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_Kembali.FlatAppearance.BorderSize = 0;
-            this.btn_Kembali.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Kembali.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Kembali.ForeColor = System.Drawing.Color.White;
-            this.btn_Kembali.Location = new System.Drawing.Point(19, 23);
-            this.btn_Kembali.Margin = new System.Windows.Forms.Padding(2);
-            this.btn_Kembali.Name = "btn_Kembali";
-            this.btn_Kembali.Size = new System.Drawing.Size(52, 57);
-            this.btn_Kembali.TabIndex = 1;
-            this.btn_Kembali.UseVisualStyleBackColor = false;
-            this.btn_Kembali.Click += new System.EventHandler(this.btn_Kembali_Click);
+            this.btn_kembali.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_kembali.BackColor = System.Drawing.Color.Transparent;
+            this.btn_kembali.BackgroundImage = global::latihribbon.Properties.Resources.arrow_square_left;
+            this.btn_kembali.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_kembali.FlatAppearance.BorderSize = 0;
+            this.btn_kembali.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_kembali.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_kembali.ForeColor = System.Drawing.Color.White;
+            this.btn_kembali.Location = new System.Drawing.Point(19, 23);
+            this.btn_kembali.Margin = new System.Windows.Forms.Padding(2);
+            this.btn_kembali.Name = "btn_kembali";
+            this.btn_kembali.Size = new System.Drawing.Size(52, 57);
+            this.btn_kembali.TabIndex = 1;
+            this.btn_kembali.UseVisualStyleBackColor = false;
+            this.btn_kembali.Click += new System.EventHandler(this.btn_Kembali_Click);
             // 
             // btn_PrintMasuk
             // 
@@ -455,7 +455,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtNIS;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btn_Kembali;
+        private System.Windows.Forms.Button btn_kembali;
         private System.Windows.Forms.Button btn_PrintMasuk;
         private System.Windows.Forms.TextBox tx_jam1;
         private System.Windows.Forms.TextBox txtTanggal;

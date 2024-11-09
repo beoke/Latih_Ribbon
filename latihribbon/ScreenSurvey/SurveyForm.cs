@@ -50,6 +50,13 @@ namespace latihribbon
             btnPuas.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btnPuas.BackColor = Color.Transparent;
 
+            btn_kembali.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            btn_kembali.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            btn_kembali.Enter += (s, e) => btn_kembali.BackgroundImage = Properties.Resources.LeftArrowAbu1;
+            btn_kembali.Leave += (s, e) => btn_kembali.BackgroundImage = Properties.Resources.LeftArrowHitam;
+            btn_kembali.MouseEnter += (s, e) => btn_kembali.BackgroundImage = Properties.Resources.LeftArrowAbu1;
+            btn_kembali.MouseLeave += (s, e) => btn_kembali.BackgroundImage = Properties.Resources.LeftArrowHitam;
+
             InitialPicture();
             ControlEvent();
         }
