@@ -87,7 +87,7 @@
             this.Controls.Add(this.lblMessage);
             this.Name = "MesClose";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "MesClose";
+            this.Text = "Konfirmasi";
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
