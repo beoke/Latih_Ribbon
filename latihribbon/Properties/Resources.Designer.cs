@@ -123,29 +123,9 @@ namespace latihribbon.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ATM {
-            get {
-                object obj = ResourceManager.GetObject("ATM", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap ATM_TINGGI {
             get {
                 object obj = ResourceManager.GetObject("ATM TINGGI", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap baground {
-            get {
-                object obj = ResourceManager.GetObject("baground", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -223,29 +203,9 @@ namespace latihribbon.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Group_13 {
-            get {
-                object obj = ResourceManager.GetObject("Group 13", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Group_13_1 {
             get {
                 object obj = ResourceManager.GetObject("Group 13 1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Group_14 {
-            get {
-                object obj = ResourceManager.GetObject("Group 14", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -273,16 +233,6 @@ namespace latihribbon.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap happiness {
-            get {
-                object obj = ResourceManager.GetObject("happiness", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap hidden__1_ {
             get {
                 object obj = ResourceManager.GetObject("hidden (1)", resourceCulture);
@@ -296,16 +246,6 @@ namespace latihribbon.Properties {
         internal static System.Drawing.Bitmap Info {
             get {
                 object obj = ResourceManager.GetObject("Info", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap keterlambatan {
-            get {
-                object obj = ResourceManager.GetObject("keterlambatan", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -353,29 +293,9 @@ namespace latihribbon.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap LogOut {
-            get {
-                object obj = ResourceManager.GetObject("LogOut", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap LogOutIcon {
             get {
                 object obj = ResourceManager.GetObject("LogOutIcon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Mask_group {
-            get {
-                object obj = ResourceManager.GetObject("Mask group", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -423,56 +343,6 @@ namespace latihribbon.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap question {
-            get {
-                object obj = ResourceManager.GetObject("question", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap question__1_ {
-            get {
-                object obj = ResourceManager.GetObject("question (1)", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap question__2_ {
-            get {
-                object obj = ResourceManager.GetObject("question (2)", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap QuestionBlue {
-            get {
-                object obj = ResourceManager.GetObject("QuestionBlue", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap questionblue__1_ {
-            get {
-                object obj = ResourceManager.GetObject("questionblue (1)", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap questionblue__4_ {
             get {
                 object obj = ResourceManager.GetObject("questionblue (4)", resourceCulture);
@@ -513,26 +383,6 @@ namespace latihribbon.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap RESI {
-            get {
-                object obj = ResourceManager.GetObject("RESI", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Resi_Logo_bg_Hitam {
-            get {
-                object obj = ResourceManager.GetObject("Resi Logo bg-Hitam", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Resi_Logo_Round_1 {
             get {
                 object obj = ResourceManager.GetObject("Resi Logo Round 1", resourceCulture);
@@ -546,16 +396,6 @@ namespace latihribbon.Properties {
         internal static System.Drawing.Bitmap Resi_Logo_Round_putih_hitam {
             get {
                 object obj = ResourceManager.GetObject("Resi Logo Round putih-hitam", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap sad {
-            get {
-                object obj = ResourceManager.GetObject("sad", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -593,39 +433,9 @@ namespace latihribbon.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ssmea_bg {
-            get {
-                object obj = ResourceManager.GetObject("ssmea bg", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Survey {
-            get {
-                object obj = ResourceManager.GetObject("Survey", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap SURVEY_TINGGI {
             get {
                 object obj = ResourceManager.GetObject("SURVEY TINGGI", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Telat {
-            get {
-                object obj = ResourceManager.GetObject("Telat", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -653,16 +463,6 @@ namespace latihribbon.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap TidakPuas_WarnaEdit {
-            get {
-                object obj = ResourceManager.GetObject("TidakPuas_WarnaEdit", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap verify {
             get {
                 object obj = ResourceManager.GetObject("verify", resourceCulture);
@@ -676,16 +476,6 @@ namespace latihribbon.Properties {
         internal static System.Drawing.Bitmap view__1_ {
             get {
                 object obj = ResourceManager.GetObject("view (1)", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap walapaper_program {
-            get {
-                object obj = ResourceManager.GetObject("walapaper program", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
