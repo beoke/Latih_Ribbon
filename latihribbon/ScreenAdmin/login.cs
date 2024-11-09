@@ -63,10 +63,10 @@ namespace latihribbon
 
             btnMata.Click += BtnMata_Click;
 
-            btn_kembali.Enter += (s, e) => btn_kembali.BackgroundImage = Properties.Resources.left_arrow;
-            btn_kembali.Leave += (s, e) => btn_kembali.BackgroundImage = Properties.Resources.LeftArrowAbu;
-            btn_kembali.MouseEnter += (s, e) => btn_kembali.BackgroundImage = Properties.Resources.left_arrow;
-            btn_kembali.MouseLeave += (s, e) => btn_kembali.BackgroundImage = Properties.Resources.LeftArrowAbu;
+            btn_kembali.Enter += (s, e) => btn_kembali.BackgroundImage = Properties.Resources.LeftArrowAbu1;
+            btn_kembali.Leave += (s, e) => btn_kembali.BackgroundImage = Properties.Resources.LeftArrowHitam;
+            btn_kembali.MouseEnter += (s, e) => btn_kembali.BackgroundImage = Properties.Resources.LeftArrowAbu1;
+            btn_kembali.MouseLeave += (s, e) => btn_kembali.BackgroundImage = Properties.Resources.LeftArrowHitam;
         }
 
         private void BtnMata_Click(object sender, EventArgs e)

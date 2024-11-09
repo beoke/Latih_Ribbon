@@ -681,6 +681,8 @@
     <None Include="Resources\Resi Logo Round putih-hitam.png" />
     <None Include="Resources\Resi Logo bg-Hitam.png" />
     <Content Include="Resi_Logo.ico" />
+    <None Include="Resources\LeftArrowHitam.png" />
+    <None Include="Resources\LeftArrowAbu1.png" />
     <Content Include="SQL Script\CekData.sql" />
   </ItemGroup>
   <ItemGroup>
