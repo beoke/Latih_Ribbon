@@ -83,36 +83,6 @@ namespace latihribbon.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Admin {
-            get {
-                object obj = ResourceManager.GetObject("Admin", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Admin_Icon {
-            get {
-                object obj = ResourceManager.GetObject("Admin Icon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Animation___1728355941486 {
-            get {
-                object obj = ResourceManager.GetObject("Animation - 1728355941486", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap arrow_square_left {
             get {
                 object obj = ResourceManager.GetObject("arrow-square-left", resourceCulture);
@@ -186,16 +156,6 @@ namespace latihribbon.Properties {
         internal static System.Drawing.Bitmap Enter {
             get {
                 object obj = ResourceManager.GetObject("Enter", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap GIFTUTOR {
-            get {
-                object obj = ResourceManager.GetObject("GIFTUTOR", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -283,16 +243,6 @@ namespace latihribbon.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap login {
-            get {
-                object obj = ResourceManager.GetObject("login", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap LogOutIcon {
             get {
                 object obj = ResourceManager.GetObject("LogOutIcon", resourceCulture);
@@ -346,36 +296,6 @@ namespace latihribbon.Properties {
         internal static System.Drawing.Bitmap questionblue__4_ {
             get {
                 object obj = ResourceManager.GetObject("questionblue (4)", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Rectangle_54__1_ {
-            get {
-                object obj = ResourceManager.GetObject("Rectangle 54 (1)", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Rectangle_54__2_ {
-            get {
-                object obj = ResourceManager.GetObject("Rectangle 54 (2)", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Rectangle_54__4_ {
-            get {
-                object obj = ResourceManager.GetObject("Rectangle 54 (4)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
