@@ -106,7 +106,7 @@
             this.panel1.Controls.Add(this.btn_enter);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.tx_NIS);
-            this.panel1.Location = new System.Drawing.Point(377, 100);
+            this.panel1.Location = new System.Drawing.Point(166, -63);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(454, 564);
@@ -133,7 +133,7 @@
             this.btn_kembali.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_kembali.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_kembali.ForeColor = System.Drawing.Color.White;
-            this.btn_kembali.Location = new System.Drawing.Point(21, 666);
+            this.btn_kembali.Location = new System.Drawing.Point(21, 340);
             this.btn_kembali.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_kembali.Name = "btn_kembali";
             this.btn_kembali.Size = new System.Drawing.Size(69, 70);
@@ -147,7 +147,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1189, 752);
+            this.ClientSize = new System.Drawing.Size(766, 426);
             this.Controls.Add(this.btn_kembali);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

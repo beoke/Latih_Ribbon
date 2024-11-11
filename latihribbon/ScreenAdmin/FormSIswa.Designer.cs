@@ -121,7 +121,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 76);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1321, 668);
+            this.panel1.Size = new System.Drawing.Size(861, 451);
             this.panel1.TabIndex = 14;
             // 
             // panel2
@@ -131,10 +131,10 @@
             this.panel2.BackColor = System.Drawing.Color.Silver;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.panel5);
-            this.panel2.Location = new System.Drawing.Point(851, 11);
+            this.panel2.Location = new System.Drawing.Point(391, 11);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(455, 643);
+            this.panel2.Size = new System.Drawing.Size(455, 426);
             this.panel2.TabIndex = 4;
             // 
             // panel5
@@ -167,7 +167,7 @@
             this.panel5.Location = new System.Drawing.Point(5, 5);
             this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(442, 631);
+            this.panel5.Size = new System.Drawing.Size(442, 414);
             this.panel5.TabIndex = 2;
             // 
             // btnSave_FormSiswa
@@ -176,7 +176,7 @@
             this.btnSave_FormSiswa.BackColor = System.Drawing.Color.LimeGreen;
             this.btnSave_FormSiswa.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave_FormSiswa.ForeColor = System.Drawing.Color.White;
-            this.btnSave_FormSiswa.Location = new System.Drawing.Point(291, 571);
+            this.btnSave_FormSiswa.Location = new System.Drawing.Point(291, 354);
             this.btnSave_FormSiswa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSave_FormSiswa.Name = "btnSave_FormSiswa";
             this.btnSave_FormSiswa.Size = new System.Drawing.Size(120, 39);
@@ -298,9 +298,9 @@
             this.groupBox1.Controls.Add(this.perempuanRadio);
             this.groupBox1.Controls.Add(this.lakiRadio);
             this.groupBox1.Location = new System.Drawing.Point(24, 265);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(5);
             this.groupBox1.Size = new System.Drawing.Size(353, 41);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
@@ -448,7 +448,7 @@
             this.panel3.Location = new System.Drawing.Point(11, 11);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(831, 644);
+            this.panel3.Size = new System.Drawing.Size(371, 427);
             this.panel3.TabIndex = 2;
             // 
             // label14
@@ -456,7 +456,7 @@
             this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(99, 596);
+            this.label14.Location = new System.Drawing.Point(99, 379);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(55, 23);
             this.label14.TabIndex = 56;
@@ -469,8 +469,8 @@
             this.comboPerPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboPerPage.FormattingEnabled = true;
             this.comboPerPage.ItemHeight = 17;
-            this.comboPerPage.Location = new System.Drawing.Point(13, 596);
-            this.comboPerPage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboPerPage.Location = new System.Drawing.Point(13, 379);
+            this.comboPerPage.Margin = new System.Windows.Forms.Padding(4);
             this.comboPerPage.Name = "comboPerPage";
             this.comboPerPage.Size = new System.Drawing.Size(80, 25);
             this.comboPerPage.TabIndex = 55;
@@ -481,7 +481,7 @@
             this.lblHalaman.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblHalaman.AutoSize = true;
             this.lblHalaman.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHalaman.Location = new System.Drawing.Point(321, 598);
+            this.lblHalaman.Location = new System.Drawing.Point(91, 381);
             this.lblHalaman.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblHalaman.Name = "lblHalaman";
             this.lblHalaman.Size = new System.Drawing.Size(113, 20);
@@ -491,8 +491,8 @@
             // btnNext
             // 
             this.btnNext.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnNext.Location = new System.Drawing.Point(461, 594);
-            this.btnNext.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNext.Location = new System.Drawing.Point(231, 377);
+            this.btnNext.Margin = new System.Windows.Forms.Padding(4);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(100, 28);
             this.btnNext.TabIndex = 53;
@@ -503,8 +503,8 @@
             // btnPrevious
             // 
             this.btnPrevious.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnPrevious.Location = new System.Drawing.Point(197, 594);
-            this.btnPrevious.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPrevious.Location = new System.Drawing.Point(-33, 377);
+            this.btnPrevious.Margin = new System.Windows.Forms.Padding(4);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(100, 28);
             this.btnPrevious.TabIndex = 52;
@@ -518,7 +518,7 @@
             this.ButtonNaikKelas.BackColor = System.Drawing.Color.Gray;
             this.ButtonNaikKelas.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonNaikKelas.ForeColor = System.Drawing.Color.White;
-            this.ButtonNaikKelas.Location = new System.Drawing.Point(672, 588);
+            this.ButtonNaikKelas.Location = new System.Drawing.Point(212, 371);
             this.ButtonNaikKelas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonNaikKelas.Name = "ButtonNaikKelas";
             this.ButtonNaikKelas.Size = new System.Drawing.Size(135, 38);
@@ -539,14 +539,14 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(817, 567);
+            this.dataGridView1.Size = new System.Drawing.Size(357, 350);
             this.dataGridView1.TabIndex = 1;
             // 
             // comboTahunFilter
             // 
             this.comboTahunFilter.FormattingEnabled = true;
             this.comboTahunFilter.Location = new System.Drawing.Point(628, 27);
-            this.comboTahunFilter.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.comboTahunFilter.Margin = new System.Windows.Forms.Padding(5);
             this.comboTahunFilter.Name = "comboTahunFilter";
             this.comboTahunFilter.Size = new System.Drawing.Size(119, 24);
             this.comboTahunFilter.TabIndex = 15;
@@ -555,7 +555,7 @@
             // btnResetFilter
             // 
             this.btnResetFilter.Location = new System.Drawing.Point(768, 25);
-            this.btnResetFilter.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnResetFilter.Margin = new System.Windows.Forms.Padding(5);
             this.btnResetFilter.Name = "btnResetFilter";
             this.btnResetFilter.Size = new System.Drawing.Size(123, 30);
             this.btnResetFilter.TabIndex = 47;
@@ -616,7 +616,7 @@
             this.ButtonDownloadFormat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ButtonDownloadFormat.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonDownloadFormat.BackgroundImage")));
             this.ButtonDownloadFormat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ButtonDownloadFormat.Location = new System.Drawing.Point(1231, 10);
+            this.ButtonDownloadFormat.Location = new System.Drawing.Point(771, 10);
             this.ButtonDownloadFormat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonDownloadFormat.Name = "ButtonDownloadFormat";
             this.ButtonDownloadFormat.Size = new System.Drawing.Size(73, 57);
@@ -630,7 +630,7 @@
             this.ButtonInputSIswa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ButtonInputSIswa.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonInputSIswa.BackgroundImage")));
             this.ButtonInputSIswa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ButtonInputSIswa.Location = new System.Drawing.Point(1136, 11);
+            this.ButtonInputSIswa.Location = new System.Drawing.Point(676, 11);
             this.ButtonInputSIswa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonInputSIswa.Name = "ButtonInputSIswa";
             this.ButtonInputSIswa.Size = new System.Drawing.Size(73, 57);
@@ -680,7 +680,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1321, 745);
+            this.ClientSize = new System.Drawing.Size(861, 528);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblFilter);
             this.Controls.Add(this.btnResetFilter);

@@ -37,6 +37,9 @@
             this.label6 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.lblHalaman = new System.Windows.Forms.Label();
+            this.btnNext = new System.Windows.Forms.Button();
+            this.btnPrevious = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.comboPerPage = new System.Windows.Forms.ComboBox();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -64,9 +67,6 @@
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblFilter = new System.Windows.Forms.Label();
-            this.lblHalaman = new System.Windows.Forms.Label();
-            this.btnNext = new System.Windows.Forms.Button();
-            this.btnPrevious = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -87,7 +87,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(944, 556);
+            this.dataGridView1.Size = new System.Drawing.Size(314, 320);
             this.dataGridView1.TabIndex = 0;
             // 
             // tglsatu
@@ -152,7 +152,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 78);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1447, 659);
+            this.panel1.Size = new System.Drawing.Size(817, 423);
             this.panel1.TabIndex = 29;
             // 
             // panel3
@@ -170,15 +170,51 @@
             this.panel3.Location = new System.Drawing.Point(12, 11);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(957, 634);
+            this.panel3.Size = new System.Drawing.Size(327, 398);
             this.panel3.TabIndex = 1;
+            // 
+            // lblHalaman
+            // 
+            this.lblHalaman.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.lblHalaman.AutoSize = true;
+            this.lblHalaman.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHalaman.Location = new System.Drawing.Point(116, 354);
+            this.lblHalaman.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblHalaman.Name = "lblHalaman";
+            this.lblHalaman.Size = new System.Drawing.Size(113, 20);
+            this.lblHalaman.TabIndex = 56;
+            this.lblHalaman.Text = "Halaman 1/10";
+            // 
+            // btnNext
+            // 
+            this.btnNext.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnNext.Location = new System.Drawing.Point(256, 350);
+            this.btnNext.Margin = new System.Windows.Forms.Padding(4);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(100, 28);
+            this.btnNext.TabIndex = 55;
+            this.btnNext.TabStop = false;
+            this.btnNext.Text = ">";
+            this.btnNext.UseVisualStyleBackColor = true;
+            // 
+            // btnPrevious
+            // 
+            this.btnPrevious.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnPrevious.Location = new System.Drawing.Point(-8, 350);
+            this.btnPrevious.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPrevious.Name = "btnPrevious";
+            this.btnPrevious.Size = new System.Drawing.Size(100, 28);
+            this.btnPrevious.TabIndex = 54;
+            this.btnPrevious.TabStop = false;
+            this.btnPrevious.Text = "<";
+            this.btnPrevious.UseVisualStyleBackColor = true;
             // 
             // label14
             // 
             this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(104, 585);
+            this.label14.Location = new System.Drawing.Point(104, 349);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(55, 23);
             this.label14.TabIndex = 53;
@@ -191,8 +227,8 @@
             this.comboPerPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboPerPage.FormattingEnabled = true;
             this.comboPerPage.ItemHeight = 17;
-            this.comboPerPage.Location = new System.Drawing.Point(19, 585);
-            this.comboPerPage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboPerPage.Location = new System.Drawing.Point(19, 349);
+            this.comboPerPage.Margin = new System.Windows.Forms.Padding(4);
             this.comboPerPage.Name = "comboPerPage";
             this.comboPerPage.Size = new System.Drawing.Size(80, 25);
             this.comboPerPage.TabIndex = 52;
@@ -205,10 +241,10 @@
             this.panel4.BackColor = System.Drawing.Color.Silver;
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.panel2);
-            this.panel4.Location = new System.Drawing.Point(979, 11);
+            this.panel4.Location = new System.Drawing.Point(349, 11);
             this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(454, 633);
+            this.panel4.Size = new System.Drawing.Size(454, 397);
             this.panel4.TabIndex = 2;
             // 
             // panel2
@@ -238,7 +274,7 @@
             this.panel2.Location = new System.Drawing.Point(5, 5);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(441, 621);
+            this.panel2.Size = new System.Drawing.Size(441, 385);
             this.panel2.TabIndex = 8;
             // 
             // btnSave_FormSiswa
@@ -247,7 +283,7 @@
             this.btnSave_FormSiswa.BackColor = System.Drawing.Color.LimeGreen;
             this.btnSave_FormSiswa.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave_FormSiswa.ForeColor = System.Drawing.Color.White;
-            this.btnSave_FormSiswa.Location = new System.Drawing.Point(292, 558);
+            this.btnSave_FormSiswa.Location = new System.Drawing.Point(292, 322);
             this.btnSave_FormSiswa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSave_FormSiswa.Name = "btnSave_FormSiswa";
             this.btnSave_FormSiswa.Size = new System.Drawing.Size(120, 39);
@@ -275,7 +311,7 @@
             this.jamMasukDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.jamMasukDT.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.jamMasukDT.Location = new System.Drawing.Point(25, 386);
-            this.jamMasukDT.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.jamMasukDT.Margin = new System.Windows.Forms.Padding(4);
             this.jamMasukDT.Name = "jamMasukDT";
             this.jamMasukDT.ShowUpDown = true;
             this.jamMasukDT.Size = new System.Drawing.Size(385, 26);
@@ -309,7 +345,7 @@
             this.jamKeluarDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.jamKeluarDT.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.jamKeluarDT.Location = new System.Drawing.Point(25, 324);
-            this.jamKeluarDT.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.jamKeluarDT.Margin = new System.Windows.Forms.Padding(4);
             this.jamKeluarDT.Name = "jamKeluarDT";
             this.jamKeluarDT.ShowUpDown = true;
             this.jamKeluarDT.Size = new System.Drawing.Size(385, 26);
@@ -341,7 +377,7 @@
             this.tglDT.CustomFormat = "dd MMMM yyyy";
             this.tglDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tglDT.Location = new System.Drawing.Point(25, 263);
-            this.tglDT.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tglDT.Margin = new System.Windows.Forms.Padding(4);
             this.tglDT.Name = "tglDT";
             this.tglDT.Size = new System.Drawing.Size(385, 26);
             this.tglDT.TabIndex = 4;
@@ -437,7 +473,7 @@
             // btnResetFilter
             // 
             this.btnResetFilter.Location = new System.Drawing.Point(968, 26);
-            this.btnResetFilter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnResetFilter.Margin = new System.Windows.Forms.Padding(4);
             this.btnResetFilter.Name = "btnResetFilter";
             this.btnResetFilter.Size = new System.Drawing.Size(100, 28);
             this.btnResetFilter.TabIndex = 30;
@@ -495,48 +531,12 @@
             this.lblFilter.TabIndex = 49;
             this.lblFilter.Text = "Masukkan Kata Kunci Pencarian ⌕ ";
             // 
-            // lblHalaman
-            // 
-            this.lblHalaman.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.lblHalaman.AutoSize = true;
-            this.lblHalaman.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHalaman.Location = new System.Drawing.Point(431, 590);
-            this.lblHalaman.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblHalaman.Name = "lblHalaman";
-            this.lblHalaman.Size = new System.Drawing.Size(113, 20);
-            this.lblHalaman.TabIndex = 56;
-            this.lblHalaman.Text = "Halaman 1/10";
-            // 
-            // btnNext
-            // 
-            this.btnNext.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnNext.Location = new System.Drawing.Point(571, 586);
-            this.btnNext.Margin = new System.Windows.Forms.Padding(4);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(100, 28);
-            this.btnNext.TabIndex = 55;
-            this.btnNext.TabStop = false;
-            this.btnNext.Text = ">";
-            this.btnNext.UseVisualStyleBackColor = true;
-            // 
-            // btnPrevious
-            // 
-            this.btnPrevious.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnPrevious.Location = new System.Drawing.Point(307, 586);
-            this.btnPrevious.Margin = new System.Windows.Forms.Padding(4);
-            this.btnPrevious.Name = "btnPrevious";
-            this.btnPrevious.Size = new System.Drawing.Size(100, 28);
-            this.btnPrevious.TabIndex = 54;
-            this.btnPrevious.TabStop = false;
-            this.btnPrevious.Text = "<";
-            this.btnPrevious.UseVisualStyleBackColor = true;
-            // 
             // FormKeluar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1449, 743);
+            this.ClientSize = new System.Drawing.Size(819, 507);
             this.Controls.Add(this.lblFilter);
             this.Controls.Add(this.TextSearch);
             this.Controls.Add(this.btnResetFilter);

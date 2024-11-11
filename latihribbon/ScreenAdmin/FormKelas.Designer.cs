@@ -64,10 +64,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.BackColor = System.Drawing.Color.Silver;
             this.panel3.Controls.Add(this.GridListKelas);
-            this.panel3.Location = new System.Drawing.Point(3, 3);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Location = new System.Drawing.Point(4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(538, 433);
+            this.panel3.Size = new System.Drawing.Size(298, 452);
             this.panel3.TabIndex = 0;
             // 
             // GridListKelas
@@ -77,10 +77,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.GridListKelas.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.GridListKelas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GridListKelas.Location = new System.Drawing.Point(5, 5);
+            this.GridListKelas.Location = new System.Drawing.Point(7, 6);
+            this.GridListKelas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.GridListKelas.Name = "GridListKelas";
             this.GridListKelas.RowHeadersWidth = 51;
-            this.GridListKelas.Size = new System.Drawing.Size(528, 423);
+            this.GridListKelas.Size = new System.Drawing.Size(285, 440);
             this.GridListKelas.TabIndex = 0;
             // 
             // panel7
@@ -90,10 +91,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel7.Controls.Add(this.panel2);
             this.panel7.Controls.Add(this.panel3);
-            this.panel7.Location = new System.Drawing.Point(7, 6);
-            this.panel7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel7.Location = new System.Drawing.Point(9, 7);
+            this.panel7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(900, 444);
+            this.panel7.Size = new System.Drawing.Size(781, 465);
             this.panel7.TabIndex = 8;
             // 
             // panel2
@@ -103,10 +104,10 @@
             this.panel2.BackColor = System.Drawing.Color.Silver;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.panel5);
-            this.panel2.Location = new System.Drawing.Point(548, 3);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Location = new System.Drawing.Point(312, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(345, 433);
+            this.panel2.Size = new System.Drawing.Size(459, 451);
             this.panel2.TabIndex = 2;
             // 
             // panel5
@@ -127,19 +128,20 @@
             this.panel5.Controls.Add(this.label8);
             this.panel5.Controls.Add(this.txtNamaKelas);
             this.panel5.Controls.Add(this.label6);
-            this.panel5.Location = new System.Drawing.Point(5, 4);
-            this.panel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel5.Location = new System.Drawing.Point(7, 5);
+            this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(335, 423);
+            this.panel5.Size = new System.Drawing.Size(446, 439);
             this.panel5.TabIndex = 5;
             // 
             // lblInfo
             // 
             this.lblInfo.AutoSize = true;
             this.lblInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInfo.Location = new System.Drawing.Point(130, 17);
+            this.lblInfo.Location = new System.Drawing.Point(173, 21);
+            this.lblInfo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Size = new System.Drawing.Size(74, 20);
+            this.lblInfo.Size = new System.Drawing.Size(90, 25);
             this.lblInfo.TabIndex = 56;
             this.lblInfo.Text = "INSERT";
             // 
@@ -149,10 +151,10 @@
             this.btnSave.BackColor = System.Drawing.Color.LimeGreen;
             this.btnSave.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(218, 367);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSave.Location = new System.Drawing.Point(291, 371);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(90, 32);
+            this.btnSave.Size = new System.Drawing.Size(120, 39);
             this.btnSave.TabIndex = 5;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
@@ -162,10 +164,10 @@
             this.XIIRadio.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.XIIRadio.AutoSize = true;
             this.XIIRadio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.XIIRadio.Location = new System.Drawing.Point(188, 128);
-            this.XIIRadio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.XIIRadio.Location = new System.Drawing.Point(251, 158);
+            this.XIIRadio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.XIIRadio.Name = "XIIRadio";
-            this.XIIRadio.Size = new System.Drawing.Size(41, 21);
+            this.XIIRadio.Size = new System.Drawing.Size(49, 24);
             this.XIIRadio.TabIndex = 2;
             this.XIIRadio.TabStop = true;
             this.XIIRadio.Text = "XII";
@@ -176,10 +178,10 @@
             this.XIRadio.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.XIRadio.AutoSize = true;
             this.XIRadio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.XIRadio.Location = new System.Drawing.Point(96, 128);
-            this.XIRadio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.XIRadio.Location = new System.Drawing.Point(128, 158);
+            this.XIRadio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.XIRadio.Name = "XIRadio";
-            this.XIRadio.Size = new System.Drawing.Size(38, 21);
+            this.XIRadio.Size = new System.Drawing.Size(45, 24);
             this.XIRadio.TabIndex = 1;
             this.XIRadio.TabStop = true;
             this.XIRadio.Text = "XI";
@@ -190,10 +192,10 @@
             this.XRadio.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.XRadio.AutoSize = true;
             this.XRadio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.XRadio.Location = new System.Drawing.Point(27, 128);
-            this.XRadio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.XRadio.Location = new System.Drawing.Point(36, 158);
+            this.XRadio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.XRadio.Name = "XRadio";
-            this.XRadio.Size = new System.Drawing.Size(35, 21);
+            this.XRadio.Size = new System.Drawing.Size(41, 24);
             this.XRadio.TabIndex = 0;
             this.XRadio.TabStop = true;
             this.XRadio.Text = "X";
@@ -205,20 +207,19 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.jurusanCombo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.jurusanCombo.FormattingEnabled = true;
-            this.jurusanCombo.Location = new System.Drawing.Point(21, 180);
-            this.jurusanCombo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.jurusanCombo.Location = new System.Drawing.Point(28, 222);
+            this.jurusanCombo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.jurusanCombo.Name = "jurusanCombo";
-            this.jurusanCombo.Size = new System.Drawing.Size(290, 25);
+            this.jurusanCombo.Size = new System.Drawing.Size(385, 28);
             this.jurusanCombo.TabIndex = 3;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(23, 161);
-            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label10.Location = new System.Drawing.Point(31, 198);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(59, 17);
+            this.label10.Size = new System.Drawing.Size(69, 20);
             this.label10.TabIndex = 72;
             this.label10.Text = "Jurusan";
             // 
@@ -228,21 +229,20 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtRombel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtRombel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRombel.Location = new System.Drawing.Point(21, 230);
-            this.txtRombel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtRombel.Location = new System.Drawing.Point(28, 283);
+            this.txtRombel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtRombel.MaxLength = 2;
             this.txtRombel.Name = "txtRombel";
-            this.txtRombel.Size = new System.Drawing.Size(290, 23);
+            this.txtRombel.Size = new System.Drawing.Size(386, 27);
             this.txtRombel.TabIndex = 4;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(24, 211);
-            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label9.Location = new System.Drawing.Point(32, 260);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(56, 17);
+            this.label9.Size = new System.Drawing.Size(66, 20);
             this.label9.TabIndex = 70;
             this.label9.Text = "Rombel";
             // 
@@ -250,10 +250,9 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(18, 103);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Location = new System.Drawing.Point(24, 127);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(55, 17);
+            this.label8.Size = new System.Drawing.Size(63, 20);
             this.label8.TabIndex = 69;
             this.label8.Text = "Tingkat";
             // 
@@ -263,11 +262,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNamaKelas.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNamaKelas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNamaKelas.Location = new System.Drawing.Point(21, 70);
-            this.txtNamaKelas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNamaKelas.Location = new System.Drawing.Point(28, 86);
+            this.txtNamaKelas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNamaKelas.Name = "txtNamaKelas";
             this.txtNamaKelas.ReadOnly = true;
-            this.txtNamaKelas.Size = new System.Drawing.Size(290, 23);
+            this.txtNamaKelas.Size = new System.Drawing.Size(386, 27);
             this.txtNamaKelas.TabIndex = 67;
             this.txtNamaKelas.TabStop = false;
             // 
@@ -275,10 +274,9 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(24, 51);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Location = new System.Drawing.Point(32, 63);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(84, 17);
+            this.label6.Size = new System.Drawing.Size(100, 20);
             this.label6.TabIndex = 66;
             this.label6.Text = "Nama Kelas";
             // 
@@ -290,14 +288,14 @@
             this.EditMenuStrip,
             this.DeleteMenuStrip});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(127, 56);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(145, 64);
             // 
             // EditMenuStrip
             // 
             this.EditMenuStrip.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EditMenuStrip.Image = global::latihribbon.Properties.Resources.pencil;
             this.EditMenuStrip.Name = "EditMenuStrip";
-            this.EditMenuStrip.Size = new System.Drawing.Size(126, 26);
+            this.EditMenuStrip.Size = new System.Drawing.Size(144, 30);
             this.EditMenuStrip.Text = "Edit";
             // 
             // DeleteMenuStrip
@@ -305,15 +303,16 @@
             this.DeleteMenuStrip.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DeleteMenuStrip.Image = global::latihribbon.Properties.Resources.bin;
             this.DeleteMenuStrip.Name = "DeleteMenuStrip";
-            this.DeleteMenuStrip.Size = new System.Drawing.Size(126, 26);
+            this.DeleteMenuStrip.Size = new System.Drawing.Size(144, 30);
             this.DeleteMenuStrip.Text = "Delete";
             // 
             // FormKelas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(911, 453);
+            this.ClientSize = new System.Drawing.Size(796, 477);
             this.Controls.Add(this.panel7);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormKelas";
             this.Text = "FormKelas";
             this.panel3.ResumeLayout(false);

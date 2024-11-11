@@ -50,7 +50,7 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(224, 144);
+            this.panel1.Location = new System.Drawing.Point(92, 43);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1261, 690);
@@ -60,7 +60,7 @@
             // 
             this.btnPuas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnPuas.Location = new System.Drawing.Point(763, 274);
-            this.btnPuas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPuas.Margin = new System.Windows.Forms.Padding(4);
             this.btnPuas.Name = "btnPuas";
             this.btnPuas.Size = new System.Drawing.Size(168, 155);
             this.btnPuas.TabIndex = 29;
@@ -70,7 +70,7 @@
             // 
             this.btnTidakPuas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnTidakPuas.Location = new System.Drawing.Point(341, 274);
-            this.btnTidakPuas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnTidakPuas.Margin = new System.Windows.Forms.Padding(4);
             this.btnTidakPuas.Name = "btnTidakPuas";
             this.btnTidakPuas.Size = new System.Drawing.Size(168, 155);
             this.btnTidakPuas.TabIndex = 28;
@@ -131,7 +131,7 @@
             this.btn_kembali.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_kembali.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_kembali.ForeColor = System.Drawing.Color.White;
-            this.btn_kembali.Location = new System.Drawing.Point(21, 888);
+            this.btn_kembali.Location = new System.Drawing.Point(21, 686);
             this.btn_kembali.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_kembali.Name = "btn_kembali";
             this.btn_kembali.Size = new System.Drawing.Size(70, 70);
@@ -142,7 +142,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1708, 981);
+            this.ClientSize = new System.Drawing.Size(1444, 779);
             this.Controls.Add(this.btn_kembali);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

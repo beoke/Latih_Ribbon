@@ -54,7 +54,7 @@
             this.pictureBoxClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pictureBoxClose.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBoxClose.BackgroundImage")));
             this.pictureBoxClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBoxClose.Location = new System.Drawing.Point(33, 759);
+            this.pictureBoxClose.Location = new System.Drawing.Point(33, 566);
             this.pictureBoxClose.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxClose.Name = "pictureBoxClose";
             this.pictureBoxClose.Size = new System.Drawing.Size(60, 55);
@@ -68,7 +68,7 @@
             this.ButtonAdmin.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonAdmin.ForeColor = System.Drawing.Color.White;
             this.ButtonAdmin.Image = global::latihribbon.Properties.Resources.software_engineer;
-            this.ButtonAdmin.Location = new System.Drawing.Point(713, 729);
+            this.ButtonAdmin.Location = new System.Drawing.Point(530, 536);
             this.ButtonAdmin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonAdmin.Name = "ButtonAdmin";
             this.ButtonAdmin.Size = new System.Drawing.Size(196, 86);
@@ -86,7 +86,7 @@
             this.ButtonSimResi.ForeColor = System.Drawing.SystemColors.Control;
             this.ButtonSimResi.Image = global::latihribbon.Properties.Resources.ATM_TINGGI;
             this.ButtonSimResi.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.ButtonSimResi.Location = new System.Drawing.Point(13, 276);
+            this.ButtonSimResi.Location = new System.Drawing.Point(-170, 179);
             this.ButtonSimResi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonSimResi.Name = "ButtonSimResi";
             this.ButtonSimResi.Size = new System.Drawing.Size(557, 304);
@@ -114,7 +114,7 @@
             this.ButtonSurvey.ForeColor = System.Drawing.SystemColors.Control;
             this.ButtonSurvey.Image = global::latihribbon.Properties.Resources.SURVEY_TINGGI;
             this.ButtonSurvey.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.ButtonSurvey.Location = new System.Drawing.Point(1053, 276);
+            this.ButtonSurvey.Location = new System.Drawing.Point(870, 179);
             this.ButtonSurvey.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonSurvey.Name = "ButtonSurvey";
             this.ButtonSurvey.Size = new System.Drawing.Size(557, 304);
@@ -127,7 +127,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1623, 842);
+            this.ClientSize = new System.Drawing.Size(1257, 649);
             this.Controls.Add(this.pictureBoxClose);
             this.Controls.Add(this.ButtonAdmin);
             this.Controls.Add(this.label2);
