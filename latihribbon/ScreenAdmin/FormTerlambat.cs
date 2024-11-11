@@ -151,7 +151,7 @@ namespace latihribbon
             txtNama1.Clear();
             txtKelas1.Clear();
             tglDT.Value = DateTime.Now;
-            jamMasukDT.Value = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day, 0, 0, 0);
+            jamMasukDT.Value = DateTime.Now;
             txtAlasan1.Clear();
         }
         private void SaveData()
