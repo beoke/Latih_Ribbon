@@ -138,7 +138,7 @@ namespace latihribbon
             DbDal dbDal = new DbDal();
             UserModel user = dbDal.GetUsers(username);
 
-            if(user == null)
+            if (user == null)
             {
                 new MesError("Username Tidak Tersedia!").ShowDialog(this);
                 ClearForm();
@@ -147,7 +147,7 @@ namespace latihribbon
             }
             if (!FormUser_RiwayatLogin.VerifyPassword(password, user.password))
             {
-                new MesError("Username atau Password salah!").ShowDialog(this); 
+                new MesError("Username atau Password salah!").ShowDialog(this);
                 ClearForm();
                 tx_Username.Focus();
                 return;

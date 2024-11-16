@@ -184,7 +184,7 @@ namespace latihribbon
 
         private void SaveData()
         {
-            string nis, nama, kelas, tujuan;
+            string nis, nama, tujuan;
             DateTime tgl;
             TimeSpan jamKeluar, jamMasuk;
             nis = txtNIS1.Text;

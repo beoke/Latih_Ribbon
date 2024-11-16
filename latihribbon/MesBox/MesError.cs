@@ -33,7 +33,7 @@ namespace latihribbon
             this.Load += MesError_Load;
         }
 
-        private async void MesError_Load(object sender, EventArgs e)
+        private void MesError_Load(object sender, EventArgs e)
         {
             System.Media.SystemSounds.Hand.Play();
         }
