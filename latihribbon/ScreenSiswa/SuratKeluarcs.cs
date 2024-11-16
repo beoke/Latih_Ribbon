@@ -22,7 +22,6 @@ namespace latihribbon
         private Form FormMilih;
         private readonly DbDal db;
         private readonly KeluarDal keluarDal;
-        int print = 0;
         DateTime globalCurrentTime = DateTime.Now;
         private string NIS;
         private string nama;
@@ -39,7 +38,7 @@ namespace latihribbon
             toolTip = new ToolTip();
             this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
-           // this.TopMost = true;
+            this.TopMost = true;
             this.ControlBox = true;
             this.mainForm = mainForm;
             this.indexForm = indexForm;

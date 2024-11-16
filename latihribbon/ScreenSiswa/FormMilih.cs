@@ -33,7 +33,7 @@ namespace latihribbon
 
             this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
-            //this.TopMost = true;  
+            this.TopMost = true;  
             this.ControlBox = true;    
             this.mainForm = mainForm;
             this.indexForm = indexForm;
