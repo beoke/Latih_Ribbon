@@ -111,7 +111,6 @@ namespace latihribbon
 
             if (new MesQuestionYN("Apakah data sudah benar ?").ShowDialog(this) != DialogResult.Yes) return;
             if (Print()) Insert();
-            MessageBox.Show("3");
             System.Threading.Thread.Sleep(1000);
             indexForm.Opacity = 1;
             this.Close();

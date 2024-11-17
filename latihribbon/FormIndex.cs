@@ -63,7 +63,7 @@ namespace latihribbon
         {
             windowsKey.StopBlocking(); // Hentikan blokir tombol Windows
             base.OnFormClosing(e);
-        }
+        } 
 
 
         private void PictureBoxClose_Click(object sender, EventArgs e)
