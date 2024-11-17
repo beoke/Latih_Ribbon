@@ -156,6 +156,7 @@ namespace latihribbon
             Form1 admin = new Form1(mainForm,indexForm);
             admin.Show();
             this.Close();
+            indexForm.Close();
         }
 
 

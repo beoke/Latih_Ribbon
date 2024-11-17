@@ -167,7 +167,7 @@ namespace latihribbon
             if (new MesQuestionYN("Apakah Anda Ingin Logout?").ShowDialog(this) == DialogResult.Yes)
             {
                 Closing = false;
-                indexForm.Opacity = 1;
+                new FormIndex(this).Show();
                 this.Close();
             }
         }
