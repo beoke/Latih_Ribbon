@@ -344,7 +344,7 @@ namespace latihribbon
 
         private void FormSIswa_Resize(object sender, EventArgs e)
         {
-            if (panel5.Height < 510)
+            if (panel5.Height < 505)
             {
                 txtNIS_FormSiswa.Width = 140;
                 txtNIS_FormSiswa.Location = new Point(18,67);
