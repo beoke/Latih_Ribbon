@@ -456,6 +456,7 @@
     <Compile Include="Model\UserModel.cs" />
     <Compile Include="Dal\SetPrintDal.cs" />
     <Compile Include="ScreenSurvey\SurveyModel.cs" />
+    <Compile Include="WindowsKey.cs" />
     <EmbeddedResource Include="FirstForm.resx">
       <DependentUpon>FirstForm.cs</DependentUpon>
     </EmbeddedResource>

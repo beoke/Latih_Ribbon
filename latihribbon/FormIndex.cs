@@ -14,13 +14,15 @@ namespace latihribbon
     public partial class FormIndex : Form
     {
         private Form mainForm;
+        private WindowsKeyBlocker windowsKey;
         public FormIndex(Form ff)
         {
             InitializeComponent();
+            windowsKey = new WindowsKeyBlocker();
             this.mainForm = ff;
             this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
-            this.TopMost = true;
+           // this.TopMost = true;
             this.ControlBox = true;
             ControlEvent();
         }
@@ -50,6 +52,19 @@ namespace latihribbon
             pictureBoxClose.Click += PictureBoxClose_Click;
 
         }
+
+        protected override void OnShown(EventArgs e)
+        {
+            base.OnShown(e);
+            windowsKey.StartBlocking(); // Mulai blokir tombol Windows
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            windowsKey.StopBlocking(); // Hentikan blokir tombol Windows
+            base.OnFormClosing(e);
+        }
+
 
         private void PictureBoxClose_Click(object sender, EventArgs e)
         {
