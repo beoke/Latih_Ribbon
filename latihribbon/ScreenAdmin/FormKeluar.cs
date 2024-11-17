@@ -41,6 +41,10 @@ namespace latihribbon
             LoadData();
             InitComponent();
             RegisterEvent();
+
+            CultureInfo culture = new CultureInfo("id-ID");
+            Thread.CurrentThread.CurrentCulture = culture;
+            Thread.CurrentThread.CurrentUICulture = culture;
         }
 
         private void FormKeluar_Load(object sender, EventArgs e)

@@ -340,7 +340,7 @@ namespace latihribbon
          
             lblLength.Text = $"{txtAlasan.Text.Length}/60";
         }
-
+        
         private void txtAlasan_KeyPress(object sender, KeyPressEventArgs e)
         {
             if(e.KeyChar == (char)Keys.Enter)

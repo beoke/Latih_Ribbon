@@ -95,10 +95,9 @@ namespace latihribbon
                 GridListUser.ColumnHeadersHeight = 35;
 
                 GridListUser.Columns["Id"].Visible = false;
-                GridListUser.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 GridListUser.Columns[0].Visible = false;
                 GridListUser.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                GridListUser.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                GridListUser.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             }
 
             toolTip.SetToolTip(btnResetFilter, "Reset Filter");

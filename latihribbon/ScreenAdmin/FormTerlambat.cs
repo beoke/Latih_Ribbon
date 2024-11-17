@@ -9,6 +9,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Text;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -39,6 +40,10 @@ namespace latihribbon
             RegisterEvent();
             LoadData();
             InitComponen();
+
+            CultureInfo culture = new CultureInfo("id-ID");
+            Thread.CurrentThread.CurrentCulture = culture;
+            Thread.CurrentThread.CurrentUICulture = culture;
         }
 
         public void buf()

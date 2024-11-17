@@ -101,7 +101,7 @@
             this.jamMasuk.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.jamMasuk.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.jamMasuk.Location = new System.Drawing.Point(29, 326);
-            this.jamMasuk.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.jamMasuk.Margin = new System.Windows.Forms.Padding(4);
             this.jamMasuk.Name = "jamMasuk";
             this.jamMasuk.ShowUpDown = true;
             this.jamMasuk.Size = new System.Drawing.Size(401, 26);
@@ -132,9 +132,11 @@
             this.tglDT.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tglDT.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tglDT.CustomFormat = "dd MMMM yyyy";
             this.tglDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tglDT.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.tglDT.Location = new System.Drawing.Point(29, 267);
-            this.tglDT.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tglDT.Margin = new System.Windows.Forms.Padding(4);
             this.tglDT.Name = "tglDT";
             this.tglDT.Size = new System.Drawing.Size(401, 26);
             this.tglDT.TabIndex = 0;
@@ -281,7 +283,7 @@
             this.ClientSize = new System.Drawing.Size(524, 609);
             this.Controls.Add(this.panel7);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "EditTerlambat";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.panel1.ResumeLayout(false);

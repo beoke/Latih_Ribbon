@@ -5,8 +5,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -27,6 +29,10 @@ namespace latihribbon
             globalId = Id;
             GetData(Id);
             RegisterEvent();
+
+            CultureInfo culture = new CultureInfo("id-ID");
+            Thread.CurrentThread.CurrentCulture = culture;
+            Thread.CurrentThread.CurrentUICulture = culture;
         }
         private void GetData(int Id)
         {
