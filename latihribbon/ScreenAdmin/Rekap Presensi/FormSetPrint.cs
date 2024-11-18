@@ -113,7 +113,7 @@ namespace latihribbon
                     }
                     if(KelasCek.Count != 0)
                     {
-                        new MesError($"Tidak Ada Data Untuk Kelas :  { string.Join(", ", KelasCek)} \nJika data tersebut memang tidak diperlukan, \nBatalkan centang pada kelas tersebut").ShowDialog();
+                        new MesError($"Tidak Ada Data Untuk Kelas :  { string.Join(", ", KelasCek)} \nJika data tersebut memang tidak diperlukan, \nBatalkan centang pada kelas tersebut",3).ShowDialog(this);
                         return;
                     }
                     foreach (var angkatan in groupedData.Keys)
@@ -122,7 +122,8 @@ namespace latihribbon
                         var groupedByKelas = studentsInAngkatan.GroupBy(s => s.NamaKelas).ToList();
                         var worksheet = package.Workbook.Worksheets.Add(angkatan);
 
-                        worksheet.Cells[1, 1].Value = $"Data Siswa Angkatan: {angkatan}";
+                        worksheet.Cells[1, 1].Value = $"Data Siswa Kelas: {angkatan}";
+                        worksheet.Cells[2, 1].Value = $"Tanggal: {tgl1DT.Value.ToString("dd MMMM yyyy")} - {tgl2DT.Value.ToString("dd MMMM yyyy")}";
                         worksheet.Cells[1, 1].Style.Font.Bold = true;
 
                         int currentRow = 4;
