@@ -43,9 +43,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(116, 59);
+            this.label2.Location = new System.Drawing.Point(87, 48);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(159, 33);
+            this.label2.Size = new System.Drawing.Size(126, 25);
             this.label2.TabIndex = 59;
             this.label2.Text = "Rekap Siswa";
             // 
@@ -54,10 +55,9 @@
             this.pictureBoxClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pictureBoxClose.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBoxClose.BackgroundImage")));
             this.pictureBoxClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBoxClose.Location = new System.Drawing.Point(33, 566);
-            this.pictureBoxClose.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxClose.Location = new System.Drawing.Point(25, 614);
             this.pictureBoxClose.Name = "pictureBoxClose";
-            this.pictureBoxClose.Size = new System.Drawing.Size(60, 55);
+            this.pictureBoxClose.Size = new System.Drawing.Size(45, 45);
             this.pictureBoxClose.TabIndex = 61;
             this.pictureBoxClose.TabStop = false;
             // 
@@ -68,10 +68,10 @@
             this.ButtonAdmin.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonAdmin.ForeColor = System.Drawing.Color.White;
             this.ButtonAdmin.Image = global::latihribbon.Properties.Resources.software_engineer;
-            this.ButtonAdmin.Location = new System.Drawing.Point(530, 536);
-            this.ButtonAdmin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonAdmin.Location = new System.Drawing.Point(549, 590);
+            this.ButtonAdmin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ButtonAdmin.Name = "ButtonAdmin";
-            this.ButtonAdmin.Size = new System.Drawing.Size(196, 86);
+            this.ButtonAdmin.Size = new System.Drawing.Size(147, 70);
             this.ButtonAdmin.TabIndex = 60;
             this.ButtonAdmin.Text = "ADMIN";
             this.ButtonAdmin.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -86,12 +86,12 @@
             this.ButtonSimResi.ForeColor = System.Drawing.SystemColors.Control;
             this.ButtonSimResi.Image = global::latihribbon.Properties.Resources.ATM_TINGGI;
             this.ButtonSimResi.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.ButtonSimResi.Location = new System.Drawing.Point(-170, 179);
-            this.ButtonSimResi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonSimResi.Location = new System.Drawing.Point(24, 209);
+            this.ButtonSimResi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ButtonSimResi.Name = "ButtonSimResi";
-            this.ButtonSimResi.Size = new System.Drawing.Size(557, 304);
+            this.ButtonSimResi.Size = new System.Drawing.Size(432, 261);
             this.ButtonSimResi.TabIndex = 56;
-            this.ButtonSimResi.Text = "SIM RESI";
+            this.ButtonSimResi.Text = "SURAT IZIN";
             this.ButtonSimResi.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.ButtonSimResi.UseVisualStyleBackColor = false;
             // 
@@ -99,10 +99,10 @@
             // 
             this.pictureBox1.BackgroundImage = global::latihribbon.Properties.Resources.Resi_Logo_Round_putih_hitam;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(30, 30);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Location = new System.Drawing.Point(22, 24);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(80, 80);
+            this.pictureBox1.Size = new System.Drawing.Size(60, 65);
             this.pictureBox1.TabIndex = 58;
             this.pictureBox1.TabStop = false;
             // 
@@ -114,10 +114,10 @@
             this.ButtonSurvey.ForeColor = System.Drawing.SystemColors.Control;
             this.ButtonSurvey.Image = global::latihribbon.Properties.Resources.SURVEY_TINGGI;
             this.ButtonSurvey.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.ButtonSurvey.Location = new System.Drawing.Point(870, 179);
-            this.ButtonSurvey.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonSurvey.Location = new System.Drawing.Point(792, 209);
+            this.ButtonSurvey.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ButtonSurvey.Name = "ButtonSurvey";
-            this.ButtonSurvey.Size = new System.Drawing.Size(557, 304);
+            this.ButtonSurvey.Size = new System.Drawing.Size(432, 261);
             this.ButtonSurvey.TabIndex = 57;
             this.ButtonSurvey.Text = "SURVEY";
             this.ButtonSurvey.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -125,9 +125,9 @@
             // 
             // FormIndex
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1257, 649);
+            this.ClientSize = new System.Drawing.Size(1245, 682);
             this.Controls.Add(this.pictureBoxClose);
             this.Controls.Add(this.ButtonAdmin);
             this.Controls.Add(this.label2);
@@ -136,7 +136,7 @@
             this.Controls.Add(this.ButtonSurvey);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormIndex";
             this.Text = "FormIndex";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
