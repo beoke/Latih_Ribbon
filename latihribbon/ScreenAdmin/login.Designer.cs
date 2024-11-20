@@ -121,7 +121,7 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.tx_Username);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(465, -8);
+            this.panel1.Location = new System.Drawing.Point(559, -8);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(405, 516);
@@ -132,7 +132,7 @@
             this.btnMata.BackColor = System.Drawing.Color.White;
             this.btnMata.Image = global::latihribbon.Properties.Resources.hidden__1_;
             this.btnMata.Location = new System.Drawing.Point(341, 325);
-            this.btnMata.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMata.Margin = new System.Windows.Forms.Padding(4);
             this.btnMata.Name = "btnMata";
             this.btnMata.Size = new System.Drawing.Size(39, 36);
             this.btnMata.TabIndex = 56;
@@ -321,7 +321,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(828, 449);
+            this.ClientSize = new System.Drawing.Size(1016, 449);
             this.Controls.Add(this.btn_kembali);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);

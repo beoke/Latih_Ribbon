@@ -109,7 +109,7 @@ namespace latihribbon.Dal
             using (var koneksi = new SqlConnection(Conn.conn.connstr()))
             {
                 string sql = $@"SELECT Id FROM Kelas WHERE NamaKelas = @NamaKelas";
-                return koneksi.QuerySingleOrDefault<int>(sql, new {NamaKelas = NamaKelas});
+                return koneksi.QueryFirstOrDefault<int>(sql, new {NamaKelas = NamaKelas});
             }
         }
 
