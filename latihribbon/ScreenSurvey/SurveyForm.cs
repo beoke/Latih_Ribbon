@@ -35,7 +35,6 @@ namespace latihribbon
             this.mainForm = mainForm;
             this.indexForm = indexForm;
             this.KeyPreview = true;
-            this.TopMost = true;
             this.ControlBox = true;
 
             btnTidakPuas.FlatStyle = FlatStyle.Flat;

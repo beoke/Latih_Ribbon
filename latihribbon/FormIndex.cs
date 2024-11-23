@@ -53,17 +53,17 @@ namespace latihribbon
 
         }
 
-        protected override void OnShown(EventArgs e)
+       /* protected override void OnShown(EventArgs e)
         {
             base.OnShown(e);
             windowsKey.StartBlocking(); // Mulai blokir tombol Windows
         }
-7
+
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             windowsKey.StopBlocking(); // Hentikan blokir tombol Windows
             base.OnFormClosing(e);
-        } 
+        } */
 
 
         private void PictureBoxClose_Click(object sender, EventArgs e)
