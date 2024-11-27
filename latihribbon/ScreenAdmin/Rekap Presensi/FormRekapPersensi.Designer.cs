@@ -64,7 +64,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(7, 7);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(1015, 253);
+            this.dataGridView1.Size = new System.Drawing.Size(956, 253);
             this.dataGridView1.TabIndex = 1;
             // 
             // btnResetFilter
@@ -90,6 +90,7 @@
             // 
             // KeteranganCombo
             // 
+            this.KeteranganCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.KeteranganCombo.FormattingEnabled = true;
             this.KeteranganCombo.Location = new System.Drawing.Point(1032, 21);
             this.KeteranganCombo.Name = "KeteranganCombo";
@@ -101,7 +102,7 @@
             // 
             this.tgldua.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tgldua.Location = new System.Drawing.Point(797, 21);
-            this.tgldua.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tgldua.Margin = new System.Windows.Forms.Padding(2);
             this.tgldua.Name = "tgldua";
             this.tgldua.Size = new System.Drawing.Size(132, 21);
             this.tgldua.TabIndex = 36;
@@ -111,7 +112,7 @@
             // 
             this.tglsatu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tglsatu.Location = new System.Drawing.Point(644, 22);
-            this.tglsatu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tglsatu.Margin = new System.Windows.Forms.Padding(2);
             this.tglsatu.Name = "tglsatu";
             this.tglsatu.Size = new System.Drawing.Size(132, 21);
             this.tglsatu.TabIndex = 35;
@@ -133,7 +134,7 @@
             this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearch.Location = new System.Drawing.Point(78, 22);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(2);
             this.txtSearch.MaxLength = 300;
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(307, 21);
@@ -155,7 +156,7 @@
             this.txtKelas.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtKelas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtKelas.Location = new System.Drawing.Point(451, 22);
-            this.txtKelas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtKelas.Margin = new System.Windows.Forms.Padding(2);
             this.txtKelas.MaxLength = 12;
             this.txtKelas.Name = "txtKelas";
             this.txtKelas.ReadOnly = true;
@@ -187,9 +188,9 @@
             this.panel1.Controls.Add(this.btnPrintRekap);
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Location = new System.Drawing.Point(1, 62);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1028, 319);
+            this.panel1.Size = new System.Drawing.Size(969, 319);
             this.panel1.TabIndex = 3;
             // 
             // label14
@@ -207,6 +208,7 @@
             // comboPerPage
             // 
             this.comboPerPage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.comboPerPage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboPerPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboPerPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboPerPage.FormattingEnabled = true;
@@ -222,7 +224,7 @@
             this.lblHalaman.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblHalaman.AutoSize = true;
             this.lblHalaman.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHalaman.Location = new System.Drawing.Point(442, 281);
+            this.lblHalaman.Location = new System.Drawing.Point(412, 281);
             this.lblHalaman.Name = "lblHalaman";
             this.lblHalaman.Size = new System.Drawing.Size(90, 16);
             this.lblHalaman.TabIndex = 22;
@@ -231,7 +233,7 @@
             // btnNext
             // 
             this.btnNext.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnNext.Location = new System.Drawing.Point(547, 278);
+            this.btnNext.Location = new System.Drawing.Point(517, 278);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(75, 23);
             this.btnNext.TabIndex = 21;
@@ -243,7 +245,7 @@
             // btnPrevious
             // 
             this.btnPrevious.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnPrevious.Location = new System.Drawing.Point(348, 278);
+            this.btnPrevious.Location = new System.Drawing.Point(318, 278);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(75, 23);
             this.btnPrevious.TabIndex = 20;
@@ -258,8 +260,8 @@
             this.btnPrintRekap.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPrintRekap.BackgroundImage")));
             this.btnPrintRekap.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnPrintRekap.FlatAppearance.BorderSize = 2;
-            this.btnPrintRekap.Location = new System.Drawing.Point(955, 271);
-            this.btnPrintRekap.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPrintRekap.Location = new System.Drawing.Point(896, 271);
+            this.btnPrintRekap.Margin = new System.Windows.Forms.Padding(2);
             this.btnPrintRekap.Name = "btnPrintRekap";
             this.btnPrintRekap.Size = new System.Drawing.Size(46, 37);
             this.btnPrintRekap.TabIndex = 2;
@@ -303,7 +305,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1030, 381);
+            this.ClientSize = new System.Drawing.Size(971, 381);
             this.Controls.Add(this.lblFilter);
             this.Controls.Add(this.btnKelas);
             this.Controls.Add(this.label6);

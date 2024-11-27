@@ -12,6 +12,7 @@ using latihribbon.Model;
 using System.Management;
 using System.Globalization;
 using System.Threading;
+using System.Threading.Tasks;
 
 
 namespace latihribbon
@@ -83,7 +84,7 @@ namespace latihribbon
             return validasi;
         }
 
-        public void btn_PrintKeluar_Click(object sender, EventArgs e)
+        public async void btn_PrintKeluar_Click(object sender, EventArgs e)
         {
             if (!Validasi())
             {
@@ -91,9 +92,23 @@ namespace latihribbon
                 return;
             }
             if (new MesQuestionYN("Apakah data sudah benar ?").ShowDialog(this) != DialogResult.Yes) return;
-            if (Print()) Insert();
-            
-            System.Threading.Thread.Sleep(1000);
+            if (!Print())
+            {
+                await Task.Delay(2000);
+                indexForm.Opacity = 1;
+                this.Close();
+                return;
+            }
+            await Task.Delay(15000);
+            if (!PrinterIsAvailable())
+            {
+                new MesError("Printer Bermasalah.\nSegera Hubungi Petugas!", 2).ShowDialog(this);
+                await Task.Delay(2000);
+                indexForm.Opacity = 1;
+                this.Close();
+                return;
+            }
+            Insert();
             indexForm.Opacity = 1;
             this.Close();
         }
@@ -136,7 +151,7 @@ namespace latihribbon
 
                 if (!PrinterIsAvailable())
                 {
-                    new MesError("Printer tidak tersedia atau offline.").ShowDialog(this);
+                    new MesError("Printer tidak tersedia atau offline.\nSegera hubungi petugas!").ShowDialog(this);
                     return false;
                 }
                /* printPreviewDialogKeluar.Document = printDocumentKeluar;

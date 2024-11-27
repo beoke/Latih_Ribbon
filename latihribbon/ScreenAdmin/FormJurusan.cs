@@ -30,7 +30,7 @@ namespace latihribbon.ScreenAdmin
 
         private void FormJurusan_Load(object sender, EventArgs e)
         {
-            GridListJurusan.Focus ();
+            GridListJurusan.Focus();
         }
 
         public void buf()
@@ -116,6 +116,11 @@ namespace latihribbon.ScreenAdmin
             if(namaJurusan == string.Empty)
             {
                 new MesWarningOK("Nama Jurusan Wajib Diisi!").ShowDialog();
+                return;
+            }
+            if(_jurusanDal.GetIdJurusan(namaJurusan) != 0)
+            {
+                new MesError($"Jurusan {namaJurusan} Sudah Tersedia.").ShowDialog(this);
                 return;
             }
             if (new MesQuestionYN("Input Data?").ShowDialog() != DialogResult.Yes) return;

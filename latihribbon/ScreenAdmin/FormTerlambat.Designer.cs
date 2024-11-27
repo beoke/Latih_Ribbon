@@ -81,7 +81,7 @@
             this.dataGridView1.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridView1.ColumnHeadersHeight = 29;
             this.dataGridView1.Location = new System.Drawing.Point(5, 5);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
@@ -92,7 +92,7 @@
             // 
             this.tglsatu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tglsatu.Location = new System.Drawing.Point(412, 23);
-            this.tglsatu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tglsatu.Margin = new System.Windows.Forms.Padding(2);
             this.tglsatu.Name = "tglsatu";
             this.tglsatu.Size = new System.Drawing.Size(138, 21);
             this.tglsatu.TabIndex = 19;
@@ -113,7 +113,7 @@
             // 
             this.tgldua.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tgldua.Location = new System.Drawing.Point(571, 24);
-            this.tgldua.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tgldua.Margin = new System.Windows.Forms.Padding(2);
             this.tgldua.Name = "tgldua";
             this.tgldua.Size = new System.Drawing.Size(138, 21);
             this.tgldua.TabIndex = 20;
@@ -140,7 +140,7 @@
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Location = new System.Drawing.Point(1, 63);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(722, 480);
             this.panel1.TabIndex = 29;
@@ -158,7 +158,7 @@
             this.panel3.Controls.Add(this.btnNext);
             this.panel3.Controls.Add(this.btnPrevious);
             this.panel3.Location = new System.Drawing.Point(8, 8);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(356, 462);
             this.panel3.TabIndex = 2;
@@ -178,6 +178,7 @@
             // comboPerPage
             // 
             this.comboPerPage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.comboPerPage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboPerPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboPerPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboPerPage.FormattingEnabled = true;
@@ -229,7 +230,7 @@
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.panel2);
             this.panel4.Location = new System.Drawing.Point(370, 8);
-            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(342, 462);
             this.panel4.TabIndex = 3;
@@ -238,7 +239,7 @@
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.BackColor = System.Drawing.Color.Gainsboro;
+            this.panel2.BackColor = System.Drawing.Color.LightGray;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.btnSave_FormSiswa);
             this.panel2.Controls.Add(this.lblNisTidakDitemukan);
@@ -256,7 +257,7 @@
             this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.label10);
             this.panel2.Location = new System.Drawing.Point(4, 4);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(332, 452);
             this.panel2.TabIndex = 4;
@@ -268,7 +269,7 @@
             this.btnSave_FormSiswa.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave_FormSiswa.ForeColor = System.Drawing.Color.White;
             this.btnSave_FormSiswa.Location = new System.Drawing.Point(220, 403);
-            this.btnSave_FormSiswa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSave_FormSiswa.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave_FormSiswa.Name = "btnSave_FormSiswa";
             this.btnSave_FormSiswa.Size = new System.Drawing.Size(90, 32);
             this.btnSave_FormSiswa.TabIndex = 4;
@@ -353,7 +354,7 @@
             this.txtAlasan1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtAlasan1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAlasan1.Location = new System.Drawing.Point(21, 312);
-            this.txtAlasan1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtAlasan1.Margin = new System.Windows.Forms.Padding(2);
             this.txtAlasan1.MaxLength = 60;
             this.txtAlasan1.Multiline = true;
             this.txtAlasan1.Name = "txtAlasan1";
@@ -368,7 +369,7 @@
             this.txtNIS1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNIS1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtNIS1.Location = new System.Drawing.Point(21, 67);
-            this.txtNIS1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNIS1.Margin = new System.Windows.Forms.Padding(2);
             this.txtNIS1.MaxLength = 7;
             this.txtNIS1.Name = "txtNIS1";
             this.txtNIS1.Size = new System.Drawing.Size(290, 23);
@@ -392,7 +393,7 @@
             this.txtNama1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNama1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNama1.Location = new System.Drawing.Point(21, 116);
-            this.txtNama1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNama1.Margin = new System.Windows.Forms.Padding(2);
             this.txtNama1.Name = "txtNama1";
             this.txtNama1.ReadOnly = true;
             this.txtNama1.Size = new System.Drawing.Size(290, 23);
@@ -406,7 +407,7 @@
             this.txtKelas1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtKelas1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtKelas1.Location = new System.Drawing.Point(21, 166);
-            this.txtKelas1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtKelas1.Margin = new System.Windows.Forms.Padding(2);
             this.txtKelas1.Name = "txtKelas1";
             this.txtKelas1.ReadOnly = true;
             this.txtKelas1.Size = new System.Drawing.Size(290, 23);
@@ -473,7 +474,7 @@
             this.txtFilter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFilter.Location = new System.Drawing.Point(79, 23);
-            this.txtFilter.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtFilter.Margin = new System.Windows.Forms.Padding(2);
             this.txtFilter.MaxLength = 300;
             this.txtFilter.Name = "txtFilter";
             this.txtFilter.Size = new System.Drawing.Size(249, 21);
@@ -531,7 +532,7 @@
             this.Controls.Add(this.tgldua);
             this.Controls.Add(this.tglsatu);
             this.Controls.Add(this.label2);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormTerlambat";
             this.Text = " ";
             this.Load += new System.EventHandler(this.FormTerlambat_Load);

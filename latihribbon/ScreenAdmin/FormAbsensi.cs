@@ -61,7 +61,7 @@ namespace latihribbon
             List<string> ketCombo = new List<string>() { "Semua","A","I","S"};
             KeteranganCombo.DataSource = ketCombo;
             KeteranganCombo.KeyPress += (s, e) => e.Handled = true;
-            KeteranganCombo.MouseDown += (s, e) => comboPerPage.DroppedDown = true;
+            KeteranganCombo.MouseDown += (s, e) => KeteranganCombo.DroppedDown = true;
 
             comboPerPage.Items.Add(10);
             comboPerPage.Items.Add(20);

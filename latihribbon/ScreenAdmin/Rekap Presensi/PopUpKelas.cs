@@ -41,11 +41,6 @@ namespace latihribbon
             var listJurusan = _jurusanDal.ListData();
             ComboJurusanPopUp.DataSource = listJurusan;
             ComboJurusanPopUp.DisplayMember = "NamaJurusan";
-            ComboJurusanPopUp.KeyPress += (s, e) => e.Handled = true;
-            ComboJurusanPopUp.MouseDown += (s, e) => ComboJurusanPopUp.DroppedDown = true;
-
-            comboRombel.KeyPress += (s, e) => e.Handled = true;
-            comboRombel.MouseDown += (s, e) => comboRombel.DroppedDown = true;
         }
 
         private void InitIsian()

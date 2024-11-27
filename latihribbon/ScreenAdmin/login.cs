@@ -171,7 +171,6 @@ namespace latihribbon
                 Tanggal = tanggal,
                 Waktu = waktu
             };
-
             _riwayatLoginDal.Insert(riwayat);
             _riwayatLoginDal.DeleteAfter30Days();
         }

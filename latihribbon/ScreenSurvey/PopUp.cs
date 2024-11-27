@@ -66,8 +66,8 @@ namespace latihribbon
         private void DelayTimer_Tick(object sender, EventArgs e)
         {
             this.delayTimer.Stop();
-            FormIndex formIndex = new FormIndex(this);
-            formIndex.Show();
+            /*FormIndex formIndex = new FormIndex(this);
+            formIndex.Show();*/
             this.Close();
         }
     }

@@ -57,7 +57,6 @@ namespace latihribbon.Dal
             }
         }
 
-
         public void Delete(int JurusanId)
         {
             using (var Conn = new SqlConnection(conn.connstr()))
@@ -69,6 +68,15 @@ namespace latihribbon.Dal
                 Dp.Add("@Id", JurusanId, System.Data.DbType.Int32);
 
                 Conn.Execute(sql, Dp);
+            }
+        }
+
+        public int GetIdJurusan(string NamaJurusan)
+        {
+            using (var koneksi = new SqlConnection(conn.connstr()))
+            {
+                const string sql = @"SELECT Id FROM Jurusan WHERE NamaJurusan = @NamaJurusan";
+                return koneksi.QueryFirstOrDefault<int>(sql, new { NamaJurusan = NamaJurusan });
             }
         }
     }

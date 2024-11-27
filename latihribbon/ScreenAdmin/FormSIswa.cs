@@ -45,6 +45,7 @@ namespace latihribbon
             jurusanDal = new JurusanDal();
             kelasDal = new KelasDal();
             InitCombo();
+            InitComboTahun();
             LoadData();
             InitComponent();
             RegisterEvent();
@@ -109,13 +110,16 @@ namespace latihribbon
             jurusanCombo.DataSource = jurusan;
             jurusanCombo.DisplayMember = "NamaJurusan";
             jurusanCombo.ValueMember = "Id";
-            jurusanCombo.KeyPress += (s, e) => e.Handled = true;
-            jurusanCombo.MouseDown += (s, e) => jurusanCombo.DroppedDown = true;
+            
+            toolTip = new ToolTip();
 
-            rombelCombo.KeyPress += (s, e) => e.Handled = true;
-            rombelCombo.MouseDown += (s, e) => rombelCombo.DroppedDown = true;
+            toolTip.SetToolTip(ButtonDownloadFormat, "Template Import Data");
+            toolTip.SetToolTip(ButtonInputSIswa, "Import Data");
+            toolTip.SetToolTip(btnResetFilter, "Reset Filter");
+        }
 
-
+        private void InitComboTahun()
+        {
 
             // Combo Filter
             var data = db.ListTahun();
@@ -128,14 +132,7 @@ namespace latihribbon
             comboTahunFilter.DataSource = listTahun;
             comboTahunFilter.KeyPress += (s, e) => e.Handled = true;
             comboTahunFilter.MouseDown += (s, e) => comboTahunFilter.DroppedDown = true;
-
-            toolTip = new ToolTip();
-
-            toolTip.SetToolTip(ButtonDownloadFormat, "Template Import Data");
-            toolTip.SetToolTip(ButtonInputSIswa, "Import Data");
-            toolTip.SetToolTip(btnResetFilter, "Reset Filter");
         }
-
 
         public void InitComponent()
         {
@@ -209,6 +206,7 @@ namespace latihribbon
             siswaDal.Insert(siswa);
             LoadData();
             Clear();
+            InitComboTahun();
         }
 
         private void Clear()
@@ -266,12 +264,6 @@ namespace latihribbon
             }
             if (fltr.Count > 0)
                 sqlc += " WHERE " + string.Join(" AND ", fltr);
-
-            /*string p = "";
-            if (isTrue)
-                p = "ASC";
-            else
-                p = "DESC";*/
 
             string text = "Halaman ";
             int RowPerPage = (int)comboPerPage.SelectedItem;
@@ -386,6 +378,7 @@ namespace latihribbon
         private void ButtonNaikKelas_Click(object sender, EventArgs e)
         {
             contextMenuStrip2.Show(Cursor.Position);
+            InitComboTahun();
         }
         private void HapusSiswaLulus_Click(object sender, EventArgs e)
         {
@@ -398,7 +391,7 @@ namespace latihribbon
             }
 
             LoadData();
-            InitCombo();
+            InitComboTahun();
             new MesInformasi("Data Berhasil Dihapus").ShowDialog(this);
         }
 
@@ -439,7 +432,7 @@ namespace latihribbon
             }
             new MesInformasi("Seluruh Siswa Berhasil Naik Kelas!").ShowDialog(this);
             LoadData();
-            InitCombo();
+            InitComboTahun();
         }
 
         private void BtnSave_FormSiswa_Click(object sender, EventArgs e)
@@ -455,6 +448,7 @@ namespace latihribbon
 
             siswaDal.Delete(Convert.ToInt32(id));
             LoadData();
+            InitComboTahun();
         }
 
         private void EditMenuStrip_Click(object sender, EventArgs e)
@@ -470,6 +464,7 @@ namespace latihribbon
             int Nis = Convert.ToInt32(dataGridView1.CurrentRow.Cells[1].Value);
             if (new EditSiswa(Nis).ShowDialog() == DialogResult.Yes)
                 LoadData();
+            InitComboTahun();
         }
 
         private void DataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -679,85 +674,93 @@ namespace latihribbon
 
         private void ButtonDownloadFormat_Click_1(object sender, EventArgs e)
         {
-
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+            using (var package = new ExcelPackage())
             {
-                ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
-                using (var package = new ExcelPackage())
+                var sheet_X = package.Workbook.Worksheets.Add("X");
+                var sheet_XI = package.Workbook.Worksheets.Add("XI");
+                var sheet_XII = package.Workbook.Worksheets.Add("XII");
+
+                void CreateTables(ExcelWorksheet sheetExcel)
                 {
-                    var sheet_X = package.Workbook.Worksheets.Add("X");
-                    var sheet_XI = package.Workbook.Worksheets.Add("XI");
-                    var sheet_XII = package.Workbook.Worksheets.Add("XII");
+                    sheetExcel.Column(3).Width = 50;
+                    sheetExcel.Column(4).Width = 12;
+                    sheetExcel.Column(5).Width = 20;
+                    sheetExcel.Column(6).Width = 10;
+                    sheetExcel.Cells.Style.Font.Size = 12;
 
-                    void CreateTables(ExcelWorksheet sheetExcel)
+                    int barisAwal = 1;
+
+                    for (int tabelIndek = 0; tabelIndek < 16; tabelIndek++)
                     {
-                        int barisAwal = 1;
+                        sheetExcel.Cells[barisAwal, 1].Value = "Presensi";
+                        sheetExcel.Cells[barisAwal, 2].Value = "NIS";
+                        sheetExcel.Cells[barisAwal, 3].Value = "Nama";
+                        sheetExcel.Cells[barisAwal, 4].Value = "Kelas";
+                        sheetExcel.Cells[barisAwal, 5].Value = "Jenis Kelamin (L/P)";
+                        sheetExcel.Cells[barisAwal, 6].Value = "Tahun";
 
-                        for (int tabelIndek = 0; tabelIndek < 16; tabelIndek++)
+                        using (var range = sheetExcel.Cells[barisAwal, 1, barisAwal, 6])
                         {
-                            sheetExcel.Cells[barisAwal, 1].Value = "Presensi";
-                            sheetExcel.Cells[barisAwal, 2].Value = "NIS";
-                            sheetExcel.Cells[barisAwal, 3].Value = "Nama";
-                            sheetExcel.Cells[barisAwal, 4].Value = "Kelas";
-                            sheetExcel.Cells[barisAwal, 5].Value = "Jenis Kelamin";
-                            sheetExcel.Cells[barisAwal, 6].Value = "Tahun";
+                            range.Style.Font.Bold = true;
+                            range.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                            range.Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.LightGray);
+                            range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                            range.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                            range.Style.Border.Top.Style = ExcelBorderStyle.Thin;
+                            range.Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
+                            range.Style.Border.Left.Style = ExcelBorderStyle.Thin;
+                            range.Style.Border.Right.Style = ExcelBorderStyle.Thin;
 
-                            using (var range = sheetExcel.Cells[barisAwal, 1, barisAwal, 6])
-                            {
-                                range.Style.Font.Bold = true;
-                                range.Style.Fill.PatternType = ExcelFillStyle.Solid;
-                                range.Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.LightGray);
-                                range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
-                                range.Style.Border.Top.Style = ExcelBorderStyle.Thin;
-                                range.Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
-                                range.Style.Border.Left.Style = ExcelBorderStyle.Thin;
-                                range.Style.Border.Right.Style = ExcelBorderStyle.Thin;
-                            }
-
-                            for (int barisIndek = 1; barisIndek <= 37; barisIndek++)
-                            {
-                                var range = sheetExcel.Cells[barisAwal + barisIndek, 1, barisAwal + barisIndek, 6];
-                                range.Value = "";
-
-                                range.Style.Border.Top.Style = ExcelBorderStyle.Thin;
-                                range.Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
-                                range.Style.Border.Left.Style = ExcelBorderStyle.Thin;
-                                range.Style.Border.Right.Style = ExcelBorderStyle.Thin;
-                            }
-
-                            barisAwal += 37 + 6;
-                        }
-                    }
-
-                    CreateTables(sheet_X);
-                    CreateTables(sheet_XI);
-                    CreateTables(sheet_XII);
-
-                    var saveDialog = new SaveFileDialog
-                    {
-                        Filter = "Excel Files|*.xlsx",
-                        Title = "Save Excel File",
-                        FileName = "FormatDataSiswa.xlsx"
-                    };
-
-                    if (saveDialog.ShowDialog() == DialogResult.OK)
-                    {
-                        var filePath = saveDialog.FileName;
-                        var directory = Path.GetDirectoryName(filePath);
-                        var fileName = Path.GetFileNameWithoutExtension(filePath);
-                        var extension = Path.GetExtension(filePath);
-                        int counter = 1;
-
-                        while (File.Exists(filePath))
-                        {
-                            filePath = Path.Combine(directory, $"{fileName}({counter}){extension}");
-                            counter++;
+                            sheetExcel.Row(barisAwal).Height = 23;
                         }
 
-                        FileInfo fi = new FileInfo(filePath);
-                        package.SaveAs(fi);
+                        for (int barisIndek = 1; barisIndek <= 37; barisIndek++)
+                        {
+                            var range = sheetExcel.Cells[barisAwal + barisIndek, 1, barisAwal + barisIndek, 6];
+                            range.Value = "";
 
-                        new MesInformasi("File Excel berhasil disimpan!").ShowDialog(this);
+                            range.Style.Border.Top.Style = ExcelBorderStyle.Thin;
+                            range.Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
+                            range.Style.Border.Left.Style = ExcelBorderStyle.Thin;
+                            range.Style.Border.Right.Style = ExcelBorderStyle.Thin;
+
+                            sheetExcel.Row(barisAwal + barisIndek).Height = 21;
+                        }
+
+                        barisAwal += 37 + 6;
                     }
+                }
+
+                CreateTables(sheet_X);
+                CreateTables(sheet_XI);
+                CreateTables(sheet_XII);
+
+                var saveDialog = new SaveFileDialog
+                {
+                    Filter = "Excel Files|*.xlsx",
+                    Title = "Save Excel File",
+                    FileName = "FormatDataSiswa.xlsx"
+                };
+
+                if (saveDialog.ShowDialog() == DialogResult.OK)
+                {
+                    var filePath = saveDialog.FileName;
+                    var directory = Path.GetDirectoryName(filePath);
+                    var fileName = Path.GetFileNameWithoutExtension(filePath);
+                    var extension = Path.GetExtension(filePath);
+                    int counter = 1;
+
+                    while (File.Exists(filePath))
+                    {
+                        filePath = Path.Combine(directory, $"{fileName}({counter}){extension}");
+                        counter++;
+                    }
+
+                    FileInfo fi = new FileInfo(filePath);
+                    package.SaveAs(fi);
+
+                    new MesInformasi("File Excel berhasil disimpan!").ShowDialog(this);
                 }
             }
         }

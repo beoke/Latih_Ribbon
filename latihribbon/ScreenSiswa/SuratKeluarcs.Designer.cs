@@ -91,7 +91,7 @@
             this.panel2.Controls.Add(this.panel5);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1366, 857);
             this.panel2.TabIndex = 74;
@@ -122,7 +122,7 @@
             this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.txtNama);
             this.panel3.Location = new System.Drawing.Point(16, 122);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(839, 597);
             this.panel3.TabIndex = 0;
@@ -133,7 +133,7 @@
             this.ButtonCaraPengisianJam.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonCaraPengisianJam.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ButtonCaraPengisianJam.Location = new System.Drawing.Point(746, 432);
-            this.ButtonCaraPengisianJam.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ButtonCaraPengisianJam.Margin = new System.Windows.Forms.Padding(2);
             this.ButtonCaraPengisianJam.Name = "ButtonCaraPengisianJam";
             this.ButtonCaraPengisianJam.Size = new System.Drawing.Size(43, 37);
             this.ButtonCaraPengisianJam.TabIndex = 82;
@@ -218,7 +218,7 @@
             this.txtTanggal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTanggal.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTanggal.Location = new System.Drawing.Point(370, 274);
-            this.txtTanggal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtTanggal.Margin = new System.Windows.Forms.Padding(2);
             this.txtTanggal.Name = "txtTanggal";
             this.txtTanggal.ReadOnly = true;
             this.txtTanggal.Size = new System.Drawing.Size(419, 38);
@@ -232,7 +232,7 @@
             this.jamKembali.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.jamKembali.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.jamKembali.Location = new System.Drawing.Point(370, 432);
-            this.jamKembali.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.jamKembali.Margin = new System.Windows.Forms.Padding(2);
             this.jamKembali.Name = "jamKembali";
             this.jamKembali.ShowUpDown = true;
             this.jamKembali.Size = new System.Drawing.Size(364, 38);
@@ -255,7 +255,7 @@
             this.txtNIS.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNIS.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNIS.Location = new System.Drawing.Point(370, 37);
-            this.txtNIS.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNIS.Margin = new System.Windows.Forms.Padding(2);
             this.txtNIS.Name = "txtNIS";
             this.txtNIS.ReadOnly = true;
             this.txtNIS.Size = new System.Drawing.Size(419, 38);
@@ -268,7 +268,7 @@
             this.tx_keluar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tx_keluar.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tx_keluar.Location = new System.Drawing.Point(370, 353);
-            this.tx_keluar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tx_keluar.Margin = new System.Windows.Forms.Padding(2);
             this.tx_keluar.Name = "tx_keluar";
             this.tx_keluar.ReadOnly = true;
             this.tx_keluar.Size = new System.Drawing.Size(419, 38);
@@ -280,7 +280,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.WhiteSmoke;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(44, 197);
+            this.label2.Location = new System.Drawing.Point(44, 193);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(81, 34);
@@ -304,7 +304,7 @@
             this.txtKelas.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtKelas.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtKelas.Location = new System.Drawing.Point(370, 195);
-            this.txtKelas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtKelas.Margin = new System.Windows.Forms.Padding(2);
             this.txtKelas.Name = "txtKelas";
             this.txtKelas.ReadOnly = true;
             this.txtKelas.Size = new System.Drawing.Size(419, 38);
@@ -328,7 +328,7 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.WhiteSmoke;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(42, 117);
+            this.label4.Location = new System.Drawing.Point(44, 114);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(86, 34);
@@ -352,7 +352,7 @@
             this.txtNama.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNama.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNama.Location = new System.Drawing.Point(370, 116);
-            this.txtNama.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNama.Margin = new System.Windows.Forms.Padding(2);
             this.txtNama.Name = "txtNama";
             this.txtNama.ReadOnly = true;
             this.txtNama.Size = new System.Drawing.Size(419, 38);
@@ -368,7 +368,7 @@
             this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1366, 103);
             this.panel1.TabIndex = 71;
@@ -396,7 +396,7 @@
             this.panel4.Controls.Add(this.txtAlasan);
             this.panel4.Controls.Add(this.label9);
             this.panel4.Location = new System.Drawing.Point(877, 122);
-            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(473, 597);
             this.panel4.TabIndex = 1;
@@ -420,7 +420,7 @@
             this.txtAlasan.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtAlasan.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAlasan.Location = new System.Drawing.Point(182, 27);
-            this.txtAlasan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtAlasan.Margin = new System.Windows.Forms.Padding(2);
             this.txtAlasan.MaxLength = 60;
             this.txtAlasan.Multiline = true;
             this.txtAlasan.Name = "txtAlasan";
@@ -451,7 +451,7 @@
             this.panel5.Controls.Add(this.btn_kembali);
             this.panel5.Controls.Add(this.btn_PrintKeluar);
             this.panel5.Location = new System.Drawing.Point(16, 738);
-            this.panel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel5.Margin = new System.Windows.Forms.Padding(2);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1334, 102);
             this.panel5.TabIndex = 2;
@@ -467,7 +467,7 @@
             this.btn_kembali.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_kembali.ForeColor = System.Drawing.Color.White;
             this.btn_kembali.Location = new System.Drawing.Point(17, 23);
-            this.btn_kembali.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_kembali.Margin = new System.Windows.Forms.Padding(2);
             this.btn_kembali.Name = "btn_kembali";
             this.btn_kembali.Size = new System.Drawing.Size(52, 57);
             this.btn_kembali.TabIndex = 1;
@@ -482,7 +482,7 @@
             this.btn_PrintKeluar.Image = ((System.Drawing.Image)(resources.GetObject("btn_PrintKeluar.Image")));
             this.btn_PrintKeluar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_PrintKeluar.Location = new System.Drawing.Point(1188, 26);
-            this.btn_PrintKeluar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_PrintKeluar.Margin = new System.Windows.Forms.Padding(2);
             this.btn_PrintKeluar.Name = "btn_PrintKeluar";
             this.btn_PrintKeluar.Size = new System.Drawing.Size(120, 49);
             this.btn_PrintKeluar.TabIndex = 0;
@@ -497,7 +497,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1366, 857);
             this.Controls.Add(this.panel2);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "SuratKeluarcs";
             this.Text = "SuratKeluarcs";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

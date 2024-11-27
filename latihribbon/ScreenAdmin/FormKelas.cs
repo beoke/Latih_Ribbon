@@ -26,6 +26,7 @@ namespace latihribbon.ScreenAdmin
             HapusDataLulus();
             InitComponent();
             LoadData();
+            InitGrid();
             RegisterEvent();
 
             this.Load += FormKelas_Load;
@@ -106,7 +107,20 @@ namespace latihribbon.ScreenAdmin
                     No = index+1,
                     NamaKelas = x.NamaKelas
                 }).ToList();
+        }
 
+        public void InitComponent()
+        {
+            var listJurusan = jurusanDal.ListData();
+            if (!listJurusan.Any()) return;
+            jurusanCombo.DataSource = listJurusan;
+            jurusanCombo.DisplayMember = "NamaJurusan";
+            jurusanCombo.ValueMember = "Id";
+            XRadio.Checked = true;
+        }
+
+        private void InitGrid()
+        {
             GridListKelas.Columns[1].Width = 60;
             GridListKelas.Columns[2].Width = 300;
             GridListKelas.Columns["NamaKelas"].HeaderText = "Nama Kelas";
@@ -121,17 +135,6 @@ namespace latihribbon.ScreenAdmin
             GridListKelas.RowTemplate.Height = 30;
             GridListKelas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             GridListKelas.ColumnHeadersHeight = 35;
-        }
-
-        public void InitComponent()
-        {
-            var listJurusan = jurusanDal.ListData();
-            if (!listJurusan.Any()) return;
-            jurusanCombo.DataSource = listJurusan;
-            jurusanCombo.DisplayMember = "NamaJurusan";
-            jurusanCombo.ValueMember = "Id";
-            jurusanCombo.DropDownStyle = ComboBoxStyle.DropDownList;
-            XRadio.Checked = true;
         }
 
         public void SetNamaKelas()
@@ -157,6 +160,11 @@ namespace latihribbon.ScreenAdmin
             if(kelas.NamaKelas == "" || kelas.Tingkat == "")
             {
                 new MesWarningOK("Seluruh Data Wajib Diisi!").ShowDialog();
+                return;
+            }
+            if (kelasDal.GetIdKelas(kelas.NamaKelas) != 0)
+            {
+                new MesError($"Kelas {kelas.NamaKelas} Sudah Tersedia.").ShowDialog(this);
                 return;
             }
             if (new MesQuestionYN("Input Data?").ShowDialog() != DialogResult.Yes) return;

@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Globalization;
 using System.Linq;
 using System.Management;
@@ -101,7 +102,7 @@ namespace latihribbon
             };
             masukDal.Insert(masuk);
         }
-        private void btn_PrintMasuk_Click(object sender, EventArgs e)
+        private async void btn_PrintMasuk_Click(object sender, EventArgs e)
         {
             if (!Validasi())
             {
@@ -110,12 +111,26 @@ namespace latihribbon
             }
 
             if (new MesQuestionYN("Apakah data sudah benar ?").ShowDialog(this) != DialogResult.Yes) return;
-            if (Print()) Insert();
-            System.Threading.Thread.Sleep(1000);
+            if (!Print())
+            {
+                await Task.Delay(2000);
+                indexForm.Opacity = 1;
+                this.Close();
+                return;
+            }
+            await Task.Delay(15000);
+            if (!PrinterIsAvailable())
+            {
+                new MesError("Printer Bermasalah.\nSegera Hubungi Petugas!", 2).ShowDialog(this);
+                await Task.Delay(2000);
+                indexForm.Opacity = 1;
+                this.Close();
+                return;
+            }
+            Insert();
             indexForm.Opacity = 1;
             this.Close();
         }
-
 
         #region PRINT
 
@@ -127,7 +142,7 @@ namespace latihribbon
 
                 if (!PrinterIsAvailable())
                 {
-                    new MesError("Printer tidak tersedia atau offline.").ShowDialog(this);
+                    new MesError("Printer tidak tersedia atau offline.\nSegera hubungi petugas!").ShowDialog(this);
                     return false;
                 }
                /* printPreviewDialogMasuk.Document = printDocumentMasuk;
@@ -324,7 +339,6 @@ namespace latihribbon
                 {
                     string printerStatus = printer["PrinterStatus"].ToString();
                     string printerState = printer["WorkOffline"].ToString();
-
                     if (printerStatus == "3" && printerState == "False")
                     {
                         return true;
