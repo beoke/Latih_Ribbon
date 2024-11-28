@@ -346,10 +346,10 @@
     <Compile Include="ScreenAdmin\FormKetentuanImport.Designer.cs">
       <DependentUpon>FormKetentuanImport.cs</DependentUpon>
     </Compile>
-    <Compile Include="ScreenAdmin\Rekap Presensi\FormSetPrint.cs">
+    <Compile Include="ScreenAdmin\Cetak Data\FormSetPrint.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ScreenAdmin\Rekap Presensi\FormSetPrint.Designer.cs">
+    <Compile Include="ScreenAdmin\Cetak Data\FormSetPrint.Designer.cs">
       <DependentUpon>FormSetPrint.cs</DependentUpon>
     </Compile>
     <Compile Include="ScreenAdmin\FormUser_RiwayatLogin.cs">
@@ -369,10 +369,10 @@
       <DependentUpon>FormKelas.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\JurusanModel.cs" />
-    <Compile Include="ScreenAdmin\Rekap Presensi\PopUpKelas.cs">
+    <Compile Include="ScreenAdmin\Helper\PopUpKelas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ScreenAdmin\Rekap Presensi\PopUpKelas.Designer.cs">
+    <Compile Include="ScreenAdmin\Helper\PopUpKelas.Designer.cs">
       <DependentUpon>PopUpKelas.cs</DependentUpon>
     </Compile>
     <Compile Include="ScreenAdmin\Form1.cs">
@@ -399,10 +399,10 @@
     <Compile Include="ScreenAdmin\FormKeluar.Designer.cs">
       <DependentUpon>FormKeluar.cs</DependentUpon>
     </Compile>
-    <Compile Include="ScreenAdmin\Rekap Presensi\FormRekapPersensi.cs">
+    <Compile Include="ScreenAdmin\FormRekapPersensi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ScreenAdmin\Rekap Presensi\FormRekapPersensi.Designer.cs">
+    <Compile Include="ScreenAdmin\FormRekapPersensi.Designer.cs">
       <DependentUpon>FormRekapPersensi.cs</DependentUpon>
     </Compile>
     <Compile Include="ScreenSiswa\FormMilih.cs">
@@ -523,10 +523,10 @@
     <EmbeddedResource Include="ScreenAdmin\FormKelas.resx">
       <DependentUpon>FormKelas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ScreenAdmin\Rekap Presensi\FormSetPrint.resx">
+    <EmbeddedResource Include="ScreenAdmin\Cetak Data\FormSetPrint.resx">
       <DependentUpon>FormSetPrint.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ScreenAdmin\Rekap Presensi\PopUpKelas.resx">
+    <EmbeddedResource Include="ScreenAdmin\Helper\PopUpKelas.resx">
       <DependentUpon>PopUpKelas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ScreenAdmin\Form1.resx">
@@ -541,7 +541,7 @@
     <EmbeddedResource Include="ScreenAdmin\FormKeluar.resx">
       <DependentUpon>FormKeluar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ScreenAdmin\Rekap Presensi\FormRekapPersensi.resx">
+    <EmbeddedResource Include="ScreenAdmin\FormRekapPersensi.resx">
       <DependentUpon>FormRekapPersensi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ScreenSiswa\FormMilih.resx">

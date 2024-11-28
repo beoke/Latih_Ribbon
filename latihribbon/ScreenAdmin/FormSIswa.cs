@@ -674,94 +674,103 @@ namespace latihribbon
 
         private void ButtonDownloadFormat_Click_1(object sender, EventArgs e)
         {
-            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
-            using (var package = new ExcelPackage())
+            try
             {
-                var sheet_X = package.Workbook.Worksheets.Add("X");
-                var sheet_XI = package.Workbook.Worksheets.Add("XI");
-                var sheet_XII = package.Workbook.Worksheets.Add("XII");
-
-                void CreateTables(ExcelWorksheet sheetExcel)
+                ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+                using (var package = new ExcelPackage())
                 {
-                    sheetExcel.Column(3).Width = 50;
-                    sheetExcel.Column(4).Width = 12;
-                    sheetExcel.Column(5).Width = 20;
-                    sheetExcel.Column(6).Width = 10;
-                    sheetExcel.Cells.Style.Font.Size = 12;
+                    var sheet_X = package.Workbook.Worksheets.Add("X");
+                    var sheet_XI = package.Workbook.Worksheets.Add("XI");
+                    var sheet_XII = package.Workbook.Worksheets.Add("XII");
 
-                    int barisAwal = 1;
-
-                    for (int tabelIndek = 0; tabelIndek < 16; tabelIndek++)
+                    void CreateTables(ExcelWorksheet sheetExcel)
                     {
-                        sheetExcel.Cells[barisAwal, 1].Value = "Presensi";
-                        sheetExcel.Cells[barisAwal, 2].Value = "NIS";
-                        sheetExcel.Cells[barisAwal, 3].Value = "Nama";
-                        sheetExcel.Cells[barisAwal, 4].Value = "Kelas";
-                        sheetExcel.Cells[barisAwal, 5].Value = "Jenis Kelamin (L/P)";
-                        sheetExcel.Cells[barisAwal, 6].Value = "Tahun";
+                        sheetExcel.Column(3).Width = 50;
+                        sheetExcel.Column(4).Width = 12;
+                        sheetExcel.Column(5).Width = 20;
+                        sheetExcel.Column(6).Width = 10;
+                        sheetExcel.Cells.Style.Font.Size = 12;
 
-                        using (var range = sheetExcel.Cells[barisAwal, 1, barisAwal, 6])
+                        int barisAwal = 1;
+
+                        for (int tabelIndek = 0; tabelIndek < 16; tabelIndek++)
                         {
-                            range.Style.Font.Bold = true;
-                            range.Style.Fill.PatternType = ExcelFillStyle.Solid;
-                            range.Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.LightGray);
-                            range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
-                            range.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
-                            range.Style.Border.Top.Style = ExcelBorderStyle.Thin;
-                            range.Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
-                            range.Style.Border.Left.Style = ExcelBorderStyle.Thin;
-                            range.Style.Border.Right.Style = ExcelBorderStyle.Thin;
+                            sheetExcel.Cells[barisAwal, 1].Value = "Presensi";
+                            sheetExcel.Cells[barisAwal, 2].Value = "NIS";
+                            sheetExcel.Cells[barisAwal, 3].Value = "Nama";
+                            sheetExcel.Cells[barisAwal, 4].Value = "Kelas";
+                            sheetExcel.Cells[barisAwal, 5].Value = "Jenis Kelamin (L/P)";
+                            sheetExcel.Cells[barisAwal, 6].Value = "Tahun";
 
-                            sheetExcel.Row(barisAwal).Height = 23;
+                            using (var range = sheetExcel.Cells[barisAwal, 1, barisAwal, 6])
+                            {
+                                range.Style.Font.Bold = true;
+                                range.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                                range.Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.LightGray);
+                                range.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                                range.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                                range.Style.Border.Top.Style = ExcelBorderStyle.Thin;
+                                range.Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
+                                range.Style.Border.Left.Style = ExcelBorderStyle.Thin;
+                                range.Style.Border.Right.Style = ExcelBorderStyle.Thin;
+
+                                sheetExcel.Row(barisAwal).Height = 23;
+                            }
+
+                            for (int barisIndek = 1; barisIndek <= 37; barisIndek++)
+                            {
+                                var range = sheetExcel.Cells[barisAwal + barisIndek, 1, barisAwal + barisIndek, 6];
+                                range.Value = "";
+
+                                range.Style.Border.Top.Style = ExcelBorderStyle.Thin;
+                                range.Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
+                                range.Style.Border.Left.Style = ExcelBorderStyle.Thin;
+                                range.Style.Border.Right.Style = ExcelBorderStyle.Thin;
+
+                                sheetExcel.Row(barisAwal + barisIndek).Height = 21;
+                            }
+
+                            barisAwal += 37 + 6;
                         }
-
-                        for (int barisIndek = 1; barisIndek <= 37; barisIndek++)
-                        {
-                            var range = sheetExcel.Cells[barisAwal + barisIndek, 1, barisAwal + barisIndek, 6];
-                            range.Value = "";
-
-                            range.Style.Border.Top.Style = ExcelBorderStyle.Thin;
-                            range.Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
-                            range.Style.Border.Left.Style = ExcelBorderStyle.Thin;
-                            range.Style.Border.Right.Style = ExcelBorderStyle.Thin;
-
-                            sheetExcel.Row(barisAwal + barisIndek).Height = 21;
-                        }
-
-                        barisAwal += 37 + 6;
-                    }
-                }
-
-                CreateTables(sheet_X);
-                CreateTables(sheet_XI);
-                CreateTables(sheet_XII);
-
-                var saveDialog = new SaveFileDialog
-                {
-                    Filter = "Excel Files|*.xlsx",
-                    Title = "Save Excel File",
-                    FileName = "FormatDataSiswa.xlsx"
-                };
-
-                if (saveDialog.ShowDialog() == DialogResult.OK)
-                {
-                    var filePath = saveDialog.FileName;
-                    var directory = Path.GetDirectoryName(filePath);
-                    var fileName = Path.GetFileNameWithoutExtension(filePath);
-                    var extension = Path.GetExtension(filePath);
-                    int counter = 1;
-
-                    while (File.Exists(filePath))
-                    {
-                        filePath = Path.Combine(directory, $"{fileName}({counter}){extension}");
-                        counter++;
                     }
 
-                    FileInfo fi = new FileInfo(filePath);
-                    package.SaveAs(fi);
+                    CreateTables(sheet_X);
+                    CreateTables(sheet_XI);
+                    CreateTables(sheet_XII);
 
-                    new MesInformasi("File Excel berhasil disimpan!").ShowDialog(this);
+                    var saveDialog = new SaveFileDialog
+                    {
+                        Filter = "Excel Files|*.xlsx",
+                        Title = "Save Excel File",
+                        FileName = "FormatDataSiswa.xlsx"
+                    };
+
+                    if (saveDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        var filePath = saveDialog.FileName;
+                        var directory = Path.GetDirectoryName(filePath);
+                        var fileName = Path.GetFileNameWithoutExtension(filePath);
+                        var extension = Path.GetExtension(filePath);
+                        int counter = 1;
+
+                        while (File.Exists(filePath))
+                        {
+                            filePath = Path.Combine(directory, $"{fileName}({counter}){extension}");
+                            counter++;
+                        }
+
+                        FileInfo fi = new FileInfo(filePath);
+                        package.SaveAs(fi);
+
+                        new MesInformasi("File Excel berhasil disimpan!").ShowDialog(this);
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                new MesError($"Terjadi kesalahan saat mendownload data: {ex.Message}").ShowDialog();
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
         }
         #endregion

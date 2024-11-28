@@ -91,5 +91,29 @@ namespace latihribbon.Dal
                 return koneksi.QuerySingle<int>(sql,dp);
             }
         }
+
+        public IEnumerable<MasukModel> ListMasuk2()
+        {
+            using (var koneksi = new SqlConnection(conn.connstr()))
+            {
+                string sql = $@"SELECT s.NIS, s.Nama, k.NamaKelas, m.Tanggal, m.Alasan
+                                        FROM Siswa s
+                                        INNER JOIN Kelas k ON s.IdKelas = k.Id
+                                        INNER JOIN Masuk m ON s.Nis = m.Nis
+                                        INNER JOIN Jurusan j ON k.idJurusan = j.Id 
+                                        ORDER BY  
+                                            CASE
+                                                WHEN k.Tingkat='X' THEN 1
+                                                WHEN k.Tingkat='XI' THEN 2
+                                                WHEN k.Tingkat='XII' THEN 3
+                                                ELSE 4
+                                            END,
+	                                        j.NamaJurusan ASC,
+	                                        k.Rombel ASC,
+	                                        s.Persensi ASC,
+	                                        m.Tanggal ASC";
+                return koneksi.Query<MasukModel>(sql);
+            }
+        }
     }
 }

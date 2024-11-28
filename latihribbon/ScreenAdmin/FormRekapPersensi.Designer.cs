@@ -64,7 +64,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(7, 7);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(956, 253);
+            this.dataGridView1.Size = new System.Drawing.Size(1120, 253);
             this.dataGridView1.TabIndex = 1;
             // 
             // btnResetFilter
@@ -185,12 +185,11 @@
             this.panel1.Controls.Add(this.lblHalaman);
             this.panel1.Controls.Add(this.btnNext);
             this.panel1.Controls.Add(this.btnPrevious);
-            this.panel1.Controls.Add(this.btnPrintRekap);
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Location = new System.Drawing.Point(1, 62);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(969, 319);
+            this.panel1.Size = new System.Drawing.Size(1133, 319);
             this.panel1.TabIndex = 3;
             // 
             // label14
@@ -224,7 +223,7 @@
             this.lblHalaman.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblHalaman.AutoSize = true;
             this.lblHalaman.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHalaman.Location = new System.Drawing.Point(412, 281);
+            this.lblHalaman.Location = new System.Drawing.Point(494, 281);
             this.lblHalaman.Name = "lblHalaman";
             this.lblHalaman.Size = new System.Drawing.Size(90, 16);
             this.lblHalaman.TabIndex = 22;
@@ -233,7 +232,7 @@
             // btnNext
             // 
             this.btnNext.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnNext.Location = new System.Drawing.Point(517, 278);
+            this.btnNext.Location = new System.Drawing.Point(599, 278);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(75, 23);
             this.btnNext.TabIndex = 21;
@@ -245,7 +244,7 @@
             // btnPrevious
             // 
             this.btnPrevious.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnPrevious.Location = new System.Drawing.Point(318, 278);
+            this.btnPrevious.Location = new System.Drawing.Point(400, 278);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(75, 23);
             this.btnPrevious.TabIndex = 20;
@@ -256,11 +255,11 @@
             // 
             // btnPrintRekap
             // 
-            this.btnPrintRekap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPrintRekap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPrintRekap.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPrintRekap.BackgroundImage")));
             this.btnPrintRekap.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnPrintRekap.FlatAppearance.BorderSize = 2;
-            this.btnPrintRekap.Location = new System.Drawing.Point(896, 271);
+            this.btnPrintRekap.Location = new System.Drawing.Point(1074, 13);
             this.btnPrintRekap.Margin = new System.Windows.Forms.Padding(2);
             this.btnPrintRekap.Name = "btnPrintRekap";
             this.btnPrintRekap.Size = new System.Drawing.Size(46, 37);
@@ -305,12 +304,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(971, 381);
+            this.ClientSize = new System.Drawing.Size(1135, 381);
             this.Controls.Add(this.lblFilter);
             this.Controls.Add(this.btnKelas);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnResetFilter);
+            this.Controls.Add(this.btnPrintRekap);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.KeteranganCombo);
             this.Controls.Add(this.tgldua);
