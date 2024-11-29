@@ -25,6 +25,7 @@ namespace latihribbon.ScreenAdmin
         private readonly RekapPersensiDal rekapPersensiDal;
         private readonly HistoryDal historyDal;
         private System.Threading.Timer timer;
+        private ToolTip toolTip = new ToolTip();
 
         public FormRekapPersensi()
         {
@@ -69,6 +70,9 @@ namespace latihribbon.ScreenAdmin
             List<string> Keterangan = new List<string>() { "Semua", "A", "I", "S" };
             KeteranganCombo.DataSource = Keterangan;
             KeteranganCombo.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            toolTip.SetToolTip(btnPrintRekap,"Export To Excel");
+            toolTip.SetToolTip(btnResetFilter, "Reset Filter");
         }
         public void InitGrid()
         {

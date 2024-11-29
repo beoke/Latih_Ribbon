@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRekapPersensi));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnResetFilter = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -46,10 +45,10 @@
             this.lblHalaman = new System.Windows.Forms.Label();
             this.btnNext = new System.Windows.Forms.Button();
             this.btnPrevious = new System.Windows.Forms.Button();
-            this.btnPrintRekap = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.btnKelas = new System.Windows.Forms.Button();
             this.lblFilter = new System.Windows.Forms.Label();
+            this.btnPrintRekap = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -64,14 +63,14 @@
             this.dataGridView1.Location = new System.Drawing.Point(7, 7);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(1120, 253);
+            this.dataGridView1.Size = new System.Drawing.Size(1061, 253);
             this.dataGridView1.TabIndex = 1;
             // 
             // btnResetFilter
             // 
-            this.btnResetFilter.Location = new System.Drawing.Point(1124, 19);
+            this.btnResetFilter.Location = new System.Drawing.Point(1070, 19);
             this.btnResetFilter.Name = "btnResetFilter";
-            this.btnResetFilter.Size = new System.Drawing.Size(75, 23);
+            this.btnResetFilter.Size = new System.Drawing.Size(75, 24);
             this.btnResetFilter.TabIndex = 39;
             this.btnResetFilter.TabStop = false;
             this.btnResetFilter.Text = "Reset";
@@ -81,7 +80,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(940, 21);
+            this.label2.Location = new System.Drawing.Point(885, 21);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(87, 19);
@@ -92,16 +91,16 @@
             // 
             this.KeteranganCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.KeteranganCombo.FormattingEnabled = true;
-            this.KeteranganCombo.Location = new System.Drawing.Point(1032, 21);
+            this.KeteranganCombo.Location = new System.Drawing.Point(977, 21);
             this.KeteranganCombo.Name = "KeteranganCombo";
-            this.KeteranganCombo.Size = new System.Drawing.Size(80, 21);
+            this.KeteranganCombo.Size = new System.Drawing.Size(75, 21);
             this.KeteranganCombo.TabIndex = 37;
             this.KeteranganCombo.TabStop = false;
             // 
             // tgldua
             // 
             this.tgldua.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tgldua.Location = new System.Drawing.Point(797, 21);
+            this.tgldua.Location = new System.Drawing.Point(742, 21);
             this.tgldua.Margin = new System.Windows.Forms.Padding(2);
             this.tgldua.Name = "tgldua";
             this.tgldua.Size = new System.Drawing.Size(132, 21);
@@ -111,7 +110,7 @@
             // tglsatu
             // 
             this.tglsatu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tglsatu.Location = new System.Drawing.Point(644, 22);
+            this.tglsatu.Location = new System.Drawing.Point(589, 22);
             this.tglsatu.Margin = new System.Windows.Forms.Padding(2);
             this.tglsatu.Name = "tglsatu";
             this.tglsatu.Size = new System.Drawing.Size(132, 21);
@@ -122,7 +121,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(575, 23);
+            this.label4.Location = new System.Drawing.Point(520, 23);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(65, 19);
@@ -137,7 +136,7 @@
             this.txtSearch.Margin = new System.Windows.Forms.Padding(2);
             this.txtSearch.MaxLength = 300;
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(307, 21);
+            this.txtSearch.Size = new System.Drawing.Size(249, 21);
             this.txtSearch.TabIndex = 0;
             // 
             // label5
@@ -155,7 +154,7 @@
             // 
             this.txtKelas.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtKelas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtKelas.Location = new System.Drawing.Point(451, 22);
+            this.txtKelas.Location = new System.Drawing.Point(396, 22);
             this.txtKelas.Margin = new System.Windows.Forms.Padding(2);
             this.txtKelas.MaxLength = 12;
             this.txtKelas.Name = "txtKelas";
@@ -167,7 +166,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(397, 24);
+            this.label3.Location = new System.Drawing.Point(342, 23);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(49, 19);
@@ -189,7 +188,7 @@
             this.panel1.Location = new System.Drawing.Point(1, 62);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1133, 319);
+            this.panel1.Size = new System.Drawing.Size(1074, 319);
             this.panel1.TabIndex = 3;
             // 
             // label14
@@ -223,7 +222,7 @@
             this.lblHalaman.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblHalaman.AutoSize = true;
             this.lblHalaman.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHalaman.Location = new System.Drawing.Point(494, 281);
+            this.lblHalaman.Location = new System.Drawing.Point(465, 281);
             this.lblHalaman.Name = "lblHalaman";
             this.lblHalaman.Size = new System.Drawing.Size(90, 16);
             this.lblHalaman.TabIndex = 22;
@@ -232,7 +231,7 @@
             // btnNext
             // 
             this.btnNext.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnNext.Location = new System.Drawing.Point(599, 278);
+            this.btnNext.Location = new System.Drawing.Point(570, 278);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(75, 23);
             this.btnNext.TabIndex = 21;
@@ -244,7 +243,7 @@
             // btnPrevious
             // 
             this.btnPrevious.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnPrevious.Location = new System.Drawing.Point(400, 278);
+            this.btnPrevious.Location = new System.Drawing.Point(371, 278);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(75, 23);
             this.btnPrevious.TabIndex = 20;
@@ -253,24 +252,11 @@
             this.btnPrevious.UseVisualStyleBackColor = true;
             this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
             // 
-            // btnPrintRekap
-            // 
-            this.btnPrintRekap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPrintRekap.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPrintRekap.BackgroundImage")));
-            this.btnPrintRekap.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnPrintRekap.FlatAppearance.BorderSize = 2;
-            this.btnPrintRekap.Location = new System.Drawing.Point(1074, 13);
-            this.btnPrintRekap.Margin = new System.Windows.Forms.Padding(2);
-            this.btnPrintRekap.Name = "btnPrintRekap";
-            this.btnPrintRekap.Size = new System.Drawing.Size(46, 37);
-            this.btnPrintRekap.TabIndex = 2;
-            this.btnPrintRekap.UseVisualStyleBackColor = true;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.label6.Location = new System.Drawing.Point(779, 16);
+            this.label6.Location = new System.Drawing.Point(724, 16);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(15, 19);
@@ -279,7 +265,7 @@
             // 
             // btnKelas
             // 
-            this.btnKelas.Location = new System.Drawing.Point(523, 21);
+            this.btnKelas.Location = new System.Drawing.Point(468, 21);
             this.btnKelas.Name = "btnKelas";
             this.btnKelas.Size = new System.Drawing.Size(40, 23);
             this.btnKelas.TabIndex = 2;
@@ -299,12 +285,25 @@
             this.lblFilter.TabIndex = 49;
             this.lblFilter.Text = "Masukkan Kata Kunci Pencarian ⌕ ";
             // 
+            // btnPrintRekap
+            // 
+            this.btnPrintRekap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPrintRekap.BackgroundImage = global::latihribbon.Properties.Resources.excel__1_;
+            this.btnPrintRekap.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnPrintRekap.FlatAppearance.BorderSize = 2;
+            this.btnPrintRekap.Location = new System.Drawing.Point(1010, 8);
+            this.btnPrintRekap.Margin = new System.Windows.Forms.Padding(2);
+            this.btnPrintRekap.Name = "btnPrintRekap";
+            this.btnPrintRekap.Size = new System.Drawing.Size(50, 47);
+            this.btnPrintRekap.TabIndex = 2;
+            this.btnPrintRekap.UseVisualStyleBackColor = true;
+            // 
             // FormRekapPersensi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1135, 381);
+            this.ClientSize = new System.Drawing.Size(1076, 381);
             this.Controls.Add(this.lblFilter);
             this.Controls.Add(this.btnKelas);
             this.Controls.Add(this.label6);

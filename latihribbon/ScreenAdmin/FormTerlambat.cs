@@ -85,6 +85,7 @@ namespace latihribbon
             dataGridView1.Columns[7].Width = 300;
 
             toolTip.SetToolTip(btnResetFilter, "Reset Filter");
+            toolTip.SetToolTip(btnPrintTerlambat, "Export To Excel");
         }
 
         private void InitCombo()

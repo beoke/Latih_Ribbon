@@ -564,7 +564,7 @@
             this.btnResetFilter.Location = new System.Drawing.Point(576, 20);
             this.btnResetFilter.Margin = new System.Windows.Forms.Padding(4);
             this.btnResetFilter.Name = "btnResetFilter";
-            this.btnResetFilter.Size = new System.Drawing.Size(92, 24);
+            this.btnResetFilter.Size = new System.Drawing.Size(75, 24);
             this.btnResetFilter.TabIndex = 47;
             this.btnResetFilter.TabStop = false;
             this.btnResetFilter.Text = "Reset";
@@ -627,7 +627,7 @@
             this.ButtonDownloadFormat.Location = new System.Drawing.Point(791, 8);
             this.ButtonDownloadFormat.Margin = new System.Windows.Forms.Padding(2);
             this.ButtonDownloadFormat.Name = "ButtonDownloadFormat";
-            this.ButtonDownloadFormat.Size = new System.Drawing.Size(55, 46);
+            this.ButtonDownloadFormat.Size = new System.Drawing.Size(50, 47);
             this.ButtonDownloadFormat.TabIndex = 16;
             this.ButtonDownloadFormat.TabStop = false;
             this.ButtonDownloadFormat.UseVisualStyleBackColor = true;
@@ -638,10 +638,10 @@
             this.ButtonInputSIswa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ButtonInputSIswa.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonInputSIswa.BackgroundImage")));
             this.ButtonInputSIswa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ButtonInputSIswa.Location = new System.Drawing.Point(720, 9);
+            this.ButtonInputSIswa.Location = new System.Drawing.Point(731, 8);
             this.ButtonInputSIswa.Margin = new System.Windows.Forms.Padding(2);
             this.ButtonInputSIswa.Name = "ButtonInputSIswa";
-            this.ButtonInputSIswa.Size = new System.Drawing.Size(55, 46);
+            this.ButtonInputSIswa.Size = new System.Drawing.Size(50, 47);
             this.ButtonInputSIswa.TabIndex = 9;
             this.ButtonInputSIswa.TabStop = false;
             this.ButtonInputSIswa.UseVisualStyleBackColor = true;

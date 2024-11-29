@@ -25,6 +25,7 @@ namespace latihribbon
         private readonly KelasDal kelasDal;
         private bool InternalTextChange = true;
         private System.Threading.Timer timer;
+        private ToolTip toolTip = new ToolTip();
         public FormAbsensi()
         {
             InitializeComponent();
@@ -95,6 +96,7 @@ namespace latihribbon
             dataGridView1.Columns[5].Width = 130;
             dataGridView1.Columns[6].Width = 110;
             dataGridView1.Columns[7].Width = 130;
+            toolTip.SetToolTip(btnResetFilter,"Reset Filter");
         }
 
 

@@ -66,18 +66,12 @@ namespace latihribbon.Dal
                         LEFT JOIN Persensi p ON s.NIS = p.NIS AND p.Tanggal BETWEEN @tgl1 AND @tgl2
                         WHERE k.NamaKelas = @Kelas
                         ORDER BY s.Nama";
+                var dp = new DynamicParameters();
+                dp.Add("@tgl1",tgl1,DbType.Date);
+                dp.Add("@tgl2",tgl2,DbType.Date);
+                dp.Add("@Kelas",kelas,DbType.String);
 
-                var parameters = new { Kelas = kelas, tgl1=tgl1,tgl2=tgl2};
-
-                try
-                {
-                    return koneksi.Query<RekapPersensiModel>(sql, parameters);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error while fetching data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return Enumerable.Empty<RekapPersensiModel>();
-                }
+                return koneksi.Query<RekapPersensiModel>(sql,dp);
             }
         }
     }

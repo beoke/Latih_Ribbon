@@ -97,9 +97,9 @@
             // 
             // ButtonResetFilter
             // 
-            this.ButtonResetFilter.Location = new System.Drawing.Point(516, 21);
+            this.ButtonResetFilter.Location = new System.Drawing.Point(516, 20);
             this.ButtonResetFilter.Name = "ButtonResetFilter";
-            this.ButtonResetFilter.Size = new System.Drawing.Size(75, 23);
+            this.ButtonResetFilter.Size = new System.Drawing.Size(75, 24);
             this.ButtonResetFilter.TabIndex = 32;
             this.ButtonResetFilter.TabStop = false;
             this.ButtonResetFilter.Text = "Reset";
@@ -124,7 +124,6 @@
             this.PickerRentan_1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.PickerRentan_1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PickerRentan_1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.PickerRentan_1.Location = new System.Drawing.Point(206, 20);
             this.PickerRentan_1.Margin = new System.Windows.Forms.Padding(2);
             this.PickerRentan_1.Name = "PickerRentan_1";
@@ -137,7 +136,6 @@
             this.PickerRentan_2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.PickerRentan_2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PickerRentan_2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.PickerRentan_2.Location = new System.Drawing.Point(366, 20);
             this.PickerRentan_2.Margin = new System.Windows.Forms.Padding(2);
             this.PickerRentan_2.Name = "PickerRentan_2";

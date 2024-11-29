@@ -17,7 +17,15 @@ namespace latihribbon
             using (var Conn = new SqlConnection(conn.connstr()))
             {
                 const string sql = @"
-                    SELECT Namakelas FROM Kelas";
+                    SELECT k.Namakelas FROM Kelas k
+                    INNER JOIN Jurusan j ON k.IdJurusan = j.Id
+                    ORDER BY
+                         CASE
+                            WHEN k.Tingkat = 'X' THEN 1
+                            WHEN k.Tingkat = 'XI' THEN 2
+                            WHEN k.Tingkat = 'XII' THEN 3
+                            ELSE 4
+                        END,j.NamaJurusan ASC,k.Rombel ASC";
 
                 return Conn.Query<KelasModel>(sql);
             }

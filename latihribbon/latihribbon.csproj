@@ -226,6 +226,12 @@
     <Compile Include="Dal\MasukDal.cs" />
     <Compile Include="Dal\DbDal.cs" />
     <Compile Include="Dal\RiwayatLogin_UserDal.cs" />
+    <Compile Include="ScreenAdmin\Cetak Data\ExportSuratIzin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScreenAdmin\Cetak Data\ExportSuratIzin.Designer.cs">
+      <DependentUpon>ExportSuratIzin.cs</DependentUpon>
+    </Compile>
     <Compile Include="FirstForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -463,6 +469,9 @@
     <EmbeddedResource Include="MesBox\MesClose.resx">
       <DependentUpon>MesClose.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ScreenAdmin\Cetak Data\ExportSuratIzin.resx">
+      <DependentUpon>ExportSuratIzin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ScreenAdmin\Form PopUp\EditKelas.resx">
       <DependentUpon>EditKelas.cs</DependentUpon>
     </EmbeddedResource>
@@ -684,6 +693,7 @@
     <Content Include="Resi_Logo.ico" />
     <None Include="Resources\LeftArrowHitam.png" />
     <None Include="Resources\LeftArrowAbu1.png" />
+    <None Include="Resources\excel %281%29.png" />
     <Content Include="SQL Script\CekData.sql" />
   </ItemGroup>
   <ItemGroup>

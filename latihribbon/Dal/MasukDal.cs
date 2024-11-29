@@ -3,6 +3,7 @@ using latihribbon.Conn;
 using latihribbon.Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -92,7 +93,7 @@ namespace latihribbon.Dal
             }
         }
 
-        public IEnumerable<MasukModel> ListMasuk2()
+        public IEnumerable<MasukModel> ListMasuk2(DateTime tgl1, DateTime tgl2)
         {
             using (var koneksi = new SqlConnection(conn.connstr()))
             {
@@ -100,7 +101,8 @@ namespace latihribbon.Dal
                                         FROM Siswa s
                                         INNER JOIN Kelas k ON s.IdKelas = k.Id
                                         INNER JOIN Masuk m ON s.Nis = m.Nis
-                                        INNER JOIN Jurusan j ON k.idJurusan = j.Id 
+                                        INNER JOIN Jurusan j ON k.idJurusan = j.Id
+                                        WHERE m.Tanggal BETWEEN @tgl1 AND @tgl2
                                         ORDER BY  
                                             CASE
                                                 WHEN k.Tingkat='X' THEN 1
@@ -112,7 +114,10 @@ namespace latihribbon.Dal
 	                                        k.Rombel ASC,
 	                                        s.Persensi ASC,
 	                                        m.Tanggal ASC";
-                return koneksi.Query<MasukModel>(sql);
+                var dp = new DynamicParameters();
+                dp.Add("@tgl1", tgl1, DbType.Date);
+                dp.Add("@tgl2", tgl2, DbType.Date);
+                return koneksi.Query<MasukModel>(sql,dp);
             }
         }
     }

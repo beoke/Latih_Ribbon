@@ -9,6 +9,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.Odbc;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -46,19 +47,15 @@ namespace latihribbon
                 .Select(x => new KelasModel
                 {
                     NamaKelas = x.NamaKelas,
-                }).ToList();
-
+                }).ToArray();
             foreach (var item in data)
-            {
                 ListBoxKelas.Items.Add(item.NamaKelas);
-            }
         }
 
         private void ControlEvent()
         {
             CheckBoxAll.CheckedChanged += CheckBoxAll_CheckedChanged;
             ButtonAturPrint.Click += ButtonAturPrint_Click;
-
         }
 
         private void CheckBoxAll_CheckedChanged(object sender, EventArgs e)
@@ -87,12 +84,15 @@ namespace latihribbon
             {
                 data.Add(item.ToString());
             }
-            //ExportToExcel_Terlambat(data, tgl1DT.Value, tgl2DT.Value);
-            ExportToExcel_Terlambat();
+            DateTime tgl1 = new DateTime(tgl1DT.Value.Year,tgl1DT.Value.Month, tgl1DT.Value.Day);
+            DateTime tgl2 = new DateTime(tgl2DT.Value.Year,tgl2DT.Value.Month, tgl2DT.Value.Day);
+            
+            //ExportToExcel_Rekap(data, tgl1, tgl2);
+            ExportToExcel_Terlambat(tgl1, tgl2);
         }
 
         #region EXPORT TERLAMBAT
-        private void ExportToExcel_Terlambat()
+        private void ExportToExcel_Terlambat(DateTime tgl1, DateTime tgl2)
         {
             try
             {
@@ -103,7 +103,7 @@ namespace latihribbon
                     var groupedData = new List<MasukModel>();
                     var KelasCek = new List<string>();
 
-                    var listSiswaTerlambat = masukDal.ListMasuk2().ToList();
+                    var listSiswaTerlambat = masukDal.ListMasuk2(tgl1,tgl2).ToList();
                     groupedData.AddRange(listSiswaTerlambat);
 
                     if (!listSiswaTerlambat.Any())
@@ -140,6 +140,7 @@ namespace latihribbon
                     worksheet.Cells[currentRow, 6].Value = "TANGGAL";
                     worksheet.Cells[currentRow, 7].Value = "ALASAN";
 
+                    //Gaya untuk Header
                     using (var headerRange = worksheet.Cells[currentRow, 1, currentRow, 7])
                     {
                         headerRange.Style.Font.Bold = true;
@@ -147,11 +148,16 @@ namespace latihribbon
                         headerRange.Style.Fill.BackgroundColor.SetColor(Color.LightGray);
                         headerRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
                         headerRange.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                        worksheet.Row(currentRow).Height = 36;
+                        worksheet.Cells[currentRow, 5].Style.WrapText = true;
                     }
+
                     currentRow++;
+
+
                     int currentRowTopFirst = currentRow;
+                    var listMergeCell = new List<CellMergeDto>();
                     // Data siswa Terlambat
-                    
                     int no = 1;
                     foreach (var student in groupedData.GroupBy(x => x.Nama))
                     {
@@ -174,7 +180,6 @@ namespace latihribbon
                                 worksheet.Cells[currentRow, 5].Value = terlambatKe++;
                                 worksheet.Cells[currentRow, 6].Value = item.Tanggal.ToString("d MMMM yyyy", _culture);
                                 worksheet.Cells[currentRow, 7].Value = item.Alasan;
-                                worksheet.Column(3).AutoFit();
                             }
                             else
                             {
@@ -190,25 +195,46 @@ namespace latihribbon
                             currentRow++;
                         }
 
-                        worksheet.Cells[currentRowTop,1,currentRow-1,1].Merge = true; // No
-                        worksheet.Cells[currentRowTop,2,currentRow-1,2].Merge = true; // NIS
-                        worksheet.Cells[currentRowTop,3,currentRow-1,3].Merge = true; // NAMA
-                        worksheet.Cells[currentRowTop,4,currentRow-1,4].Merge = true; // KELAS
+                        listMergeCell.Add(new CellMergeDto{CurrentRowTop = currentRowTop, CurrentRow = currentRow});
+                    }
+
+                    // Lebar kolom
+                    worksheet.Column(1).Width = 6;
+                    worksheet.Column(2).Width = 10;
+                    worksheet.Column(3).AutoFit();
+                    worksheet.Column(4).AutoFit();
+                    worksheet.Column(4).Width += 1;
+                    worksheet.Column(5).Width = 14;
+                    worksheet.Column(6).Width = 25;
+                    worksheet.Column(7).AutoFit();
+
+                    //Merge Cell
+                    foreach (var item in listMergeCell)
+                    {
+                        worksheet.Cells[item.CurrentRowTop, 1, item.CurrentRow - 1, 1].Merge = true; // No
+                        worksheet.Cells[item.CurrentRowTop, 2, item.CurrentRow - 1, 2].Merge = true; // NIS
+                        worksheet.Cells[item.CurrentRowTop, 3, item.CurrentRow - 1, 3].Merge = true; // NAMA
+                        worksheet.Cells[item.CurrentRowTop, 4, item.CurrentRow - 1, 4].Merge = true; // KELAS
                     }
 
                     // Gaya border & Aligment Awal
-                    using (var dataRange = worksheet.Cells[4, 1, currentRow - 1, 7])
+                    using (var dataRange = worksheet.Cells[5, 1, currentRow - 1, 7])
+                    {
+                        dataRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                        dataRange.Style.VerticalAlignment = ExcelVerticalAlignment.Bottom;
+                    }
+                    //Gaya Border All
+                    using (var dataRange = worksheet.Cells[4,1,currentRow - 1, 7])
                     {
                         dataRange.Style.Border.Top.Style = ExcelBorderStyle.Thin;
                         dataRange.Style.Border.Left.Style = ExcelBorderStyle.Thin;
                         dataRange.Style.Border.Right.Style = ExcelBorderStyle.Thin;
                         dataRange.Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
-                        dataRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
-                        dataRange.Style.VerticalAlignment = ExcelVerticalAlignment.Bottom;
                     }
 
+
                     //Gaya Alignment Khusus - No,NIS,Nama,Kelas
-                    using (var dataRange = worksheet.Cells[currentRowTopFirst,1,currentRow-1,4])
+                    using (var dataRange = worksheet.Cells[currentRowTopFirst, 1, currentRow - 1, 4])
                     {
                         dataRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
                         dataRange.Style.VerticalAlignment = ExcelVerticalAlignment.Top;
@@ -218,22 +244,12 @@ namespace latihribbon
                         dataRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
                     }
 
-                    // Tinggi baris
-                    for (int row = 4; row < currentRow; row++)
+                    // Gaya Lanjutan No,NIS, serta High Row All
+                    for (int row = 5; row < currentRow; row++)
                     {
                         worksheet.Row(row).Height = 21;
-                        worksheet.Cells[row, 1].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                        worksheet.Cells[row, 1,row,2].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
                     }
-                    worksheet.Row(4).Height = 23;
-
-                    // Lebar kolom
-                    worksheet.Column(1).Width = 6;
-                    worksheet.Column(2).Width = 15;
-                    //worksheet.Column(3).AutoFit();
-                    worksheet.Column(4).AutoFit();
-                    worksheet.Column(5).Width = 20;
-                    worksheet.Column(6).Width = 25;
-                    worksheet.Column(7).Width = 40;
 
                     // Menyimpan file
                     SaveFileDialog saveFileDialog = new SaveFileDialog
@@ -430,4 +446,10 @@ namespace latihribbon
         }
         #endregion
     }
+}
+
+public class CellMergeDto
+{
+    public int CurrentRowTop { get; set; }
+    public int CurrentRow {  get; set; }
 }

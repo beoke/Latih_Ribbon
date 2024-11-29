@@ -19,25 +19,25 @@ namespace latihribbon
         private Form mainForm;
         private Form indexForm;
 
-        public Form1(Form mainForm,Form indexForm)
+        public Form1(Form mainForm, Form indexForm)
         {
             InitializeComponent();
             this.mainForm = mainForm;
             this.indexForm = indexForm;
             this.WindowState = FormWindowState.Maximized;
-           
+
             this.MinimumSize = new Size(1280, 700);
         }
-        private void ShowFormInPanel(Form form) 
+        private void ShowFormInPanel(Form form)
         {
-            form.TopLevel = false; 
-            form.FormBorderStyle = FormBorderStyle.None; 
-            form.Dock = DockStyle.Fill; 
-            panel1.Controls.Clear(); 
+            form.TopLevel = false;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.Dock = DockStyle.Fill;
+            panel1.Controls.Clear();
             panel1.Controls.Add(form);
             form.Show();
         }
-        private  void ribbonSiswaAbsensi_Click(object sender, EventArgs e)
+        private void ribbonSiswaAbsensi_Click(object sender, EventArgs e)
         {
             FormSIswa fs = new FormSIswa();
             ShowFormInPanel(fs);
@@ -47,7 +47,7 @@ namespace latihribbon
             ribbonSiswaAbsensi.Checked = true;
         }
 
-        private void ribbon_terlambat_Click(object sender, EventArgs e) 
+        private void ribbon_terlambat_Click(object sender, EventArgs e)
         {
             FormTerlambat formTerlambat = new FormTerlambat();
             ShowFormInPanel(formTerlambat);
@@ -59,8 +59,8 @@ namespace latihribbon
 
         private void ribbon_keluar_Click(object sender, EventArgs e)
         {
-            FormKeluar formkeluar  = new FormKeluar(); 
-            ShowFormInPanel (formkeluar);
+            FormKeluar formkeluar = new FormKeluar();
+            ShowFormInPanel(formkeluar);
 
             ClearCheckRibbon();
             ribbon_keluar.CheckOnClick = true;
@@ -171,13 +171,23 @@ namespace latihribbon
                 this.Close();
             }
         }
-        
+
+        private bool isExiting = false;
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
+            if (isExiting) return;
             if (Closing)
             {
-                if (new MesQuestionYN("Apakah Anda Ingin Menutup Aplikasi ?").ShowDialog() == DialogResult.Yes) mainForm.Close();
-                e.Cancel = true;
+                var result = new MesQuestionYN("Apakah Anda Ingin Menutup Aplikasi ?").ShowDialog();
+                if (result == DialogResult.Yes)
+                {
+                    isExiting = true;
+                    Application.Exit();
+                }
+                else
+                {
+                    e.Cancel = true;
+                }
             }
         }
     }

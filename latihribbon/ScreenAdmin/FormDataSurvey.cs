@@ -15,7 +15,7 @@ namespace latihribbon
 {
     public partial class FormDataSurvey : Form
     {
-
+        private ToolTip toolTip = new ToolTip();
         public FormDataSurvey()
         {
             InitializeComponent();
@@ -120,6 +120,8 @@ namespace latihribbon
             ComboFilter.SelectedIndex = 0;
             ComboFilter.KeyPress += (s, e) => e.Handled = true;
             ComboFilter.MouseDown += (s, e) => ComboFilter.DroppedDown = true;
+
+            toolTip.SetToolTip(ButtonResetFilter,"Reset Filter");
         }
 
         private void ComboPerPage_SelectedIndexChanged(object sender, EventArgs e)

@@ -117,6 +117,7 @@ namespace latihribbon
             txtTujuan1.MaxLength = 60;
 
             toolTip.SetToolTip(btnResetFilter, "Reset Filter");
+            toolTip.SetToolTip(btnPrintKeluar,"Export To Excel");
         }
 
         bool tglchange = false;

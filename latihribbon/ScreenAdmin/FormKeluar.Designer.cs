@@ -33,7 +33,6 @@
             this.tglsatu = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.tgldua = new System.Windows.Forms.DateTimePicker();
-            this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -67,6 +66,8 @@
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblFilter = new System.Windows.Forms.Label();
+            this.btnPrintKeluar = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -87,13 +88,13 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(337, 461);
+            this.dataGridView1.Size = new System.Drawing.Size(630, 461);
             this.dataGridView1.TabIndex = 0;
             // 
             // tglsatu
             // 
             this.tglsatu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tglsatu.Location = new System.Drawing.Point(425, 22);
+            this.tglsatu.Location = new System.Drawing.Point(468, 22);
             this.tglsatu.Margin = new System.Windows.Forms.Padding(2);
             this.tglsatu.Name = "tglsatu";
             this.tglsatu.Size = new System.Drawing.Size(132, 21);
@@ -104,7 +105,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(355, 22);
+            this.label2.Location = new System.Drawing.Point(398, 22);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 19);
@@ -114,23 +115,12 @@
             // tgldua
             // 
             this.tgldua.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tgldua.Location = new System.Drawing.Point(581, 22);
+            this.tgldua.Location = new System.Drawing.Point(624, 22);
             this.tgldua.Margin = new System.Windows.Forms.Padding(2);
             this.tgldua.Name = "tgldua";
             this.tgldua.Size = new System.Drawing.Size(132, 21);
             this.tgldua.TabIndex = 20;
             this.tgldua.TabStop = false;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(562, 22);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(15, 19);
-            this.label5.TabIndex = 21;
-            this.label5.Text = "-";
             // 
             // label6
             // 
@@ -155,7 +145,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 63);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(714, 545);
+            this.panel1.Size = new System.Drawing.Size(1007, 545);
             this.panel1.TabIndex = 29;
             // 
             // panel3
@@ -173,7 +163,7 @@
             this.panel3.Location = new System.Drawing.Point(9, 9);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(346, 524);
+            this.panel3.Size = new System.Drawing.Size(639, 524);
             this.panel3.TabIndex = 1;
             // 
             // lblHalaman
@@ -181,7 +171,7 @@
             this.lblHalaman.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblHalaman.AutoSize = true;
             this.lblHalaman.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHalaman.Location = new System.Drawing.Point(138, 489);
+            this.lblHalaman.Location = new System.Drawing.Point(284, 489);
             this.lblHalaman.Name = "lblHalaman";
             this.lblHalaman.Size = new System.Drawing.Size(90, 16);
             this.lblHalaman.TabIndex = 56;
@@ -190,7 +180,7 @@
             // btnNext
             // 
             this.btnNext.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnNext.Location = new System.Drawing.Point(243, 485);
+            this.btnNext.Location = new System.Drawing.Point(389, 485);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(75, 23);
             this.btnNext.TabIndex = 55;
@@ -201,7 +191,7 @@
             // btnPrevious
             // 
             this.btnPrevious.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnPrevious.Location = new System.Drawing.Point(45, 485);
+            this.btnPrevious.Location = new System.Drawing.Point(191, 485);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(75, 23);
             this.btnPrevious.TabIndex = 54;
@@ -242,7 +232,7 @@
             this.panel4.BackColor = System.Drawing.Color.Silver;
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.panel2);
-            this.panel4.Location = new System.Drawing.Point(363, 9);
+            this.panel4.Location = new System.Drawing.Point(656, 9);
             this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(341, 524);
@@ -475,9 +465,9 @@
             // 
             // btnResetFilter
             // 
-            this.btnResetFilter.Location = new System.Drawing.Point(726, 21);
+            this.btnResetFilter.Location = new System.Drawing.Point(769, 20);
             this.btnResetFilter.Name = "btnResetFilter";
-            this.btnResetFilter.Size = new System.Drawing.Size(75, 23);
+            this.btnResetFilter.Size = new System.Drawing.Size(75, 24);
             this.btnResetFilter.TabIndex = 30;
             this.btnResetFilter.TabStop = false;
             this.btnResetFilter.Text = "Reset";
@@ -493,7 +483,7 @@
             this.TextSearch.Margin = new System.Windows.Forms.Padding(2);
             this.TextSearch.MaxLength = 300;
             this.TextSearch.Name = "TextSearch";
-            this.TextSearch.Size = new System.Drawing.Size(263, 21);
+            this.TextSearch.Size = new System.Drawing.Size(308, 21);
             this.TextSearch.TabIndex = 0;
             // 
             // contextMenuStrip1
@@ -533,18 +523,43 @@
             this.lblFilter.TabIndex = 49;
             this.lblFilter.Text = "Masukkan Kata Kunci Pencarian ⌕ ";
             // 
+            // btnPrintKeluar
+            // 
+            this.btnPrintKeluar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPrintKeluar.BackgroundImage = global::latihribbon.Properties.Resources.excel__1_;
+            this.btnPrintKeluar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnPrintKeluar.FlatAppearance.BorderSize = 2;
+            this.btnPrintKeluar.Location = new System.Drawing.Point(943, 9);
+            this.btnPrintKeluar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnPrintKeluar.Name = "btnPrintKeluar";
+            this.btnPrintKeluar.Size = new System.Drawing.Size(50, 47);
+            this.btnPrintKeluar.TabIndex = 50;
+            this.btnPrintKeluar.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(605, 19);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(15, 15);
+            this.label5.TabIndex = 51;
+            this.label5.Text = "_";
+            // 
             // FormKeluar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(715, 613);
+            this.ClientSize = new System.Drawing.Size(1008, 613);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.btnPrintKeluar);
             this.Controls.Add(this.lblFilter);
             this.Controls.Add(this.TextSearch);
             this.Controls.Add(this.btnResetFilter);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.tgldua);
             this.Controls.Add(this.tglsatu);
             this.Controls.Add(this.label2);
@@ -570,7 +585,6 @@
         private System.Windows.Forms.DateTimePicker tglsatu;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker tgldua;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
@@ -604,5 +618,7 @@
         private System.Windows.Forms.Label lblHalaman;
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Button btnPrevious;
+        private System.Windows.Forms.Button btnPrintKeluar;
+        private System.Windows.Forms.Label label5;
     }
 }
