@@ -264,6 +264,12 @@ namespace latihribbon
 
             btnNext.Click += btnNext_Click;
             btnPrevious.Click += BtnPrevious_Click;
+            btnPrintKeluar.Click += BtnPrintKeluar_Click;
+        }
+
+        private void BtnPrintKeluar_Click(object sender, EventArgs e)
+        {
+            new ExportSuratIzin(1).ShowDialog(this);
         }
 
         private void BtnPrevious_Click(object sender, EventArgs e)

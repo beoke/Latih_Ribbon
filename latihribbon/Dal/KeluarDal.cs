@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using latihribbon.Conn;
 using latihribbon.Model;
 using System;
 using System.Collections.Generic;
@@ -94,6 +95,28 @@ namespace latihribbon.Dal
                                 INNER JOIN kelas kls ON s.IdKelas = kls.Id";
                 if (sqlc != string.Empty) sql += sqlc;
                 return koneksi.QuerySingle<int>(sql, dp);
+            }
+        }
+
+        public IEnumerable<KeluarModel> ListData2(DateTime tgl1, DateTime tgl2)
+        {
+            using (var koneksi = new SqlConnection(conn.connstr()))
+            {
+                const string sql = @"SELECT s.NIS,s.Nama,kls.NamaKelas,k.Tanggal,k.Tujuan
+                                    FROM Siswa s
+                                        INNER JOIN Kelas kls ON s.IdKelas = kls.Id
+	                                    INNER JOIN Keluar k ON s.Nis = k.Nis
+	                                    INNER JOIN Jurusan j ON kls.idJurusan = j.Id
+                                    WHERE k.Tanggal BETWEEN @tgl1 AND @tgl2
+                                    ORDER BY
+		                                    CASE
+			                                    WHEN kls.Tingkat = 'X' THEN 1
+			                                    WHEN kls.Tingkat = 'XI' THEN 2
+			                                    WHEN kls.Tingkat = 'XII' THEN 3
+			                                    ELSE 4
+		                                    END,j.NamaJurusan ASC, kls.Rombel ASC,
+		                                    s.Persensi ASC, k.Tanggal ASC";
+                return koneksi.Query<KeluarModel>(sql, new { tgl1 = tgl1, tgl2 = tgl2 });
             }
         }
     }

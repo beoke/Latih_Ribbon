@@ -18,7 +18,6 @@ using System.Windows.Forms;
 
 namespace latihribbon
 {
-    
     public partial class FormTerlambat : Form
     {
         private readonly MasukDal masukDal;
@@ -225,6 +224,12 @@ namespace latihribbon
 
             btnNext.Click += btnNext_Click;
             btnPrevious.Click += btnPrevious_Click;
+            btnPrintTerlambat.Click += BtnPrintTerlambat_Click;
+        }
+
+        private void BtnPrintTerlambat_Click(object sender, EventArgs e)
+        {
+            new ExportSuratIzin(0).ShowDialog(this);
         }
 
         private void btnNext_Click(object sender, EventArgs e)
