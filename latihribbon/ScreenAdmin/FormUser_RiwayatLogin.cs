@@ -36,9 +36,9 @@ namespace latihribbon
             DeleteOtomatis();
             LoadData();
             LoadUser();
-            InitRiwayatLogin();
 
             this.Load += FormUser_RiwayatLogin_Load;
+            InitRiwayatLogin();
         }
 
         private void FormUser_RiwayatLogin_Load(object sender, EventArgs e)
@@ -82,8 +82,7 @@ namespace latihribbon
 
                 }).ToList();
 
-            if (GridListUser.Rows.Count > 0)
-            {
+
                 GridListUser.ReadOnly = true;
                 GridListUser.EnableHeadersVisualStyles = false;
                 GridListUser.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
@@ -98,7 +97,7 @@ namespace latihribbon
                 GridListUser.Columns[0].Visible = false;
                 GridListUser.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 GridListUser.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            }
+
 
             toolTip.SetToolTip(btnResetFilter, "Reset Filter");
         }
@@ -106,8 +105,6 @@ namespace latihribbon
         private void InitRiwayatLogin()
         {
 
-            if (GridListRiwayatLogin.Rows.Count > 0)
-            {
                 GridListRiwayatLogin.ReadOnly = true;
                 GridListRiwayatLogin.EnableHeadersVisualStyles = false;
                 GridListRiwayatLogin.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
@@ -118,14 +115,11 @@ namespace latihribbon
                 GridListRiwayatLogin.RowTemplate.Height = 30;
                 GridListRiwayatLogin.ColumnHeadersHeight = 35;
 
-                GridListRiwayatLogin.Columns[0].Visible = false;
-                GridListRiwayatLogin.Columns[0].Width = 60;
-                GridListRiwayatLogin.Columns[1].Width = 80;
-                GridListRiwayatLogin.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                GridListRiwayatLogin.Columns[3].Width = 200;
-                GridListRiwayatLogin.Columns[4].Width = 150;
-
-            }
+                GridListRiwayatLogin.Columns[0].Width = 80;
+                GridListRiwayatLogin.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                GridListRiwayatLogin.Columns[2].Width = 200;
+                GridListRiwayatLogin.Columns[3].Width = 150;
+                GridListRiwayatLogin.Columns[4].Visible = false;
         }
 
         bool SqlGlobal = false;
@@ -134,7 +128,7 @@ namespace latihribbon
             List<string> filter = new List<string>();
             string sql = string.Empty;
 
-            if (userLogin != "") filter.Add("UserLogin LIKE '%' + @UserLogin + '%'");
+            if (userLogin != "") filter.Add("UserLogin LIKE '%' || @UserLogin || '%'");
             if (SqlGlobal) filter.Add("Tanggal BETWEEN @tgl_1 AND @tgl_2");
 
             if (filter.Count > 0)
@@ -175,11 +169,11 @@ namespace latihribbon
             GridListRiwayatLogin.DataSource = _riwayatLoginDal.GetSiswaFilter(sqlc, dp)
                 .Select((x,index) => new
                 {
-                    x.IdLogin,
                     No = inRowPage+index+1,
                     x.UserLogin,
                     x.Tanggal,
-                    Jam = x.Waktu.ToString(@"hh\:mm")
+                    Jam = x.Waktu,
+                    x.IdLogin
                 }).ToList();
         }
 

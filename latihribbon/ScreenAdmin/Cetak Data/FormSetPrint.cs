@@ -91,8 +91,11 @@ namespace latihribbon
         }
 
         #region EXPORT REKAP
-        private void ExportToExcel_Rekap(List<string> selectedClasses, DateTime tgl1, DateTime tgl2)
+        private async void ExportToExcel_Rekap(List<string> selectedClasses, DateTime tgl1, DateTime tgl2)
         {
+            Loading loading = new Loading();
+            loading.WindowState = FormWindowState.Maximized;
+            
             try
             {
                 ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
@@ -121,6 +124,8 @@ namespace latihribbon
                         new MesError($"Tidak Ada Data Untuk Kelas :  {string.Join(", ", KelasCek)} \nJika data tersebut memang tidak diperlukan, \nBatalkan centang pada kelas tersebut", 3).ShowDialog(this);
                         return;
                     }
+                    loading.Show();
+                    await Task.Delay(500);
                     foreach (var angkatan in groupedData.Keys)
                     {
                         var studentsInAngkatan = groupedData[angkatan];
@@ -189,6 +194,7 @@ namespace latihribbon
                             {
                                 if (currentRow > ExcelPackage.MaxRows)
                                 {
+                                    loading.Close();
                                     new MesError("Jumlah data melebihi batas maksimum sheet Excel.").ShowDialog();
                                     return;
                                 }
@@ -245,7 +251,8 @@ namespace latihribbon
                         Filter = "Excel files (*.xlsx)|*.xlsx",
                         Title = "Save Excel File"
                     };
-
+                    loading.Close();
+                    await Task.Delay(300);
                     if (saveFileDialog.ShowDialog() == DialogResult.OK)
                     {
                         FileInfo fileInfo = new FileInfo(saveFileDialog.FileName);

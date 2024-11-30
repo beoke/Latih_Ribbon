@@ -128,8 +128,8 @@ namespace latihribbon
             var hasil = new SurveyModel
             {
                 HasilSurvey = _data,
-                Tanggal = DateTime.Today,
-                Waktu = DateTime.Now.TimeOfDay,
+                Tanggal = DateTime.Now.Date,
+                Waktu = DateTime.Now.ToString("HH:mm"),
             };
             surveyDal.Insert(hasil);
 

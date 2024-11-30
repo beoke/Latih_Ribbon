@@ -1,12 +1,8 @@
 ﻿using Dapper;
 using latihribbon.Conn;
 using latihribbon.Model;
-using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.SQLite;
 
 namespace latihribbon
 {
@@ -14,7 +10,7 @@ namespace latihribbon
     {
         public IEnumerable<KelasModel> ListKelas()
         {
-            using (var Conn = new SqlConnection(conn.connstr()))
+            using (var Conn = new SQLiteConnection(conn.connstr()))
             {
                 const string sql = @"
                     SELECT k.Namakelas FROM Kelas k

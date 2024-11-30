@@ -49,9 +49,9 @@ namespace latihribbon
             {
                 Id = globalID,
                 Nis = Convert.ToInt32(txtNIS1.Text),
-                Tanggal = tglDT.Value,
-                JamKeluar = jamKeluarDT.Value.TimeOfDay,
-                JamMasuk = jamMasukDT.Value.TimeOfDay,
+                Tanggal = tglDT.Value.Date,
+                JamKeluar = jamKeluarDT.Value.ToString(@"hh\:mm"),
+                JamMasuk = jamMasukDT.Value.ToString(@"hh\:mm"),
                 Tujuan = txtTujuan1.Text
             };
 
@@ -65,9 +65,9 @@ namespace latihribbon
             txtNIS1.Text = data.Nis.ToString();
             txtNama1.Text = data.Nama;
             txtKelas1.Text = data.NamaKelas;
-            tglDT.Value = data.Tanggal;
-            jamKeluarDT.Value = DateTime.Today.Add(data.JamKeluar);
-            jamMasukDT.Value = DateTime.Today.Add(data.JamMasuk);
+            tglDT.Value = data.Tanggal.Date;
+            jamKeluarDT.Value = DateTime.Today.Add(TimeSpan.Parse(data.JamKeluar));
+            jamMasukDT.Value = DateTime.Today.Add(TimeSpan.Parse(data.JamMasuk));
             txtTujuan1.Text = data.Tujuan;
         }
     }

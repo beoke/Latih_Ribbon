@@ -13,7 +13,7 @@ namespace latihribbon.Model
         public string Nama{ get; set; }
         public string NamaKelas {  get; set; }
         public DateTime Tanggal {  get; set; }
-        public TimeSpan JamMasuk { get; set; }
+        public string JamMasuk { get; set; }
         public string Alasan {  get; set; }
     }
 }

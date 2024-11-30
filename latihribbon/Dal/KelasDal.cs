@@ -1,14 +1,8 @@
 ﻿using Dapper;
 using latihribbon.Model;
-using System;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Security.Cryptography.Xml;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using System.Data.SQLite;
+
 
 namespace latihribbon.Dal
 {
@@ -16,7 +10,7 @@ namespace latihribbon.Dal
     {
         public IEnumerable<KelasModel> listKelas(string sqlc, object dp)
         {
-            using (var koneksi = new SqlConnection(Conn.conn.connstr()))
+            using (var koneksi = new SQLiteConnection(Conn.conn.connstr()))
             {
                 string sql = $@"SELECT k.Id,k.NamaKelas,k.Rombel,k.IdJurusan,k.Tingkat,j.NamaJurusan FROM Kelas k
                                 INNER JOIN Jurusan j ON k.IdJurusan=j.Id  {sqlc}
@@ -34,7 +28,7 @@ namespace latihribbon.Dal
 
         public void Insert(KelasModel kelas)
         {
-            using (var koneksi = new SqlConnection(Conn.conn.connstr()))
+            using (var koneksi = new SQLiteConnection(Conn.conn.connstr()))
             {
                 const string sql = @"INSERT INTO Kelas(NamaKelas,Rombel,IdJurusan,Tingkat, status)
                                     VALUES(@NamaKelas,@Rombel,@IdJurusan,@Tingkat,@status)";
@@ -51,7 +45,7 @@ namespace latihribbon.Dal
 
         public void Update(KelasModel kelas)
         {
-            using (var koneksi = new SqlConnection(Conn.conn.connstr()))
+            using (var koneksi = new SQLiteConnection(Conn.conn.connstr()))
             {
                 const string sql = @"UPDATE Kelas SET NamaKelas=@NamaKelas,Rombel=@Rombel,idJurusan = @idJurusan,Tingkat = @Tingkat, status=@status WHERE Id=@Id";
                 var dp = new DynamicParameters();
@@ -68,7 +62,7 @@ namespace latihribbon.Dal
 
         public void UpdateNamaKelas(int Id, string NamaKelas)
         {
-            using (var koneksi = new SqlConnection(Conn.conn.connstr()))
+            using (var koneksi = new SQLiteConnection(Conn.conn.connstr()))
             {
                 const string sql = @"UPDATE Kelas SET NamaKelas=@NamaKelas WHERE Id=@Id";
                 koneksi.Execute(sql, new {Id=Id,NamaKelas=NamaKelas});
@@ -77,7 +71,7 @@ namespace latihribbon.Dal
 
         public KelasModel GetData(int Id)
         {
-            using (var koneksi = new SqlConnection(Conn.conn.connstr()))
+            using (var koneksi = new SQLiteConnection(Conn.conn.connstr()))
             {
                 const string sql = @"SELECT k.Id,k.NamaKelas,k.Rombel,k.IdJurusan,
                                         k.Tingkat,j.NamaJurusan 
@@ -89,7 +83,7 @@ namespace latihribbon.Dal
 
         public void Delete(int Id)
         {
-            using (var koneksi = new SqlConnection(Conn.conn.connstr()))
+            using (var koneksi = new SQLiteConnection(Conn.conn.connstr()))
             {
                 const string sql = @"DELETE FROM Kelas WHERE Id=@Id";
                 koneksi.Execute(sql, new {Id=Id});
@@ -97,7 +91,7 @@ namespace latihribbon.Dal
         }
         public IEnumerable<KelasModel> GetDataRombel(int idJurusan,string Tingkat)
         {
-            using (var koneksi = new SqlConnection(Conn.conn.connstr()))
+            using (var koneksi = new SQLiteConnection(Conn.conn.connstr()))
             {
                 const string sql = @"SELECT Rombel,Id FROM Kelas WHERE idJurusan=@idJurusan AND Tingkat=@Tingkat";
                 return koneksi.Query<KelasModel>(sql, new { idJurusan = idJurusan,Tingkat=Tingkat });
@@ -106,7 +100,7 @@ namespace latihribbon.Dal
 
         public int GetIdKelas(string NamaKelas)
         {
-            using (var koneksi = new SqlConnection(Conn.conn.connstr()))
+            using (var koneksi = new SQLiteConnection(Conn.conn.connstr()))
             {
                 string sql = $@"SELECT Id FROM Kelas WHERE NamaKelas = @NamaKelas";
                 return koneksi.QueryFirstOrDefault<int>(sql, new {NamaKelas = NamaKelas});
@@ -115,7 +109,7 @@ namespace latihribbon.Dal
 
         public void DuplikatKelas(string Tingkat)
         {
-            using (var koneksi = new SqlConnection(Conn.conn.connstr()))
+            using (var koneksi = new SQLiteConnection(Conn.conn.connstr()))
             {
                 const string sql = @"INSERT INTO Kelas(NamaKelas,Rombel,IdJurusan,Tingkat, status)
                                     SELECT NamaKelas, Rombel, IdJurusan, Tingkat, status FROM Kelas
@@ -126,7 +120,7 @@ namespace latihribbon.Dal
 
         public void DeleteDataLulus()
         {
-            using (var koneksi = new SqlConnection(Conn.conn.connstr()))
+            using (var koneksi = new SQLiteConnection(Conn.conn.connstr()))
             {
                 const string sql = @"DELETE FROM kelas
                                     WHERE status = 0 
@@ -137,7 +131,7 @@ namespace latihribbon.Dal
 
         public int DeleteSiswaLulus()
         {
-            using (var koneksi = new SqlConnection(Conn.conn.connstr()))
+            using (var koneksi = new SQLiteConnection(Conn.conn.connstr()))
             {
                 const string sql = @"DELETE FROM Kelas WHERE status = 0";
                 return koneksi.Execute(sql);
@@ -146,7 +140,7 @@ namespace latihribbon.Dal
 
         public bool cekLulus()
         {
-            using (var koneksi = new SqlConnection(Conn.conn.connstr()))
+            using (var koneksi = new SQLiteConnection(Conn.conn.connstr()))
             {
                 const string sql = @"SELECT COUNT(1) FROM Kelas WHERE status = 0";
                 int count = koneksi.ExecuteScalar<int>(sql);

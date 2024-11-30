@@ -1,12 +1,7 @@
 ﻿using Dapper;
 using latihribbon.Conn;
-using latihribbon.Model;
-using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.SQLite;
 
 namespace latihribbon
 {
@@ -16,7 +11,7 @@ namespace latihribbon
         // Function untuk mendapatkan user dari database
         public UserModel GetUsers(string username)
         {
-                using (var connection = new SqlConnection(conn.connstr()))
+                using (var connection = new SQLiteConnection(conn.connstr()))
                 {
                     connection.Open();
                     var users = connection.QueryFirstOrDefault<UserModel>("SELECT * FROM Users WHERE username=@username", new {username=username});
@@ -27,7 +22,7 @@ namespace latihribbon
 
         public IEnumerable<SiswaModel> ListTahun()
         {
-            using (var koneksi = new SqlConnection(conn.connstr()))
+            using (var koneksi = new SQLiteConnection(conn.connstr()))
             {
                 const string sql = @"SELECT DISTINCT Tahun
                                  FROM siswa

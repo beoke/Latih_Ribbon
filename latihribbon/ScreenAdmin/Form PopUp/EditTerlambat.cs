@@ -41,10 +41,10 @@ namespace latihribbon
             txtNIS.Text = masuk.NIS.ToString();
             txtNama.Text = masuk.Nama;
             txtKelas.Text = masuk.NamaKelas;
-            tglDT.Value = masuk.Tanggal;
-            jamMasuk.Value = DateTime.Today.Add(masuk.JamMasuk);
+            tglDT.Value = masuk.Tanggal.Date;
+            jamMasuk.Value = DateTime.Today.Add(TimeSpan.Parse(masuk.JamMasuk));
             txtAlasan.Text = masuk.Alasan;
-            globalTgl = masuk.Tanggal;
+            globalTgl = masuk.Tanggal.Date;
         }
 
         #region EVENT
@@ -61,8 +61,8 @@ namespace latihribbon
                 NIS = Convert.ToInt32(txtNIS.Text),
                 Nama = txtNama.Text,
                 NamaKelas = txtKelas.Text,
-                Tanggal = tglDT.Value,
-                JamMasuk = jamMasuk.Value.TimeOfDay,
+                Tanggal = tglDT.Value.Date,
+                JamMasuk = jamMasuk.Value.ToString(@"hh\:mm"),
                 Alasan = txtAlasan.Text
             };
 

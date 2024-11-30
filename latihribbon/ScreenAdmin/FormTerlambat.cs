@@ -114,7 +114,7 @@ namespace latihribbon
             if (search != "") 
             {
                 dp.Add("@Search", search);
-                if (search != "") fltr.Add("(m.NIS LIKE @Search+'%' OR s.Nama LIKE '%'+@Search+'%' OR kls.NamaKelas LIKE '%'+@Search+'%')");
+                if (search != "") fltr.Add("(m.NIS LIKE @Search||'%' OR s.Nama LIKE '%'||@Search||'%' OR kls.NamaKelas LIKE '%'||@Search||'%')");
             }
             if (tglchange)
             {
@@ -144,7 +144,7 @@ namespace latihribbon
                     Nama = x.Nama,
                     NamaKelas = x.NamaKelas,
                     Tanggal = x.Tanggal,
-                    JamMasuk = x.JamMasuk.ToString(@"hh\:mm"),
+                    JamMasuk = x.JamMasuk,
                     AlasanTerlambat = x.Alasan 
                 }).ToList();
         }
@@ -164,7 +164,7 @@ namespace latihribbon
             string nis = txtNIS1.Text;
             string nama = txtNama1.Text.Trim();
             string alasan = txtAlasan1.Text.Trim();
-            DateTime tgl = tglDT.Value;
+            DateTime tgl = tglDT.Value.Date;
             TimeSpan jamMasuk = jamMasukDT.Value.TimeOfDay;
 
             if (nis == "" || nama == "" || alasan == "")
@@ -177,7 +177,7 @@ namespace latihribbon
             {
                 NIS = Convert.ToInt32(nis),
                 Tanggal = tgl,
-                JamMasuk = jamMasuk,
+                JamMasuk = jamMasuk.ToString(@"hh\:mm"),
                 Alasan = alasan
             };
             if (new MesQuestionYN("Input Data?").ShowDialog(this) != DialogResult.Yes) return;

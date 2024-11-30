@@ -4,10 +4,7 @@ using latihribbon.Model;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.SQLite;
 
 namespace latihribbon.Dal
 {
@@ -15,7 +12,7 @@ namespace latihribbon.Dal
     {
         public IEnumerable<MasukModel> ListData(string sqlc, object dp)
         {
-            using (var koneksi = new SqlConnection(conn.connstr()))
+            using (var koneksi = new SQLiteConnection(conn.connstr()))
             {
                 string sql = $@"SELECT m.id, m.NIS, s.Nama, kls.NamaKelas, m.Tanggal, m.JamMasuk, m.Alasan
                                     FROM Masuk m 
@@ -23,14 +20,14 @@ namespace latihribbon.Dal
                                     INNER JOIN Kelas kls ON s.IdKelas = kls.Id 
                                     {sqlc} 
                                     ORDER BY m.Tanggal DESC, 
-                                    m.JamMasuk DESC OFFSET @Offset ROWS FETCH NEXT @Fetch ROWS ONLY";
+                                    m.JamMasuk DESC LIMIT @Fetch OFFSET @Offset";
                 return koneksi.Query<MasukModel>(sql,dp);
             }
         }
         
         public MasukModel GetData(int id)
         {
-            using (var koneksi = new SqlConnection(Conn.conn.connstr()))
+            using (var koneksi = new SQLiteConnection(Conn.conn.connstr()))
             {
                 const string sql = @"SELECT m.id, m.NIS, s.Nama, kls.NamaKelas, m.Tanggal, m.JamMasuk, m.Alasan
                                     FROM Masuk m 
@@ -43,14 +40,14 @@ namespace latihribbon.Dal
 
         public void Insert(MasukModel masuk)
         {
-            using (var koneksi = new SqlConnection(Conn.conn.connstr()))
+            using (var koneksi = new SQLiteConnection(Conn.conn.connstr()))
             {
                 const string sql = @"INSERT INTO Masuk(Nis,Tanggal,JamMasuk,Alasan)
                                 VALUES(@Nis,@Tanggal,@JamMasuk,@Alasan)";
                 var dp = new DynamicParameters();
                 dp.Add("@Nis", masuk.NIS, System.Data.DbType.Int32);
                 dp.Add("@Tanggal", masuk.Tanggal, System.Data.DbType.Date);
-                dp.Add("@JamMasuk", masuk.JamMasuk, System.Data.DbType.Time);
+                dp.Add("@JamMasuk", masuk.JamMasuk, System.Data.DbType.String);
                 dp.Add("@Alasan", masuk.Alasan, System.Data.DbType.String);
 
                 koneksi.Execute(sql, dp);
@@ -59,7 +56,7 @@ namespace latihribbon.Dal
 
         public void Update(MasukModel masuk)
         {
-            using (var koneksi = new SqlConnection(Conn.conn.connstr()))
+            using (var koneksi = new SQLiteConnection(Conn.conn.connstr()))
             {
                 const string sql = @"UPDATE Masuk SET Nis=@Nis,Tanggal=@Tanggal,
                                     JamMasuk=@JamMasuk,Alasan=@Alasan WHERE Id=@Id";
@@ -67,7 +64,7 @@ namespace latihribbon.Dal
                 dp.Add("@Id", masuk.Id, System.Data.DbType.Int32);
                 dp.Add("@Nis", masuk.NIS, System.Data.DbType.Int32);
                 dp.Add("@Tanggal", masuk.Tanggal, System.Data.DbType.Date);
-                dp.Add("@JamMasuk", masuk.JamMasuk, System.Data.DbType.Time);
+                dp.Add("@JamMasuk", masuk.JamMasuk, System.Data.DbType.String);
                 dp.Add("@Alasan", masuk.Alasan, System.Data.DbType.String);
 
                 koneksi.Execute(sql, dp);
@@ -75,7 +72,7 @@ namespace latihribbon.Dal
         }
         public void Delete(int IdMasuk)
         {
-            using (var koneksi = new SqlConnection(Conn.conn.connstr()))
+            using (var koneksi = new SQLiteConnection(Conn.conn.connstr()))
             {
                 const string sql = @"DELETE FROM Masuk WHERE Id=@Id";
                 koneksi.Execute(sql, new { Id=IdMasuk });
@@ -84,7 +81,7 @@ namespace latihribbon.Dal
 
         public int CekRows(string sqlc, object dp)
         {
-            using (var koneksi = new SqlConnection(Conn.conn.connstr()))
+            using (var koneksi = new SQLiteConnection(Conn.conn.connstr()))
             {
                 string sql = $@"SELECT COUNT(*) FROM Masuk m 
                                 INNER JOIN siswa s ON m.Nis=s.Nis
@@ -95,7 +92,7 @@ namespace latihribbon.Dal
 
         public IEnumerable<MasukModel> ListMasuk2(DateTime tgl1, DateTime tgl2)
         {
-            using (var koneksi = new SqlConnection(conn.connstr()))
+            using (var koneksi = new SQLiteConnection(conn.connstr()))
             {
                 string sql = $@"SELECT s.NIS, s.Nama, k.NamaKelas, m.Tanggal, m.Alasan
                                         FROM Siswa s

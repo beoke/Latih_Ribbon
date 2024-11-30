@@ -1,11 +1,7 @@
 ﻿using Dapper;
-using latihribbon.Conn;
-using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.SQLite;
+
 
 namespace latihribbon.Dal
 {
@@ -13,10 +9,12 @@ namespace latihribbon.Dal
     {
         public IEnumerable<SiswaModel> ListData(string sqlc,object dp)
         {
-                using (var koneksi = new SqlConnection(Conn.conn.connstr()))
+                using (var koneksi = new SQLiteConnection(Conn.conn.connstr()))
                 {
                     string sql = $@"SELECT s.Nis,s.Nama,s.JenisKelamin,s.Persensi,k.NamaKelas,s.Tahun FROM siswa s 
-                                INNER JOIN Kelas k ON s.IdKelas = k.Id {sqlc} 
+                                INNER JOIN Kelas k ON s.IdKelas = k.Id
+                                INNER JOIN Jurusan j ON k.IdJurusan = j.Id
+                                {sqlc} 
                                 ORDER BY  
                                     CASE
                                         WHEN k.NamaKelas LIKE 'X %' THEN 1
@@ -24,9 +22,9 @@ namespace latihribbon.Dal
                                         WHEN k.NamaKelas LIKE 'XII %' THEN 3
                                         ELSE 4
                                     END,
-                                    SUBSTRING( k.NamaKelas, CHARINDEX(' ', k.NamaKelas) + 1, LEN(k.NamaKelas)) ASC ,
+                                    j.NamaJurusan ASC,
                                     s.IdKelas ASC, s.Persensi ASC
-                                    OFFSET @Offset ROWS FETCH NEXT @Fetch ROWS ONLY";
+                                    LIMIT @Fetch OFFSET @Offset";
                     return koneksi.Query<SiswaModel>(sql, dp);
                 }
         }
@@ -35,7 +33,7 @@ namespace latihribbon.Dal
 
         public SiswaModel GetData(int Nis)
         {
-                using (var koneksi = new SqlConnection(Conn.conn.connstr()))
+                using (var koneksi = new SQLiteConnection(Conn.conn.connstr()))
                 {
                     const string sql = @"SELECT s.Nis,s.Nama,s.JenisKelamin,s.Persensi,s.IdKelas,k.NamaKelas,s.Tahun FROM siswa s 
                                 INNER JOIN Kelas k ON s.IdKelas = k.Id
@@ -46,7 +44,7 @@ namespace latihribbon.Dal
 
         public void Insert(SiswaModel siswa)
         {
-            using (var koneksi = new SqlConnection(Conn.conn.connstr()))
+            using (var koneksi = new SQLiteConnection(Conn.conn.connstr()))
             {
                 const string sql = @"INSERT INTO siswa(Nis,Nama,JenisKelamin,Persensi,IdKelas,Tahun)
                                 VALUES(@Nis,@Nama,@JenisKelamin,@Persensi,@IdKelas,@Tahun)";
@@ -68,7 +66,7 @@ namespace latihribbon.Dal
 
         public void Update(SiswaModel siswa, int oldNis)
         {
-            using (var koneksi = new SqlConnection(Conn.conn.connstr()))
+            using (var koneksi = new SQLiteConnection(Conn.conn.connstr()))
             {
                 koneksi.Open();
                 using (var transaction = koneksi.BeginTransaction())
@@ -101,7 +99,7 @@ namespace latihribbon.Dal
 
         public void Delete(int siswaNis)
         {
-            using (var koneksi = new SqlConnection(Conn.conn.connstr()))
+            using (var koneksi = new SQLiteConnection(Conn.conn.connstr()))
             {
                 const string sql = @"DELETE FROM siswa WHERE Nis=@Nis";
                 koneksi.Execute(sql, new { Nis = siswaNis });
@@ -110,7 +108,7 @@ namespace latihribbon.Dal
 
         public int CekDataSiswa()
         {
-            using (var koneksi = new SqlConnection(Conn.conn.connstr()))
+            using (var koneksi = new SQLiteConnection(Conn.conn.connstr()))
             {
                 const string sql = @"SELECT COUNT(*) FROM siswa";
                 return koneksi.QuerySingleOrDefault<int>(sql);
@@ -119,7 +117,7 @@ namespace latihribbon.Dal
 
         public int CekRows(string sqlc, object dp)
         {
-            using (var koneksi = new SqlConnection(Conn.conn.connstr()))
+            using (var koneksi = new SQLiteConnection(Conn.conn.connstr()))
             {
                 string sql = $@"SELECT COUNT(*) FROM siswa s INNER JOIN Kelas k ON s.IdKelas = k.Id {sqlc}";
                 return koneksi.QuerySingle<int>(sql,dp);

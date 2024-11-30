@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using DocumentFormat.OpenXml.ExtendedProperties;
 using latihribbon.Conn;
 using latihribbon.Dal;
 using latihribbon.Model;
@@ -10,6 +11,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Data.SQLite;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -253,13 +255,13 @@ namespace latihribbon
             List<string> fltr = new List<string>();
             if (search != "") 
             { 
-                fltr.Add("(s.Nis LIKE @Search+'%' OR s.Nama LIKE '%'+@Search+'%' OR k.NamaKelas LIKE '%'+@Search+'%')");
+                fltr.Add("(s.Nis LIKE @Search||'%' OR s.Nama LIKE '%'||@Search||'%' OR k.NamaKelas LIKE '%'||@Search||'%')");
                 dp.Add("@Search", search); 
             }
             
             if (tahun != "Semua") 
             { 
-                fltr.Add("s.Tahun LIKE @Tahun+'%'");
+                fltr.Add("s.Tahun LIKE @Tahun||'%'");
                 dp.Add("@Tahun", tahun); 
             }
             if (fltr.Count > 0)
@@ -321,17 +323,6 @@ namespace latihribbon
             ButtonNaikKelas.Click += ButtonNaikKelas_Click;
             NaikKelasContext.Click += NaikKelasContext_Click;
             HapusSiswaLulus.Click += HapusSiswaLulus_Click;
-            dataGridView1.ColumnHeaderMouseClick += DataGridView1_ColumnHeaderMouseClick;
-        }
-
-        private void DataGridView1_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-          /*  if (e.ColumnIndex != -1)
-            {
-                LoadData();
-                isTrue = !isTrue;
-
-            }*/
         }
 
         private void FormSIswa_Resize(object sender, EventArgs e)
@@ -558,8 +549,14 @@ namespace latihribbon
         #endregion
 
         #region IMPORT DATA
-        private void ButtonInputSIswa_Click(object sender, EventArgs e)
+        private async void ButtonInputSIswa_Click(object sender, EventArgs e)
         {
+            Loading loading = new Loading();
+            //var location = CenterForm.TemplateLocation(this,loading);
+            //loading.Location = new Point(location.centerX, location.centerY);
+            loading.WindowState = FormWindowState.Maximized;
+            await Task.Delay(500);
+            
             FormKetentuanImport ketentuan = new FormKetentuanImport();
             if (ketentuan.ShowDialog(this) != DialogResult.OK) return;
 
@@ -570,6 +567,8 @@ namespace latihribbon
 
             if (dialogOpen.ShowDialog() == DialogResult.OK)
             {
+                loading.Show();
+                await Task.Delay(500);
                 FileInfo infoFile = new FileInfo(dialogOpen.FileName);
                 List<string> daftarKelasError = new List<string>();
 
@@ -578,7 +577,7 @@ namespace latihribbon
                     foreach (var sheet in package.Workbook.Worksheets)
                     {
                         int RowCount = sheet.Dimension.Rows;
-                        using (IDbConnection Conn = new SqlConnection(conn.connstr()))
+                        using (IDbConnection Conn = new SQLiteConnection(conn.connstr()))
                         {
                             for (int baris = 2; baris <= RowCount; baris++)
                             {
@@ -653,7 +652,7 @@ namespace latihribbon
                             }
                         }
                     }
-
+                    loading.Close();
                     LoadData();
                     new MesInformasi("Data siswa berhasil ditambahkan atau diperbarui").ShowDialog(this);
                     int row = daftarKelasError.Count <= 4 ? 1 : daftarKelasError.Count <= 10 ? 2 : 3;

@@ -85,7 +85,7 @@ namespace latihribbon
             {
                 Id = globalId,
                 Nis = Convert.ToInt32(txtNIS.Text),
-                Tanggal = tglDT.Value,
+                Tanggal = tglDT.Value.Date,
                 Keterangan = Izinradio.Checked ? "I" : sakitRadio.Checked ? "S" : alphaRadio.Checked ? "A" : ""
             };
             var cekData = absensiDal.GetByCondition("WHERE p.Nis=@Nis AND p.Tanggal=@Tanggal", new {Nis=Convert.ToInt32(txtNIS.Text),Tanggal=tglDT.Value});

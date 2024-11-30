@@ -11,6 +11,6 @@ namespace latihribbon
         public int IdLogin { get; set; }
         public string UserLogin { get; set; }
         public  DateTime Tanggal {  get; set; }
-        public TimeSpan Waktu { get; set; }
+        public string Waktu { get; set; }
     }
 }

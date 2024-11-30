@@ -1,12 +1,9 @@
 ﻿using latihribbon.Conn;
-using System;
 using Dapper;
 using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data;
+using System.Data.SQLite;
+using System.Data.SqlClient;
 
 namespace latihribbon
 {
@@ -14,7 +11,7 @@ namespace latihribbon
     {
         public void Insert(SurveyModel hasil)
         {
-            using (var Conn = new SqlConnection(conn.connstr()))
+            using (var Conn = new SQLiteConnection(conn.connstr()))
             {
                 const string sql = @"
                 INSERT INTO Survey (HasilSurvey, Tanggal, Waktu)
@@ -24,14 +21,14 @@ namespace latihribbon
                 var Dp = new DynamicParameters();
                 Dp.Add("@HasilSurvey", hasil.HasilSurvey, DbType.Int16);
                 Dp.Add("@Tanggal", hasil.Tanggal, DbType.DateTime);
-                Dp.Add("@Waktu", hasil.Waktu, DbType.Time);
+                Dp.Add("@Waktu", hasil.Waktu, DbType.String);
 
                 Conn.Execute(sql, Dp);
             }
         }
         public IEnumerable<SurveyModel> ListData(string Filter, string Pagination, object dp)
         {
-            using (var Conn = new SqlConnection(conn.connstr()))
+            using (var Conn = new SQLiteConnection(conn.connstr()))
             {
                 string sql = $@"
                         SELECT *  FROM Survey  {Filter}
@@ -44,7 +41,7 @@ namespace latihribbon
 
         public int rowCount(string Filter, object dp)
         {
-            using (var Conn = new SqlConnection(conn.connstr()))
+            using (var Conn = new SQLiteConnection(conn.connstr()))
             {
                 string sql = $@"
                     SELECT COUNT(*) FROM Survey {Filter}";
@@ -56,7 +53,7 @@ namespace latihribbon
 
         public SurveyModel GetData(int surveyId)
         {
-            using (var Conn = new SqlConnection(conn.connstr()))
+            using (var Conn = new SQLiteConnection(conn.connstr()))
             {
                 const string sql = @"SELECT * FROM Survey WHERE SurveyId = @SurveyId";
 
@@ -67,7 +64,7 @@ namespace latihribbon
 
         public void Delete(int SurveyId)
         {
-            using (var Conn = new SqlConnection(conn.connstr()))
+            using (var Conn = new SQLiteConnection(conn.connstr()))
             {
                 const string sql = "DELETE FROM Survey WHERE SurveyId = @SurveyId";
 

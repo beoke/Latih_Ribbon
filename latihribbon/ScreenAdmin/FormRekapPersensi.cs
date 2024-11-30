@@ -114,16 +114,16 @@ namespace latihribbon.ScreenAdmin
             
             if (data)
             {
-                fltr.Add("sd.NamaKelas LIKE @Kelas+'%'");
-                if (search != "") fltr.Add("(sd.NIS LIKE @Search+'%' OR sd.Nama LIKE '%'+@Search+'%' OR sd.Persensi LIKE @Search+'%')");
-                if (keterangan != "Semua") fltr.Add("COALESCE(a.Keterangan, '*') LIKE @Keterangan+'%'");
+                fltr.Add("sd.NamaKelas LIKE @Kelas||'%'");
+                if (search != "") fltr.Add("(sd.NIS LIKE @Search||'%' OR sd.Nama LIKE '%'||@Search||'%' OR sd.Persensi LIKE @Search||'%')");
+                if (keterangan != "Semua") fltr.Add("COALESCE(a.Keterangan, '*') LIKE @Keterangan||'%'");
                 if (tglchange) fltr.Add("sd.Tanggal BETWEEN @tgl1 AND @tgl2");
             }
             else
             {
-                fltr.Add("k.NamaKelas LIKE @Kelas+'%'");
-                if (search != "") fltr.Add("(NIS LIKE @Search+'%' OR Nama LIKE '%'+@Search+'%' OR Persensi LIKE @Search+'%')");
-                if (keterangan != "Semua") fltr2.Add("Keterangan LIKE @Keterangan+'%'");
+                fltr.Add("k.NamaKelas LIKE @Kelas||'%'");
+                if (search != "") fltr.Add("(NIS LIKE @Search||'%' OR Nama LIKE '%'||@Search||'%' OR Persensi LIKE @Search||'%')");
+                if (keterangan != "Semua") fltr2.Add("Keterangan LIKE @Keterangan||'%'");
                 if (tglchange) fltr2.Add("Tanggal BETWEEN @tgl1 AND @tgl2");
             }
 

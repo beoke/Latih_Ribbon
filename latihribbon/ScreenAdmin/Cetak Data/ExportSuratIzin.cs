@@ -50,8 +50,12 @@ namespace latihribbon
         }
 
         #region EXPORT TERLAMBAT
-        private void ExportToExcel_Terlambat(DateTime tgl1, DateTime tgl2)
+        private async void ExportToExcel_Terlambat(DateTime tgl1, DateTime tgl2)
         {
+            Loading loading = new Loading();
+            loading.WindowState = FormWindowState.Maximized;
+            loading.Show();
+            await Task.Delay(500);
             try
             {
                 ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
@@ -208,14 +212,15 @@ namespace latihribbon
                         worksheet.Row(row).Height = 21;
                         worksheet.Cells[row, 1, row, 2].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
                     }
-
+                    
                     // Menyimpan file
                     SaveFileDialog saveFileDialog = new SaveFileDialog
                     {
                         Filter = "Excel files (*.xlsx)|*.xlsx",
                         Title = "Save Excel File"
                     };
-
+                    loading.Close();
+                    await Task.Delay(300);
                     if (saveFileDialog.ShowDialog() == DialogResult.OK)
                     {
                         FileInfo fileInfo = new FileInfo(saveFileDialog.FileName);
@@ -237,8 +242,12 @@ namespace latihribbon
         #endregion
 
         #region EXPORT KELUAR
-        private void ExportToExcel_Keluar(DateTime tgl1, DateTime tgl2)
+        private async void ExportToExcel_Keluar(DateTime tgl1, DateTime tgl2)
         {
+            Loading loading = new Loading();
+            loading.WindowState = FormWindowState.Maximized;
+            loading.Show();
+            await Task.Delay(500);
             try
             {
                 ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
@@ -402,7 +411,8 @@ namespace latihribbon
                         Filter = "Excel files (*.xlsx)|*.xlsx",
                         Title = "Save Excel File"
                     };
-
+                    loading.Close();
+                    await Task.Delay(300);
                     if (saveFileDialog.ShowDialog() == DialogResult.OK)
                     {
                         FileInfo fileInfo = new FileInfo(saveFileDialog.FileName);

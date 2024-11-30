@@ -1,13 +1,8 @@
 ﻿using Dapper;
 using latihribbon.Conn;
 using latihribbon.Model;
-using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.SQLite;
 
 namespace latihribbon.Dal
 {
@@ -15,7 +10,7 @@ namespace latihribbon.Dal
     {
         public IEnumerable<JurusanModel> ListData()
         {
-            using (var Conn = new SqlConnection(conn.connstr()))
+            using (var Conn = new SQLiteConnection(conn.connstr()))
             {
                 const string sql = "SELECT * FROM Jurusan ORDER BY Id ASC";
                 return Conn.Query<JurusanModel>(sql);
@@ -24,7 +19,7 @@ namespace latihribbon.Dal
 
         public void Insert(string namaJurusan)
         {
-            using (var Conn = new SqlConnection(conn.connstr()))
+            using (var Conn = new SQLiteConnection(conn.connstr()))
             {
                 const string sql = @"
                     INSERT INTO Jurusan
@@ -41,7 +36,7 @@ namespace latihribbon.Dal
 
         public void Update(JurusanModel jurusan)
         {
-            using (var Conn = new SqlConnection(conn.connstr()))
+            using (var Conn = new SQLiteConnection(conn.connstr()))
             {
                 const string sql = @"
             UPDATE Jurusan
@@ -59,7 +54,7 @@ namespace latihribbon.Dal
 
         public void Delete(int JurusanId)
         {
-            using (var Conn = new SqlConnection(conn.connstr()))
+            using (var Conn = new SQLiteConnection(conn.connstr()))
             {
                 const string sql = @"
                     DELETE FROM Jurusan WHERE Id = @Id";
@@ -73,7 +68,7 @@ namespace latihribbon.Dal
 
         public int GetIdJurusan(string NamaJurusan)
         {
-            using (var koneksi = new SqlConnection(conn.connstr()))
+            using (var koneksi = new SQLiteConnection(conn.connstr()))
             {
                 const string sql = @"SELECT Id FROM Jurusan WHERE NamaJurusan = @NamaJurusan";
                 return koneksi.QueryFirstOrDefault<int>(sql, new { NamaJurusan = NamaJurusan });

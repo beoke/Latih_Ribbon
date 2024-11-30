@@ -3,11 +3,7 @@ using latihribbon.Model;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using System.Data.SQLite;
 
 namespace latihribbon.Dal
 {
@@ -15,7 +11,7 @@ namespace latihribbon.Dal
     {
         public IEnumerable<RekapPersensiModel> ListData2(string filter, object dp)
         {
-            using (var koneksi = new SqlConnection(Conn.conn.connstr()))
+            using (var koneksi = new SQLiteConnection(Conn.conn.connstr()))
             {
                 string sql = $@"WITH UniqueDates AS (
                             SELECT DISTINCT Tanggal
@@ -36,7 +32,7 @@ namespace latihribbon.Dal
                         ORDER BY 
                             sd.Tanggal DESC,
                             sd.Persensi ASC
-                        OFFSET @Offset ROWS FETCH NEXT @Fetch ROWS ONLY";
+                        LIMIT @Fetch OFFSET @Offset";
                 
 
                 return koneksi.Query<RekapPersensiModel>(sql, dp);
@@ -45,7 +41,7 @@ namespace latihribbon.Dal
 
         public int CekRows(string filter1, string filter2, object dp)
         {
-            using (var koneksi = new SqlConnection(Conn.conn.connstr()))
+            using (var koneksi = new SQLiteConnection(Conn.conn.connstr()))
             {
                 string sql = $@"SELECT  
                                       (SELECT COUNT(DISTINCT Tanggal) FROM Persensi {filter2}) *
@@ -57,7 +53,7 @@ namespace latihribbon.Dal
 
         public IEnumerable<RekapPersensiModel> GetStudentDataByClass(string kelas,DateTime tgl1, DateTime tgl2)
         {
-            using (var koneksi = new SqlConnection(Conn.conn.connstr()))
+            using (var koneksi = new SQLiteConnection(Conn.conn.connstr()))
             {
                 string sql = @"
                         SELECT s.NIS, s.Persensi, s.Nama, k.NamaKelas, p.Keterangan

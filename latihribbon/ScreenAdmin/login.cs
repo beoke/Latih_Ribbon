@@ -162,14 +162,14 @@ namespace latihribbon
         private void InsertHistori()
         {
             string username = tx_Username.Text;
-            DateTime tanggal = DateTime.Today;
+            DateTime tanggal = DateTime.Now.Date;
             TimeSpan waktu = new TimeSpan(DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
 
             var riwayat = new RiwayatLoginModel
             {
                 UserLogin = username,
                 Tanggal = tanggal,
-                Waktu = waktu
+                Waktu = waktu.ToString(@"hh\:mm")
             };
             _riwayatLoginDal.Insert(riwayat);
             _riwayatLoginDal.DeleteAfter30Days();

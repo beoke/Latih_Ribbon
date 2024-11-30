@@ -125,7 +125,7 @@ namespace latihribbon
         {
             string sqlc = string.Empty;
             List<string> fltr = new List<string>();
-            if (search != "") fltr.Add("(k.NIS LIKE '%'+ @search+'%'  OR s.Nama LIKE '%' +@search+'%'  OR kls.NamaKelas LIKE'%' +@search+'%')");
+            if (search != "") fltr.Add("(k.NIS LIKE '%'|| @search||'%'  OR s.Nama LIKE '%' ||@search||'%'  OR kls.NamaKelas LIKE '%'||@search||'%')");
             if (tglchange) fltr.Add("k.Tanggal BETWEEN @tgl1 AND @tgl2");
             if (fltr.Count > 0)
                 sqlc += " WHERE " + string.Join(" AND ", fltr);
@@ -170,8 +170,8 @@ namespace latihribbon
                     Nama = x.Nama,
                     NamaKelas = x.NamaKelas,
                     Tanggal = x.Tanggal,
-                    JamKeluar = x.JamKeluar.ToString(@"hh\:mm"),
-                    JamMasuk = x.JamMasuk.ToString(@"hh\:mm"),
+                    JamKeluar = x.JamKeluar,
+                    JamMasuk = x.JamMasuk,
                     Tujuan = x.Tujuan,
                 }).ToList();
         }
@@ -195,7 +195,7 @@ namespace latihribbon
             nis = txtNIS1.Text;
             nama = txtNama1.Text.Trim();
             tujuan = txtTujuan1.Text.Trim();
-            tgl = tglDT.Value;
+            tgl = tglDT.Value.Date;
             jamKeluar = jamKeluarDT.Value.TimeOfDay;
             jamMasuk = jamMasukDT.Value.TimeOfDay;
 
@@ -215,8 +215,8 @@ namespace latihribbon
             {
                 Nis = Convert.ToInt32(nis),
                 Tanggal= tgl,
-                JamKeluar = jamKeluar,
-                JamMasuk = jamMasuk,
+                JamKeluar = jamKeluar.ToString(@"hh\:mm"),
+                JamMasuk = jamMasuk.ToString(@"hh\:mm"),
                 Tujuan = tujuan
             };
             if (new MesQuestionYN("Input Data?").ShowDialog(this) != DialogResult.Yes) return;

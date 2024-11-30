@@ -11,7 +11,7 @@ namespace latihribbon
         public int SurveyId { get; set; }
         public int HasilSurvey { get; set; }
         public DateTime Tanggal { get; set; }
-        public TimeSpan Waktu { get; set; }
+        public string Waktu { get; set; }
 
         public int TotalPuas { get; set; }
         public int TotalTidakPuas { get; set; }

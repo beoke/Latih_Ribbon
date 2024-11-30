@@ -1,14 +1,9 @@
 ﻿using Dapper;
-using latihribbon.Conn;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace latihribbon
@@ -92,14 +87,14 @@ namespace latihribbon
             text += $"{pageNow.ToString()}/{totalPage.ToString()}";
             LabelHalaman.Text = text;
 
-            GridListSurvey.DataSource = surveyDal.ListData(sqlc, "OFFSET @Offset ROWS FETCH NEXT @Fetch ROWS ONLY", dp)
+            GridListSurvey.DataSource = surveyDal.ListData(sqlc, "LIMIT @Fetch OFFSET @Offset", dp)
                                         .Select((x, index) => new
                                         {
                                             x.SurveyId,
                                             No = rowInPage + index + 1, 
                                             Jawaban_Survey = x.HasilSurvey == 1 ? "Puas" : "Tidak Puas",
                                             Tanggal = x.Tanggal.ToString("dd/MM/yyyy"),
-                                            Waktu = x.Waktu.ToString(@"hh\:mm")
+                                            Waktu = x.Waktu
                                         }).ToList();
 
             TextTotalPuas.Text = surveyDal.ListData(sqlc, string.Empty, dp).Count(x => x.HasilSurvey == 1).ToString();

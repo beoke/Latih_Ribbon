@@ -128,9 +128,9 @@ namespace latihribbon
             var keluar = new KeluarModel
             {
                 Nis = Convert.ToInt32(nis),
-                Tanggal = tanggal,
-                JamKeluar = jamkeluar,
-                JamMasuk = jammasuk,
+                Tanggal = tanggal.Date,
+                JamKeluar = jamkeluar.ToString(@"hh\:mm"),
+                JamMasuk = jammasuk.ToString(@"hh\:mm"),
                 Tujuan = tujuan
             };
             keluarDal.Insert(keluar);

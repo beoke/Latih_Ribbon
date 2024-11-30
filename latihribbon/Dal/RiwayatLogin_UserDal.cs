@@ -2,12 +2,8 @@
 using latihribbon.Conn;
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Configuration;
+using System.Data.SQLite;
 
 namespace latihribbon
 {
@@ -17,7 +13,7 @@ namespace latihribbon
 
         public void Insert(RiwayatLoginModel riwayat)
         {
-            using (var Conn = new SqlConnection(conn.connstr()))
+            using (var Conn = new SQLiteConnection(conn.connstr()))
             {
                 const string sql = @"
                         INSERT INTO RiwayatLogin 
@@ -28,7 +24,7 @@ namespace latihribbon
                 var Dp = new DynamicParameters();
                 Dp.Add("@UserLogin", riwayat.UserLogin, DbType.String);
                 Dp.Add("@Tanggal", riwayat.Tanggal, DbType.DateTime);
-                Dp.Add("@Waktu", riwayat.Waktu, DbType.Time);
+                Dp.Add("@Waktu", riwayat.Waktu, DbType.String);
 
                 Conn.Execute(sql, Dp);
             }
@@ -36,19 +32,20 @@ namespace latihribbon
 
         public IEnumerable<RiwayatLoginModel> GetSiswaFilter(string sqlc, object dp)
         {
-            using (var Conn = new SqlConnection(conn.connstr()))
+            using (var Conn = new SQLiteConnection(conn.connstr()))
             {
                 string sql = $@"SELECT IdLogin, UserLogin , Tanggal, Waktu FROM RiwayatLogin {sqlc} 
-                                ORDER BY Tanggal DESC,Waktu DESC OFFSET @Offset ROWS FETCH NEXT @Fetch ROWS ONLY";
+                                ORDER BY Tanggal DESC,Waktu DESC LIMIT @Fetch OFFSET @Offset";
                 return Conn.Query<RiwayatLoginModel>(sql, dp);
             }
         }
 
         public void DeleteAfter30Days()
         {
-            using (var koneksi = new SqlConnection(conn.connstr()))
+            using (var koneksi = new SQLiteConnection(conn.connstr()))
             {
-                const string sql = @"DELETE FROM RiwayatLogin WHERE DATEDIFF(DAY, Tanggal, GETDATE()) > 29";
+                const string sql = @"DELETE FROM RiwayatLogin
+                                    WHERE julianday('now') - julianday(Tanggal) > 29";
                 koneksi.Execute(sql);
             }
         }
@@ -57,7 +54,7 @@ namespace latihribbon
         //USER
         public void Insert(UserModel userModel)
         {
-            using (var Conn = new SqlConnection(conn.connstr()))
+            using (var Conn = new SQLiteConnection(conn.connstr()))
             {
                 const string sql = @"
                 INSERT INTO Users
@@ -76,7 +73,7 @@ namespace latihribbon
 
         public void Update(UserModel user)
         {
-            using (var Conn = new SqlConnection(conn.connstr()))
+            using (var Conn = new SQLiteConnection(conn.connstr()))
             {
                 const string sql = @"
                     UPDATE Users SET 
@@ -98,7 +95,7 @@ namespace latihribbon
 
         public void DeleteUser(int idUser)
         {
-            using (var Conn = new SqlConnection(conn.connstr()))
+            using (var Conn = new SQLiteConnection(conn.connstr()))
             {
                 const string sql = @"
                     DELETE FROM Users WHERE id = @id";
@@ -111,7 +108,7 @@ namespace latihribbon
         }
         public IEnumerable<UserModel> ListUser()
         {
-            using (var Conn = new SqlConnection(conn.connstr()))
+            using (var Conn = new SQLiteConnection(conn.connstr()))
             {
                 const string sql = @"SELECT id, username, password FROM Users WHERE Role = 'admin' ORDER BY id ASC";
 
@@ -121,16 +118,15 @@ namespace latihribbon
 
         public int CekRows(string sqlc, object dp)
         {
-            using(var koneksi = new SqlConnection(conn.connstr()))
+            using(var koneksi = new SQLiteConnection(conn.connstr()))
             {
                 string sql = $@"SELECT COUNT(*) FROM RiwayatLogin {sqlc}";
                 return koneksi.QuerySingle<int>(sql, dp);
             }
         }
-
         public void DeleteOtomatis(DateTime tanggal)
         {
-            using (var koneksi = new SqlConnection(conn.connstr()))
+            using (var koneksi = new SQLiteConnection(conn.connstr()))
             {
                 string sql = $"DELETE FROM RiwayatLogin WHERE Tanggal <= @Tanggal";
 
@@ -140,7 +136,7 @@ namespace latihribbon
 
         public void UpdateUserRiwayat(string UserLogin,string userLama)
         {
-            using (var koneksi = new SqlConnection(conn.connstr()))
+            using (var koneksi = new SQLiteConnection(conn.connstr()))
             {
                 const string sql = @"UPDATE RiwayatLogin SET UserLogin = @UserLogin WHERE UserLogin = @userLama";
                 koneksi.Execute(sql, new {UserLogin=UserLogin, userLama=userLama});
