@@ -63,12 +63,12 @@
             this.dataGridView1.Location = new System.Drawing.Point(7, 7);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(1061, 253);
+            this.dataGridView1.Size = new System.Drawing.Size(1276, 253);
             this.dataGridView1.TabIndex = 1;
             // 
             // btnResetFilter
             // 
-            this.btnResetFilter.Location = new System.Drawing.Point(1070, 19);
+            this.btnResetFilter.Location = new System.Drawing.Point(1074, 19);
             this.btnResetFilter.Name = "btnResetFilter";
             this.btnResetFilter.Size = new System.Drawing.Size(75, 24);
             this.btnResetFilter.TabIndex = 39;
@@ -93,7 +93,7 @@
             this.KeteranganCombo.FormattingEnabled = true;
             this.KeteranganCombo.Location = new System.Drawing.Point(977, 21);
             this.KeteranganCombo.Name = "KeteranganCombo";
-            this.KeteranganCombo.Size = new System.Drawing.Size(75, 21);
+            this.KeteranganCombo.Size = new System.Drawing.Size(85, 21);
             this.KeteranganCombo.TabIndex = 37;
             this.KeteranganCombo.TabStop = false;
             // 
@@ -188,7 +188,7 @@
             this.panel1.Location = new System.Drawing.Point(1, 62);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1074, 319);
+            this.panel1.Size = new System.Drawing.Size(1289, 319);
             this.panel1.TabIndex = 3;
             // 
             // label14
@@ -222,7 +222,7 @@
             this.lblHalaman.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblHalaman.AutoSize = true;
             this.lblHalaman.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHalaman.Location = new System.Drawing.Point(465, 281);
+            this.lblHalaman.Location = new System.Drawing.Point(572, 281);
             this.lblHalaman.Name = "lblHalaman";
             this.lblHalaman.Size = new System.Drawing.Size(90, 16);
             this.lblHalaman.TabIndex = 22;
@@ -231,7 +231,7 @@
             // btnNext
             // 
             this.btnNext.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnNext.Location = new System.Drawing.Point(570, 278);
+            this.btnNext.Location = new System.Drawing.Point(677, 278);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(75, 23);
             this.btnNext.TabIndex = 21;
@@ -243,7 +243,7 @@
             // btnPrevious
             // 
             this.btnPrevious.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnPrevious.Location = new System.Drawing.Point(371, 278);
+            this.btnPrevious.Location = new System.Drawing.Point(478, 278);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(75, 23);
             this.btnPrevious.TabIndex = 20;
@@ -291,7 +291,7 @@
             this.btnPrintRekap.BackgroundImage = global::latihribbon.Properties.Resources.excel__1_;
             this.btnPrintRekap.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnPrintRekap.FlatAppearance.BorderSize = 2;
-            this.btnPrintRekap.Location = new System.Drawing.Point(1010, 8);
+            this.btnPrintRekap.Location = new System.Drawing.Point(1225, 8);
             this.btnPrintRekap.Margin = new System.Windows.Forms.Padding(2);
             this.btnPrintRekap.Name = "btnPrintRekap";
             this.btnPrintRekap.Size = new System.Drawing.Size(50, 47);
@@ -303,7 +303,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1076, 381);
+            this.ClientSize = new System.Drawing.Size(1291, 381);
             this.Controls.Add(this.lblFilter);
             this.Controls.Add(this.btnKelas);
             this.Controls.Add(this.label6);

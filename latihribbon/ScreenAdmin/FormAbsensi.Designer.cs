@@ -88,7 +88,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(5, 5);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(517, 332);
+            this.dataGridView1.Size = new System.Drawing.Size(735, 332);
             this.dataGridView1.TabIndex = 0;
             // 
             // txtSearch
@@ -146,6 +146,7 @@
             // 
             // KeteranganCombo
             // 
+            this.KeteranganCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.KeteranganCombo.FormattingEnabled = true;
             this.KeteranganCombo.Location = new System.Drawing.Point(875, 21);
             this.KeteranganCombo.Name = "KeteranganCombo";
@@ -187,7 +188,7 @@
             this.panel1.Location = new System.Drawing.Point(2, 62);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(897, 414);
+            this.panel1.Size = new System.Drawing.Size(1115, 414);
             this.panel1.TabIndex = 28;
             // 
             // panel3
@@ -205,7 +206,7 @@
             this.panel3.Location = new System.Drawing.Point(9, 9);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(527, 393);
+            this.panel3.Size = new System.Drawing.Size(745, 393);
             this.panel3.TabIndex = 1;
             // 
             // label14
@@ -239,7 +240,7 @@
             this.lblHalaman.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblHalaman.AutoSize = true;
             this.lblHalaman.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHalaman.Location = new System.Drawing.Point(221, 356);
+            this.lblHalaman.Location = new System.Drawing.Point(330, 356);
             this.lblHalaman.Name = "lblHalaman";
             this.lblHalaman.Size = new System.Drawing.Size(90, 16);
             this.lblHalaman.TabIndex = 25;
@@ -248,7 +249,7 @@
             // btnNext
             // 
             this.btnNext.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnNext.Location = new System.Drawing.Point(326, 353);
+            this.btnNext.Location = new System.Drawing.Point(435, 353);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(75, 23);
             this.btnNext.TabIndex = 24;
@@ -260,7 +261,7 @@
             // btnPrevious
             // 
             this.btnPrevious.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnPrevious.Location = new System.Drawing.Point(128, 353);
+            this.btnPrevious.Location = new System.Drawing.Point(237, 353);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(75, 23);
             this.btnPrevious.TabIndex = 23;
@@ -276,7 +277,7 @@
             this.panel4.BackColor = System.Drawing.Color.Silver;
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.panel2);
-            this.panel4.Location = new System.Drawing.Point(544, 9);
+            this.panel4.Location = new System.Drawing.Point(762, 9);
             this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(342, 393);
@@ -569,7 +570,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(900, 476);
+            this.ClientSize = new System.Drawing.Size(1118, 476);
             this.Controls.Add(this.lblFilter);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.panel1);

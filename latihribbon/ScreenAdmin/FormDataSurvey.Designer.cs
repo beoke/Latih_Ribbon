@@ -87,12 +87,12 @@
             // ComboFilter
             // 
             this.ComboFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ComboFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ComboFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.ComboFilter.FormattingEnabled = true;
-            this.ComboFilter.Location = new System.Drawing.Point(25, 20);
+            this.ComboFilter.Location = new System.Drawing.Point(32, 21);
             this.ComboFilter.Margin = new System.Windows.Forms.Padding(2);
             this.ComboFilter.Name = "ComboFilter";
-            this.ComboFilter.Size = new System.Drawing.Size(92, 23);
+            this.ComboFilter.Size = new System.Drawing.Size(85, 21);
             this.ComboFilter.TabIndex = 0;
             // 
             // ButtonResetFilter
@@ -123,6 +123,7 @@
             // 
             this.PickerRentan_1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.PickerRentan_1.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.PickerRentan_1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PickerRentan_1.Location = new System.Drawing.Point(206, 20);
             this.PickerRentan_1.Margin = new System.Windows.Forms.Padding(2);
@@ -135,6 +136,7 @@
             // 
             this.PickerRentan_2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.PickerRentan_2.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.PickerRentan_2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PickerRentan_2.Location = new System.Drawing.Point(366, 20);
             this.PickerRentan_2.Margin = new System.Windows.Forms.Padding(2);

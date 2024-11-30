@@ -374,6 +374,5 @@ namespace latihribbon
         {
             txtFilter.Focus();
         }
-
     }
 }

@@ -153,7 +153,7 @@ namespace latihribbon
 
                             // Header tabel
                             worksheet.Cells[currentRow, 1].Value = "DAFTAR ABSENSI SISWA";
-                            worksheet.Cells[currentRow + 1, 1].Value = $"TANGGAL : {tgl1DT.Value:dd MMMM yyyy} - {tgl2DT.Value:dd MMMM yyyy}";
+                            worksheet.Cells[currentRow + 1, 1].Value = $"TANGGAL : {tgl1DT.Value.ToString(@"d MMMM yyyy",_culture)} - {tgl2DT.Value.ToString(@"d MMMM yyyy",_culture)}";
                             worksheet.Cells[currentRow + 2, 1].Value = $"KELAS : {kelasGroup.Key}";
 
                             worksheet.Cells[currentRow, 1, currentRow + 2, 6].Style.Font.Bold = true;
@@ -210,6 +210,13 @@ namespace latihribbon
                                 dataRange.Style.Border.Left.Style = ExcelBorderStyle.Thin;
                                 dataRange.Style.Border.Right.Style = ExcelBorderStyle.Thin;
                                 dataRange.Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
+                            }
+
+                            //Gaya Keterangan Absen
+                            using (var dataRange = worksheet.Cells[currentRowTop-1, 4, currentRow -1, 6])
+                            {
+                                dataRange.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                                dataRange.Style.Font.Bold = true;
                             }
 
                             // Tinggi baris

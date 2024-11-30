@@ -555,13 +555,13 @@
             this.comboTahunFilter.Location = new System.Drawing.Point(471, 22);
             this.comboTahunFilter.Margin = new System.Windows.Forms.Padding(4);
             this.comboTahunFilter.Name = "comboTahunFilter";
-            this.comboTahunFilter.Size = new System.Drawing.Size(90, 21);
+            this.comboTahunFilter.Size = new System.Drawing.Size(85, 21);
             this.comboTahunFilter.TabIndex = 15;
             this.comboTahunFilter.TabStop = false;
             // 
             // btnResetFilter
             // 
-            this.btnResetFilter.Location = new System.Drawing.Point(576, 20);
+            this.btnResetFilter.Location = new System.Drawing.Point(572, 20);
             this.btnResetFilter.Margin = new System.Windows.Forms.Padding(4);
             this.btnResetFilter.Name = "btnResetFilter";
             this.btnResetFilter.Size = new System.Drawing.Size(75, 24);

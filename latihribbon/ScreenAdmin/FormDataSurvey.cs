@@ -16,6 +16,7 @@ namespace latihribbon
     public partial class FormDataSurvey : Form
     {
         private ToolTip toolTip = new ToolTip();
+        private readonly SurveyDal surveyDal;
         public FormDataSurvey()
         {
             InitializeComponent();
@@ -24,6 +25,7 @@ namespace latihribbon
             this.TopMost = true;
             this.ControlBox = true;
             this.KeyPreview = true;
+            surveyDal = new SurveyDal();
 
             ControlEvent();
             InitCombo();
@@ -80,7 +82,7 @@ namespace latihribbon
             int rowPerPage = (int)comboPerPage.SelectedValue;
 
             int rowInPage = (pageNow - 1) * rowPerPage;
-            int totalData = rowCount(sqlc, dp);
+            int totalData = surveyDal.rowCount(sqlc, dp);
             totalPage = (int)Math.Ceiling((double)totalData / rowPerPage);
 
             dp.Add("@Offset", rowInPage);
@@ -90,7 +92,7 @@ namespace latihribbon
             text += $"{pageNow.ToString()}/{totalPage.ToString()}";
             LabelHalaman.Text = text;
 
-            GridListSurvey.DataSource = ListData(sqlc, "OFFSET @Offset ROWS FETCH NEXT @Fetch ROWS ONLY", dp)
+            GridListSurvey.DataSource = surveyDal.ListData(sqlc, "OFFSET @Offset ROWS FETCH NEXT @Fetch ROWS ONLY", dp)
                                         .Select((x, index) => new
                                         {
                                             x.SurveyId,
@@ -100,8 +102,8 @@ namespace latihribbon
                                             Waktu = x.Waktu.ToString(@"hh\:mm")
                                         }).ToList();
 
-            TextTotalPuas.Text = ListData(sqlc, string.Empty, dp).Count(x => x.HasilSurvey == 1).ToString();
-            TextTotalTidakPuas.Text = ListData(sqlc, string.Empty, dp).Count(x => x.HasilSurvey == 0).ToString();
+            TextTotalPuas.Text = surveyDal.ListData(sqlc, string.Empty, dp).Count(x => x.HasilSurvey == 1).ToString();
+            TextTotalTidakPuas.Text = surveyDal.ListData(sqlc, string.Empty, dp).Count(x => x.HasilSurvey == 0).ToString();
         }
         private void FormDataSurvey_Load(object sender, EventArgs e)
         {
@@ -144,7 +146,7 @@ namespace latihribbon
         {
             if (new MesQuestionYN("Hapus Data ?").ShowDialog(this) != DialogResult.Yes) return;
             var id = GridListSurvey.CurrentRow.Cells["SurveyId"].Value;
-            Delete(Convert.ToInt16(id));
+            surveyDal.Delete(Convert.ToInt16(id));
             LoadData();
         }
 
@@ -209,55 +211,5 @@ namespace latihribbon
             GridListSurvey,
             new object[] { true });
         }
-
-        #region DAL
-        private IEnumerable<SurveyModel> ListData(string Filter, string Pagination, object dp)
-        {
-            using (var Conn = new SqlConnection(conn.connstr()))
-            {
-                string sql = $@"
-                        SELECT *  FROM Survey  {Filter}
-                        ORDER BY SurveyId DESC {Pagination}";
-
-                return Conn.Query<SurveyModel>(sql, dp);
-            }
-
-        }
-
-
-        private int rowCount (string Filter, object dp)
-        {
-            using (var Conn = new SqlConnection(conn.connstr()))
-            {
-                string sql = $@"
-                    SELECT COUNT(*) FROM Survey {Filter}";
-
-                return Conn.QuerySingle<int>(sql, dp);
-            }
-        }
-       
-
-        private SurveyModel GetData(int surveyId)
-        {
-            using (var Conn = new SqlConnection(conn.connstr()))
-            {
-                const string sql = @"SELECT * FROM Survey WHERE SurveyId = @SurveyId";
-
-                return Conn.QueryFirstOrDefault<SurveyModel>(sql, new { SurveyId = surveyId });
-            }
-        }
-
-
-        private void Delete(int SurveyId)
-        {
-            using (var Conn = new SqlConnection(conn.connstr()))
-            {
-                const string sql = "DELETE FROM Survey WHERE SurveyId = @SurveyId";
-
-                Conn.Execute(sql, new { SurveyId = SurveyId });
-            }
-        }
-
-        #endregion
     }
 }

@@ -15,6 +15,7 @@ namespace latihribbon
 {
     public partial class SurveyForm : Form
     {
+        private readonly SurveyDal surveyDal;
         private int _data;
         private Form mainForm;
         private Form indexForm;
@@ -36,6 +37,7 @@ namespace latihribbon
             this.indexForm = indexForm;
             this.KeyPreview = true;
             this.ControlBox = true;
+            surveyDal = new SurveyDal();
 
             btnTidakPuas.FlatStyle = FlatStyle.Flat;
             btnTidakPuas.FlatAppearance.BorderSize = 0;
@@ -123,34 +125,16 @@ namespace latihribbon
             PopUp popUp = new PopUp(); 
             popUp.ShowDialog(this);
 
-            var puas = new SurveyModel
+            var hasil = new SurveyModel
             {
                 HasilSurvey = _data,
                 Tanggal = DateTime.Today,
                 Waktu = DateTime.Now.TimeOfDay,
             };
-            SaveData(puas);
+            surveyDal.Insert(hasil);
 
             indexForm.Opacity = 1;
             this.Close();
-        }
-
-        private void SaveData(SurveyModel puas)
-        {
-            using (var Conn = new SqlConnection(conn.connstr()))
-            {
-                const string sql = @"
-                INSERT INTO Survey (HasilSurvey, Tanggal, Waktu)
-                VALUES (@HasilSurvey, @Tanggal, @Waktu)";
-
-
-                var Dp = new DynamicParameters();
-                Dp.Add("@HasilSurvey", puas.HasilSurvey, DbType.Int16);
-                Dp.Add("@Tanggal", puas.Tanggal, DbType.DateTime);
-                Dp.Add("@Waktu", puas.Waktu, DbType.Time);
-
-                Conn.Execute(sql, Dp);
-            }
         }
     }
 }

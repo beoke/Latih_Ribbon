@@ -79,7 +79,7 @@ namespace latihribbon
 
                     // Header tabel
                     worksheet.Cells[currentRow, 1].Value = "DAFTAR SISWA TERLAMBAT SMK N 1 BANTUL";
-                    worksheet.Cells[currentRow + 1, 1].Value = $"TANGGAL : {tgl1DT.Value:dd MMMM yyyy} - {tgl2DT.Value:dd MMMM yyyy}";
+                    worksheet.Cells[currentRow + 1, 1].Value = $"TANGGAL : {tgl1DT.Value.ToString(@"d MMMM yyyy", _culture)} - {tgl2DT.Value.ToString(@"d MMMM yyyy", _culture)}";
 
                     worksheet.Cells[currentRow, 1, currentRow + 1, 7].Style.Font.Bold = true;
                     worksheet.Cells[currentRow, 1, currentRow + 1, 7].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
@@ -266,7 +266,7 @@ namespace latihribbon
 
                     // Header tabel
                     worksheet.Cells[currentRow, 1].Value = "DAFTAR SISWA IZIN KELUAR SMK N 1 BANTUL";
-                    worksheet.Cells[currentRow + 1, 1].Value = $"TANGGAL : {tgl1DT.Value:dd MMMM yyyy} - {tgl2DT.Value:dd MMMM yyyy}";
+                    worksheet.Cells[currentRow + 1, 1].Value = $"TANGGAL : {tgl1DT.Value.ToString(@"d MMMM yyyy", _culture)} - {tgl2DT.Value.ToString(@"d MMMM yyyy", _culture)}";
 
                     worksheet.Cells[currentRow, 1, currentRow + 1, 7].Style.Font.Bold = true;
                     worksheet.Cells[currentRow, 1, currentRow + 1, 7].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
