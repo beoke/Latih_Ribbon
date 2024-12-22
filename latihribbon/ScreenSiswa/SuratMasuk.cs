@@ -137,7 +137,7 @@ namespace latihribbon
                     new MesError("Printer tidak tersedia atau offline.\nSegera hubungi petugas!").ShowDialog(this);
                     return false;
                 }
-               /* printPreviewDialogMasuk.Document = printDocumentMasuk;
+                /*printPreviewDialogMasuk.Document = printDocumentMasuk;
                 printPreviewDialogMasuk.ShowDialog(this);*/
                 printDocumentMasuk.Print();
                 return true;

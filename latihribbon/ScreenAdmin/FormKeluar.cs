@@ -96,9 +96,9 @@ namespace latihribbon
             dataGridView1.Columns[7].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 
             dataGridView1.ColumnHeadersHeight = 35;
-            dataGridView1.Columns[3].HeaderText = "Nama Kelas";
-            dataGridView1.Columns[6].HeaderText = "Jam Keluar";
-            dataGridView1.Columns[7].HeaderText = "Jam Masuk";
+            dataGridView1.Columns["NamaKelas"].HeaderText = "Nama Kelas";
+            dataGridView1.Columns["JamKeluar"].HeaderText = "Jam Keluar";
+            dataGridView1.Columns["JamMasuk"].HeaderText = "Jam Masuk";
 
             dataGridView1.Columns["Id"].Visible = false;
 
@@ -164,15 +164,15 @@ namespace latihribbon
             dataGridView1.DataSource = keluarDal.ListData(sqlc, dp)
                 .Select((x, index) => new 
                 { 
-                    Id = x.Id,
+                    x.Id,
                     No = inRowPage + index + 1,
-                    NIS = x.Nis,
-                    Nama = x.Nama,
-                    NamaKelas = x.NamaKelas,
-                    Tanggal = x.Tanggal,
-                    JamKeluar = x.JamKeluar,
-                    JamMasuk = x.JamMasuk,
-                    Tujuan = x.Tujuan,
+                    x.Nis,
+                    x.Nama,
+                    x.NamaKelas,
+                    x.Tanggal,
+                    x.JamKeluar,
+                    x.JamMasuk,
+                    x.Tujuan,
                 }).ToList();
         }
 

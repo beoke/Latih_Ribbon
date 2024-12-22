@@ -79,4 +79,34 @@ namespace latihribbon
 
             private delegate IntPtr LowLevelKeyboardProc(int nCode, IntPtr wParam, IntPtr lParam);
         }
+
+        public static class TaskbarHelper
+        {
+            private const int SW_HIDE = 0;
+            private const int SW_SHOW = 5;
+
+            [DllImport("user32.dll")]
+            private static extern int ShowWindow(IntPtr hWnd, int nCmdShow);
+
+            [DllImport("user32.dll")]
+            private static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
+
+            public static void HideTaskbar()
+            {
+                IntPtr taskbarHandle = FindWindow("Shell_TrayWnd", null);
+                if (taskbarHandle != IntPtr.Zero)
+                {
+                    ShowWindow(taskbarHandle, SW_HIDE);
+                }
+            }
+
+            public static void ShowTaskbar()
+            {
+                IntPtr taskbarHandle = FindWindow("Shell_TrayWnd", null);
+                if (taskbarHandle != IntPtr.Zero)
+                {
+                    ShowWindow(taskbarHandle, SW_SHOW);
+                }
+            }
+        }
 }

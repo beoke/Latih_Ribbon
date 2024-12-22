@@ -16,7 +16,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using LicenseContext = OfficeOpenXml.LicenseContext;
 
 
 namespace latihribbon
@@ -98,8 +97,6 @@ namespace latihribbon
             
             try
             {
-                ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
-
                 using (var package = new ExcelPackage())
                 {
                     var groupedData = new Dictionary<string, List<RekapPersensiModel>>();
@@ -265,6 +262,8 @@ namespace latihribbon
             }
             catch (Exception ex)
             {
+                loading.Close();
+                await Task.Delay(300);
                 new MesError($"Terjadi kesalahan saat eksport data: {ex.Message}").ShowDialog();
                 this.DialogResult = DialogResult.OK;
                 this.Close();

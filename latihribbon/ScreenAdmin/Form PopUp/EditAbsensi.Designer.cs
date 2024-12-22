@@ -63,7 +63,7 @@
             this.panel7.BackColor = System.Drawing.Color.DarkGray;
             this.panel7.Controls.Add(this.panel1);
             this.panel7.Location = new System.Drawing.Point(11, 11);
-            this.panel7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel7.Margin = new System.Windows.Forms.Padding(2);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(371, 431);
             this.panel7.TabIndex = 6;
@@ -77,7 +77,7 @@
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Location = new System.Drawing.Point(6, 6);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(359, 419);
             this.panel1.TabIndex = 4;
@@ -108,7 +108,7 @@
             this.panel3.Controls.Add(this.txtPersensi);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Location = new System.Drawing.Point(4, 4);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(349, 409);
             this.panel3.TabIndex = 5;
@@ -185,7 +185,9 @@
             // tglDT
             // 
             this.tglDT.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tglDT.CustomFormat = "  dd MMMM yyyy";
             this.tglDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tglDT.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.tglDT.Location = new System.Drawing.Point(22, 266);
             this.tglDT.Name = "tglDT";
             this.tglDT.Size = new System.Drawing.Size(301, 24);
@@ -209,7 +211,7 @@
             this.txtKelas.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtKelas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtKelas.Location = new System.Drawing.Point(22, 216);
-            this.txtKelas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtKelas.Margin = new System.Windows.Forms.Padding(2);
             this.txtKelas.MaxLength = 12;
             this.txtKelas.Name = "txtKelas";
             this.txtKelas.Size = new System.Drawing.Size(254, 23);
@@ -233,7 +235,7 @@
             this.btnSave.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
             this.btnSave.Location = new System.Drawing.Point(229, 364);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(95, 30);
             this.btnSave.TabIndex = 9;
@@ -258,7 +260,7 @@
             this.txtNIS.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNIS.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtNIS.Location = new System.Drawing.Point(22, 67);
-            this.txtNIS.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNIS.Margin = new System.Windows.Forms.Padding(2);
             this.txtNIS.MaxLength = 7;
             this.txtNIS.Name = "txtNIS";
             this.txtNIS.Size = new System.Drawing.Size(302, 23);
@@ -282,7 +284,7 @@
             this.txtNama.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNama.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNama.Location = new System.Drawing.Point(22, 117);
-            this.txtNama.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNama.Margin = new System.Windows.Forms.Padding(2);
             this.txtNama.MaxLength = 100;
             this.txtNama.Name = "txtNama";
             this.txtNama.ReadOnly = true;
@@ -307,7 +309,7 @@
             this.txtPersensi.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPersensi.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPersensi.Location = new System.Drawing.Point(22, 167);
-            this.txtPersensi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPersensi.Margin = new System.Windows.Forms.Padding(2);
             this.txtPersensi.MaxLength = 3;
             this.txtPersensi.Name = "txtPersensi";
             this.txtPersensi.Size = new System.Drawing.Size(302, 23);

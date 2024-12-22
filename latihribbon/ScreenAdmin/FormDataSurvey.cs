@@ -92,7 +92,7 @@ namespace latihribbon
                                         {
                                             x.SurveyId,
                                             No = rowInPage + index + 1, 
-                                            Jawaban_Survey = x.HasilSurvey == 1 ? "Puas" : "Tidak Puas",
+                                            JawabanSurvey = x.HasilSurvey == 1 ? "Puas" : "Tidak Puas",
                                             Tanggal = x.Tanggal.ToString("dd/MM/yyyy"),
                                             Waktu = x.Waktu
                                         }).ToList();
@@ -175,6 +175,7 @@ namespace latihribbon
             GridListSurvey.RowTemplate.Height = 30;
             GridListSurvey.ColumnHeadersHeight = 35;
             GridListSurvey.Columns["SurveyId"].Visible = false;
+            GridListSurvey.Columns["JawabanSurvey"].HeaderText = "Jawaban Survey";
 
             GridListSurvey.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }

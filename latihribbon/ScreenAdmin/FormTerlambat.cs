@@ -69,10 +69,11 @@ namespace latihribbon
             dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Sans Serif", 10, FontStyle.Bold);
             dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.LightBlue;
             dataGridView1.RowTemplate.Height = 30;
-            dataGridView1.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            //dataGridView1.Columns[7].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridView1.ColumnHeadersHeight = 35;
-            dataGridView1.Columns["NamaKelas"].HeaderText = "Nama Kelas";
-            dataGridView1.Columns["JamMasuk"].HeaderText = "Jam Masuk";
+            dataGridView1.Columns[4].HeaderText = "Nama Kelas";
+            dataGridView1.Columns[6].HeaderText = "Jam Masuk";
+            dataGridView1.Columns[7].HeaderText = "Alasan Terlambat";
 
             dataGridView1.Columns[0].Visible = false;
             dataGridView1.Columns[1].Width = 60;
@@ -138,14 +139,14 @@ namespace latihribbon
             dataGridView1.DataSource = masukDal.ListData(sqlc, dp)
                 .Select((x,index) => new
                 {
-                    Id = x.Id,
+                    x.Id,
                     No = inRowPage + index + 1,
-                    NIS = x.NIS,
-                    Nama = x.Nama,
-                    NamaKelas = x.NamaKelas,
-                    Tanggal = x.Tanggal,
-                    JamMasuk = x.JamMasuk,
-                    AlasanTerlambat = x.Alasan 
+                    x.NIS,
+                    x.Nama,
+                    x.NamaKelas,
+                    x.Tanggal,
+                    x.JamMasuk,
+                    x.Alasan 
                 }).ToList();
         }
 

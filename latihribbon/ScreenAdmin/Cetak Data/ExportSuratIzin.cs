@@ -12,7 +12,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using LicenseContext = OfficeOpenXml.LicenseContext;
 using System.Globalization;
 
 namespace latihribbon
@@ -54,12 +53,9 @@ namespace latihribbon
         {
             Loading loading = new Loading();
             loading.WindowState = FormWindowState.Maximized;
-            loading.Show();
-            await Task.Delay(500);
+           
             try
             {
-                ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
-
                 using (var package = new ExcelPackage())
                 {
                     var groupedData = new List<MasukModel>();
@@ -73,6 +69,9 @@ namespace latihribbon
                         new MesError("Belum Ada Siswa Yang Terlambat!").ShowDialog(this);
                         return;
                     }
+
+                    loading.Show();
+                    await Task.Delay(500);
 
                     var worksheet = package.Workbook.Worksheets.Add("Siswa Terlambat");
 
@@ -230,10 +229,11 @@ namespace latihribbon
                         this.Close();
                     }
                 }
-
             }
             catch (Exception ex)
             {
+                loading.Close();
+                await Task.Delay(300);
                 new MesError($"Terjadi kesalahan saat eksport data: {ex.Message}").ShowDialog();
                 this.DialogResult = DialogResult.OK;
                 this.Close();
@@ -246,12 +246,9 @@ namespace latihribbon
         {
             Loading loading = new Loading();
             loading.WindowState = FormWindowState.Maximized;
-            loading.Show();
-            await Task.Delay(500);
+
             try
             {
-                ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
-
                 using (var package = new ExcelPackage())
                 {
                     var groupedData = new List<KeluarModel>();
@@ -265,7 +262,8 @@ namespace latihribbon
                         new MesError("Belum Ada Siswa Yang Terlambat!").ShowDialog(this);
                         return;
                     }
-
+                    loading.Show();
+                    await Task.Delay(500);
                     var worksheet = package.Workbook.Worksheets.Add("Siswa Izin Keluar");
 
                     // Pengaturan awal worksheet
@@ -426,6 +424,8 @@ namespace latihribbon
             }
             catch (Exception ex)
             {
+                loading.Close();
+                await Task.Delay(300);
                 new MesError($"Terjadi kesalahan saat eksport data: {ex.Message}").ShowDialog();
                 this.DialogResult = DialogResult.OK;
                 this.Close();

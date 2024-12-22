@@ -154,7 +154,7 @@ namespace latihribbon
                     new MesError("Printer tidak tersedia atau offline.\nSegera hubungi petugas!").ShowDialog(this);
                     return false;
                 }
-               /* printPreviewDialogKeluar.Document = printDocumentKeluar;
+                /*printPreviewDialogKeluar.Document = printDocumentKeluar;
                 printPreviewDialogKeluar.ShowDialog(this);*/
 
                 printDocumentKeluar.Print();
@@ -396,6 +396,39 @@ namespace latihribbon
             if(e.KeyChar == (char)Keys.Enter)
             {
                 e.Handled = true;
+            }
+        }
+
+        private void SuratKeluarcs_Load(object sender, EventArgs e)
+        {
+            if (panel3.Height <= 510)
+            {
+                int TopTextBox = 37;
+                //Nama
+                label4.Location = new Point(label4.Location.X, TopTextBox += 70);
+                label13.Location = new Point(label13.Location.X, TopTextBox);
+                txtNama.Location = new Point(txtNama.Location.X, TopTextBox);
+
+                //Kelas
+                label2.Location = new Point(label2.Location.X, TopTextBox += 70);
+                label12.Location = new Point(label12.Location.X, TopTextBox);
+                txtKelas.Location = new Point(txtKelas.Location.X, TopTextBox);
+
+                //Tanggal
+                label3.Location = new Point(label3.Location.X, TopTextBox += 70);
+                label10.Location = new Point(label10.Location.X, TopTextBox);
+                txtTanggal.Location = new Point(txtTanggal.Location.X, TopTextBox);
+
+                //Jam Keluar
+                label5.Location = new Point(label5.Location.X, TopTextBox += 70);
+                label8.Location = new Point(label8.Location.X, TopTextBox);
+                tx_keluar.Location = new Point(tx_keluar.Location.X, TopTextBox);
+
+                //Jam Masuk
+                label6.Location = new Point(label6.Location.X, TopTextBox += 70);
+                label7.Location = new Point(label7.Location.X, TopTextBox);
+                jamKembali.Location = new Point(jamKembali.Location.X, TopTextBox);
+                ButtonCaraPengisianJam.Location = new Point(ButtonCaraPengisianJam.Location.X, TopTextBox);
             }
         }
     }

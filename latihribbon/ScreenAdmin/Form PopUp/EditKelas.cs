@@ -1,6 +1,5 @@
 ﻿using latihribbon.Dal;
 using latihribbon.Model;
-using OfficeOpenXml.LoadFunctions.Params;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,7 +12,6 @@ using System.Windows.Forms;
 
 namespace latihribbon
 {
-    
     public partial class EditKelas : Form
     {
         private readonly JurusanDal jurusanDal;

@@ -97,7 +97,7 @@
             // 
             // ButtonResetFilter
             // 
-            this.ButtonResetFilter.Location = new System.Drawing.Point(516, 20);
+            this.ButtonResetFilter.Location = new System.Drawing.Point(560, 19);
             this.ButtonResetFilter.Name = "ButtonResetFilter";
             this.ButtonResetFilter.Size = new System.Drawing.Size(75, 24);
             this.ButtonResetFilter.TabIndex = 32;
@@ -111,11 +111,11 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(348, 17);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(371, 17);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(15, 19);
+            this.label5.Size = new System.Drawing.Size(15, 15);
             this.label5.TabIndex = 31;
             this.label5.Text = "_";
             // 
@@ -124,11 +124,13 @@
             this.PickerRentan_1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.PickerRentan_1.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.PickerRentan_1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PickerRentan_1.CustomFormat = "  dd MMMM yyyy";
+            this.PickerRentan_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.PickerRentan_1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.PickerRentan_1.Location = new System.Drawing.Point(206, 20);
             this.PickerRentan_1.Margin = new System.Windows.Forms.Padding(2);
             this.PickerRentan_1.Name = "PickerRentan_1";
-            this.PickerRentan_1.Size = new System.Drawing.Size(138, 23);
+            this.PickerRentan_1.Size = new System.Drawing.Size(160, 21);
             this.PickerRentan_1.TabIndex = 29;
             this.PickerRentan_1.TabStop = false;
             // 
@@ -137,11 +139,13 @@
             this.PickerRentan_2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.PickerRentan_2.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.PickerRentan_2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PickerRentan_2.Location = new System.Drawing.Point(366, 20);
+            this.PickerRentan_2.CustomFormat = "  dd MMMM yyyy";
+            this.PickerRentan_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.PickerRentan_2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.PickerRentan_2.Location = new System.Drawing.Point(389, 20);
             this.PickerRentan_2.Margin = new System.Windows.Forms.Padding(2);
             this.PickerRentan_2.Name = "PickerRentan_2";
-            this.PickerRentan_2.Size = new System.Drawing.Size(138, 23);
+            this.PickerRentan_2.Size = new System.Drawing.Size(160, 21);
             this.PickerRentan_2.TabIndex = 30;
             this.PickerRentan_2.TabStop = false;
             // 

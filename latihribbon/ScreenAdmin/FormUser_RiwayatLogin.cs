@@ -104,22 +104,22 @@ namespace latihribbon
 
         private void InitRiwayatLogin()
         {
+            GridListRiwayatLogin.ReadOnly = true;
+            GridListRiwayatLogin.EnableHeadersVisualStyles = false;
+            GridListRiwayatLogin.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
 
-                GridListRiwayatLogin.ReadOnly = true;
-                GridListRiwayatLogin.EnableHeadersVisualStyles = false;
-                GridListRiwayatLogin.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            GridListRiwayatLogin.DefaultCellStyle.Font = new Font("Sans Serif", 10);
+            GridListRiwayatLogin.ColumnHeadersDefaultCellStyle.Font = new Font("Sans Serif", 10, FontStyle.Bold);
+            GridListRiwayatLogin.ColumnHeadersDefaultCellStyle.BackColor = Color.LightBlue;
+            GridListRiwayatLogin.RowTemplate.Height = 30;
+            GridListRiwayatLogin.ColumnHeadersHeight = 35;
 
-                GridListRiwayatLogin.DefaultCellStyle.Font = new Font("Sans Serif", 10);
-                GridListRiwayatLogin.ColumnHeadersDefaultCellStyle.Font = new Font("Sans Serif", 10, FontStyle.Bold);
-                GridListRiwayatLogin.ColumnHeadersDefaultCellStyle.BackColor = Color.LightBlue;
-                GridListRiwayatLogin.RowTemplate.Height = 30;
-                GridListRiwayatLogin.ColumnHeadersHeight = 35;
-
-                GridListRiwayatLogin.Columns[0].Width = 80;
-                GridListRiwayatLogin.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                GridListRiwayatLogin.Columns[2].Width = 200;
-                GridListRiwayatLogin.Columns[3].Width = 150;
-                GridListRiwayatLogin.Columns[4].Visible = false;
+            GridListRiwayatLogin.Columns[0].Width = 80;
+            GridListRiwayatLogin.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            GridListRiwayatLogin.Columns[2].Width = 200;
+            GridListRiwayatLogin.Columns[3].Width = 150;
+            GridListRiwayatLogin.Columns[4].Visible = false;
+            GridListRiwayatLogin.Columns["UserLogin"].HeaderText = "User Login";
         }
 
         bool SqlGlobal = false;

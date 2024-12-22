@@ -93,11 +93,13 @@
             // 
             // tglsatu
             // 
+            this.tglsatu.CustomFormat = "  dd MMMM yyyy";
             this.tglsatu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tglsatu.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.tglsatu.Location = new System.Drawing.Point(468, 22);
             this.tglsatu.Margin = new System.Windows.Forms.Padding(2);
             this.tglsatu.Name = "tglsatu";
-            this.tglsatu.Size = new System.Drawing.Size(132, 21);
+            this.tglsatu.Size = new System.Drawing.Size(160, 21);
             this.tglsatu.TabIndex = 19;
             this.tglsatu.TabStop = false;
             // 
@@ -114,11 +116,13 @@
             // 
             // tgldua
             // 
+            this.tgldua.CustomFormat = "  dd MMMM yyyy";
             this.tgldua.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tgldua.Location = new System.Drawing.Point(624, 22);
+            this.tgldua.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.tgldua.Location = new System.Drawing.Point(652, 22);
             this.tgldua.Margin = new System.Windows.Forms.Padding(2);
             this.tgldua.Name = "tgldua";
-            this.tgldua.Size = new System.Drawing.Size(132, 21);
+            this.tgldua.Size = new System.Drawing.Size(160, 21);
             this.tgldua.TabIndex = 20;
             this.tgldua.TabStop = false;
             // 
@@ -364,8 +368,9 @@
             // tglDT
             // 
             this.tglDT.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tglDT.CustomFormat = "dd MMMM yyyy";
+            this.tglDT.CustomFormat = "  dd MMMM yyyy";
             this.tglDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tglDT.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.tglDT.Location = new System.Drawing.Point(19, 214);
             this.tglDT.Name = "tglDT";
             this.tglDT.Size = new System.Drawing.Size(290, 22);
@@ -465,7 +470,7 @@
             // 
             // btnResetFilter
             // 
-            this.btnResetFilter.Location = new System.Drawing.Point(769, 20);
+            this.btnResetFilter.Location = new System.Drawing.Point(820, 20);
             this.btnResetFilter.Name = "btnResetFilter";
             this.btnResetFilter.Size = new System.Drawing.Size(75, 24);
             this.btnResetFilter.TabIndex = 30;
@@ -540,7 +545,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(605, 19);
+            this.label5.Location = new System.Drawing.Point(633, 19);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(15, 15);

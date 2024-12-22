@@ -83,7 +83,11 @@ namespace latihribbon
             dataGridView1.RowTemplate.Height = 30;
             //dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dataGridView1.ColumnHeadersHeight = 35;
+
+            dataGridView1.Columns[2].HeaderText = "NIS";
+            dataGridView1.Columns[3].HeaderText = "Presensi";
             dataGridView1.Columns[5].HeaderText = "Nama Kelas";
+
             txtNIS1.MaxLength = 9;
             txtPersensi1.MaxLength = 3;
             dataGridView1.Columns[0].Visible = false;
@@ -148,7 +152,7 @@ namespace latihribbon
                 {
                     x.Id,
                     No = inRowPage+index+1,
-                    NIS = x.Nis,
+                    x.Nis,
                     x.Persensi,
                     x.Nama,
                     x.NamaKelas,
@@ -189,7 +193,7 @@ namespace latihribbon
             nama = txtNama1.Text.Trim();
             persensi = txtPersensi1.Text;
             kelas = txtKelas1.Text;
-            tgl = tglDT.Value;
+            tgl = tglDT.Value.Date;
 
             if (Izinradio.Checked) keterangan = "I";
             if (sakitRadio.Checked) keterangan = "S";

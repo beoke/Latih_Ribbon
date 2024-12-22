@@ -83,6 +83,16 @@ namespace latihribbon.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Add_User {
+            get {
+                object obj = ResourceManager.GetObject("Add User", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap arrow_square_left {
             get {
                 object obj = ResourceManager.GetObject("arrow-square-left", resourceCulture);

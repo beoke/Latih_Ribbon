@@ -26,7 +26,7 @@ namespace latihribbon
             this.indexForm = indexForm;
             this.WindowState = FormWindowState.Maximized;
 
-            this.MinimumSize = new Size(1280, 700);
+            this.MinimumSize = new Size(1300, 700);
         }
         private void ShowFormInPanel(Form form)
         {
@@ -40,6 +40,7 @@ namespace latihribbon
         private void ribbonSiswaAbsensi_Click(object sender, EventArgs e)
         {
             FormSIswa fs = new FormSIswa();
+            fs.Bounds = this.ClientRectangle;
             ShowFormInPanel(fs);
 
             ClearCheckRibbon();
@@ -50,8 +51,8 @@ namespace latihribbon
         private void ribbon_terlambat_Click(object sender, EventArgs e)
         {
             FormTerlambat formTerlambat = new FormTerlambat();
+            formTerlambat.Bounds = this.ClientRectangle; // sudah mencakup (Width,Height, X, Y)
             ShowFormInPanel(formTerlambat);
-
             ClearCheckRibbon();
             ribbon_terlambat.CheckOnClick = true;
             ribbon_terlambat.Checked = true;
@@ -60,6 +61,7 @@ namespace latihribbon
         private void ribbon_keluar_Click(object sender, EventArgs e)
         {
             FormKeluar formkeluar = new FormKeluar();
+            formkeluar.Bounds = this.ClientRectangle;
             ShowFormInPanel(formkeluar);
 
             ClearCheckRibbon();
@@ -69,6 +71,7 @@ namespace latihribbon
         private void ribbon_Siswa_Click(object sender, EventArgs e)
         {
             FormSIswa dataSiswa = new FormSIswa();
+            dataSiswa.Bounds = this.ClientRectangle;
             ShowFormInPanel(dataSiswa);
 
             ClearCheckRibbon();
@@ -79,6 +82,7 @@ namespace latihribbon
         private void ribbonAbsensi_Click(object sender, EventArgs e)
         {
             FormAbsensi dataSiswa = new FormAbsensi();
+            dataSiswa.Bounds = this.ClientRectangle;
             ShowFormInPanel(dataSiswa);
 
             ClearCheckRibbon();
@@ -89,6 +93,7 @@ namespace latihribbon
         private void ribbonRekapPersensi_Click(object sender, EventArgs e)
         {
             FormRekapPersensi p = new FormRekapPersensi();
+            p.Bounds = this.ClientRectangle;
             ShowFormInPanel(p);
 
             ClearCheckRibbon();
@@ -99,6 +104,7 @@ namespace latihribbon
         private void ribbonUserLogin_Click(object sender, EventArgs e)
         {
             FormUser_RiwayatLogin formUser_RiwayatLogin = new FormUser_RiwayatLogin();
+            formUser_RiwayatLogin.Bounds = this.ClientRectangle;
             ShowFormInPanel(formUser_RiwayatLogin);
 
             ClearCheckRibbon();
@@ -109,6 +115,7 @@ namespace latihribbon
         private void ribbonKelas_Click(object sender, EventArgs e)
         {
             FormKelas formKelas = new FormKelas();
+            formKelas.Bounds = this.ClientRectangle;
             ShowFormInPanel(formKelas);
 
             ClearCheckRibbon();
@@ -119,6 +126,7 @@ namespace latihribbon
         private void ribbonJurusan_Click(object sender, EventArgs e)
         {
             FormJurusan formJurusan = new FormJurusan();
+            formJurusan.Bounds = this.ClientRectangle;
             ShowFormInPanel(formJurusan);
 
             ClearCheckRibbon();
@@ -129,6 +137,7 @@ namespace latihribbon
         private void ribbonButtonSurvey_Click(object sender, EventArgs e)
         {
             FormDataSurvey survey = new FormDataSurvey();
+            survey.Bounds = this.ClientRectangle;
             ShowFormInPanel(survey);
 
             ClearCheckRibbon();
@@ -167,7 +176,9 @@ namespace latihribbon
             if (new MesQuestionYN("Apakah Anda Ingin Logout?").ShowDialog(this) == DialogResult.Yes)
             {
                 Closing = false;
-                new FormIndex(this).Show();
+                FormIndex formIndex = new FormIndex(this);
+                formIndex.WindowState = FormWindowState.Maximized;
+                formIndex.Show();
                 this.Close();
             }
         }

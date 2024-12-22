@@ -88,14 +88,14 @@
             this.dataGridView1.Location = new System.Drawing.Point(5, 5);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(735, 332);
+            this.dataGridView1.Size = new System.Drawing.Size(581, 332);
             this.dataGridView1.TabIndex = 0;
             // 
             // txtSearch
             // 
             this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.Location = new System.Drawing.Point(82, 21);
+            this.txtSearch.Location = new System.Drawing.Point(78, 21);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(2);
             this.txtSearch.MaxLength = 300;
             this.txtSearch.Name = "txtSearch";
@@ -106,7 +106,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(19, 22);
+            this.label5.Location = new System.Drawing.Point(15, 22);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(58, 19);
@@ -115,21 +115,25 @@
             // 
             // tgldua
             // 
+            this.tgldua.CustomFormat = "  dd MMMM yyyy";
             this.tgldua.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tgldua.Location = new System.Drawing.Point(635, 21);
+            this.tgldua.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.tgldua.Location = new System.Drawing.Point(654, 21);
             this.tgldua.Margin = new System.Windows.Forms.Padding(2);
             this.tgldua.Name = "tgldua";
-            this.tgldua.Size = new System.Drawing.Size(132, 21);
+            this.tgldua.Size = new System.Drawing.Size(160, 21);
             this.tgldua.TabIndex = 24;
             this.tgldua.TabStop = false;
             // 
             // tglsatu
             // 
+            this.tglsatu.CustomFormat = "  dd MMMM yyyy";
             this.tglsatu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tglsatu.Location = new System.Drawing.Point(478, 21);
+            this.tglsatu.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.tglsatu.Location = new System.Drawing.Point(472, 21);
             this.tglsatu.Margin = new System.Windows.Forms.Padding(2);
             this.tglsatu.Name = "tglsatu";
-            this.tglsatu.Size = new System.Drawing.Size(132, 21);
+            this.tglsatu.Size = new System.Drawing.Size(160, 21);
             this.tglsatu.TabIndex = 23;
             this.tglsatu.TabStop = false;
             // 
@@ -137,7 +141,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(408, 21);
+            this.label4.Location = new System.Drawing.Point(400, 21);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(65, 19);
@@ -148,7 +152,7 @@
             // 
             this.KeteranganCombo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.KeteranganCombo.FormattingEnabled = true;
-            this.KeteranganCombo.Location = new System.Drawing.Point(875, 21);
+            this.KeteranganCombo.Location = new System.Drawing.Point(920, 21);
             this.KeteranganCombo.Name = "KeteranganCombo";
             this.KeteranganCombo.Size = new System.Drawing.Size(85, 21);
             this.KeteranganCombo.TabIndex = 25;
@@ -158,7 +162,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(783, 22);
+            this.label2.Location = new System.Drawing.Point(828, 22);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(87, 19);
@@ -167,7 +171,7 @@
             // 
             // btnResetFilter
             // 
-            this.btnResetFilter.Location = new System.Drawing.Point(972, 19);
+            this.btnResetFilter.Location = new System.Drawing.Point(1017, 19);
             this.btnResetFilter.Name = "btnResetFilter";
             this.btnResetFilter.Size = new System.Drawing.Size(75, 24);
             this.btnResetFilter.TabIndex = 27;
@@ -188,7 +192,7 @@
             this.panel1.Location = new System.Drawing.Point(2, 62);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1115, 414);
+            this.panel1.Size = new System.Drawing.Size(961, 414);
             this.panel1.TabIndex = 28;
             // 
             // panel3
@@ -206,7 +210,7 @@
             this.panel3.Location = new System.Drawing.Point(9, 9);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(745, 393);
+            this.panel3.Size = new System.Drawing.Size(591, 393);
             this.panel3.TabIndex = 1;
             // 
             // label14
@@ -240,7 +244,7 @@
             this.lblHalaman.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblHalaman.AutoSize = true;
             this.lblHalaman.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHalaman.Location = new System.Drawing.Point(330, 356);
+            this.lblHalaman.Location = new System.Drawing.Point(253, 356);
             this.lblHalaman.Name = "lblHalaman";
             this.lblHalaman.Size = new System.Drawing.Size(90, 16);
             this.lblHalaman.TabIndex = 25;
@@ -249,7 +253,7 @@
             // btnNext
             // 
             this.btnNext.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnNext.Location = new System.Drawing.Point(435, 353);
+            this.btnNext.Location = new System.Drawing.Point(358, 353);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(75, 23);
             this.btnNext.TabIndex = 24;
@@ -261,7 +265,7 @@
             // btnPrevious
             // 
             this.btnPrevious.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnPrevious.Location = new System.Drawing.Point(237, 353);
+            this.btnPrevious.Location = new System.Drawing.Point(160, 353);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(75, 23);
             this.btnPrevious.TabIndex = 23;
@@ -277,7 +281,7 @@
             this.panel4.BackColor = System.Drawing.Color.Silver;
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.panel2);
-            this.panel4.Location = new System.Drawing.Point(762, 9);
+            this.panel4.Location = new System.Drawing.Point(608, 9);
             this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(342, 393);
@@ -315,9 +319,9 @@
             // 
             // btnKelas
             // 
-            this.btnKelas.Location = new System.Drawing.Point(265, 218);
+            this.btnKelas.Location = new System.Drawing.Point(265, 217);
             this.btnKelas.Name = "btnKelas";
-            this.btnKelas.Size = new System.Drawing.Size(40, 23);
+            this.btnKelas.Size = new System.Drawing.Size(40, 25);
             this.btnKelas.TabIndex = 4;
             this.btnKelas.Text = "...";
             this.btnKelas.UseVisualStyleBackColor = true;
@@ -430,7 +434,9 @@
             // tglDT
             // 
             this.tglDT.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tglDT.CustomFormat = "  dd MMMM yyyy";
             this.tglDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tglDT.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.tglDT.Location = new System.Drawing.Point(15, 267);
             this.tglDT.Name = "tglDT";
             this.tglDT.Size = new System.Drawing.Size(290, 24);
@@ -480,7 +486,7 @@
             this.txtKelas1.Margin = new System.Windows.Forms.Padding(2);
             this.txtKelas1.MaxLength = 10;
             this.txtKelas1.Name = "txtKelas1";
-            this.txtKelas1.Size = new System.Drawing.Size(245, 23);
+            this.txtKelas1.Size = new System.Drawing.Size(242, 23);
             this.txtKelas1.TabIndex = 3;
             // 
             // label7
@@ -519,11 +525,11 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold);
-            this.label6.Location = new System.Drawing.Point(615, 18);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            this.label6.Location = new System.Drawing.Point(636, 18);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(15, 19);
+            this.label6.Size = new System.Drawing.Size(15, 15);
             this.label6.TabIndex = 29;
             this.label6.Text = "_";
             // 
@@ -558,7 +564,7 @@
             this.lblFilter.AutoSize = true;
             this.lblFilter.BackColor = System.Drawing.Color.White;
             this.lblFilter.ForeColor = System.Drawing.Color.Gray;
-            this.lblFilter.Location = new System.Drawing.Point(86, 25);
+            this.lblFilter.Location = new System.Drawing.Point(82, 25);
             this.lblFilter.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFilter.Name = "lblFilter";
             this.lblFilter.Size = new System.Drawing.Size(177, 13);
@@ -570,7 +576,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1118, 476);
+            this.ClientSize = new System.Drawing.Size(964, 476);
             this.Controls.Add(this.lblFilter);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.panel1);

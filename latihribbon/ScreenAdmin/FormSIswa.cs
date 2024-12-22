@@ -15,11 +15,11 @@ using System.Data.SQLite;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using LicenseContext = OfficeOpenXml.LicenseContext;
 
 namespace latihribbon
 {
@@ -46,17 +46,15 @@ namespace latihribbon
             siswaDal = new SiswaDal();
             jurusanDal = new JurusanDal();
             kelasDal = new KelasDal();
+
             InitCombo();
             InitComboTahun();
             LoadData();
             InitComponent();
             RegisterEvent();
         }
-
         private void FormSIswa_Load(object sender, EventArgs e)
         {
-            txtFilter.Focus();
-
             originalLocations[txtNIS_FormSiswa] = txtNIS_FormSiswa.Location;
             originalLocations[lblNisSudahAda] = lblNisSudahAda.Location;
             originalLocations[label11] = label11.Location;
@@ -138,26 +136,32 @@ namespace latihribbon
 
         public void InitComponent()
         {
-            // DataGrid
-            dataGridView1.EnableHeadersVisualStyles = false;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            if(dataGridView1.Rows.Count > 0)
+            {
+                // DataGrid
+                dataGridView1.EnableHeadersVisualStyles = false;
+                dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
 
-            dataGridView1.DefaultCellStyle.Font = new Font("Sans Serif", 10);
-            dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Sans Serif", 10, FontStyle.Bold);
-            dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.LightBlue;
-            dataGridView1.RowTemplate.Height = 30;
-            //dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dataGridView1.ColumnHeadersHeight = 35;
-            dataGridView1.Columns[4].HeaderText = "Jenis Kelamin";
+                dataGridView1.DefaultCellStyle.Font = new Font("Sans Serif", 10);
+                dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Sans Serif", 10, FontStyle.Bold);
+                dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.LightBlue;
+                dataGridView1.RowTemplate.Height = 30;
+                //dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                dataGridView1.ColumnHeadersHeight = 35;
+                dataGridView1.Columns[1].HeaderText = "NIS";
+                dataGridView1.Columns[2].HeaderText = "Presensi";
+                dataGridView1.Columns[4].HeaderText = "Jenis Kelamin";
+                dataGridView1.Columns[5].HeaderText = "Nama Kelas";
 
 
-            dataGridView1.Columns[0].Width = 60;
-            dataGridView1.Columns[1].Width = 80;
-            dataGridView1.Columns[2].Width = 100;
-            dataGridView1.Columns[3].Width = 350;
-            dataGridView1.Columns[4].Width = 120;
-            dataGridView1.Columns[5].Width = 150;
-            dataGridView1.Columns[6].Width = 100;
+                dataGridView1.Columns[0].Width = 60;
+                dataGridView1.Columns[1].Width = 80;
+                dataGridView1.Columns[2].Width = 100;
+                dataGridView1.Columns[3].Width = 350;
+                dataGridView1.Columns[4].Width = 120;
+                dataGridView1.Columns[5].Width = 150;
+                dataGridView1.Columns[6].Width = 100;
+            }
         }
 
         public void SaveData()
@@ -282,12 +286,12 @@ namespace latihribbon
                 .Select((x,index) => new
                 {
                     No = inRowPage +index + 1, 
-                    NIS = x.Nis,
-                    Persensi = x.Persensi,
-                    Nama = x.Nama,
-                    JenisKelamin = x.JenisKelamin,
-                    Kelas = x.NamaKelas,
-                    Tahun = x.Tahun
+                    x.Nis,
+                    x.Persensi,
+                    x.Nama,
+                    x.JenisKelamin,
+                    x.NamaKelas,
+                    x.Tahun
                 }).ToList();
         }
 
@@ -552,15 +556,11 @@ namespace latihribbon
         private async void ButtonInputSIswa_Click(object sender, EventArgs e)
         {
             Loading loading = new Loading();
-            //var location = CenterForm.TemplateLocation(this,loading);
-            //loading.Location = new Point(location.centerX, location.centerY);
             loading.WindowState = FormWindowState.Maximized;
             await Task.Delay(500);
             
             FormKetentuanImport ketentuan = new FormKetentuanImport();
             if (ketentuan.ShowDialog(this) != DialogResult.OK) return;
-
-            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
 
             OpenFileDialog dialogOpen = new OpenFileDialog();
             dialogOpen.Filter = "File Excel |*.xls; *.xlsx";
@@ -675,7 +675,6 @@ namespace latihribbon
         {
             try
             {
-                ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
                 using (var package = new ExcelPackage())
                 {
                     var sheet_X = package.Workbook.Worksheets.Add("X");
@@ -728,7 +727,6 @@ namespace latihribbon
 
                                 sheetExcel.Row(barisAwal + barisIndek).Height = 21;
                             }
-
                             barisAwal += 37 + 6;
                         }
                     }

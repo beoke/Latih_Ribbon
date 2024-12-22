@@ -57,6 +57,7 @@ namespace latihribbon
         {
             this.delayTimer.Stop();
             FormIndex formIndex = new FormIndex(this);
+            formIndex.WindowState = FormWindowState.Maximized;
             formIndex.Show();
             this.Hide();
         }

@@ -20,6 +20,7 @@ namespace latihribbon
             PictureGif.Image = Properties.Resources.verify;
             PictureGif.SizeMode = PictureBoxSizeMode.StretchImage;
 
+            this.TransparencyKey = Color.Lime;
             this.ControlBox = false;
             this.MaximizeBox = false;
             this.MinimizeBox = false;

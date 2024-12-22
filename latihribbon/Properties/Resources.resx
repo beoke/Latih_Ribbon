@@ -121,9 +121,6 @@
   <data name="LeftArrowAbu1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LeftArrowAbu1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="LogOutIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\LogOutIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Enter" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Enter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -147,6 +144,9 @@
   </data>
   <data name="output" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\output.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="excel (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\excel (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="view (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\view (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -187,6 +187,9 @@
   <data name="Data Izin" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Data Izin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="TidakPuas_Warna" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TidakPuas_Warna.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="SURVEY TINGGI" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SURVEY TINGGI.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -199,14 +202,14 @@
   <data name="software-engineer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\software-engineer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="TidakPuas_Warna" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TidakPuas_Warna.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="LogOutIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LogOutIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Bintang_Full" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Bintang_Full.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Resi Logo Round 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Resi Logo Round 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="growth" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\growth.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="bin" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -214,10 +217,10 @@
   <data name="Resi Logo Round putih-hitam" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Resi Logo Round putih-hitam.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="growth" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\growth.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Resi Logo Round 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Resi Logo Round 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="excel (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\excel (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Add User" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Add User.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

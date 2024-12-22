@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace latihribbon
@@ -21,7 +14,6 @@ namespace latihribbon
             windowsKey = new WindowsKeyBlocker();
             this.mainForm = ff;
             this.FormBorderStyle = FormBorderStyle.None;
-            this.WindowState = FormWindowState.Maximized;
            // this.TopMost = true;
             this.ControlBox = true;
             ControlEvent();
@@ -57,12 +49,14 @@ namespace latihribbon
         {
             base.OnShown(e);
             windowsKey.StartBlocking(); // Mulai blokir tombol Windows
+            TaskbarHelper.HideTaskbar();
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             windowsKey.StopBlocking(); // Hentikan blokir tombol Windows
             base.OnFormClosing(e);
+            TaskbarHelper.ShowTaskbar();
         }
 
 
@@ -110,6 +104,7 @@ namespace latihribbon
         private void ButtonAdmin_Click(object sender, EventArgs e)
         {
             login log = new login(mainForm,this);
+            log.WindowState = FormWindowState.Maximized;
             log.Show();
             this.Opacity = 0;
         }
@@ -117,6 +112,7 @@ namespace latihribbon
         private void ButtonSurvey_Click(object sender, EventArgs e)
         {
             SurveyForm survey = new SurveyForm(mainForm, this);
+            survey.WindowState = FormWindowState.Maximized;
             survey.Show();
             this.Opacity = 0;
         }
@@ -124,6 +120,7 @@ namespace latihribbon
         private void ButtonSimResi_Click(object sender, EventArgs e)
         {
             Pemakai pakai = new Pemakai(mainForm,this);
+            pakai.WindowState = FormWindowState.Maximized;
             pakai.Show();
             this.Opacity = 0;
         }

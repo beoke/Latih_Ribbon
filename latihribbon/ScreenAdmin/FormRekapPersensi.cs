@@ -16,7 +16,6 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using LicenseContext = OfficeOpenXml.LicenseContext;
 
 namespace latihribbon.ScreenAdmin
 {
@@ -85,6 +84,7 @@ namespace latihribbon.ScreenAdmin
             //dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dataGridView1.ColumnHeadersHeight = 35;
             dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.Columns["NamaKelas"].HeaderText = "Nama Kelas";
 
             dataGridView1.Columns[0].Width = 60;
             dataGridView1.Columns[1].Width = 80;
