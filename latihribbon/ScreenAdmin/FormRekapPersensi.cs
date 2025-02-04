@@ -93,6 +93,9 @@ namespace latihribbon.ScreenAdmin
             dataGridView1.Columns[4].Width = 120;
             dataGridView1.Columns[5].Width = 150;
             dataGridView1.Columns[6].Width = 100;
+
+            /*dataGridView1.Columns[1].Frozen = true;
+            dataGridView1.Columns[0].Frozen = true;*/
         }
 
         public void LoadHistory()
