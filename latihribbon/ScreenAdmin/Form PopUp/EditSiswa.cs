@@ -128,6 +128,7 @@ namespace latihribbon
             rombelCombo.DisplayMember = "Rombel";
             rombelCombo.ValueMember = "Id";
         }
+        //Cek
                 
         private void BtnSave_FormSiswa_Click(object sender, EventArgs e)
         {
