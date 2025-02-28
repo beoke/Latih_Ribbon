@@ -38,11 +38,11 @@ namespace latihribbon.Dal
                 dp.Add("@Tanggal",absensi.Tanggal,System.Data.DbType.Date);
                 dp.Add("@Keterangan",absensi.Keterangan,System.Data.DbType.String);
 
-                 koneksi.Execute(sql,dp);
+                koneksi.Execute(sql,dp);
             }
         }
 
-        public IEnumerable<AbsensiModel> ListData(string sqlc, object dp)
+        public IEnumerable<AbsensiModel> ListData(string sqlc,string sqlcSorting, object dp)
         {
             using (var koneksi = new SQLiteConnection(Conn.conn.connstr()))
             {
@@ -51,7 +51,7 @@ namespace latihribbon.Dal
                                      INNER JOIN siswa s ON p.NIS=s.NIS
                                      INNER JOIN Kelas k ON s.IdKelas = k.Id 
                                      {sqlc} 
-                                     ORDER BY p.Tanggal DESC LIMIT @Fetch OFFSET @Offset";
+                                     ORDER BY {sqlcSorting} LIMIT @Fetch OFFSET @Offset";
                 return koneksi.Query<AbsensiModel>(sql, dp);
             }
         }

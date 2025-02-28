@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Media;
+using System.Globalization;
 
 
 namespace latihribbon
@@ -62,6 +63,9 @@ namespace latihribbon
             List<string> ketCombo = new List<string>() { "Semua","A","I","S"};
             KeteranganCombo.DataSource = ketCombo;
 
+            List<string> listSorting = new List<string>() { "Terbaru", "Terlama"};
+            comboSorting.DataSource = listSorting;
+
             comboPerPage.Items.Add(10);
             comboPerPage.Items.Add(20);
             comboPerPage.Items.Add(50);
@@ -69,6 +73,8 @@ namespace latihribbon
             comboPerPage.Items.Add(200);
             comboPerPage.SelectedIndex = 0;
             comboPerPage.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            autoClearCB.Checked = false;
         }
 
         private void InitGrid()
@@ -111,9 +117,11 @@ namespace latihribbon
             string keterangan = KeteranganCombo?.SelectedItem.ToString() ?? string.Empty;
             DateTime tgl1 = tglsatu.Value.Date;
             DateTime tgl2 = tgldua.Value.Date;
+            string sorting = comboSorting?.SelectedItem.ToString() ?? string.Empty;
 
             //Filter
             var sqlc = string.Empty;
+            var sqlcSorting = string.Empty;
             var dp = new DynamicParameters();
             List<string> fltr = new List<string>();
 
@@ -133,6 +141,13 @@ namespace latihribbon
                 dp.Add("@tgl2", tgl2);
                 fltr.Add("p.Tanggal BETWEEN @tgl1 AND @tgl2");
             }
+            if(sorting != string.Empty)
+            {
+                int index = comboSorting.SelectedIndex;
+                if (index == 0) sqlcSorting = "p.ID DESC";
+                if (index == 1) sqlcSorting = "p.ID ASC";
+                //if (index == 2) sqlcSorting = "p.Tanggal DESC, s.Persensi ASC";
+            }
             if (fltr.Count > 0)
                 sqlc += " WHERE " + string.Join(" AND ", fltr);
 
@@ -147,7 +162,7 @@ namespace latihribbon
             lblHalaman.Text = text;
             dp.Add("@Offset", inRowPage);
             dp.Add("@Fetch", RowPerPage);
-            dataGridView1.DataSource = absensiDal.ListData(sqlc, dp)
+            dataGridView1.DataSource = absensiDal.ListData(sqlc, sqlcSorting, dp)
                 .Select((x,index) => new
                 {
                     x.Id,
@@ -220,7 +235,8 @@ namespace latihribbon
             if (new MesQuestionYN("Input Data?").ShowDialog() != DialogResult.Yes) return;
             absensiDal.Insert(masuk);
             LoadData();
-            ClearInput();
+            if (autoClearCB.Checked)
+                ClearInput();
         }
 
         private void CekNis()
@@ -270,6 +286,7 @@ namespace latihribbon
             txtNIS1.TextChanged += txtNIS1_TextChanged;
 
             comboPerPage.SelectedIndexChanged += filter_TextChanged;
+            comboSorting.SelectedIndexChanged += (s,e) => LoadData();
         }
 
         private void LblFilter_Click(object sender, EventArgs e)
