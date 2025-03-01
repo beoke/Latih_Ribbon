@@ -22,6 +22,7 @@ namespace latihribbon
         private readonly KeluarDal keluarDal;
         private CultureInfo _culture;
         private int _infoExport;
+
         public ExportSuratIzin(int infoExport)
         {
             InitializeComponent();
@@ -211,12 +212,19 @@ namespace latihribbon
                         worksheet.Row(row).Height = 21;
                         worksheet.Cells[row, 1, row, 2].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
                     }
-                    
+
+                    // Ambil default name dan tanggal
+                    string SuratizinKeluar = "Rekap Siswa Izin Keluar ";
+                    string tanggalAwal = tgl1DT.Value.ToString("yyyy-MM-dd");
+                    string tanggalAkhir = tgl2DT.Value.ToString("yyyy-MM-dd");
+
                     // Menyimpan file
                     SaveFileDialog saveFileDialog = new SaveFileDialog
                     {
                         Filter = "Excel files (*.xlsx)|*.xlsx",
-                        Title = "Save Excel File"
+                        Title = "Save Excel File",
+                        FileName = $"{SuratizinKeluar} {tanggalAwal} sampai {tanggalAkhir}.xlsx"
+
                     };
                     loading.Close();
                     await Task.Delay(300);
@@ -402,12 +410,18 @@ namespace latihribbon
                         worksheet.Row(row).Height = 21;
                         worksheet.Cells[row, 1, row, 2].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
                     }
+                       
+                    // Ambil default name dan tanggal
+                    string SuratTerlambat = "Rekap Terlambat Siswa ";
+                    string tanggalAwal = tgl1DT.Value.ToString("yyyy-MM-dd");
+                    string tanggalAkhir = tgl2DT.Value.ToString("yyyy-MM-dd");
 
                     // Menyimpan file
                     SaveFileDialog saveFileDialog = new SaveFileDialog
                     {
                         Filter = "Excel files (*.xlsx)|*.xlsx",
-                        Title = "Save Excel File"
+                        Title = "Save Excel File",
+                        FileName = $"{SuratTerlambat} {tanggalAwal} sampai {tanggalAkhir}.xlsx"
                     };
                     loading.Close();
                     await Task.Delay(300);

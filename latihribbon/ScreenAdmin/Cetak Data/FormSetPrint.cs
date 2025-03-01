@@ -243,10 +243,19 @@ namespace latihribbon
                             currentRowTop = currentRow + 4;
                         }
                     }
+                    // Ambil kelas dan tanggal
+                    string namaKelas = ListBoxKelas.SelectedItem?.ToString() ?? "DefaultKelas";
+                    string tanggalAwal = tgl1DT.Value.ToString("yyyy-MM-dd"); 
+                    string tanggalAkhir = tgl2DT.Value.ToString("yyyy-MM-dd");
+
+                    string namaFile = $"{namaKelas} {tanggalAwal} sampai {tanggalAkhir}.xlsx";
+
                     SaveFileDialog saveFileDialog = new SaveFileDialog
                     {
                         Filter = "Excel files (*.xlsx)|*.xlsx",
-                        Title = "Save Excel File"
+                        Title = "Save Excel File",
+                        FileName = namaFile,
+                        
                     };
                     loading.Close();
                     await Task.Delay(300);
