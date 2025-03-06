@@ -128,7 +128,7 @@ namespace latihribbon
             if (search != "")
             {
                 dp.Add("@Search", search);
-                fltr.Add("(p.NIS LIKE @Search||'%' OR s.Nama LIKE '%'||@Search||'%' OR s.Persensi LIKE @Search||'%' OR k.NamaKelas LIKE @Search||'%')");
+                fltr.Add("(p.NIS LIKE @Search||'%' OR s.Nama LIKE '%'||@Search||'%' OR s.Persensi LIKE @Search||'%' OR k.NamaKelas LIKE '%'||@Search||'%')");
             }
             if(keterangan != "Semua")
             {

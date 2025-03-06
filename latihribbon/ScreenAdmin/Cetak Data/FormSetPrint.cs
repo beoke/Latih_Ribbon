@@ -245,8 +245,8 @@ namespace latihribbon
                     }
                     // Ambil kelas dan tanggal
                     string namaKelas = ListBoxKelas.SelectedItem?.ToString() ?? "DefaultKelas";
-                    string tanggalAwal = tgl1DT.Value.ToString("yyyy-MM-dd"); 
-                    string tanggalAkhir = tgl2DT.Value.ToString("yyyy-MM-dd");
+                    string tanggalAwal = tgl1DT.Value.ToString("dd-MM-yyyy"); 
+                    string tanggalAkhir = tgl2DT.Value.ToString("dd-MM-yyyy");
 
                     string namaFile = $"{namaKelas} {tanggalAwal} sampai {tanggalAkhir}.xlsx";
 

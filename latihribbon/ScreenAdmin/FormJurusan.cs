@@ -49,11 +49,13 @@ namespace latihribbon.ScreenAdmin
             {
                 IdJurusan = x.Id,
                 No = index+1,
-                NamaJurusan = x.NamaJurusan
+                NamaJurusan = x.NamaJurusan,
+                Kode = x.Kode
             }).ToList();
 
             GridListJurusan.Columns[0].Visible = false;
             GridListJurusan.Columns[1].Width = 60;
+            GridListJurusan.Columns[2].Width = 150;
             GridListJurusan.Columns[2].Width = 200;
             GridListJurusan.Columns["NamaJurusan"].HeaderText = "Nama Jurusan";
 
@@ -78,8 +80,8 @@ namespace latihribbon.ScreenAdmin
 
         private void DeleteMenuStrip_Click(object sender, EventArgs e)
         {
-            var jurusanName = GridListJurusan.CurrentRow.Cells["NamaJurusan"].Value;
-            if (new MesWarningYN($"Anda yakin ingin menghapus data \"{jurusanName}\" ? \n Jika Dihapus, maka data yang terhubung akan ikut Terhapus", 2).ShowDialog() != DialogResult.Yes) return;
+            var jurusanKode = GridListJurusan.CurrentRow.Cells["Kode"].Value;
+            if (new MesWarningYN($"Anda yakin ingin menghapus data \"{jurusanKode}\" ? \n Jika Dihapus, maka data yang terhubung akan ikut Terhapus", 2).ShowDialog() != DialogResult.Yes) return;
 
             var id = GridListJurusan.CurrentRow.Cells[0].Value;
 
@@ -90,8 +92,8 @@ namespace latihribbon.ScreenAdmin
         private void EditMenuStrip_Click(object sender, EventArgs e)
         {
             int jurusanId = Convert.ToInt32(GridListJurusan.CurrentRow.Cells[0].Value);
-            string namaJurusan = GridListJurusan.CurrentRow.Cells["NamaJurusan"].Value?.ToString() ?? string.Empty;
-            if (new EditJurusan(jurusanId,namaJurusan).ShowDialog() == DialogResult.Yes)
+            string kodeJurusan = GridListJurusan.CurrentRow.Cells["Kode"].Value?.ToString() ?? string.Empty;
+            if (new EditJurusan(jurusanId,kodeJurusan).ShowDialog() == DialogResult.Yes)
                 LoadData();
         }
 
@@ -114,18 +116,19 @@ namespace latihribbon.ScreenAdmin
         private void SaveData()
         {
             var namaJurusan = txtNamaJurusan.Text.Trim();
-            if(namaJurusan == string.Empty)
+            var kode = txtKode.Text.Trim();
+            if(kode == string.Empty || namaJurusan == string.Empty)
             {
-                new MesWarningOK("Nama Jurusan Wajib Diisi!").ShowDialog();
+                new MesWarningOK("Seluruh data wajib di isi!").ShowDialog();
                 return;
             }
-            if(_jurusanDal.GetIdJurusan(namaJurusan) != 0)
+            if(_jurusanDal.GetIdJurusan(kode, namaJurusan) != 0)
             {
                 new MesError($"Jurusan {namaJurusan} Sudah Tersedia.").ShowDialog(this);
                 return;
             }
             if (new MesQuestionYN("Input Data?").ShowDialog() != DialogResult.Yes) return;
-            _jurusanDal.Insert(namaJurusan);
+            _jurusanDal.Insert(kode , namaJurusan);
             LoadData();
             Cleardata();
         }

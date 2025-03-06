@@ -54,7 +54,7 @@ namespace latihribbon
             var dataKelas = kelasDal.listKelas("WHERE k.idJurusan=@idJurusan", new { idJurusan = jurusan.Id });
             foreach (var x in dataKelas)
             {
-                string namaKelas = $"{x.Tingkat} {x.NamaJurusan} {x.Rombel}".Trim();
+                string namaKelas = $"{x.Tingkat} {x.Kode} {x.Rombel}".Trim();
                 kelasDal.UpdateNamaKelas(x.Id, namaKelas);
             }
             this.DialogResult = DialogResult.Yes;

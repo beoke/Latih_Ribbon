@@ -40,6 +40,8 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.EditMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.DeleteMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtKode = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridListJurusan)).BeginInit();
             this.panel4.SuspendLayout();
@@ -54,10 +56,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.BackColor = System.Drawing.Color.Silver;
             this.panel3.Controls.Add(this.GridListJurusan);
-            this.panel3.Location = new System.Drawing.Point(12, 12);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Location = new System.Drawing.Point(16, 15);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(215, 358);
+            this.panel3.Size = new System.Drawing.Size(287, 441);
             this.panel3.TabIndex = 0;
             // 
             // GridListJurusan
@@ -67,10 +69,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.GridListJurusan.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.GridListJurusan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GridListJurusan.Location = new System.Drawing.Point(5, 5);
+            this.GridListJurusan.Location = new System.Drawing.Point(7, 6);
+            this.GridListJurusan.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.GridListJurusan.Name = "GridListJurusan";
             this.GridListJurusan.RowHeadersWidth = 51;
-            this.GridListJurusan.Size = new System.Drawing.Size(205, 347);
+            this.GridListJurusan.Size = new System.Drawing.Size(273, 427);
             this.GridListJurusan.TabIndex = 0;
             // 
             // panel4
@@ -80,10 +83,10 @@
             this.panel4.BackColor = System.Drawing.Color.Silver;
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.panel2);
-            this.panel4.Location = new System.Drawing.Point(235, 12);
-            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel4.Location = new System.Drawing.Point(313, 15);
+            this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(341, 357);
+            this.panel4.Size = new System.Drawing.Size(454, 439);
             this.panel4.TabIndex = 1;
             // 
             // panel2
@@ -92,21 +95,24 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.LightGray;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.txtKode);
+            this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.LabelJurusan);
             this.panel2.Controls.Add(this.btnSaveJurusan);
             this.panel2.Controls.Add(this.txtNamaJurusan);
             this.panel2.Controls.Add(this.label7);
-            this.panel2.Location = new System.Drawing.Point(4, 4);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Location = new System.Drawing.Point(5, 5);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(331, 347);
+            this.panel2.Size = new System.Drawing.Size(441, 427);
             this.panel2.TabIndex = 4;
             // 
             // LabelJurusan
             // 
             this.LabelJurusan.AutoSize = true;
             this.LabelJurusan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelJurusan.Location = new System.Drawing.Point(127, 20);
+            this.LabelJurusan.Location = new System.Drawing.Point(169, 25);
+            this.LabelJurusan.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LabelJurusan.Name = "LabelJurusan";
             this.LabelJurusan.Size = new System.Drawing.Size(74, 20);
             this.LabelJurusan.TabIndex = 62;
@@ -118,10 +124,10 @@
             this.btnSaveJurusan.BackColor = System.Drawing.Color.LimeGreen;
             this.btnSaveJurusan.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSaveJurusan.ForeColor = System.Drawing.Color.White;
-            this.btnSaveJurusan.Location = new System.Drawing.Point(218, 291);
-            this.btnSaveJurusan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSaveJurusan.Location = new System.Drawing.Point(291, 358);
+            this.btnSaveJurusan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSaveJurusan.Name = "btnSaveJurusan";
-            this.btnSaveJurusan.Size = new System.Drawing.Size(90, 32);
+            this.btnSaveJurusan.Size = new System.Drawing.Size(120, 39);
             this.btnSaveJurusan.TabIndex = 2;
             this.btnSaveJurusan.Text = "Save";
             this.btnSaveJurusan.UseVisualStyleBackColor = false;
@@ -130,19 +136,18 @@
             // 
             this.txtNamaJurusan.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNamaJurusan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNamaJurusan.Location = new System.Drawing.Point(20, 80);
-            this.txtNamaJurusan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNamaJurusan.Location = new System.Drawing.Point(27, 98);
+            this.txtNamaJurusan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtNamaJurusan.MaxLength = 10;
             this.txtNamaJurusan.Name = "txtNamaJurusan";
-            this.txtNamaJurusan.Size = new System.Drawing.Size(290, 23);
+            this.txtNamaJurusan.Size = new System.Drawing.Size(386, 23);
             this.txtNamaJurusan.TabIndex = 1;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(23, 60);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Location = new System.Drawing.Point(31, 74);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(105, 18);
             this.label7.TabIndex = 59;
@@ -174,14 +179,35 @@
             this.DeleteMenuStrip.Size = new System.Drawing.Size(126, 26);
             this.DeleteMenuStrip.Text = "Delete";
             // 
+            // txtKode
+            // 
+            this.txtKode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtKode.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtKode.Location = new System.Drawing.Point(27, 159);
+            this.txtKode.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtKode.MaxLength = 6;
+            this.txtKode.Name = "txtKode";
+            this.txtKode.Size = new System.Drawing.Size(131, 23);
+            this.txtKode.TabIndex = 63;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(31, 135);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(43, 18);
+            this.label1.TabIndex = 64;
+            this.label1.Text = "Kode";
+            // 
             // FormJurusan
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(587, 379);
+            this.ClientSize = new System.Drawing.Size(783, 466);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel4);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormJurusan";
             this.Text = "FormJurusan";
             this.panel3.ResumeLayout(false);
@@ -207,5 +233,7 @@
         private System.Windows.Forms.Button btnSaveJurusan;
         private System.Windows.Forms.TextBox txtNamaJurusan;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtKode;
+        private System.Windows.Forms.Label label1;
     }
 }

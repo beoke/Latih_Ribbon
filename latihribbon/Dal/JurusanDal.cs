@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using DocumentFormat.OpenXml.EMMA;
 using latihribbon.Conn;
 using latihribbon.Model;
 using System.Collections.Generic;
@@ -17,18 +18,19 @@ namespace latihribbon.Dal
             }
         }
 
-        public void Insert(string namaJurusan)
+        public void Insert(string kode, string namaJurusan)
         {
             using (var Conn = new SQLiteConnection(conn.connstr()))
             {
                 const string sql = @"
                     INSERT INTO Jurusan
-                        (NamaJurusan)
+                        (NamaJurusan,Kode)
                     VALUES
-                        (@NamaJurusan)";
+                        (@NamaJurusan,@Kode)";
 
                 var Dp = new DynamicParameters();
                 Dp.Add("@NamaJurusan", namaJurusan, System.Data.DbType.String);
+                Dp.Add("@Kode", kode, System.Data.DbType.String);
 
                 Conn.Execute(sql, Dp);
             }
@@ -41,13 +43,14 @@ namespace latihribbon.Dal
                 const string sql = @"
             UPDATE Jurusan
             SET
-                NamaJurusan = @NamaJurusan
+                NamaJurusan = @NamaJurusan, Kode = @Kode
             WHERE
                 Id = @Id";
 
                 var Dp = new DynamicParameters();
                 Dp.Add("@Id", jurusan.Id, System.Data.DbType.Int32);
                 Dp.Add("@NamaJurusan", jurusan.NamaJurusan, System.Data.DbType.String);
+                Dp.Add("@Kode", jurusan.Kode, System.Data.DbType.String);
                 Conn.Execute(sql, Dp);
             }
         }
@@ -66,12 +69,12 @@ namespace latihribbon.Dal
             }
         }
 
-        public int GetIdJurusan(string NamaJurusan)
+        public int GetIdJurusan(string Kode,string namaJurusan)
         {
             using (var koneksi = new SQLiteConnection(conn.connstr()))
             {
-                const string sql = @"SELECT Id FROM Jurusan WHERE NamaJurusan = @NamaJurusan";
-                return koneksi.QueryFirstOrDefault<int>(sql, new { NamaJurusan = NamaJurusan });
+                const string sql = @"SELECT Id FROM Jurusan WHERE Kode = @Kode OR namaJurusan = @namaJurusan";
+                return koneksi.QueryFirstOrDefault<int>(sql, new { Kode = Kode ,namaJurusan = namaJurusan});
             }
         }
     }

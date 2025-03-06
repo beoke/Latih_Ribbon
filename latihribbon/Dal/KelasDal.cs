@@ -12,7 +12,7 @@ namespace latihribbon.Dal
         {
             using (var koneksi = new SQLiteConnection(Conn.conn.connstr()))
             {
-                string sql = $@"SELECT k.Id,k.NamaKelas,k.Rombel,k.IdJurusan,k.Tingkat,j.NamaJurusan FROM Kelas k
+                string sql = $@"SELECT k.Id,k.NamaKelas,k.Rombel,k.IdJurusan,k.Tingkat,j.Kode FROM Kelas k
                                 INNER JOIN Jurusan j ON k.IdJurusan=j.Id  {sqlc}
                                 ORDER BY CASE 
                                         WHEN k.Tingkat = '' THEN 1
@@ -74,7 +74,7 @@ namespace latihribbon.Dal
             using (var koneksi = new SQLiteConnection(Conn.conn.connstr()))
             {
                 const string sql = @"SELECT k.Id,k.NamaKelas,k.Rombel,k.IdJurusan,
-                                        k.Tingkat,j.NamaJurusan 
+                                        k.Tingkat,j.Kode 
                                     FROM Kelas k INNER JOIN Jurusan j ON k.IdJurusan = j.Id
                                     WHERE k.Id=@Id";
                 return koneksi.QueryFirstOrDefault<KelasModel>(sql, new {Id=Id});

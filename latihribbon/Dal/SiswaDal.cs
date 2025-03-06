@@ -22,7 +22,7 @@ namespace latihribbon.Dal
                                         WHEN k.NamaKelas LIKE 'XII %' THEN 3
                                         ELSE 4
                                     END,
-                                    j.NamaJurusan ASC,
+                                    j.Kode ASC,
                                     s.IdKelas ASC, s.Persensi ASC
                                     LIMIT @Fetch OFFSET @Offset";
                     return koneksi.Query<SiswaModel>(sql, dp);

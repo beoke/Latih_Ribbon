@@ -21,7 +21,7 @@ namespace latihribbon
                             WHEN k.Tingkat = 'XI' THEN 2
                             WHEN k.Tingkat = 'XII' THEN 3
                             ELSE 4
-                        END,j.NamaJurusan ASC,k.Rombel ASC";
+                        END,j.Kode ASC,k.Rombel ASC";
 
                 return Conn.Query<KelasModel>(sql);
             }

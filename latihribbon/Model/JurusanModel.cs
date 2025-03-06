@@ -10,6 +10,7 @@ namespace latihribbon.Model
     {
         public int Id { get; set; }
         public string NamaJurusan {  get; set; }
+        public string Kode {  get; set; }
     }
 }
  

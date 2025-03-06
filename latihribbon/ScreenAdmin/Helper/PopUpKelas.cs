@@ -39,7 +39,13 @@ namespace latihribbon
         private  void InitComponent()
         {
             var listJurusan = _jurusanDal.ListData();
-            ComboJurusanPopUp.DataSource = listJurusan;
+            ComboJurusanPopUp.DataSource = listJurusan
+                .Select(x => new JurusanModel
+                {
+                    Id = x.Id,
+                    NamaJurusan = $"{x.Kode} - {x.NamaJurusan}",
+                    Kode = x.Kode
+                }).ToList();
             ComboJurusanPopUp.DisplayMember = "NamaJurusan";
         }
 
@@ -50,16 +56,16 @@ namespace latihribbon
             if (kelas.Length < 2) return;
   
             string tingkat = kelas[0];
-            string jurusan = kelas[1];
+            string kode = kelas[1];
             string rombel = kelas.Length > 2 ? kelas[2] : string.Empty;
             SetRombel();
             if (tingkat == "X") Radio_X.Checked = true;
             if (tingkat == "XI") Radio_XI.Checked = true;
             if (tingkat == "XII") Radio_XII.Checked = true;
-
+            
             foreach (var item in ComboJurusanPopUp.Items)
                 if (item is JurusanModel j)
-                    if (j.NamaJurusan == jurusan)
+                    if (j.Kode == kode)
                         ComboJurusanPopUp.SelectedItem = j;
             if (rombel == string.Empty) return;
             comboRombel.SelectedItem = rombel;
@@ -85,11 +91,11 @@ namespace latihribbon
         private void SetHasil()
         {
             string tingkat = Radio_XII.Checked ? "XII" : Radio_XI.Checked ? "XI" : Radio_X.Checked ?"X":string.Empty;
-            string jurusan = ((JurusanModel)ComboJurusanPopUp.SelectedItem)?.NamaJurusan ?? string.Empty;
-            if (jurusan == string.Empty) return;
+            string kode = ((JurusanModel)ComboJurusanPopUp.SelectedItem)?.Kode ?? string.Empty;
+            if (kode == string.Empty) return;
             string rombel = comboRombel.Items.Count <= 0 ? "" : " "+comboRombel.SelectedItem;
-            if (tingkat == string.Empty || jurusan == string.Empty) return;
-            string NamaKelas = $"{tingkat} {jurusan}{rombel}";
+            if (tingkat == string.Empty || kode == string.Empty) return;
+            string NamaKelas = $"{tingkat} {kode}{rombel}";
             txtHasil.Text = NamaKelas.Trim();
         }
 

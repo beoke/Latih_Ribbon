@@ -1,4 +1,5 @@
-﻿using DocumentFormat.OpenXml.Wordprocessing;
+﻿using DocumentFormat.OpenXml.Office2010.Excel;
+using DocumentFormat.OpenXml.Wordprocessing;
 using latihribbon.Dal;
 using latihribbon.Model;
 using System;
@@ -113,7 +114,12 @@ namespace latihribbon.ScreenAdmin
         {
             var listJurusan = jurusanDal.ListData();
             if (!listJurusan.Any()) return;
-            jurusanCombo.DataSource = listJurusan;
+            jurusanCombo.DataSource = listJurusan
+                .Select(x => new
+                {
+                    Id = x.Id,
+                    NamaJurusan = $"{x.Kode} - {x.NamaJurusan}"
+                }).ToList();
             jurusanCombo.DisplayMember = "NamaJurusan";
             jurusanCombo.ValueMember = "Id";
             XRadio.Checked = true;

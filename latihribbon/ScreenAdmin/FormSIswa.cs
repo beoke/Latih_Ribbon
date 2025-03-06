@@ -107,7 +107,13 @@ namespace latihribbon
             // Jurusan Combo
             var jurusan = jurusanDal.ListData();
             if (!jurusan.Any()) return;
-            jurusanCombo.DataSource = jurusan;
+            jurusanCombo.DataSource = jurusan
+                .Select(x => new JurusanModel
+                {
+                    Id = x.Id,
+                    Kode = x.Kode,
+                    NamaJurusan = $"{x.Kode} - {x.NamaJurusan}"
+                }).ToList(); ;
             jurusanCombo.DisplayMember = "NamaJurusan";
             jurusanCombo.ValueMember = "Id";
             
@@ -417,7 +423,7 @@ namespace latihribbon
                 var kelas = new KelasModel()
                 {
                     Id = x.Id,
-                    NamaKelas = $"{tingkat} {x.NamaJurusan} {x.Rombel}".Trim(),
+                    NamaKelas = $"{tingkat} {x.Kode} {x.Rombel}".Trim(),
                     Tingkat = tingkat,
                     IdJurusan = x.IdJurusan,
                     Rombel = x.Rombel,
@@ -448,13 +454,13 @@ namespace latihribbon
 
         private void EditMenuStrip_Click(object sender, EventArgs e)
         {
-            string kelas = dataGridView1.CurrentRow.Cells[5].Value?.ToString() ?? string.Empty;
+/*            string kelas = dataGridView1.CurrentRow.Cells[5].Value?.ToString() ?? string.Empty;
             string[] kelasArr = kelas.Split(' ');
             if (kelasArr[0] == "LULUS")
             {
                 new MesError("Data siswa LULUS tidak dapat di edit!").ShowDialog(this);
                 return;
-            };
+            };*/
 
             int Nis = Convert.ToInt32(dataGridView1.CurrentRow.Cells[1].Value);
             if (new EditSiswa(Nis).ShowDialog() == DialogResult.Yes)

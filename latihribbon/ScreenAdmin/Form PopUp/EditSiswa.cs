@@ -36,7 +36,13 @@ namespace latihribbon
             RegisterEvent();
 
             var jurusan = _jurusanDal.ListData();
-            jurusanCombo.DataSource = jurusan;
+            jurusanCombo.DataSource = jurusan
+                .Select(x => new JurusanModel
+                {
+                    Id = x.Id,
+                    NamaJurusan = $"{x.Kode} - {x.NamaJurusan}",
+                    Kode = x.Kode
+                }).ToList();
             jurusanCombo.DisplayMember = "NamaJurusan";
             jurusanCombo.ValueMember = "Id";
             jurusanCombo.KeyPress += (s, e) => e.Handled = true; // versi singkat event
@@ -120,8 +126,8 @@ namespace latihribbon
 
             foreach (var item in jurusanCombo.Items)
                 if (item is JurusanModel jurusan)
-                    if (jurusan.NamaJurusan == NamaKelas[1])
-                        jurusanCombo.SelectedItem = jurusan;
+                    if (jurusan.Kode == NamaKelas[1])
+                        jurusanCombo.SelectedItem = item;
 
             
             rombelCombo.DataSource = _kelasDal.GetDataRombel((int)jurusanCombo.SelectedValue, NamaKelas[0]);
@@ -145,8 +151,8 @@ namespace latihribbon
             if (XRadio.Checked == true) Tingkat = "X";
             if (XIRadio.Checked == true) Tingkat = "XI";
             if (XIIRadio.Checked == true) Tingkat = "XII";
-
-            string NamaKelas = $"{Tingkat} {jurusanCombo.Text} {rombelCombo.Text}".Trim();
+            string kodeJurusan = ((JurusanModel)jurusanCombo.SelectedItem)?.Kode ?? string.Empty;
+            string NamaKelas = $"{Tingkat} {kodeJurusan} {rombelCombo.Text}".Trim();
 
             int IdKelas = Convert.ToInt32(_kelasDal.GetIdKelas(NamaKelas));
 
