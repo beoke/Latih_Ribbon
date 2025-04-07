@@ -50,6 +50,7 @@
             this.GridListSurvey = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.DeleteMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnExportData = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -71,6 +72,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel2.Controls.Add(this.btnExportData);
             this.panel2.Controls.Add(this.ComboFilter);
             this.panel2.Controls.Add(this.ButtonResetFilter);
             this.panel2.Controls.Add(this.label5);
@@ -327,6 +329,19 @@
             this.DeleteMenuStrip.Size = new System.Drawing.Size(126, 26);
             this.DeleteMenuStrip.Text = "Delete";
             // 
+            // btnExportData
+            // 
+            this.btnExportData.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExportData.BackgroundImage = global::latihribbon.Properties.Resources.excel__1_;
+            this.btnExportData.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnExportData.FlatAppearance.BorderSize = 2;
+            this.btnExportData.Location = new System.Drawing.Point(835, 7);
+            this.btnExportData.Margin = new System.Windows.Forms.Padding(2);
+            this.btnExportData.Name = "btnExportData";
+            this.btnExportData.Size = new System.Drawing.Size(50, 47);
+            this.btnExportData.TabIndex = 53;
+            this.btnExportData.UseVisualStyleBackColor = true;
+            // 
             // FormDataSurvey
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -369,5 +384,6 @@
         private System.Windows.Forms.ToolStripMenuItem DeleteMenuStrip;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.ComboBox comboPerPage;
+        private System.Windows.Forms.Button btnExportData;
     }
 }

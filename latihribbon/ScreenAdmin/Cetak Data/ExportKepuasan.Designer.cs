@@ -1,6 +1,6 @@
 ﻿namespace latihribbon
 {
-    partial class ExportSuratIzin
+    partial class ExportKepuasan
     {
         /// <summary>
         /// Required designer variable.
@@ -28,11 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExportSuratIzin));
             this.label2 = new System.Windows.Forms.Label();
             this.tgl2DT = new System.Windows.Forms.DateTimePicker();
             this.tgl1DT = new System.Windows.Forms.DateTimePicker();
-            this.ButtonAturPrint = new System.Windows.Forms.Button();
+            this.btnExport = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -67,19 +66,19 @@
             this.tgl1DT.Size = new System.Drawing.Size(194, 21);
             this.tgl1DT.TabIndex = 11;
             // 
-            // ButtonAturPrint
+            // btnExport
             // 
-            this.ButtonAturPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ButtonAturPrint.BackColor = System.Drawing.Color.Gray;
-            this.ButtonAturPrint.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonAturPrint.ForeColor = System.Drawing.Color.White;
-            this.ButtonAturPrint.Location = new System.Drawing.Point(98, 227);
-            this.ButtonAturPrint.Margin = new System.Windows.Forms.Padding(2);
-            this.ButtonAturPrint.Name = "ButtonAturPrint";
-            this.ButtonAturPrint.Size = new System.Drawing.Size(90, 32);
-            this.ButtonAturPrint.TabIndex = 9;
-            this.ButtonAturPrint.Text = "Export";
-            this.ButtonAturPrint.UseVisualStyleBackColor = false;
+            this.btnExport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnExport.BackColor = System.Drawing.Color.Gray;
+            this.btnExport.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExport.ForeColor = System.Drawing.Color.White;
+            this.btnExport.Location = new System.Drawing.Point(98, 227);
+            this.btnExport.Margin = new System.Windows.Forms.Padding(2);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(90, 32);
+            this.btnExport.TabIndex = 9;
+            this.btnExport.Text = "Export";
+            this.btnExport.UseVisualStyleBackColor = false;
             // 
             // panel1
             // 
@@ -120,16 +119,15 @@
             this.label3.TabIndex = 9;
             this.label3.Text = "Export Data";
             // 
-            // ExportSuratIzin
+            // ExportKepuasan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(287, 283);
             this.Controls.Add(this.tgl1DT);
-            this.Controls.Add(this.ButtonAturPrint);
+            this.Controls.Add(this.btnExport);
             this.Controls.Add(this.panel1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "ExportSuratIzin";
+            this.Name = "ExportKepuasan";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -142,7 +140,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker tgl2DT;
         private System.Windows.Forms.DateTimePicker tgl1DT;
-        private System.Windows.Forms.Button ButtonAturPrint;
+        private System.Windows.Forms.Button btnExport;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;

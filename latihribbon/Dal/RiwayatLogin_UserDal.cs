@@ -110,7 +110,7 @@ namespace latihribbon
         {
             using (var Conn = new SQLiteConnection(conn.connstr()))
             {
-                const string sql = @"SELECT id, username, password FROM Users WHERE Role = 'admin' ORDER BY id ASC";
+                const string sql = @"SELECT id, username, Role FROM Users ORDER BY id ASC";
 
                 return Conn.Query<UserModel>(sql);
             }
@@ -140,6 +140,15 @@ namespace latihribbon
             {
                 const string sql = @"UPDATE RiwayatLogin SET UserLogin = @UserLogin WHERE UserLogin = @userLama";
                 koneksi.Execute(sql, new {UserLogin=UserLogin, userLama=userLama});
+            }
+        }
+
+        public bool ExistUsername(string username)
+        {
+            using (var koneksi = new SQLiteConnection(conn.connstr()))
+            {
+                const string sql = @"SELECT 1 FROM Users WHERE username = @username";
+                return koneksi.QuerySingleOrDefault<bool>(sql, new {username});
             }
         }
     }

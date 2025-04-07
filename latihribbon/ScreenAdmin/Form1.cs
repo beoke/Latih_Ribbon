@@ -18,7 +18,6 @@ namespace latihribbon
     {
         private Form mainForm;
         private Form indexForm;
-
         public Form1(Form mainForm, Form indexForm)
         {
             InitializeComponent();
@@ -27,6 +26,8 @@ namespace latihribbon
             this.WindowState = FormWindowState.Maximized;
 
             this.MinimumSize = new Size(1300, 700);
+
+            //ribbonPanel14.Visible = false;
         }
         private void ShowFormInPanel(Form form)
         {

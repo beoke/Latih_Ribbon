@@ -60,6 +60,9 @@
             this.GridListRiwayatLogin = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.DeleteMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.label3 = new System.Windows.Forms.Label();
+            this.radioAdmin = new System.Windows.Forms.RadioButton();
+            this.radioSuperAdmin = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridListUser)).BeginInit();
             this.panel4.SuspendLayout();
@@ -241,6 +244,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel5.BackColor = System.Drawing.Color.Gainsboro;
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel5.Controls.Add(this.radioSuperAdmin);
+            this.panel5.Controls.Add(this.radioAdmin);
+            this.panel5.Controls.Add(this.label3);
             this.panel5.Controls.Add(this.ButtonSaveUser);
             this.panel5.Controls.Add(this.LabelAddUser);
             this.panel5.Controls.Add(this.TextPassword);
@@ -472,6 +478,40 @@
             this.DeleteMenuStrip.Size = new System.Drawing.Size(126, 26);
             this.DeleteMenuStrip.Text = "Delete";
             // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(34, 181);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(51, 22);
+            this.label3.TabIndex = 73;
+            this.label3.Text = "Role";
+            // 
+            // radioAdmin
+            // 
+            this.radioAdmin.AutoSize = true;
+            this.radioAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
+            this.radioAdmin.Location = new System.Drawing.Point(44, 206);
+            this.radioAdmin.Name = "radioAdmin";
+            this.radioAdmin.Size = new System.Drawing.Size(65, 21);
+            this.radioAdmin.TabIndex = 74;
+            this.radioAdmin.TabStop = true;
+            this.radioAdmin.Text = "Admin";
+            this.radioAdmin.UseVisualStyleBackColor = true;
+            // 
+            // radioSuperAdmin
+            // 
+            this.radioSuperAdmin.AutoSize = true;
+            this.radioSuperAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
+            this.radioSuperAdmin.Location = new System.Drawing.Point(126, 206);
+            this.radioSuperAdmin.Name = "radioSuperAdmin";
+            this.radioSuperAdmin.Size = new System.Drawing.Size(107, 21);
+            this.radioSuperAdmin.TabIndex = 75;
+            this.radioSuperAdmin.TabStop = true;
+            this.radioSuperAdmin.Text = "Super Admin";
+            this.radioSuperAdmin.UseVisualStyleBackColor = true;
+            // 
             // FormUser_RiwayatLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -536,5 +576,8 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.ComboBox comboPerPage;
         private System.Windows.Forms.Panel panelPage;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.RadioButton radioSuperAdmin;
+        private System.Windows.Forms.RadioButton radioAdmin;
     }
 }

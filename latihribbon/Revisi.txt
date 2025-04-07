@@ -3,10 +3,10 @@
 - Siswa yang sudah lulus = tetap bisa diedit ✅
 - Form Absen ( pencarian filter kurang universal (kelas ) ) ✅
 - Eksport rekap ( penamaan file excel dengan format Kelas/tanggal ) ✅
-- Edit bagian header export excel ( tanggal ) + total keterangan izin
-- Penambahan Role ( Super admin - Admin ) , Super admin bisa menambahkan data user login dan juga user-SuperAdmin
+- Edit bagian header export excel ( tanggal ) + total keterangan izin Rekap Absensi ✅
+- Penambahan Role ( Super admin - Admin ) , Super admin bisa menambahkan data user login dan juga user-SuperAdmin ✅
 - Tambahkan fitur filter eksport terlambat, keluar 
-- Gambahkan fitur surat izin keluar untuk siswa yang tidak kembali ke sekolah lagi 
+- Tambahkan fitur surat izin keluar untuk siswa yang tidak kembali ke sekolah lagi 
 - Tambah fitur eksport pada tabel kepuasan pelanggan 
 - untuk eksport data terlambat ditambah i Jam 
 - Dikasih Copyright

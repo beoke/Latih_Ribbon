@@ -1,5 +1,6 @@
 ﻿using DocumentFormat.OpenXml.Bibliography;
 using DocumentFormat.OpenXml.Vml;
+using Sodium;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -126,7 +127,7 @@ namespace latihribbon
             string username = tx_Username.Text;
             string password = tx_Password.Text;
 
-            if(username == "" || password == "")
+            if (username == "" || password == "")
             {
                 new MesWarningOK("Username && Password tidak boleh kosong!").ShowDialog(this);
                 ClearForm();
@@ -152,6 +153,7 @@ namespace latihribbon
                 return;
             }
             InsertHistori();
+
             Form1 admin = new Form1(mainForm,indexForm);
             admin.Show();
             this.Close();

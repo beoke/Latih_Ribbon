@@ -56,7 +56,7 @@ namespace latihribbon.Dal
             using (var koneksi = new SQLiteConnection(Conn.conn.connstr()))
             {
                 string sql = @"
-                        SELECT s.NIS, s.Persensi, s.Nama, k.NamaKelas, p.Keterangan
+                        SELECT s.NIS, s.Persensi, s.Nama, k.NamaKelas, p.Keterangan, p.Tanggal
                         FROM Siswa s
                         INNER JOIN Kelas k ON s.IdKelas = k.Id
                         LEFT JOIN Persensi p ON s.NIS = p.NIS AND p.Tanggal BETWEEN @tgl1 AND @tgl2
@@ -68,6 +68,39 @@ namespace latihribbon.Dal
                 dp.Add("@Kelas",kelas,DbType.String);
 
                 return koneksi.Query<RekapPersensiModel>(sql,dp);
+            }
+        }
+
+        public IEnumerable<RekapPersensiModel> GetPresensiByNis(int nis, DateTime tgl1, DateTime tgl2)
+        {
+            using (var koneksi = new SQLiteConnection(Conn.conn.connstr()))
+            {
+                string sql = @"
+                        WITH RECURSIVE DateRange(Tanggal) AS (
+                        SELECT date(@tgl1)
+                        UNION ALL
+                        SELECT date(Tanggal, '+1 day')
+                        FROM DateRange
+                            WHERE Tanggal < date(@tgl2)
+                        )
+                        SELECT 
+                            dr.Tanggal,
+                            p.Keterangan
+                        FROM 
+                            Siswa s
+                        INNER JOIN Kelas k ON s.IdKelas = k.Id
+                        CROSS JOIN DateRange dr
+                        LEFT JOIN Persensi p ON s.NIS = p.NIS AND date(p.Tanggal) = dr.Tanggal
+                        WHERE 
+                            s.Nis = @nis
+                        ORDER BY 
+                            dr.Tanggal ASC";
+                var dp = new DynamicParameters();
+                dp.Add("@tgl1", tgl1, DbType.Date);
+                dp.Add("@tgl2", tgl2, DbType.Date);
+                dp.Add("@nis", nis, DbType.String);
+
+                return koneksi.Query<RekapPersensiModel>(sql, dp);
             }
         }
     }

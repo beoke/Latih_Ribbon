@@ -38,7 +38,7 @@ namespace latihribbon
             LoadUser();
 
             this.Load += FormUser_RiwayatLogin_Load;
-            InitRiwayatLogin();
+            StyleGrids();
         }
 
         private void FormUser_RiwayatLogin_Load(object sender, EventArgs e)
@@ -70,6 +70,36 @@ namespace latihribbon
             comboPerPage.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
+
+        private void StyleGrids()
+        {
+            //Riwayat Login
+            StyleComponent.StyleGrid(GridListRiwayatLogin);
+
+            GridListRiwayatLogin.Columns[0].Width = 80;
+            GridListRiwayatLogin.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            GridListRiwayatLogin.Columns[2].Width = 200;
+            GridListRiwayatLogin.Columns[3].Width = 150;
+            GridListRiwayatLogin.Columns[4].Visible = false;
+            GridListRiwayatLogin.Columns["UserLogin"].HeaderText = "User Login";
+
+
+            //Daftar UserLogin
+            StyleComponent.StyleGrid(GridListUser);
+
+            GridListUser.Columns[0].Visible = false;
+            GridListUser.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            GridListUser.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+
+            GridListUser.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            GridListUser.Columns[1].FillWeight = 10;
+            GridListUser.Columns[2].FillWeight = 60;
+            GridListUser.Columns[3].FillWeight = 30;
+
+            toolTip.SetToolTip(btnResetFilter, "Reset Filter");
+        }
+
         private void LoadUser()
         {
             GridListUser.DataSource = _riwayatLoginDal.ListUser()
@@ -78,50 +108,10 @@ namespace latihribbon
                     x.Id,
                     No = index+1,
                     Username = x.username,
-                    Password = x.password,
+                    Role = x.Role,
 
                 }).ToList();
-
-
-                GridListUser.ReadOnly = true;
-                GridListUser.EnableHeadersVisualStyles = false;
-                GridListUser.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-
-                GridListUser.DefaultCellStyle.Font = new Font("Sans Serif", 10);
-                GridListUser.ColumnHeadersDefaultCellStyle.Font = new Font("Sans Serif", 10, FontStyle.Bold);
-                GridListUser.ColumnHeadersDefaultCellStyle.BackColor = Color.LightBlue;
-                GridListUser.RowTemplate.Height = 30;
-                GridListUser.ColumnHeadersHeight = 35;
-
-                GridListUser.Columns["Id"].Visible = false;
-                GridListUser.Columns[0].Visible = false;
-                GridListUser.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                GridListUser.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-
-
-            toolTip.SetToolTip(btnResetFilter, "Reset Filter");
         }
-
-        private void InitRiwayatLogin()
-        {
-            GridListRiwayatLogin.ReadOnly = true;
-            GridListRiwayatLogin.EnableHeadersVisualStyles = false;
-            GridListRiwayatLogin.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-
-            GridListRiwayatLogin.DefaultCellStyle.Font = new Font("Sans Serif", 10);
-            GridListRiwayatLogin.ColumnHeadersDefaultCellStyle.Font = new Font("Sans Serif", 10, FontStyle.Bold);
-            GridListRiwayatLogin.ColumnHeadersDefaultCellStyle.BackColor = Color.LightBlue;
-            GridListRiwayatLogin.RowTemplate.Height = 30;
-            GridListRiwayatLogin.ColumnHeadersHeight = 35;
-
-            GridListRiwayatLogin.Columns[0].Width = 80;
-            GridListRiwayatLogin.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            GridListRiwayatLogin.Columns[2].Width = 200;
-            GridListRiwayatLogin.Columns[3].Width = 150;
-            GridListRiwayatLogin.Columns[4].Visible = false;
-            GridListRiwayatLogin.Columns["UserLogin"].HeaderText = "User Login";
-        }
-
         bool SqlGlobal = false;
         private string FilterData(string userLogin)
         {
@@ -244,8 +234,6 @@ namespace latihribbon
 
         private void ButtonSaveUser_Click(object sender, EventArgs e)
         {
-            if (new MesQuestionYN("Input Data?").ShowDialog(this) != DialogResult.Yes) return;
-
             SaveUser();
         }   
 
@@ -269,11 +257,36 @@ namespace latihribbon
 
         private void SaveUser()
         {
+            string username = TextNameUser.Text;
+            string password = TextPassword.Text;
+            string role = radioSuperAdmin.Checked ? "Super Admin" :
+                radioAdmin.Checked ? "Admin"
+                : string.Empty;
+
+            bool valid = username != string.Empty &&
+                password != string.Empty &&
+                role != string.Empty;
+
+            if (!valid)
+            {
+                new MesWarningOK("Harap melengkapi data!").ShowDialog(this);
+                return;
+            }
+
+            if (_riwayatLoginDal.ExistUsername(username))
+            {
+                new MesError($"Username {username} sudah terdaftar!").ShowDialog(this);
+                return;
+            }
+
+            if (new MesQuestionYN("Input Data?").ShowDialog(this) != DialogResult.Yes) return;
+
+
             var user = new UserModel
             {
-                username = TextNameUser.Text,
-                password = HashPassword(TextPassword.Text),
-                Role = "admin",
+                username = username,
+                password = HashPassword(password),
+                Role = role,
             };
             _riwayatLoginDal.Insert(user);
             ClearUser();
@@ -285,6 +298,8 @@ namespace latihribbon
         {
             TextNameUser.Clear();
             TextPassword.Clear();
+            radioAdmin.Checked = false;
+            radioSuperAdmin.Checked = false;
         }
 
         private void btnResetFilter_Click(object sender, EventArgs e)
@@ -314,44 +329,60 @@ namespace latihribbon
             }
         }
 
-        //Hash
+        #region HASH PASSWORD
         public static string HashPassword(string password)
         {
-            byte[] salt = new byte[16];
-            new Random().NextBytes(salt);
+            // Generate salt secara kriptografis
+            byte[] salt = GenerateSalt();
 
+            // Buat instance Argon2
             var argon2 = new Argon2id(Encoding.UTF8.GetBytes(password))
             {
                 Salt = salt,
-                DegreeOfParallelism = 8,
-                MemorySize = 65536,
-                Iterations = 4
+                DegreeOfParallelism = 4,  // Jumlah thread
+                MemorySize = 32768,       // Penggunaan memori (32 MB)
+                Iterations = 2            // Jumlah iterasi
             };
 
-            byte[] hashBytes = argon2.GetBytes(32);
+            // Generate hash
+            byte[] hashBytes = argon2.GetBytes(32); // Panjang hash 32 byte
             return Convert.ToBase64String(salt) + ":" + Convert.ToBase64String(hashBytes);
         }
 
-        // Verifikasi kata sandi
         public static bool VerifyPassword(string password, string hashedPassword)
         {
+            // Pisahkan salt dan hash dari string yang disimpan
             var parts = hashedPassword.Split(':');
             if (parts.Length != 2) return false;
 
             byte[] salt = Convert.FromBase64String(parts[0]);
             byte[] hashToCompare = Convert.FromBase64String(parts[1]);
 
+            // Buat instance Argon2 dengan salt yang sama
             var argon2 = new Argon2id(Encoding.UTF8.GetBytes(password))
             {
                 Salt = salt,
-                DegreeOfParallelism = 8,
-                MemorySize = 65536,
-                Iterations = 4
+                DegreeOfParallelism = 4,  // Jumlah thread
+                MemorySize = 32768,       // Penggunaan memori (32 MB)
+                Iterations = 2            // Jumlah iterasi
             };
 
+            // Generate hash dari password yang dimasukkan
             byte[] hashBytes = argon2.GetBytes(32);
 
-            return hashBytes.Length == hashToCompare.Length && hashBytes.SequenceEqual(hashToCompare);
-        }      
+            // Bandingkan hash
+            return hashBytes.SequenceEqual(hashToCompare);
+        }
+
+        public static byte[] GenerateSalt()
+        {
+            byte[] salt = new byte[16];
+            using (var rng = RandomNumberGenerator.Create())
+            {
+                rng.GetBytes(salt);
+            }
+            return salt;
+        }
+        #endregion
     }
 }

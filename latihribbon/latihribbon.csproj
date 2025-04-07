@@ -121,6 +121,9 @@
     <Reference Include="SixLabors.Fonts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d998eea7b14cab13, processorArchitecture=MSIL">
       <HintPath>..\packages\SixLabors.Fonts.1.0.0\lib\netstandard2.0\SixLabors.Fonts.dll</HintPath>
     </Reference>
+    <Reference Include="Sodium.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sodium.Core.1.0.0\lib\net461\Sodium.Core.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
@@ -227,6 +230,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ScreenAdmin\Cetak Data\ExportKepuasan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScreenAdmin\Cetak Data\ExportKepuasan.Designer.cs">
+      <DependentUpon>ExportKepuasan.cs</DependentUpon>
+    </Compile>
     <Compile Include="ScreenAdmin\Helper\GlobalVariabel.cs" />
     <Compile Include="ScreenAdmin\Helper\CenterForm.cs" />
     <Compile Include="Conn\conn.cs" />
@@ -258,10 +267,10 @@
     <Compile Include="FirstForm.Designer.cs">
       <DependentUpon>FirstForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MesBox\MesClose.cs">
+    <Compile Include="Helper\MesBox\MesClose.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MesBox\MesClose.Designer.cs">
+    <Compile Include="Helper\MesBox\MesClose.Designer.cs">
       <DependentUpon>MesClose.cs</DependentUpon>
     </Compile>
     <Compile Include="ScreenAdmin\Form PopUp\EditKelas.cs">
@@ -294,34 +303,34 @@
     <Compile Include="ScreenAdmin\Form PopUp\EditTerlambat.Designer.cs">
       <DependentUpon>EditTerlambat.cs</DependentUpon>
     </Compile>
-    <Compile Include="MesBox\MesWarningYN.cs">
+    <Compile Include="Helper\MesBox\MesWarningYN.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MesBox\MesWarningYN.Designer.cs">
+    <Compile Include="Helper\MesBox\MesWarningYN.Designer.cs">
       <DependentUpon>MesWarningYN.cs</DependentUpon>
     </Compile>
-    <Compile Include="MesBox\MesQuestionYN.cs">
+    <Compile Include="Helper\MesBox\MesQuestionYN.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MesBox\MesQuestionYN.Designer.cs">
+    <Compile Include="Helper\MesBox\MesQuestionYN.Designer.cs">
       <DependentUpon>MesQuestionYN.cs</DependentUpon>
     </Compile>
-    <Compile Include="MesBox\MesInformasi.cs">
+    <Compile Include="Helper\MesBox\MesInformasi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MesBox\MesInformasi.Designer.cs">
+    <Compile Include="Helper\MesBox\MesInformasi.Designer.cs">
       <DependentUpon>MesInformasi.cs</DependentUpon>
     </Compile>
-    <Compile Include="MesBox\MesWarningOK.cs">
+    <Compile Include="Helper\MesBox\MesWarningOK.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MesBox\MesWarningOK.Designer.cs">
+    <Compile Include="Helper\MesBox\MesWarningOK.Designer.cs">
       <DependentUpon>MesWarningOK.cs</DependentUpon>
     </Compile>
-    <Compile Include="MesBox\MesError.cs">
+    <Compile Include="Helper\MesBox\MesError.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MesBox\MesError.Designer.cs">
+    <Compile Include="Helper\MesBox\MesError.Designer.cs">
       <DependentUpon>MesError.cs</DependentUpon>
     </Compile>
     <Compile Include="ScreenAdmin\Form PopUp\EditSiswa.cs">
@@ -483,14 +492,18 @@
     <Compile Include="Dal\SetPrintDal.cs" />
     <Compile Include="Model\SurveyModel.cs" />
     <Compile Include="Dal\SurveyDal.cs" />
+    <Compile Include="Helper\StyleGrid.cs" />
     <Compile Include="WindowsKey.cs" />
     <EmbeddedResource Include="FirstForm.resx">
       <DependentUpon>FirstForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ScreenAdmin\Cetak Data\ExportKepuasan.resx">
+      <DependentUpon>ExportKepuasan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ScreenAdmin\Helper\Loading.resx">
       <DependentUpon>Loading.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MesBox\MesClose.resx">
+    <EmbeddedResource Include="Helper\MesBox\MesClose.resx">
       <DependentUpon>MesClose.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ScreenAdmin\Cetak Data\ExportSuratIzin.resx">
@@ -511,19 +524,19 @@
     <EmbeddedResource Include="ScreenAdmin\Form PopUp\EditTerlambat.resx">
       <DependentUpon>EditTerlambat.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MesBox\MesQuestionYN.resx">
+    <EmbeddedResource Include="Helper\MesBox\MesQuestionYN.resx">
       <DependentUpon>MesQuestionYN.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MesBox\MesWarningYN.resx">
+    <EmbeddedResource Include="Helper\MesBox\MesWarningYN.resx">
       <DependentUpon>MesWarningYN.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MesBox\MesWarningOK.resx">
+    <EmbeddedResource Include="Helper\MesBox\MesWarningOK.resx">
       <DependentUpon>MesWarningOK.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MesBox\MesInformasi.resx">
+    <EmbeddedResource Include="Helper\MesBox\MesInformasi.resx">
       <DependentUpon>MesInformasi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MesBox\MesError.resx">
+    <EmbeddedResource Include="Helper\MesBox\MesError.resx">
       <DependentUpon>MesError.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ScreenAdmin\Form PopUp\EditSiswa.resx">
@@ -623,7 +636,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="PR.txt" />
+    <Content Include="Revisi.txt" />
     <Content Include="RekapSiswaCek.db">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

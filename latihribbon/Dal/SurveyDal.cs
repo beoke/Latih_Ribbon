@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
 using System.Data.SqlClient;
+using System;
 
 namespace latihribbon
 {
@@ -31,7 +32,7 @@ namespace latihribbon
             using (var Conn = new SQLiteConnection(conn.connstr()))
             {
                 string sql = $@"
-                        SELECT *  FROM Survey  {Filter}
+                        SELECT * FROM Survey  {Filter}
                         ORDER BY SurveyId DESC {Pagination}";
 
                 return Conn.Query<SurveyModel>(sql, dp);
@@ -69,6 +70,23 @@ namespace latihribbon
                 const string sql = "DELETE FROM Survey WHERE SurveyId = @SurveyId";
 
                 Conn.Execute(sql, new { SurveyId = SurveyId });
+            }
+        }
+
+        public IEnumerable<SurveyModel> GetDataExport(DateTime tgl1, DateTime tgl2)
+        {
+            using (var Conn = new SQLiteConnection(conn.connstr()))
+            {
+                string sql = $@"
+                        SELECT * FROM Survey
+                        WHERE Tanggal BETWEEN @tgl1 AND @tgl2       
+                        ORDER BY SurveyId ASC";
+
+                var dp = new DynamicParameters();
+                dp.Add("@tgl1",tgl1, DbType.Date);
+                dp.Add("@tgl2",tgl2, DbType.Date);
+
+                return Conn.Query<SurveyModel>(sql, dp);
             }
         }
     }

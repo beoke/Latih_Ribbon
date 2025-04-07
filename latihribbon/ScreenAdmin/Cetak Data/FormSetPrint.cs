@@ -99,7 +99,14 @@ namespace latihribbon
             {
                 using (var package = new ExcelPackage())
                 {
-                    var groupedData = new Dictionary<string, List<RekapPersensiModel>>();
+                    var groupAngkatan = new Dictionary<string, List<RekapPersensiModel>>();
+
+                    List<string> formattedDates = new List<string>();
+                    for (DateTime date = tgl1; date <= tgl2; date = date.AddDays(1))
+                    {
+                        formattedDates.Add(date.ToString("dd/MM/yyyy"));
+                    }
+
                     var KelasCek = new List<string>();
 
                     foreach (var kelas in selectedClasses)
@@ -109,23 +116,26 @@ namespace latihribbon
                         if (!studentsData.Any()) KelasCek.Add(kelas);
                         var angkatan = kelas.Trim().Split(' ', (char)StringSplitOptions.RemoveEmptyEntries).First();
 
-                        if (!groupedData.ContainsKey(angkatan))
+                        if (!groupAngkatan.ContainsKey(angkatan))
                         {
-                            groupedData[angkatan] = new List<RekapPersensiModel>();
+                            groupAngkatan[angkatan] = new List<RekapPersensiModel>();
                         }
 
-                        groupedData[angkatan].AddRange(studentsData);
+                        groupAngkatan[angkatan].AddRange(studentsData);
                     }
+
                     if (KelasCek.Count != 0)
                     {
                         new MesError($"Tidak Ada Data Untuk Kelas :  {string.Join(", ", KelasCek)} \nJika data tersebut memang tidak diperlukan, \nBatalkan centang pada kelas tersebut", 3).ShowDialog(this);
                         return;
                     }
+
                     loading.Show();
                     await Task.Delay(500);
-                    foreach (var angkatan in groupedData.Keys)
+
+                    foreach (var angkatan in groupAngkatan.Keys)
                     {
-                        var studentsInAngkatan = groupedData[angkatan];
+                        var studentsInAngkatan = groupAngkatan[angkatan];
                         var groupedByKelas = studentsInAngkatan.GroupBy(s => s.NamaKelas).ToList();
                         var worksheet = package.Workbook.Worksheets.Add(angkatan);
 
@@ -142,6 +152,7 @@ namespace latihribbon
                             // Rekap per siswa
                             var rekapPerSiswa = uniqueStudents.Select(student => new
                             {
+                                student.Nis,
                                 student.Persensi,
                                 student.Nama,
                                 student.NamaKelas,
@@ -171,11 +182,32 @@ namespace latihribbon
                             worksheet.Cells[currentRow, 1].Value = "NO";
                             worksheet.Cells[currentRow, 2].Value = "NAMA";
                             worksheet.Cells[currentRow, 3].Value = "KELAS";
+                            worksheet.Cells[currentRow, 1, currentRow + 1, 1].Merge = true; //NO
+                            worksheet.Cells[currentRow, 2, currentRow + 1, 2].Merge = true; //NAMA
+                            worksheet.Cells[currentRow, 3, currentRow + 1, 3].Merge = true; //KELAS
+
+                            worksheet.Cells[currentRow, 4].Value = "TOTAL";
+                            worksheet.Cells[currentRow, 7].Value = "TANGGAL";
+                            worksheet.Cells[currentRow, 4, currentRow, 6].Merge = true; //TOTAL
+
+
+                            currentRow ++;
+
                             worksheet.Cells[currentRow, 4].Value = "S";
                             worksheet.Cells[currentRow, 5].Value = "I";
                             worksheet.Cells[currentRow, 6].Value = "A";
 
-                            using (var headerRange = worksheet.Cells[currentRow, 1, currentRow, 6])
+                            int start_tanggal = 7;
+                            worksheet.Cells[currentRow, start_tanggal].Value = "A";
+
+                            foreach(var tanggal in formattedDates)
+                            {
+                                worksheet.Cells[currentRow, start_tanggal++].Value = tanggal;
+                            }
+                            worksheet.Cells[currentRow - 1, 7, currentRow - 1, start_tanggal - 1].Merge = true; //TANGGAL HEADER
+
+
+                            using (var headerRange = worksheet.Cells[currentRow -1 , 1, currentRow, start_tanggal - 1]) // +1 untuk dua baris
                             {
                                 headerRange.Style.Font.Bold = true;
                                 headerRange.Style.Fill.PatternType = ExcelFillStyle.Solid;
@@ -184,7 +216,8 @@ namespace latihribbon
                                 headerRange.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
                             }
 
-                            currentRow++;
+                            currentRow ++;
+                            start_tanggal = 7;
 
                             // Data siswa
                             foreach (var rekap in rekapPerSiswa)
@@ -203,11 +236,19 @@ namespace latihribbon
                                 worksheet.Cells[currentRow, 5].Value = rekap.I;
                                 worksheet.Cells[currentRow, 6].Value = rekap.A;
 
+                                start_tanggal = 7;
+
+                                var listAbsensiSiswa = rekapPersensiDal.GetPresensiByNis(rekap.Nis, tgl1, tgl2);
+                                foreach (var absensi in listAbsensiSiswa)
+                                {
+                                    worksheet.Cells[currentRow, start_tanggal++].Value = absensi.Keterangan;
+                                    worksheet.Cells[currentRow, start_tanggal - 1].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                                }
                                 currentRow++;
                             }
 
                             // Gaya border
-                            using (var dataRange = worksheet.Cells[currentRowTop, 1, currentRow - 1, 6])
+                            using (var dataRange = worksheet.Cells[currentRowTop, 1, currentRow - 1, start_tanggal - 1])
                             {
                                 dataRange.Style.Border.Top.Style = ExcelBorderStyle.Thin;
                                 dataRange.Style.Border.Left.Style = ExcelBorderStyle.Thin;
@@ -238,6 +279,10 @@ namespace latihribbon
                             worksheet.Column(4).Width = 5;
                             worksheet.Column(5).Width = 5;
                             worksheet.Column(6).Width = 5;
+                            for(int i = 7; i <= start_tanggal; i++)
+                            {
+                                worksheet.Column(i).Width = 15;
+                            }
 
                             currentRow += 3;
                             currentRowTop = currentRow + 4;

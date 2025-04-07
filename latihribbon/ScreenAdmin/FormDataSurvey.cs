@@ -45,7 +45,12 @@ namespace latihribbon
             ButtonNext.Click += ButtonNext_Click;
 
             this.Load += FormDataSurvey_Load;
+
+            btnExportData.Click += BtnExportData_Click;
         }
+
+        
+
         bool TanggalCanged = false;
         int pageNow = 1;
         int totalPage;
@@ -195,7 +200,12 @@ namespace latihribbon
             TanggalCanged = true;
             LoadData();
         }
-      
+
+        private void BtnExportData_Click(object sender, EventArgs e)
+        {
+            new ExportKepuasan().ShowDialog(this);
+        }
+
         #endregion
         public void buf()
         {

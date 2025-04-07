@@ -10,5 +10,7 @@ namespace latihribbon
     {
         public static bool _isNaikKelas = false;
         public static bool _isDeleteLulus = false;
+        public static int _idLogin = 0;
+        public static int _role = 0;
     }
 }
