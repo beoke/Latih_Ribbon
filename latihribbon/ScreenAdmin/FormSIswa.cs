@@ -333,7 +333,10 @@ namespace latihribbon
             ButtonNaikKelas.Click += ButtonNaikKelas_Click;
             NaikKelasContext.Click += NaikKelasContext_Click;
             HapusSiswaLulus.Click += HapusSiswaLulus_Click;
+            turunKelasContext.Click += TurunKelasContext_Click;
         }
+
+        
 
         private void FormSIswa_Resize(object sender, EventArgs e)
         {
@@ -435,7 +438,46 @@ namespace latihribbon
             LoadData();
             InitComboTahun();
         }
+        private void TurunKelasContext_Click(object sender, EventArgs e)
+        {
 
+            if (siswaDal.CekDataSiswa() == 0)
+            {
+                new MesError("Data Siswa Kosong!").ShowDialog(this);
+                return;
+            }
+            if (!kelasDal.TurunkanKelas())
+            {
+                new MesError("Terdapat data siswa kelas X\nAnda harus menghapusnya jika ingin menurunkan kelas untuk seluruh siswa!", 2).ShowDialog(this);
+                return;
+            }
+
+            if (new MesWarningYN("Turun kelas untuk seluruh siswa?\nTindakan ini tidak dapat urungkan!!", 2).ShowDialog(this) != DialogResult.Yes) return;
+
+            var allKelas = kelasDal.listKelas(string.Empty, new { });
+            if (!allKelas.Any()) return;
+
+            foreach (var x in allKelas)
+            {
+                string tingkat = x.Tingkat == "XI" ? "X"
+                    : x.Tingkat == "XII" ? "XI"
+                    : x.Tingkat == "LULUS" ? "XII"
+                    : string.Empty;
+                var kelas = new KelasModel()
+                {
+                    Id = x.Id,
+                    NamaKelas = $"{tingkat} {x.Kode} {x.Rombel}".Trim(),
+                    Tingkat = tingkat,
+                    IdJurusan = x.IdJurusan,
+                    Rombel = x.Rombel,
+                    status = 1
+                };
+                kelasDal.Update(kelas);
+            }
+            new MesInformasi("Seluruh Siswa Berhasil Turun Kelas!").ShowDialog(this);
+            LoadData();
+            InitComboTahun();
+        }
         private void BtnSave_FormSiswa_Click(object sender, EventArgs e)
         {
             SaveData();

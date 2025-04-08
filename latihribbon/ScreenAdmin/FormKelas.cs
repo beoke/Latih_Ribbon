@@ -1,4 +1,5 @@
-﻿using DocumentFormat.OpenXml.Office2010.Excel;
+﻿using DocumentFormat.OpenXml.Drawing;
+using DocumentFormat.OpenXml.Office2010.Excel;
 using DocumentFormat.OpenXml.Wordprocessing;
 using latihribbon.Dal;
 using latihribbon.Model;
@@ -43,11 +44,6 @@ namespace latihribbon.ScreenAdmin
             GridListKelas.CellMouseClick += DataGridView1_CellMouseClick;
             EditMenuStrip.Click += EditMenuStrip_Click;
             DeleteMenuStrip.Click += DeleteMenuStrip_Click;
-            XRadio.CheckedChanged += Change_Value;
-            XIRadio.CheckedChanged += Change_Value;
-            XIIRadio.CheckedChanged += Change_Value;
-            jurusanCombo.SelectedIndexChanged += Change_Value;
-            txtRombel.TextChanged += Change_Value;
             btnSave.Click += BtnSave_Click;
         }
 
@@ -57,10 +53,6 @@ namespace latihribbon.ScreenAdmin
             ClearData();
         }
 
-        private void Change_Value(object sender, EventArgs e)
-        {
-            SetNamaKelas();
-        }
         private void DeleteMenuStrip_Click(object sender, EventArgs e)
         {
             string namaKelas = GridListKelas.CurrentRow.Cells[2].Value?.ToString() ?? string.Empty;
@@ -115,10 +107,11 @@ namespace latihribbon.ScreenAdmin
             var listJurusan = jurusanDal.ListData();
             if (!listJurusan.Any()) return;
             jurusanCombo.DataSource = listJurusan
-                .Select(x => new
+                .Select(x => new JurusanModel()
                 {
                     Id = x.Id,
-                    NamaJurusan = $"{x.Kode} - {x.NamaJurusan}"
+                    NamaJurusan = $"{x.Kode} - {x.NamaJurusan}",
+                    Kode = x.Kode
                 }).ToList();
             jurusanCombo.DisplayMember = "NamaJurusan";
             jurusanCombo.ValueMember = "Id";
@@ -143,36 +136,37 @@ namespace latihribbon.ScreenAdmin
             GridListKelas.ColumnHeadersHeight = 35;
         }
 
-        public void SetNamaKelas()
-        {
-            string tingkat = XRadio.Checked ? "X" : XIRadio.Checked ? "XI" : XIIRadio.Checked ? "XII" : string.Empty;
-            string jurusan = ((JurusanModel)jurusanCombo.SelectedItem)?.NamaJurusan ?? string.Empty;
-            string rombel = txtRombel.Text;
-            txtNamaKelas.Text = $"{tingkat} {jurusan} {rombel}";
-        }
-
         public void SaveData()
         {
             if (jurusanCombo.Items.Count == 0) { new MesError("Data Jurusan Kosong!").ShowDialog(); return; }
+
+            int idJurusan = Convert.ToInt32(jurusanCombo.SelectedValue.ToString());
+            string tingkat = XRadio.Checked ? "X" : XIRadio.Checked ? "XI" : XIIRadio.Checked ? "XII" : string.Empty;
+            string kode = ((JurusanModel)jurusanCombo.SelectedItem)?.Kode ?? string.Empty;
+            string rombel = txtRombel.Text;
+            string kelasName = $"{tingkat} {kode} {txtRombel.Text}";
+
             var kelas = new KelasModel
             {
-                NamaKelas = txtNamaKelas.Text.Trim(),
-                Rombel = txtRombel.Text,
-                IdJurusan = int.Parse(jurusanCombo.SelectedValue.ToString()),
-                Tingkat = XRadio.Checked ? "X" : XIRadio.Checked ? "XI" : XIIRadio.Checked ? "XII" : string.Empty,
+                Id = 0,
+                NamaKelas = kelasName.Trim(),
+                Rombel = rombel,
+                IdJurusan = idJurusan,
+                Tingkat = tingkat,
                 status = 1
             };
 
-            if(kelas.NamaKelas == "" || kelas.Tingkat == "")
+            if (kelasName == "" || tingkat == "")
             {
                 new MesWarningOK("Seluruh Data Wajib Diisi!").ShowDialog();
                 return;
             }
-            if (kelasDal.GetIdKelas(kelas.NamaKelas) != 0)
+            if (kelasDal.CekDuplikasi(kelas, false))
             {
-                new MesError($"Kelas {kelas.NamaKelas} Sudah Tersedia.").ShowDialog(this);
+                new MesError($"Kelas {kelasName.Trim()} Sudah Tersedia.").ShowDialog(this);
                 return;
             }
+            
             if (new MesQuestionYN("Input Data?").ShowDialog() != DialogResult.Yes) return;
             kelasDal.Insert(kelas);
             LoadData();
@@ -181,8 +175,6 @@ namespace latihribbon.ScreenAdmin
 
         private void ClearData()
         {
-            txtNamaKelas.Clear();
-            
             XRadio.Checked = false;
             XIRadio.Checked = false;
             XIIRadio.Checked = false;

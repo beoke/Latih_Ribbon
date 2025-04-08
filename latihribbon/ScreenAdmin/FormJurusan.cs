@@ -53,20 +53,19 @@ namespace latihribbon.ScreenAdmin
                 Kode = x.Kode
             }).ToList();
 
-            GridListJurusan.Columns[0].Visible = false;
-            GridListJurusan.Columns[1].Width = 60;
-            GridListJurusan.Columns[2].Width = 150;
-            GridListJurusan.Columns[2].Width = 200;
-            GridListJurusan.Columns["NamaJurusan"].HeaderText = "Nama Jurusan";
-
             GridListJurusan.EnableHeadersVisualStyles = false;
             GridListJurusan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+
+            GridListJurusan.Columns[0].Visible = false;
+            GridListJurusan.Columns[1].Width = 70;
+            GridListJurusan.Columns[2].Width = 400;
+            GridListJurusan.Columns[3].Width = 150;
+            GridListJurusan.Columns["NamaJurusan"].HeaderText = "Nama Jurusan";
 
             GridListJurusan.DefaultCellStyle.Font = new Font("Sans Serif", 10);
             GridListJurusan.ColumnHeadersDefaultCellStyle.Font = new Font("Sans Serif", 10, FontStyle.Bold);
             GridListJurusan.ColumnHeadersDefaultCellStyle.BackColor = Color.LightBlue;
             GridListJurusan.RowTemplate.Height = 30;
-            GridListJurusan.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             GridListJurusan.ColumnHeadersHeight = 35;
         }
 
@@ -92,8 +91,7 @@ namespace latihribbon.ScreenAdmin
         private void EditMenuStrip_Click(object sender, EventArgs e)
         {
             int jurusanId = Convert.ToInt32(GridListJurusan.CurrentRow.Cells[0].Value);
-            string kodeJurusan = GridListJurusan.CurrentRow.Cells["Kode"].Value?.ToString() ?? string.Empty;
-            if (new EditJurusan(jurusanId,kodeJurusan).ShowDialog() == DialogResult.Yes)
+            if (new EditJurusan(jurusanId).ShowDialog() == DialogResult.Yes)
                 LoadData();
         }
 
@@ -122,9 +120,9 @@ namespace latihribbon.ScreenAdmin
                 new MesWarningOK("Seluruh data wajib di isi!").ShowDialog();
                 return;
             }
-            if(_jurusanDal.GetIdJurusan(kode, namaJurusan) != 0)
+            if (_jurusanDal.CekDuplikasi(kode, namaJurusan))
             {
-                new MesError($"Jurusan {namaJurusan} Sudah Tersedia.").ShowDialog(this);
+                new MesError($"Jurusan {namaJurusan} atau Kode {kode} Sudah Tersedia.").ShowDialog(this);
                 return;
             }
             if (new MesQuestionYN("Input Data?").ShowDialog() != DialogResult.Yes) return;

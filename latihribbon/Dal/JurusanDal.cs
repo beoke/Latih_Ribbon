@@ -69,12 +69,29 @@ namespace latihribbon.Dal
             }
         }
 
-        public int GetIdJurusan(string Kode,string namaJurusan)
+        public bool CekDuplikasi(string Kode,string namaJurusan)
         {
             using (var koneksi = new SQLiteConnection(conn.connstr()))
             {
                 const string sql = @"SELECT Id FROM Jurusan WHERE Kode = @Kode OR namaJurusan = @namaJurusan";
-                return koneksi.QueryFirstOrDefault<int>(sql, new { Kode = Kode ,namaJurusan = namaJurusan});
+                return koneksi.QuerySingleOrDefault<bool>(sql, new { Kode ,namaJurusan});
+            }
+        }
+        public bool CekDuplikasiUpdate(int Id, string Kode, string namaJurusan)
+        {
+            using (var koneksi = new SQLiteConnection(conn.connstr()))
+            {
+                const string sql = @"SELECT Id FROM Jurusan WHERE (Kode = @Kode OR namaJurusan = @namaJurusan) AND Id <> @Id";
+                return koneksi.QuerySingleOrDefault<bool>(sql, new { Kode, namaJurusan, Id });
+            }
+        }
+
+        public JurusanModel GetData(int Id)
+        {
+            using (var koneksi = new SQLiteConnection(conn.connstr()))
+            {
+                const string sql = @"SELECT * FROM Jurusan WHERE Id=@Id";
+                return koneksi.QueryFirstOrDefault<JurusanModel>(sql, new { Id = Id });
             }
         }
     }

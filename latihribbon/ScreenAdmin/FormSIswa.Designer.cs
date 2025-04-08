@@ -79,6 +79,7 @@
             this.NaikKelasContext = new System.Windows.Forms.ToolStripMenuItem();
             this.HapusSiswaLulus = new System.Windows.Forms.ToolStripMenuItem();
             this.txtFilter = new System.Windows.Forms.TextBox();
+            this.turunKelasContext = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -653,16 +654,17 @@
             this.contextMenuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.NaikKelasContext,
+            this.turunKelasContext,
             this.HapusSiswaLulus});
             this.contextMenuStrip2.Name = "contextMenuStrip1";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(252, 56);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(260, 82);
             // 
             // NaikKelasContext
             // 
             this.NaikKelasContext.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NaikKelasContext.Image = global::latihribbon.Properties.Resources.growth;
             this.NaikKelasContext.Name = "NaikKelasContext";
-            this.NaikKelasContext.Size = new System.Drawing.Size(251, 26);
+            this.NaikKelasContext.Size = new System.Drawing.Size(259, 26);
             this.NaikKelasContext.Text = "Naik Kelas Seluruh Siswa";
             // 
             // HapusSiswaLulus
@@ -670,7 +672,7 @@
             this.HapusSiswaLulus.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HapusSiswaLulus.Image = global::latihribbon.Properties.Resources.bin;
             this.HapusSiswaLulus.Name = "HapusSiswaLulus";
-            this.HapusSiswaLulus.Size = new System.Drawing.Size(251, 26);
+            this.HapusSiswaLulus.Size = new System.Drawing.Size(259, 26);
             this.HapusSiswaLulus.Text = "Hapus Data Siswa Lulus";
             // 
             // txtFilter
@@ -682,6 +684,12 @@
             this.txtFilter.Name = "txtFilter";
             this.txtFilter.Size = new System.Drawing.Size(308, 21);
             this.txtFilter.TabIndex = 0;
+            // 
+            // turunKelasContext
+            // 
+            this.turunKelasContext.Name = "turunKelasContext";
+            this.turunKelasContext.Size = new System.Drawing.Size(259, 26);
+            this.turunKelasContext.Text = "Turun Kelas Seluruh Siswa";
             // 
             // FormSIswa
             // 
@@ -768,5 +776,6 @@
         private System.Windows.Forms.ToolStripMenuItem NaikKelasContext;
         private System.Windows.Forms.ToolStripMenuItem HapusSiswaLulus;
         private System.Windows.Forms.TextBox txtFilter;
+        private System.Windows.Forms.ToolStripMenuItem turunKelasContext;
     }
 }

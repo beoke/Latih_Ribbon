@@ -31,7 +31,7 @@ namespace latihribbon.Dal
             using (var koneksi = new SQLiteConnection(Conn.conn.connstr()))
             {
                 const string sql = @"INSERT INTO Kelas(NamaKelas,Rombel,IdJurusan,Tingkat, status)
-                                    VALUES(@NamaKelas,@Rombel,@IdJurusan,@Tingkat,@status)";
+                                    VALUES(@NamaKelas,@Rombel,@idJurusan,@Tingkat,@status)";
                 var dp = new DynamicParameters();
                 dp.Add("@NamaKelas",kelas.NamaKelas, System.Data.DbType.String);
                 dp.Add("@Rombel",kelas.Rombel, System.Data.DbType.String);
@@ -128,6 +128,22 @@ namespace latihribbon.Dal
                 koneksi.Execute(sql);
             }
         }
+        public bool TurunkanKelas()
+        {
+            using (var koneksi = new SQLiteConnection(Conn.conn.connstr()))
+            {
+                const string sqlTurun = @"DELETE FROM kelas
+                                    WHERE Tingkat = 'X'";
+                const string sqlCek = @"SELECT COUNT(*) FROM Siswa s INNER JOIN Kelas k ON s.idKelas = k.Id WHERE k.Tingkat = 'X'";
+
+                if (koneksi.QuerySingleOrDefault<int>(sqlCek) == 0)
+                {
+                    koneksi.Execute(sqlTurun);
+                    return true;
+                }
+                return false;
+            }
+        }
 
         public int DeleteSiswaLulus()
         {
@@ -148,5 +164,26 @@ namespace latihribbon.Dal
                 return count > 0;
             }
         }
-    }
+
+        public bool CekDuplikasi(KelasModel kelas, bool update = false)
+        {
+            using (var koneksi = new SQLiteConnection(Conn.conn.connstr()))
+            {
+                string sql = @"SELECT 1 FROM Kelas WHERE 
+                    Tingkat = @Tingkat AND idJurusan = @idJurusan ";
+                if (kelas.Rombel != string.Empty)
+                    sql += "AND Rombel = @Rombel";
+                if(update)
+                    sql += " AND Id <> @Id";
+
+                var dp = new DynamicParameters();
+                dp.Add("@Tingkat", kelas.Tingkat);
+                dp.Add("@idJurusan", kelas.IdJurusan);
+                dp.Add("@Rombel", kelas.Rombel);
+                dp.Add("@Id", kelas.Id);
+
+                return koneksi.QuerySingleOrDefault<bool>(sql, dp);
+            }
+        }
+    } 
 }

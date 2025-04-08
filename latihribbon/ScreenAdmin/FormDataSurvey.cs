@@ -92,15 +92,16 @@ namespace latihribbon
             text += $"{pageNow.ToString()}/{totalPage.ToString()}";
             LabelHalaman.Text = text;
 
-            GridListSurvey.DataSource = surveyDal.ListData(sqlc, "LIMIT @Fetch OFFSET @Offset", dp)
-                                        .Select((x, index) => new
-                                        {
-                                            x.SurveyId,
-                                            No = rowInPage + index + 1, 
-                                            JawabanSurvey = x.HasilSurvey == 1 ? "Puas" : "Tidak Puas",
-                                            Tanggal = x.Tanggal.ToString("dd/MM/yyyy"),
-                                            Waktu = x.Waktu
-                                        }).ToList();
+            GridListSurvey.DataSource = surveyDal
+                .ListData(sqlc, "LIMIT @Fetch OFFSET @Offset", dp)
+                   .Select((x, index) => new
+                   {
+                       x.SurveyId,
+                       No = rowInPage + index + 1,
+                       JawabanSurvey = x.HasilSurvey == 1 ? "Puas" : "Tidak Puas",
+                       Tanggal = x.Tanggal.ToString("dd/MM/yyyy"),
+                       Jam = x.Waktu
+                   }).ToList();
 
             TextTotalPuas.Text = surveyDal.ListData(sqlc, string.Empty, dp).Count(x => x.HasilSurvey == 1).ToString();
             TextTotalTidakPuas.Text = surveyDal.ListData(sqlc, string.Empty, dp).Count(x => x.HasilSurvey == 0).ToString();
@@ -182,7 +183,10 @@ namespace latihribbon
             GridListSurvey.Columns["SurveyId"].Visible = false;
             GridListSurvey.Columns["JawabanSurvey"].HeaderText = "Jawaban Survey";
 
-            GridListSurvey.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            GridListSurvey.Columns["No"].Width = 80;
+            GridListSurvey.Columns["JawabanSurvey"].Width = 300;
+            GridListSurvey.Columns["Tanggal"].Width = 200;
+            GridListSurvey.Columns["Jam"].Width = 200;
         }
 
         private void ButtonResetFilter_Click(object sender, EventArgs e)

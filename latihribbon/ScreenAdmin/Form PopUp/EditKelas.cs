@@ -32,15 +32,6 @@ namespace latihribbon
         private void RegisterEvent()
         {
             btnSave.Click += BtnSave_Click;
-            XRadio.CheckedChanged += Change_Value;
-            XIRadio.CheckedChanged += Change_Value;
-            XIIRadio.CheckedChanged += Change_Value;
-            jurusanCombo.SelectedIndexChanged += Change_Value;
-            txtRombel.TextChanged += Change_Value;
-        }
-        private void Change_Value(object sender, EventArgs e)
-        {
-            SetNamaKelas();
         }
 
         public void InitComponent()
@@ -55,45 +46,51 @@ namespace latihribbon
         }
         private void BtnSave_Click(object sender, EventArgs e)
         {
+            int idJurusan = Convert.ToInt32(jurusanCombo.SelectedValue.ToString());
+            string tingkat = XRadio.Checked ? "X" : XIRadio.Checked ? "XI" : XIIRadio.Checked ? "XII" : string.Empty;
+            string kode = ((JurusanModel)jurusanCombo.SelectedItem)?.Kode ?? string.Empty;
+            string rombel = txtRombel.Text;
+            string kelasName = $"{tingkat} {kode} {txtRombel.Text}";
+
+            var kelas = new KelasModel
+            {
+                Id = txtId.Text == string.Empty ? 0 : Convert.ToInt32(txtId.Text),
+                NamaKelas = kelasName.Trim(),
+                Rombel = rombel,
+                IdJurusan = idJurusan,
+                Tingkat = tingkat,
+                status = 1
+            };
+
             if (jurusanCombo.Items.Count == 0)
             { 
                 new MesError("Data Jurusan Kosong!").ShowDialog();
                 return;
             }
-            var kelas = new KelasModel
-            {
-                Id = txtId.Text == string.Empty ? 0 : Convert.ToInt32(txtId.Text),
-                NamaKelas = txtNamaKelas.Text.Trim(),
-                Rombel = txtRombel.Text,
-                IdJurusan = (int)jurusanCombo.SelectedValue,
-                Tingkat = XRadio.Checked ? "X" :
-                          XIRadio.Checked ? "XI" :
-                          XIIRadio.Checked ? "XII" : string.Empty
-            };
+            
             if (kelas.NamaKelas == "" || kelas.Tingkat == "")
             {
                 new MesWarningOK("Seluruh Data Wajib Diisi!").ShowDialog();
                 return;
             }
+
+            if (kelasDal.CekDuplikasi(kelas, true))
+            {
+                new MesError($"Kelas {kelasName.Trim()} Sudah Tersedia.").ShowDialog(this);
+                return;
+            }
+
             if (new MesWarningYN($"Update Data? \n Data Dengan Kelas {NamaKelasGlobal} dan semua yang berhubungan akan berubah menjadi {kelas.NamaKelas}").ShowDialog() != DialogResult.Yes) return;
             kelasDal.Update(kelas);
             this.DialogResult = DialogResult.Yes;
             this.Close();
         }
 
-        public void SetNamaKelas()
-        {
-            string tingkat = XRadio.Checked ? "X" : XIRadio.Checked ? "XI" : XIIRadio.Checked ? "XII" : string.Empty;
-            string jurusan = ((JurusanModel)jurusanCombo.SelectedItem)?.NamaJurusan ?? string.Empty;
-            string rombel = txtRombel.Text.Trim();
-            txtNamaKelas.Text = $"{tingkat} {jurusan} {rombel}";
-        }
         public void LoadData(int Id)
         {
             var kelas = kelasDal.GetData(Id);
             if (kelas == null) return;
             txtId.Text = kelas.Id.ToString();
-            txtNamaKelas.Text = kelas.NamaKelas;
             NamaKelasGlobal = kelas.NamaKelas;
             if (kelas.Tingkat == "X") XRadio.Checked = true;
             if (kelas.Tingkat == "XI") XIRadio.Checked = true;
