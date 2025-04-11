@@ -69,6 +69,21 @@ namespace latihribbon.Dal
             }
         }
 
+        public bool CekDeleteIsValid(int JurusanId)
+        {
+            using (var Conn = new SQLiteConnection(conn.connstr()))
+            {
+                const string sql = @"SELECT j.Id, k.Namakelas
+                        FROM Jurusan j
+                        LEFT JOIN Kelas k ON k.idJurusan = j.Id
+                        WHERE k.idJurusan ISNULL AND j.Id = @Id";
+                var Dp = new DynamicParameters();
+                Dp.Add("@Id", JurusanId, System.Data.DbType.Int32);
+
+                return Conn.QuerySingleOrDefault<bool>(sql, Dp); // jika null (tidak ada data terhubung) maka true, dan boleh delete
+            }
+        }
+
         public bool CekDuplikasi(string Kode,string namaJurusan)
         {
             using (var koneksi = new SQLiteConnection(conn.connstr()))

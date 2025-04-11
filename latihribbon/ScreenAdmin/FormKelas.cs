@@ -56,11 +56,17 @@ namespace latihribbon.ScreenAdmin
         private void DeleteMenuStrip_Click(object sender, EventArgs e)
         {
             string namaKelas = GridListKelas.CurrentRow.Cells[2].Value?.ToString() ?? string.Empty;
-            if (new MesWarningYN($"Anda yakin ingin menghapus data \" {namaKelas} \" ? \nJika Dihapus, maka data yang terhubung akan ikut Terhapus", 2).ShowDialog() != DialogResult.Yes) return;
+            int id = Convert.ToInt32(GridListKelas.CurrentRow.Cells[0].Value);
 
-            var id = GridListKelas.CurrentRow.Cells[0].Value;
+            if (!kelasDal.CekDeleteIsValid(id))
+            {
+                new MesError($"Kelas \"{namaKelas}\" tidak dapat dihapus \nkarena masih terdapat data yang terhubung!").ShowDialog();
+                return;
+            }
+            if (new MesWarningYN($"Anda yakin ingin menghapus data \"{namaKelas}\" ? \nJika Dihapus, maka data yang terhubung akan ikut Terhapus", 2).ShowDialog() != DialogResult.Yes) return;
 
-            kelasDal.Delete(Convert.ToInt32(id));
+
+            kelasDal.Delete(id);
             LoadData();
         }
 
@@ -115,7 +121,6 @@ namespace latihribbon.ScreenAdmin
                 }).ToList();
             jurusanCombo.DisplayMember = "NamaJurusan";
             jurusanCombo.ValueMember = "Id";
-            XRadio.Checked = true;
         }
 
         private void InitGrid()

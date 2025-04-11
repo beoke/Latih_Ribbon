@@ -80,11 +80,17 @@ namespace latihribbon.ScreenAdmin
         private void DeleteMenuStrip_Click(object sender, EventArgs e)
         {
             var jurusanKode = GridListJurusan.CurrentRow.Cells["Kode"].Value;
+            var id = Convert.ToInt32(GridListJurusan.CurrentRow.Cells[0].Value);
+
+            if (!_jurusanDal.CekDeleteIsValid(id))
+            {
+                new MesError($"Jurusan \"{jurusanKode}\" tidak dapat dihapus \nkarena masih terdapat data yang terhubung!").ShowDialog();
+                return;
+            }
             if (new MesWarningYN($"Anda yakin ingin menghapus data \"{jurusanKode}\" ? \n Jika Dihapus, maka data yang terhubung akan ikut Terhapus", 2).ShowDialog() != DialogResult.Yes) return;
 
-            var id = GridListJurusan.CurrentRow.Cells[0].Value;
 
-            _jurusanDal.Delete(Convert.ToInt32(id));
+            _jurusanDal.Delete(id);
             LoadData();
         }
 

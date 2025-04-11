@@ -81,12 +81,26 @@ namespace latihribbon.Dal
             }
         }
 
+        public bool CekDeleteIsValid(int Id)
+        {
+            using (var koneksi = new SQLiteConnection(Conn.conn.connstr()))
+            {
+                const string sqlCek = @"SELECT k.Id, k.Namakelas, s.Nis
+                            FROM Kelas k
+                            LEFT JOIN Siswa s ON s.idKelas = k.Id
+                            WHERE s.idKelas ISNULL AND k.Id = @Id";
+
+                return koneksi.QuerySingleOrDefault<bool>(sqlCek, new { Id = Id }); // jika null (tidak ada data terhubung) maka true, dan boleh delete
+            }
+        }
+
+
         public void Delete(int Id)
         {
             using (var koneksi = new SQLiteConnection(Conn.conn.connstr()))
             {
                 const string sql = @"DELETE FROM Kelas WHERE Id=@Id";
-                koneksi.Execute(sql, new {Id=Id});
+                koneksi.Execute(sql, new { Id = Id });
             }
         }
         public IEnumerable<KelasModel> GetDataRombel(int idJurusan,string Tingkat)

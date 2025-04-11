@@ -636,6 +636,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\dataDown.png" />
+    <None Include="Resources\downData.png" />
     <Content Include="Revisi.txt" />
     <Content Include="RekapSiswaCek.db">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

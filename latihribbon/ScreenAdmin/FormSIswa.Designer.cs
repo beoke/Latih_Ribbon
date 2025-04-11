@@ -70,16 +70,16 @@
             this.btnResetFilter = new System.Windows.Forms.Button();
             this.lblFilter = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.EditMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
-            this.DeleteMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.txtFilter = new System.Windows.Forms.TextBox();
             this.ButtonDownloadFormat = new System.Windows.Forms.Button();
             this.ButtonInputSIswa = new System.Windows.Forms.Button();
-            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.EditMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.DeleteMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.NaikKelasContext = new System.Windows.Forms.ToolStripMenuItem();
-            this.HapusSiswaLulus = new System.Windows.Forms.ToolStripMenuItem();
-            this.txtFilter = new System.Windows.Forms.TextBox();
             this.turunKelasContext = new System.Windows.Forms.ToolStripMenuItem();
+            this.HapusSiswaLulus = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -593,22 +593,6 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(127, 56);
             // 
-            // EditMenuStrip
-            // 
-            this.EditMenuStrip.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EditMenuStrip.Image = global::latihribbon.Properties.Resources.pencil;
-            this.EditMenuStrip.Name = "EditMenuStrip";
-            this.EditMenuStrip.Size = new System.Drawing.Size(126, 26);
-            this.EditMenuStrip.Text = "Edit";
-            // 
-            // DeleteMenuStrip
-            // 
-            this.DeleteMenuStrip.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeleteMenuStrip.Image = global::latihribbon.Properties.Resources.bin;
-            this.DeleteMenuStrip.Name = "DeleteMenuStrip";
-            this.DeleteMenuStrip.Size = new System.Drawing.Size(126, 26);
-            this.DeleteMenuStrip.Text = "Delete";
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -619,6 +603,27 @@
             this.label1.Size = new System.Drawing.Size(54, 19);
             this.label1.TabIndex = 69;
             this.label1.Text = "Tahun :";
+            // 
+            // contextMenuStrip2
+            // 
+            this.contextMenuStrip2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contextMenuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.NaikKelasContext,
+            this.turunKelasContext,
+            this.HapusSiswaLulus});
+            this.contextMenuStrip2.Name = "contextMenuStrip1";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(260, 104);
+            // 
+            // txtFilter
+            // 
+            this.txtFilter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFilter.Location = new System.Drawing.Point(78, 22);
+            this.txtFilter.Margin = new System.Windows.Forms.Padding(2);
+            this.txtFilter.Name = "txtFilter";
+            this.txtFilter.Size = new System.Drawing.Size(308, 21);
+            this.txtFilter.TabIndex = 0;
             // 
             // ButtonDownloadFormat
             // 
@@ -648,16 +653,21 @@
             this.ButtonInputSIswa.UseVisualStyleBackColor = true;
             this.ButtonInputSIswa.Click += new System.EventHandler(this.ButtonInputSIswa_Click);
             // 
-            // contextMenuStrip2
+            // EditMenuStrip
             // 
-            this.contextMenuStrip2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.contextMenuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.NaikKelasContext,
-            this.turunKelasContext,
-            this.HapusSiswaLulus});
-            this.contextMenuStrip2.Name = "contextMenuStrip1";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(260, 82);
+            this.EditMenuStrip.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EditMenuStrip.Image = global::latihribbon.Properties.Resources.pencil;
+            this.EditMenuStrip.Name = "EditMenuStrip";
+            this.EditMenuStrip.Size = new System.Drawing.Size(126, 26);
+            this.EditMenuStrip.Text = "Edit";
+            // 
+            // DeleteMenuStrip
+            // 
+            this.DeleteMenuStrip.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeleteMenuStrip.Image = global::latihribbon.Properties.Resources.bin;
+            this.DeleteMenuStrip.Name = "DeleteMenuStrip";
+            this.DeleteMenuStrip.Size = new System.Drawing.Size(126, 26);
+            this.DeleteMenuStrip.Text = "Delete";
             // 
             // NaikKelasContext
             // 
@@ -667,6 +677,13 @@
             this.NaikKelasContext.Size = new System.Drawing.Size(259, 26);
             this.NaikKelasContext.Text = "Naik Kelas Seluruh Siswa";
             // 
+            // turunKelasContext
+            // 
+            this.turunKelasContext.Image = ((System.Drawing.Image)(resources.GetObject("turunKelasContext.Image")));
+            this.turunKelasContext.Name = "turunKelasContext";
+            this.turunKelasContext.Size = new System.Drawing.Size(259, 26);
+            this.turunKelasContext.Text = "Turun Kelas Seluruh Siswa";
+            // 
             // HapusSiswaLulus
             // 
             this.HapusSiswaLulus.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -674,22 +691,6 @@
             this.HapusSiswaLulus.Name = "HapusSiswaLulus";
             this.HapusSiswaLulus.Size = new System.Drawing.Size(259, 26);
             this.HapusSiswaLulus.Text = "Hapus Data Siswa Lulus";
-            // 
-            // txtFilter
-            // 
-            this.txtFilter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFilter.Location = new System.Drawing.Point(78, 22);
-            this.txtFilter.Margin = new System.Windows.Forms.Padding(2);
-            this.txtFilter.Name = "txtFilter";
-            this.txtFilter.Size = new System.Drawing.Size(308, 21);
-            this.txtFilter.TabIndex = 0;
-            // 
-            // turunKelasContext
-            // 
-            this.turunKelasContext.Name = "turunKelasContext";
-            this.turunKelasContext.Size = new System.Drawing.Size(259, 26);
-            this.turunKelasContext.Text = "Turun Kelas Seluruh Siswa";
             // 
             // FormSIswa
             // 
