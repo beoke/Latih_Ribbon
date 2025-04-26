@@ -139,6 +139,7 @@ namespace latihribbon
                 }
                 /*printPreviewDialogMasuk.Document = printDocumentMasuk;
                 printPreviewDialogMasuk.ShowDialog(this);*/
+
                 printDocumentMasuk.Print();
                 return true;
             }
