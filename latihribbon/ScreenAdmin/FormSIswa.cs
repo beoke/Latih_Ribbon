@@ -17,6 +17,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -654,8 +655,9 @@ namespace latihribbon
                                 {
                                     continue;
                                 }
-                                string[] kelasName = kelas.Trim().Split(' ', (char)StringSplitOptions.RemoveEmptyEntries);
-                                string namaKelas = string.Join(" ",kelasName);
+ 
+                                string namaKelas = Regex.Replace(kelas.Trim(), @"\s{2,}", " ");
+                                
                                 int idKelas = kelasDal.GetIdKelas(namaKelas);
 
                                 string gender = jenisKelamin.Trim();
