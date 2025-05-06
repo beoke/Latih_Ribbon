@@ -149,15 +149,15 @@ namespace latihribbon
             {
                 printDocumentKeluar.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("Suit Detail", 400, 700);
 
-                /*if (!PrinterIsAvailable())
+                if (!PrinterIsAvailable())
                 {
                     new MesError("Printer tidak tersedia atau offline.\nSegera hubungi petugas!").ShowDialog(this);
                     return false;
-                }*/
-                printPreviewDialogKeluar.Document = printDocumentKeluar;
-                printPreviewDialogKeluar.ShowDialog(this);
+                }
+                /*printPreviewDialogKeluar.Document = printDocumentKeluar;
+                printPreviewDialogKeluar.ShowDialog(this);*/
 
-                //printDocumentKeluar.Print();
+                printDocumentKeluar.Print();
                 return true;
             }
             catch (Exception ex)
