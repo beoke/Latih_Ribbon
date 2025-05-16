@@ -18,8 +18,8 @@ namespace latihribbon
     {
         private readonly RiwayatLogin_UserDal _riwayatLoginDal;
 
-        private Form mainForm;
-        private Form indexForm;
+        private Form _mainForm;
+        private Form _indexForm;
 
         private readonly Image viewPassword = Properties.Resources.view__1_;
         private readonly Image hiddenPassword = Properties.Resources.hidden__1_;
@@ -33,8 +33,8 @@ namespace latihribbon
             this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
             this.ControlBox = true;
-            this.mainForm = mainForm;
-            this.indexForm = indexForm;
+            this._mainForm = mainForm;
+            this._indexForm = indexForm;
 
             btnMata.FlatStyle = FlatStyle.Flat;
             btnMata.FlatAppearance.BorderSize = 0;
@@ -96,7 +96,7 @@ namespace latihribbon
 
         private void btn_kembali_Click(object sender, EventArgs e)
         {
-            indexForm.Opacity = 1;
+            _indexForm.Opacity = 1;
             this.Close();
         }
         private void Tx_Password_LeaveChange(object sender, EventArgs e)
@@ -154,10 +154,10 @@ namespace latihribbon
             }
             InsertHistori();
 
-            Form1 admin = new Form1(mainForm,indexForm);
+            Form1 admin = new Form1(_mainForm,_indexForm, user.Role);
             admin.Show();
             this.Close();
-            indexForm.Close();
+            _indexForm.Close();
         }
 
 

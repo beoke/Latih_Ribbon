@@ -143,32 +143,29 @@ namespace latihribbon
 
         public void InitComponent()
         {
-            if(dataGridView1.Rows.Count > 0)
-            {
-                // DataGrid
-                dataGridView1.EnableHeadersVisualStyles = false;
-                dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            // DataGrid
+            dataGridView1.EnableHeadersVisualStyles = false;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
 
-                dataGridView1.DefaultCellStyle.Font = new Font("Sans Serif", 10);
-                dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Sans Serif", 10, FontStyle.Bold);
-                dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.LightBlue;
-                dataGridView1.RowTemplate.Height = 30;
-                //dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                dataGridView1.ColumnHeadersHeight = 35;
-                dataGridView1.Columns[1].HeaderText = "NIS";
-                dataGridView1.Columns[2].HeaderText = "Presensi";
-                dataGridView1.Columns[4].HeaderText = "Jenis Kelamin";
-                dataGridView1.Columns[5].HeaderText = "Nama Kelas";
+            dataGridView1.DefaultCellStyle.Font = new Font("Sans Serif", 10);
+            dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Sans Serif", 10, FontStyle.Bold);
+            dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.LightBlue;
+            dataGridView1.RowTemplate.Height = 30;
+            //dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridView1.ColumnHeadersHeight = 35;
+            dataGridView1.Columns[1].HeaderText = "NIS";
+            dataGridView1.Columns[2].HeaderText = "Presensi";
+            dataGridView1.Columns[4].HeaderText = "Jenis Kelamin";
+            dataGridView1.Columns[5].HeaderText = "Nama Kelas";
 
 
-                dataGridView1.Columns[0].Width = 60;
-                dataGridView1.Columns[1].Width = 80;
-                dataGridView1.Columns[2].Width = 100;
-                dataGridView1.Columns[3].Width = 350;
-                dataGridView1.Columns[4].Width = 120;
-                dataGridView1.Columns[5].Width = 150;
-                dataGridView1.Columns[6].Width = 100;
-            }
+            dataGridView1.Columns[0].Width = 60;
+            dataGridView1.Columns[1].Width = 80;
+            dataGridView1.Columns[2].Width = 100;
+            dataGridView1.Columns[3].Width = 350;
+            dataGridView1.Columns[4].Width = 120;
+            dataGridView1.Columns[5].Width = 150;
+            dataGridView1.Columns[6].Width = 100;
         }
 
         public void SaveData()
@@ -708,15 +705,14 @@ namespace latihribbon
                     int row = daftarKelasError.Count <= 4 ? 1 : daftarKelasError.Count <= 10 ? 2 : 3;
                     string dftrKelas = string.Empty;
 
-                    if (daftarKelasError.Count < 1)
-                        dftrKelas = "Tidak Ada";
-                    else if (row == 1)
+                    if (row == 1)
                         dftrKelas += string.Join(", ", daftarKelasError);
                     else
                         for (int i = 0; i <= daftarKelasError.Count - 1; i++)
                             dftrKelas += i == 3 || i == 9 ? $"{daftarKelasError[i]}, \n" : $"{daftarKelasError[i]}, ";
 
-                    new MesError($"Daftar Kelas Error: {dftrKelas.TrimEnd(',',' ')}",row).ShowDialog(this);
+                    if (daftarKelasError.Count > 0)
+                        new MesError($"Daftar Kelas Error: {dftrKelas.TrimEnd(',',' ')}",row).ShowDialog(this);
                 }
             }
         }

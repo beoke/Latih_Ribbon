@@ -16,18 +16,19 @@ namespace latihribbon
 {
     public partial class Form1 : RibbonForm
     {
-        private Form mainForm;
-        private Form indexForm;
-        public Form1(Form mainForm, Form indexForm)
+        private Form _mainForm;
+        private Form _indexForm;
+        public Form1(Form mainForm, Form indexForm, string role)
         {
             InitializeComponent();
-            this.mainForm = mainForm;
-            this.indexForm = indexForm;
+            this._mainForm = mainForm;
+            this._indexForm = indexForm;
             this.WindowState = FormWindowState.Maximized;
 
             this.MinimumSize = new Size(1300, 700);
 
-            //ribbonPanel14.Visible = false;
+            if(role == "Admin") //disable ribbon if role admin
+                ribbonPanel14.Visible = false;
         }
         private void ShowFormInPanel(Form form)
         {

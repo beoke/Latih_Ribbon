@@ -103,6 +103,7 @@ namespace latihribbon
         private void LoadUser()
         {
             GridListUser.DataSource = _riwayatLoginDal.ListUser()
+                .Where(x => x.Role != "Author")
                 .Select ((x,index) => new 
                 {
                     x.Id,
@@ -214,8 +215,14 @@ namespace latihribbon
 
         private void DeleteMenuStrip_Click(object sender, EventArgs e)
         {
+            if(GridListUser.Rows.Count == 1) // minimal 1 data
+            {
+                new MesError("Delete failed\nMinimal satu user di dalam daftar!").ShowDialog(this);
+                return;
+            }
+
             var idUser = Convert.ToInt32(GridListUser.CurrentRow.Cells[0].Value);
-            if ( new MesQuestionYN("Hapus Data User").ShowDialog(this) == DialogResult.Yes)
+            if ( new MesQuestionYN("Hapus Data User?").ShowDialog(this) == DialogResult.Yes)
             {
                 _riwayatLoginDal.DeleteUser(idUser);
                 LoadUser();
