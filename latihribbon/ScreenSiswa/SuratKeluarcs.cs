@@ -73,7 +73,6 @@ namespace latihribbon
             jamKembali.Focus();
         }
 
-
         private bool Validasi()
         {
             bool validasi = true;
@@ -86,6 +85,9 @@ namespace latihribbon
 
         public async void btn_PrintKeluar_Click(object sender, EventArgs e)
         {
+            //nonaktifkan button back
+            btn_kembali.Enabled = false;
+
             if (!Validasi())
             {
                 new MesWarningOK("Pastikan \"Jam Kembali\" dan \"Keperluan\" valid !").ShowDialog(this);

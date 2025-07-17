@@ -96,6 +96,9 @@ namespace latihribbon
         }
         private async void btn_PrintMasuk_Click(object sender, EventArgs e)
         {
+            //nonaktifkan button back
+            btn_kembali.Enabled = false;
+
             if (!Validasi())
             {
                 new MesWarningOK("Alasan Terlambat Wajib Diisi!").ShowDialog(this);
