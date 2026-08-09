@@ -1,4 +1,4 @@
-﻿using latihribbon.Dal;
+using latihribbon.Dal;
 using latihribbon.Model;
 using System;
 using System.Data;
@@ -71,7 +71,7 @@ namespace latihribbon
         private bool Validasi()
         {
             bool valid = true;
-            if (txtAlasan.Text == string.Empty) valid = false;
+            if (string.IsNullOrWhiteSpace(txtAlasan.Text)) valid = false;
             return valid;
         }
         private void Insert()
@@ -102,10 +102,15 @@ namespace latihribbon
             if (!Validasi())
             {
                 new MesWarningOK("Alasan Terlambat Wajib Diisi!").ShowDialog(this);
+                btn_kembali.Enabled = true;
                 return;
             }
 
-            if (new MesQuestionYN("Apakah data sudah benar ?").ShowDialog(this) != DialogResult.Yes) return;
+            if (new MesQuestionYN("Apakah data sudah benar ?").ShowDialog(this) != DialogResult.Yes) 
+            {
+                btn_kembali.Enabled = true;
+                return;
+            }
             if (!Print())
             {
                 await Task.Delay(2000);

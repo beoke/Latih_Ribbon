@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -91,9 +91,14 @@ namespace latihribbon
             if (!Validasi())
             {
                 new MesWarningOK("Pastikan \"Jam Kembali\" dan \"Keperluan\" valid !").ShowDialog(this);
+                btn_kembali.Enabled = true;
                 return;
             }
-            if (new MesQuestionYN("Apakah data sudah benar ?").ShowDialog(this) != DialogResult.Yes) return;
+            if (new MesQuestionYN("Apakah data sudah benar ?").ShowDialog(this) != DialogResult.Yes) 
+            {
+                btn_kembali.Enabled = true;
+                return;
+            }
             if (!Print())
             {
                 await Task.Delay(2000);
