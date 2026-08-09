@@ -1,4 +1,4 @@
-﻿using Dapper;
+using Dapper;
 using DocumentFormat.OpenXml.ExtendedProperties;
 using latihribbon.Conn;
 using latihribbon.Dal;
@@ -601,10 +601,6 @@ namespace latihribbon
         #region IMPORT DATA
         private async void ButtonInputSIswa_Click(object sender, EventArgs e)
         {
-            Loading loading = new Loading();
-            loading.WindowState = FormWindowState.Maximized;
-            await Task.Delay(500);
-            
             FormKetentuanImport ketentuan = new FormKetentuanImport();
             if (ketentuan.ShowDialog(this) != DialogResult.OK) return;
 
@@ -613,12 +609,16 @@ namespace latihribbon
 
             if (dialogOpen.ShowDialog() == DialogResult.OK)
             {
+                Loading loading = new Loading();
+                loading.WindowState = FormWindowState.Maximized;
                 loading.Show();
                 await Task.Delay(500);
                 FileInfo infoFile = new FileInfo(dialogOpen.FileName);
                 List<string> daftarKelasError = new List<string>();
 
-                using (ExcelPackage package = new ExcelPackage(infoFile))
+                try
+                {
+                    using (ExcelPackage package = new ExcelPackage(infoFile))
                 {
                     foreach (var sheet in package.Workbook.Worksheets)
                     {
@@ -699,7 +699,7 @@ namespace latihribbon
                             }
                         }
                     }
-                    loading.Close();
+                    
                     LoadData();
                     new MesInformasi("Data siswa berhasil ditambahkan atau diperbarui").ShowDialog(this);
                     int row = daftarKelasError.Count <= 4 ? 1 : daftarKelasError.Count <= 10 ? 2 : 3;
@@ -713,6 +713,15 @@ namespace latihribbon
 
                     if (daftarKelasError.Count > 0)
                         new MesError($"Daftar Kelas Error: {dftrKelas.TrimEnd(',',' ')}",row).ShowDialog(this);
+                }
+                catch (Exception ex)
+                {
+                    new MesError($"Terjadi kesalahan saat import data: {ex.Message}").ShowDialog(this);
+                }
+                finally
+                {
+                    loading.Close();
+                    loading.Dispose();
                 }
             }
         }
