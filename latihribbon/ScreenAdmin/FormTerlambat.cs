@@ -1,4 +1,4 @@
-﻿using Dapper;
+using Dapper;
 using latihribbon.Conn;
 using latihribbon.Dal;
 using latihribbon.Model;
@@ -324,7 +324,12 @@ namespace latihribbon
             timer?.Dispose();
             timer = new System.Threading.Timer(x =>
             {
-                this.Invoke(new Action(LoadData));
+                if (this.IsDisposed || !this.IsHandleCreated) return;
+                try
+                {
+                    this.Invoke(new Action(LoadData));
+                }
+                catch (Exception) { }
             },null,300,Timeout.Infinite);
         }
         private void filter_tglChanged(object sender, EventArgs e)

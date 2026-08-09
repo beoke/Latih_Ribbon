@@ -1,4 +1,4 @@
-﻿using Dapper;
+using Dapper;
 using latihribbon.Dal;
 using latihribbon.Model;
 using System;
@@ -353,7 +353,12 @@ namespace latihribbon
             timer?.Dispose();
             timer = new System.Threading.Timer(x =>
             {
-                this.Invoke(new Action(LoadData));
+                if (this.IsDisposed || !this.IsHandleCreated) return;
+                try
+                {
+                    this.Invoke(new Action(LoadData));
+                }
+                catch (Exception) { }
             },null,300,Timeout.Infinite);
         }
 

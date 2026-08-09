@@ -538,7 +538,12 @@ namespace latihribbon
 
             debounceTimer = new System.Threading.Timer(x =>
             {
-                this.Invoke(new Action(LoadData));
+                if (this.IsDisposed || !this.IsHandleCreated) return;
+                try
+                {
+                    this.Invoke(new Action(LoadData));
+                }
+                catch (Exception) { }
             }, null, debounceDelay, Timeout.Infinite);
         }
         private void btnNext_Click(object sender, EventArgs e)
@@ -622,6 +627,7 @@ namespace latihribbon
                 {
                     foreach (var sheet in package.Workbook.Worksheets)
                     {
+                        if (sheet.Dimension == null) continue;
                         int RowCount = sheet.Dimension.Rows;
                         using (IDbConnection Conn = new SQLiteConnection(conn.connstr()))
                         {

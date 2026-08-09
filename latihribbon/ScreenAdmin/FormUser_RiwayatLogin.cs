@@ -1,4 +1,4 @@
-﻿  using Dapper;
+  using Dapper;
 using latihribbon.Conn;
 using latihribbon.Dal;
 using OfficeOpenXml.Sparkline;
@@ -254,9 +254,15 @@ namespace latihribbon
         private void TextUserName_TextChanged(object sender, EventArgs e)
         {
             Page = 1;
+            timer?.Dispose();
             timer = new System.Threading.Timer(x =>
             {
-                this.Invoke(new Action(LoadData));
+                if (this.IsDisposed || !this.IsHandleCreated) return;
+                try
+                {
+                    this.Invoke(new Action(LoadData));
+                }
+                catch (Exception) { }
             },null,400,Timeout.Infinite);
         }
         string Userlama = string.Empty;

@@ -223,12 +223,12 @@ namespace latihribbon.ScreenAdmin
             timer?.Dispose();
             timer = new System.Threading.Timer(x =>
             {
-                if (this.IsDisposed) return;
+                if (this.IsDisposed || !this.IsHandleCreated) return;
                 try 
                 {
                     this.Invoke(new Action(LoadData));
                 } 
-                catch (ObjectDisposedException) { }
+                catch (Exception) { }
             }, null, 300, Timeout.Infinite);
         }
 
