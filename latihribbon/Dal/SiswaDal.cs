@@ -1,4 +1,4 @@
-﻿using Dapper;
+using Dapper;
 using System.Collections.Generic;
 using System.Data.SQLite;
 
@@ -74,8 +74,9 @@ namespace latihribbon.Dal
                     try
                     {
                         string sql = $@"UPDATE siswa SET Nama = @Nama, JenisKelamin = @JenisKelamin, Persensi = @Persensi, IdKelas = @IdKelas, Tahun = @Tahun, Nis = @Nis
-                               WHERE Nis = {oldNis}";
+                               WHERE Nis = @oldNis";
                         var dp = new DynamicParameters();
+                        dp.Add("@oldNis", oldNis, System.Data.DbType.Int32);
                         dp.Add("@Nis", siswa.Nis, System.Data.DbType.Int32);
                         dp.Add("@Nama", siswa.Nama, System.Data.DbType.String);
                         dp.Add("@JenisKelamin", siswa.JenisKelamin, System.Data.DbType.String);
