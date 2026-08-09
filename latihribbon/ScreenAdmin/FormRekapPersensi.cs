@@ -165,6 +165,7 @@ namespace latihribbon.ScreenAdmin
             int inRowPage = (Page - 1) * RowPerPage;
             var jumlahRow = rekapPersensiDal.CekRows(sqlcRow,sqlc2,dp);
             totalPage = (int)Math.Ceiling((double)jumlahRow / RowPerPage);
+            if (totalPage < 1) totalPage = 1;
 
             dp.Add("Offset",inRowPage);
             dp.Add("Fetch",RowPerPage);

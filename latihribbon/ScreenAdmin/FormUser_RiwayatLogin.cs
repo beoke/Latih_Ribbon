@@ -151,6 +151,7 @@ namespace latihribbon
             int inRowPage = (Page - 1) * RowPerPage;
             var jumlahRow = _riwayatLoginDal.CekRows(sqlc, dp);
             totalPage = (int)Math.Ceiling((double)jumlahRow / RowPerPage);
+            if (totalPage < 1) totalPage = 1;
 
             text += $"{Page.ToString()}/{totalPage.ToString()}";
             lblHalaman.Text = text;
@@ -215,6 +216,7 @@ namespace latihribbon
 
         private void DeleteMenuStrip_Click(object sender, EventArgs e)
         {
+            if (GridListUser.CurrentRow == null) return;
             if(GridListUser.Rows.Count == 1) // minimal 1 data
             {
                 new MesError("Delete failed\nMinimal satu user di dalam daftar!").ShowDialog(this);

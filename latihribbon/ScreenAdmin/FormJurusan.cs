@@ -1,4 +1,4 @@
-﻿using latihribbon.Dal;
+using latihribbon.Dal;
 using latihribbon.Model;
 using System;
 using System.Collections.Generic;
@@ -79,6 +79,7 @@ namespace latihribbon.ScreenAdmin
 
         private void DeleteMenuStrip_Click(object sender, EventArgs e)
         {
+            if (GridListJurusan.CurrentRow == null) return;
             var jurusanKode = GridListJurusan.CurrentRow.Cells["Kode"].Value;
             var id = Convert.ToInt32(GridListJurusan.CurrentRow.Cells[0].Value);
 
@@ -96,6 +97,7 @@ namespace latihribbon.ScreenAdmin
 
         private void EditMenuStrip_Click(object sender, EventArgs e)
         {
+            if (GridListJurusan.CurrentRow == null) return;
             int jurusanId = Convert.ToInt32(GridListJurusan.CurrentRow.Cells[0].Value);
             if (new EditJurusan(jurusanId).ShowDialog() == DialogResult.Yes)
                 LoadData();

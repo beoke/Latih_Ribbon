@@ -1,4 +1,4 @@
-﻿using latihribbon.Dal;
+using latihribbon.Dal;
 using latihribbon.Model;
 using System;
 using System.Collections.Generic;
@@ -46,7 +46,13 @@ namespace latihribbon
         }
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            int idJurusan = Convert.ToInt32(jurusanCombo.SelectedValue.ToString());
+            if (jurusanCombo.SelectedItem == null || jurusanCombo.SelectedValue == null)
+            { 
+                new MesError("Data Jurusan Kosong!").ShowDialog();
+                return;
+            }
+
+            int idJurusan = Convert.ToInt32(jurusanCombo.SelectedValue);
             string tingkat = XRadio.Checked ? "X" : XIRadio.Checked ? "XI" : XIIRadio.Checked ? "XII" : string.Empty;
             string kode = ((JurusanModel)jurusanCombo.SelectedItem)?.Kode ?? string.Empty;
             string rombel = txtRombel.Text;
@@ -61,12 +67,6 @@ namespace latihribbon
                 Tingkat = tingkat,
                 status = 1
             };
-
-            if (jurusanCombo.Items.Count == 0)
-            { 
-                new MesError("Data Jurusan Kosong!").ShowDialog();
-                return;
-            }
             
             if (kelas.NamaKelas == "" || kelas.Tingkat == "")
             {

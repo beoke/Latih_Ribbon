@@ -157,6 +157,7 @@ namespace latihribbon
             int inRowPage = (Page - 1) * RowPerPage;
             var jumlahRow = absensiDal.CekRows(sqlc, dp);
             totalPage = (int)Math.Ceiling((double)jumlahRow / RowPerPage);
+            if (totalPage < 1) totalPage = 1;
 
             text += $"{Page.ToString()}/{totalPage.ToString()}";
             lblHalaman.Text = text;
@@ -312,6 +313,7 @@ namespace latihribbon
 
         private void DeleteMenuStrip_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.CurrentRow == null) return;
             SystemSounds.Beep.Play();
             if (new MesWarningYN("Hapus Data?").ShowDialog() != DialogResult.Yes) return;
             var id = dataGridView1.CurrentRow.Cells[0].Value;
@@ -321,6 +323,7 @@ namespace latihribbon
         }
         private void EditMenuStrip_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.CurrentRow == null) return;
             int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
             EditAbsensi edit = new EditAbsensi(id);
 

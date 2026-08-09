@@ -156,6 +156,7 @@ namespace latihribbon
             int inRowPage = (Page - 1) * RowPerPage;
             var jumlahRow = keluarDal.CekRows(sqlc, dp);
             totalPage = (int)Math.Ceiling((double)jumlahRow / RowPerPage);
+            if (totalPage < 1) totalPage = 1;
 
             text += $"{Page.ToString()}/{totalPage.ToString()}";
             lblHalaman.Text = text;

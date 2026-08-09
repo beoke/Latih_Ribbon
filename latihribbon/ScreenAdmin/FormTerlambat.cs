@@ -131,6 +131,7 @@ namespace latihribbon
 
             var jumlahRow = masukDal.CekRows(sqlc, dp);
             totalPage = (int)Math.Ceiling((double)jumlahRow / RowPerPage);
+            if (totalPage < 1) totalPage = 1;
 
             text += $"{Page.ToString()}/{totalPage.ToString()}";
             lblHalaman.Text = text;
@@ -253,6 +254,7 @@ namespace latihribbon
 
         private void DeleteMenuStrip_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.CurrentRow == null) return;
             if (new MesWarningYN("Hapus Data?").ShowDialog(this) != DialogResult.Yes) return;
             var id = dataGridView1.CurrentRow.Cells[0].Value;
 
@@ -261,6 +263,7 @@ namespace latihribbon
         }
         private void EditMenuStrip_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.CurrentRow == null) return;
             int Id = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
             EditTerlambat edit = new EditTerlambat(Id);
 

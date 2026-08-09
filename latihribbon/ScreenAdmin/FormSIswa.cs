@@ -191,6 +191,12 @@ namespace latihribbon
                 return;
             }
 
+            if (!int.TryParse(nis, out int parsedNis) || !int.TryParse(persensi, out int parsedPresensi))
+            {
+                new MesWarningOK("NIS dan Presensi harus berupa angka valid!").ShowDialog(this);
+                return;
+            }
+
             if (lblNisSudahAda.Visible == true)
             {
                 new MesError("Nis sudah ada !").ShowDialog(this);
@@ -205,9 +211,9 @@ namespace latihribbon
             }
             var siswa = new SiswaModel
             {
-                Nis = int.Parse(nis),
+                Nis = parsedNis,
                 Nama = nama,
-                Persensi = int.Parse(persensi),
+                Persensi = parsedPersensi,
                 JenisKelamin = jenisKelamin,
                 IdKelas = idKelas,
                 Tahun = tahun,
@@ -280,6 +286,7 @@ namespace latihribbon
             int inRowPage = (Page - 1) * RowPerPage;
             var jumlahRow = siswaDal.CekRows(sqlc, dp);
             totalPage = (int)Math.Ceiling((double)jumlahRow / RowPerPage);
+            if (totalPage < 1) totalPage = 1;
 
             text += $"{Page.ToString()}/{totalPage.ToString()}";
             lblHalaman.Text = text;
@@ -483,6 +490,7 @@ namespace latihribbon
 
         private void DeleteMenuStrip_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.CurrentRow == null) return;
             if (new MesWarningYN("Hapus Data?\nJika Dihapus Maka Data Yang Terhubung Akan Ikut Terhapus!",2).ShowDialog(this) != DialogResult.Yes) return;
 
             var id = dataGridView1.CurrentRow.Cells[1].Value;
@@ -494,14 +502,7 @@ namespace latihribbon
 
         private void EditMenuStrip_Click(object sender, EventArgs e)
         {
-/*            string kelas = dataGridView1.CurrentRow.Cells[5].Value?.ToString() ?? string.Empty;
-            string[] kelasArr = kelas.Split(' ');
-            if (kelasArr[0] == "LULUS")
-            {
-                new MesError("Data siswa LULUS tidak dapat di edit!").ShowDialog(this);
-                return;
-            };*/
-
+            if (dataGridView1.CurrentRow == null) return;
             int Nis = Convert.ToInt32(dataGridView1.CurrentRow.Cells[1].Value);
             if (new EditSiswa(Nis).ShowDialog() == DialogResult.Yes)
                 LoadData();

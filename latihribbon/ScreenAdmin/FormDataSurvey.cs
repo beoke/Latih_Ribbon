@@ -1,4 +1,4 @@
-﻿using Dapper;
+using Dapper;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -84,11 +84,12 @@ namespace latihribbon
             int rowInPage = (pageNow - 1) * rowPerPage;
             int totalData = surveyDal.rowCount(sqlc, dp);
             totalPage = (int)Math.Ceiling((double)totalData / rowPerPage);
+            if (totalPage < 1) totalPage = 1;
 
             dp.Add("@Offset", rowInPage);
             dp.Add("@Fetch", rowPerPage);
 
-            string text = "Halaman";
+            string text = "Halaman ";
             text += $"{pageNow.ToString()}/{totalPage.ToString()}";
             LabelHalaman.Text = text;
 
@@ -145,6 +146,7 @@ namespace latihribbon
 
         private void DeleteMenuStrip_Click(object sender, EventArgs e)
         {
+            if (GridListSurvey.CurrentRow == null) return;
             if (new MesQuestionYN("Hapus Data ?").ShowDialog(this) != DialogResult.Yes) return;
             var id = GridListSurvey.CurrentRow.Cells["SurveyId"].Value;
             surveyDal.Delete(Convert.ToInt16(id));

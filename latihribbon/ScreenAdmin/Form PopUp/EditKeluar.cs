@@ -1,4 +1,4 @@
-﻿ using latihribbon.Dal;
+ using latihribbon.Dal;
 using latihribbon.Model;
 using System;
 using System.Collections.Generic;
@@ -66,8 +66,10 @@ namespace latihribbon
             txtNama1.Text = data.Nama;
             txtKelas1.Text = data.NamaKelas;
             tglDT.Value = data.Tanggal.Date;
-            jamKeluarDT.Value = DateTime.Today.Add(TimeSpan.Parse(data.JamKeluar));
-            jamMasukDT.Value = DateTime.Today.Add(TimeSpan.Parse(data.JamMasuk));
+            if (TimeSpan.TryParse(data.JamKeluar, out TimeSpan parsedKeluar))
+                jamKeluarDT.Value = DateTime.Today.Add(parsedKeluar);
+            if (TimeSpan.TryParse(data.JamMasuk, out TimeSpan parsedMasuk))
+                jamMasukDT.Value = DateTime.Today.Add(parsedMasuk);
             txtTujuan1.Text = data.Tujuan;
         }
     }

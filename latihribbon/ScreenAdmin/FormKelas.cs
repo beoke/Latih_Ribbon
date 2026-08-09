@@ -1,4 +1,4 @@
-﻿using DocumentFormat.OpenXml.Drawing;
+using DocumentFormat.OpenXml.Drawing;
 using DocumentFormat.OpenXml.Office2010.Excel;
 using DocumentFormat.OpenXml.Wordprocessing;
 using latihribbon.Dal;
@@ -55,6 +55,7 @@ namespace latihribbon.ScreenAdmin
 
         private void DeleteMenuStrip_Click(object sender, EventArgs e)
         {
+            if (GridListKelas.CurrentRow == null) return;
             string namaKelas = GridListKelas.CurrentRow.Cells[2].Value?.ToString() ?? string.Empty;
             int id = Convert.ToInt32(GridListKelas.CurrentRow.Cells[0].Value);
 
@@ -72,6 +73,7 @@ namespace latihribbon.ScreenAdmin
 
         private void EditMenuStrip_Click(object sender, EventArgs e)
         {
+            if (GridListKelas.CurrentRow == null) return;
             int Nis = Convert.ToInt32(GridListKelas.CurrentRow.Cells[0].Value);
             if (new EditKelas(Nis).ShowDialog() == DialogResult.Yes)
                 LoadData();

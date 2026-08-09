@@ -1,4 +1,4 @@
-﻿using latihribbon.Dal;
+using latihribbon.Dal;
 using latihribbon.Model;
 using System;
 using System.Collections.Generic;
@@ -42,7 +42,8 @@ namespace latihribbon
             txtNama.Text = masuk.Nama;
             txtKelas.Text = masuk.NamaKelas;
             tglDT.Value = masuk.Tanggal.Date;
-            jamMasuk.Value = DateTime.Today.Add(TimeSpan.Parse(masuk.JamMasuk));
+            if (TimeSpan.TryParse(masuk.JamMasuk, out TimeSpan parsedJam))
+                jamMasuk.Value = DateTime.Today.Add(parsedJam);
             txtAlasan.Text = masuk.Alasan;
             globalTgl = masuk.Tanggal.Date;
         }
