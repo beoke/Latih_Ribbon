@@ -1,4 +1,4 @@
-﻿using Dapper;
+using Dapper;
 using latihribbon.Dal;
 using latihribbon.Model;
 using OfficeOpenXml;
@@ -223,7 +223,12 @@ namespace latihribbon.ScreenAdmin
             timer?.Dispose();
             timer = new System.Threading.Timer(x =>
             {
-                this.Invoke(new Action(LoadData));
+                if (this.IsDisposed) return;
+                try 
+                {
+                    this.Invoke(new Action(LoadData));
+                } 
+                catch (ObjectDisposedException) { }
             }, null, 300, Timeout.Infinite);
         }
 
