@@ -1,4 +1,4 @@
-﻿using Dapper;
+using Dapper;
 using latihribbon.Model;
 using System;
 using System.Collections.Generic;
@@ -98,7 +98,7 @@ namespace latihribbon.Dal
                 var dp = new DynamicParameters();
                 dp.Add("@tgl1", tgl1, DbType.Date);
                 dp.Add("@tgl2", tgl2, DbType.Date);
-                dp.Add("@nis", nis, DbType.String);
+                dp.Add("@nis", nis, DbType.Int32);
 
                 return koneksi.Query<RekapPersensiModel>(sql, dp);
             }
