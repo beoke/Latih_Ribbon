@@ -1,10 +1,10 @@
-﻿using Dapper;
+using Dapper;
 using latihribbon.Conn;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
+using System.Data.SQLite;
 using System.Drawing;
 using System.Drawing.Text;
 using System.Linq;
@@ -101,7 +101,7 @@ namespace latihribbon
 
         private void SaveData(KepuasanModel puas)
         {
-            using (var Conn = new SqlConnection(conn.connstr()))
+            using (var Conn = new SQLiteConnection(conn.connstr()))
             {
                 const string sql = @"
                 INSERT INTO Survey (HasilSurvey, Tanggal, Waktu)
@@ -111,7 +111,7 @@ namespace latihribbon
                 var Dp = new DynamicParameters();
                 Dp.Add("@HasilSurvey", puas.HasilSurvey, DbType.Int16);
                 Dp.Add("@Tanggal", puas.Tanggal, DbType.DateTime);
-                Dp.Add("@Waktu", puas.Waktu, DbType.Time);
+                Dp.Add("@Waktu", puas.Waktu.ToString(@"hh\:mm"), DbType.String);
 
                 Conn.Execute(sql,Dp);
             }
