@@ -213,7 +213,7 @@ namespace latihribbon
             {
                 Nis = parsedNis,
                 Nama = nama,
-                Persensi = parsedPersensi,
+                Persensi = parsedPresensi,
                 JenisKelamin = jenisKelamin,
                 IdKelas = idKelas,
                 Tahun = tahun,
@@ -625,11 +625,11 @@ namespace latihribbon
                 try
                 {
                     using (ExcelPackage package = new ExcelPackage(infoFile))
-                {
-                    foreach (var sheet in package.Workbook.Worksheets)
                     {
-                        if (sheet.Dimension == null) continue;
-                        int RowCount = sheet.Dimension.Rows;
+                        foreach (var sheet in package.Workbook.Worksheets)
+                        {
+                            if (sheet.Dimension == null) continue;
+                            int RowCount = sheet.Dimension.Rows;
                         using (IDbConnection Conn = new SQLiteConnection(conn.connstr()))
                         {
                             for (int baris = 2; baris <= RowCount; baris++)
@@ -706,8 +706,9 @@ namespace latihribbon
                             }
                         }
                     }
+                }
                     
-                    LoadData();
+                LoadData();
                     new MesInformasi("Data siswa berhasil ditambahkan atau diperbarui").ShowDialog(this);
                     int row = daftarKelasError.Count <= 4 ? 1 : daftarKelasError.Count <= 10 ? 2 : 3;
                     string dftrKelas = string.Empty;
