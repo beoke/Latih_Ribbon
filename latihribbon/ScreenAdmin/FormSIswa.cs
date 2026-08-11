@@ -630,85 +630,85 @@ namespace latihribbon
                         {
                             if (sheet.Dimension == null) continue;
                             int RowCount = sheet.Dimension.Rows;
-                        using (IDbConnection Conn = new SQLiteConnection(conn.connstr()))
-                        {
-                            for (int baris = 2; baris <= RowCount; baris++)
+                            using (IDbConnection Conn = new SQLiteConnection(conn.connstr()))
                             {
-                                var nis = long.TryParse(sheet.Cells[baris, 2].Value?.ToString().Trim(), out long parsedNis) ? parsedNis : (long?)null;
-                                var nama = sheet.Cells[baris, 3].Value?.ToString().Trim();
-                                var kelas = sheet.Cells[baris, 4].Value?.ToString().Trim();
-                                        
-                                var tahun = int.TryParse(sheet.Cells[baris, 6].Value?.ToString().Trim(), out int parsedTahun) ? parsedTahun : (int?)null;
-                                var presensi = int.TryParse(sheet.Cells[baris, 1].Value?.ToString().Trim(), out int parsedPresensi) ? parsedPresensi : (int?)null;
-                                var jenisKelamin = sheet.Cells[baris, 5].Value?.ToString().Trim();
-
-                                bool isBarisKosong =
-                                    nis == null &&
-                                    string.IsNullOrWhiteSpace(nama) &&
-                                    string.IsNullOrWhiteSpace(kelas) &&
-                                    tahun == null &&
-                                    presensi == null &&
-                                    string.IsNullOrWhiteSpace(jenisKelamin);
-
-                                if (isBarisKosong)
+                                for (int baris = 2; baris <= RowCount; baris++)
                                 {
-                                    continue;
-                                }
+                                    var nis = long.TryParse(sheet.Cells[baris, 2].Value?.ToString().Trim(), out long parsedNis) ? parsedNis : (long?)null;
+                                    var nama = sheet.Cells[baris, 3].Value?.ToString().Trim();
+                                    var kelas = sheet.Cells[baris, 4].Value?.ToString().Trim();
+                                            
+                                    var tahun = int.TryParse(sheet.Cells[baris, 6].Value?.ToString().Trim(), out int parsedTahun) ? parsedTahun : (int?)null;
+                                    var presensi = int.TryParse(sheet.Cells[baris, 1].Value?.ToString().Trim(), out int parsedPresensi) ? parsedPresensi : (int?)null;
+                                    var jenisKelamin = sheet.Cells[baris, 5].Value?.ToString().Trim();
 
-                                if (nis == null || nama == null || kelas == null || tahun == null || presensi == null || jenisKelamin == null)
-                                {
-                                    continue;
-                                }
- 
-                                string namaKelas = Regex.Replace(kelas.Trim(), @"\s{2,}", " ");
-                                
-                                int idKelas = kelasDal.GetIdKelas(namaKelas);
+                                    bool isBarisKosong =
+                                        nis == null &&
+                                        string.IsNullOrWhiteSpace(nama) &&
+                                        string.IsNullOrWhiteSpace(kelas) &&
+                                        tahun == null &&
+                                        presensi == null &&
+                                        string.IsNullOrWhiteSpace(jenisKelamin);
 
-                                string gender = jenisKelamin.Trim();
-                                if (idKelas != 0)
-                                {
-                                    var cekDb = Conn.QueryFirstOrDefault<long?>("SELECT Nis FROM siswa WHERE Nis = @Nis", new { Nis = nis });
-
-                                    var dp = new DynamicParameters();
-                                    dp.Add("@Nis", nis, DbType.Int64);
-                                    dp.Add("@Nama", nama, DbType.String);
-                                    dp.Add("@IdKelas", idKelas, DbType.Int32);
-                                    dp.Add("@Tahun", tahun, DbType.Int32);
-                                    dp.Add("@Persensi", presensi, DbType.Int64);
-                                    dp.Add("@JenisKelamin", gender, DbType.String);
-
-                                    if (cekDb != null)
+                                    if (isBarisKosong)
                                     {
-                                        const string updateSql = @"
-                                                            UPDATE siswa
-                                                            SET Nama = @Nama,
-                                                                IdKelas = @IdKelas, 
-                                                                Tahun = @Tahun, 
-                                                                Persensi = @Persensi, 
-                                                                JenisKelamin = @JenisKelamin
-                                                            WHERE Nis = @Nis";
-                                        Conn.Execute(updateSql, dp);
+                                        continue;
+                                    }
+
+                                    if (nis == null || nama == null || kelas == null || tahun == null || presensi == null || jenisKelamin == null)
+                                    {
+                                        continue;
+                                    }
+
+                                    string namaKelas = Regex.Replace(kelas.Trim(), @"\s{2,}", " ");
+                                    
+                                    int idKelas = kelasDal.GetIdKelas(namaKelas);
+
+                                    string gender = jenisKelamin.Trim();
+                                    if (idKelas != 0)
+                                    {
+                                        var cekDb = Conn.QueryFirstOrDefault<long?>("SELECT Nis FROM siswa WHERE Nis = @Nis", new { Nis = nis });
+
+                                        var dp = new DynamicParameters();
+                                        dp.Add("@Nis", nis, DbType.Int64);
+                                        dp.Add("@Nama", nama, DbType.String);
+                                        dp.Add("@IdKelas", idKelas, DbType.Int32);
+                                        dp.Add("@Tahun", tahun, DbType.Int32);
+                                        dp.Add("@Persensi", presensi, DbType.Int64);
+                                        dp.Add("@JenisKelamin", gender, DbType.String);
+
+                                        if (cekDb != null)
+                                        {
+                                            const string updateSql = @"
+                                                                UPDATE siswa
+                                                                SET Nama = @Nama,
+                                                                    IdKelas = @IdKelas, 
+                                                                    Tahun = @Tahun, 
+                                                                    Persensi = @Persensi, 
+                                                                    JenisKelamin = @JenisKelamin
+                                                                WHERE Nis = @Nis";
+                                            Conn.Execute(updateSql, dp);
+                                        }
+                                        else
+                                        {
+                                            const string insertSql = @"
+                                                                    INSERT INTO siswa 
+                                                                        (Nis, Nama, IdKelas, Tahun, Persensi, JenisKelamin)
+                                                                    VALUES
+                                                                        (@Nis, @Nama, @IdKelas, @Tahun, @Persensi, @JenisKelamin)";
+                                            Conn.Execute(insertSql, dp);
+                                        }
                                     }
                                     else
                                     {
-                                        const string insertSql = @"
-                                                                INSERT INTO siswa 
-                                                                    (Nis, Nama, IdKelas, Tahun, Persensi, JenisKelamin)
-                                                                VALUES
-                                                                    (@Nis, @Nama, @IdKelas, @Tahun, @Persensi, @JenisKelamin)";
-                                        Conn.Execute(insertSql, dp);
+                                        if(!daftarKelasError.Contains(namaKelas)) daftarKelasError.Add(namaKelas);
                                     }
-                                }
-                                else
-                                {
-                                    if(!daftarKelasError.Contains(namaKelas)) daftarKelasError.Add(namaKelas);
                                 }
                             }
                         }
                     }
-                }
                     
-                LoadData();
+                    LoadData();
                     new MesInformasi("Data siswa berhasil ditambahkan atau diperbarui").ShowDialog(this);
                     int row = daftarKelasError.Count <= 4 ? 1 : daftarKelasError.Count <= 10 ? 2 : 3;
                     string dftrKelas = string.Empty;
