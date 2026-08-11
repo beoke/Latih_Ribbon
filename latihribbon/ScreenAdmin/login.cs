@@ -174,7 +174,7 @@ namespace latihribbon
                 Waktu = waktu.ToString(@"hh\:mm")
             };
             _riwayatLoginDal.Insert(riwayat);
-            _riwayatLoginDal.DeleteAfter30Days();
+            // _riwayatLoginDal.DeleteAfter30Days();
         }
 
         private void tx_Username_KeyDown(object sender, KeyEventArgs e)

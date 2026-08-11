@@ -1,4 +1,4 @@
-﻿using DocumentFormat.OpenXml.Drawing;
+using DocumentFormat.OpenXml.Drawing;
 using latihribbon.ScreenAdmin;
 using System;
 using System.Collections.Generic;
@@ -23,6 +23,10 @@ namespace latihribbon
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            
+            // Verifikasi dan selaraskan kolom tabel database saat pertama kali aplikasi dibuka
+            latihribbon.Conn.conn.EnsureTableColumns();
+
             Application.Run(new FirstForm());
 
         }
