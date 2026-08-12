@@ -255,5 +255,61 @@ namespace latihribbon.Dal
                 return koneksi.QuerySingleOrDefault<bool>(sql, dp);
             }
         }
+
+        public void UpdateNamaKelas(int Id, string NamaKelas)
+        {
+            using (var koneksi = new SQLiteConnection(Conn.conn.connstr()))
+            {
+                const string sql = @"UPDATE Kelas SET NamaKelas=@NamaKelas WHERE Id=@Id";
+                koneksi.Execute(sql, new {Id=Id, NamaKelas=NamaKelas});
+            }
+        }
+
+        public void DuplikatKelas(string Tingkat)
+        {
+            using (var koneksi = new SQLiteConnection(Conn.conn.connstr()))
+            {
+                const string sql = @"INSERT INTO Kelas(NamaKelas,Rombel,IdJurusan,Tingkat, status)
+                                    SELECT NamaKelas, Rombel, IdJurusan, Tingkat, status FROM Kelas
+                                    WHERE Tingkat = @Tingkat";
+                koneksi.Execute(sql, new { Tingkat = Tingkat });
+            }
+        }
+
+        public bool TurunkanKelas()
+        {
+            using (var koneksi = new SQLiteConnection(Conn.conn.connstr()))
+            {
+                const string sqlTurun = @"DELETE FROM kelas WHERE Tingkat = 'X'";
+                const string sqlCek = @"SELECT COUNT(*) FROM Siswa s 
+                                        INNER JOIN Kelas k ON s.idKelas = k.Id 
+                                        WHERE k.Tingkat = 'X'";
+                if (koneksi.QuerySingleOrDefault<int>(sqlCek) == 0)
+                {
+                    koneksi.Execute(sqlTurun);
+                    return true;
+                }
+                return false;
+            }
+        }
+
+        public int DeleteSiswaLulus()
+        {
+            using (var koneksi = new SQLiteConnection(Conn.conn.connstr()))
+            {
+                const string sql = @"DELETE FROM Kelas WHERE status = 0";
+                return koneksi.Execute(sql);
+            }
+        }
+
+        public bool cekLulus()
+        {
+            using (var koneksi = new SQLiteConnection(Conn.conn.connstr()))
+            {
+                const string sql = @"SELECT COUNT(1) FROM Kelas WHERE status = 0";
+                int count = koneksi.ExecuteScalar<int>(sql);
+                return count > 0;
+            }
+        }
     }
 }

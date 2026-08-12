@@ -1,4 +1,4 @@
-﻿using latihribbon.Dal;
+using latihribbon.Dal;
 using latihribbon.Model;
 using latihribbon.ScreenAdmin;
 using System;
@@ -38,7 +38,7 @@ namespace latihribbon
 
         private  void InitComponent()
         {
-            var listJurusan = _jurusanDal.ListData();
+            var listJurusan = _jurusanDal.ListData(true);
             ComboJurusanPopUp.DataSource = listJurusan
                 .Select(x => new JurusanModel
                 {

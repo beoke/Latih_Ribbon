@@ -1,4 +1,4 @@
-﻿using latihribbon.Dal;
+using latihribbon.Dal;
 using latihribbon.Model;
 using System;
 using System.Collections.Generic;
@@ -35,7 +35,7 @@ namespace latihribbon
             this.Nis = Nis;
             RegisterEvent();
 
-            var jurusan = _jurusanDal.ListData();
+            var jurusan = _jurusanDal.ListData(true);
             jurusanCombo.DataSource = jurusan
                 .Select(x => new JurusanModel
                 {

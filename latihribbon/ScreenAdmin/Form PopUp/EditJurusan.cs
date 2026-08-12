@@ -1,4 +1,4 @@
-﻿using latihribbon.Dal;
+using latihribbon.Dal;
 using latihribbon.Model;
 using System;
 using System.Collections.Generic;
@@ -70,7 +70,7 @@ namespace latihribbon
             };
 
             jurusanDal.Update(jurusan);
-            var dataKelas = kelasDal.listKelas("WHERE k.idJurusan=@idJurusan", new { idJurusan = jurusan.Id });
+            var dataKelas = kelasDal.listKelas("WHERE k.idJurusan=@idJurusan", new { idJurusan = jurusan.Id }, true);
             foreach (var x in dataKelas)
             {
                 string namaKelas = $"{x.Tingkat} {x.Kode} {x.Rombel}".Trim();

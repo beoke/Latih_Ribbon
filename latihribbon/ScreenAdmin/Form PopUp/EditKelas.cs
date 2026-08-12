@@ -36,7 +36,7 @@ namespace latihribbon
 
         public void InitComponent()
         {
-            var listJurusan = jurusanDal.ListData();
+            var listJurusan = jurusanDal.ListData(true);
             if (!listJurusan.Any()) return;
             jurusanCombo.DataSource = listJurusan;
             jurusanCombo.DisplayMember = "NamaJurusan";
