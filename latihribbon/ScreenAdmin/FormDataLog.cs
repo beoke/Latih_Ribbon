@@ -112,7 +112,7 @@ namespace latihribbon.ScreenAdmin
 
             string tableName = comboTable.SelectedItem.ToString();
             string userFilter = txtUserFilter.Text.Trim();
-            int rowPerPage = (int)comboPerPage.SelectedValue;
+            int rowPerPage = (int)comboPerPage.SelectedItem;
             int offset = (_page - 1) * rowPerPage;
 
             int total = _dataLogDal.CountLog(tableName, userFilter);

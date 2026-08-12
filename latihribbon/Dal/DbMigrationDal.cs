@@ -90,7 +90,7 @@ namespace latihribbon.Dal
                     EnsureColumn(koneksi, "Survey", "UpdatedBy", "TEXT");
 
                     // 3. Data normalization
-                    koneksi.Execute("UPDATE Kelas SET IsActive = status WHERE IsActive IS NULL OR IsActive = 1 AND status IS NOT NULL;");
+                    koneksi.Execute("UPDATE Kelas SET IsActive = status WHERE (IsActive IS NULL OR IsActive = 1) AND status IS NOT NULL;");
                     koneksi.Execute("UPDATE Users SET IsActive = 1 WHERE IsActive IS NULL;");
                     koneksi.Execute("UPDATE Users SET IsSystem = 0 WHERE IsSystem IS NULL;");
                     koneksi.Execute("UPDATE Jurusan SET IsActive = 1 WHERE IsActive IS NULL;");

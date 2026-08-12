@@ -149,7 +149,7 @@ namespace latihribbon.Dal
             {
                 string sql = @"SELECT COUNT(*) FROM Keluar k
                                 INNER JOIN siswa s ON k.Nis=s.Nis
-                                INNER JOIN kelas kls ON s.IdKelas = kls.Id";
+                                INNER JOIN kelas kls ON s.IdKelas = kls.Id ";
                 if (sqlc != string.Empty) sql += sqlc;
                 return koneksi.QuerySingle<int>(sql, dp);
             }

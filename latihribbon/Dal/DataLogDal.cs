@@ -119,11 +119,25 @@ namespace latihribbon.Dal
 
                         var cols = new List<string>();
                         var parameters = new DynamicParameters();
+                        
+                        // Ambil daftar kolom valid di tabel target
+                        var validColumns = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+                        using (var pragmaCmd = new SQLiteCommand($"PRAGMA table_info([{targetTable}])", koneksi, trans))
+                        using (var reader = pragmaCmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                validColumns.Add(reader["name"].ToString());
+                            }
+                        }
 
                         foreach (var property in beforeToken.Value<JObject>().Properties())
                         {
-                            cols.Add($"[{property.Name}]");
-                            parameters.Add("@" + property.Name, ((JValue)property.Value).Value);
+                            if (validColumns.Contains(property.Name))
+                            {
+                                cols.Add($"[{property.Name}]");
+                                parameters.Add("@" + property.Name, ((JValue)property.Value).Value);
+                            }
                         }
 
                         string colString = string.Join(", ", cols);

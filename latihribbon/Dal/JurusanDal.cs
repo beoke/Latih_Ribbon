@@ -185,14 +185,14 @@ namespace latihribbon.Dal
         {
             using (var Conn = new SQLiteConnection(conn.connstr()))
             {
-                const string sql = @"SELECT j.Id, k.Namakelas
+                const string sql = @"SELECT COUNT(*)
                         FROM Jurusan j
                         LEFT JOIN Kelas k ON k.idJurusan = j.Id
                         WHERE k.idJurusan ISNULL AND j.Id = @Id";
                 var Dp = new DynamicParameters();
                 Dp.Add("@Id", JurusanId, System.Data.DbType.Int32);
 
-                return Conn.QuerySingleOrDefault<bool>(sql, Dp);
+                return Conn.QuerySingleOrDefault<int>(sql, Dp) > 0;
             }
         }
 
@@ -200,8 +200,8 @@ namespace latihribbon.Dal
         {
             using (var koneksi = new SQLiteConnection(conn.connstr()))
             {
-                const string sql = @"SELECT Id FROM Jurusan WHERE Kode = @Kode OR namaJurusan = @namaJurusan";
-                return koneksi.QuerySingleOrDefault<bool>(sql, new { Kode, namaJurusan });
+                const string sql = @"SELECT COUNT(*) FROM Jurusan WHERE Kode = @Kode OR namaJurusan = @namaJurusan";
+                return koneksi.QuerySingleOrDefault<int>(sql, new { Kode, namaJurusan }) > 0;
             }
         }
 
@@ -209,8 +209,8 @@ namespace latihribbon.Dal
         {
             using (var koneksi = new SQLiteConnection(conn.connstr()))
             {
-                const string sql = @"SELECT Id FROM Jurusan WHERE (Kode = @Kode OR namaJurusan = @namaJurusan) AND Id <> @Id";
-                return koneksi.QuerySingleOrDefault<bool>(sql, new { Kode, namaJurusan, Id });
+                const string sql = @"SELECT COUNT(*) FROM Jurusan WHERE (Kode = @Kode OR namaJurusan = @namaJurusan) AND Id <> @Id";
+                return koneksi.QuerySingleOrDefault<int>(sql, new { Kode, namaJurusan, Id }) > 0;
             }
         }
 

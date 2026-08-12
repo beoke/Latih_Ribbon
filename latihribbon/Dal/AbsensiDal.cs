@@ -118,12 +118,13 @@ namespace latihribbon.Dal
         {
             using (var koneksi = new SQLiteConnection(Conn.conn.connstr()))
             {
+                string orderBy = string.IsNullOrWhiteSpace(sqlcSorting) ? "p.ID DESC" : sqlcSorting;
                 string sql = $@"SELECT p.ID, p.NIS, s.Nama, s.Persensi, k.NamaKelas, p.Tanggal, p.Keterangan
                                      FROM Persensi p 
                                      INNER JOIN siswa s ON p.NIS=s.NIS
                                      INNER JOIN Kelas k ON s.IdKelas = k.Id 
                                      {sqlc} 
-                                     ORDER BY {sqlcSorting} LIMIT @Fetch OFFSET @Offset";
+                                     ORDER BY {orderBy} LIMIT @Fetch OFFSET @Offset";
                 return koneksi.Query<AbsensiModel>(sql, dp);
             }
         }

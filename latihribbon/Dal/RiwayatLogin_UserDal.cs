@@ -159,7 +159,7 @@ namespace latihribbon
                 {
                     try
                     {
-                        var beforeUser = Conn.QueryFirstOrDefault<UserModel>("SELECT id, username, role, IsActive, IsSystem FROM Users WHERE id = @id", new { id = idUser }, trans);
+                        var beforeUser = Conn.QueryFirstOrDefault<UserModel>("SELECT * FROM Users WHERE id = @id", new { id = idUser }, trans);
 
                         // Proteksi level DAL: system account tidak dapat dihapus
                         if (beforeUser != null && beforeUser.IsSystem == 1)
@@ -263,8 +263,8 @@ namespace latihribbon
         {
             using (var koneksi = new SQLiteConnection(conn.connstr()))
             {
-                const string sql = @"SELECT 1 FROM Users WHERE username = @username";
-                return koneksi.QuerySingleOrDefault<bool>(sql, new { username });
+                const string sql = @"SELECT COUNT(*) FROM Users WHERE username = @username";
+                return koneksi.QuerySingleOrDefault<int>(sql, new { username }) > 0;
             }
         }
     }

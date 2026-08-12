@@ -125,6 +125,13 @@ namespace latihribbon.Dal
 
                         koneksi.Execute(sql, dp, trans);
 
+                        if (oldNis != siswa.Nis)
+                        {
+                            koneksi.Execute("UPDATE Persensi SET Nis = @Nis WHERE Nis = @oldNis", new { Nis = siswa.Nis, oldNis = oldNis }, trans);
+                            koneksi.Execute("UPDATE Masuk SET NIS = @Nis WHERE NIS = @oldNis", new { Nis = siswa.Nis, oldNis = oldNis }, trans);
+                            koneksi.Execute("UPDATE Keluar SET Nis = @Nis WHERE Nis = @oldNis", new { Nis = siswa.Nis, oldNis = oldNis }, trans);
+                        }
+
                         var afterData = koneksi.QueryFirstOrDefault<SiswaModel>("SELECT * FROM siswa WHERE Nis=@Nis", new { Nis = siswa.Nis }, trans);
 
                         LoggingHelper.WriteLog(koneksi, trans, "siswa", "UPDATE", siswa.Nis, beforeData, afterData);

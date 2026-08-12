@@ -198,11 +198,11 @@ namespace latihribbon.Dal
         {
             using (var koneksi = new SQLiteConnection(Conn.conn.connstr()))
             {
-                const string sqlCek = @"SELECT k.Id, k.Namakelas, s.Nis
+                const string sqlCek = @"SELECT COUNT(*)
                             FROM Kelas k
                             LEFT JOIN Siswa s ON s.idKelas = k.Id
                             WHERE s.idKelas ISNULL AND k.Id = @Id";
-                return koneksi.QuerySingleOrDefault<bool>(sqlCek, new { Id = Id });
+                return koneksi.QuerySingleOrDefault<int>(sqlCek, new { Id = Id }) > 0;
             }
         }
 
@@ -252,7 +252,7 @@ namespace latihribbon.Dal
                 dp.Add("@Rombel", kelas.Rombel);
                 dp.Add("@Id", kelas.Id);
 
-                return koneksi.QuerySingleOrDefault<bool>(sql, dp);
+                return koneksi.QueryFirstOrDefault<int>(sql, dp) > 0;
             }
         }
 
@@ -297,7 +297,7 @@ namespace latihribbon.Dal
         {
             using (var koneksi = new SQLiteConnection(Conn.conn.connstr()))
             {
-                const string sql = @"DELETE FROM Kelas WHERE status = 0";
+                const string sql = @"DELETE FROM siswa WHERE IdKelas IN (SELECT Id FROM Kelas WHERE status = 0)";
                 return koneksi.Execute(sql);
             }
         }

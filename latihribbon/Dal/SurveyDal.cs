@@ -113,7 +113,7 @@ namespace latihribbon
             {
                 string sql = $@"
                         SELECT * FROM Survey
-                        WHERE Tanggal BETWEEN @tgl1 AND @tgl2       
+                        WHERE date(Tanggal) BETWEEN date(@tgl1) AND date(@tgl2)       
                         ORDER BY SurveyId ASC";
 
                 var dp = new DynamicParameters();

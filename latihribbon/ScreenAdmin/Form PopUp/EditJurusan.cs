@@ -17,6 +17,7 @@ namespace latihribbon
         private readonly JurusanDal jurusanDal;
         private readonly KelasDal kelasDal;
         private string namaJurusanGlobal = string.Empty;
+        private int _isActive;
 
         public EditJurusan(int JurusanId)
         {
@@ -38,6 +39,7 @@ namespace latihribbon
             txtId.Text = id.ToString();
             txtNamaJurusan.Text = data.NamaJurusan;
             txtKode.Text = data.Kode;
+            _isActive = data.IsActive;
 
             namaJurusanGlobal = data.NamaJurusan;
             btnSave.Click += BtnSave_Click;
@@ -66,7 +68,8 @@ namespace latihribbon
             {
                 Id = jurusanId,
                 NamaJurusan = namaJurusan,
-                Kode = kode
+                Kode = kode,
+                IsActive = _isActive
             };
 
             jurusanDal.Update(jurusan);

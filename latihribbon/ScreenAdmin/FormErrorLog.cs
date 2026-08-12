@@ -103,15 +103,29 @@ namespace latihribbon.ScreenAdmin
         private void TxtSearch_TextChanged(object sender, EventArgs e)
         {
             string query = txtSearch.Text.Trim();
+            
+            txtLogContent.SelectAll();
+            txtLogContent.SelectionBackColor = Color.FromArgb(245, 247, 250);
+            txtLogContent.SelectionColor = Color.Black;
+            
             if (string.IsNullOrEmpty(query)) return;
 
-            int index = txtLogContent.Find(query, RichTextBoxFinds.None);
-            if (index != -1)
+            int index = 0;
+            while (index < txtLogContent.Text.Length)
             {
-                txtLogContent.SelectionStart = index;
-                txtLogContent.SelectionLength = query.Length;
-                txtLogContent.SelectionColor = Color.Red;
-                txtLogContent.SelectionBackColor = Color.Yellow;
+                index = txtLogContent.Find(query, index, RichTextBoxFinds.None);
+                if (index != -1)
+                {
+                    txtLogContent.SelectionStart = index;
+                    txtLogContent.SelectionLength = query.Length;
+                    txtLogContent.SelectionColor = Color.Red;
+                    txtLogContent.SelectionBackColor = Color.Yellow;
+                    index += query.Length;
+                }
+                else
+                {
+                    break;
+                }
             }
         }
 

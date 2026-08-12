@@ -20,6 +20,7 @@ namespace latihribbon
         private readonly JurusanDal _jurusanDal;
         private readonly KelasDal _kelasDal;
         private int Nis = 0;
+        private int _isActive;
 
 
         public EditSiswa(int Nis)
@@ -112,6 +113,7 @@ namespace latihribbon
             txtNIS_FormSiswa.Text = get.Nis.ToString();
             txtNama_FormSiswa.Text = get.Nama;
             txtPersensi_FormSiswa.Text = get.Persensi.ToString();
+            _isActive = get.IsActive; // Simpan nilai IsActive
 
             if (get.JenisKelamin == "L") lakiRadio.Checked = true;
             if (get.JenisKelamin == "P") perempuanRadio.Checked = true;
@@ -163,7 +165,8 @@ namespace latihribbon
                 Nama = txtNama_FormSiswa.Text,
                 JenisKelamin = jenisKelamin,
                 IdKelas = IdKelas,
-                Tahun = txtTahun_FormSiswa.Text
+                Tahun = txtTahun_FormSiswa.Text,
+                IsActive = _isActive // Kembalikan nilai IsActive yang sebelumnya
             };
             if(siswa.Nis == 0 || siswa.Persensi == 0 || siswa.Nama == "" || siswa.Tahun == "")
             {

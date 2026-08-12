@@ -27,7 +27,7 @@ namespace latihribbon.Dal
                                sd.Tanggal,
                                COALESCE(a.Keterangan, '*') AS Keterangan
                         FROM SiswaDates sd
-                        LEFT JOIN Persensi a ON sd.NIS = a.NIS AND sd.Tanggal = a.Tanggal 
+                        LEFT JOIN Persensi a ON sd.NIS = a.NIS AND date(sd.Tanggal) = date(a.Tanggal) 
                         {filter} 
                         ORDER BY 
                             sd.Tanggal DESC,
@@ -59,7 +59,7 @@ namespace latihribbon.Dal
                         SELECT s.NIS, s.Persensi, s.Nama, k.NamaKelas, p.Keterangan, p.Tanggal
                         FROM Siswa s
                         INNER JOIN Kelas k ON s.IdKelas = k.Id
-                        LEFT JOIN Persensi p ON s.NIS = p.NIS AND p.Tanggal BETWEEN @tgl1 AND @tgl2
+                        LEFT JOIN Persensi p ON s.NIS = p.NIS AND date(p.Tanggal) BETWEEN date(@tgl1) AND date(@tgl2)
                         WHERE k.NamaKelas = @Kelas
                         ORDER BY s.Nama";
                 var dp = new DynamicParameters();

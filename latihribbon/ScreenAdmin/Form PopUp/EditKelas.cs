@@ -17,6 +17,7 @@ namespace latihribbon
         private readonly JurusanDal jurusanDal;
         private readonly KelasDal kelasDal;
         private string NamaKelasGlobal = string.Empty;
+        private int _isActive;
         public EditKelas(int IdKelas)
         {
             InitializeComponent();
@@ -65,7 +66,8 @@ namespace latihribbon
                 Rombel = rombel,
                 IdJurusan = idJurusan,
                 Tingkat = tingkat,
-                status = 1
+                status = 1,
+                IsActive = _isActive
             };
             
             if (kelas.NamaKelas == "" || kelas.Tingkat == "")
@@ -98,6 +100,7 @@ namespace latihribbon
             jurusanCombo.SelectedValue = kelas.IdJurusan;
 
             txtRombel.Text = kelas.Rombel == string.Empty ? string.Empty : kelas.Rombel;
+            _isActive = kelas.IsActive;
         }
     }
 }
