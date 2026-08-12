@@ -294,15 +294,16 @@ namespace latihribbon
             dp.Add("@Fetch", RowPerPage);
 
             dataGridView1.DataSource = siswaDal.ListData(sqlc, dp)
-                .Select((x,index) => new
+                .Select((x, index) => new
                 {
-                    No = inRowPage +index + 1, 
+                    No = inRowPage + index + 1,
                     x.Nis,
                     x.Persensi,
                     x.Nama,
                     x.JenisKelamin,
                     x.NamaKelas,
-                    x.Tahun
+                    x.Tahun,
+                    Status = x.IsActive == 1 ? "Aktif" : "Nonaktif"
                 }).ToList();
         }
 
@@ -334,6 +335,7 @@ namespace latihribbon
             dataGridView1.CellMouseClick += DataGridView1_CellMouseClick;
             EditMenuStrip.Click += EditMenuStrip_Click;
             DeleteMenuStrip.Click += DeleteMenuStrip_Click;
+            ToggleIsActiveSiswaMenu.Click += ToggleIsActiveSiswaMenu_Click;
 
             ButtonNaikKelas.Click += ButtonNaikKelas_Click;
             NaikKelasContext.Click += NaikKelasContext_Click;
@@ -491,13 +493,73 @@ namespace latihribbon
         private void DeleteMenuStrip_Click(object sender, EventArgs e)
         {
             if (dataGridView1.CurrentRow == null) return;
-            if (new MesWarningYN("Hapus Data?\nJika Dihapus Maka Data Yang Terhubung Akan Ikut Terhapus!",2).ShowDialog(this) != DialogResult.Yes) return;
+            var nis = Convert.ToInt32(dataGridView1.CurrentRow.Cells[1].Value);
+            string nama = dataGridView1.CurrentRow.Cells["Nama"]?.Value?.ToString() ?? string.Empty;
+            string statusStr = dataGridView1.CurrentRow.Cells["Status"]?.Value?.ToString() ?? "Aktif";
 
-            var id = dataGridView1.CurrentRow.Cells[1].Value;
+            if (statusStr == "Aktif")
+            {
+                // Soft delete: nonaktifkan dulu
+                if (new MesWarningYN($"Nonaktifkan data Siswa \"{nama}\"?", 2).ShowDialog(this) == DialogResult.Yes)
+                {
+                    siswaDal.SetIsActive(nis, 0);
+                    LoadData();
+                    InitComboTahun();
+                    return;
+                }
+                else
+                {
+                    return; // Mencegah fall-through ke hapus permanen jika user klik No
+                }
+            }
+            else
+            {
+                // Re-activate
+                if (new MesQuestionYN($"Aktifkan kembali Siswa \"{nama}\"?").ShowDialog(this) == DialogResult.Yes)
+                {
+                    siswaDal.SetIsActive(nis, 1);
+                    LoadData();
+                    InitComboTahun();
+                    return;
+                }
+                else
+                {
+                    return; // Mencegah fall-through ke hapus permanen jika user klik No
+                }
+            }
 
-            siswaDal.Delete(Convert.ToInt32(id));
+            // Hapus permanen
+            if (new MesWarningYN($"Hapus permanen data Siswa \"{nama}\"?", 2).ShowDialog(this) != DialogResult.Yes) return;
+            siswaDal.Delete(nis);
             LoadData();
             InitComboTahun();
+        }
+
+        private void ToggleIsActiveSiswaMenu_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.CurrentRow == null) return;
+            var nis = Convert.ToInt32(dataGridView1.CurrentRow.Cells[1].Value);
+            string nama = dataGridView1.CurrentRow.Cells["Nama"]?.Value?.ToString() ?? string.Empty;
+            string statusStr = dataGridView1.CurrentRow.Cells["Status"]?.Value?.ToString() ?? "Aktif";
+
+            if (statusStr == "Aktif")
+            {
+                if (new MesWarningYN($"Nonaktifkan data Siswa \"{nama}\"?", 2).ShowDialog(this) == DialogResult.Yes)
+                {
+                    siswaDal.SetIsActive(nis, 0);
+                    LoadData();
+                    InitComboTahun();
+                }
+            }
+            else
+            {
+                if (new MesQuestionYN($"Aktifkan kembali Siswa \"{nama}\"?").ShowDialog(this) == DialogResult.Yes)
+                {
+                    siswaDal.SetIsActive(nis, 1);
+                    LoadData();
+                    InitComboTahun();
+                }
+            }
         }
 
         private void EditMenuStrip_Click(object sender, EventArgs e)

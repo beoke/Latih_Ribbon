@@ -1,4 +1,4 @@
-﻿namespace latihribbon
+namespace latihribbon
 {
     partial class FormUser_RiwayatLogin
     {
@@ -60,6 +60,7 @@
             this.GridListRiwayatLogin = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.DeleteMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToggleIsActiveMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.label3 = new System.Windows.Forms.Label();
             this.radioAdmin = new System.Windows.Forms.RadioButton();
             this.radioSuperAdmin = new System.Windows.Forms.RadioButton();
@@ -466,9 +467,18 @@
             this.contextMenuStrip2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.contextMenuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToggleIsActiveMenuStrip,
             this.DeleteMenuStrip});
             this.contextMenuStrip2.Name = "contextMenuStrip1";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(127, 30);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(200, 52);
+            // 
+            // ToggleIsActiveMenuStrip
+            // 
+            this.ToggleIsActiveMenuStrip.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ToggleIsActiveMenuStrip.Name = "ToggleIsActiveMenuStrip";
+            this.ToggleIsActiveMenuStrip.Size = new System.Drawing.Size(199, 26);
+            this.ToggleIsActiveMenuStrip.Text = "Aktifkan / Nonaktifkan";
+            this.ToggleIsActiveMenuStrip.Click += new System.EventHandler(this.ToggleIsActiveMenuStrip_Click);
             // 
             // DeleteMenuStrip
             // 
@@ -573,6 +583,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
         private System.Windows.Forms.ToolStripMenuItem DeleteMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem ToggleIsActiveMenuStrip;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.ComboBox comboPerPage;
         private System.Windows.Forms.Panel panelPage;

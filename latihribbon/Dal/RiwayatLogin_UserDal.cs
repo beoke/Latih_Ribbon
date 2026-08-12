@@ -159,7 +159,11 @@ namespace latihribbon
                 {
                     try
                     {
-                        var beforeUser = Conn.QueryFirstOrDefault<UserModel>("SELECT id, username, role, IsActive FROM Users WHERE id = @id", new { id = idUser }, trans);
+                        var beforeUser = Conn.QueryFirstOrDefault<UserModel>("SELECT id, username, role, IsActive, IsSystem FROM Users WHERE id = @id", new { id = idUser }, trans);
+
+                        // Proteksi level DAL: system account tidak dapat dihapus
+                        if (beforeUser != null && beforeUser.IsSystem == 1)
+                            throw new InvalidOperationException($"User '{beforeUser.username}' adalah system account dan tidak dapat dihapus.");
 
                         const string sql = @"DELETE FROM Users WHERE id = @id";
                         Conn.Execute(sql, new { id = idUser }, trans);
@@ -187,7 +191,11 @@ namespace latihribbon
                 {
                     try
                     {
-                        var beforeUser = Conn.QueryFirstOrDefault<UserModel>("SELECT id, username, role, IsActive FROM Users WHERE id = @id", new { id = idUser }, trans);
+                        var beforeUser = Conn.QueryFirstOrDefault<UserModel>("SELECT id, username, role, IsActive, IsSystem FROM Users WHERE id = @id", new { id = idUser }, trans);
+
+                        // Proteksi level DAL: system account tidak dapat dinonaktifkan
+                        if (beforeUser != null && beforeUser.IsSystem == 1)
+                            throw new InvalidOperationException($"User '{beforeUser.username}' adalah system account dan tidak dapat dinonaktifkan.");
 
                         const string sql = @"UPDATE Users SET IsActive = @IsActive, UpdatedAt = @UpdatedAt, UpdatedBy = @UpdatedBy WHERE id = @id";
                         Conn.Execute(sql, new { id = idUser, IsActive = isActive, UpdatedAt = DateTime.Now, UpdatedBy = UserSession.CurrentUser }, trans);
@@ -213,7 +221,7 @@ namespace latihribbon
         {
             using (var Conn = new SQLiteConnection(conn.connstr()))
             {
-                string sql = @"SELECT id, username, Role, IsActive FROM Users ";
+                string sql = @"SELECT id, username, Role, IsActive, COALESCE(IsSystem, 0) AS IsSystem FROM Users ";
                 if (!includeInactive)
                 {
                     sql += "WHERE (IsActive = 1 OR IsActive IS NULL) ";

@@ -102,16 +102,22 @@ namespace latihribbon
 
         private void LoadUser()
         {
-            GridListUser.DataSource = _riwayatLoginDal.ListUser()
-                .Where(x => x.Role != "Author")
-                .Select ((x,index) => new 
+            GridListUser.DataSource = _riwayatLoginDal.ListUser(true)
+                .Select((x, index) => new
                 {
                     x.Id,
-                    No = index+1,
+                    No = index + 1,
                     Username = x.username,
                     Role = x.Role,
-
+                    Status = x.IsActive == 1 ? "Aktif" : "Nonaktif",
+                    x.IsSystem
                 }).ToList();
+
+            if (GridListUser.Columns.Count > 0)
+            {
+                if (GridListUser.Columns["Id"] != null) GridListUser.Columns["Id"].Visible = false;
+                if (GridListUser.Columns["IsSystem"] != null) GridListUser.Columns["IsSystem"].Visible = false;
+            }
         }
         bool SqlGlobal = false;
         private string FilterData(string userLogin)
@@ -217,17 +223,87 @@ namespace latihribbon
         private void DeleteMenuStrip_Click(object sender, EventArgs e)
         {
             if (GridListUser.CurrentRow == null) return;
-            if(GridListUser.Rows.Count == 1) // minimal 1 data
+
+            var idUser = Convert.ToInt32(GridListUser.CurrentRow.Cells[0].Value);
+            int isSystem = GridListUser.CurrentRow.Cells["IsSystem"] != null
+                ? Convert.ToInt32(GridListUser.CurrentRow.Cells["IsSystem"].Value ?? 0)
+                : 0;
+
+            // Proteksi: system/developer account tidak dapat dihapus melalui UI
+            if (isSystem == 1)
+            {
+                new MesError("Akun ini adalah system account dan tidak dapat dihapus.").ShowDialog(this);
+                return;
+            }
+
+            if (GridListUser.Rows.Count == 1)
             {
                 new MesError("Delete failed\nMinimal satu user di dalam daftar!").ShowDialog(this);
                 return;
             }
 
-            var idUser = Convert.ToInt32(GridListUser.CurrentRow.Cells[0].Value);
-            if ( new MesQuestionYN("Hapus Data User?").ShowDialog(this) == DialogResult.Yes)
+            if (new MesQuestionYN("Hapus Data User?").ShowDialog(this) == DialogResult.Yes)
             {
-                _riwayatLoginDal.DeleteUser(idUser);
-                LoadUser();
+                try
+                {
+                    _riwayatLoginDal.DeleteUser(idUser);
+                    LoadUser();
+                }
+                catch (Exception ex)
+                {
+                    new MesError(ex.Message).ShowDialog(this);
+                }
+            }
+        }
+
+        private void ToggleIsActiveMenuStrip_Click(object sender, EventArgs e)
+        {
+            if (GridListUser.CurrentRow == null) return;
+
+            var idUser = Convert.ToInt32(GridListUser.CurrentRow.Cells[0].Value);
+            int isSystem = GridListUser.CurrentRow.Cells["IsSystem"] != null
+                ? Convert.ToInt32(GridListUser.CurrentRow.Cells["IsSystem"].Value ?? 0)
+                : 0;
+
+            // Proteksi: system account tidak dapat dinonaktifkan
+            if (isSystem == 1)
+            {
+                new MesError("Akun ini adalah system account dan tidak dapat dinonaktifkan.").ShowDialog(this);
+                return;
+            }
+
+            string statusStr = GridListUser.CurrentRow.Cells["Status"]?.Value?.ToString() ?? "Aktif";
+            string username = GridListUser.CurrentRow.Cells["Username"]?.Value?.ToString() ?? "";
+
+            if (statusStr == "Aktif")
+            {
+                if (new MesWarningYN($"Nonaktifkan user \"{username}\"?", 2).ShowDialog(this) == DialogResult.Yes)
+                {
+                    try
+                    {
+                        _riwayatLoginDal.SetIsActiveUser(idUser, 0);
+                        LoadUser();
+                    }
+                    catch (Exception ex)
+                    {
+                        new MesError(ex.Message).ShowDialog(this);
+                    }
+                }
+            }
+            else
+            {
+                if (new MesQuestionYN($"Aktifkan kembali user \"{username}\"?").ShowDialog(this) == DialogResult.Yes)
+                {
+                    try
+                    {
+                        _riwayatLoginDal.SetIsActiveUser(idUser, 1);
+                        LoadUser();
+                    }
+                    catch (Exception ex)
+                    {
+                        new MesError(ex.Message).ShowDialog(this);
+                    }
+                }
             }
         }
          
@@ -300,7 +376,7 @@ namespace latihribbon
             var user = new UserModel
             {
                 username = username,
-                password = HashPassword(password),
+                password = latihribbon.Helper.PasswordHelper.HashPassword(password),
                 Role = role,
             };
             _riwayatLoginDal.Insert(user);
@@ -344,60 +420,17 @@ namespace latihribbon
             }
         }
 
-        #region HASH PASSWORD
+        #region HASH PASSWORD — delegasi ke PasswordHelper
+        // Method ini dipertahankan untuk backward compatibility internal form.
+        // Implementasi sebenarnya ada di Helper/PasswordHelper.cs
         public static string HashPassword(string password)
-        {
-            // Generate salt secara kriptografis
-            byte[] salt = GenerateSalt();
-
-            // Buat instance Argon2
-            var argon2 = new Argon2id(Encoding.UTF8.GetBytes(password))
-            {
-                Salt = salt,
-                DegreeOfParallelism = 4,  // Jumlah thread
-                MemorySize = 32768,       // Penggunaan memori (32 MB)
-                Iterations = 2            // Jumlah iterasi
-            };
-
-            // Generate hash
-            byte[] hashBytes = argon2.GetBytes(32); // Panjang hash 32 byte
-            return Convert.ToBase64String(salt) + ":" + Convert.ToBase64String(hashBytes);
-        }
+            => latihribbon.Helper.PasswordHelper.HashPassword(password);
 
         public static bool VerifyPassword(string password, string hashedPassword)
-        {
-            // Pisahkan salt dan hash dari string yang disimpan
-            var parts = hashedPassword.Split(':');
-            if (parts.Length != 2) return false;
-
-            byte[] salt = Convert.FromBase64String(parts[0]);
-            byte[] hashToCompare = Convert.FromBase64String(parts[1]);
-
-            // Buat instance Argon2 dengan salt yang sama
-            var argon2 = new Argon2id(Encoding.UTF8.GetBytes(password))
-            {
-                Salt = salt,
-                DegreeOfParallelism = 4,  // Jumlah thread
-                MemorySize = 32768,       // Penggunaan memori (32 MB)
-                Iterations = 2            // Jumlah iterasi
-            };
-
-            // Generate hash dari password yang dimasukkan
-            byte[] hashBytes = argon2.GetBytes(32);
-
-            // Bandingkan hash
-            return hashBytes.SequenceEqual(hashToCompare);
-        }
+            => latihribbon.Helper.PasswordHelper.VerifyPassword(password, hashedPassword);
 
         public static byte[] GenerateSalt()
-        {
-            byte[] salt = new byte[16];
-            using (var rng = RandomNumberGenerator.Create())
-            {
-                rng.GetBytes(salt);
-            }
-            return salt;
-        }
+            => latihribbon.Helper.PasswordHelper.GenerateSalt();
         #endregion
     }
 }

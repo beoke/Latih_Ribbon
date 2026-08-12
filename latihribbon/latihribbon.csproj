@@ -259,6 +259,20 @@
     <Compile Include="ScreenAdmin\FormErrorLog.Designer.cs">
       <DependentUpon>FormErrorLog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helper\PasswordHelper.cs" />
+    <Compile Include="Dal\DataLogDal.cs" />
+    <Compile Include="ScreenAdmin\FormDataLog.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ScreenAdmin\FormDataLog.Designer.cs">
+      <DependentUpon>FormDataLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ScreenAdmin\FormDataLogDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScreenAdmin\FormDataLogDetail.Designer.cs">
+      <DependentUpon>FormDataLogDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="ScreenAdmin\Helper\Loading.cs">
       <SubType>Form</SubType>
     </Compile>

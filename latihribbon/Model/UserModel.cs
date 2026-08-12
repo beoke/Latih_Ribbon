@@ -13,5 +13,10 @@ namespace latihribbon
         public DateTime? UpdatedAt { get; set; }
         public string UpdatedBy { get; set; }
         public int IsActive { get; set; } = 1;
+        /// <summary>
+        /// Tandai sebagai system/protected account — tidak dapat dihapus, dinonaktifkan, atau diubah role-nya melalui UI.
+        /// </summary>
+        public int IsSystem { get; set; } = 0;
     }
 }
+

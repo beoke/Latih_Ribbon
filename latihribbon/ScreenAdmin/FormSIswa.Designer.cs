@@ -1,4 +1,4 @@
-﻿namespace latihribbon
+namespace latihribbon
 {
     partial class FormSIswa
     {
@@ -77,6 +77,7 @@
             this.ButtonInputSIswa = new System.Windows.Forms.Button();
             this.EditMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.DeleteMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToggleIsActiveSiswaMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.NaikKelasContext = new System.Windows.Forms.ToolStripMenuItem();
             this.turunKelasContext = new System.Windows.Forms.ToolStripMenuItem();
             this.HapusSiswaLulus = new System.Windows.Forms.ToolStripMenuItem();
@@ -589,9 +590,10 @@
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.EditMenuStrip,
+            this.ToggleIsActiveSiswaMenu,
             this.DeleteMenuStrip});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(127, 56);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(200, 80);
             // 
             // label1
             // 
@@ -669,6 +671,14 @@
             this.DeleteMenuStrip.Size = new System.Drawing.Size(126, 26);
             this.DeleteMenuStrip.Text = "Delete";
             // 
+            // ToggleIsActiveSiswaMenu
+            // 
+            this.ToggleIsActiveSiswaMenu.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ToggleIsActiveSiswaMenu.Name = "ToggleIsActiveSiswaMenu";
+            this.ToggleIsActiveSiswaMenu.Size = new System.Drawing.Size(199, 26);
+            this.ToggleIsActiveSiswaMenu.Text = "Aktifkan / Nonaktifkan";
+            this.ToggleIsActiveSiswaMenu.Click += new System.EventHandler(this.ToggleIsActiveSiswaMenu_Click);
+            // 
             // NaikKelasContext
             // 
             this.NaikKelasContext.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -742,6 +752,7 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem EditMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem DeleteMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem ToggleIsActiveSiswaMenu;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button btnSave_FormSiswa;

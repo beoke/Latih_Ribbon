@@ -27,8 +27,12 @@ namespace latihribbon
 
             this.MinimumSize = new Size(1300, 700);
 
-            if(role == "Admin") //disable ribbon if role admin
+            if (role == "Admin") //disable ribbon if role admin
                 ribbonPanel14.Visible = false;
+
+            // DataLog hanya untuk Super Admin
+            if (role != "Super Admin")
+                ribbonDataLog.Visible = false;
         }
         private void ShowFormInPanel(Form form)
         {
@@ -114,6 +118,17 @@ namespace latihribbon
             ribbonUserLogin.Checked = true;
         }
 
+        private void ribbonDataLog_Click(object sender, EventArgs e)
+        {
+            var formDataLog = new latihribbon.ScreenAdmin.FormDataLog();
+            formDataLog.Bounds = this.ClientRectangle;
+            ShowFormInPanel(formDataLog);
+
+            ClearCheckRibbon();
+            ribbonDataLog.CheckOnClick = true;
+            ribbonDataLog.Checked = true;
+        }
+
         private void ribbonKelas_Click(object sender, EventArgs e)
         {
             FormKelas formKelas = new FormKelas();
@@ -164,6 +179,7 @@ namespace latihribbon
             ribbonKelas.CheckOnClick = false;
             ribbonUserLogin.CheckOnClick = false;
             ribbonErrorLog.CheckOnClick = false;
+            ribbonDataLog.CheckOnClick = false;
             ribbonRekapPersensi.CheckOnClick = false;
             ribbonAbsensi.CheckOnClick = false;
             ribbon_Siswa.CheckOnClick = false;
@@ -176,6 +192,7 @@ namespace latihribbon
             ribbonKelas.Checked = false;
             ribbonUserLogin.Checked = false;
             ribbonErrorLog.Checked = false;
+            ribbonDataLog.Checked = false;
             ribbonRekapPersensi.Checked = false;
             ribbonAbsensi.Checked = false;
             ribbon_Siswa.Checked = false;

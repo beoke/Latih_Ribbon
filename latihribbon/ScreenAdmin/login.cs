@@ -145,7 +145,14 @@ namespace latihribbon
                 tx_Username.Focus();
                 return;
             }
-            if (!FormUser_RiwayatLogin.VerifyPassword(password, user.password))
+            if (user.IsActive == 0)
+            {
+                new MesError("Akun Anda telah dinonaktifkan! Silakan hubungi Administrator.").ShowDialog(this);
+                ClearForm();
+                tx_Username.Focus();
+                return;
+            }
+            if (!latihribbon.Helper.PasswordHelper.VerifyPassword(password, user.password))
             {
                 new MesError("Username atau Password salah!").ShowDialog(this);
                 ClearForm();
