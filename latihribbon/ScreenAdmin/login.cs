@@ -1,4 +1,4 @@
-﻿using DocumentFormat.OpenXml.Bibliography;
+using DocumentFormat.OpenXml.Bibliography;
 using DocumentFormat.OpenXml.Vml;
 using Sodium;
 using System;
@@ -153,6 +153,7 @@ namespace latihribbon
                 return;
             }
             InsertHistori();
+            UserSession.SetSession(user.username, user.Id, user.Role);
 
             Form1 admin = new Form1(_mainForm,_indexForm, user.Role);
             admin.Show();

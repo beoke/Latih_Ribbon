@@ -1,20 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System;
 
 namespace latihribbon.Model
 {
     public class KelasModel
     {
-        public int Id {  get; set; }
+        public int Id { get; set; }
         public string NamaKelas { get; set; }
-
-        public string Rombel {  get; set; }
-        public int IdJurusan {  get; set; }
-        public string Tingkat {  get; set; }
+        public string Rombel { get; set; }
+        public int IdJurusan { get; set; }
+        public string Tingkat { get; set; }
         public int status { get; set; }
         public string Kode { get; set; }
+        public DateTime? CreatedAt { get; set; }
+        public string CreatedBy { get; set; }
+        public DateTime? UpdatedAt { get; set; }
+        public string UpdatedBy { get; set; }
+        public int IsActive { get; set; } = 1;
     }
 }

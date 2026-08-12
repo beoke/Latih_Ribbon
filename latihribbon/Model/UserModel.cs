@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System;
 
 namespace latihribbon
 {
@@ -12,5 +8,10 @@ namespace latihribbon
         public string username { get; set; }
         public string password { get; set; }
         public string Role { get; set; }
+        public DateTime? CreatedAt { get; set; }
+        public string CreatedBy { get; set; }
+        public DateTime? UpdatedAt { get; set; }
+        public string UpdatedBy { get; set; }
+        public int IsActive { get; set; } = 1;
     }
 }

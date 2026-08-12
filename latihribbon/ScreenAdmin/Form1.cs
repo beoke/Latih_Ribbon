@@ -1,4 +1,4 @@
-﻿using DocumentFormat.OpenXml.Drawing.ChartDrawing;
+using DocumentFormat.OpenXml.Drawing.ChartDrawing;
 using latihribbon.ScreenAdmin;
 using System;
 using System.Collections.Generic;
@@ -147,11 +147,23 @@ namespace latihribbon
             ribbonButtonSurvey.Checked = true;
         }
 
+        private void ribbonErrorLog_Click(object sender, EventArgs e)
+        {
+            FormErrorLog errorLogForm = new FormErrorLog();
+            errorLogForm.Bounds = this.ClientRectangle;
+            ShowFormInPanel(errorLogForm);
+
+            ClearCheckRibbon();
+            ribbonErrorLog.CheckOnClick = true;
+            ribbonErrorLog.Checked = true;
+        }
+
         private void ClearCheckRibbon()
         {
             ribbonJurusan.CheckOnClick = false;
             ribbonKelas.CheckOnClick = false;
             ribbonUserLogin.CheckOnClick = false;
+            ribbonErrorLog.CheckOnClick = false;
             ribbonRekapPersensi.CheckOnClick = false;
             ribbonAbsensi.CheckOnClick = false;
             ribbon_Siswa.CheckOnClick = false;
@@ -163,6 +175,7 @@ namespace latihribbon
             ribbonJurusan.Checked = false;
             ribbonKelas.Checked = false;
             ribbonUserLogin.Checked = false;
+            ribbonErrorLog.Checked = false;
             ribbonRekapPersensi.Checked = false;
             ribbonAbsensi.Checked = false;
             ribbon_Siswa.Checked = false;

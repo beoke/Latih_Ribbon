@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -240,6 +240,7 @@
     <Compile Include="ScreenAdmin\Helper\CenterForm.cs" />
     <Compile Include="Conn\conn.cs" />
     <Compile Include="Dal\AbsensiDal.cs" />
+    <Compile Include="Dal\DbMigrationDal.cs" />
     <Compile Include="Dal\HistoryDal.cs" />
     <Compile Include="Dal\JurusanDal.cs" />
     <Compile Include="Dal\KelasDal.cs" />
@@ -249,6 +250,15 @@
     <Compile Include="Dal\MasukDal.cs" />
     <Compile Include="Dal\DbDal.cs" />
     <Compile Include="Dal\RiwayatLogin_UserDal.cs" />
+    <Compile Include="Helper\UserSession.cs" />
+    <Compile Include="Helper\AppLogger.cs" />
+    <Compile Include="Helper\LoggingHelper.cs" />
+    <Compile Include="ScreenAdmin\FormErrorLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScreenAdmin\FormErrorLog.Designer.cs">
+      <DependentUpon>FormErrorLog.cs</DependentUpon>
+    </Compile>
     <Compile Include="ScreenAdmin\Helper\Loading.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -1,4 +1,4 @@
-﻿using Dapper;
+using Dapper;
 using latihribbon.Conn;
 using latihribbon.Model;
 using System;
@@ -21,10 +21,10 @@ namespace latihribbon.Dal
                                     {sqlc} 
                                     ORDER BY m.Tanggal DESC, 
                                     m.JamMasuk DESC LIMIT @Fetch OFFSET @Offset";
-                return koneksi.Query<MasukModel>(sql,dp);
+                return koneksi.Query<MasukModel>(sql, dp);
             }
         }
-        
+
         public MasukModel GetData(int id)
         {
             using (var koneksi = new SQLiteConnection(Conn.conn.connstr()))
@@ -34,7 +34,7 @@ namespace latihribbon.Dal
                                     INNER JOIN siswa s ON m.NIS = s.NIS
                                     INNER JOIN Kelas kls ON s.IdKelas = kls.Id 
                                     WHERE m.id=@id";
-                return koneksi.QueryFirstOrDefault<MasukModel>(sql, new {id=id});
+                return koneksi.QueryFirstOrDefault<MasukModel>(sql, new { id = id });
             }
         }
 
@@ -42,15 +42,36 @@ namespace latihribbon.Dal
         {
             using (var koneksi = new SQLiteConnection(Conn.conn.connstr()))
             {
-                const string sql = @"INSERT INTO Masuk(Nis,Tanggal,JamMasuk,Alasan)
-                                VALUES(@Nis,@Tanggal,@JamMasuk,@Alasan)";
-                var dp = new DynamicParameters();
-                dp.Add("@Nis", masuk.NIS, System.Data.DbType.Int32);
-                dp.Add("@Tanggal", masuk.Tanggal, System.Data.DbType.Date);
-                dp.Add("@JamMasuk", masuk.JamMasuk, System.Data.DbType.String);
-                dp.Add("@Alasan", masuk.Alasan, System.Data.DbType.String);
+                koneksi.Open();
+                using (var trans = koneksi.BeginTransaction())
+                {
+                    try
+                    {
+                        const string sql = @"INSERT INTO Masuk(Nis, Tanggal, JamMasuk, Alasan, CreatedAt, CreatedBy)
+                                        VALUES(@Nis, @Tanggal, @JamMasuk, @Alasan, @CreatedAt, @CreatedBy);
+                                        SELECT last_insert_rowid();";
+                        var dp = new DynamicParameters();
+                        dp.Add("@Nis", masuk.NIS, System.Data.DbType.Int32);
+                        dp.Add("@Tanggal", masuk.Tanggal, System.Data.DbType.Date);
+                        dp.Add("@JamMasuk", masuk.JamMasuk, System.Data.DbType.String);
+                        dp.Add("@Alasan", masuk.Alasan, System.Data.DbType.String);
+                        dp.Add("@CreatedAt", DateTime.Now);
+                        dp.Add("@CreatedBy", UserSession.CurrentUser);
 
-                koneksi.Execute(sql, dp);
+                        int newId = koneksi.QuerySingle<int>(sql, dp, trans);
+                        masuk.Id = newId;
+
+                        LoggingHelper.WriteLog(koneksi, trans, "Masuk", "INSERT", newId, null, masuk);
+
+                        trans.Commit();
+                    }
+                    catch (Exception ex)
+                    {
+                        trans.Rollback();
+                        AppLogger.LogError(ex, "MasukDal.Insert");
+                        throw;
+                    }
+                }
             }
         }
 
@@ -58,24 +79,67 @@ namespace latihribbon.Dal
         {
             using (var koneksi = new SQLiteConnection(Conn.conn.connstr()))
             {
-                const string sql = @"UPDATE Masuk SET Nis=@Nis,Tanggal=@Tanggal,
-                                    JamMasuk=@JamMasuk,Alasan=@Alasan WHERE Id=@Id";
-                var dp = new DynamicParameters();
-                dp.Add("@Id", masuk.Id, System.Data.DbType.Int32);
-                dp.Add("@Nis", masuk.NIS, System.Data.DbType.Int32);
-                dp.Add("@Tanggal", masuk.Tanggal, System.Data.DbType.Date);
-                dp.Add("@JamMasuk", masuk.JamMasuk, System.Data.DbType.String);
-                dp.Add("@Alasan", masuk.Alasan, System.Data.DbType.String);
+                koneksi.Open();
+                using (var trans = koneksi.BeginTransaction())
+                {
+                    try
+                    {
+                        var beforeData = koneksi.QueryFirstOrDefault<MasukModel>("SELECT * FROM Masuk WHERE Id=@Id", new { Id = masuk.Id }, trans);
 
-                koneksi.Execute(sql, dp);
+                        const string sql = @"UPDATE Masuk SET Nis=@Nis, Tanggal=@Tanggal, JamMasuk=@JamMasuk, Alasan=@Alasan,
+                                            UpdatedAt=@UpdatedAt, UpdatedBy=@UpdatedBy WHERE Id=@Id";
+                        var dp = new DynamicParameters();
+                        dp.Add("@Id", masuk.Id, System.Data.DbType.Int32);
+                        dp.Add("@Nis", masuk.NIS, System.Data.DbType.Int32);
+                        dp.Add("@Tanggal", masuk.Tanggal, System.Data.DbType.Date);
+                        dp.Add("@JamMasuk", masuk.JamMasuk, System.Data.DbType.String);
+                        dp.Add("@Alasan", masuk.Alasan, System.Data.DbType.String);
+                        dp.Add("@UpdatedAt", DateTime.Now);
+                        dp.Add("@UpdatedBy", UserSession.CurrentUser);
+
+                        koneksi.Execute(sql, dp, trans);
+
+                        var afterData = koneksi.QueryFirstOrDefault<MasukModel>("SELECT * FROM Masuk WHERE Id=@Id", new { Id = masuk.Id }, trans);
+
+                        LoggingHelper.WriteLog(koneksi, trans, "Masuk", "UPDATE", masuk.Id, beforeData, afterData);
+
+                        trans.Commit();
+                    }
+                    catch (Exception ex)
+                    {
+                        trans.Rollback();
+                        AppLogger.LogError(ex, "MasukDal.Update");
+                        throw;
+                    }
+                }
             }
         }
+
         public void Delete(int IdMasuk)
         {
             using (var koneksi = new SQLiteConnection(Conn.conn.connstr()))
             {
-                const string sql = @"DELETE FROM Masuk WHERE Id=@Id";
-                koneksi.Execute(sql, new { Id=IdMasuk });
+                koneksi.Open();
+                using (var trans = koneksi.BeginTransaction())
+                {
+                    try
+                    {
+                        var beforeData = koneksi.QueryFirstOrDefault<MasukModel>("SELECT * FROM Masuk WHERE Id=@Id", new { Id = IdMasuk }, trans);
+
+                        const string sql = @"DELETE FROM Masuk WHERE Id=@Id";
+                        koneksi.Execute(sql, new { Id = IdMasuk }, trans);
+
+                        LoggingHelper.WriteLog(koneksi, trans, "Masuk", "DELETE", IdMasuk, beforeData, null);
+
+                        trans.Commit();
+                    }
+                    catch (Exception ex)
+                    {
+                        trans.Rollback();
+                        AppLogger.LogError(ex, "MasukDal.Delete");
+                        throw;
+                    }
+                }
             }
         }
 
@@ -86,7 +150,7 @@ namespace latihribbon.Dal
                 string sql = $@"SELECT COUNT(*) FROM Masuk m 
                                 INNER JOIN siswa s ON m.Nis=s.Nis
                                 INNER JOIN kelas kls ON s.idKelas=kls.Id {sqlc}";
-                return koneksi.QuerySingle<int>(sql,dp);
+                return koneksi.QuerySingle<int>(sql, dp);
             }
         }
 
@@ -114,7 +178,7 @@ namespace latihribbon.Dal
                 var dp = new DynamicParameters();
                 dp.Add("@tgl1", tgl1, DbType.Date);
                 dp.Add("@tgl2", tgl2, DbType.Date);
-                return koneksi.Query<MasukModel>(sql,dp);
+                return koneksi.Query<MasukModel>(sql, dp);
             }
         }
     }

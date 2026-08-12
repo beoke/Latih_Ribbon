@@ -1,4 +1,4 @@
-﻿namespace latihribbon
+namespace latihribbon
 {
     partial class Form1
     {
@@ -53,6 +53,7 @@
             this.ribbonKelas = new System.Windows.Forms.RibbonButton();
             this.ribbonPanel14 = new System.Windows.Forms.RibbonPanel();
             this.ribbonUserLogin = new System.Windows.Forms.RibbonButton();
+            this.ribbonErrorLog = new System.Windows.Forms.RibbonButton();
             this.ribbonPanel4 = new System.Windows.Forms.RibbonPanel();
             this.ribbonButtonSurvey = new System.Windows.Forms.RibbonButton();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -247,6 +248,7 @@
             // ribbonPanel14
             // 
             this.ribbonPanel14.Items.Add(this.ribbonUserLogin);
+            this.ribbonPanel14.Items.Add(this.ribbonErrorLog);
             this.ribbonPanel14.Name = "ribbonPanel14";
             this.ribbonPanel14.Text = "";
             // 
@@ -258,6 +260,15 @@
             this.ribbonUserLogin.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonUserLogin.SmallImage")));
             this.ribbonUserLogin.Text = "User Login";
             this.ribbonUserLogin.Click += new System.EventHandler(this.ribbonUserLogin_Click);
+            // 
+            // ribbonErrorLog
+            // 
+            this.ribbonErrorLog.Image = ((System.Drawing.Image)(resources.GetObject("ribbonUserLogin.Image")));
+            this.ribbonErrorLog.LargeImage = ((System.Drawing.Image)(resources.GetObject("ribbonUserLogin.LargeImage")));
+            this.ribbonErrorLog.Name = "ribbonErrorLog";
+            this.ribbonErrorLog.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonUserLogin.SmallImage")));
+            this.ribbonErrorLog.Text = "Error Log";
+            this.ribbonErrorLog.Click += new System.EventHandler(this.ribbonErrorLog_Click);
             // 
             // ribbonPanel4
             // 
@@ -386,6 +397,7 @@
         private System.Windows.Forms.RibbonButton ribbonKelas;
         private System.Windows.Forms.RibbonPanel ribbonPanel14;
         private System.Windows.Forms.RibbonButton ribbonUserLogin;
+        private System.Windows.Forms.RibbonButton ribbonErrorLog;
         private System.Windows.Forms.RibbonPanel ribbonPanel4;
         private System.Windows.Forms.RibbonButton ribbonButtonSurvey;
         private System.Windows.Forms.RibbonPanel ribbonPanel6;

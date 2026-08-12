@@ -1,14 +1,6 @@
-using DocumentFormat.OpenXml.Drawing;
-using latihribbon.ScreenAdmin;
+using latihribbon.Dal;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Drawing;
-using System.Globalization;
-using System.Linq;
-using System.Runtime.InteropServices;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace latihribbon
@@ -21,6 +13,25 @@ namespace latihribbon
         [STAThread]
         static void Main()
         {
+            // Register global unhandled exception handlers
+            Application.ThreadException += (sender, args) =>
+            {
+                AppLogger.LogError(args.Exception, "Application.ThreadException");
+            };
+
+            AppDomain.CurrentDomain.UnhandledException += (sender, args) =>
+            {
+                if (args.ExceptionObject is Exception ex)
+                {
+                    AppLogger.LogError(ex, "AppDomain.UnhandledException");
+                }
+            };
+
+            Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
+
+            // Run database migration to ensure metadata columns and audit log tables exist
+            DbMigrationDal.EnsureDatabaseUpToDate();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             
@@ -28,7 +39,7 @@ namespace latihribbon
             latihribbon.Conn.conn.EnsureTableColumns();
 
             Application.Run(new FirstForm());
-
         }
     }
 }
+

@@ -45,12 +45,13 @@ namespace latihribbon.ScreenAdmin
         }
         private void LoadData()
         {
-            GridListJurusan.DataSource = _jurusanDal.ListData().Select((x,index) => new 
+            GridListJurusan.DataSource = _jurusanDal.ListData(true).Select((x,index) => new 
             {
                 IdJurusan = x.Id,
                 No = index+1,
                 NamaJurusan = x.NamaJurusan,
-                Kode = x.Kode
+                Kode = x.Kode,
+                Status = x.IsActive == 1 ? "Aktif" : "Nonaktif"
             }).ToList();
 
             GridListJurusan.EnableHeadersVisualStyles = false;
@@ -58,8 +59,9 @@ namespace latihribbon.ScreenAdmin
 
             GridListJurusan.Columns[0].Visible = false;
             GridListJurusan.Columns[1].Width = 70;
-            GridListJurusan.Columns[2].Width = 400;
+            GridListJurusan.Columns[2].Width = 350;
             GridListJurusan.Columns[3].Width = 150;
+            GridListJurusan.Columns[4].Width = 100;
             GridListJurusan.Columns["NamaJurusan"].HeaderText = "Nama Jurusan";
 
             GridListJurusan.DefaultCellStyle.Font = new Font("Sans Serif", 10);
@@ -82,14 +84,33 @@ namespace latihribbon.ScreenAdmin
             if (GridListJurusan.CurrentRow == null) return;
             var jurusanKode = GridListJurusan.CurrentRow.Cells["Kode"].Value;
             var id = Convert.ToInt32(GridListJurusan.CurrentRow.Cells[0].Value);
+            var statusStr = GridListJurusan.CurrentRow.Cells["Status"]?.Value?.ToString() ?? "Aktif";
+
+            if (statusStr == "Aktif")
+            {
+                if (new MesWarningYN($"Nonaktifkan data Jurusan \"{jurusanKode}\"?", 2).ShowDialog() == DialogResult.Yes)
+                {
+                    _jurusanDal.SetIsActive(id, 0);
+                    LoadData();
+                    return;
+                }
+            }
+            else
+            {
+                if (new MesQuestionYN($"Aktifkan kembali Jurusan \"{jurusanKode}\"?").ShowDialog() == DialogResult.Yes)
+                {
+                    _jurusanDal.SetIsActive(id, 1);
+                    LoadData();
+                    return;
+                }
+            }
 
             if (!_jurusanDal.CekDeleteIsValid(id))
             {
-                new MesError($"Jurusan \"{jurusanKode}\" tidak dapat dihapus \nkarena masih terdapat data yang terhubung!").ShowDialog();
+                new MesError($"Jurusan \"{jurusanKode}\" tidak dapat dihapus permanen \nkarena masih terdapat data yang terhubung!").ShowDialog();
                 return;
             }
-            if (new MesWarningYN($"Anda yakin ingin menghapus data \"{jurusanKode}\" ? \n Jika Dihapus, maka data yang terhubung akan ikut Terhapus", 2).ShowDialog() != DialogResult.Yes) return;
-
+            if (new MesWarningYN($"Anda yakin ingin menghapus permanen data \"{jurusanKode}\"?", 2).ShowDialog() != DialogResult.Yes) return;
 
             _jurusanDal.Delete(id);
             LoadData();

@@ -56,16 +56,35 @@ namespace latihribbon.ScreenAdmin
         private void DeleteMenuStrip_Click(object sender, EventArgs e)
         {
             if (GridListKelas.CurrentRow == null) return;
-            string namaKelas = GridListKelas.CurrentRow.Cells[2].Value?.ToString() ?? string.Empty;
+            string namaKelas = GridListKelas.CurrentRow.Cells["NamaKelas"].Value?.ToString() ?? string.Empty;
             int id = Convert.ToInt32(GridListKelas.CurrentRow.Cells[0].Value);
+            string statusStr = GridListKelas.CurrentRow.Cells["Status"]?.Value?.ToString() ?? "Aktif";
+
+            if (statusStr == "Aktif")
+            {
+                if (new MesWarningYN($"Nonaktifkan data Kelas \"{namaKelas}\"?", 2).ShowDialog() == DialogResult.Yes)
+                {
+                    kelasDal.SetIsActive(id, 0);
+                    LoadData();
+                    return;
+                }
+            }
+            else
+            {
+                if (new MesQuestionYN($"Aktifkan kembali Kelas \"{namaKelas}\"?").ShowDialog() == DialogResult.Yes)
+                {
+                    kelasDal.SetIsActive(id, 1);
+                    LoadData();
+                    return;
+                }
+            }
 
             if (!kelasDal.CekDeleteIsValid(id))
             {
-                new MesError($"Kelas \"{namaKelas}\" tidak dapat dihapus \nkarena masih terdapat data yang terhubung!").ShowDialog();
+                new MesError($"Kelas \"{namaKelas}\" tidak dapat dihapus permanen \nkarena masih terdapat data yang terhubung!").ShowDialog();
                 return;
             }
-            if (new MesWarningYN($"Anda yakin ingin menghapus data \"{namaKelas}\" ? \nJika Dihapus, maka data yang terhubung akan ikut Terhapus", 2).ShowDialog() != DialogResult.Yes) return;
-
+            if (new MesWarningYN($"Anda yakin ingin menghapus permanen data \"{namaKelas}\"?", 2).ShowDialog() != DialogResult.Yes) return;
 
             kelasDal.Delete(id);
             LoadData();
@@ -102,11 +121,12 @@ namespace latihribbon.ScreenAdmin
         public void LoadData()
         {
             GridListKelas.DataSource = 
-                kelasDal.listKelas("", new {})
+                kelasDal.listKelas("", new {}, true)
                 .Select((x,index) => new {
                     IdKelas = x.Id,
                     No = index+1,
-                    NamaKelas = x.NamaKelas
+                    NamaKelas = x.NamaKelas,
+                    Status = x.IsActive == 1 ? "Aktif" : "Nonaktif"
                 }).ToList();
         }
 
