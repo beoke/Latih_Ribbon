@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
 using System.Linq;
+using Newtonsoft.Json.Linq;
 
 namespace latihribbon.Dal
 {
@@ -85,6 +86,64 @@ namespace latihribbon.Dal
                     FROM [{tableName}]
                     WHERE LogId = @LogId";
                 return koneksi.QueryFirstOrDefault<DataLogModel>(sql, new { LogId = logId });
+            }
+        }
+
+        /// <summary>
+        /// Restore data yang telah dihapus dengan melakukan INSERT ulang menggunakan snapshot Before.
+        /// </summary>
+        public void RestoreDeletedData(string logTableName, int logId)
+        {
+            if (!IsValidLogTable(logTableName)) throw new Exception("Invalid table name.");
+            
+            using (var koneksi = new SQLiteConnection(conn.connstr()))
+            {
+                koneksi.Open();
+                using (var trans = koneksi.BeginTransaction())
+                {
+                    try
+                    {
+                        var log = GetLogById(logTableName, logId);
+                        if (log == null || log.Action != "DELETE")
+                            throw new Exception("Hanya aksi DELETE yang dapat di-restore.");
+
+                        var jObj = JObject.Parse(log.ContentJson);
+                        var beforeToken = jObj["Before"];
+                        if (beforeToken == null || !beforeToken.HasValues)
+                            throw new Exception("Snapshot data (Before) tidak ditemukan, restore gagal.");
+
+                        string targetTable = log.ReferenceTable;
+                        // Validasi nama targetTable terhadap sqlite_master
+                        int tblExists = koneksi.QuerySingleOrDefault<int>("SELECT COUNT(*) FROM sqlite_master WHERE type='table' AND name = @name", new { name = targetTable });
+                        if (tblExists == 0) throw new Exception("Tabel referensi tujuan tidak ditemukan.");
+
+                        var cols = new List<string>();
+                        var parameters = new DynamicParameters();
+
+                        foreach (var property in beforeToken.Value<JObject>().Properties())
+                        {
+                            cols.Add($"[{property.Name}]");
+                            parameters.Add("@" + property.Name, ((JValue)property.Value).Value);
+                        }
+
+                        string colString = string.Join(", ", cols);
+                        string paramString = string.Join(", ", cols.Select(c => "@" + c.Trim('[', ']')));
+
+                        string insertSql = $"INSERT INTO [{targetTable}] ({colString}) VALUES ({paramString})";
+                        koneksi.Execute(insertSql, parameters, trans);
+
+                        // Catat log RESTORE
+                        LoggingHelper.WriteLog(koneksi, trans, targetTable, "RESTORE", log.PkId, null, beforeToken.ToObject<object>());
+
+                        trans.Commit();
+                    }
+                    catch (Exception ex)
+                    {
+                        trans.Rollback();
+                        AppLogger.LogError(ex, "DataLogDal.RestoreDeletedData");
+                        throw;
+                    }
+                }
             }
         }
 

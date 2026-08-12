@@ -53,6 +53,11 @@ namespace latihribbon.ScreenAdmin
             }
             lblAction.ForeColor = actionColor;
             lblAction.Font = new Font(lblAction.Font, FontStyle.Bold);
+
+            if (_log.Action == "DELETE")
+            {
+                btnRestore.Visible = true;
+            }
         }
 
         private void PopulateContent()
@@ -200,6 +205,30 @@ namespace latihribbon.ScreenAdmin
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnRestore_Click(object sender, EventArgs e)
+        {
+            if (new MesQuestionYN("Apakah Anda yakin ingin memulihkan (restore) data ini ke tabel aslinya?").ShowDialog(this) == DialogResult.Yes)
+            {
+                try
+                {
+                    DataLogDal dal = new DataLogDal();
+                    // Untuk mendapatkan nama logTable, kita butuh "Log_" + _log.ReferenceTable
+                    string logTable = "Log_" + _log.ReferenceTable;
+                    
+                    dal.RestoreDeletedData(logTable, _log.LogId);
+                    
+                    new MesWarningOK("Data berhasil dipulihkan!").ShowDialog(this);
+                    
+                    // Sembunyikan tombol agar tidak di-restore dua kali
+                    btnRestore.Visible = false; 
+                }
+                catch (Exception ex)
+                {
+                    new MesError("Gagal me-restore data:\n" + ex.Message).ShowDialog(this);
+                }
+            }
         }
     }
 }

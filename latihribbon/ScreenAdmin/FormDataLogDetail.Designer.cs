@@ -22,6 +22,7 @@ namespace latihribbon.ScreenAdmin
             this.lblUser = new System.Windows.Forms.Label();
             this.lblWaktu = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
+            this.btnRestore = new System.Windows.Forms.Button();
             this.panelContent = new System.Windows.Forms.Panel();
             this.panelBefore = new System.Windows.Forms.Panel();
             this.lblBeforeTitle = new System.Windows.Forms.Label();
@@ -51,6 +52,7 @@ namespace latihribbon.ScreenAdmin
             this.panelHeader.Controls.Add(this.lblPkId);
             this.panelHeader.Controls.Add(this.lblUser);
             this.panelHeader.Controls.Add(this.lblWaktu);
+            this.panelHeader.Controls.Add(this.btnRestore);
             this.panelHeader.Controls.Add(this.btnClose);
             this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHeader.Height = 105;
@@ -132,6 +134,22 @@ namespace latihribbon.ScreenAdmin
             this.btnClose.TabIndex = 6;
             this.btnClose.Text = "Tutup";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnRestore
+            // 
+            this.btnRestore.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRestore.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnRestore.ForeColor = System.Drawing.Color.White;
+            this.btnRestore.BackColor = System.Drawing.Color.FromArgb(39, 174, 96); // Hijau Emerald
+            this.btnRestore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRestore.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(46, 204, 113);
+            this.btnRestore.Location = new System.Drawing.Point(540, 38); // Di sebelah kiri tombol tutup
+            this.btnRestore.Name = "btnRestore";
+            this.btnRestore.Size = new System.Drawing.Size(130, 30);
+            this.btnRestore.TabIndex = 7;
+            this.btnRestore.Text = "Restore Data";
+            this.btnRestore.Visible = false; // Hanya terlihat jika Action = DELETE
+            this.btnRestore.Click += new System.EventHandler(this.btnRestore_Click);
             // 
             // panelContent
             // 
@@ -277,6 +295,7 @@ namespace latihribbon.ScreenAdmin
         private System.Windows.Forms.Label lblUser;
         private System.Windows.Forms.Label lblWaktu;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Button btnRestore;
         private System.Windows.Forms.Panel panelContent;
         private System.Windows.Forms.Panel panelBefore;
         private System.Windows.Forms.Label lblBeforeTitle;
